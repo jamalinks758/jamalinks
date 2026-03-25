@@ -1,153 +1,734 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JAMALINKS - Your Link to Your World</title>
+<title>JAMALINKS — Your Link to Your World</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* ══════════════════════════════════════════════════
+   LIGHT MODE TOKENS  (default / daytime)
+══════════════════════════════════════════════════ */
+:root,
+[data-theme="light"] {
+  --bg:          #FFFFFF;
+  --bg-alt:      #F5F7FA;
+  --bg-card:     #FFFFFF;
+  --bg-card-alt: #F0F4F8;
+  --border:      #E2E8F0;
+  --border-soft: rgba(0,0,0,.07);
+
+  --text:        #1A1A1A;
+  --text-2:      #374151;
+  --muted:       #6B7280;
+
+  --green:       #25D366;
+  --green-dark:  #1DA851;
+  --green-glow:  rgba(37,211,102,.15);
+
+  --navy:        #1E3A5F;
+  --navy-dark:   #152B47;
+  --navy-glow:   rgba(30,58,95,.12);
+
+  --accent:      #25D366;
+
+  --nav-bg:      rgba(255,255,255,0);
+  --nav-bg-s:    rgba(255,255,255,.94);
+  --nav-shadow:  0 1px 0 rgba(0,0,0,.08);
+
+  --hero-grad:   radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,211,102,.07) 0%, transparent 65%), #FFFFFF;
+  --cta-grad:    linear-gradient(135deg,#EAF8EF 0%,#EEF4FF 100%);
+  --shadow-sm:   0 2px 12px rgba(0,0,0,.06);
+  --shadow-md:   0 8px 30px rgba(0,0,0,.09);
+  --shadow-lg:   0 20px 60px rgba(0,0,0,.11);
+}
+
+/* ══════════════════════════════════════════════════
+   DARK MODE TOKENS
+══════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg:          #0D0D0D;
+  --bg-alt:      #141414;
+  --bg-card:     #1C1C1C;
+  --bg-card-alt: #242424;
+  --border:      rgba(255,255,255,.08);
+  --border-soft: rgba(255,255,255,.05);
+
+  --text:        #E8E4DC;
+  --text-2:      #C9C5BC;
+  --muted:       #9A9587;
+
+  --green:       #25D366;
+  --green-dark:  #1DA851;
+  --green-glow:  rgba(37,211,102,.22);
+
+  --navy:        #4A90D9;
+  --navy-dark:   #3A7BC8;
+  --navy-glow:   rgba(74,144,217,.18);
+
+  --accent:      #C9A84C;
+
+  --nav-bg:      rgba(13,13,13,0);
+  --nav-bg-s:    rgba(13,13,13,.92);
+  --nav-shadow:  0 1px 0 rgba(201,168,76,.12);
+
+  --hero-grad:   radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,.09) 0%, transparent 65%), #0D0D0D;
+  --cta-grad:    var(--bg-alt);
+  --shadow-sm:   0 2px 12px rgba(0,0,0,.4);
+  --shadow-md:   0 8px 30px rgba(0,0,0,.45);
+  --shadow-lg:   0 20px 60px rgba(0,0,0,.55);
+}
+
+/* ── SMOOTH TRANSITIONS ────────────────────────── */
+html { scroll-behavior: smooth; }
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color .35s ease, color .2s ease;
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  transition: color .2s ease;
 }
 
-section {
-  padding: 40px 20px;
-  text-align: center;
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; }
 
-h1, h2 {
-  margin-bottom: 10px;
+/* ── NAVBAR ────────────────────────────────────── */
+.navbar {
+  background: var(--nav-bg);
+  padding: 1.3rem 0;
+  transition: background .4s ease, padding .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
 }
-
-p {
-  max-width: 600px;
-  margin: 0 auto 20px;
+.navbar.scrolled {
+  background: var(--nav-bg-s);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: .8rem 0;
+  box-shadow: var(--nav-shadow);
 }
-
-.button {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 20px;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--green) !important;
+  letter-spacing: -.3px;
+  transition: color .2s;
 }
-
-.button.secondary {
-  background: #25D366;
-}
-
-.pricing {
-  background: #f4f4f4;
-}
-
-.demo-buttons a {
+.navbar-brand span {
   display: block;
-  margin: 10px auto;
-  max-width: 300px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1;
+  transition: color .2s;
+}
+.navbar-toggler { border: 1px solid var(--border); padding: .4rem .7rem; transition: border-color .3s; }
+[data-theme="light"] .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%231A1A1A' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+[data-theme="dark"]  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23E8E4DC' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+.nav-link { color: var(--text) !important; font-size: .875rem; font-weight: 500; padding: .4rem 1rem !important; position: relative; transition: color .2s; }
+.nav-link::after { content:''; position:absolute; bottom:0; left:50%; right:50%; height:2px; background:var(--green); transition: left .3s, right .3s; }
+.nav-link:hover { color: var(--green) !important; }
+.nav-link:hover::after { left:1rem; right:1rem; }
+.nav-cta { background:var(--green) !important; color:#fff !important; border-radius:50px; padding:.45rem 1.3rem !important; font-weight:700; transition: background .2s, transform .2s !important; }
+.nav-cta::after { display:none; }
+.nav-cta:hover { background:var(--green-dark) !important; transform:translateY(-1px); }
+
+.theme-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 50px;
+  padding: .35rem .8rem;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  white-space: nowrap;
+  transition: background .25s, border-color .25s, color .2s, transform .2s;
+}
+.theme-toggle:hover { transform:translateY(-1px); border-color:var(--green); color:var(--green); }
+
+/* ── LAYOUT ─────────────────────────────────────── */
+section { padding: 96px 0; position: relative; }
+.bg-alt { background: var(--bg-alt) !important; transition: background-color .35s ease; }
+
+.section-label {
+  display: inline-block;
+  font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-glow);
+  border: 1px solid rgba(37,211,102,.2);
+  padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1rem;
+  transition: background .3s, color .2s, border-color .3s;
+}
+[data-theme="dark"] .section-label { color: #C9A84C; background: rgba(201,168,76,.1); border-color: rgba(201,168,76,.2); }
+
+.divider { width:50px; height:3px; background:var(--green); border-radius:2px; margin:0 auto 1.5rem; transition: background .3s; }
+.divider.left { margin:0 0 1.5rem; }
+[data-theme="dark"] .divider { background: #C9A84C; }
+
+/* ── BUTTONS ────────────────────────────────────── */
+.btn-wa {
+  background: var(--green); color: #fff;
+  font-weight: 700; font-size: .9rem;
+  padding: .85rem 2rem; border-radius: 50px; border: none;
+  text-decoration: none; display: inline-flex; align-items: center; gap: .55rem;
+  box-shadow: 0 4px 18px var(--green-glow);
+  transition: background .2s, transform .25s, box-shadow .25s;
+}
+.btn-wa:hover { background:var(--green-dark); color:#fff; transform:translateY(-2px); box-shadow:0 10px 28px var(--green-glow); }
+
+.btn-navy {
+  background: var(--navy); color: #fff;
+  font-weight: 700; font-size: .9rem;
+  padding: .85rem 2rem; border-radius: 50px; border: none;
+  text-decoration: none; display: inline-flex; align-items: center; gap: .55rem;
+  box-shadow: 0 4px 18px var(--navy-glow);
+  transition: background .2s, transform .25s, box-shadow .25s;
+}
+.btn-navy:hover { background:var(--navy-dark); color:#fff; transform:translateY(-2px); box-shadow:0 10px 28px var(--navy-glow); }
+
+.btn-outline-g {
+  background: transparent; color: var(--green);
+  font-weight: 600; font-size: .85rem;
+  padding: .7rem 1.6rem; border-radius: 50px; border: 2px solid var(--green);
+  text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
+  transition: background .2s, color .2s, transform .25s;
+}
+.btn-outline-g:hover { background:var(--green); color:#fff; transform:translateY(-2px); }
+
+/* ── HERO ────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: var(--hero-grad);
+  padding-top: 110px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--green-glow); border: 1px solid rgba(37,211,102,.25);
+  color: var(--green); font-size: .74rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: .45rem 1.1rem; border-radius: 50px; margin-bottom: 1.8rem;
+  transition: background .3s, color .2s, border-color .3s;
+}
+[data-theme="dark"] .hero-badge { color:#C9A84C; background:rgba(201,168,76,.1); border-color:rgba(201,168,76,.25); }
+.hero-title { font-size: clamp(2.3rem,5.5vw,4.2rem); font-weight:900; letter-spacing:-1px; margin-bottom:1.3rem; }
+.hero-title .accent { color: var(--green); transition: color .2s; }
+[data-theme="dark"] .hero-title .accent { color: #C9A84C; }
+.hero-sub { font-size:1.08rem; color:var(--muted); max-width:500px; margin-bottom:2.4rem; font-weight:300; transition: color .2s; }
+
+.hero-card {
+  background: var(--bg-card);
+  border-radius: 22px; border: 1px solid var(--border);
+  padding: 2.5rem; position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: background .35s, border-color .35s, box-shadow .35s;
+}
+[data-theme="light"] .hero-card { box-shadow: 0 24px 70px rgba(37,211,102,.1), 0 4px 20px rgba(0,0,0,.07); }
+.hero-phone {
+  background: var(--bg-alt); border-radius: 16px;
+  padding: 1.5rem; border: 1px solid var(--border-soft);
+  transition: background .35s, border-color .35s;
+}
+.mock-line { height:10px; border-radius:6px; background:var(--border); margin-bottom:.65rem; transition: background .35s; }
+.mock-line.accent-line { background:rgba(37,211,102,.4); width:60%; }
+[data-theme="dark"] .mock-line.accent-line { background:rgba(201,168,76,.4); }
+.mock-line.w85{width:85%} .mock-line.w55{width:55%} .mock-line.w40{width:40%;height:8px} .mock-line.w30{width:30%;height:8px}
+.mock-wa-btn { display:flex;align-items:center;gap:.5rem; background:var(--green); color:#fff; border-radius:8px; padding:.55rem 1rem; font-size:.78rem;font-weight:600; margin-top:1rem; width:fit-content; }
+.stat-pill {
+  position:absolute; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:12px; padding:.65rem 1rem; font-size:.75rem; font-weight:600;
+  box-shadow:var(--shadow-md); color:var(--text);
+  transition: background .35s, border-color .35s, color .2s;
+}
+.stat-pill .num { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--green); display:block; transition:color .2s; }
+[data-theme="dark"] .stat-pill .num { color:#C9A84C; }
+.stat-pill-1 { top:-14px; right:-14px; }
+.stat-pill-2 { bottom:18px; left:-18px; }
+
+/* ── PROBLEM ─────────────────────────────────────── */
+.prob-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:14px;
+  padding:2rem; text-align:center; height:100%; box-shadow:var(--shadow-sm);
+  transition: transform .3s, box-shadow .3s, border-color .3s, background .35s;
+}
+.prob-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:var(--green); }
+.prob-icon { width:60px;height:60px; background:var(--green-glow); border-radius:50%; display:flex;align-items:center;justify-content:center; font-size:1.5rem; margin:0 auto 1.1rem; transition:background .3s; }
+.prob-card h6 { font-family:'DM Sans',sans-serif; font-weight:700; color:var(--text-2); transition:color .2s; }
+.prob-card p  { font-size:.875rem; color:var(--muted); margin:0; transition:color .2s; }
+
+/* ── SOLUTION ──────────────────────────────────────── */
+.solution-visual {
+  background:var(--bg-card); border-radius:20px; border:1px solid var(--border);
+  padding:2.5rem; box-shadow:var(--shadow-md);
+  transition:background .35s, border-color .35s, box-shadow .35s;
+}
+.step-row { display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem; }
+.step-row:last-child { margin-bottom:0; }
+.step-num { flex-shrink:0;width:36px;height:36px; background:var(--green); color:#fff; border-radius:50%; display:flex;align-items:center;justify-content:center; font-weight:700;font-size:.85rem; transition:background .3s,color .2s; }
+[data-theme="dark"] .step-num { background:#C9A84C; color:#0D0D0D; }
+.step-text h6 { font-family:'DM Sans',sans-serif;font-weight:700;color:var(--text);margin-bottom:.2rem;transition:color .2s; }
+.step-text p  { font-size:.875rem;color:var(--muted);margin:0;transition:color .2s; }
+
+/* ── FEATURES ───────────────────────────────────────── */
+.feat-item {
+  display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 1.5rem;
+  background:var(--bg-card); border:1px solid var(--border); border-radius:14px;
+  margin-bottom:.9rem; box-shadow:var(--shadow-sm);
+  transition:border-color .3s, transform .3s, box-shadow .3s, background .35s;
+}
+.feat-item:hover { border-color:var(--green); transform:translateX(6px); box-shadow:var(--shadow-md); }
+.feat-icon { flex-shrink:0;width:44px;height:44px; background:var(--green); border-radius:10px; display:flex;align-items:center;justify-content:center; font-size:1.1rem;color:#fff; transition:background .3s; }
+[data-theme="dark"] .feat-icon { background:#C9A84C; color:#0D0D0D; }
+.feat-item strong { color:var(--text-2);font-weight:700;transition:color .2s; }
+.feat-item p { font-size:.85rem;color:var(--muted);margin:.15rem 0 0;transition:color .2s; }
+
+/* ── DEMOS ──────────────────────────────────────────── */
+.demo-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:18px;
+  overflow:hidden; box-shadow:var(--shadow-sm); height:100%;
+  transition:transform .3s, box-shadow .3s, background .35s, border-color .35s;
+}
+.demo-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+.demo-thumb { height:170px;display:flex;align-items:center;justify-content:center;font-size:3rem; border-bottom:1px solid var(--border); transition:background .35s,border-color .35s; }
+[data-theme="light"] .demo-thumb { background:linear-gradient(135deg,#EAF8EF,#EEF4FF); }
+[data-theme="dark"]  .demo-thumb { background:linear-gradient(135deg,rgba(37,211,102,.05),rgba(201,168,76,.05)); }
+.demo-body { padding:1.5rem; }
+.demo-body p { font-size:.85rem;color:var(--muted);margin-bottom:1rem;transition:color .2s; }
+
+/* ── PRICING ────────────────────────────────────────── */
+.price-card {
+  background:var(--bg-card); border:2px solid var(--green); border-radius:22px;
+  padding:3rem 2.5rem; position:relative; overflow:hidden;
+  box-shadow:0 0 0 6px var(--green-glow), var(--shadow-md);
+  transition:background .35s, border-color .35s, box-shadow .35s;
+}
+.price-card::before { content:''; position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);transition:background .3s; }
+[data-theme="dark"] .price-card { border-color:#C9A84C; box-shadow:0 0 0 6px rgba(201,168,76,.1), var(--shadow-md); }
+[data-theme="dark"] .price-card::before { background:#C9A84C; }
+.price-amount { font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--green);line-height:1;transition:color .2s; }
+[data-theme="dark"] .price-amount { color:#C9A84C; }
+.price-amount sup { font-size:1.4rem;vertical-align:top;margin-top:.5rem; }
+.price-label { font-size:.75rem;color:var(--muted);margin-top:.3rem;text-transform:uppercase;letter-spacing:1px;transition:color .2s; }
+.price-feat { display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border-soft);font-size:.9rem;color:var(--text-2);transition:color .2s,border-color .35s; }
+.price-feat:last-of-type { border-bottom:none; }
+.price-feat i { color:var(--green);transition:color .2s; }
+[data-theme="dark"] .price-feat i { color:#C9A84C; }
+.price-sec-h { font-size:.7rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--green);margin-bottom:.8rem;transition:color .2s; }
+[data-theme="dark"] .price-sec-h { color:#C9A84C; }
+hr.price-div { border-color:var(--border);opacity:1;margin:1.8rem 0;transition:border-color .35s; }
+
+/* ── CTA ─────────────────────────────────────────────── */
+.cta-section { background:var(--cta-grad); border-top:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .35s,border-color .35s; }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer { background:var(--bg-alt); padding:64px 0 28px; border-top:1px solid var(--border); transition:background .35s,border-color .35s; }
+[data-theme="dark"] footer { background:#080808; }
+.footer-brand { font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--green);transition:color .2s; }
+[data-theme="dark"] .footer-brand { color:#C9A84C; }
+.footer-about { font-size:.875rem;color:var(--muted);max-width:340px;line-height:1.85;transition:color .2s; }
+.footer-head { font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem;transition:color .2s; }
+[data-theme="dark"] .footer-head { color:#C9A84C; }
+.footer-lnk { display:block;color:var(--muted);text-decoration:none;font-size:.875rem;margin-bottom:.65rem;transition:color .2s; }
+.footer-lnk:hover { color:var(--text); }
+.soc-btn { display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);color:var(--muted);font-size:1rem;text-decoration:none;transition:background .25s,color .25s,transform .25s,border-color .25s; }
+.soc-btn:hover { transform:translateY(-3px);color:#fff;border-color:transparent; }
+.soc-btn.wa:hover { background:#25D366; }
+.soc-btn.ig:hover { background:#E1306C; }
+.soc-btn.fb:hover { background:#1877F2; }
+.soc-btn.tw:hover { background:#1A1A2E; }
+.footer-bottom { border-top:1px solid var(--border);padding-top:1.4rem;margin-top:2.4rem;font-size:.78rem;color:var(--muted);transition:border-color .35s,color .2s; }
+
+/* ── WHATSAPP FLOAT — OVERFLOW FIX ──────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  /* Use right with enough room to never overflow */
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  /* translateZ creates its own stacking context — prevents overflow-x contribution */
+  transform: translateZ(0);
+  will-change: transform;
+  box-shadow: 0 6px 22px var(--green-glow);
+  z-index: 1040;
+  animation: wa-pulse 2.8s ease-in-out infinite;
+}
+.wa-float:hover { color:#fff; transform: translateZ(0) scale(1.1); }
+@keyframes wa-pulse {
+  0%,100% { box-shadow: 0 6px 22px var(--green-glow); }
+  50%      { box-shadow: 0 6px 36px rgba(37,211,102,.5), 0 0 0 10px rgba(37,211,102,.07); }
 }
 
-/* WhatsApp Floating Button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
+/* ── SCROLL REVEAL ─────────────────────────────────── */
+.reveal { opacity:0; transform:translateY(44px); transition:opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.reveal.from-left  { transform:translateX(-44px); }
+.reveal.from-right { transform:translateX(44px); }
+.reveal.scale-up   { transform:scale(.94); }
+.reveal.visible    { opacity:1 !important; transform:translate(0) scale(1) !important; }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
+
+.text-m { color:var(--muted) !important; transition:color .2s; }
+
+@media(max-width:768px){
+  section{padding:70px 0;}
+  .hero{padding-top:95px;}
+  .price-card{padding:2rem 1.5rem;}
+  .stat-pill-1{top:-10px;right:-8px;}
+  .stat-pill-2{bottom:14px;left:-10px;}
 }
 </style>
-
 </head>
 <body>
 
-<!-- HERO -->
-<section>
-  <h1>Get More Customers Through Your Phone</h1>
-  <p>We create simple one-page websites that let your customers view your products and message or pay you instantly.</p>
-
-  <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" class="button secondary">Message on WhatsApp</a>
-  <a href="#demos" class="button">See Examples</a>
-</section>
-
-<!-- PROBLEM -->
-<section>
-  <h2>Why You're Losing Customers</h2>
-  <p>Most small businesses lose sales because customers don’t know how to order, ask too many questions, or leave without taking action.</p>
-</section>
-
-<!-- SOLUTION -->
-<section>
-  <h2>A Simple Solution</h2>
-  <p>We create a clean page where customers can see your products, message you instantly, and even pay online.</p>
-
-  <a href="https://wa.me/17587235872?text=I%20want%20more%20customers" class="button secondary">Get More Customers</a>
-</section>
-
-<!-- WHAT YOU GET -->
-<section>
-  <h2>What You Get</h2>
-  <p>✔ One-page mobile-friendly website<br>
-     ✔ WhatsApp ordering buttons<br>
-     ✔ PayPal payment setup<br>
-     ✔ Clean, simple layout<br>
-     ✔ Ready in 2–3 days</p>
-</section>
-
-<!-- DEMOS -->
-<section id="demos">
-  <h2>See Examples</h2>
-  <p>Here are sample layouts for businesses like yours:</p>
-
-  <div class="demo-buttons">
-    <a href="freshflowjuices.html" class="button">Fresh Flow Juices (Demo page)</a>
-    <a href="islandbites.html" class="button">Island Bites (Demo page)</a>
+<!-- ══ NAVBAR ═════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      JAMALINKS
+      <span>Your Link to Your World</span>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
+        <i id="themeIconMob" class="bi bi-sun-fill"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#solution">Solution</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">What You Get</a></li>
+        <li class="nav-item"><a class="nav-link" href="#demos">Examples</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item ms-lg-2">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle">
+            <i id="themeIcon" class="bi bi-sun-fill"></i>
+            <span id="themeLabel">Light</span>
+          </button>
+        </li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website">
+            <i class="bi bi-whatsapp me-1"></i>Get Started
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
 
-  <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" class="button secondary">Request Your Version</a>
+<!-- ══ HERO ═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-stars"></i> Professional Web Presence</div>
+        <h1 class="hero-title reveal d1">Get More Customers<br><span class="accent">Through Your Phone</span></h1>
+        <p class="hero-sub reveal d2">We create simple one-page websites that let your customers view your products and message or pay you instantly.</p>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" class="btn-wa"><i class="bi bi-whatsapp"></i> Message on WhatsApp</a>
+          <a href="#demos" class="btn-navy"><i class="bi bi-grid-3x3-gap"></i> See Examples</a>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="hero-card">
+          <div class="hero-phone">
+            <div class="mock-line accent-line"></div>
+            <div class="mock-line w85"></div>
+            <div class="mock-line w55"></div>
+            <div style="height:.4rem"></div>
+            <div class="mock-line w30"></div>
+            <div class="mock-line w85"></div>
+            <div class="mock-line w40"></div>
+            <div class="mock-line w55"></div>
+            <div class="mock-wa-btn"><i class="bi bi-whatsapp"></i> Order via WhatsApp</div>
+          </div>
+          <div class="stat-pill stat-pill-1"><span class="num">2–3</span>days to launch</div>
+          <div class="stat-pill stat-pill-2"><span class="num">100%</span>mobile-ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-  
-<!-- PRICING -->
-<section class="pricing">
-  <h2>Simple, Clear Pricing</h2>
 
-  <p><strong>Starter Package</strong></p>
-
-  <p><strong>$200 Setup</strong></p>
-  <p>
-    ✔ Custom design<br>
-    ✔ Full setup<br>
-    ✔ Website launch
-  </p>
-
-  <p><strong>$50/month</strong></p>
-  <p>
-    ✔ Hosting<br>
-    ✔ Ongoing support<br>
-    ✔ Small updates & edits
-  </p>
-
-  <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" class="button secondary">Get Started</a>
-</section>
-  
-<!-- FINAL CTA -->
-<section>
-  <h2>Ready to Get More Orders?</h2>
-  <p>Let’s build you a simple page that brings in customers.</p>
-
-  <a href="https://wa.me/17587235872?text=I%20want%20a%20website" class="button secondary">Message Now</a>
+<!-- ══ PROBLEM ════════════════════════════════════════ -->
+<section class="bg-alt" id="why">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">The Problem</span>
+      <h2 class="display-5 mt-2 mb-3">Why You're Losing Customers</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:520px">Most small businesses lose sales because customers don't know how to order, ask too many questions, or leave without taking action.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4 reveal d1"><div class="prob-card"><div class="prob-icon">😕</div><h6 class="mb-2">Confused Customers</h6><p>No clear place to see what you sell, so buyers give up and go elsewhere.</p></div></div>
+      <div class="col-md-4 reveal d2"><div class="prob-card"><div class="prob-icon">❓</div><h6 class="mb-2">Too Many Questions</h6><p>Customers ask the same questions because the info isn't in one easy spot.</p></div></div>
+      <div class="col-md-4 reveal d3"><div class="prob-card"><div class="prob-icon">🚶</div><h6 class="mb-2">Lost Opportunities</h6><p>Without a clear call-to-action, browsers leave instead of placing an order.</p></div></div>
+    </div>
+  </div>
 </section>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/17587235872?text=Hi%20I%20have%20a%20question" class="whatsapp-float">
-  💬
+<!-- ══ SOLUTION ═══════════════════════════════════════ -->
+<section id="solution">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal from-left">
+        <span class="section-label">The Fix</span>
+        <h2 class="display-5 mt-2 mb-3">A Simple Solution</h2>
+        <div class="divider left"></div>
+        <p class="text-m mb-4">We create a clean page where customers can see your products, message you instantly, and even pay online.</p>
+        <div class="solution-visual">
+          <div class="step-row"><div class="step-num">1</div><div class="step-text"><h6>You Share the Link</h6><p>Send via WhatsApp, Instagram bio, or anywhere your customers are.</p></div></div>
+          <div class="step-row"><div class="step-num">2</div><div class="step-text"><h6>Customers Browse</h6><p>They see your products, prices, and story — no confusion, no friction.</p></div></div>
+          <div class="step-row"><div class="step-num">3</div><div class="step-text"><h6>They Order & Pay</h6><p>One tap to message you or complete payment via PayPal — instantly.</p></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal from-right d2 text-center">
+        <div style="font-size:5rem;line-height:1;margin-bottom:1.5rem">💼</div>
+        <h4>Your Business, Online — Fast</h4>
+        <p class="text-m mx-auto mb-4" style="max-width:360px">No tech skills needed. No complicated setup. We handle everything from design to launch.</p>
+        <a href="https://wa.me/17587235872?text=I%20want%20more%20customers" class="btn-wa"><i class="bi bi-whatsapp"></i> Get More Customers</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT YOU GET ════════════════════════════════════ -->
+<section class="bg-alt" id="features">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Deliverables</span>
+      <h2 class="display-5 mt-2 mb-3">What You Get</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="reveal d1"><div class="feat-item"><div class="feat-icon"><i class="bi bi-phone"></i></div><div><strong>One-page mobile-friendly website</strong><p>Looks great on every phone and screen size, right out of the box.</p></div></div></div>
+        <div class="reveal d2"><div class="feat-item"><div class="feat-icon"><i class="bi bi-whatsapp"></i></div><div><strong>WhatsApp ordering buttons</strong><p>Customers tap once and land in your WhatsApp chat, ready to order.</p></div></div></div>
+        <div class="reveal d3"><div class="feat-item"><div class="feat-icon"><i class="bi bi-paypal"></i></div><div><strong>PayPal payment setup</strong><p>Accept secure online payments from customers anywhere in the world.</p></div></div></div>
+        <div class="reveal d4"><div class="feat-item"><div class="feat-icon"><i class="bi bi-layout-text-window-reverse"></i></div><div><strong>Clean, simple layout</strong><p>Professionally designed to keep visitors focused and ready to buy.</p></div></div></div>
+        <div class="reveal d5"><div class="feat-item"><div class="feat-icon"><i class="bi bi-rocket-takeoff"></i></div><div><strong>Ready in 2–3 days</strong><p>Fast turnaround so you start getting customers without delay.</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEMOS ═══════════════════════════════════════════ -->
+<section id="demos">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Portfolio</span>
+      <h2 class="display-5 mt-2 mb-3">See Examples</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:460px">Here are sample layouts for businesses like yours:</p>
+    </div>
+    <div class="row g-4 justify-content-center mb-5">
+      <div class="col-sm-6 col-lg-5 reveal d1">
+        <div class="demo-card">
+          <div class="demo-thumb">🥤</div>
+          <div class="demo-body">
+            <h5>Fresh Flow Juices <small class="text-m" style="font-size:.7rem">(Demo page)</small></h5>
+            <p>Clean juice bar page with menu, pricing, and instant WhatsApp ordering.</p>
+            <a href="freshflowjuices.html" class="btn-navy" style="font-size:.8rem;padding:.55rem 1.3rem"><i class="bi bi-box-arrow-up-right"></i> View Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-5 reveal d2">
+        <div class="demo-card">
+          <div class="demo-thumb">🍽️</div>
+          <div class="demo-body">
+            <h5>Island Bites <small class="text-m" style="font-size:.7rem">(Demo page)</small></h5>
+            <p>Vibrant food business page showcasing dishes, specials, and easy checkout.</p>
+            <a href="islandbites.html" class="btn-navy" style="font-size:.8rem;padding:.55rem 1.3rem"><i class="bi bi-box-arrow-up-right"></i> View Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center reveal d3">
+      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" class="btn-wa"><i class="bi bi-whatsapp"></i> Request Your Version</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ════════════════════════════════════════ -->
+<section class="bg-alt" id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Investment</span>
+      <h2 class="display-5 mt-2 mb-3">Simple, Clear Pricing</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 reveal scale-up d1">
+        <div class="price-card">
+          <div class="text-center mb-4"><span class="section-label">Starter Package</span></div>
+          <div class="row g-4 text-center mb-2">
+            <div class="col-6"><div class="price-amount"><sup>$</sup>200</div><div class="price-label">One-time setup</div></div>
+            <div class="col-6"><div class="price-amount"><sup>$</sup>50</div><div class="price-label">Per month</div></div>
+          </div>
+          <hr class="price-div">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <p class="price-sec-h">Setup Includes</p>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom design</div>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full setup</div>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Website launch</div>
+            </div>
+            <div class="col-md-6">
+              <p class="price-sec-h">Monthly Includes</p>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Hosting</div>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Ongoing support</div>
+              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Small updates & edits</div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div class="reveal">
+      <span class="section-label">Let's Go</span>
+      <h2 class="display-4 mt-2 mb-3">Ready to Get More Orders?</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto mb-4" style="max-width:420px">Let's build you a simple page that brings in customers.</p>
+      <a href="https://wa.me/17587235872?text=I%20want%20a%20website" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem"><i class="bi bi-whatsapp"></i> Message Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="footer-brand mb-2">JAMALINKS</div>
+        <p class="footer-about">JAMALINKS helps small business owners grow their customer base with affordable, beautifully designed one-page websites. We bridge the gap between your hustle and your customers — making it effortless for people to discover, browse, and buy from you, all from their phones.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="soc-btn tw" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="footer-head">Quick Links</p>
+        <a href="#why" class="footer-lnk">Why Us</a>
+        <a href="#solution" class="footer-lnk">Solution</a>
+        <a href="#features" class="footer-lnk">What You Get</a>
+        <a href="#demos" class="footer-lnk">Examples</a>
+        <a href="#pricing" class="footer-lnk">Pricing</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Contact Us</p>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2"><i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872</a>
+        <p class="footer-lnk" style="cursor:default"><i class="bi bi-clock me-2" style="color:var(--green)"></i> Mon–Sat, 9 AM – 6 PM</p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem"><i class="bi bi-whatsapp"></i> Chat Now</a>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© 2025 JAMALINKS. All rights reserved.</span>
+      <span style="opacity:.45">Built with care for small businesses.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/17587235872?text=Hi%20I%20have%20a%20question" class="wa-float" title="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
 </a>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── Theme Engine ──────────────────────────────────── */
+const html    = document.documentElement;
+const STORE   = 'jama-theme';
+
+function getInitialTheme() {
+  const saved = localStorage.getItem(STORE);
+  if (saved) return saved;
+  // Auto by time-of-day: dark 7pm–6am
+  const h = new Date().getHours();
+  return (h >= 19 || h < 6) ? 'dark' : 'light';
+}
+
+let current = getInitialTheme();
+
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(STORE, t);
+  const dark = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  const iconM = document.getElementById('themeIconMob');
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  if (label) label.textContent = dark ? 'Dark' : 'Light';
+  if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+}
+
+applyTheme(current);
+
+const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
+document.getElementById('themeToggle')   ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob')?.addEventListener('click', toggle);
+
+/* ── Navbar scroll ──────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Scroll Reveal ──────────────────────────────────── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Smooth scroll nav ──────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const m = document.getElementById('navMenu');
+    if (m?.classList.contains('show')) bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+</script>
 </body>
 </html>
