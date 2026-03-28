@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdesirs Consulting Inc | Construction Experts — Saint Lucia</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  :root {
+    --navy: #0d1b3e;
+    --navy-mid: #162650;
+    --navy-light: #1e3368;
+    --gold: #c9a84c;
+    --gold-light: #e8c96e;
+    --white: #ffffff;
+    --off-white: #f7f5f0;
+    --concrete: #e8e6e1;
+    --text-dark: #0d1b3e;
+    --text-mid: #4a5568;
+    --wa-green: #25D366;
+    --wa-green-dark: #1da851;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #fff;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ==============================
+     CONSTRUCTION TEXTURE UTILITY
+     ============================== */
+  .construction-bg {
+    background-color: var(--off-white);
+    background-image:
+      linear-gradient(rgba(13,27,62,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13,27,62,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .blueprint-bg {
+    background-color: #0d1b3e;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ==============================
+     NAVBAR
+     ============================== */
+  #mainNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    padding: 20px 0;
+    background: transparent;
+  }
+
+  #mainNav.scrolled {
+    background: rgba(13,27,62,0.97);
+    backdrop-filter: blur(10px);
+    padding: 12px 0;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-logo-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  .nav-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .brand-text-top {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    line-height: 1;
+    display: block;
+  }
+
+  .brand-text-sub {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    display: block;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-link {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85) !important;
+    padding: 6px 16px !important;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--gold) !important; }
+
+  .nav-cta {
+    background: var(--wa-green);
+    color: white !important;
+    border-radius: 4px;
+    padding: 8px 20px !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--wa-green-dark) !important; color: white !important; }
+
+  .navbar-toggler { border-color: var(--gold); }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28201%2C168%2C76%2C1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  /* ==============================
+     HERO
+     ============================== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&q=90') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13,27,62,0.92) 0%, rgba(13,27,62,0.75) 60%, rgba(13,27,62,0.5) 100%);
+  }
+
+  .hero-accent-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.7s forwards;
+  }
+
+  .hero-services-line {
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 42px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.85s forwards;
+  }
+
+  .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.7s 1s forwards;
+  }
+
+  .btn-wa {
+    background: var(--wa-green);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-wa:hover {
+    background: var(--wa-green-dark);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    padding: 14px 32px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.7s 1.3s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  .scroll-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ==============================
+     TRUST BAR
+     ============================== */
+  #trust-bar {
+    background: var(--navy);
+    padding: 32px 0;
+    border-top: 3px solid var(--gold);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: white;
+    padding: 10px 24px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .trust-item:last-child { border-right: none; }
+
+  .trust-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  .trust-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  /* ==============================
+     SECTION HEADERS
+     ============================== */
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+
+  .section-title.light { color: white; }
+
+  .title-underline {
+    width: 50px;
+    height: 3px;
+    background: var(--gold);
+    margin: 20px 0 28px;
+  }
+
+  .title-underline.center { margin: 20px auto 28px; }
+
+  /* ==============================
+     OUR WORK / PROJECTS
+     ============================== */
+  #our-work {
+    padding: 100px 0;
+    background: white;
+  }
+
+  .projects-intro {
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: 320px 280px;
+    gap: 12px;
+    margin-top: 48px;
+  }
+
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .project-card.tall { grid-row: span 2; }
+
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .project-card:hover img { transform: scale(1.06); }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,27,62,0.85) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+
+  .project-card:hover .project-overlay { opacity: 1; }
+
+  .project-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .project-sublabel {
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ==============================
+     SERVICES
+     ============================== */
+  #services {
+    padding: 100px 0;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #services::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 6px;
+    padding: 48px 36px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  .service-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+    transform: translateY(-6px);
+  }
+
+  .service-card:hover::after { width: 100%; }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover .service-icon {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .service-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .service-desc {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+
+  /* ==============================
+     WHY US
+     ============================== */
+  #why-us {
+    padding: 100px 0;
+    background: var(--off-white);
+  }
+
+  .why-card {
+    background: white;
+    border-radius: 6px;
+    padding: 36px 28px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 30px rgba(13,27,62,0.07);
+    transition: transform 0.3s;
+  }
+
+  .why-card:hover { transform: translateY(-4px); }
+
+  .why-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--concrete);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .why-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .why-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  /* ==============================
+     PROCESS
+     ============================== */
+  #process {
+    padding: 100px 0;
+    background: white;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--concrete);
+    position: relative;
+  }
+
+  .process-step:last-child { border-bottom: none; }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--concrete);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 70px;
+    transition: color 0.3s;
+  }
+
+  .process-step:hover .step-number { color: var(--gold); }
+
+  .step-content { padding-top: 8px; }
+
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .process-visual {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 480px;
+  }
+
+  .process-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .process-visual-badge {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    background: var(--navy);
+    border: 1px solid var(--gold);
+    padding: 18px 24px;
+    border-radius: 4px;
+  }
+
+  .pv-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .pv-badge-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+  }
+
+  /* ==============================
+     CTA #1 — QUOTE SELECTOR
+     ============================== */
+  #quote-cta {
+    padding: 100px 0;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #quote-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .typo-fix { /* "Quoye" → "Quote" fixed via CSS content */ }
+
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 42px;
+  }
+
+  .quote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin: 6px;
+  }
+
+  .quote-btn:hover {
+    background: var(--wa-green);
+    border-color: var(--wa-green);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+  }
+
+  .quote-btn i { font-size: 1rem; }
+
+  .cta-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    margin-top: 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ==============================
+     ABOUT SECTION
+     ============================== */
+  #about {
+    padding: 100px 0;
+    background: white;
+  }
+
+  .about-image-wrap {
+    position: relative;
+  }
+
+  .about-img-main {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: -28px;
+    right: -28px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 6px solid white;
+    box-shadow: 0 8px 40px rgba(13,27,62,0.15);
+  }
+
+  .about-badge {
+    position: absolute;
+    top: 28px;
+    left: -20px;
+    background: var(--navy);
+    border-left: 4px solid var(--gold);
+    padding: 18px 24px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  }
+
+  .about-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .about-badge-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .about-values {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+
+  .about-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .about-value i { color: var(--gold); }
+
+  /* ==============================
+     FOOTER
+     ============================== */
+  footer {
+    background: #080f20;
+    color: white;
+  }
+
+  .footer-top {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-brand-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .footer-brand-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: 0.15em;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .footer-brand-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .footer-about {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.9;
+    margin-top: 18px;
+    max-width: 300px;
+  }
+
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-links li { margin-bottom: 12px; }
+
+  .footer-links a {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+  .footer-links a::before { content: '—'; font-size: 0.65rem; color: var(--gold); }
+
+  .footer-contact-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .footer-contact-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .footer-contact-text {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .footer-contact-text a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-contact-text a:hover { color: var(--gold); }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .social-link.wa:hover {
+    border-color: var(--wa-green);
+    color: var(--wa-green);
+    background: rgba(37,211,102,0.1);
+  }
+
+  .footer-bottom {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-legal a {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ==============================
+     WHATSAPP FLOATER
+     ============================== */
+  .wa-float {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 999;
+  }
+
+  .wa-float-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--wa-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    text-decoration: none;
+    box-shadow: 0 6px 30px rgba(37,211,102,0.45);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+
+  .wa-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(37,211,102,0.6);
+    color: white;
+  }
+
+  .wa-float-btn::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.3);
+    animation: waPulse 2s infinite;
+  }
+
+  .wa-float-tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--navy);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border-left: 3px solid var(--wa-green);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+  @keyframes waPulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0; }
+  }
+
+  /* ==============================
+     DIVIDER ACCENT
+     ============================== */
+  .gold-divider {
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    border: none;
+    margin: 0;
+  }
+
+  /* ==============================
+     RESPONSIVE
+     ============================== */
+  @media (max-width: 992px) {
+    .project-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 220px;
+    }
+    .project-card.tall { grid-row: span 1; }
+    .about-img-accent { display: none; }
+    .about-badge { left: 0; }
+    .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .trust-item:last-child { border-bottom: none; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 576px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 240px);
+    }
+    .wa-float { bottom: 24px; right: 24px; }
+    .hero-btns { flex-direction: column; }
+  }
+
+  /* ==============================
+     SCROLL REVEAL
+     ============================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+
+<body>
+
+<!-- ============================
+     NAVBAR
+     ============================ -->
+<nav id="mainNav" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="nav-logo-circle">
+        <img src="/mnt/user-data/uploads/vd.jpg" alt="Verdesirs Logo">
+      </div>
+      <div>
+        <span class="brand-text-top">VERDESIRS</span>
+        <span class="brand-text-sub">Consulting Inc.</span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#our-work">Our Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17587151506?text=Hi%2C%20I%E2%80%99m%20interested%20in%20a%20construction%20project.%20Can%20I%20get%20a%20quote%3F" target="_blank">
+            <i class="fab fa-whatsapp me-1"></i> Get a Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-accent-line"></div>
+
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-8">
+        <span class="hero-tag">Saint Lucia's Trusted Builders</span>
+        <h1 class="hero-title">
+          Reliable Construction<br>
+          Services in <em>Saint Lucia</em>
+        </h1>
+        <p class="hero-sub">We handle building, renovations, and project management from start to finish.</p>
+        <p class="hero-services-line">Residential &nbsp;•&nbsp; Commercial &nbsp;•&nbsp; Renovations</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/17587151506?text=Hi%2C%20I%E2%80%99m%20interested%20in%20a%20construction%20project.%20Can%20I%20get%20a%20quote%3F" class="btn-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i> Get a Quote on WhatsApp
+          </a>
+          <a href="#our-work" class="btn-ghost">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================
+     TRUST BAR
+     ============================ -->
+<section id="trust-bar">
+  <div class="container">
+    <div class="row g-0 text-center text-lg-start">
+      <div class="col-6 col-lg-3">
+        <div class="trust-item justify-content-center justify-content-lg-start">
+          <div class="trust-icon"><i class="fas fa-hard-hat"></i></div>
+          <span class="trust-label">Experienced Team</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="trust-item justify-content-center justify-content-lg-start">
+          <div class="trust-icon"><i class="fas fa-award"></i></div>
+          <span class="trust-label">Quality Workmanship</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="trust-item justify-content-center justify-content-lg-start">
+          <div class="trust-icon"><i class="fas fa-clock"></i></div>
+          <span class="trust-label">On-Time Completion</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="trust-item justify-content-center justify-content-lg-start">
+          <div class="trust-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <span class="trust-label">Trusted Across St. Lucia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     OUR WORK
+     ============================ -->
+<section id="our-work">
+  <div class="container">
+    <div class="row align-items-end mb-2">
+      <div class="col-lg-6 reveal">
+        <span class="section-eyebrow">Portfolio</span>
+        <h2 class="section-title">Our Work</h2>
+        <div class="title-underline"></div>
+        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.8;">See the quality of our construction and renovation projects.<br>Real projects completed for clients across Saint Lucia.</p>
+      </div>
+      <div class="col-lg-6 reveal reveal-delay-1 text-lg-end">
+        <p class="projects-intro">See the quality of our work across Saint Lucia</p>
+      </div>
+    </div>
+
+    <div class="project-grid reveal reveal-delay-2">
+      <div class="project-card tall">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85" alt="Construction Project">
+        <div class="project-overlay">
+          <div>
+            <div class="project-label">Residential Build</div>
+            <span class="project-sublabel">Saint Lucia</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=85" alt="Commercial Project">
+        <div class="project-overlay">
+          <div>
+            <div class="project-label">Commercial Build</div>
+            <span class="project-sublabel">Saint Lucia</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1599420186946-7b1e6b1e5f27?w=800&q=85" alt="Renovation Project">
+        <div class="project-overlay">
+          <div>
+            <div class="project-label">Renovation</div>
+            <span class="project-sublabel">Saint Lucia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============================
+     SERVICES
+     ============================ -->
+<section id="services">
+  <div class="container position-relative">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">What We Do</span>
+      <h2 class="section-title light">Construction Services We Offer</h2>
+      <div class="title-underline center"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4 reveal reveal-delay-1">
+        <div class="service-card h-100">
+          <div class="service-icon"><i class="fas fa-building"></i></div>
+          <h3 class="service-title">Full Construction</h3>
+          <p class="service-desc">Complete building services from foundation to finish.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal reveal-delay-2">
+        <div class="service-card h-100">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3 class="service-title">Renovations &amp; Upgrades</h3>
+          <p class="service-desc">Improve and modernize your home or commercial space.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal reveal-delay-3">
+        <div class="service-card h-100">
+          <div class="service-icon"><i class="fas fa-project-diagram"></i></div>
+          <h3 class="service-title">Project Management</h3>
+          <p class="service-desc">We manage your project to ensure smooth, on-time delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="gold-divider">
+
+<!-- ============================
+     WHY US
+     ============================ -->
+<section id="why-us" class="construction-bg">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Our Difference</span>
+      <h2 class="section-title">Why Clients Choose Us</h2>
+      <div class="title-underline center"></div>
+      <p style="max-width:520px;margin:0 auto;color:var(--text-mid);font-size:.95rem;line-height:1.8;">We focus on delivering reliable construction services with clear communication and consistent results.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
+        <div class="why-card">
+          <div class="why-number">01</div>
+          <div class="why-title">Island-Wide Service</div>
+          <p class="why-desc">Serving clients across Saint Lucia</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
+        <div class="why-card">
+          <div class="why-number">02</div>
+          <div class="why-title">Fast Response</div>
+          <p class="why-desc">Fast response time on all inquiries</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
+        <div class="why-card">
+          <div class="why-number">03</div>
+          <div class="why-title">Reliable Team</div>
+          <p class="why-desc">Experienced and reliable construction team</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
+        <div class="why-card">
+          <div class="why-number">04</div>
+          <div class="why-title">Transparent Pricing</div>
+          <p class="why-desc">Clear and Transparent Pricing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PROCESS
+     ============================ -->
+<section id="process">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="section-eyebrow">Simple Steps</span>
+        <h2 class="section-title">How It Works</h2>
+        <div class="title-underline"></div>
+
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <div class="step-title">Send Your Request</div>
+            <p class="step-desc">Message us with details about your project.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <div class="step-title">Get a Quote</div>
+            <p class="step-desc">We review and provide a clear estimate.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <div class="step-title">Start Your Project</div>
+            <p class="step-desc">We handle the work from start to completion</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal reveal-delay-2">
+        <div class="process-visual">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=85" alt="Construction Process">
+          <div class="process-visual-badge">
+            <div class="pv-badge-num">3</div>
+            <div class="pv-badge-label">Simple Steps</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CTA QUOTE SECTION
+     ============================ -->
+<section id="quote-cta">
+  <div class="container position-relative">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">Start Today</span>
+      <h2 class="cta-title">Request a Quote in Seconds</h2>
+      <p class="cta-sub mx-auto">Choose your service and send your request directly on WhatsApp.</p>
+
+      <div>
+        <a href="https://wa.me/17587151506?text=I%20want%20to%20build%20a%20house%20in%20Saint%20Lucia" class="quote-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Build a House
+        </a>
+        <a href="https://wa.me/17587151506?text=I%20need%20a%20renovation%20quote" class="quote-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Renovation Quote
+        </a>
+        <a href="https://wa.me/17587151506?text=I%20need%20help%20managing%20a%20construction%20project" class="quote-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Project Management
+        </a>
+      </div>
+
+      <p class="cta-note">We respond quickly to all inquiries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ABOUT
+     ============================ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal">
+        <div class="about-image-wrap">
+          <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=900&q=85" alt="About Verdesirs" class="about-img-main">
+          <div class="about-badge">
+            <div class="about-badge-num">VD</div>
+            <div class="about-badge-label">Verdesirs Consulting Inc.</div>
+          </div>
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80" alt="Project" class="about-img-accent">
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal reveal-delay-2">
+        <div class="about-text">
+          <span class="section-eyebrow">About Us</span>
+          <h2 class="section-title">Verdesirs Consulting Inc.</h2>
+          <div class="title-underline"></div>
+
+          <p>Verdesirs Consulting Inc. is a full-service construction company proudly rooted in Saint Lucia. We bring together experienced professionals, quality materials, and a commitment to excellence on every project we undertake — from foundations to finishing touches.</p>
+
+          <p>Whether you're building your dream home, upgrading a commercial space, or need a trusted partner to manage your construction project end to end, Verdesirs delivers results with transparency and dedication.</p>
+
+          <p>We are not just builders — we are your partners in bringing ideas to life across the beautiful island of Saint Lucia.</p>
+
+          <div class="about-values">
+            <div class="about-value"><i class="fas fa-check-circle"></i> Quality First</div>
+            <div class="about-value"><i class="fas fa-check-circle"></i> Client-Focused</div>
+            <div class="about-value"><i class="fas fa-check-circle"></i> Island Built</div>
+            <div class="about-value"><i class="fas fa-check-circle"></i> Transparent Pricing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Brand Col -->
+        <div class="col-lg-4">
+          <div class="footer-brand-logo">
+            <img src="/mnt/user-data/uploads/vd.jpg" alt="Verdesirs Logo">
+          </div>
+          <div class="footer-brand-name">VERDESIRS</div>
+          <div class="footer-brand-sub">Consulting Inc. — Saint Lucia</div>
+          <p class="footer-about">Verdesirs Consulting Inc. is a trusted full-service construction company serving clients across Saint Lucia. From residential builds to commercial renovations, we deliver quality work with integrity.</p>
+          <div class="social-links mt-4">
+            <a href="https://www.instagram.com/verdesirs_consulting_inc" target="_blank" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/17587151506" target="_blank" class="social-link wa" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-sm-6 col-lg-2">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#our-work">Our Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="col-sm-6 col-lg-2">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/17587151506?text=I%20want%20to%20build%20a%20house%20in%20Saint%20Lucia" target="_blank">Build a House</a></li>
+            <li><a href="https://wa.me/17587151506?text=I%20need%20a%20renovation%20quote" target="_blank">Renovations</a></li>
+            <li><a href="https://wa.me/17587151506?text=I%20need%20help%20managing%20a%20construction%20project" target="_blank">Project Management</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-4">
+          <h4 class="footer-heading">Contact Us</h4>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="footer-contact-text">Saint Lucia, West Indies</div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="footer-contact-text">
+              <a href="https://wa.me/17587151506" target="_blank">+1 (758) 715-1506</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fab fa-instagram"></i></div>
+            <div class="footer-contact-text">
+              <a href="https://www.instagram.com/verdesirs_consulting_inc" target="_blank">@verdesirs_consulting_inc</a>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="https://wa.me/17587151506?text=Hi%2C%20I%E2%80%99m%20interested%20in%20a%20construction%20project.%20Can%20I%20get%20a%20quote%3F" target="_blank" class="btn-wa" style="font-size:.82rem;padding:12px 24px;">
+              <i class="fab fa-whatsapp"></i> Get a Free Quote
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Verdesirs Consulting Inc. All rights reserved. • Saint Lucia</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     WHATSAPP FLOATER
+     ============================ -->
+<div class="wa-float">
+  <a href="https://wa.me/17587151506?text=Hi%2C%20I%E2%80%99m%20interested%20in%20a%20construction%20project.%20Can%20I%20get%20a%20quote%3F" target="_blank" class="wa-float-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <div class="wa-float-tooltip">Chat with us on WhatsApp</div>
+</div>
+
+<!-- ============================
+     SCRIPTS
+     ============================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
