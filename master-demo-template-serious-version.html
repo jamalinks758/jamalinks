@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Name</title>
+
+<style>
+body { font-family: Arial; margin:0; background:#f7f7f7; }
+.hero { background:#111; color:#fff; text-align:center; padding:60px 20px; }
+.hero h1 { margin:0; font-size:2.2rem; }
+.hero p { margin:10px 0 20px; }
+
+.btn {
+  background:#25D366;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.section { padding:40px 20px; max-width:1000px; margin:auto; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+
+.card {
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.card img { width:100%; border-radius:8px; }
+
+.price { font-weight:bold; margin:8px 0; }
+
+.order-btn {
+  display:inline-block;
+  margin-top:10px;
+  background:#25D366;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:25px;
+  text-decoration:none;
+}
+
+.steps { text-align:center; line-height:1.8; }
+
+.footer { text-align:center; padding:30px; background:#eee; }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 id="bizName">Business Name</h1>
+  <p id="tagline">Short tagline</p>
+  <a id="mainCTA" class="btn" target="_blank">Order on WhatsApp</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+  <h2 style="text-align:center;">Menu / Services</h2>
+  <div class="grid" id="productGrid"></div>
+</div>
+
+<!-- HOW -->
+<div class="section">
+  <h2 style="text-align:center;">How to Order</h2>
+  <div class="steps">
+    1. Choose your item<br>
+    2. Tap order<br>
+    3. Confirm on WhatsApp
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section" style="text-align:center;">
+  <h2>Ready to Order?</h2>
+  <a id="bottomCTA" class="btn" target="_blank">Message Now</a>
+</div>
+
+<div class="footer">
+  © <span id="footerName"></span> | Powered by JAMALINKS
+</div>
+
+<script>
+// ===== CONFIG =====
+const phone = "1234567890";
+
+const businessName = "Business Name";
+const tagline = "Fresh products. Fast ordering.";
+
+const products = [
+  {name:"Latte", price:5},
+  {name:"Cappuccino", price:5},
+  {name:"Croissant", price:6},
+  {name:"Smoothie", price:7}
+];
+
+// ===== SET TEXT =====
+document.getElementById("bizName").innerText = businessName;
+document.getElementById("footerName").innerText = businessName;
+document.getElementById("tagline").innerText = tagline;
+
+// ===== CTA LINKS =====
+const baseMsg = encodeURIComponent("Hi, I want to place an order");
+const mainLink = `https://wa.me/${phone}?text=${baseMsg}`;
+document.getElementById("mainCTA").href = mainLink;
+document.getElementById("bottomCTA").href = mainLink;
+
+// ===== PRODUCTS =====
+const grid = document.getElementById("productGrid");
+
+products.forEach(item => {
+  const msg = encodeURIComponent(`Hi, I want to order ${item.name}`);
+  const link = `https://wa.me/${phone}?text=${msg}`;
+
+  grid.innerHTML += `
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>${item.name}</h3>
+      <div class="price">$${item.price}</div>
+      <a class="order-btn" href="${link}" target="_blank">Order</a>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
