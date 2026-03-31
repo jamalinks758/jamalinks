@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive Club Booking System</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+.header {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 20px;
+}
+
+.hidden { display: none; }
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #22c55e;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input, select {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.price {
+  font-size: 22px;
+  color: #38bdf8;
+  margin: 10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🚗 Drive Club Booking</div>
+
+<div class="container">
+
+<!-- STEP 1 -->
+<div id="step1" class="card">
+<h3>Select Your Trip</h3>
+
+<button onclick="selectTrip('Airport Transfer', 'Hewanorra → Castries', 80)">Airport Transfer</button>
+<button onclick="selectTrip('City Ride', 'Castries → Rodney Bay', 25)">City Ride</button>
+<button onclick="selectTrip('Custom Trip', 'Flexible Route', 0)">Custom Trip</button>
+
+</div>
+
+<!-- STEP 2 -->
+<div id="step2" class="card hidden">
+<h3>Trip Details</h3>
+
+<p id="tripInfo"></p>
+<div class="price" id="priceDisplay"></div>
+
+<input type="date" id="date">
+<input type="time" id="time">
+<input type="number" id="passengers" placeholder="Passengers">
+
+<button onclick="goToConfirm()">Continue</button>
+</div>
+
+<!-- STEP 3 -->
+<div id="step3" class="card hidden">
+<h3>Confirm Booking</h3>
+
+<p id="summary"></p>
+
+<button onclick="sendWhatsApp()">Confirm & Book</button>
+</div>
+
+</div>
+
+<script>
+let booking = {};
+
+function selectTrip(name, route, price) {
+  booking.name = name;
+  booking.route = route;
+  booking.price = price;
+
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+
+  document.getElementById('tripInfo').innerText = name + " (" + route + ")";
+  document.getElementById('priceDisplay').innerText = price ? "$" + price + " USD" : "Custom Pricing";
+}
+
+function goToConfirm() {
+  booking.date = document.getElementById('date').value;
+  booking.time = document.getElementById('time').value;
+  booking.passengers = document.getElementById('passengers').value;
+
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step3').classList.remove('hidden');
+
+  document.getElementById('summary').innerText =
+    `${booking.name}
+${booking.route}
+Date: ${booking.date}
+Time: ${booking.time}
+Passengers: ${booking.passengers}
+Price: ${booking.price ? "$" + booking.price : "Custom"}`;
+}
+
+function sendWhatsApp() {
+  let phone = "1758XXXXXXX"; // REPLACE
+
+  let message =
+`Booking Request:
+${booking.name}
+Route: ${booking.route}
+Date: ${booking.date}
+Time: ${booking.time}
+Passengers: ${booking.passengers}
+Price: ${booking.price ? "$" + booking.price : "Custom"}`;
+
+  let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
