@@ -71,10 +71,9 @@ input, select {
 <div id="step1" class="card">
 <h3>Select Your Trip</h3>
 
-
-<button onclick="selectTrip('Airport Transfer', 'Hewanorra → Castries', 90)">Airport Transfer</button>
-<button onclick="selectTrip('City Ride', 'Castries → Rodney Bay', 25)">City Ride</button>
-<button onclick="selectTrip('Custom Trip', 'Flexible Route', 0)">Custom Trip</button>
+<button onclick="selectTrip('Airport Transfer', 'Hewanorra → Castries', 70, 90)">Airport Transfer</button>
+<button onclick="selectTrip('City Ride', 'Castries → Rodney Bay', 20, 30)">City Ride</button>
+<button onclick="selectTrip('Custom Trip', 'Flexible Route', 0, 0)">Custom Trip</button>
 
 </div>
 
@@ -106,16 +105,23 @@ input, select {
 <script>
 let booking = {};
 
-function selectTrip(name, route, price) {
+// NEW selectTrip with min/max prices
+function selectTrip(name, route, minPrice, maxPrice) {
   booking.name = name;
   booking.route = route;
-  booking.price = price;
+  booking.minPrice = minPrice;
+  booking.maxPrice = maxPrice;
 
   document.getElementById('step1').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
 
   document.getElementById('tripInfo').innerText = name + " (" + route + ")";
-  document.getElementById('priceDisplay').innerText = price ? "$" + price + " USD" : "Custom Pricing";
+  
+  if(minPrice && maxPrice){
+    document.getElementById('priceDisplay').innerText = `$${minPrice} - $${maxPrice} USD`;
+  } else {
+    document.getElementById('priceDisplay').innerText = "Custom Pricing";
+  }
 }
 
 function goToConfirm() {
@@ -126,17 +132,25 @@ function goToConfirm() {
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step3').classList.remove('hidden');
 
+  let priceText = (booking.minPrice && booking.maxPrice) 
+    ? `$${booking.minPrice} - $${booking.maxPrice} (to be confirmed)` 
+    : "Custom Pricing";
+
   document.getElementById('summary').innerText =
     `${booking.name}
 ${booking.route}
 Date: ${booking.date}
 Time: ${booking.time}
 Passengers: ${booking.passengers}
-Price: ${booking.price ? "$" + booking.price : "Custom"}`;
+Price: ${priceText}`;
 }
 
 function sendWhatsApp() {
-  let phone = "17587235872"; // REPLACE
+  let phone = "1758XXXXXXX"; // REPLACE with actual number
+
+  let priceText = (booking.minPrice && booking.maxPrice) 
+    ? `$${booking.minPrice} - $${booking.maxPrice} (to be confirmed)` 
+    : "Custom Pricing";
 
   let message =
 `Booking Request:
@@ -145,7 +159,7 @@ Route: ${booking.route}
 Date: ${booking.date}
 Time: ${booking.time}
 Passengers: ${booking.passengers}
-Price: ${booking.price ? "$" + booking.price : "Custom"}`;
+Price: ${priceText}`;
 
   let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
