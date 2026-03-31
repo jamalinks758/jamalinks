@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stuffed Burgers TT — Order Now</title>
+
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- AOS Animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+  /* ===== CSS VARIABLES ===== */
+  :root {
+    --red:        #D41A1A;
+    --red-dark:   #AA1010;
+    --red-light:  #FF2B2B;
+    --gold:       #FFCC00;
+    --gold-dark:  #E6B800;
+    --white:      #FFFFFF;
+    --wa-green:   #25D366;
+    --wa-hover:   #1da851;
+    --radius:     14px;
+    --transition: .3s ease;
+  }
+
+  /* DARK THEME */
+  [data-theme="dark"] {
+    --bg:          #111111;
+    --bg2:         #1A1A1A;
+    --card-bg:     #1E1E1E;
+    --border:      #2E2E2E;
+    --text:        #F0F0F0;
+    --text-muted:  #888888;
+    --input-bg:    #252525;
+    --input-text:  #F0F0F0;
+    --input-border:#333;
+    --nav-bg:      rgba(17,17,17,0.96);
+    --footer-bg:   #0D0D0D;
+    --shadow:      0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  /* LIGHT THEME */
+  [data-theme="light"] {
+    --bg:          #F5F5F0;
+    --bg2:         #EBEBEB;
+    --card-bg:     #FFFFFF;
+    --border:      #E0E0E0;
+    --text:        #1A1A1A;
+    --text-muted:  #666666;
+    --input-bg:    #F8F8F8;
+    --input-text:  #1A1A1A;
+    --input-border:#D0D0D0;
+    --nav-bg:      rgba(245,245,240,0.96);
+    --footer-bg:   #1A1A1A;
+    --shadow:      0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background var(--transition), color var(--transition);
+    min-height: 100vh;
+  }
+
+  /* ===== NAVBAR ===== */
+  .navbar-custom {
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background var(--transition);
+  }
+
+  .navbar-brand-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--gold) !important;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .navbar-brand-text span {
+    color: var(--red-light);
+  }
+
+  .nav-link-custom {
+    color: var(--text) !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 6px;
+    transition: all var(--transition);
+    text-decoration: none;
+  }
+  .nav-link-custom:hover {
+    color: var(--gold) !important;
+    background: rgba(255,204,0,0.08);
+  }
+
+  /* Theme toggle */
+  .theme-toggle {
+    background: none;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    border-radius: 50px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .theme-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* Home button */
+  .home-btn {
+    background: var(--red);
+    color: var(--white) !important;
+    border-radius: 6px;
+    padding: 0.35rem 0.9rem !important;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .home-btn:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+  }
+
+  /* Mobile hamburger */
+  .navbar-toggler-custom {
+    background: none;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding-top: 90px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem 0 2rem;
+    text-align: center;
+  }
+
+  /* Red noise-like texture bg */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,26,26,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    animation: pulse-badge 2s infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212,26,26,0.5); }
+    50%       { box-shadow: 0 0 0 10px rgba(212,26,26,0); }
+  }
+
+  .hero-logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 0 6px rgba(255,204,0,0.15), var(--shadow);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    line-height: 1;
+    letter-spacing: 3px;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title .accent {
+    color: var(--gold);
+    -webkit-text-stroke: 2px var(--gold);
+  }
+
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-sub .flag { font-size: 1.2rem; }
+
+  /* CTA scroll arrow */
+  .scroll-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    animation: bounce-down 1.8s infinite;
+  }
+  .scroll-cta i { font-size: 1.2rem; color: var(--gold); }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(6px); }
+  }
+
+  /* Divider wave */
+  .wave-divider {
+    display: block;
+    width: 100%;
+    color: var(--bg2);
+    margin-bottom: -2px;
+  }
+
+  /* ===== ORDER SECTION ===== */
+  .order-section {
+    background: var(--bg2);
+    padding: 3rem 0 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 2rem;
+  }
+
+  /* ===== ORDER CARD ===== */
+  .order-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: background var(--transition), border var(--transition);
+  }
+
+  /* ===== BURGER CARDS (menu selection) ===== */
+  .burger-select-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 400px) {
+    .burger-select-grid { grid-template-columns: 1fr; }
+  }
+
+  .burger-option {
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    background: var(--input-bg);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .burger-option::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(212,26,26,0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .burger-option:hover::after { opacity: 1; }
+
+  .burger-option.selected {
+    border-color: var(--red);
+    background: rgba(212,26,26,0.07);
+  }
+
+  .burger-option.selected .checkmark {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: white;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+  }
+
+  .burger-emoji { font-size: 1.8rem; margin-bottom: 0.3rem; line-height: 1; }
+  .burger-name {
+    font-weight: 800;
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+  .burger-price {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+  }
+
+  /* ===== FORM ELEMENTS ===== */
+  .form-label-custom {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-control-custom,
+  .form-select-custom {
+    background: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    border: 1.5px solid var(--input-border) !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 0.9rem !important;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+
+  .form-control-custom:focus,
+  .form-select-custom:focus {
+    outline: none !important;
+    border-color: var(--red) !important;
+    box-shadow: 0 0 0 3px rgba(212,26,26,0.15) !important;
+  }
+
+  .form-control-custom::placeholder { color: var(--text-muted); }
+
+  /* ===== EXTRAS TOGGLES ===== */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .extra-toggle {
+    border: 1.5px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: var(--input-bg);
+    user-select: none;
+  }
+
+  .extra-toggle:hover { border-color: var(--red); }
+
+  .extra-toggle.active {
+    border-color: var(--gold);
+    background: rgba(255,204,0,0.08);
+    color: var(--gold-dark);
+  }
+
+  .extra-toggle .toggle-icon { font-size: 1rem; }
+
+  /* ===== DELIVERY TYPE ===== */
+  .delivery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .delivery-btn {
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: var(--input-bg);
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .delivery-btn i { display: block; font-size: 1.4rem; margin-bottom: 0.2rem; }
+
+  .delivery-btn:hover { border-color: var(--gold); }
+
+  .delivery-btn.active {
+    border-color: var(--gold);
+    background: rgba(255,204,0,0.08);
+    color: var(--gold-dark);
+  }
+
+  /* ===== QUANTITY STEPPER ===== */
+  .qty-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1.5px solid var(--input-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--input-bg);
+    max-width: 150px;
+  }
+
+  .qty-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.1rem;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    font-weight: 800;
+    transition: background 0.15s;
+  }
+
+  .qty-btn:hover { background: rgba(212,26,26,0.1); color: var(--red-light); }
+
+  .qty-display {
+    flex: 1;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text);
+    background: none;
+    border: none;
+    pointer-events: none;
+    min-width: 40px;
+  }
+
+  /* ===== ORDER SUMMARY PILL ===== */
+  .order-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .summary-row.total {
+    color: var(--text);
+    font-weight: 800;
+    font-size: 1rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .summary-row.total .price { color: var(--gold-dark); font-size: 1.1rem; }
+
+  /* ===== CTA BUTTON ===== */
+  .btn-order {
+    background: var(--wa-green);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    width: 100%;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+  }
+
+  .btn-order:hover {
+    background: var(--wa-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+  }
+
+  .btn-order:active { transform: translateY(0); }
+
+  .btn-order i { font-size: 1.3rem; }
+
+  /* ===== SPECIALS SECTION ===== */
+  .specials-section {
+    background: var(--bg);
+    padding: 3rem 0;
+  }
+
+  .special-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all var(--transition);
+    cursor: default;
+  }
+
+  .special-card:hover {
+    border-color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(212,26,26,0.15);
+  }
+
+  .special-emoji { font-size: 2.2rem; flex-shrink: 0; }
+  .special-name { font-weight: 800; font-size: 1rem; color: var(--text); }
+  .special-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  .special-price {
+    margin-left: auto;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.4rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ===== WHY US STRIP ===== */
+  .why-strip {
+    background: var(--red);
+    padding: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .why-inner {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .why-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .why-item i { font-size: 1.2rem; color: var(--gold); }
+
+  /* ===== TOAST ===== */
+  .toast-custom {
+    position: fixed;
+    top: 80px;
+    right: 1.5rem;
+    background: var(--card-bg);
+    border: 1.5px solid var(--gold);
+    border-radius: 12px;
+    padding: 0.85rem 1.2rem;
+    z-index: 9999;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateX(120%);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: var(--shadow);
+    max-width: 280px;
+  }
+  .toast-custom.show { transform: translateX(0); }
+  .toast-custom i { color: var(--gold); font-size: 1.1rem; }
+
+  /* ===== FLOATING WHATSAPP ===== */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    z-index: 9000;
+    width: 56px;
+    height: 56px;
+    background: var(--wa-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    text-decoration: none;
+    transition: all var(--transition);
+    animation: float-pulse 2.5s infinite;
+  }
+
+  .whatsapp-float:hover {
+    background: var(--wa-hover);
+    transform: scale(1.1);
+    color: white;
+  }
+
+  .whatsapp-float .wa-tooltip {
+    position: absolute;
+    right: 66px;
+    background: #111;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .whatsapp-float:hover .wa-tooltip { opacity: 1; }
+
+  @keyframes float-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4); }
+    50%       { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0); }
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--footer-bg);
+    color: #aaa;
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    color: #aaa;
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+  .social-btn:hover { background: var(--red); border-color: var(--red); color: white; transform: translateY(-2px); }
+  .social-btn.wa:hover  { background: var(--wa-green); border-color: var(--wa-green); }
+  .social-btn.ig:hover  { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: transparent; }
+
+  .footer-links a {
+    color: #666;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 1.2rem;
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #444;
+    text-align: center;
+  }
+
+  .footer-bottom .made-with { color: var(--red); }
+  .footer-bottom a { color: #555; text-decoration: none; }
+  .footer-bottom a:hover { color: var(--gold); }
+
+  /* ===== UTILITY ===== */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.5rem 0;
+  }
+
+  .error-msg {
+    background: rgba(212,26,26,0.1);
+    border: 1px solid rgba(212,26,26,0.4);
+    color: var(--red-light);
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: none;
+  }
+  .error-msg.visible { display: flex; align-items: center; gap: 8px; }
+
+  /* Hide default inputs */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+  /* Responsive tweaks */
+  @media (max-width: 576px) {
+    .hero-title { letter-spacing: 1px; }
+    .order-card { padding: 1.25rem; }
+    .burger-name { font-size: 0.75rem; }
+    .why-inner { gap: 1.2rem; }
+  }
+
+  /* Scroll progress bar */
+  .progress-bar-custom {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 2000;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Scroll Progress -->
+<div class="progress-bar-custom" id="scrollProgress"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center justify-content-between gap-2">
+
+    <a href="index.html" class="home-btn">
+      <i class="bi bi-house-fill"></i> Home
+    </a>
+
+    <a class="navbar-brand-text d-none d-sm-block" href="#">
+      STUFFED <span>BURGERS</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="d-none d-md-flex align-items-center gap-1">
+      <a class="nav-link-custom" href="#order">Order</a>
+      <a class="nav-link-custom" href="#menu">Menu</a>
+      <a class="nav-link-custom" href="#about">About</a>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <i class="bi bi-moon-fill" id="themeIcon"></i>
+        <span id="themeLabel" class="d-none d-sm-inline">Dark</span>
+      </button>
+
+      <!-- Mobile menu toggle (simple) -->
+      <button class="navbar-toggler-custom d-md-none" id="mobileToggle" title="Menu">
+        <i class="bi bi-list" style="font-size:1.3rem;"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobileMenu" class="d-none d-md-none" style="background:var(--card-bg);border-top:1px solid var(--border);padding:.75rem 1rem;">
+    <a class="nav-link-custom d-block mb-1" href="#order" onclick="closeMobileMenu()">Order Now</a>
+    <a class="nav-link-custom d-block mb-1" href="#menu" onclick="closeMobileMenu()">Menu</a>
+    <a class="nav-link-custom d-block" href="#about" onclick="closeMobileMenu()">About</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-inner container" data-aos="fade-up" data-aos-duration="700">
+    <div class="hero-badge">🇹🇹 Trinidad's Favourite Stuffed Burger</div>
+
+    <img src="Screenshot_20260331_174817_Instagram.jpg"
+         alt="Stuffed Burgers Logo"
+         class="hero-logo"
+         onerror="this.style.display='none'">
+
+    <h1 class="hero-title">
+      ORDER YOUR<br><span class="accent">STUFFED BURGER</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="flag">🇹🇹</span> &nbsp;Fresh. Loaded. Trinidad-Made.&nbsp; <span class="flag">🔥</span>
+    </p>
+
+    <a href="#order" class="scroll-cta">
+      Order Now <i class="bi bi-chevron-down"></i>
+    </a>
+  </div>
+
+  <!-- SVG wave -->
+  <svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" preserveAspectRatio="none" fill="currentColor">
+    <path d="M0,32 C360,64 1080,0 1440,32 L1440,48 L0,48 Z"/>
+  </svg>
+</section>
+
+<!-- ===== WHY US STRIP ===== -->
+<div class="why-strip">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-item"><i class="bi bi-fire"></i> Freshly Made</div>
+      <div class="why-item"><i class="bi bi-clock-fill"></i> Fast Turnaround</div>
+      <div class="why-item"><i class="bi bi-geo-alt-fill"></i> Trinidad-Wide</div>
+      <div class="why-item"><i class="bi bi-whatsapp"></i> Order via WhatsApp</div>
+      <div class="why-item"><i class="bi bi-star-fill"></i> Top-Rated Flavours</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MENU HIGHLIGHTS ===== -->
+<section class="specials-section" id="menu" data-aos="fade-up" data-aos-duration="600">
+  <div class="container">
+    <p class="section-label text-center">Our Menu</p>
+    <h2 class="section-title text-center">The Lineup</h2>
+
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <div class="special-card">
+          <div class="special-emoji">🍔</div>
+          <div>
+            <div class="special-name">Lent Special Burger</div>
+            <div class="special-desc">A crowd favourite — limited time only</div>
+          </div>
+          <div class="special-price">$10</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="special-card">
+          <div class="special-emoji">🛸</div>
+          <div>
+            <div class="special-name">UFO Burger</div>
+            <div class="special-desc">Out of this world loaded stack</div>
+          </div>
+          <div class="special-price">$12</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="special-card">
+          <div class="special-emoji">🥬</div>
+          <div>
+            <div class="special-name">Lettuce Burger</div>
+            <div class="special-desc">Fresh, light & full of flavour</div>
+          </div>
+          <div class="special-price">$13</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="special-card">
+          <div class="special-emoji">🧀</div>
+          <div>
+            <div class="special-name">Original Cheese Burger</div>
+            <div class="special-desc">The classic — never misses</div>
+          </div>
+          <div class="special-price">$14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORDER FORM ===== -->
+<section class="order-section" id="order">
+  <div class="container">
+    <p class="section-label text-center">Place Your Order</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Build Your Burger</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="order-card">
+
+          <!-- Error msg -->
+          <div class="error-msg" id="errorMsg">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span id="errorText">Please fill in all required fields.</span>
+          </div>
+
+          <!-- Step 1: Pick Burger -->
+          <p class="form-label-custom">1 — Choose Your Burger</p>
+          <div class="burger-select-grid" id="burgerGrid">
+            <div class="burger-option" data-value="Lent Special Burger - $10" data-price="10" onclick="selectBurger(this)">
+              <div class="checkmark"><i class="bi bi-check"></i></div>
+              <div class="burger-emoji">🍔</div>
+              <div class="burger-name">Lent Special</div>
+              <div class="burger-price">$10</div>
+            </div>
+            <div class="burger-option" data-value="UFO Burger - $12" data-price="12" onclick="selectBurger(this)">
+              <div class="checkmark"><i class="bi bi-check"></i></div>
+              <div class="burger-emoji">🛸</div>
+              <div class="burger-name">UFO Burger</div>
+              <div class="burger-price">$12</div>
+            </div>
+            <div class="burger-option" data-value="Lettuce Burger - $13" data-price="13" onclick="selectBurger(this)">
+              <div class="checkmark"><i class="bi bi-check"></i></div>
+              <div class="burger-emoji">🥬</div>
+              <div class="burger-name">Lettuce Burger</div>
+              <div class="burger-price">$13</div>
+            </div>
+            <div class="burger-option" data-value="Original Cheese Burger - $14" data-price="14" onclick="selectBurger(this)">
+              <div class="checkmark"><i class="bi bi-check"></i></div>
+              <div class="burger-emoji">🧀</div>
+              <div class="burger-name">Original Cheese</div>
+              <div class="burger-price">$14</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Step 2: Extras -->
+          <p class="form-label-custom">2 — Extras (Optional)</p>
+          <div class="extras-grid" id="extrasGrid">
+            <div class="extra-toggle" data-value="Extra Cheese" onclick="toggleExtra(this)">
+              <span class="toggle-icon">🧀</span> Extra Cheese
+            </div>
+            <div class="extra-toggle" data-value="Bacon" onclick="toggleExtra(this)">
+              <span class="toggle-icon">🥓</span> Bacon
+            </div>
+            <div class="extra-toggle" data-value="Double Patty" onclick="toggleExtra(this)">
+              <span class="toggle-icon">🍔</span> Double Patty
+            </div>
+            <div class="extra-toggle" data-value="Hot Sauce" onclick="toggleExtra(this)">
+              <span class="toggle-icon">🌶️</span> Hot Sauce
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Step 3: Quantity -->
+          <p class="form-label-custom">3 — Quantity</p>
+          <div class="qty-stepper mb-3">
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <div class="qty-display" id="qtyDisplay">1</div>
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Step 4: Pickup / Delivery -->
+          <p class="form-label-custom">4 — Pickup or Delivery?</p>
+          <div class="delivery-grid mb-3">
+            <div class="delivery-btn active" id="pickupBtn" onclick="setDelivery('Pickup')">
+              <i class="bi bi-bag-check-fill"></i>Pickup
+            </div>
+            <div class="delivery-btn" id="deliveryBtn" onclick="setDelivery('Delivery')">
+              <i class="bi bi-bicycle"></i>Delivery
+            </div>
+          </div>
+
+          <!-- Delivery address (shown only for delivery) -->
+          <div id="addressBlock" class="mb-3" style="display:none;">
+            <label class="form-label-custom">Delivery Address</label>
+            <input type="text" id="address" class="form-control-custom" placeholder="e.g. 12 Main Street, San Fernando">
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Step 5: Name & Time -->
+          <div class="row g-2 mb-3">
+            <div class="col-7">
+              <label class="form-label-custom">5 — Your Name</label>
+              <input type="text" id="name" class="form-control-custom" placeholder="e.g. Trini Trevor">
+            </div>
+            <div class="col-5">
+              <label class="form-label-custom">Time</label>
+              <input type="time" id="time" class="form-control-custom">
+            </div>
+          </div>
+
+          <!-- Step 6: Special notes -->
+          <label class="form-label-custom">6 — Special Requests (Optional)</label>
+          <textarea id="notes" class="form-control-custom mb-3" rows="2" placeholder="e.g. no onions, extra sauce..."></textarea>
+
+          <div class="divider"></div>
+
+          <!-- Order Summary -->
+          <div class="order-summary" id="orderSummary">
+            <div class="summary-row">
+              <span>Burger</span>
+              <span id="summaryBurger" style="color:var(--text);font-weight:700;">—</span>
+            </div>
+            <div class="summary-row">
+              <span>Extras</span>
+              <span id="summaryExtras" style="color:var(--text);font-weight:700;">None</span>
+            </div>
+            <div class="summary-row">
+              <span>Qty</span>
+              <span id="summaryQty" style="color:var(--text);font-weight:700;">1</span>
+            </div>
+            <div class="summary-row total">
+              <span>Estimated Total</span>
+              <span class="price" id="summaryTotal">$0 TTD</span>
+            </div>
+          </div>
+
+          <button class="btn-order" id="orderBtn" onclick="sendOrder()">
+            <i class="bi bi-whatsapp"></i>
+            Send Order via WhatsApp
+          </button>
+
+          <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:0.75rem;">
+            <i class="bi bi-shield-check" style="color:var(--gold);"></i>
+            Your order opens directly in WhatsApp — fast &amp; secure.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT STRIP ===== -->
+<section style="background:var(--bg);padding:3rem 0;" id="about" data-aos="fade-up">
+  <div class="container text-center">
+    <p class="section-label">Who We Are</p>
+    <h2 class="section-title">Made in T&T. <span style="color:var(--red);">With Love.</span></h2>
+    <p style="color:var(--text-muted);max-width:480px;margin:0 auto;font-size:0.95rem;line-height:1.7;">
+      Stuffed Burgers is a homegrown Trinidad brand crafting some of the most loaded, flavour-packed burgers the island has ever seen.
+      Every burger is made fresh to order — no shortcuts, no compromises.
+      <span style="color:var(--gold);font-weight:800;">Pure trini vibes. 🇹🇹</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-5">
+        <div class="footer-logo">STUFFED BURGERS</div>
+        <div class="footer-tagline">Trinidad's Most Loaded Burger 🇹🇹</div>
+        <div class="social-links">
+          <a href="https://wa.me/17587235872" target="_blank" class="social-btn wa" title="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <a href="#" class="social-btn ig" title="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-btn" title="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-btn" title="TikTok">
+            <i class="bi bi-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <p style="font-size:0.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.75rem;">Quick Links</p>
+        <div class="footer-links d-flex flex-column gap-1">
+          <a href="#order">Order Now</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About Us</a>
+          <a href="index.html">← Home</a>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <p style="font-size:0.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:.75rem;">Contact</p>
+        <p style="font-size:0.82rem;color:#555;line-height:1.9;">
+          <i class="bi bi-whatsapp" style="color:var(--wa-green);"></i> &nbsp;
+          <a href="https://wa.me/17587235872" target="_blank" style="color:#666;text-decoration:none;">+1 (758) 723-5872</a><br>
+          <i class="bi bi-geo-alt-fill" style="color:var(--red);"></i> &nbsp;Trinidad &amp; Tobago 🇹🇹<br>
+          <i class="bi bi-clock-fill" style="color:var(--gold);"></i> &nbsp;Mon – Sun: 11am – 10pm
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Stuffed Burgers TT. All rights reserved.</span>
+      &nbsp;·&nbsp;
+      <span>Made with <span class="made-with">❤️</span> in Trinidad</span>
+      &nbsp;·&nbsp;
+      <span>Powered by <a href="index.html">JAMALINKS</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/17587235872" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+  <span class="wa-tooltip">Order on WhatsApp</span>
+</a>
+
+<!-- ===== TOAST ===== -->
+<div class="toast-custom" id="toast">
+  <i class="bi bi-check-circle-fill"></i>
+  <span id="toastMsg">Opening WhatsApp...</span>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+// ===== AOS INIT =====
+AOS.init({ once: true, offset: 60 });
+
+// ===== STATE =====
+let selectedBurger = null;
+let selectedBurgerPrice = 0;
+let selectedExtras = [];
+let qty = 1;
+let deliveryType = 'Pickup';
+
+// ===== THEME =====
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+
+const savedTheme = localStorage.getItem('sb-theme') || 'dark';
+applyTheme(savedTheme);
+
+function applyTheme(t) {
+  html.setAttribute('data-theme', t);
+  if (t === 'dark') {
+    themeIcon.className = 'bi bi-sun-fill';
+    if (themeLabel) themeLabel.textContent = 'Light';
+  } else {
+    themeIcon.className = 'bi bi-moon-fill';
+    if (themeLabel) themeLabel.textContent = 'Dark';
+  }
+  localStorage.setItem('sb-theme', t);
+}
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// ===== MOBILE MENU =====
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+mobileToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('d-none');
+});
+
+function closeMobileMenu() { mobileMenu.classList.add('d-none'); }
+
+// ===== SCROLL PROGRESS =====
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('scrollProgress');
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  el.style.width = pct + '%';
+});
+
+// ===== BURGER SELECTION =====
+function selectBurger(el) {
+  document.querySelectorAll('.burger-option').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedBurger = el.dataset.value;
+  selectedBurgerPrice = parseInt(el.dataset.price);
+  updateSummary();
+  clearError();
+}
+
+// ===== EXTRAS TOGGLE =====
+function toggleExtra(el) {
+  const val = el.dataset.value;
+  if (el.classList.contains('active')) {
+    el.classList.remove('active');
+    selectedExtras = selectedExtras.filter(e => e !== val);
+  } else {
+    el.classList.add('active');
+    selectedExtras.push(val);
+  }
+  updateSummary();
+}
+
+// ===== QUANTITY =====
+function changeQty(dir) {
+  qty = Math.max(1, Math.min(20, qty + dir));
+  document.getElementById('qtyDisplay').textContent = qty;
+  updateSummary();
+}
+
+// ===== DELIVERY =====
+function setDelivery(type) {
+  deliveryType = type;
+  document.getElementById('pickupBtn').classList.toggle('active', type === 'Pickup');
+  document.getElementById('deliveryBtn').classList.toggle('active', type === 'Delivery');
+  document.getElementById('addressBlock').style.display = type === 'Delivery' ? 'block' : 'none';
+}
+
+// ===== SUMMARY =====
+function updateSummary() {
+  const bEl = document.getElementById('summaryBurger');
+  const eEl = document.getElementById('summaryExtras');
+  const qEl = document.getElementById('summaryQty');
+  const tEl = document.getElementById('summaryTotal');
+
+  bEl.textContent = selectedBurger ? selectedBurger : '—';
+  eEl.textContent = selectedExtras.length ? selectedExtras.join(', ') : 'None';
+  qEl.textContent = qty;
+  const total = selectedBurgerPrice * qty;
+  tEl.textContent = total > 0 ? `$${total} TTD` : '$0 TTD';
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ===== ERROR =====
+function showError(msg) {
+  const e = document.getElementById('errorMsg');
+  document.getElementById('errorText').textContent = msg;
+  e.classList.add('visible');
+  e.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function clearError() {
+  document.getElementById('errorMsg').classList.remove('visible');
+}
+
+// ===== SEND ORDER =====
+function sendOrder() {
+  clearError();
+
+  const name  = document.getElementById('name').value.trim();
+  const time  = document.getElementById('time').value;
+  const notes = document.getElementById('notes').value.trim();
+  const addr  = document.getElementById('address').value.trim();
+
+  if (!selectedBurger) { showError('Please select a burger first!'); return; }
+  if (!name)            { showError('Please enter your name!'); return; }
+  if (!time)            { showError('Please select a pickup/delivery time!'); return; }
+  if (deliveryType === 'Delivery' && !addr) { showError('Please enter your delivery address!'); return; }
+
+  const extrasText = selectedExtras.length ? selectedExtras.join(', ') : 'None';
+  const total = selectedBurgerPrice * qty;
+
+  let msg = `🍔 *STUFFED BURGERS ORDER* 🍔\n\n`;
+  msg += `👤 *Name:* ${name}\n`;
+  msg += `🍔 *Burger:* ${selectedBurger}\n`;
+  msg += `➕ *Extras:* ${extrasText}\n`;
+  msg += `🔢 *Quantity:* ${qty}\n`;
+  msg += `🚗 *Type:* ${deliveryType}\n`;
+  if (deliveryType === 'Delivery') msg += `📍 *Address:* ${addr}\n`;
+  msg += `⏰ *Time:* ${time}\n`;
+  if (notes) msg += `📝 *Notes:* ${notes}\n`;
+  msg += `\n💵 *Estimated Total: $${total} TTD*\n`;
+  msg += `\n_Thank you for ordering from Stuffed Burgers! 🇹🇹_`;
+
+  const phone   = "17587235872";
+  const encoded = encodeURIComponent(msg);
+
+  showToast('Opening WhatsApp — hold tight! 🍔');
+  window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+}
+
+// ===== SET DEFAULT TIME =====
+(function setDefaultTime() {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() + 20);
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const tInput = document.getElementById('time');
+  if (tInput) tInput.value = `${h}:${m}`;
+})();
+</script>
+</body>
+</html>
