@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stuffed Burgers - Order Now</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffcc00;
+}
+
+.card {
+    background: #1c1c1c;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🍔 Stuffed Burgers</h1>
+
+<div class="card">
+<label>Select Burger</label>
+<select id="burger">
+<option>Classic Stuffed Burger - $10</option>
+<option>BBQ Stuffed Burger - $12</option>
+<option>Cheese Overload Burger - $13</option>
+</select>
+
+<label>Extras</label>
+<select id="extras">
+<option>None</option>
+<option>Extra Cheese</option>
+<option>Bacon</option>
+<option>Double Patty</option>
+</select>
+
+<label>Quantity</label>
+<input type="number" id="qty" value="1">
+
+<label>Pickup or Delivery</label>
+<select id="type">
+<option>Pickup</option>
+<option>Delivery</option>
+</select>
+
+<label>Time</label>
+<input type="time" id="time">
+
+<label>Your Name</label>
+<input type="text" id="name">
+
+</div>
+
+<button onclick="sendOrder()">Send Order via WhatsApp</button>
+
+</div>
+
+<script>
+function sendOrder() {
+
+let burger = document.getElementById("burger").value;
+let extras = document.getElementById("extras").value;
+let qty = document.getElementById("qty").value;
+let type = document.getElementById("type").value;
+let time = document.getElementById("time").value;
+let name = document.getElementById("name").value;
+
+let message = `Hi, I'd like to order:%0A
+Burger: ${burger}%0A
+Extras: ${extras}%0A
+Quantity: ${qty}%0A
+Type: ${type}%0A
+Time: ${time}%0A
+Name: ${name}`;
+
+let phone = "17587235872"; // REPLACE WITH HIS WHATSAPP NUMBER
+
+window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
