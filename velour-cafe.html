@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velour Café — Where Every Cup Tells a Story</title>
+
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+  /* =============================================
+     CSS VARIABLES — LIGHT & DARK THEMES
+  ============================================= */
+  :root,
+  [data-theme="light"] {
+    --bg:           #FAF8F5;
+    --bg-alt:       #F2EDE6;
+    --surface:      #FFFFFF;
+    --surface-2:    #F7F3EE;
+    --border:       #E8DFD4;
+    --text:         #1C1510;
+    --text-muted:   #7A6A5A;
+    --text-light:   #B5A491;
+    --accent:       #8B5E3C;
+    --accent-dark:  #6B4427;
+    --accent-light: #C4956A;
+    --gold:         #C9A96E;
+    --gold-light:   #E8D5A8;
+    --hero-bg:      #1C1510;
+    --hero-text:    #FAF8F5;
+    --nav-bg:       rgba(250,248,245,0.92);
+    --nav-border:   rgba(139,94,60,0.12);
+    --card-shadow:  0 2px 24px rgba(139,94,60,0.08);
+    --card-shadow-h:0 8px 40px rgba(139,94,60,0.18);
+    --footer-bg:    #1C1510;
+    --footer-text:  #B5A491;
+  }
+
+  [data-theme="dark"] {
+    --bg:           #120E0A;
+    --bg-alt:       #1C1610;
+    --surface:      #221A12;
+    --surface-2:    #2A2018;
+    --border:       #3A2E22;
+    --text:         #F0E8DC;
+    --text-muted:   #9A8472;
+    --text-light:   #6A5A4A;
+    --accent:       #C4956A;
+    --accent-dark:  #8B5E3C;
+    --accent-light: #E8C4A0;
+    --gold:         #D4AF70;
+    --gold-light:   #8B7040;
+    --hero-bg:      #0A0705;
+    --hero-text:    #F0E8DC;
+    --nav-bg:       rgba(18,14,10,0.95);
+    --nav-border:   rgba(196,149,106,0.15);
+    --card-shadow:  0 2px 24px rgba(0,0,0,0.35);
+    --card-shadow-h:0 8px 40px rgba(0,0,0,0.55);
+    --footer-bg:    #0A0705;
+    --footer-text:  #7A6A5A;
+  }
+
+  /* =============================================
+     BASE
+  ============================================= */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    transition: background 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+
+  p, .body-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* =============================================
+     NAVBAR
+  ============================================= */
+  .navbar-velour {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1050;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: all 0.4s ease;
+    padding: 0 1.5rem;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-brand span.accent-dot {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s;
+    font-size: 1rem;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-2);
+  }
+
+  .nav-order-btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hero-text) !important;
+    background: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    transition: background 0.25s, transform 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-order-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  /* Mobile hamburger */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0.3rem;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    z-index: 1049;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--accent); }
+
+  @media (max-width: 820px) {
+    .nav-links, .nav-order-btn { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* =============================================
+     HERO
+  ============================================= */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle noise texture overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeBlend in='SourceGraphic' mode='overlay'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Radial warm glow */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,94,60,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 0.5rem;
+    position: relative;
+    z-index: 2;
+    color: var(--hero-text);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(240,232,220,0.65);
+    margin: 1rem 0 2.5rem;
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* PRIMARY CTA */
+  .btn-primary-velour {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff !important;
+    background: var(--accent);
+    padding: 1rem 2.4rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 2px solid var(--accent);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(139,94,60,0.4);
+  }
+
+  .btn-primary-velour:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(139,94,60,0.55);
+  }
+
+  .btn-outline-velour {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,232,220,0.75) !important;
+    background: transparent;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(240,232,220,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-velour:hover {
+    border-color: var(--gold);
+    color: var(--gold) !important;
+  }
+
+  /* Scroll indicator */
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(240,232,220,0.3);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+    animation: scrollBob 2.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+    50% { transform: translateX(-50%) translateY(6px); opacity: 0.8; }
+  }
+
+  /* =============================================
+     SECTION SCAFFOLDING
+  ============================================= */
+  .section {
+    padding: 6rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-alt {
+    background: var(--bg-alt);
+    transition: background 0.4s;
+  }
+
+  .section-full { max-width: none; padding: 6rem 0; }
+
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+    margin: 1rem 0 2.5rem;
+  }
+
+  .divider-line::before,
+  .divider-line::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* =============================================
+     ABOUT STRIP
+  ============================================= */
+  .about-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.5rem;
+    transition: background 0.4s;
+  }
+
+  .about-strip .inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-strip blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0 0 1.2rem;
+    position: relative;
+  }
+
+  .about-strip blockquote::before {
+    content: '"';
+    font-size: 5rem;
+    line-height: 0;
+    position: absolute;
+    top: 1.2rem;
+    left: -1rem;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    opacity: 0.6;
+  }
+
+  /* =============================================
+     MENU / PRODUCT GRID
+  ============================================= */
+  .menu-section {
+    background: var(--bg);
+    transition: background 0.4s;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.4s;
+    box-shadow: var(--card-shadow);
+  }
+
+  .card:hover {
+    box-shadow: var(--card-shadow-h);
+    transform: translateY(-4px);
+  }
+
+  .card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .card:hover .card-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .card-category-badge {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 50px;
+  }
+
+  .card-body {
+    padding: 1.4rem 1.2rem 1.6rem;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.3rem;
+    color: var(--text);
+  }
+
+  .card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0 0 0.8rem;
+    font-style: italic;
+  }
+
+  .price {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+
+  .order-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff !important;
+    background: #25D366;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    transition: background 0.25s, transform 0.2s;
+    border: none;
+  }
+
+  .order-btn:hover {
+    background: #1da851;
+    transform: translateY(-1px);
+  }
+
+  /* =============================================
+     HOW TO ORDER
+  ============================================= */
+  .how-section { background: var(--surface); transition: background 0.4s; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .step-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .step-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-size: 1.2rem;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .step-connector { display: none; }
+  }
+
+  /* =============================================
+     BOTTOM CTA BAND
+  ============================================= */
+  .cta-band {
+    background: var(--accent);
+    padding: 5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-band::before {
+    content: 'VELOUR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(6rem, 20vw, 18rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.05);
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-band p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin: 0 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-cta-band {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent) !important;
+    background: #fff;
+    padding: 1rem 2.8rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-cta-band:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(0,0,0,0.25);
+  }
+
+  /* =============================================
+     FOOTER
+  ============================================= */
+  .footer {
+    background: var(--footer-bg);
+    padding: 4rem 1.5rem 2rem;
+    transition: background 0.4s;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FAF8F5;
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-brand em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .footer-tagline-sm {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--footer-text);
+    margin-bottom: 2rem;
+  }
+
+  .footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-nav a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--footer-text);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: var(--gold); }
+
+  .footer-nav-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(181,164,145,0.5);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(181,164,145,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    transition: all 0.25s;
+  }
+
+  .social-icon:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,169,110,0.08);
+  }
+
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(181,164,145,0.1);
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--footer-text);
+    opacity: 0.6;
+  }
+
+  .footer-copy a {
+    color: var(--gold);
+    opacity: 1;
+  }
+
+  /* =============================================
+     FLOATING WHATSAPP BUTTON
+  ============================================= */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    z-index: 1100;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.7rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    transition: transform 0.25s ease, background 0.25s;
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    background: #1da851;
+    transform: scale(1.1);
+    color: #fff;
+  }
+
+  .whatsapp-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: waPulse 2s ease-out infinite;
+    opacity: 0;
+  }
+
+  .whatsapp-float::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: waPulse 2s ease-out 0.5s infinite;
+    opacity: 0;
+  }
+
+  @keyframes waPulse {
+    0%   { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* =============================================
+     FEATURES STRIP
+  ============================================= */
+  .features-strip {
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 1.5rem;
+    transition: background 0.4s;
+  }
+
+  .features-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .feat-item i {
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .feat-item p {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .feat-item strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  /* =============================================
+     UTILITY
+  ============================================= */
+  .text-center { text-align: center; }
+  .mb-0 { margin-bottom: 0 !important; }
+
+  @media (max-width: 576px) {
+    .section { padding: 4rem 1.2rem; }
+    .hero { padding: 5rem 1.2rem 3rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .cta-band { padding: 4rem 1.2rem; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============================
+     NAVBAR
+============================ -->
+<nav class="navbar-velour" id="navbar">
+  <a href="#" class="nav-brand">Velour<span class="accent-dot">.</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#how">How to Order</a></li>
+    <li><a href="#about">Our Story</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+      <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+    </button>
+    <a id="navCTA" class="nav-order-btn" target="_blank">
+      <i class="bi bi-whatsapp"></i> Order Now
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" onclick="closeMobile()">Menu</a>
+  <a href="#how" onclick="closeMobile()">How to Order</a>
+  <a href="#about" onclick="closeMobile()">Our Story</a>
+  <a id="mobileCTA" class="nav-order-btn" style="width:fit-content;" target="_blank">
+    <i class="bi bi-whatsapp"></i> Order on WhatsApp
+  </a>
+</div>
+
+<!-- ============================
+     HERO
+============================ -->
+<div class="hero" id="home">
+  <div class="hero-eyebrow">Est. 2019 &bull; Saint Lucian Style Cafe</div>
+  <!--<h1 id="bizName">Velour <em>Café</em></h1>-->
+  <h1 id="bizName">Velour <em>Café</em></h1>
+  <p class="hero-tagline" id="tagline">Fresh products. Fast ordering.</p>
+  <div class="hero-cta-group">
+    <a id="mainCTA" class="btn-primary-velour" target="_blank">
+      <i class="bi bi-whatsapp"></i> Order on WhatsApp
+    </a>
+    <a href="#menu" class="btn-outline-velour">
+      <i class="bi bi-cup-hot"></i> View Menu
+    </a>
+  </div>
+  <div class="scroll-cue">
+    <i class="bi bi-chevron-down"></i>
+    Scroll
+  </div>
+</div>
+
+<!-- ============================
+     FEATURES STRIP
+============================ -->
+<div class="features-strip">
+  <div class="features-inner">
+    <div class="feat-item" data-aos="fade-up" data-aos-delay="0">
+      <i class="bi bi-leaf"></i>
+      <strong>Ethically Sourced</strong>
+      <p>Single-origin beans</p>
+    </div>
+    <div class="feat-item" data-aos="fade-up" data-aos-delay="80">
+      <i class="bi bi-clock"></i>
+      <strong>Open Daily</strong>
+      <p>7 AM – 8 PM</p>
+    </div>
+    <div class="feat-item" data-aos="fade-up" data-aos-delay="160">
+      <i class="bi bi-whatsapp"></i>
+      <strong>WhatsApp Orders</strong>
+      <p>Ready in minutes</p>
+    </div>
+    <div class="feat-item" data-aos="fade-up" data-aos-delay="240">
+      <i class="bi bi-heart"></i>
+      <strong>Handcrafted Daily</strong>
+      <p>Made with intention</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     MENU / PRODUCTS
+============================ -->
+<div class="menu-section" id="menu">
+  <div class="section">
+    <div class="text-center" data-aos="fade-up">
+      <span class="section-label">Our Offerings</span>
+      <h2 class="section-title">Menu / <em>Services</em></h2>
+    </div>
+    <div class="divider-line">
+      <div class="divider-dot"></div>
+    </div>
+    <div class="grid" id="productGrid" data-aos="fade-up" data-aos-delay="100"></div>
+  </div>
+</div>
+
+<!-- ============================
+     HOW TO ORDER
+============================ -->
+<div class="how-section" id="how">
+  <div class="section">
+    <div class="text-center" data-aos="fade-up">
+      <span class="section-label">Simple & Quick</span>
+      <h2 class="section-title">How to <em>Order</em></h2>
+    </div>
+    <div class="divider-line"><div class="divider-dot"></div></div>
+    <div class="steps d-none" id="stepsHidden">
+      1. Choose your item<br>
+      2. Tap order<br>
+      3. Confirm on WhatsApp
+    </div>
+    <div class="steps-grid" style="max-width:800px; margin:0 auto;">
+      <div class="step-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-num">1</div>
+        <p class="step-title">Choose your item</p>
+        <p class="step-desc">Browse our curated menu and find what calls to you today.</p>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="80">
+        <i class="bi bi-arrow-right"></i>
+      </div>
+      <div class="step-item" data-aos="fade-up" data-aos-delay="160">
+        <div class="step-num">2</div>
+        <p class="step-title">Tap order</p>
+        <p class="step-desc">Hit the WhatsApp button on any item to begin your order.</p>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="240">
+        <i class="bi bi-arrow-right"></i>
+      </div>
+      <div class="step-item" data-aos="fade-up" data-aos-delay="320">
+        <div class="step-num">3</div>
+        <p class="step-title">Confirm on WhatsApp</p>
+        <p class="step-desc">Chat with us directly and we'll have it ready for you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     BOTTOM CTA BAND
+============================ -->
+<div class="cta-band">
+  <div data-aos="fade-up">
+    <h2>Ready to Order?</h2>
+    <p>Your next favourite cup is one message away.</p>
+    <a id="bottomCTA" class="btn-cta-band" target="_blank">
+      <i class="bi bi-whatsapp"></i> Message Now
+    </a>
+  </div>
+</div>
+
+  
+<!-- ============================
+     ABOUT / QUOTE STRIP
+============================ -->
+<div class="about-strip" id="about">
+  <div class="inner" data-aos="fade-up">
+    <span class="section-label">Our Story</span>
+    <blockquote>
+      Every cup at Velour is a quiet ceremony — brewed slowly, served with warmth, savoured fully.
+    </blockquote>
+    <p style="font-family:'Cormorant Garamond',serif; color:var(--text-muted); font-size:0.95rem; font-style:italic; margin:0;">
+      A boutique café rooted in the heart of Saint Lucia, dedicated to the art of slow coffee.
+    </p>
+  </div>
+</div>
+
+<!-- ============================
+     FOOTER
+============================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="row g-5">
+      <div class="col-md-5">
+        <div class="footer-brand">Velour<em>.</em></div>
+        <p class="footer-tagline-sm">A boutique café experience, brewed with love in Saint Lucia.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+          <a id="footerWA" href="#" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 offset-md-1">
+        <p class="footer-nav-title">Navigate</p>
+        <ul class="footer-nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#how">How to Order</a></li>
+          <li><a href="#about">Our Story</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3">
+        <p class="footer-nav-title">Hours</p>
+        <ul class="footer-nav" style="gap:0.4rem;">
+          <li style="color:var(--footer-text); font-family:'Cormorant Garamond',serif; font-size:0.9rem;">Mon – Fri</li>
+          <li style="color:var(--gold); font-family:'Jost',sans-serif; font-size:0.8rem; margin-bottom:0.6rem;">7:00 AM – 8:00 PM</li>
+          <li style="color:var(--footer-text); font-family:'Cormorant Garamond',serif; font-size:0.9rem;">Sat – Sun</li>
+          <li style="color:var(--gold); font-family:'Jost',sans-serif; font-size:0.8rem;">8:00 AM – 9:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+   <p class="footer-copy">© <span id="footerName">Velour Café</span> · All rights reserved</p>
+      <p class="footer-copy">Powered by <a href="#" target="_blank">JAMALINKS</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     FLOATING WHATSAPP BUTTON
+============================ -->
+<a id="floatWA" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ============================
+     SCRIPTS
+============================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+// ===== CONFIG =====
+const phone = "1234567890";
+
+const businessName = "Velour Café";
+const tagline = "Fresh products. Fast ordering.";
+
+const products = [
+  {name:"Latte", price:5},
+  {name:"Cappuccino", price:5},
+  {name:"Croissant", price:6},
+  {name:"Smoothie", price:7}
+];
+
+// ===== PRODUCT IMAGES (Unsplash - free) =====
+const productImages = {
+  "Latte":      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80",
+  "Cappuccino": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80",
+  "Croissant":  "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80",
+  "Smoothie":   "https://images.unsplash.com/photo-1638176066666-ffb2f013c7dd?w=600&q=80"
+};
+
+const productCategories = {
+  "Latte": "Coffee",
+  "Cappuccino": "Coffee",
+  "Croissant": "Pastry",
+  "Smoothie": "Drinks"
+};
+
+const productDescs = {
+  "Latte": "Silky espresso meets steamed micro-foam",
+  "Cappuccino": "Bold shot crowned with velvety froth",
+  "Croissant": "Buttery layers, flaked to perfection",
+  "Smoothie": "Cold-pressed fruit & greens blended fresh"
+};
+
+// ===== SET TEXT (FIXED - removed non-existent elements) =====
+// document.getElementById("bizName") doesn't exist - it's commented out in HTML
+// document.getElementById("footerName") doesn't exist
+const footerYearSpan = document.querySelector("#footerName") || { innerText: "" };
+if (document.getElementById("footerName")) {
+  document.getElementById("footerName").innerText = businessName;
+}
+document.getElementById("tagline").innerText = tagline;
+
+// ===== CTA LINKS =====
+const baseMsg = encodeURIComponent("Hi, I want to place an order");
+const mainLink = `https://wa.me/${phone}?text=${baseMsg}`;
+document.getElementById("mainCTA").href = mainLink;
+document.getElementById("bottomCTA").href = mainLink;
+document.getElementById("navCTA").href = mainLink;
+document.getElementById("mobileCTA").href = mainLink;
+document.getElementById("floatWA").href = mainLink;
+document.getElementById("footerWA").href = mainLink;
+
+// ===== PRODUCTS =====
+const grid = document.getElementById("productGrid");
+
+products.forEach((item, i) => {
+  const msg = encodeURIComponent(`Hi, I want to order ${item.name}`);
+  const link = `https://wa.me/${phone}?text=${msg}`;
+  const imgSrc = productImages[item.name] || "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80";
+  const cat = productCategories[item.name] || "Menu";
+  const desc = productDescs[item.name] || "";
+
+  grid.innerHTML += `
+    <div class="card" data-aos="fade-up" data-aos-delay="${i * 70}">
+      <div class="card-img-wrap">
+        <img src="${imgSrc}" alt="${item.name}" loading="lazy">
+        <span class="card-category-badge">${cat}</span>
+      </div>
+      <div class="card-body">
+        <h3>${item.name}</h3>
+        <p class="card-desc">${desc}</p>
+        <div class="price">$${item.price}.00</div>
+        <a class="order-btn" href="${link}" target="_blank">
+          <i class="bi bi-whatsapp"></i> Order
+        </a>
+      </div>
+    </div>
+  `;
+});
+
+// ===== DARK / LIGHT MODE =====
+const html = document.documentElement;
+const icon = document.getElementById("themeIcon");
+const btn  = document.getElementById("themeToggle");
+
+// Auto-detect time of day
+const hour = new Date().getHours();
+const preferDark = hour >= 19 || hour < 7;
+const saved = localStorage.getItem("velour-theme");
+const initTheme = saved || (preferDark ? "dark" : "light");
+
+html.setAttribute("data-theme", initTheme);
+updateIcon(initTheme);
+
+btn.addEventListener("click", () => {
+  const current = html.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  html.setAttribute("data-theme", next);
+  localStorage.setItem("velour-theme", next);
+  updateIcon(next);
+});
+
+function updateIcon(theme) {
+  icon.className = theme === "dark"
+    ? "bi bi-brightness-high-fill"
+    : "bi bi-moon-stars-fill";
+}
+
+// ===== NAVBAR SCROLL SHADOW =====
+window.addEventListener("scroll", () => {
+  const nav = document.getElementById("navbar");
+  if (window.scrollY > 30) {
+    nav.style.boxShadow = "0 2px 20px rgba(0,0,0,0.08)";
+  } else {
+    nav.style.boxShadow = "none";
+  }
+});
+
+// ===== MOBILE MENU =====
+document.getElementById("hamburgerBtn").addEventListener("click", () => {
+  document.getElementById("mobileMenu").classList.toggle("open");
+});
+
+function closeMobile() {
+  document.getElementById("mobileMenu").classList.remove("open");
+}
+
+// ===== AOS INIT =====
+AOS.init({ duration: 700, once: true, offset: 60 });
+</script>
+
+</body>
+</html>
