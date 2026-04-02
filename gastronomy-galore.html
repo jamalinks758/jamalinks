@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Gastronomy Galore</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: gold;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: gold;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+.service-btn {
+    background: #222;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.service-btn:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Gastronomy Galore</h1>
+<p style="text-align:center;">Book Your Experience</p>
+
+<div class="card">
+
+<!-- STEP 1 -->
+<div class="step active" id="step1">
+    <h3>Select a Service</h3>
+    <button class="service-btn" onclick="selectService('Catering')">Catering</button>
+    <button class="service-btn" onclick="selectService('Private Chef')">Private Chef</button>
+    <button class="service-btn" onclick="selectService('Meal Prep')">Meal Prep</button>
+    <button class="service-btn" onclick="selectService('Menu Design')">Menu Design</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step" id="step2">
+    <h3>Event Details</h3>
+    <input type="date" id="date">
+    <input type="number" id="guests" placeholder="Number of Guests">
+    <input type="text" id="location" placeholder="Location">
+    <button onclick="nextStep(3)">Next</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step" id="step3">
+    <h3>Your Info</h3>
+    <input type="text" id="name" placeholder="Your Name">
+    <textarea id="details" placeholder="Extra details (menu ideas, allergies, etc)"></textarea>
+    <button onclick="sendWhatsApp()">Send Booking Request</button>
+</div>
+
+</div>
+</div>
+
+<script>
+let selectedService = "";
+
+function selectService(service) {
+    selectedService = service;
+    nextStep(2);
+}
+
+function nextStep(step) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + step).classList.add('active');
+}
+
+function sendWhatsApp() {
+    let name = document.getElementById("name").value;
+    let date = document.getElementById("date").value;
+    let guests = document.getElementById("guests").value;
+    let location = document.getElementById("location").value;
+    let details = document.getElementById("details").value;
+
+    let message = `Booking Request:%0A
+Service: ${selectedService}%0A
+Name: ${name}%0A
+Date: ${date}%0A
+Guests: ${guests}%0A
+Location: ${location}%0A
+Details: ${details}`;
+
+    let phone = "17587235872"; // REPLACE
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+  </html>
