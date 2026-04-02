@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gastronomy Galore by Chef C | Authentic Culinary Experiences</title>
+
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- AOS Animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES — LIGHT & DARK THEMES
+   ============================================================ */
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dark:  #9A7430;
+  --transition: 0.35s ease;
+}
+[data-theme="dark"] {
+  --bg:         #0E0E0E;
+  --bg2:        #161616;
+  --bg3:        #1E1E1E;
+  --surface:    #242424;
+  --border:     rgba(201,168,76,0.2);
+  --text-primary:#F5F0E8;
+  --text-sec:   #B8B0A0;
+  --text-muted: #706860;
+  --navbar-bg:  rgba(14,14,14,0.96);
+  --card-bg:    #1A1A1A;
+  --input-bg:   #1E1E1E;
+  --input-border:rgba(201,168,76,0.3);
+  --input-text: #F5F0E8;
+}
+[data-theme="light"] {
+  --bg:         #FAF6EE;
+  --bg2:        #F3EDE0;
+  --bg3:        #EDE5D2;
+  --surface:    #FFFFFF;
+  --border:     rgba(154,116,48,0.2);
+  --text-primary:#1A1A1A;
+  --text-sec:   #444444;
+  --text-muted: #888888;
+  --navbar-bg:  rgba(250,246,238,0.97);
+  --card-bg:    #FFFFFF;
+  --input-bg:   #FFFFFF;
+  --input-border:rgba(154,116,48,0.4);
+  --input-text: #1A1A1A;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:'Raleway',sans-serif;font-weight:300;transition:background var(--transition),color var(--transition);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.04em}
+.gold-rule{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+.gold-rule-left{width:60px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.section-pad{padding:100px 0}
+.text-gold{color:var(--gold)!important}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+#mainNav{background:var(--navbar-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background var(--transition),box-shadow var(--transition);z-index:1050}
+#mainNav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.25)}
+.navbar-brand{display:flex;flex-direction:column;line-height:1}
+.navbar-brand .brand-main{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.navbar-brand .brand-sub{font-family:'Cormorant Garamond',serif;font-size:.68rem;font-style:italic;color:var(--text-muted);letter-spacing:.2em;text-transform:uppercase}
+.nav-link{font-family:'Cinzel',serif;font-size:.68rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text-sec)!important;padding:.5rem 1rem!important;position:relative;transition:color var(--transition)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1px;background:var(--gold);transform:translateX(-50%);transition:width var(--transition)}
+.nav-link:hover,.nav-link.active{color:var(--gold)!important}
+.nav-link:hover::after,.nav-link.active::after{width:60%}
+.theme-btn{background:transparent;border:1px solid var(--border);color:var(--gold);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);font-size:.85rem}
+.theme-btn:hover{background:var(--gold);color:#0E0E0E;border-color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:#0E0E0E!important;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.18em;font-weight:700;padding:.5rem 1.3rem!important;border-radius:0;text-transform:uppercase;transition:all var(--transition)}
+.nav-cta:hover{background:linear-gradient(135deg,var(--gold),var(--gold-light))!important;color:#0E0E0E!important;transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,.3)}
+.nav-cta::after{display:none!important}
+.navbar-toggler{border:1px solid var(--border);padding:.35rem .6rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C9A84C' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:#0E0E0E}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.05) 0%,transparent 50%),linear-gradient(180deg,#0E0E0E 0%,#141414 100%)}
+[data-theme="light"] #hero,[data-theme="light"] .hero-bg{background:linear-gradient(180deg,#1A1510 0%,#231C10 100%)}
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:floatParticle linear infinite}
+@keyframes floatParticle{0%{transform:translateY(100vh) translateX(0);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-10vh) translateX(30px);opacity:0}}
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:50px;height:1px;background:var(--gold-dark)}
+.hero-title-script{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);color:#FFF;line-height:1.1;text-shadow:0 0 60px rgba(201,168,76,.15)}
+.hero-title-main{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,3rem);font-weight:700;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.35rem);font-weight:300;font-style:italic;color:rgba(255,255,255,.65);margin-bottom:2.5rem;line-height:1.7;max-width:480px}
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 50%,var(--gold-light) 100%);color:#0E0E0E;font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:1rem 2rem;border:none;cursor:pointer;text-decoration:none;position:relative;overflow:hidden;transition:all var(--transition)}
+.btn-gold::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%) skewX(-15deg);transition:transform .5s ease}
+.btn-gold:hover::before{transform:translateX(150%) skewX(-15deg)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,168,76,.4);color:#0E0E0E}
+.btn-outline-gold{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;padding:.95rem 2rem;border:1px solid var(--gold-dark);cursor:pointer;text-decoration:none;transition:all var(--transition)}
+.btn-outline-gold:hover{background:rgba(201,168,76,.08);border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-logo-mono{width:280px;max-width:90%;filter:drop-shadow(0 0 40px rgba(201,168,76,.2));animation:heroLogoGlow 3s ease-in-out infinite alternate}
+@keyframes heroLogoGlow{from{filter:drop-shadow(0 0 20px rgba(201,168,76,.15))}to{filter:drop-shadow(0 0 50px rgba(201,168,76,.35))}}
+.stats-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,.8);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:1.5rem 0;z-index:3}
+[data-theme="light"] .stats-bar{background:rgba(20,15,8,.9)}
+.stat-item{text-align:center;padding:0 1rem;border-right:1px solid rgba(201,168,76,.15)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.3rem;font-family:'Cinzel',serif}
+.scroll-indicator{position:absolute;bottom:90px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.6}
+.scroll-mouse{width:22px;height:36px;border:1px solid var(--gold-dark);border-radius:11px;display:flex;justify-content:center;padding-top:6px}
+.scroll-dot{width:3px;height:6px;background:var(--gold);border-radius:2px;animation:scrollDot 1.8s ease-in-out infinite}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
+.scroll-text{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.3em;color:var(--gold-dark);text-transform:uppercase}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+#experience-strip{background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 50%,var(--gold-dark) 100%);padding:1.5rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marqueeScroll 25s linear infinite}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#0E0E0E;font-weight:700;padding:0 2.5rem;display:inline-flex;align-items:center;gap:1rem}
+.marquee-dot{width:4px;height:4px;background:rgba(14,14,14,.5);border-radius:50%;flex-shrink:0}
+
+/* ============================================================
+   SECTIONS COMMON
+   ============================================================ */
+.section-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:600;color:var(--text-primary);letter-spacing:.04em;margin-bottom:.5rem}
+.section-script{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-style:italic;font-weight:300;color:var(--gold);line-height:1.1}
+
+/* ============================================================
+   ABOUT / INTRO
+   ============================================================ */
+#intro{background:var(--bg2);padding:100px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.chef-frame{position:relative;display:inline-block;width:100%}
+.chef-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--gold-dark);pointer-events:none;z-index:1}
+.chef-frame::after{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(201,168,76,.25);pointer-events:none}
+.chef-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--bg3) 0%,var(--surface) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-dark);gap:1rem}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+#services{background:var(--bg);padding:100px 0}
+.service-card{background:var(--card-bg);border:1px solid var(--border);padding:2.5rem 2rem;position:relative;transition:all .4s ease;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--gold),var(--gold-dark));transition:height .4s ease}
+.service-card:hover::before{height:100%}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.4);box-shadow:0 20px 50px rgba(0,0,0,.3),0 0 30px rgba(201,168,76,.08)}
+.service-num{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:var(--gold-dark);margin-bottom:1rem}
+.service-icon{font-size:2.2rem;color:var(--gold);margin-bottom:1.2rem;transition:transform .3s ease}
+.service-card:hover .service-icon{transform:scale(1.15)}
+.service-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;letter-spacing:.1em;color:var(--text-primary);margin-bottom:1rem;text-transform:uppercase}
+.service-desc{font-size:.88rem;color:var(--text-sec);line-height:1.8}
+
+/* ============================================================
+   MENU
+   ============================================================ */
+#menu{background:var(--bg2);padding:100px 0}
+.menu-category-btn{background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.6rem 1.5rem;cursor:pointer;transition:all var(--transition)}
+.menu-category-btn.active,.menu-category-btn:hover{background:var(--gold);border-color:var(--gold);color:#0E0E0E}
+.menu-item-card{border-bottom:1px solid var(--border);padding:1.5rem 0;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transition:all var(--transition)}
+.menu-item-card:hover{padding-left:1rem}
+.menu-item-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--text-primary)}
+.menu-item-desc{font-size:.8rem;color:var(--text-muted);font-style:italic;margin-top:.3rem}
+.menu-item-tag{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;color:var(--gold);border:1px solid rgba(201,168,76,.3);padding:.15rem .6rem;margin-top:.4rem;display:inline-block}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+#gallery{background:var(--bg);padding:100px 0}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:8px}
+.g-item{overflow:hidden;background:var(--bg3)}
+.g-item:nth-child(1){grid-column:span 7;grid-row:span 2;min-height:380px}
+.g-item:nth-child(2){grid-column:span 5;min-height:185px}
+.g-item:nth-child(3){grid-column:span 5;min-height:185px}
+.g-item:nth-child(4){grid-column:span 4;min-height:200px}
+.g-item:nth-child(5){grid-column:span 4;min-height:200px}
+.g-item:nth-child(6){grid-column:span 4;min-height:200px}
+.g-item-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--bg3),var(--surface));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:inherit}
+.g-item-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7));z-index:1;opacity:0;transition:opacity var(--transition)}
+.g-item-inner:hover::before{opacity:1}
+.g-overlay-text{position:absolute;bottom:1rem;left:1rem;z-index:2;opacity:0;transform:translateY(10px);transition:all var(--transition);font-family:'Cormorant Garamond',serif;font-size:1rem;color:#fff;font-style:italic}
+.g-item-inner:hover .g-overlay-text{opacity:1;transform:translateY(0)}
+.g-placeholder-icon{font-size:2.5rem;color:var(--gold-dark);opacity:.4}
+@media(max-width:991.98px){.gallery-grid{grid-template-columns:repeat(6,1fr)}.g-item:nth-child(1){grid-column:span 6;grid-row:span 1;min-height:260px}.g-item:nth-child(2){grid-column:span 3}.g-item:nth-child(3){grid-column:span 3}.g-item:nth-child(4){grid-column:span 2}.g-item:nth-child(5){grid-column:span 2}.g-item:nth-child(6){grid-column:span 2}}
+@media(max-width:575.98px){.gallery-grid{grid-template-columns:1fr 1fr}.g-item:nth-child(n){grid-column:span 1;min-height:160px}.g-item:nth-child(1){grid-column:span 2;min-height:220px}.stats-bar{display:none!important}.scroll-indicator{display:none}}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+#testimonials{background:var(--bg2);padding:100px 0;position:relative;overflow:hidden}
+.testimonials-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cinzel',serif;font-size:clamp(6rem,15vw,14rem);font-weight:700;color:rgba(201,168,76,.03);white-space:nowrap;pointer-events:none;letter-spacing:.1em}
+.testimonial-card{background:var(--card-bg);border:1px solid var(--border);padding:2.5rem;position:relative}
+.testimonial-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:6rem;font-style:italic;color:var(--gold);opacity:.2;position:absolute;top:-.5rem;left:1.5rem;line-height:1}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text-sec);line-height:1.8;margin-bottom:1.5rem}
+.testimonial-author{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.testimonial-role{font-size:.75rem;color:var(--text-muted);margin-top:.2rem}
+.stars{color:var(--gold);font-size:.75rem;margin-bottom:1rem}
+
+/* ============================================================
+   BOOKING
+   ============================================================ */
+#booking{background:var(--bg);padding:100px 0}
+.booking-wrap{background:var(--card-bg);border:1px solid var(--border);padding:3rem;position:relative;overflow:hidden}
+.booking-wrap::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent)}
+.step-indicators{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:2.5rem}
+.step-dot{width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;color:var(--text-muted);transition:all var(--transition);flex-shrink:0;position:relative;z-index:1}
+.step-dot.active{background:var(--gold);border-color:var(--gold);color:#0E0E0E}
+.step-dot.done{background:var(--gold-dark);border-color:var(--gold-dark);color:#0E0E0E}
+.step-line{flex:1;height:1px;background:var(--border);max-width:80px}
+.booking-step{display:none}
+.booking-step.active{display:block}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--text-primary);margin-bottom:.3rem;text-align:center}
+.step-sub{font-size:.8rem;color:var(--text-muted);text-align:center;margin-bottom:2rem;letter-spacing:.05em}
+.service-option{background:var(--bg3);border:1px solid var(--border);padding:1.5rem;cursor:pointer;transition:all .3s ease;text-align:center;position:relative;overflow:hidden}
+.service-option::before{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:linear-gradient(0deg,rgba(201,168,76,.1),transparent);transition:height .3s ease}
+.service-option:hover::before{height:100%}
+.service-option:hover,.service-option.selected{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.service-option.selected{background:rgba(201,168,76,.08)}
+.service-option-icon{font-size:2rem;color:var(--gold);margin-bottom:.8rem;display:block}
+.service-option-name{font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;color:var(--text-primary);text-transform:uppercase;margin-bottom:.4rem}
+.service-option-desc{font-size:.75rem;color:var(--text-muted)}
+.gg-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem;display:block}
+.gg-input{width:100%;background:var(--input-bg);border:1px solid var(--input-border);color:var(--input-text);padding:.85rem 1rem;font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;transition:border-color var(--transition),box-shadow var(--transition);border-radius:0;-webkit-appearance:none}
+.gg-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+.gg-input option{background:var(--bg3);color:var(--text-primary)}
+.booking-summary{background:var(--bg3);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.5rem}
+.summary-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
+.summary-row:last-child{border-bottom:none}
+.summary-key{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:var(--text-muted);text-transform:uppercase}
+.summary-val{color:var(--gold);font-weight:500}
+.btn-back{background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.85rem 1.5rem;cursor:pointer;transition:all var(--transition)}
+.btn-back:hover{border-color:var(--text-muted);color:var(--text-primary)}
+
+/* ============================================================
+   WHY
+   ============================================================ */
+#why{background:var(--bg2);padding:100px 0}
+.why-item{display:flex;gap:1.5rem;align-items:flex-start;padding:2rem;border:1px solid var(--border);background:var(--card-bg);transition:all var(--transition)}
+.why-item:hover{border-color:rgba(201,168,76,.4);transform:translateX(6px)}
+.why-icon{width:52px;height:52px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;color:var(--gold);transition:all var(--transition)}
+.why-item:hover .why-icon{background:var(--gold);color:#0E0E0E}
+.why-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;letter-spacing:.1em;color:var(--text-primary);margin-bottom:.5rem;text-transform:uppercase}
+.why-text{font-size:.85rem;color:var(--text-sec);line-height:1.7}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{background:var(--bg);padding:100px 0}
+.contact-info-card{background:var(--card-bg);border:1px solid var(--border);padding:2.5rem}
+.contact-item{display:flex;align-items:flex-start;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.contact-item:last-child{border-bottom:none}
+.contact-icon{width:44px;height:44px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gold);flex-shrink:0}
+.contact-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;color:var(--text-muted);text-transform:uppercase;margin-bottom:.3rem}
+.contact-value{font-size:.9rem;color:var(--text-primary)}
+.social-links{display:flex;gap:.8rem;flex-wrap:wrap}
+.social-link{width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:1.1rem;text-decoration:none;transition:all var(--transition)}
+.social-link:hover{background:var(--gold);border-color:var(--gold);color:#0E0E0E;transform:translateY(-3px)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer{background:#080808;border-top:1px solid rgba(201,168,76,.15);padding:60px 0 30px}
+[data-theme="light"] #footer{background:#111}
+.footer-brand{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;color:var(--gold);letter-spacing:.15em;text-transform:uppercase}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,255,255,.3);font-size:.95rem;margin-top:.3rem}
+.footer-links{list-style:none;padding:0}
+.footer-links li{margin-bottom:.7rem}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color var(--transition)}
+.footer-links a:hover{color:var(--gold)}
+.footer-heading{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem}
+.footer-bottom{border-top:1px solid rgba(201,168,76,.1);padding-top:1.5rem;margin-top:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.2);letter-spacing:.05em}
+
+/* ============================================================
+   FLOATING ELEMENTS
+   ============================================================ */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.4);transition:all var(--transition);animation:waPulse 2.5s ease-in-out infinite}
+.whatsapp-float:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 12px 35px rgba(37,211,102,.5);color:#fff}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 6px 25px rgba(37,211,102,.4),0 0 0 14px rgba(37,211,102,0)}}
+.back-top{position:fixed;bottom:6rem;right:2rem;z-index:9998;width:44px;height:44px;background:rgba(201,168,76,.1);border:1px solid var(--gold-dark);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;text-decoration:none;opacity:0;transform:translateY(20px);transition:all var(--transition);pointer-events:none}
+.back-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.back-top:hover{background:var(--gold);color:#0E0E0E}
+
+/* Booking wrap responsive */
+@media(max-width:575.98px){.booking-wrap{padding:2rem 1.2rem}}
+</style>
+</head>
+<body>
+
+<!-- ==============================
+     NAVBAR
+     ============================== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#hero">
+      <span class="brand-main">Gastronomy Galore</span>
+      <span class="brand-sub">by Chef C &nbsp;·&nbsp; Authentic Experiences</span>
+    </a>
+    <div class="d-flex align-items-center gap-2 order-lg-last ms-3">
+      <button class="theme-btn" id="themeToggle" title="Toggle theme">
+        <i class="bi bi-moon-fill" id="themeIcon"></i>
+      </button>
+      <a href="#booking" class="nav-cta d-none d-lg-inline-flex">Book Now</a>
+      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#intro">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item d-lg-none mt-2"><a href="#booking" class="nav-cta d-inline-flex">Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ==============================
+     HERO
+     ============================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="particles" id="particles"></div>
+  <div class="container hero-content py-5" style="padding-top:120px!important">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-eyebrow"><span>Saint Lucia</span><span>Culinary Excellence</span></div>
+        <div class="hero-title-script">Gastronomy</div>
+        <div class="hero-title-script" style="color:var(--gold);margin-bottom:.3rem">Galore</div>
+        <div class="hero-title-main">by Chef C</div>
+        <p class="hero-tagline">Bringing elevated, bespoke culinary experiences to your table. Where every meal becomes a memory worth savouring.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#booking" class="btn-gold"><i class="bi bi-calendar3"></i> Reserve Your Experience</a>
+          <a href="#services" class="btn-outline-gold"><i class="bi bi-arrow-down"></i> Explore Services</a>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+        <svg class="hero-logo-mono" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="150" r="145" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+          <circle cx="150" cy="150" r="135" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+          <text x="75" y="195" font-family="Cormorant Garamond,serif" font-size="155" font-weight="300" fill="#FFFFFF" opacity="0.95">G</text>
+          <text x="128" y="195" font-family="Cormorant Garamond,serif" font-size="155" font-weight="300" fill="#C9A84C" opacity="0.9">G</text>
+          <text x="150" y="222" font-family="Cormorant Garamond,serif" font-size="14" font-style="italic" fill="rgba(255,255,255,0.6)" text-anchor="middle">Gastronomy Galore by Chef C</text>
+          <text x="150" y="238" font-family="Cinzel,serif" font-size="7" fill="rgba(201,168,76,0.6)" text-anchor="middle" letter-spacing="4">AUTHENTIC EXPERIENCES</text>
+          <path d="M 20 20 L 40 20 M 20 20 L 20 40" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+          <path d="M 280 20 L 260 20 M 280 20 L 280 40" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+          <path d="M 20 280 L 40 280 M 20 280 L 20 260" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+          <path d="M 280 280 L 260 280 M 280 280 L 280 260" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+  <div class="stats-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-3"><div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div></div>
+        <div class="col-3"><div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Events Catered</div></div></div>
+        <div class="col-3"><div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Signature Services</div></div></div>
+        <div class="col-3"><div class="stat-item"><div class="stat-num">★ 5</div><div class="stat-label">Rated Experience</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     MARQUEE STRIP
+     ============================== -->
+<div id="experience-strip">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Menu Design &amp; Creation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Private Chef Services</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Catering for Events</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Meal Preparation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Menu Consultation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Authentic Experiences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Saint Lucia 758</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Menu Design &amp; Creation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Private Chef Services</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Catering for Events</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Meal Preparation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Menu Consultation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Authentic Experiences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Saint Lucia 758</span>
+  </div>
+</div>
+
+<!-- ==============================
+     ABOUT / INTRO
+     ============================== 
+<section id="intro">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="900">
+        <div class="chef-frame">
+          <div class="chef-placeholder">
+            <i class="bi bi-camera" style="font-size:2.5rem;color:var(--gold-dark);opacity:.4"></i>
+            <span style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.25em;color:var(--text-muted)">CHEF C · PORTRAIT</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="900">
+        <p class="section-label">The Art Behind the Plate</p>
+        <div class="section-script mb-1">Meet Chef C</div>
+        <h2 class="section-title mb-4">Elevating Culinary <span class="text-gold">Experiences</span></h2>
+        <div class="gold-rule-left mb-4"></div>
+        <p style="color:var(--text-sec);line-height:1.9;font-size:.95rem;margin-bottom:1.5rem">At Gastronomy Galore, every dish tells a story. Rooted in Saint Lucian culture and trained in refined culinary techniques, Chef C brings an uncompromising passion for quality, presentation, and flavour that transforms any occasion — from an intimate dinner to a grand event — into an unforgettable culinary journey.</p>
+        <p style="color:var(--text-sec);line-height:1.9;font-size:.95rem;margin-bottom:2rem">With a philosophy built on authentic ingredients, thoughtful composition, and personalised service, each experience is crafted exclusively for you. This is not simply catering — this is artistry on a plate.</p>
+        <div class="d-flex flex-wrap gap-4 mb-3">
+          <div><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-style:italic;line-height:1">Bespoke</div><div style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;color:var(--text-muted);text-transform:uppercase">Every Menu</div></div>
+          <div style="border-left:1px solid var(--border);padding-left:1.5rem"><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-style:italic;line-height:1">Premium</div><div style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;color:var(--text-muted);text-transform:uppercase">Every Ingredient</div></div>
+          <div style="border-left:1px solid var(--border);padding-left:1.5rem"><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-style:italic;line-height:1">Flawless</div><div style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;color:var(--text-muted);text-transform:uppercase">Every Execution</div></div>
+        </div>
+        <a href="#booking" class="btn-gold mt-2"><i class="bi bi-calendar3"></i> Book an Experience</a>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- ==============================
+     SERVICES
+     ============================== 
+<section id="services">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">What We Offer</p>
+      <div class="section-script mb-1">Signature Services</div>
+      <h2 class="section-title mb-3">Curated <span class="text-gold">Culinary</span> Solutions</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card h-100"><div class="service-num">01</div><div class="service-icon"><i class="bi bi-journal-text"></i></div><div class="service-title">Menu Design &amp; Creation</div><p class="service-desc">Craft a distinctive culinary identity with fully bespoke menus tailored to your event, brand, or vision. Each menu is a masterpiece of flavour pairing and aesthetic presentation.</p></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card h-100"><div class="service-num">02</div><div class="service-icon"><i class="bi bi-people-fill"></i></div><div class="service-title">Small Catering Events</div><p class="service-desc">Picnics, private parties, intimate dinners — we bring an elevated dining experience to any gathering with premium ingredients, beautiful plating, and seamless service.</p></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card h-100"><div class="service-num">03</div><div class="service-icon"><i class="bi bi-award-fill"></i></div><div class="service-title">Private Chef Services</div><p class="service-desc">Experience restaurant-quality dining in the comfort of your home or chosen venue. Chef C brings the full fine-dining experience — planning, cooking, and plating — directly to you.</p></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card h-100"><div class="service-num">04</div><div class="service-icon"><i class="bi bi-box-seam-fill"></i></div><div class="service-title">Meal Preparation Service</div><p class="service-desc">Nourish your week with thoughtfully prepared, chef-quality meals. From nutritious meal plans to decadent weekly menus, every container is prepared with care and intention.</p></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-card h-100"><div class="service-num">05</div><div class="service-icon"><i class="bi bi-chat-quote-fill"></i></div><div class="service-title">Menu Consultation</div><p class="service-desc">Expert culinary guidance to refine, build, or elevate your restaurant or event menu. Leverage Chef C's expertise to create offerings that truly delight and differentiate.</p></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-card h-100" style="background:linear-gradient(135deg,rgba(201,168,76,.06),transparent);border-color:rgba(201,168,76,.25)"><div class="service-num" style="color:var(--gold)">✦</div><div class="service-icon"><i class="bi bi-star-fill"></i></div><div class="service-title" style="color:var(--gold)">Custom Experience</div><p class="service-desc">Have a unique culinary vision? Let's create something entirely bespoke together. No idea is too grand — we specialise in making the extraordinary happen.</p><a href="#booking" class="btn-outline-gold mt-3 d-inline-flex" style="font-size:.6rem;padding:.6rem 1.2rem">Enquire Now <i class="bi bi-arrow-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- ==============================
+     MENU SHOWCASE
+     ============================== 
+<section id="menu">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7" data-aos="fade-right">
+        <p class="section-label">Sample Repertoire</p>
+        <div class="section-script mb-1">A Taste of Excellence</div>
+        <h2 class="section-title">The <span class="text-gold">Menu</span></h2>
+        <div class="gold-rule-left mt-3"></div>
+      </div>
+      <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+        <p style="color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic">Menus are fully customised to your event.<br>These are sample offerings to inspire.</p>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap gap-2 mb-4" data-aos="fade-up">
+      <button class="menu-category-btn active" onclick="filterMenu('all',this)">All</button>
+      <button class="menu-category-btn" onclick="filterMenu('starters',this)">Starters</button>
+      <button class="menu-category-btn" onclick="filterMenu('mains',this)">Mains</button>
+      <button class="menu-category-btn" onclick="filterMenu('desserts',this)">Desserts</button>
+      <button class="menu-category-btn" onclick="filterMenu('drinks',this)">Signature Drinks</button>
+    </div>
+    <div class="row" id="menuItems">
+      <div class="col-lg-6 menu-entry" data-cat="starters" data-aos="fade-up" data-aos-delay="0"><div class="menu-item-card"><div><div class="menu-item-name">Seared Scallops with Citrus Beurre Blanc</div><div class="menu-item-desc">Pan-seared diver scallops, micro herbs, crispy pancetta, lemon caper emulsion</div><span class="menu-item-tag">Starter</span></div><i class="bi bi-star-fill text-gold" style="font-size:.65rem;flex-shrink:0;margin-top:.4rem"></i></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="starters" data-aos="fade-up" data-aos-delay="50"><div class="menu-item-card"><div><div class="menu-item-name">Caribbean Ceviche</div><div class="menu-item-desc">Fresh catch of the day, coconut milk, habanero, mango salsa, plantain chips</div><span class="menu-item-tag">Starter</span></div></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="mains" data-aos="fade-up" data-aos-delay="100"><div class="menu-item-card"><div><div class="menu-item-name">Herb-Crusted Rack of Lamb</div><div class="menu-item-desc">Rosemary &amp; pistachio crust, roasted garlic purée, haricot verts, port jus</div><span class="menu-item-tag">Main</span></div><i class="bi bi-star-fill text-gold" style="font-size:.65rem;flex-shrink:0;margin-top:.4rem"></i></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="mains" data-aos="fade-up" data-aos-delay="150"><div class="menu-item-card"><div><div class="menu-item-name">Saint Lucian Creole Snapper</div><div class="menu-item-desc">Whole fish, coconut &amp; scotch bonnet broth, dasheen provision, smoked paprika butter</div><span class="menu-item-tag">Main · Caribbean</span></div></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="mains" data-aos="fade-up" data-aos-delay="200"><div class="menu-item-card"><div><div class="menu-item-name">Wagyu Beef Tenderloin</div><div class="menu-item-desc">Truffle pomme purée, wilted spinach, caramelised shallot jus, gold leaf garnish</div><span class="menu-item-tag">Main · Signature</span></div><i class="bi bi-star-fill text-gold" style="font-size:.65rem;flex-shrink:0;margin-top:.4rem"></i></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="desserts" data-aos="fade-up" data-aos-delay="250"><div class="menu-item-card"><div><div class="menu-item-name">Dark Chocolate Fondant</div><div class="menu-item-desc">Valrhona chocolate, salted caramel centre, vanilla bean ice cream, tuile</div><span class="menu-item-tag">Dessert</span></div></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="desserts" data-aos="fade-up" data-aos-delay="300"><div class="menu-item-card"><div><div class="menu-item-name">Tropical Panna Cotta</div><div class="menu-item-desc">Coconut panna cotta, passionfruit coulis, mango gel, toasted sesame brittle</div><span class="menu-item-tag">Dessert · Caribbean</span></div></div></div>
+      <div class="col-lg-6 menu-entry" data-cat="drinks" data-aos="fade-up" data-aos-delay="350"><div class="menu-item-card"><div><div class="menu-item-name">758 Gold Punch</div><div class="menu-item-desc">Saint Lucian rum, guava, ginger beer, lime, edible gold flakes, signature garnish</div><span class="menu-item-tag">Signature Drink</span></div><i class="bi bi-star-fill text-gold" style="font-size:.65rem;flex-shrink:0;margin-top:.4rem"></i></div></div>
+    </div>
+    <div class="text-center mt-4" data-aos="fade-up">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-muted);font-size:1rem;margin-bottom:1.5rem">Full menus are created exclusively for each client and event.</p>
+      <a href="#booking" class="btn-gold"><i class="bi bi-envelope-open"></i> Request a Custom Menu</a>
+    </div>
+  </div>
+</section>-->
+
+<!-- ==============================
+     GALLERY
+     ============================== -->
+<section id="gallery">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">Visual Portfolio</p>
+      <div class="section-script mb-1">The Work Speaks</div>
+      <h2 class="section-title">A Feast for <span class="text-gold">the Eyes</span></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="gallery-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Private Dining</div></div></div>
+      <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Plated Artistry</div></div></div>
+      <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Event Setup</div></div></div>
+     <!-- <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Starters</div></div></div>
+      <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Desserts</div></div></div>
+      <div class="g-item"><div class="g-item-inner"><i class="bi bi-camera g-placeholder-icon"></i><div class="g-overlay-text">Cocktail Hour</div></div></div>
+      -->
+    </div>
+    <p class="text-center mt-4" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-muted)">Chef C's food photography.</p>
+  </div>
+</section>
+
+<!-- ==============================
+     TESTIMONIALS
+     ============================== 
+<section id="testimonials">
+  <div class="testimonials-bg-text">GALORE</div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">Client Stories</p>
+      <div class="section-script mb-1">Voices of Satisfaction</div>
+      <h2 class="section-title">What Our <span class="text-gold">Guests</span> Say</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-card h-100"><div class="stars">★★★★★</div><p class="testimonial-text">"Chef C completely transformed our anniversary dinner. The presentation was breathtaking and the flavours were beyond anything we expected. A truly world-class experience right here in Saint Lucia."</p><div class="testimonial-author">Michelle R.</div><div class="testimonial-role">Anniversary Dinner · Castries, SLU</div></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card h-100"><div class="stars">★★★★★</div><p class="testimonial-text">"We hired Chef C for a corporate event and the response from our guests was overwhelming. Every single dish was impeccably prepared and the service was flawless from start to finish."</p><div class="testimonial-author">David K.</div><div class="testimonial-role">Corporate Event · Rodney Bay, SLU</div></div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card h-100"><div class="stars">★★★★★</div><p class="testimonial-text">"The meal prep service has genuinely changed my week. Restaurant-quality food, beautifully packaged, and every meal feels like it was made just for me. I won't go back to cooking myself!"</p><div class="testimonial-author">Trisha M.</div><div class="testimonial-role">Weekly Meal Prep · Gros Islet, SLU</div></div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- ==============================
+     BOOKING / ORDERING SYSTEM
+     ============================== -->
+<section id="booking">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">Reserve Your Experience</p>
+      <div class="section-script mb-1">Begin Your Journey</div>
+      <h2 class="section-title">Book <span class="text-gold">Gastronomy Galore</span></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="booking-wrap">
+          <!-- Step indicators -->
+          <div class="step-indicators">
+            <div class="step-dot active" id="dot1">1</div>
+            <div class="step-line"></div>
+            <div class="step-dot" id="dot2">2</div>
+            <div class="step-line"></div>
+            <div class="step-dot" id="dot3">3</div>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="booking-step active" id="step1">
+            <div class="step-title">Select Your Experience</div>
+            <p class="step-sub">Choose the service that best matches your vision</p>
+            <div class="row g-3">
+              <div class="col-6 col-md-3"><div class="service-option" onclick="selectService('Catering',this)"><span class="service-option-icon"><i class="bi bi-people-fill"></i></span><div class="service-option-name">Catering</div><div class="service-option-desc">Events &amp; Parties</div></div></div>
+              <div class="col-6 col-md-3"><div class="service-option" onclick="selectService('Private Chef',this)"><span class="service-option-icon"><i class="bi bi-award-fill"></i></span><div class="service-option-name">Private Chef</div><div class="service-option-desc">In-Home Dining</div></div></div>
+              <div class="col-6 col-md-3"><div class="service-option" onclick="selectService('Meal Prep',this)"><span class="service-option-icon"><i class="bi bi-box-seam-fill"></i></span><div class="service-option-name">Meal Prep</div><div class="service-option-desc">Weekly Service</div></div></div>
+              <div class="col-6 col-md-3"><div class="service-option" onclick="selectService('Menu Design',this)"><span class="service-option-icon"><i class="bi bi-journal-text"></i></span><div class="service-option-name">Menu Design</div><div class="service-option-desc">Consultation</div></div></div>
+            </div>
+            <div class="text-center mt-4">
+              <button class="btn-gold" onclick="nextStep(2)" id="step1Btn" disabled style="opacity:.4;cursor:not-allowed">Continue <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="booking-step" id="step2">
+            <div class="step-title">Event Details</div>
+            <p class="step-sub">Tell us about your occasion</p>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="gg-label">Preferred Date</label><input type="date" class="gg-input" id="eventDate"></div>
+              <div class="col-md-6"><label class="gg-label">Number of Guests</label><input type="number" class="gg-input" id="guestCount" placeholder="e.g. 12" min="1"></div>
+              <div class="col-12"><label class="gg-label">Event Location</label><input type="text" class="gg-input" id="eventLocation" placeholder="Venue or address, Saint Lucia"></div>
+              <div class="col-12"><label class="gg-label">Occasion Type</label><select class="gg-input" id="occasionType"><option value="">Select occasion...</option><option>Anniversary / Romantic Dinner</option><option>Birthday Celebration</option><option>Corporate Event</option><option>Wedding Reception</option><option>Private Party</option><option>Picnic / Outdoor Event</option><option>Weekly Meal Plan</option><option>Other</option></select></div>
+            </div>
+            <div class="d-flex gap-3 mt-4">
+              <button class="btn-back" onclick="prevStep(1)"><i class="bi bi-arrow-left"></i> Back</button>
+              <button class="btn-gold flex-grow-1" onclick="nextStep(3)">Continue <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="booking-step" id="step3">
+            <div class="step-title">Your Details</div>
+            <p class="step-sub">Almost there — let's personalise your booking</p>
+            <div class="booking-summary">
+              <div class="summary-row"><span class="summary-key">Service</span><span class="summary-val" id="summaryService">—</span></div>
+              <div class="summary-row"><span class="summary-key">Date</span><span class="summary-val" id="summaryDate">—</span></div>
+              <div class="summary-row"><span class="summary-key">Guests</span><span class="summary-val" id="summaryGuests">—</span></div>
+              <div class="summary-row"><span class="summary-key">Location</span><span class="summary-val" id="summaryLocation">—</span></div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="gg-label">Your Name</label><input type="text" class="gg-input" id="clientName" placeholder="Full name"></div>
+              <div class="col-md-6"><label class="gg-label">Phone Number</label><input type="tel" class="gg-input" id="clientPhone" placeholder="+1 758 ..."></div>
+              <div class="col-12"><label class="gg-label">Menu Preferences, Allergies &amp; Notes</label><textarea class="gg-input" id="clientNotes" rows="4" placeholder="Dietary requirements, cuisine preferences, special requests, allergies..."></textarea></div>
+            </div>
+            <div class="d-flex gap-3 mt-4">
+              <button class="btn-back" onclick="prevStep(2)"><i class="bi bi-arrow-left"></i> Back</button>
+              <button class="btn-gold flex-grow-1" onclick="sendWhatsApp()"><i class="bi bi-whatsapp"></i> Send Booking via WhatsApp</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     WHY CHOOSE US
+     ============================== -->
+<section id="why">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">The Difference</p>
+      <div class="section-script mb-1">Why Gastronomy Galore</div>
+      <h2 class="section-title">Excellence in <span class="text-gold">Every Detail</span></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="why-item"><div class="why-icon"><i class="bi bi-gem"></i></div><div><div class="why-title">Premium Ingredients Only</div><p class="why-text">Every dish begins with the finest locally sourced and imported ingredients. No compromise on quality — ever.</p></div></div></div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="why-item"><div class="why-icon"><i class="bi bi-person-heart"></i></div><div><div class="why-title">100% Personalised Service</div><p class="why-text">Every menu, every event, every meal is created exclusively for you. Your vision becomes our blueprint.</p></div></div></div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200"><div class="why-item"><div class="why-icon"><i class="bi bi-palette2"></i></div><div><div class="why-title">Artistic Presentation</div><p class="why-text">We believe dining is a multi-sensory experience. Every plate is a canvas, crafted with precision and visual artistry.</p></div></div></div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300"><div class="why-item"><div class="why-icon"><i class="bi bi-shield-check"></i></div><div><div class="why-title">Reliable &amp; Professional</div><p class="why-text">From consultation to the last bite, expect seamless communication, punctuality, and white-glove professionalism throughout.</p></div></div></div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="400"><div class="why-item"><div class="why-icon"><i class="bi bi-globe-americas"></i></div><div><div class="why-title">Rooted in Caribbean Culture</div><p class="why-text">Our menus celebrate the rich culinary heritage of Saint Lucia and the wider Caribbean, elevated to a fine dining standard.</p></div></div></div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="500"><div class="why-item"><div class="why-icon"><i class="bi bi-chat-dots-fill"></i></div><div><div class="why-title">Always Accessible</div><p class="why-text">Quick responses, transparent communication, and a genuine commitment to making your experience perfect from the very first message.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CONTACT
+     ============================== -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <p class="section-label">Get in Touch</p>
+      <div class="section-script mb-1">Let's Create Together</div>
+      <h2 class="section-title">Contact <span class="text-gold">Chef C</span></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="contact-info-card">
+          <h4 style="font-size:.75rem;letter-spacing:.25em;color:var(--gold);margin-bottom:1.5rem;font-family:'Cinzel',serif;text-transform:uppercase">Reach Out Directly</h4>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-envelope-fill"></i></div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:gastronomygalore758@gmail.com" style="color:var(--gold);text-decoration:none">gastronomygalore758@gmail.com</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-whatsapp"></i></div><div><div class="contact-label">WhatsApp</div><div class="contact-value"><a href="https://wa.me/17587235872" target="_blank" style="color:var(--gold);text-decoration:none">+1 (758) 723-5872</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div><div><div class="contact-label">Location</div><div class="contact-value">Castries, Saint Lucia 🇱🇨</div></div></div>
+          <div class="contact-item"><div class="contact-icon"><i class="bi bi-clock-fill"></i></div><div><div class="contact-label">Availability</div><div class="contact-value">By appointment · Island-wide</div></div></div>
+          <div class="mt-3">
+            <div class="contact-label mb-2">Follow on Social</div>
+            <div class="social-links">
+              <a href="https://www.instagram.com/gastronomygalore_" target="_blank" class="social-link" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://wa.me/17587235872" target="_blank" class="social-link" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              <a href="mailto:gastronomygalore758@gmail.com" class="social-link" title="Email"><i class="bi bi-envelope-fill"></i></a>
+              <a href="#" class="social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link" title="TikTok"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="contact-info-card" style="height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;font-weight:300;color:var(--text-primary);margin-bottom:1rem">Ready to elevate your next event?</h4>
+            <p style="color:var(--text-sec);line-height:1.9;font-size:.9rem;margin-bottom:2rem">Whether you're envisioning an intimate candlelit dinner, a lavish celebration, or simply want to enjoy chef-crafted meals throughout your week — we would love to hear from you.</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-bottom:2rem">"Every great meal starts with a single conversation."</p>
+          </div>
+          <div class="d-flex flex-column gap-3">
+            <a href="https://wa.me/17587235872" target="_blank" class="btn-gold text-center justify-content-center"><i class="bi bi-whatsapp"></i> Message on WhatsApp</a>
+            <a href="mailto:gastronomygalore758@gmail.com" class="btn-outline-gold text-center justify-content-center"><i class="bi bi-envelope"></i> Send an Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+     ============================== -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">Gastronomy Galore</div>
+        <div class="footer-tagline">by Chef C · Authentic Experiences</div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:1.2rem;line-height:1.8">Bringing elevated culinary experiences to your table. Based in the beautiful island of Saint Lucia — serving with passion, precision, and purpose.</p>
+        <div class="social-links mt-3">
+          <a href="https://www.instagram.com/gastronomygalore_" target="_blank" class="social-link"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/17587235872" target="_blank" class="social-link"><i class="bi bi-whatsapp"></i></a>
+          <a href="mailto:gastronomygalore758@gmail.com" class="social-link"><i class="bi bi-envelope-fill"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="#intro">About Chef C</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Services</div>
+        <ul class="footer-links">
+          <li><a href="#booking">Catering</a></li>
+          <li><a href="#booking">Private Chef</a></li>
+          <li><a href="#booking">Meal Prep</a></li>
+          <li><a href="#booking">Menu Design</a></li>
+          <li><a href="#booking">Consultation</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Get in Touch</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.3);line-height:2.2">
+          <div><i class="bi bi-envelope-fill" style="color:var(--gold-dark);margin-right:.5rem"></i>gastronomygalore758@gmail.com</div>
+          <div><i class="bi bi-whatsapp" style="color:var(--gold-dark);margin-right:.5rem"></i>+1 (758) 723-5872</div>
+          <div><i class="bi bi-geo-alt-fill" style="color:var(--gold-dark);margin-right:.5rem"></i>Castries, Saint Lucia 🇱🇨</div>
+          <div><i class="bi bi-instagram" style="color:var(--gold-dark);margin-right:.5rem"></i>@gastronomygalore_</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Gastronomy Galore by Chef C · All Rights Reserved · Saint Lucia 758</div>
+      <div class="footer-copy" style="display:flex;align-items:center;gap:.5rem">
+        <span>Built by</span>
+        <span style="color:var(--gold-dark);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em">JAMALINKS</span>
+        <span>·</span>
+        <span style="font-style:italic;font-family:'Cormorant Garamond',serif">Your Link to Your World</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/17587235872" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- Back to top -->
+<a href="#hero" class="back-top" id="backTop" title="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</a>
+
+<!-- ==============================
+     SCRIPTS
+     ============================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+// AOS
+AOS.init({once:true,offset:60,easing:'ease-out-cubic'});
+
+// Navbar scroll
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+// Active nav links
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const link=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(link)link.classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'}).observe(document.querySelector('#intro')||sections[0]);
+sections.forEach(s=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const link=document.querySelector(`.nav-link[href="#${e.target.id}"]`);if(link)link.classList.add('active');}});},{rootMargin:'-40% 0px -55% 0px'}).observe(s));
+
+// Back to top
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>backTop.classList.toggle('visible',window.scrollY>400));
+
+// Theme toggle
+const html=document.documentElement;
+const themeIcon=document.getElementById('themeIcon');
+let isDark=true;
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  isDark=!isDark;
+  html.setAttribute('data-theme',isDark?'dark':'light');
+  themeIcon.className=isDark?'bi bi-moon-fill':'bi bi-sun-fill';
+});
+
+// Particles
+const pContainer=document.getElementById('particles');
+for(let i=0;i<25;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`left:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-duration:${Math.random()*12+8}s;animation-delay:${Math.random()*10}s;opacity:${Math.random()*.5+.1}`;
+  pContainer.appendChild(p);
+}
+
+// Menu filter
+function filterMenu(cat,btn){
+  document.querySelectorAll('.menu-category-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.menu-entry').forEach(item=>{
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none';
+  });
+}
+
+// Booking
+let selectedService='';
+
+function selectService(service,el){
+  selectedService=service;
+  document.querySelectorAll('.service-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  const btn=document.getElementById('step1Btn');
+  btn.disabled=false;btn.style.opacity='1';btn.style.cursor='pointer';
+}
+
+function nextStep(n){
+  if(n===3){
+    document.getElementById('summaryService').textContent=selectedService||'—';
+    document.getElementById('summaryDate').textContent=document.getElementById('eventDate').value||'—';
+    document.getElementById('summaryGuests').textContent=document.getElementById('guestCount').value||'—';
+    document.getElementById('summaryLocation').textContent=document.getElementById('eventLocation').value||'—';
+  }
+  document.querySelectorAll('.booking-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  updateDots(n);
+  document.getElementById('booking').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function prevStep(n){
+  document.querySelectorAll('.booking-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  updateDots(n);
+}
+
+function updateDots(current){
+  for(let i=1;i<=3;i++){
+    const dot=document.getElementById('dot'+i);
+    dot.classList.remove('active','done');
+    if(i<current)dot.classList.add('done');
+    else if(i===current)dot.classList.add('active');
+  }
+}
+
+function sendWhatsApp(){
+  const name=document.getElementById('clientName').value||'Not provided';
+  const phone=document.getElementById('clientPhone').value||'Not provided';
+  const date=document.getElementById('eventDate').value||'TBD';
+  const guests=document.getElementById('guestCount').value||'TBD';
+  const location=document.getElementById('eventLocation').value||'TBD';
+  const occasion=document.getElementById('occasionType').value||'TBD';
+  const notes=document.getElementById('clientNotes').value||'None';
+  const message=encodeURIComponent(`✨ *New Booking Request — Gastronomy Galore*\n\n*Service:* ${selectedService}\n*Occasion:* ${occasion}\n*Client Name:* ${name}\n*Phone:* ${phone}\n*Date:* ${date}\n*Guests:* ${guests}\n*Location:* ${location}\n\n*Notes / Preferences:*\n${notes}\n\n_Sent via gastronomygalore.com_`);
+  window.open(`https://wa.me/17587235872?text=${message}`,'_blank');
+}
+</script>
+</body>
+</html>
