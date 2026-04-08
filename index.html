@@ -68,9 +68,18 @@
           </button>
         </li>
         <li class="nav-item ms-lg-2">
-          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" class="whatsapp-button" id="whatsappButton" onclick="trackWhatsAppClick(event)">
             <i class="bi bi-whatsapp me-1"></i>Start My Ordering Page
           </a>
+
+            <!-- WhatsApp Button with Cookie-Free Tracking
+<a href="https://wa.me/1234567890?text=Hello%2C%20I%27d%20like%20a%20quote" 
+   class="whatsapp-button" 
+   id="whatsappButton"
+   onclick="trackWhatsAppClick(event)">
+    💬 Chat with us on WhatsApp
+</a> -->
+          
         </li>
       </ul>
     </div>
@@ -557,6 +566,41 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
             }
         }
     };
+
+  
+
+<script>
+// COOKIE-FREE WHATSAPP TRACKING
+// Replace with your Google Apps Script Web App URL
+const TRACKING_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+function trackWhatsAppClick(event) {
+    // Get device type from user agent (no cookies)
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const deviceType = isMobile ? 'mobile' : 'desktop';
+    
+    // Get button location from the element
+    const buttonId = event.currentTarget.id;
+    const location = buttonId === 'whatsappButton' ? 'hero' : 'footer';
+    
+    // Send data to Google Sheet (no cookies, no personal data)
+    fetch(TRACKING_URL, {
+        method: 'POST',
+        mode: 'no-cors',  // This allows cross-origin requests
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            page: window.location.pathname,
+            location: location,
+            userAgent: deviceType
+        })
+    }).catch(error => console.log('Tracking failed (non-critical):', error));
+    
+    // Let the link work normally
+    return true;
+}
+</script>
 
     // Load saved consent from localStorage
     function loadConsentState() {
