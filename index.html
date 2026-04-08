@@ -95,7 +95,7 @@
         <h1 class="hero-title reveal d1">Stop Answering DMs all day<br><span class="accent"> Let customers order instantly</span></h1>
         <p class="hero-sub reveal d2">Let customers see your products, prices, and place orders instantly through WhatsApp - without you answering the same questions all day.</p>
         <div class="d-flex flex-wrap gap-3 reveal d3">
-          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" class="btn-wa"><i class="bi bi-whatsapp"></i> Start My Ordering Page</a>
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa"><i class="bi bi-whatsapp"></i> Start My Ordering Page</a>
           <a href="#demos" class="btn-blue"><i class="bi bi-grid-3x3-gap"></i> See Examples</a>
             <p class="hero-sub reveal d2 mt-4">No app needed - Works with your current Instagram (or any other social media page) - Ready in 2-3 days</p>
         </div>
@@ -353,7 +353,7 @@
 
     <div class="text-center reveal d3">
       <p class="text-m mb-3">Don't see your industry? We build for any business.</p>
-      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" class="btn-wa"><i class="bi bi-whatsapp"></i> Request Your Version</a>
+      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" onclick="trackWhatsAppClick(event)" class="btn-wa"><i class="bi bi-whatsapp"></i> Request Your Version</a>
     </div>
     
   </div>
@@ -399,7 +399,7 @@
              <small class="text-m">No contracts. No surprises. Just a simple page that helps you sell</small>
           </div>
           <div class="text-center mt-4">
-            <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Start Getting Orders</a>
+            <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Start Getting Orders</a>
           </div>
         </div>
       </div>
@@ -456,7 +456,7 @@
         <p class="footer-head">Contact Us</p>
         <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2"><i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872</a>
         <p class="footer-lnk" style="cursor:default"><i class="bi bi-clock me-2" style="color:var(--gold)"></i> Mon–Sat, 9 AM – 6 PM</p>
-        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem"><i class="bi bi-whatsapp"></i> Chat Now</a>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)"><i class="bi bi-whatsapp"></i> Chat Now</a>
       </div>
     </div>
     <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -571,8 +571,77 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 <script>
 // COOKIE-FREE WHATSAPP TRACKING
-// Replace with your Google Apps Script Web App URL
-const TRACKING_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+<script>
+// Configuration for the consent banner
+const config = {
+    display: {
+        mode: 'bar',        // 'bar' at bottom or 'modal' in center
+        wall: false         // true = dim the page background
+    },
+    consent_types: [
+        {
+            name: 'analytics_storage',
+            title: 'Analytics',
+            description: 'Helps us understand how visitors interact with our website.',
+            default: 'denied',
+            require: false
+        }
+    ],
+    modal: {
+        title: 'We value your privacy',
+        description: 'This site uses cookies to improve your experience.',
+        buttons: {
+            settings: 'Settings',
+            close: 'Close',
+            reject: 'Reject',
+            accept: 'Accept all'
+        }
+    },
+    settings: {
+        title: 'Customise your preferences',
+        description: 'Choose which cookies you want to allow.',
+        buttons: {
+            reject: 'Reject',
+            close: 'Close',
+            save: 'Save',
+            accept: 'Accept all'
+        }
+    }
+};
+
+// Load saved consent from localStorage
+function loadConsentState() {
+    const saved = localStorage.getItem('cookie_consent');
+    return saved ? JSON.parse(saved) : {};
+}
+
+// Save consent when user makes a choice
+function saveConsentState(consentState) {
+    localStorage.setItem('cookie_consent', JSON.stringify(consentState));
+    
+    // If analytics was granted, load Google Analytics
+    if (consentState.analytics_storage === 'granted') {
+        loadGoogleAnalytics();
+    }
+}
+
+// Your Google Analytics loading function
+function loadGoogleAnalytics() {
+    // Google tag (gtag.js) - Replace G-D5H0JCYXE3 with your actual ID
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5H0JCYXE3');
+}
+
+// COOKIE-FREE WHATSAPP TRACKING
+// REPLACE THIS URL with your actual Google Apps Script Web App URL
+const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec';
 
 function trackWhatsAppClick(event) {
     // Get device type from user agent (no cookies)
@@ -584,56 +653,28 @@ function trackWhatsAppClick(event) {
     const location = buttonId === 'whatsappButton' ? 'hero' : 'footer';
     
     // Send data to Google Sheet (no cookies, no personal data)
-    fetch(TRACKING_URL, {
-        method: 'POST',
-        mode: 'no-cors',  // This allows cross-origin requests
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            page: window.location.pathname,
-            location: location,
-            userAgent: deviceType
-        })
-    }).catch(error => console.log('Tracking failed (non-critical):', error));
+    if (TRACKING_URL !== 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec') {
+        fetch(TRACKING_URL, {
+            method: 'POST',
+            mode: 'no-cors',  // This allows cross-origin requests
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                page: window.location.pathname,
+                location: location,
+                userAgent: deviceType,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(error => console.log('Tracking failed (non-critical):', error));
+    }
     
     // Let the link work normally
     return true;
 }
-</script>
 
-    // Load saved consent from localStorage
-    function loadConsentState() {
-        const saved = localStorage.getItem('cookie_consent');
-        return saved ? JSON.parse(saved) : {};
-    }
-
-    // Save consent when user makes a choice
-    function saveConsentState(consentState) {
-        localStorage.setItem('cookie_consent', JSON.stringify(consentState));
-        
-        // If analytics was granted, load Google Analytics
-        if (consentState.analytics_storage === 'granted') {
-            loadGoogleAnalytics();
-        }
-    }
-
-    // Your Google Analytics loading function
-    function loadGoogleAnalytics() {
-        // Google tag (gtag.js) - Replace G-D5H0JCYXE3 with your actual ID
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
-        script.async = true;
-        document.head.appendChild(script);
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-D5H0JCYXE3');
-    }
-
-    // Initialize the banner
-    cookiesBannerJs(loadConsentState, saveConsentState, config);
+// Initialize the banner
+cookiesBannerJs(loadConsentState, saveConsentState, config);
 </script>
 <script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
 </body>
