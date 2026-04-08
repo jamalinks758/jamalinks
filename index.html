@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,7 +9,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-D5H0JCYXE3');
-</script>
+</script> -->
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -640,42 +640,107 @@ function loadGoogleAnalytics() {
 }
 
 // COOKIE-FREE WHATSAPP TRACKING
-// REPLACE THIS URL with your actual Google Apps Script Web App URL
+<script>
+// Configuration for the consent banner
+const config = {
+    display: {
+        mode: 'bar',        // 'bar' at bottom or 'modal' in center
+        wall: false
+    },
+    consent_types: [
+        {
+            name: 'analytics_storage',
+            title: 'Analytics',
+            description: 'Helps us understand how visitors interact with our website.',
+            default: 'denied',
+            require: false
+        }
+    ],
+    modal: {
+        title: 'We value your privacy',
+        description: 'This site uses cookies to improve your experience.',
+        buttons: {
+            settings: 'Settings',
+            close: 'Close',
+            reject: 'Reject',
+            accept: 'Accept all'
+        }
+    },
+    settings: {
+        title: 'Customise your preferences',
+        description: 'Choose which cookies you want to allow.',
+        buttons: {
+            reject: 'Reject',
+            close: 'Close',
+            save: 'Save',
+            accept: 'Accept all'
+        }
+    }
+};
+
+// Load saved consent from localStorage
+function loadConsentState() {
+    const saved = localStorage.getItem('cookie_consent');
+    return saved ? JSON.parse(saved) : {};
+}
+
+// Save consent when user makes a choice
+function saveConsentState(consentState) {
+    localStorage.setItem('cookie_consent', JSON.stringify(consentState));
+    
+    if (consentState.analytics_storage === 'granted') {
+        loadGoogleAnalytics();
+    }
+}
+
+// Load Google Analytics only after consent
+function loadGoogleAnalytics() {
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5H0JCYXE3');
+}
+
+// WhatsApp tracking
 const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec';
 
 function trackWhatsAppClick(event) {
-    // Get device type from user agent (no cookies)
     const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     const deviceType = isMobile ? 'mobile' : 'desktop';
-    
-    // Get button location from the element
     const buttonId = event.currentTarget.id;
     const location = buttonId === 'whatsappButton' ? 'hero' : 'footer';
     
-    // Send data to Google Sheet (no cookies, no personal data)
-    if (TRACKING_URL !== 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec') {
-        fetch(TRACKING_URL, {
-            method: 'POST',
-            mode: 'no-cors',  // This allows cross-origin requests
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                page: window.location.pathname,
-                location: location,
-                userAgent: deviceType,
-                timestamp: new Date().toISOString()
-            })
-        }).catch(error => console.log('Tracking failed (non-critical):', error));
-    }
+    fetch(TRACKING_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            page: window.location.pathname,
+            location: location,
+            userAgent: deviceType,
+            timestamp: new Date().toISOString()
+        })
+    }).catch(error => console.log('Tracking failed:', error));
     
-    // Let the link work normally
     return true;
 }
 
-// Initialize the banner
-cookiesBannerJs(loadConsentState, saveConsentState, config);
+// Initialize the consent banner when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof cookiesBannerJs !== 'undefined') {
+        cookiesBannerJs(loadConsentState, saveConsentState, config);
+    }
+});
 </script>
 <script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
+</body>
+</html>
+</body>
+</html>
 </body>
 </html>
