@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Client's Business Name</title>
+    
+    <!-- Google Fonts (Optional - remove if client doesn't want) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Consent Banner CSS -->
+    <link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #34495e;
+            padding: 12px 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+            min-height: 60vh;
+        }
+        
+        /* Quote Request Form */
+        .quote-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .quote-form h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        button[type="submit"] {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+        }
+        
+        button[type="submit"]:hover {
+            background: #1a252f;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        /* Custom Consent Banner Styling - Match Client Brand */
+        .consent-banner-button[href="#accept"] {
+            background-color: #2c3e50 !important;
+        }
+        
+        .consent-banner-button[href="#accept"]:hover {
+            background-color: #1a252f !important;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Client Business Name</h1>
+        <p>Professional Services | Quality Work | Great Prices</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <div class="quote-form">
+            <h2>Request a Quote</h2>
+            <div class="success-message" id="successMessage">
+                Thank you! We'll get back to you within 24 hours.
+            </div>
+            <form id="quoteRequestForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Needed *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="design">Design</option>
+                        <option value="development">Development</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                
+                <button type="submit">Send Request</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Client Business Name. All rights reserved.</p>
+        <p>
+            <a href="/privacy.html">Privacy Policy</a> | 
+            <a href="/terms.html">Terms of Service</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Consent Banner JavaScript Configuration -->
+<script>
+    // ============================================
+    // CONFIGURATION - EDIT FOR EACH CLIENT
+    // ============================================
+    
+    // REPLACE with your client's actual Google Analytics Measurement ID
+    // Format: G-XXXXXXXXXX
+    const GOOGLE_ANALYTICS_ID = 'G-XXXXXXXXXX';
+    
+    // ============================================
+    // CONSENT BANNER CONFIGURATION
+    // ============================================
+    
+    const consentConfig = {
+        display: {
+            mode: 'bar',        // 'bar' at bottom or 'modal' in center
+            wall: false         // true = dim the page background
+        },
+        consent_types: [
+            {
+                name: 'analytics_storage',
+                title: 'Analytics',
+                description: 'We use Google Analytics to understand how visitors interact with our website. This helps us improve our services.',
+                default: 'denied',
+                require: false
+            }
+        ],
+        modal: {
+            title: 'We value your privacy',
+            description: 'This website uses cookies to improve your experience. We only use essential cookies for functionality and analytics cookies with your consent.',
+            buttons: {
+                settings: 'Cookie Settings',
+                close: 'Close',
+                reject: 'Reject optional cookies',
+                accept: 'Accept all cookies'
+            }
+        },
+        settings: {
+            title: 'Cookie preferences',
+            description: 'Choose which types of cookies you want to allow. Essential cookies are necessary for the website to function and cannot be disabled.',
+            buttons: {
+                reject: 'Reject optional',
+                close: 'Close',
+                save: 'Save preferences',
+                accept: 'Accept all'
+            }
+        }
+    };
+    
+    // ============================================
+    // GOOGLE ANALYTICS LOADING FUNCTION
+    // ============================================
+    
+    function loadGoogleAnalytics() {
+        // Prevent loading twice
+        if (window.gaLoaded) return;
+        window.gaLoaded = true;
+        
+        // Load Google Analytics 4
+        const script = document.createElement('script');
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
+        script.async = true;
+        document.head.appendChild(script);
+        
+        // Initialize dataLayer and gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() {
+            window.dataLayer.push(arguments);
+        };
+        
+        gtag('js', new Date());
+        gtag('config', GOOGLE_ANALYTICS_ID);
+        
+        console.log('Google Analytics loaded with consent');
+    }
+    
+    // ============================================
+    // CONSENT STORAGE FUNCTIONS
+    // ============================================
+    
+    function loadConsentState() {
+        const saved = localStorage.getItem('cookie_consent');
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                // If analytics was granted, load GA (in case user returns to site)
+                if (parsed.analytics_storage === 'granted') {
+                    loadGoogleAnalytics();
+                }
+                return parsed;
+            } catch(e) {
+                return {};
+            }
+        }
+        return {};
+    }
+    
+    function saveConsentState(consentState) {
+        localStorage.setItem('cookie_consent', JSON.stringify(consentState));
+        
+        // If analytics was granted, load Google Analytics
+        if (consentState.analytics_storage === 'granted') {
+            loadGoogleAnalytics();
+        }
+    }
+    
+    // ============================================
+    // INITIALIZE CONSENT BANNER
+    // ============================================
+    
+    // Wait for the consent banner script to load
+    window.addEventListener('load', function() {
+        if (typeof cookiesBannerJs !== 'undefined') {
+            cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
+        } else {
+            console.warn('Consent banner script not loaded. Check your internet connection.');
+        }
+    });
+    
+    // ============================================
+    // FORM HANDLING (NO GA TRACKING OF PII)
+    // ============================================
+    
+    document.getElementById('quoteRequestForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data (DO NOT send this to Google Analytics)
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const service = document.getElementById('service').value;
+        
+        // You can track that a form was submitted (without PII)
+        if (window.gtag && typeof window.gtag === 'function') {
+            gtag('event', 'quote_request_submitted', {
+                'service_type': service,
+                'event_category': 'conversion',
+                'event_label': 'quote_form'
+            });
+        }
+        
+        // Show success message
+        const successMsg = document.getElementById('successMessage');
+        successMsg.style.display = 'block';
+        
+        // Reset form
+        this.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+            successMsg.style.display = 'none';
+        }, 5000);
+        
+        // Here you would normally send the form data to your backend
+        // For static GitHub Pages, you can use Formspree, Getform, or similar
+        // Example using Formspree (replace with your endpoint):
+        /*
+        fetch('https://formspree.io/f/your-endpoint', {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                successMsg.style.display = 'block';
+                this.reset();
+            }
+        });
+        */
+    });
+</script>
+
+<!-- Load Consent Banner Script -->
+<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
+
+</body>
+</html>
