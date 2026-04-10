@@ -1,37 +1,210 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-D5H0JCYXE3');
-</script> -->
-  
+<!-- ══ META ═══════════════════════════════════════════ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>jamaLinks — Your Link to Your World</title>
-  
-<!--To allow Google Analytics -->
+<meta name="description" content="Stop answering DMs all day. Let customers see your products, prices, and place orders instantly through WhatsApp — without the back-and-forth.">
+
+<!-- ══ OPEN GRAPH (WhatsApp / Facebook link previews) ══ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://jamalinks758.github.io/jamalinks/">
+<meta property="og:title"       content="jamaLinks — Let Customers Order Instantly">
+<meta property="og:description" content="A simple page that turns your social media followers into paying customers via WhatsApp. Ready in 2–3 days.">
+<meta property="og:image"       content="https://jamalinks758.github.io/jamalinks/images/og-preview.jpg">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ FAVICON ════════════════════════════════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+<link rel="apple-touch-icon"       href="images/logo.webp">
+
+<!-- ══ CONSENT BANNER CSS ════════════════════════════ -->
 <link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
-  
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ══ CUSTOM STYLESHEET ══════════════════════════════ -->
 <link href="css/style.css" rel="stylesheet">
+
 <style>
-/* Example custom styling for Google Analytics*/
+/* ── Consent Banner Overrides ─────────────────────── */
 .consent-banner-button[href="#accept"] {
-    background-color: #4CAF50;
-    font-family: inherit;
+  background-color: #4CAF50;
+  font-family: inherit;
+}
+.consent-banner-modal {
+  font-family: 'DM Sans', 'Georgia', sans-serif;
 }
 
-.consent-banner-modal {
-    font-family: 'Lato', 'Georgia', 'Monsterrat', sans-serif;
+/* ══════════════════════════════════════════════════════
+   HERO PHONE MOCKUP — replaces the old CSS-line mock
+   ══════════════════════════════════════════════════════ */
+.hero-phone-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
 }
+.phone-shell {
+  background: var(--card, #fff);
+  border: 3px solid rgba(0,0,0,.12);
+  border-radius: 2.5rem;
+  padding: 1.2rem 1rem 1.5rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,.18), 0 0 0 6px rgba(0,0,0,.05);
+  position: relative;
+  overflow: hidden;
+}
+.phone-notch {
+  width: 80px;
+  height: 10px;
+  background: rgba(0,0,0,.13);
+  border-radius: 10px;
+  margin: 0 auto 1rem;
+}
+.phone-screen-inner {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--bg, #f8f8f8);
+  padding: .9rem;
+}
+/* mini page inside the phone */
+.mini-brand   { font-weight: 700; font-size: .7rem; color: var(--gold, #c9a84c); letter-spacing: .04em; margin-bottom: .5rem; }
+.mini-hero-img{
+  width: 100%;
+  aspect-ratio: 16/7;
+  border-radius: .6rem;
+  object-fit: cover;
+  margin-bottom: .6rem;
+  background: linear-gradient(135deg, #c9a84c22, #1a6eb522);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem;
+}
+.mini-title   { font-size: .62rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; color: var(--text, #111); }
+.mini-price   { font-size: .58rem; color: var(--muted, #666); margin-bottom: .5rem; }
+.mini-wa-btn  {
+  display: flex; align-items: center; justify-content: center; gap: .3rem;
+  background: #25D366; color: #fff;
+  border-radius: .5rem; padding: .35rem .5rem;
+  font-size: .6rem; font-weight: 600;
+}
+/* stat pills already in style.css, these just reinforce */
+.stat-pill { white-space: nowrap; }
+
+/* ══════════════════════════════════════════════════════
+   HOW IT WORKS — horizontal flow graphic
+   ══════════════════════════════════════════════════════ */
+.how-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  margin-top: 2.5rem;
+}
+.how-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 .75rem;
+  position: relative;
+}
+.how-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  right: -.5rem;
+  width: 1rem;
+  height: 2px;
+  background: var(--gold, #c9a84c);
+  opacity: .5;
+}
+.how-icon-wrap {
+  width: 4rem; height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold,#c9a84c) 0%, var(--blue,#1a6eb5) 100%);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto .75rem;
+  font-size: 1.4rem;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(26,110,181,.25);
+}
+.how-step h6 { font-size: .82rem; font-weight: 700; margin-bottom: .25rem; }
+.how-step p  { font-size: .76rem; opacity: .75; line-height: 1.4; }
+@media (max-width: 576px) {
+  .how-flow { flex-direction: column; align-items: center; gap: 1.2rem; }
+  .how-step:not(:last-child)::after { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════
+   FEATURE ITEMS — shorter bold labels
+   ══════════════════════════════════════════════════════ */
+.feat-label { font-size: 1rem; font-weight: 700; display: block; margin-bottom: .2rem; }
+
+/* ══════════════════════════════════════════════════════
+   DEMO CARDS — standardised image ratio
+   ══════════════════════════════════════════════════════ */
+.demo-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: .75rem .75rem 0 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════ */
+.testimonial-card {
+  background: var(--card, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 1.25rem;
+  padding: 2rem 1.75rem 1.5rem;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.10);
+}
+.testimonial-quote {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--gold, #c9a84c);
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  opacity: .35;
+}
+.testimonial-text {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--text, #222);
+  margin-bottom: 1.25rem;
+  padding-top: 1.25rem;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  font-size: 1.4rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.testimonial-name  { font-weight: 700; font-size: .9rem; }
+.testimonial-biz   { font-size: .78rem; opacity: .65; }
+.testimonial-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .6rem; }
 
 /* ── GLOBAL OVERFLOW FIX ─────────────────────────── */
 html, body {
@@ -84,16 +257,10 @@ html, body {
   scrollbar-width: thin;
   scrollbar-color: var(--gold, #C9A84C) transparent;
 }
-.pricing-scroll-track::-webkit-scrollbar {
-  height: 4px;
-}
-.pricing-scroll-track::-webkit-scrollbar-track {
-  background: transparent;
-}
-.pricing-scroll-track::-webkit-scrollbar-thumb {
-  background: var(--gold, #C9A84C);
-  border-radius: 4px;
-}
+.pricing-scroll-track::-webkit-scrollbar { height: 4px; }
+.pricing-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.pricing-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #C9A84C); border-radius: 4px; }
+
 .pricing-tier-card {
   flex: 0 0 300px;
   min-width: 300px;
@@ -104,7 +271,6 @@ html, body {
   padding: 1.75rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0;
   position: relative;
   transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
 }
@@ -137,9 +303,7 @@ html, body {
   border-radius: 20px;
   white-space: nowrap;
 }
-.tier-header {
-  margin-bottom: 1.25rem;
-}
+.tier-header { margin-bottom: 1.25rem; }
 .tier-badge {
   display: inline-block;
   font-size: .7rem;
@@ -157,45 +321,15 @@ html, body {
   color: var(--heading, #0d1b2e);
   margin-bottom: .15rem;
 }
-[data-theme="dark"] .tier-price {
-  color: #f0ece3;
-}
-.tier-price sup {
-  font-size: 1.1rem;
-  font-weight: 700;
-  vertical-align: super;
-  margin-right: .05rem;
-}
-.tier-price .tier-range {
-  font-size: 1.1rem;
-  font-weight: 400;
-  opacity: .55;
-}
-.tier-label {
-  font-size: .75rem;
-  opacity: .55;
-  margin-bottom: .75rem;
-  font-weight: 500;
-}
-.tier-desc {
-  font-size: .82rem;
-  line-height: 1.55;
-  opacity: .7;
-  margin: 0;
-}
-.tier-body {
-  flex: 1;
-  margin-bottom: 1.25rem;
-}
-.tier-footer {
-  margin-top: auto;
-}
-.price-feat.tier-no {
-  opacity: .35;
-}
-.price-feat.tier-no i {
-  color: var(--bs-secondary, #999) !important;
-}
+[data-theme="dark"] .tier-price { color: #f0ece3; }
+.tier-price sup { font-size: 1.1rem; font-weight: 700; vertical-align: super; margin-right: .05rem; }
+.tier-price .tier-range { font-size: 1.1rem; font-weight: 400; opacity: .55; }
+.tier-label { font-size: .75rem; opacity: .55; margin-bottom: .75rem; font-weight: 500; }
+.tier-desc { font-size: .82rem; line-height: 1.55; opacity: .7; margin: 0; }
+.tier-body { flex: 1; margin-bottom: 1.25rem; }
+.tier-footer { margin-top: auto; }
+.price-feat.tier-no { opacity: .35; }
+.price-feat.tier-no i { color: var(--bs-secondary, #999) !important; }
 .pricing-scroll-hint {
   text-align: center;
   font-size: .78rem;
@@ -232,43 +366,40 @@ html, body {
   color: var(--heading, #0d1b2e);
   margin-bottom: .25rem;
 }
-[data-theme="dark"] .retainer-price {
-  color: #f0ece3;
-}
-.retainer-price sup {
-  font-size: 1.1rem;
-  vertical-align: super;
-  font-weight: 700;
-}
-.retainer-price span {
-  font-size: 1rem;
-  opacity: .55;
-  font-weight: 400;
-}
+[data-theme="dark"] .retainer-price { color: #f0ece3; }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; font-weight: 700; }
+.retainer-price span { font-size: 1rem; opacity: .55; font-weight: 400; }
 .retainer-name {
   font-weight: 700;
-  font-size: .95rem;
+  font-size: .75rem;
   margin-bottom: .4rem;
   color: var(--gold, #C9A84C);
   letter-spacing: .04em;
   text-transform: uppercase;
-  font-size: .75rem;
 }
-.retainer-desc {
-  font-size: .83rem;
-  opacity: .65;
-  margin-bottom: .5rem;
-  line-height: 1.5;
-}
-
-/* ── mt-6 utility ─────────────────────────────────── */
+.retainer-desc { font-size: .83rem; opacity: .65; margin-bottom: .5rem; line-height: 1.5; }
 .mt-6 { margin-top: 4rem !important; }
 
+/* ══════════════════════════════════════════════════════
+   PRICING — fix typo parenthesis via display
+   ══════════════════════════════════════════════════════ */
+.price-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .9rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
 </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR — solid, glossy, professional ═══════ -->
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
 <nav class="navbar navbar-expand-lg" id="mainNav">
   <div class="container">
     <a class="navbar-brand" href="#">
@@ -278,14 +409,17 @@ html, body {
         <span class="brand-tagline">Your Link to Your World</span>
       </div>
     </a>
+
+    <!-- Mobile: theme toggle + hamburger -->
     <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
       <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
         <i id="themeIconMob" class="bi bi-sun-fill"></i>
       </button>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
@@ -293,110 +427,172 @@ html, body {
         <li class="nav-item"><a class="nav-link" href="#features">What You Get</a></li>
         <li class="nav-item"><a class="nav-link" href="#demos">Examples</a></li>
         <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <!-- Desktop theme toggle (icon only — cleaner) -->
         <li class="nav-item ms-lg-2">
-          <button class="theme-toggle d-none d-lg-flex" id="themeToggle">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle theme">
             <i id="themeIcon" class="bi bi-sun-fill"></i>
-            <span id="themeLabel">Light</span>
           </button>
         </li>
         <li class="nav-item ms-lg-2">
-          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" class="whatsapp-button" id="whatsappButton" onclick="trackWhatsAppClick(event)">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" id="whatsappButton" onclick="trackWhatsAppClick(event)">
             <i class="bi bi-whatsapp me-1"></i>Start My Ordering Page
           </a>
-
-            <!-- WhatsApp Button with Cookie-Free Tracking
-<a href="https://wa.me/1234567890?text=Hello%2C%20I%27d%20like%20a%20quote" 
-   class="whatsapp-button" 
-   id="whatsappButton"
-   onclick="trackWhatsAppClick(event)">
-    💬 Chat with us on WhatsApp
-</a> -->
-          
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- ══ HERO ═══════════════════════════════════════ -->
+<!-- ══ HERO ════════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="container">
     <div class="row align-items-center g-5">
+
+      <!-- Left: copy -->
       <div class="col-lg-6">
         <div class="hero-badge reveal"><i class="bi bi-stars"></i> Professional Web Presence</div>
         <h1 class="hero-title reveal d1">Stop Answering DMs all day<br><span class="accent"> Let customers order instantly</span></h1>
-        <p class="hero-sub reveal d2">Let customers see your products, prices, and place orders instantly through WhatsApp - without you answering the same questions all day.</p>
+        <p class="hero-sub reveal d2">Let customers see your products, prices, and place orders instantly through WhatsApp — without you answering the same questions all day.</p>
         <div class="d-flex flex-wrap gap-3 reveal d3">
-          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa"><i class="bi bi-whatsapp"></i> Start My Ordering Page</a>
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa">
+            <i class="bi bi-whatsapp"></i> Start My Ordering Page
+          </a>
           <a href="#demos" class="btn-blue"><i class="bi bi-grid-3x3-gap"></i> See Examples</a>
-            <p class="hero-sub reveal d2 mt-4">No app needed - Works with your current Instagram (or any other social media page) - Ready in 2-3 days</p>
         </div>
+        <p class="hero-sub reveal d2 mt-4" style="font-size:.85rem;opacity:.75;">
+          No app needed &nbsp;·&nbsp; Works with your current Instagram (or any social media page) &nbsp;·&nbsp; Ready in 2–3 days
+        </p>
       </div>
+
+      <!-- Right: phone mockup with real screenshot feel -->
       <div class="col-lg-6 reveal from-right d2">
         <div class="hero-card">
-          <div class="hero-phone">
-            <div class="mock-line accent-line"></div>
-            <div class="mock-line w85"></div>
-            <div class="mock-line w55"></div>
-            <div style="height:.4rem"></div>
-            <div class="mock-line w30"></div>
-            <div class="mock-line w85"></div>
-            <div class="mock-line w40"></div>
-            <div class="mock-line w55"></div>
-            <div class="mock-wa-btn"><i class="bi bi-whatsapp"></i> Order via WhatsApp</div>
+          <div class="hero-phone-mockup">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen-inner">
+                <div class="mini-brand"><i class="bi bi-shop me-1"></i> YOUR BUSINESS</div>
+                <!-- Simulated product card -->
+                <div class="mini-hero-img">🛍️</div>
+                <div class="mini-title">Fresh Juices &amp; Smoothies<br>View our full menu &amp; prices</div>
+                <div class="mini-price">Starting from $5 · Order via WhatsApp</div>
+                <div class="mini-wa-btn"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
+              </div>
+            </div>
           </div>
           <div class="stat-pill stat-pill-1"><span class="num">2–3</span>days to launch</div>
           <div class="stat-pill stat-pill-2"><span class="num">100%</span>mobile-ready</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══ PROBLEM ════════════════════════════════════ -->
+<!-- ══ PROBLEM ═════════════════════════════════════════ -->
 <section class="bg-alt" id="why">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">The Problem</span>
       <h2 class="display-5 mt-2 mb-3">Why Customers Don't Order From You</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:520px">Most small businesses lose sales not because of bad products - but because ordering is unclear, slow, or frustrating. They don't know how to order, ask too many questions, or leave without taking action.</p>
+      <p class="text-m mx-auto" style="max-width:520px">Most small businesses lose sales not because of bad products — but because ordering is unclear, slow, or frustrating. They don't know how to order, ask too many questions, or leave without taking action.</p>
     </div>
     <div class="row g-4 justify-content-center">
-      <div class="col-md-4 reveal d1"><div class="prob-card"><div class="prob-icon">😕</div><h6 class="mb-2">Confused Customers</h6><p>People land on your page and don't know what to do next.</p></div></div>
-      <div class="col-md-4 reveal d2"><div class="prob-card"><div class="prob-icon">❓</div><h6 class="mb-2">Too Many Questions</h6><p>You answer the same questions everyday instead of getting paid.</p></div></div>
-      <div class="col-md-4 reveal d3"><div class="prob-card"><div class="prob-icon">🚶</div><h6 class="mb-2">Lost Opportunities</h6><p>Interested buyers leave because ordering isn't simple.</p></div></div>
+      <div class="col-md-4 reveal d1">
+        <div class="prob-card">
+          <div class="prob-icon">😕</div>
+          <h6 class="mb-2">Confused Customers</h6>
+          <p>People land on your page and don't know what to do next.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal d2">
+        <div class="prob-card">
+          <div class="prob-icon">❓</div>
+          <h6 class="mb-2">Too Many Questions</h6>
+          <p>You answer the same questions everyday instead of getting paid.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal d3">
+        <div class="prob-card">
+          <div class="prob-icon">🚶</div>
+          <h6 class="mb-2">Lost Opportunities</h6>
+          <p>Interested buyers leave because ordering isn't simple.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SOLUTION ════════════════════════════════════ -->
+<!-- ══ SOLUTION ════════════════════════════════════════ -->
 <section id="solution">
   <div class="container">
-    <div class="row align-items-center g-5">
+    <div class="text-center mb-3 reveal">
+      <span class="section-label">The Fix</span>
+      <h2 class="display-5 mt-2 mb-3">A Simple Way To Get More Orders</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:540px">We create a clean, simple page that turns visitors into paying customers.<br>Here's what changes when you use jamaLinks:</p>
+    </div>
+
+    <!-- How It Works — visual 3-step flow -->
+    <div class="how-flow reveal d2">
+      <div class="how-step">
+        <div class="how-icon-wrap"><i class="bi bi-link-45deg"></i></div>
+        <h6>You Send One Link</h6>
+        <p>Share via WhatsApp, Instagram bio, or anywhere your customers are.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-icon-wrap"><i class="bi bi-eye"></i></div>
+        <h6>Customers See Everything</h6>
+        <p>Products, prices &amp; your story — no confusion, no friction.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-icon-wrap"><i class="bi bi-whatsapp"></i></div>
+        <h6>They Message You Ready to Order</h6>
+        <p>One tap — they land in your WhatsApp ready to buy, no back-and-forth.</p>
+      </div>
+    </div>
+
+    <!-- Supporting copy block -->
+    <div class="row align-items-center g-5 mt-2">
       <div class="col-lg-6 reveal from-left">
-        <span class="section-label">The Fix</span>
-        <h2 class="display-5 mt-2 mb-3">A Simple Way To Get More Orders</h2>
-        <div class="divider left"></div>
-        <p class="text-m mb-4">We create a clean, simple page that turns visitors into paying customers.</p>
-         <p class="text-m mb-4">Here's what changes when you use jamaLinks:</p>
         <div class="solution-visual">
-          <div class="step-row"><div class="step-num">1</div><div class="step-text"><h6>You Send One Link</h6><p>Send via WhatsApp, Instagram bio, or anywhere your customers are.</p></div></div>
-          <div class="step-row"><div class="step-num">2</div><div class="step-text"><h6>Customers See Everything Clearly (Products, prices, info)</h6><p>They see your products, prices, and story — no confusion, no friction.</p></div></div>
-          <div class="step-row"><div class="step-num">3</div><div class="step-text"><h6>They Message You Ready To Order (no questions, no back-and-forth)</h6><p>One tap to message you or complete payment (e.g via PayPal) — instantly.</p></div></div>
+          <div class="step-row">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h6>You Send One Link</h6>
+              <p>Send via WhatsApp, Instagram bio, or anywhere your customers are.</p>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h6>Customers See Everything Clearly</h6>
+              <p>They see your products, prices, and story — no confusion, no friction.</p>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h6>They Message You Ready To Order</h6>
+              <p>One tap to message you or complete payment (e.g. via PayPal) — instantly.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-6 reveal from-right d2 text-center">
         <div style="font-size:5rem;line-height:1;margin-bottom:1.5rem">💼</div>
         <h4>Your Business, Online — Fast</h4>
         <p class="text-m mx-auto mb-4" style="max-width:360px">No tech skills needed. No complicated setup. We handle everything from design to launch.</p>
-        <!--<a href="https://wa.me/17587235872?text=I%20want%20more%20customers" class="btn-wa"><i class="bi bi-whatsapp"></i> Start My Ordering Page</a>-->
+        <a href="https://wa.me/17587235872?text=I%20want%20more%20customers" onclick="trackWhatsAppClick(event)" class="btn-wa">
+          <i class="bi bi-whatsapp"></i> Start My Ordering Page
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ WHAT YOU GET ════════════════════════════════ -->
+<!-- ══ WHAT YOU GET ══════════════════════════════════════ -->
 <section class="bg-alt" id="features">
   <div class="container">
     <div class="text-center mb-5 reveal">
@@ -406,217 +602,301 @@ html, body {
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-7">
-        <div class="reveal d1"><div class="feat-item"><div class="feat-icon"><i class="bi bi-phone"></i></div><div><strong>A simple Page that makes ordering fast and easy</strong><p>Looks great on every phone and screen size, right out of the box.</p></div></div></div>
-        <div class="reveal d2"><div class="feat-item"><div class="feat-icon"><i class="bi bi-whatsapp"></i></div><div><strong>One Tap WhatsApp buttons that bring customers straight to you</strong><p>Customers tap once and land in your WhatsApp chat, ready to order.</p></div></div></div>
-        <div class="reveal d3"><div class="feat-item"><div class="feat-icon"><i class="bi bi-paypal"></i></div><div><strong>Online payment setup so you can get paid faster</strong><p>Accept secure online payments from customers anywhere in the world.</p></div></div></div>
-        <div class="reveal d4"><div class="feat-item"><div class="feat-icon"><i class="bi bi-layout-text-window-reverse"></i></div><div><strong>Clean, simple layout designed to keep customers focused on buying</strong><p>Professionally designed to keep visitors focused and ready to buy.</p></div></div></div>
-        <div class="reveal d5"><div class="feat-item"><div class="feat-icon"><i class="bi bi-rocket-takeoff"></i></div><div><strong>Ready in 2–3 days so you can start getting orders quickly</strong><p>Fast turnaround so you start getting customers without delay.</p></div></div></div>
+
+        <div class="reveal d1">
+          <div class="feat-item">
+            <div class="feat-icon"><i class="bi bi-phone"></i></div>
+            <div>
+              <span class="feat-label">Mobile-Ready Ordering Page</span>
+              <p>Looks great on every phone and screen size, right out of the box.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal d2">
+          <div class="feat-item">
+            <div class="feat-icon"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <span class="feat-label">One-Tap WhatsApp Buttons</span>
+              <p>Customers tap once and land in your WhatsApp chat, ready to order.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal d3">
+          <div class="feat-item">
+            <div class="feat-icon"><i class="bi bi-paypal"></i></div>
+            <div>
+              <span class="feat-label">Online Payment Setup</span>
+              <p>Accept secure online payments from customers anywhere in the world.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal d4">
+          <div class="feat-item">
+            <div class="feat-icon"><i class="bi bi-layout-text-window-reverse"></i></div>
+            <div>
+              <span class="feat-label">High-Converting Layout</span>
+              <p>Professionally designed to keep visitors focused and ready to buy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal d5">
+          <div class="feat-item">
+            <div class="feat-icon"><i class="bi bi-rocket-takeoff"></i></div>
+            <div>
+              <span class="feat-label">Ready in 2–3 Days</span>
+              <p>Fast turnaround so you start getting customers without delay.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ DEMOS — 4 rows of 2 ═════════════════════════ -->
+<!-- ══ PORTFOLIO / DEMOS ════════════════════════════════ -->
 <section id="demos">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">Portfolio</span>
       <h2 class="display-5 mt-2 mb-3">See How Your Page Could Look</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:460px">Below are sample layouts for businesses like yours.</p>
-      <p class="text-m mx-auto" style="max-width:460px">These are real examples of pages built to turn visitors into customers.</p>
+      <p class="text-m mx-auto" style="max-width:480px">
+        Below are sample layouts for businesses like yours.<br>
+        These are real examples of pages built to turn visitors into customers.
+      </p>
     </div>
 
     <!-- Row 1 -->
     <div class="row g-4 mb-4">
       <div class="col-sm-6 col-lg-3 reveal d1">
         <div class="demo-card">
-          <picture class="demo-picture">
-            <div class="demo-emoji">
-            <img src="freshflowjuices.png" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Fresh Flow Juices Image" loading="lazy">
-            </div>
-          </picture>
+          <img src="freshflowjuices.png" class="demo-card-img" alt="Fresh Flow Juices preview" loading="lazy">
           <div class="demo-body">
-            <span class="demo-tag">Food & Drink</span>
+            <span class="demo-tag">Food &amp; Drink</span>
             <h5>Fresh Flow Juices</h5>
             <p>Clean juice bar page with menu, pricing, and instant WhatsApp ordering.</p>
-            <a href="freshflowjuicesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+            <a href="freshflowjuicesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3 reveal d2">
         <div class="demo-card">
-          <picture class="demo-picture">
-            <div class="demo-emoji">
-            <img src="islandbites.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Island Bites Image" loading="lazy">         
-            </div>
-          </picture>
+          <img src="islandbites.webp" class="demo-card-img" alt="Island Bites preview" loading="lazy">
           <div class="demo-body">
             <span class="demo-tag">Restaurant</span>
             <h5>Island Bites</h5>
             <p>Vibrant food business page showcasing dishes, specials, and easy checkout.</p>
-            <a href="islandbitesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+            <a href="islandbitesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
           </div>
         </div>
       </div>
-      <!-- Row 1, Card 3 — editable slot -->
       <div class="col-sm-6 col-lg-3 reveal d3">
         <div class="demo-card">
-          <picture class="demo-picture">
-            <div class="demo-emoji">
-               <img src="isleescapes.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Glam Studio Image" loading="lazy">
-         </div>
-          </picture>
+          <img src="isleescapes.webp" class="demo-card-img" alt="Isle Escapes preview" loading="lazy">
           <div class="demo-body">
-            <span class="demo-tag">Beauty</span>
+            <span class="demo-tag">Tourism</span>
             <h5>Isle Escapes</h5>
-            <p>Tour Guide webpage with services provided, and quick WhatsApp messaging.</p>
-            <a href="isle-escapes.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+            <p>Tour guide webpage with services provided and quick WhatsApp messaging.</p>
+            <a href="isle-escapes.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
           </div>
         </div>
       </div>
-      <!-- Row 1, Card 4 — editable slot -->
       <div class="col-sm-6 col-lg-3 reveal d4">
         <div class="demo-card">
-          <picture class="demo-picture">
-            <div class="demo-emoji">
-            <img src="boutiquecorner.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Boutique Corner Image" loading="lazy">
-         
-            </div>
-          </picture>
+          <img src="boutiquecorner.webp" class="demo-card-img" alt="Boutique Corner preview" loading="lazy">
           <div class="demo-body">
             <span class="demo-tag">Retail</span>
             <h5>Boutique Corner</h5>
             <p>Stylish retail storefront with featured products and direct WhatsApp orders.</p>
-            <a href="boutique-corner.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+            <a href="boutique-corner.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Row 2 - FIXED VERSION -->
-<div class="row g-4 mb-5">
-  <div class="col-sm-6 col-lg-3 reveal d1">
-    <div class="demo-card">
-      <picture class="demo-picture">
-        <div class="demo-emoji">
-          <img src="velourcafe.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Coffee Store Image" loading="lazy">
+    <!-- Row 2 -->
+    <div class="row g-4 mb-4">
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <div class="demo-card">
+          <img src="velourcafe.webp" class="demo-card-img" alt="Velour Café preview" loading="lazy">
+          <div class="demo-body">
+            <span class="demo-tag">Café</span>
+            <h5>Velour Café</h5>
+            <p>Café webpage with the café's menu and quick WhatsApp order messaging.</p>
+            <a href="velour-cafe.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
+          </div>
         </div>
-      </picture>
-      <div class="demo-body">
-        <span class="demo-tag">Café</span>
-        <h5>Velour Café</h5>
-        <p>Café webpage with the Cafés menu, and quick WhatsApp order messaging.</p>
-        <a href="velour-cafe.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <div class="demo-card">
+          <img src="fit-life.webp" class="demo-card-img" alt="FitLife Training preview" loading="lazy">
+          <div class="demo-body">
+            <span class="demo-tag">Fitness</span>
+            <h5>FitLife Training</h5>
+            <p>Personal trainer page with session packages, testimonials, and booking CTA.</p>
+            <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <div class="demo-card">
+          <img src="sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery preview" loading="lazy">
+          <div class="demo-body">
+            <span class="demo-tag">Bakery</span>
+            <h5>Sweet Layers Bakery</h5>
+            <p>Mouthwatering cake shop page with flavors, pricing, and custom order form.</p>
+            <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <div class="demo-card">
+          <img src="quick-wash.webp" class="demo-card-img" alt="QuickWash Auto preview" loading="lazy">
+          <div class="demo-body">
+            <span class="demo-tag">Services</span>
+            <h5>QuickWash Auto</h5>
+            <p>Auto detailing page with service tiers, before/after showcase, and booking.</p>
+            <a href="quickwash.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-3 reveal d2">
-    <div class="demo-card">
-      <picture class="demo-picture">
-        <div class="demo-emoji">
-          <img src="fit-life.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Fitlife Training Gym Image" loading="lazy">
-     
-        </div>
-      </picture>
-      <div class="demo-body">
-        <span class="demo-tag">Fitness</span>
-        <h5>FitLife Training</h5>
-        <p>Personal trainer page with session packages, testimonials, and booking CTA.</p>
-        <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-3 reveal d3">
-    <div class="demo-card">
-      <picture class="demo-picture">
-        <div class="demo-emoji">
-          <img src="sweet-layers.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Cake Bakery Advertising Image" loading="lazy">
-     
-        </div>
-      </picture>
-      <div class="demo-body">
-        <span class="demo-tag">Bakery</span>
-        <h5>Sweet Layers Bakery</h5>
-        <p>Mouthwatering cake shop page with flavors, pricing, and custom order form.</p>
-        <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-3 reveal d4">
-    <div class="demo-card">
-      <picture class="demo-picture">
-        <div class="demo-emoji">
 
-<img src="quick-wash.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Quick Wash Business Image" loading="lazy">
-     
+    <!-- Row 3 -->
+    <div class="row g-4 mb-5">
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <div class="demo-card">
+          <img src="lens-light.webp" class="demo-card-img" alt="Lens &amp; Light Studio preview" loading="lazy">
+          <div class="demo-body">
+            <span class="demo-tag">Creative</span>
+            <h5>Lens &amp; Light Studio</h5>
+            <p>Photography portfolio page with packages, gallery preview, and contact CTA.</p>
+            <a href="lens-light.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+              <i class="bi bi-box-arrow-up-right"></i> View Website
+            </a>
+          </div>
         </div>
-      </picture>
-      <div class="demo-body">
-        <span class="demo-tag">Services</span>
-        <h5>QuickWash Auto</h5>
-        <p>Auto detailing page with service tiers, before/after showcase, and booking.</p>
-        <a href="quickwash.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
       </div>
+      <!-- Add more demo cards here as your portfolio grows -->
     </div>
-  </div>
-</div>
-
-<!-- Row 3 (missing from original) -->
-<div class="row g-4 mb-5">
-  <div class="col-sm-6 col-lg-3 reveal d1">
-    <div class="demo-card">
-      <picture class="demo-picture">
-        <div class="demo-emoji">
-<img src="lens-light.webp" class="mx-auto img-fluid object-fit-cover shadow-hover" alt="Lens Light Photography Advertising Image" loading="lazy">
-     
-          
-        </div>
-      </picture>
-      <div class="demo-body">
-        <span class="demo-tag">Creative</span>
-        <h5>Lens &amp; Light Studio</h5>
-        <p>Photography portfolio page with packages, gallery preview, and contact CTA.</p>
-        <a href="lens-light.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
-      </div>
-    </div>
-  </div>
-  <!-- Add more cards as needed -->
-</div>
 
     <div class="text-center reveal d3">
       <p class="text-m mb-3">Don't see your industry? We build for any business.</p>
-      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" onclick="trackWhatsAppClick(event)" class="btn-wa"><i class="bi bi-whatsapp"></i> Request Your Version</a>
+      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" onclick="trackWhatsAppClick(event)" class="btn-wa">
+        <i class="bi bi-whatsapp"></i> Request Your Version
+      </a>
     </div>
-    
+
   </div>
-      <!--<a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20my%20own%20version" class="btn-wa"><i class="bi bi-whatsapp"></i> Show Me My Version</a>-->
 </section>
 
-     
-<!-- ══ PRICING ════════════════════════════════════ -->
-<section class="bg-alt" id="pricing">
+<!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
+<section class="bg-alt" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">What Clients Say</span>
+      <h2 class="display-5 mt-2 mb-3">Real Results. Real Businesses.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:480px">Small businesses across the Caribbean are saving time and getting more orders with their jamaLinks page.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testimonial-text">Before jamaLinks I was spending hours answering DMs. Now customers click my link, see the menu and prices, and message me already knowing exactly what they want. Orders went up in the first week.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testimonial-avatar">T</div>
+            <div>
+              <div class="testimonial-name">Tamara J.</div>
+              <div class="testimonial-biz">Fresh Flow Juices · St. Lucia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testimonial-text">The page was ready in 2 days, looked better than I imagined, and the first customer messaged me through it within 24 hours. Worth every dollar. My clients say it looks so professional now.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Marcus R.</div>
+              <div class="testimonial-biz">QuickWash Auto · Barbados</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testimonial-text">I used to lose so many customers because they couldn't figure out how to order from me. Now my page does the talking for me. Setup was seamless and they handled everything — I didn't have to do a thing.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Shevonne A.</div>
+              <div class="testimonial-biz">Sweet Layers Bakery · Trinidad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══════════════════════════════════════════ -->
+<section id="pricing">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">Investment</span>
       <h2 class="display-5 mt-2 mb-3">Simple, Clear Pricing</h2>
-      <p class="text-m mx-auto" style="max-width:520px">Every tier is a business tool that generates revenue. Pick the level that matches where your business is today — and grow into the next.</p>
       <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:520px">Every tier is a business tool that generates revenue. Pick the level that matches where your business is today — and grow into the next.</p>
     </div>
 
     <!-- Horizontal Scroll Cards -->
     <div class="pricing-scroll-wrapper reveal">
       <div class="pricing-scroll-track">
 
-        <!-- TIER 1: Starter $100–$200 -->
+        <!-- TIER 1: Starter -->
         <div class="pricing-tier-card">
           <div class="tier-header">
             <span class="tier-badge">Starter</span>
             <div class="tier-price"><sup>$</sup>150<span class="tier-range">–$200</span></div>
-            <div class="tier-label">One-time setup</div>
+            <div class="tier-label">One-time setup · USD</div>
             <p class="tier-desc">For businesses with zero web presence who need to exist online — clean, fast, and functional.</p>
           </div>
           <div class="tier-body">
@@ -636,13 +916,13 @@ html, body {
           </div>
         </div>
 
-        <!-- TIER 2: Professional $200–$300 -->
+        <!-- TIER 2: Professional -->
         <div class="pricing-tier-card tier-featured">
           <div class="tier-popular-badge">Most Popular</div>
           <div class="tier-header">
             <span class="tier-badge">Professional</span>
             <div class="tier-price"><sup>$</sup>250<span class="tier-range">–$300</span></div>
-            <div class="tier-label">One-time setup</div>
+            <div class="tier-label">One-time setup · USD</div>
             <p class="tier-desc">For small restaurants, boutiques, and service providers ready to start converting visitors into orders.</p>
           </div>
           <div class="tier-body">
@@ -661,12 +941,12 @@ html, body {
           </div>
         </div>
 
-        <!-- TIER 3: Business $300–$400 -->
+        <!-- TIER 3: Business -->
         <div class="pricing-tier-card">
           <div class="tier-header">
             <span class="tier-badge">Business</span>
             <div class="tier-price"><sup>$</sup>350<span class="tier-range">–$400</span></div>
-            <div class="tier-label">One-time setup</div>
+            <div class="tier-label">One-time setup · USD</div>
             <p class="tier-desc">For established businesses with real customers who need a site that works as a full marketing funnel.</p>
           </div>
           <div class="tier-body">
@@ -677,7 +957,7 @@ html, body {
             <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Image carousel or gallery</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp multi-product order builder</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 conversion tracking (CTA clicks)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 conversion tracking</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 3 rounds of revisions</div>
           </div>
           <div class="tier-footer">
@@ -685,12 +965,12 @@ html, body {
           </div>
         </div>
 
-        <!-- TIER 4: Premium $400–$500 -->
+        <!-- TIER 4: Premium -->
         <div class="pricing-tier-card">
           <div class="tier-header">
             <span class="tier-badge">Premium</span>
             <div class="tier-price"><sup>$</sup>450<span class="tier-range">–$500</span></div>
-            <div class="tier-label">One-time setup</div>
+            <div class="tier-label">One-time setup · USD</div>
             <p class="tier-desc">For businesses ready to treat their website as a serious revenue asset with full order flows and payment.</p>
           </div>
           <div class="tier-body">
@@ -709,12 +989,12 @@ html, body {
           </div>
         </div>
 
-        <!-- TIER 5: Enterprise $500+ -->
+        <!-- TIER 5: Enterprise -->
         <div class="pricing-tier-card tier-enterprise">
           <div class="tier-header">
             <span class="tier-badge">Enterprise</span>
             <div class="tier-price"><sup>$</sup>500<span class="tier-range">+</span></div>
-            <div class="tier-label">Custom quote</div>
+            <div class="tier-label">Custom quote · USD</div>
             <p class="tier-desc">For tourism operators, multi-location businesses, and brands targeting international clients. A full digital system.</p>
           </div>
           <div class="tier-body">
@@ -734,7 +1014,6 @@ html, body {
         </div>
 
       </div>
-      <!-- Scroll hint -->
       <div class="pricing-scroll-hint d-md-none">
         <i class="bi bi-arrow-left-right me-1"></i> Swipe to see all packages
       </div>
@@ -747,9 +1026,8 @@ html, body {
       <p class="text-m mx-auto" style="max-width:520px">Your site is a living business tool. These plans ensure it stays accurate, fast, and growing — without you lifting a finger.</p>
     </div>
 
-    <div class="row g-4 justify-content-center reveal">
+    <div class="row g-4 justify-content-center">
 
-      <!-- $50/mo -->
       <div class="col-md-4 reveal d1">
         <div class="retainer-card">
           <div class="retainer-price"><sup>$</sup>50<span>/mo</span></div>
@@ -766,7 +1044,6 @@ html, body {
         </div>
       </div>
 
-      <!-- $75/mo -->
       <div class="col-md-4 reveal d2">
         <div class="retainer-card retainer-featured">
           <div class="tier-popular-badge">Best Value</div>
@@ -784,7 +1061,6 @@ html, body {
         </div>
       </div>
 
-      <!-- $100/mo -->
       <div class="col-md-4 reveal d3">
         <div class="retainer-card">
           <div class="retainer-price"><sup>$</sup>100<span>/mo</span></div>
@@ -805,91 +1081,101 @@ html, body {
     </div>
 
     <div class="text-center mt-4 reveal">
-      <small class="text-m" style="opacity:.7">No contracts. Cancel anytime. Domain registration (~$15/yr) billed separately. 50% deposit required to begin all builds.</small>
+      <small class="text-m" style="opacity:.7">All prices in USD. No contracts. Cancel anytime. Domain registration (~$15/yr) billed separately. 50% deposit required to begin all builds.</small>
     </div>
 
     <div class="text-center mt-4 reveal d2">
-      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Start Getting Orders</a>
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5">
+        <i class="bi bi-whatsapp"></i> Start Getting Orders
+      </a>
     </div>
 
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══════════════════════════════════ -->
+<!-- ══ FINAL CTA ════════════════════════════════════════ -->
 <section class="cta-section">
   <div class="container text-center">
     <div class="reveal">
       <span class="section-label">Let's Go</span>
       <h2 class="display-4 mt-2 mb-3">Start Getting Orders Without The Back-and-Forth</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto mb-4" style="max-width:420px">Built for small businesses that sell through WhatsApp, Instagram, or DMs.</p>
-      <p class="text-m mx-auto mb-4" style="max-width:420px">We'll build you a simple system that helps customers order faster and easier.</p>
-      <p class="text-m mx-auto mb-4" style="max-width:420px">We work with a small number of clients at a time to give each business our full attention and support. This means your page gets built right - and fast.</p>
-     <!-- <a href="https://wa.me/17587235872?text=I%20would%20like%20a%20website%20for%20my%20business" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem"><i class="bi bi-whatsapp"></i> Message Now on WhatsApp</a> -->
+      <p class="text-m mx-auto mb-2" style="max-width:420px">Built for small businesses that sell through WhatsApp, Instagram, or DMs.</p>
+      <p class="text-m mx-auto mb-2" style="max-width:420px">We'll build you a simple system that helps customers order faster and easier.</p>
+      <p class="text-m mx-auto mb-5" style="max-width:420px">We work with a small number of clients at a time to give each business our full attention and support. This means your page gets built right — and fast.</p>
+      <a href="https://wa.me/17587235872?text=I%20would%20like%20a%20website%20for%20my%20business" onclick="trackWhatsAppClick(event)" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem">
+        <i class="bi bi-whatsapp"></i> Message Now on WhatsApp
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══════════════════════════════════════ -->
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="row g-5 mb-3">
       <div class="col-lg-5">
         <div class="footer-brand-wrap">
-          <img src="images/logo.webp" alt="jamalinks logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy">
+          <img src="images/logo.webp" alt="jamaLinks logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy">
           <div class="footer-brand">
             <span class="fb-jama">jama</span><span class="fb-l">L</span><span class="fb-inks">inks</span>
           </div>
         </div>
-        <p class="footer-about">jamaLinks helps businesses turn social media traffic into real orders using simple high-converting pages connected to WhatsApp.
-           <!--jamaLinks helps small business owners grow their customer base with an affordable system centered around getting you more orders/clients using WhatsApp. We use an efficiently designed one-page website to aid in turning social media into orders, bridging the gap between your hustle and your customers — making it effortless for people to discover, browse, and buy from you, all from their phones.-->
-        </p>
+        <p class="footer-about">jamaLinks helps businesses turn social media traffic into real orders using simple high-converting pages connected to WhatsApp.</p>
         <div class="d-flex gap-2 mt-3">
           <a href="https://wa.me/17587235872" class="soc-btn wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           <a href="https://www.instagram.com/jamalinksonline?igsh=MTlsaDBtdDgyMWkzZw==" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
           <a href="https://www.facebook.com/share/14XtA8G2rYe/" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
-         <!--<a href="#" class="soc-btn tw" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>-->
         </div>
       </div>
       <div class="col-6 col-lg-2">
         <p class="footer-head">Quick Links</p>
-        <a href="#why" class="footer-lnk">Why Us</a>
-        <a href="#solution" class="footer-lnk">Solution</a>
-        <a href="#features" class="footer-lnk">What You Get</a>
-        <a href="#demos" class="footer-lnk">Examples</a>
-        <a href="#pricing" class="footer-lnk">Pricing</a>
-        <a href="legal.html" class="footer-lnk">Terms of Service & Privacy Policy</a>
+        <a href="#why"         class="footer-lnk">Why Us</a>
+        <a href="#solution"    class="footer-lnk">Solution</a>
+        <a href="#features"    class="footer-lnk">What You Get</a>
+        <a href="#demos"       class="footer-lnk">Examples</a>
+        <a href="#pricing"     class="footer-lnk">Pricing</a>
+        <a href="legal.html"   class="footer-lnk">Terms of Service &amp; Privacy Policy</a>
       </div>
       <div class="col-6 col-lg-3">
         <p class="footer-head">Contact Us</p>
-        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2"><i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872</a>
-        <p class="footer-lnk" style="cursor:default"><i class="bi bi-clock me-2" style="color:var(--gold)"></i> Mon–Sat, 9 AM – 6 PM</p>
-        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)"><i class="bi bi-whatsapp"></i> Chat Now</a>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2">
+          <i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872
+        </a>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-clock me-2" style="color:var(--gold)"></i> Mon–Sat, 9 AM – 6 PM
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)">
+          <i class="bi bi-whatsapp"></i> Chat Now
+        </a>
       </div>
     </div>
     <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span>© 2025 jamaLinks. All rights reserved.</span>
+      <span id="footer-year">© 2026 jamaLinks. All rights reserved.</span>
       <span style="opacity:.45">Built with care for small businesses.</span>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/17587235872?text=Hi%20I%20would%20like%20a%20webpage%20system" class="wa-float" title="Chat on WhatsApp">
+<!-- ══ WHATSAPP FLOAT BUTTON ════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%20I%20would%20like%20a%20webpage%20system" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
   <i class="bi bi-whatsapp"></i>
 </a>
 
+<!-- ══ SCRIPTS ══════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
 
 <script>
-/* ── Theme Engine ──────────────────────────────────── */
-const html = document.documentElement;
+/* ════════════════════════════════════════════════════════
+   THEME ENGINE
+   ════════════════════════════════════════════════════════ */
+const html  = document.documentElement;
 const STORE = 'jama-theme';
 
 function getInitialTheme() {
   const saved = localStorage.getItem(STORE);
   if (saved) return saved;
+  // Auto by time-of-day: dark 7 pm – 6 am
   const h = new Date().getHours();
   return (h >= 19 || h < 6) ? 'dark' : 'light';
 }
@@ -900,32 +1186,41 @@ function applyTheme(t) {
   current = t;
   html.setAttribute('data-theme', t);
   localStorage.setItem(STORE, t);
-  const dark = t === 'dark';
-  const icon = document.getElementById('themeIcon');
-  const label = document.getElementById('themeLabel');
+  const dark  = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
   const iconM = document.getElementById('themeIconMob');
-  if (icon) icon.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
-  if (label) label.textContent = dark ? 'Dark' : 'Light';
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
   if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
 }
 
 applyTheme(current);
 
 const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
-document.getElementById('themeToggle')?.addEventListener('click', toggle);
-document.getElementById('themeToggleMob')?.addEventListener('click', toggle);
+document.getElementById('themeToggle')    ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob') ?.addEventListener('click', toggle);
 
-/* ── Navbar scroll ──────────────────────────────────── */
+
+/* ════════════════════════════════════════════════════════
+   NAVBAR SCROLL SHADOW
+   ════════════════════════════════════════════════════════ */
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
 
-/* ── Scroll Reveal ──────────────────────────────────── */
+
+/* ════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ════════════════════════════════════════════════════════ */
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* ── Smooth scroll nav ──────────────────────────────── */
+
+/* ════════════════════════════════════════════════════════
+   SMOOTH SCROLL NAV
+   ════════════════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
@@ -937,98 +1232,110 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ── Cookie Consent & Tracking ───────────────────────── */
+
+/* ════════════════════════════════════════════════════════
+   AUTO COPYRIGHT YEAR
+   ════════════════════════════════════════════════════════ */
+document.getElementById('footer-year').textContent =
+  `© ${new Date().getFullYear()} jamaLinks. All rights reserved.`;
+
+
+/* ════════════════════════════════════════════════════════
+   COOKIE-FREE WHATSAPP TRACKING
+   ════════════════════════════════════════════════════════ */
 const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec';
 
-function loadGoogleAnalytics() {
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D5H0JCYXE3');
-}
-
 function trackWhatsAppClick(event) {
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const deviceType = isMobile ? 'mobile' : 'desktop';
-    const buttonId = event.currentTarget.id;
-    const location = buttonId === 'whatsappButton' ? 'hero' : 'footer';
-    
-    fetch(TRACKING_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            page: window.location.pathname,
-            location: location,
-            userAgent: deviceType,
-            timestamp: new Date().toISOString()
-        })
-    }).catch(error => console.log('Tracking failed:', error));
-    
-    return true;
-}
+  const isMobile  = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const deviceType = isMobile ? 'mobile' : 'desktop';
+  const buttonId   = event.currentTarget.id;
+  const location   = buttonId === 'whatsappButton' ? 'hero' : 'other';
 
-// Consent banner configuration
-const config = {
-    display: {
-        mode: 'bar',
-        wall: false
-    },
-    consent_types: [
-        {
-            name: 'analytics_storage',
-            title: 'Analytics',
-            description: 'Helps us understand how visitors interact with our website.',
-            default: 'denied',
-            require: false
-        }
-    ],
-    modal: {
-        title: 'We value your privacy',
-        description: 'This site uses cookies to improve your experience.',
-        buttons: {
-            settings: 'Settings',
-            close: 'Close',
-            reject: 'Reject',
-            accept: 'Accept all'
-        }
-    },
-    settings: {
-        title: 'Customise your preferences',
-        description: 'Choose which cookies you want to allow.',
-        buttons: {
-            reject: 'Reject',
-            close: 'Close',
-            save: 'Save',
-            accept: 'Accept all'
-        }
+  fetch(TRACKING_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      page:      window.location.pathname,
+      location:  location,
+      userAgent: deviceType,
+      timestamp: new Date().toISOString()
+    })
+  }).catch(err => console.log('Tracking failed:', err));
+
+  return true;
+}
+</script>
+
+
+<!-- ════════════════════════════════════════════════════
+   CONSENT BANNER + GOOGLE ANALYTICS (consent-gated)
+   ════════════════════════════════════════════════════ -->
+<script>
+/* Configuration for the consent banner */
+const consentConfig = {
+  display: {
+    mode: 'bar',   // 'bar' at bottom  |  'modal' in centre
+    wall: false    // true = dim the page background
+  },
+  consent_types: [
+    {
+      name:        'analytics_storage',
+      title:       'Analytics',
+      description: 'Helps us understand how visitors interact with our website.',
+      default:     'denied',
+      require:     false
     }
+  ],
+  modal: {
+    title:       'We value your privacy',
+    description: 'This site uses cookies to improve your experience.',
+    buttons: { settings: 'Settings', close: 'Close', reject: 'Reject', accept: 'Accept all' }
+  },
+  settings: {
+    title:       'Customise your preferences',
+    description: 'Choose which cookies you want to allow.',
+    buttons: { reject: 'Reject', close: 'Close', save: 'Save', accept: 'Accept all' }
+  }
 };
 
+/* Load saved consent state */
 function loadConsentState() {
-    const saved = localStorage.getItem('cookie_consent');
-    return saved ? JSON.parse(saved) : {};
+  const saved = localStorage.getItem('cookie_consent');
+  return saved ? JSON.parse(saved) : {};
 }
 
+/* Save consent and conditionally load GA */
 function saveConsentState(consentState) {
-    localStorage.setItem('cookie_consent', JSON.stringify(consentState));
-    if (consentState.analytics_storage === 'granted') {
-        loadGoogleAnalytics();
-    }
+  localStorage.setItem('cookie_consent', JSON.stringify(consentState));
+  if (consentState.analytics_storage === 'granted') loadGoogleAnalytics();
 }
 
-// Initialize consent banner
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof cookiesBannerJs !== 'undefined') {
-        cookiesBannerJs(loadConsentState, saveConsentState, config);
-    }
+/* Load Google Analytics only after consent */
+function loadGoogleAnalytics() {
+  const script = document.createElement('script');
+  script.src   = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-D5H0JCYXE3');
+}
+
+/* Initialise banner on DOM ready */
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof cookiesBannerJs !== 'undefined') {
+    cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
+  }
+  /* Also load GA immediately if consent was already given previously */
+  const saved = loadConsentState();
+  if (saved.analytics_storage === 'granted') loadGoogleAnalytics();
 });
 </script>
+
+<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
 
 </body>
 </html>
