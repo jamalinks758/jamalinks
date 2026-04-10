@@ -32,6 +32,238 @@
 .consent-banner-modal {
     font-family: 'Lato', 'Georgia', 'Monsterrat', sans-serif;
 }
+
+/* ── GLOBAL OVERFLOW FIX ─────────────────────────── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ── WHATSAPP FLOAT BUTTON FIX ───────────────────── */
+.wa-float {
+  position: fixed !important;
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
+  left: auto !important;
+  z-index: 9999 !important;
+  width: 56px !important;
+  height: 56px !important;
+  background: #25D366 !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.6rem !important;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important;
+  transition: transform .2s ease, box-shadow .2s ease !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover {
+  transform: scale(1.08) translateZ(0) !important;
+  box-shadow: 0 6px 28px rgba(37,211,102,.6) !important;
+  color: #fff !important;
+}
+
+/* ── PRICING SCROLL SYSTEM ───────────────────────── */
+.pricing-scroll-wrapper {
+  position: relative;
+  width: 100%;
+}
+.pricing-scroll-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding: 1rem 0.25rem 2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold, #C9A84C) transparent;
+}
+.pricing-scroll-track::-webkit-scrollbar {
+  height: 4px;
+}
+.pricing-scroll-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pricing-scroll-track::-webkit-scrollbar-thumb {
+  background: var(--gold, #C9A84C);
+  border-radius: 4px;
+}
+.pricing-tier-card {
+  flex: 0 0 300px;
+  min-width: 300px;
+  scroll-snap-align: start;
+  background: var(--card-bg, #fff);
+  border: 1.5px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.pricing-tier-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  transform: translateY(-4px);
+}
+.pricing-tier-card.tier-featured {
+  border-color: var(--gold, #C9A84C);
+  box-shadow: 0 8px 32px rgba(201,168,76,.18);
+}
+.pricing-tier-card.tier-enterprise {
+  border-color: var(--navy, #1a2b4a);
+}
+[data-theme="dark"] .pricing-tier-card.tier-enterprise {
+  border-color: var(--gold, #C9A84C);
+}
+.tier-popular-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold, #C9A84C);
+  color: #1a1a1a;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .25rem .9rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.tier-header {
+  margin-bottom: 1.25rem;
+}
+.tier-badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold, #C9A84C);
+  margin-bottom: .5rem;
+}
+.tier-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: .15rem;
+}
+[data-theme="dark"] .tier-price {
+  color: #f0ece3;
+}
+.tier-price sup {
+  font-size: 1.1rem;
+  font-weight: 700;
+  vertical-align: super;
+  margin-right: .05rem;
+}
+.tier-price .tier-range {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: .55;
+}
+.tier-label {
+  font-size: .75rem;
+  opacity: .55;
+  margin-bottom: .75rem;
+  font-weight: 500;
+}
+.tier-desc {
+  font-size: .82rem;
+  line-height: 1.55;
+  opacity: .7;
+  margin: 0;
+}
+.tier-body {
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+.tier-footer {
+  margin-top: auto;
+}
+.price-feat.tier-no {
+  opacity: .35;
+}
+.price-feat.tier-no i {
+  color: var(--bs-secondary, #999) !important;
+}
+.pricing-scroll-hint {
+  text-align: center;
+  font-size: .78rem;
+  opacity: .5;
+  margin-top: -.5rem;
+  padding-bottom: .5rem;
+}
+
+/* ── RETAINER CARDS ──────────────────────────────── */
+.retainer-card {
+  background: var(--card-bg, #fff);
+  border: 1.5px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.retainer-card:hover {
+  box-shadow: 0 10px 36px rgba(0,0,0,.1);
+  transform: translateY(-4px);
+}
+.retainer-card.retainer-featured {
+  border-color: var(--gold, #C9A84C);
+  box-shadow: 0 6px 28px rgba(201,168,76,.16);
+}
+.retainer-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: .25rem;
+}
+[data-theme="dark"] .retainer-price {
+  color: #f0ece3;
+}
+.retainer-price sup {
+  font-size: 1.1rem;
+  vertical-align: super;
+  font-weight: 700;
+}
+.retainer-price span {
+  font-size: 1rem;
+  opacity: .55;
+  font-weight: 400;
+}
+.retainer-name {
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: .4rem;
+  color: var(--gold, #C9A84C);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+.retainer-desc {
+  font-size: .83rem;
+  opacity: .65;
+  margin-bottom: .5rem;
+  line-height: 1.5;
+}
+
+/* ── mt-6 utility ─────────────────────────────────── */
+.mt-6 { margin-top: 4rem !important; }
+
 </style>
 </head>
 <body>
@@ -371,43 +603,215 @@
     <div class="text-center mb-5 reveal">
       <span class="section-label">Investment</span>
       <h2 class="display-5 mt-2 mb-3">Simple, Clear Pricing</h2>
-       <p>Recover this cost in your first few weeks from increased orders.</p>
+      <p class="text-m mx-auto" style="max-width:520px">Every tier is a business tool that generates revenue. Pick the level that matches where your business is today — and grow into the next.</p>
       <div class="divider"></div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8 reveal scale-up d1">
-        <div class="price-card">
-          <div class="text-center mb-4"><span class="section-label">Starter Package</span></div>
-          <div class="row g-4 text-center mb-2">
-            <div class="col-6"><div class="price-amount"><sup>$</sup>200</div><div class="price-label">One-time setup</div></div>
-            <div class="col-6"><div class="price-amount"><sup>$</sup>50</div><div class="price-label">Simple monthly plan)</div></div>
+
+    <!-- Horizontal Scroll Cards -->
+    <div class="pricing-scroll-wrapper reveal">
+      <div class="pricing-scroll-track">
+
+        <!-- TIER 1: Starter $100–$200 -->
+        <div class="pricing-tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">Starter</span>
+            <div class="tier-price"><sup>$</sup>150<span class="tier-range">–$200</span></div>
+            <div class="tier-label">One-time setup</div>
+            <p class="tier-desc">For businesses with zero web presence who need to exist online — clean, fast, and functional.</p>
           </div>
-          <hr class="price-div">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <p class="price-sec-h">Setup Includes</p>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom design</div>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full setup</div>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Website launch</div>
-            </div>
-            <div class="col-md-6">
-              <p class="price-sec-h">Monthly Includes</p>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Hosting</div>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Ongoing support</div>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Small updates &amp; edits</div>
-              <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Cancel Anytime - your page stays live until billing ends</div>
-            </div>
-             <p class="text-m mt-2 mb-2"><em>We handle everything for you.</em></p>
-          <hr/>
-             <small class="text-m"><strong>One-time setup</strong> covers your custom design and full launch. <br><strong>Simple monthly plan</strong> includes hosting, ongoing support, and small updates. Cancel anytime - your page remains active until the end of your billing period.</small>
-             <small class="text-m">No contracts. No surprises. Just a simple page that helps you sell</small>
+          <div class="tier-body">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Single-page website (5 sections)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Mobile responsive design</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp CTA button</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Business hours &amp; contact info</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GitHub Pages deployment</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 1 round of revisions</div>
+            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Custom domain</div>
+            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Analytics</div>
+            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Animations</div>
           </div>
-          <div class="text-center mt-4">
-            <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Start Getting Orders</a>
+          <div class="tier-footer">
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Starter%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
           </div>
         </div>
+
+        <!-- TIER 2: Professional $200–$300 -->
+        <div class="pricing-tier-card tier-featured">
+          <div class="tier-popular-badge">Most Popular</div>
+          <div class="tier-header">
+            <span class="tier-badge">Professional</span>
+            <div class="tier-price"><sup>$</sup>250<span class="tier-range">–$300</span></div>
+            <div class="tier-label">One-time setup</div>
+            <p class="tier-desc">For small restaurants, boutiques, and service providers ready to start converting visitors into orders.</p>
+          </div>
+          <div class="tier-body">
+            <p class="price-sec-h">Everything in Starter, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Light / Dark mode toggle</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Scroll animations (AOS)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-filled order flow</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom domain setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> PayPal payment button</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Google Analytics 4 setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Basic on-page SEO</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 2 rounds of revisions</div>
+          </div>
+          <div class="tier-footer">
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Professional%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+          </div>
+        </div>
+
+        <!-- TIER 3: Business $300–$400 -->
+        <div class="pricing-tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">Business</span>
+            <div class="tier-price"><sup>$</sup>350<span class="tier-range">–$400</span></div>
+            <div class="tier-label">One-time setup</div>
+            <p class="tier-desc">For established businesses with real customers who need a site that works as a full marketing funnel.</p>
+          </div>
+          <div class="tier-body">
+            <p class="price-sec-h">Everything in Professional, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom brand color palette</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Premium typography pairing</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Filterable product / menu grid</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Image carousel or gallery</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp multi-product order builder</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 conversion tracking (CTA clicks)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 3 rounds of revisions</div>
+          </div>
+          <div class="tier-footer">
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Business%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+          </div>
+        </div>
+
+        <!-- TIER 4: Premium $400–$500 -->
+        <div class="pricing-tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">Premium</span>
+            <div class="tier-price"><sup>$</sup>450<span class="tier-range">–$500</span></div>
+            <div class="tier-label">One-time setup</div>
+            <p class="tier-desc">For businesses ready to treat their website as a serious revenue asset with full order flows and payment.</p>
+          </div>
+          <div class="tier-body">
+            <p class="price-sec-h">Everything in Business, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Interactive order form with live summary</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full PayPal checkout integration</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom SVG / AI hero graphic</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Testimonials section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> FAQ accordion section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Facebook Pixel setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full GA4 conversion funnel tracking</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Page speed audit &amp; compression</div>
+          </div>
+          <div class="tier-footer">
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+          </div>
+        </div>
+
+        <!-- TIER 5: Enterprise $500+ -->
+        <div class="pricing-tier-card tier-enterprise">
+          <div class="tier-header">
+            <span class="tier-badge">Enterprise</span>
+            <div class="tier-price"><sup>$</sup>500<span class="tier-range">+</span></div>
+            <div class="tier-label">Custom quote</div>
+            <p class="tier-desc">For tourism operators, multi-location businesses, and brands targeting international clients. A full digital system.</p>
+          </div>
+          <div class="tier-body">
+            <p class="price-sec-h">Everything in Premium, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Multi-section long-form landing page</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Booking / appointment flow</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom JavaScript functionality</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Brand style guide document (PDF)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Google Search Console + sitemap</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 + Search Console linked</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly analytics report included</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 1 month post-launch support</div>
+          </div>
+          <div class="tier-footer">
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20custom%20Enterprise%20build" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Request Quote</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- Scroll hint -->
+      <div class="pricing-scroll-hint d-md-none">
+        <i class="bi bi-arrow-left-right me-1"></i> Swipe to see all packages
       </div>
     </div>
+
+    <!-- ── MONTHLY RETAINER ──────────────────────── -->
+    <div class="text-center mt-6 mb-4 reveal">
+      <span class="section-label">Monthly Plans</span>
+      <h3 class="mt-2 mb-2">Keep Your Site Working Every Month</h3>
+      <p class="text-m mx-auto" style="max-width:520px">Your site is a living business tool. These plans ensure it stays accurate, fast, and growing — without you lifting a finger.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center reveal">
+
+      <!-- $50/mo -->
+      <div class="col-md-4 reveal d1">
+        <div class="retainer-card">
+          <div class="retainer-price"><sup>$</sup>50<span>/mo</span></div>
+          <div class="retainer-name">Basic Maintenance</div>
+          <p class="retainer-desc">Keep the lights on. Your site stays live, accurate, and updated.</p>
+          <hr class="price-div">
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Hosting management</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Up to 3 content updates/month</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Price &amp; menu changes</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp link updates</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Uptime monitoring</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Cancel anytime</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Basic%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+        </div>
+      </div>
+
+      <!-- $75/mo -->
+      <div class="col-md-4 reveal d2">
+        <div class="retainer-card retainer-featured">
+          <div class="tier-popular-badge">Best Value</div>
+          <div class="retainer-price"><sup>$</sup>75<span>/mo</span></div>
+          <div class="retainer-name">Growth Maintenance</div>
+          <p class="retainer-desc">Data + updates. Know who's visiting and keep your site converting.</p>
+          <hr class="price-div">
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Everything in Basic</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Up to 5 content updates/month</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly GA4 analytics report</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Seasonal promo / banner updates</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Social media link sync</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Quarterly minor design refresh</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Growth%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-wa mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+        </div>
+      </div>
+
+      <!-- $100/mo -->
+      <div class="col-md-4 reveal d3">
+        <div class="retainer-card">
+          <div class="retainer-price"><sup>$</sup>100<span>/mo</span></div>
+          <div class="retainer-name">Premium Partnership</div>
+          <p class="retainer-desc">Your full digital team. Priority support, full data, and continuous improvement.</p>
+          <hr class="price-div">
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Everything in Growth</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Priority 24hr response time</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp order flow updates</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly promo section update</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Facebook Pixel data review</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> SEO monitoring via Search Console</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Quarterly full design review</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4 reveal">
+      <small class="text-m" style="opacity:.7">No contracts. Cancel anytime. Domain registration (~$15/yr) billed separately. 50% deposit required to begin all builds.</small>
+    </div>
+
+    <div class="text-center mt-4 reveal d2">
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5"><i class="bi bi-whatsapp"></i> Start Getting Orders</a>
+    </div>
+
   </div>
 </section>
 
