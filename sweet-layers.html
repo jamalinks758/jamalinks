@@ -851,10 +851,7 @@ body::after{
   <div class="hero-bg-circle"></div>
   <div class="hero-bg-circle2"></div>
 
-  <!-- decorative dots grid -->
-  <div class="hero-dots">
-    <script>for(let i=0;i<25;i++)document.write('<div class="hero-dot"></div>');</script>
-  </div>
+  <div class="hero-dots" id="heroDots"></div>
 
   <div class="hero-left">
     <div class="hero-eyebrow">✦ Custom Cakes · Made to Order</div>
@@ -1268,15 +1265,13 @@ let activeCat = 'All';
 function buildCatTabs() {
   const emojis = {All:'✦',Birthday:'🎂',Wedding:'👰',Cupcakes:'🧁',Specialty:'✨'};
   document.getElementById('catTabs').innerHTML = cats
-    .map(c => `<button class="cat-tab ${c===activeCat?'active':''}" onclick="filterCat('${c}',this)">
+    .map(c => `<button class="cat-tab ${c===activeCat?'active':''}" onclick="filterCat('${c}')">
       ${emojis[c]} ${c}
     </button>`).join('');
 }
 
-function filterCat(cat, btn) {
+function filterCat(cat) {
   activeCat = cat;
-  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   renderCakes();
 }
 
@@ -1326,19 +1321,23 @@ function buildBuilderTabs() {
 }
 
 function buildOptionGrid(id, data, key) {
-  document.getElementById(id).innerHTML = data.map(d => `
+  const grid = document.getElementById(id);
+  grid.innerHTML = data.map(d => `
     <button class="opt-btn ${build[key]===d.val?'picked':''}"
-      onclick="pick('${key}','${d.val}',this)">
+      data-key="${key}" data-val="${d.val.replace(/"/g,'&quot;')}">
       <div class="opt-icon">${d.icon}</div>
       ${d.val}
       ${d.sub ? `<div style="font-size:0.65rem;opacity:0.5;margin-top:2px;">${d.sub}</div>` : ''}
     </button>`).join('');
-}
-
-function pick(key, val, btn) {
-  build[key] = val;
-  btn.closest('.option-grid').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('picked'));
-  btn.classList.add('picked');
+  grid.addEventListener('click', function(e) {
+    const btn = e.target.closest('.opt-btn');
+    if (!btn) return;
+    const k = btn.dataset.key;
+    const v = btn.dataset.val;
+    build[k] = v;
+    grid.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('picked'));
+    btn.classList.add('picked');
+  });
 }
 
 function nextStep(from) {
@@ -1438,6 +1437,8 @@ function observeReveal() {
 /* ═══════════════════════════════════
    INIT
 ═══════════════════════════════════ */
+// Hero dots
+document.getElementById('heroDots').innerHTML = Array(25).fill('<div class="hero-dot"></div>').join('');
 buildTicker();
 renderCakes();
 buildBuilderTabs();
@@ -1450,4 +1451,3 @@ observeReveal();
 </script>
 </body>
 </html>
-
