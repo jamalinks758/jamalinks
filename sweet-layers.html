@@ -1356,6 +1356,13 @@ function goToStep(n) {
   });
   buildBuilderTabs();
   if (n === 4) renderSummary();
+  // On mobile the browser tries to keep the tapped button in view after panel
+  // height changes, which throws the user down into the next section.
+  // Force a smooth scroll back to the top of the builder section on every step.
+  const builderEl = document.getElementById('builder');
+  const navHeight = (document.querySelector('.sl-nav') || {}).offsetHeight || 66;
+  const targetY = builderEl.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+  window.scrollTo({ top: targetY, behavior: 'smooth' });
 }
 
 function renderSummary() {
