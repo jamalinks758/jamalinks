@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plausible Analytics — jamaLinks Integration Guide</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a84c;
+  --blue: #1a6eb5;
+  --navy: #0d1b2e;
+  --bg: #f8f6f0;
+  --card: #fff;
+  --text: #1a1a1a;
+  --border: rgba(0,0,0,.08);
+  --muted: #666;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.guide-header {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.guide-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: .5rem;
+}
+.guide-header p { opacity: .75; font-size: .95rem; max-width: 520px; margin: 0 auto; }
+.guide-badge {
+  display: inline-block;
+  background: rgba(201,168,76,.2);
+  border: 1px solid rgba(201,168,76,.4);
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.guide-body { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+/* ── Cards ───────────────────────────────────────── */
+.guide-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+.guide-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: .25rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.guide-card h2 i { color: var(--gold); font-size: 1.1rem; }
+.guide-card .step-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.25rem; }
+.guide-card p { font-size: .88rem; line-height: 1.8; opacity: .8; margin-bottom: .75rem; }
+.guide-card ul { padding-left: 1.25rem; margin-bottom: .75rem; }
+.guide-card ul li { font-size: .86rem; line-height: 1.8; opacity: .8; }
+.guide-card ul li::marker { color: var(--gold); }
+
+/* ── Step number ─────────────────────────────────── */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--blue));
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Code blocks ─────────────────────────────────── */
+.code-block {
+  background: #0d1b2e;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow-x: auto;
+}
+.code-block pre {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .82rem;
+  line-height: 1.7;
+  color: #e8e8e8;
+  white-space: pre;
+}
+.code-block .comment  { color: #6a9955; }
+.code-block .tag      { color: #569cd6; }
+.code-block .attr     { color: #9cdcfe; }
+.code-block .value    { color: #ce9178; }
+.code-block .gold     { color: var(--gold); }
+.code-block .green    { color: #4ec9b0; }
+.copy-btn {
+  position: absolute;
+  top: .75rem; right: .75rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #ccc;
+  font-size: .72rem;
+  padding: .25rem .7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.copy-btn:hover { background: rgba(255,255,255,.2); color: #fff; }
+.copy-btn.copied { color: #4ec9b0; border-color: #4ec9b0; }
+
+/* ── Highlight / note boxes ──────────────────────── */
+.note-box {
+  border-radius: 10px;
+  padding: .85rem 1.1rem;
+  margin: 1rem 0;
+  font-size: .84rem;
+  line-height: 1.7;
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+}
+.note-box i { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+.note-gold  { background: rgba(201,168,76,.1);  border-left: 3px solid var(--gold); }
+.note-gold i { color: var(--gold); }
+.note-green { background: rgba(78,201,176,.1);  border-left: 3px solid #4ec9b0; }
+.note-green i { color: #4ec9b0; }
+.note-blue  { background: rgba(26,110,181,.08); border-left: 3px solid var(--blue); }
+.note-blue i { color: var(--blue); }
+.note-red   { background: rgba(220,53,69,.07);  border-left: 3px solid #dc3545; }
+.note-red i { color: #dc3545; }
+
+/* ── Comparison table ────────────────────────────── */
+.compare-table { width: 100%; border-collapse: collapse; font-size: .83rem; margin: 1rem 0; }
+.compare-table th {
+  background: linear-gradient(135deg, var(--gold), var(--blue));
+  color: #fff; padding: .65rem 1rem; text-align: left;
+  font-weight: 600; font-size: .78rem; letter-spacing: .04em;
+}
+.compare-table th:first-child { border-radius: 8px 0 0 0; }
+.compare-table th:last-child  { border-radius: 0 8px 0 0; }
+.compare-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: rgba(0,0,0,.02); }
+.tick { color: #4ec9b0; font-weight: 700; }
+.cross { color: #dc3545; font-weight: 700; }
+
+/* ── Event pills ──────────────────────────────────── */
+.event-pill {
+  display: inline-block;
+  background: rgba(201,168,76,.12);
+  border: 1px solid rgba(201,168,76,.3);
+  color: var(--navy);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .2rem .65rem;
+  border-radius: 20px;
+  margin: .15rem;
+  font-family: 'Courier New', monospace;
+}
+</style>
+</head>
+<body>
+
+<div class="guide-header">
+  <div class="guide-badge"><i class="bi bi-bar-chart-line me-1"></i> Analytics Integration Guide</div>
+  <h1>Plausible Analytics Setup</h1>
+  <p>For jamaLinks client builds — privacy-first, cookie-free, consent-free analytics that your clients will actually understand.</p>
+</div>
+
+<div class="guide-body">
+
+  <!-- WHY PLAUSIBLE -->
+  <div class="guide-card">
+    <h2><i class="bi bi-shield-check"></i> Why Plausible Over GA4</h2>
+    <p>This is the honest comparison. Use it to make the right call per client and to explain the choice when clients ask.</p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Feature</th><th>Plausible</th><th>Google Analytics 4</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cookie-free</td><td class="tick">✔ Yes</td><td class="cross">✘ Uses cookies</td></tr>
+        <tr><td>Consent banner required</td><td class="tick">✔ Not needed</td><td class="cross">✘ Required for GDPR</td></tr>
+        <tr><td>GDPR compliant by default</td><td class="tick">✔ Yes</td><td class="cross">✘ Requires configuration</td></tr>
+        <tr><td>Data sent to USA</td><td class="tick">✔ No — EU servers</td><td class="cross">✘ Google US servers</td></tr>
+        <tr><td>Dashboard simplicity</td><td class="tick">✔ Clean, client-readable</td><td class="cross">✘ Complex, overwhelming</td></tr>
+        <tr><td>Setup complexity</td><td class="tick">✔ 1 script line</td><td class="cross">✘ Multiple steps + consent</td></tr>
+        <tr><td>Cost</td><td>From $9/mo (multi-site)</td><td>Free</td></tr>
+        <tr><td>Google ecosystem integration</td><td class="cross">✘ Not connected</td><td class="tick">✔ Search Console, Ads, etc.</td></tr>
+        <tr><td>Best for</td><td>Most Caribbean small businesses</td><td>Clients running Google Ads or needing Search Console data</td></tr>
+      </tbody>
+    </table>
+    <div class="note-gold">
+      <i class="bi bi-lightbulb"></i>
+      <div><strong>Rule of thumb:</strong> Use Plausible for all standard client builds. Switch to GA4 only when the client is running Google Ads, needs Search Console integration, or specifically requests Google Analytics.</div>
+    </div>
+  </div>
+
+  <!-- ACCOUNT SETUP -->
+  <div class="guide-card">
+    <h2><i class="bi bi-person-gear"></i> Step 1 — Your Plausible Account Setup</h2>
+    <p class="step-sub">Do this once. Covers all your clients from one dashboard.</p>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">1</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Create your account</strong>
+          <p style="margin:0;">Go to <a href="https://plausible.io" target="_blank" rel="noopener" style="color:var(--gold)">plausible.io</a> and sign up. The <strong>Starter plan at $9/month</strong> covers up to 10,000 monthly pageviews across unlimited sites — enough for all your early clients combined.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">2</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Add a new site</strong>
+          <p style="margin:0;">In your Plausible dashboard click <strong>"Add a website"</strong>. Enter the client's domain (e.g. <code>freshflowjuices.com</code>). If they're on GitHub Pages with no custom domain, enter their GitHub Pages URL (e.g. <code>freshflowjuices.github.io/site</code>).</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">3</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Copy the snippet</strong>
+          <p style="margin:0;">Plausible will show you a script tag with the client's domain pre-filled. Copy it — or use the template below and fill in the domain yourself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE SNIPPET -->
+  <div class="guide-card">
+    <h2><i class="bi bi-code-slash"></i> Step 2 — The Code Snippet</h2>
+    <p class="step-sub">Paste this into every client's HTML file. That's all it takes.</p>
+
+    <p><strong>The base snippet (standard tracking):</strong></p>
+    <div class="code-block" id="snippet-basic">
+      <button class="copy-btn" onclick="copyCode('snippet-basic', this)">Copy</button>
+      <pre><span class="comment">&lt;!-- ══ PLAUSIBLE ANALYTICS ══════════════════════════════
+     Cookie-free · No consent banner needed · GDPR compliant
+     Replace [CLIENT-DOMAIN] with the client's actual domain
+     e.g. data-domain="freshflowjuices.com"
+     ══════════════════════════════════════════════════════ --&gt;</span>
+<span class="tag">&lt;script</span>
+  <span class="attr">defer</span>
+  <span class="attr">data-domain</span>=<span class="value">"[CLIENT-DOMAIN]"</span>
+  <span class="attr">src</span>=<span class="value">"https://plausible.io/js/script.js"</span>
+<span class="tag">&gt;&lt;/script&gt;</span></pre>
+    </div>
+
+    <div class="note-green">
+      <i class="bi bi-check-circle-fill"></i>
+      <div><strong>Where to place it:</strong> Inside the <code>&lt;head&gt;</code> tag, just before the closing <code>&lt;/head&gt;</code>. It loads with <code>defer</code> so it never slows the page down.</div>
+    </div>
+
+    <p style="margin-top:1.25rem;"><strong>With custom event tracking (WhatsApp clicks + order buttons):</strong></p>
+    <div class="code-block" id="snippet-events">
+      <button class="copy-btn" onclick="copyCode('snippet-events', this)">Copy</button>
+      <pre><span class="comment">&lt;!-- ══ PLAUSIBLE — with outbound link + custom events ═══
+     Use script.outbound-links.js to auto-track WhatsApp taps
+     ══════════════════════════════════════════════════════ --&gt;</span>
+<span class="tag">&lt;script</span>
+  <span class="attr">defer</span>
+  <span class="attr">data-domain</span>=<span class="value">"[CLIENT-DOMAIN]"</span>
+  <span class="attr">src</span>=<span class="value">"https://plausible.io/js/script.outbound-links.js"</span>
+<span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="comment">&lt;!-- Custom event helper — call plausible('EventName') anywhere --&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+<span class="green">window</span>.plausible = <span class="green">window</span>.plausible || <span class="gold">function</span>() {
+  (<span class="green">window</span>.plausible.q = <span class="green">window</span>.plausible.q || []).push(arguments)
+};
+<span class="tag">&lt;/script&gt;</span></pre>
+    </div>
+
+    <div class="note-blue">
+      <i class="bi bi-info-circle-fill"></i>
+      <div>The <code>outbound-links</code> script version automatically tracks every click on an external link — including your WhatsApp <code>wa.me</code> buttons. No extra code needed on the buttons themselves. This is the version to use on all builds.</div>
+    </div>
+  </div>
+
+  <!-- FULL HEAD EXAMPLE -->
+  <div class="guide-card">
+    <h2><i class="bi bi-file-earmark-code"></i> Step 3 — Full &lt;head&gt; Placement Example</h2>
+    <p class="step-sub">This is exactly where the snippet sits in the complete file.</p>
+    <div class="code-block" id="snippet-head">
+      <button class="copy-btn" onclick="copyCode('snippet-head', this)">Copy</button>
+      <pre><span class="tag">&lt;head&gt;</span>
+
+<span class="comment">  &lt;!-- META --&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"viewport"</span> <span class="attr">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Client Business Name<span class="tag">&lt;/title&gt;</span>
+
+<span class="comment">  &lt;!-- BOOTSTRAP --&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="value">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span><span class="tag">&gt;</span>
+
+<span class="comment">  &lt;!-- FONTS --&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="value">"https://fonts.googleapis.com/..."</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span><span class="tag">&gt;</span>
+
+<span class="comment">  &lt;!-- STYLESHEET --&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="value">"css/style.css"</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span><span class="tag">&gt;</span>
+
+  <span class="comment">&lt;!-- ══ PLAUSIBLE ANALYTICS ══════════════════════════
+       Add this last, just before &lt;/head&gt;
+  ══════════════════════════════════════════════════ --&gt;</span>
+  <span class="tag">&lt;script</span>
+    <span class="attr">defer</span>
+    <span class="attr">data-domain</span>=<span class="value">"[CLIENT-DOMAIN]"</span>
+    <span class="attr">src</span>=<span class="value">"https://plausible.io/js/script.outbound-links.js"</span>
+  <span class="tag">&gt;&lt;/script&gt;</span>
+  <span class="tag">&lt;script&gt;</span>
+    <span class="green">window</span>.plausible = <span class="green">window</span>.plausible || <span class="gold">function</span>() {
+      (<span class="green">window</span>.plausible.q = <span class="green">window</span>.plausible.q || []).push(arguments)
+    };
+  <span class="tag">&lt;/script&gt;</span>
+
+<span class="tag">&lt;/head&gt;</span></pre>
+    </div>
+  </div>
+
+  <!-- CUSTOM EVENTS -->
+  <div class="guide-card">
+    <h2><i class="bi bi-mouse2"></i> Step 4 — Tracking Custom Events</h2>
+    <p class="step-sub">Optional but powerful — track specific button clicks as named events in your dashboard.</p>
+
+    <p>WhatsApp outbound links are tracked automatically. But you can also fire named events for specific actions:</p>
+
+    <p><strong>On any button or link, add an onclick handler:</strong></p>
+    <div class="code-block" id="snippet-events2">
+      <button class="copy-btn" onclick="copyCode('snippet-events2', this)">Copy</button>
+      <pre><span class="comment">&lt;!-- WhatsApp CTA button — fires "WhatsApp Click" event --&gt;</span>
+<span class="tag">&lt;a</span>
+  <span class="attr">href</span>=<span class="value">"https://wa.me/17587235872?text=I%20want%20to%20order"</span>
+  <span class="attr">onclick</span>=<span class="value">"plausible('WhatsApp Click')"</span>
+  <span class="attr">class</span>=<span class="value">"btn-wa"</span>
+<span class="tag">&gt;</span>
+  Order via WhatsApp
+<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Hero CTA --&gt;</span>
+<span class="tag">&lt;a</span>
+  <span class="attr">href</span>=<span class="value">"https://wa.me/17587235872"</span>
+  <span class="attr">onclick</span>=<span class="value">"plausible('Hero CTA Click')"</span>
+<span class="tag">&gt;</span>Start My Order<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Menu / Pricing section button --&gt;</span>
+<span class="tag">&lt;a</span>
+  <span class="attr">href</span>=<span class="value">"https://wa.me/17587235872"</span>
+  <span class="attr">onclick</span>=<span class="value">"plausible('Pricing CTA Click')"</span>
+<span class="tag">&gt;</span>Get This Package<span class="tag">&lt;/a&gt;</span></pre>
+    </div>
+
+    <p>These will appear in your Plausible dashboard under <strong>Goal Conversions</strong> once you define the goal names there. The names must match exactly.</p>
+
+    <p><strong>Recommended events to track on every jamaLinks build:</strong></p>
+    <div>
+      <span class="event-pill">WhatsApp Click</span>
+      <span class="event-pill">Hero CTA Click</span>
+      <span class="event-pill">Pricing CTA Click</span>
+      <span class="event-pill">Menu View</span>
+      <span class="event-pill">Order Form Submit</span>
+      <span class="event-pill">PayPal Click</span>
+    </div>
+  </div>
+
+  <!-- REMOVING GA4 / CONSENT BANNER -->
+  <div class="guide-card">
+    <h2><i class="bi bi-trash3"></i> Step 5 — Removing GA4 &amp; The Consent Banner</h2>
+    <p class="step-sub">If replacing GA4 with Plausible — clean these out of the HTML.</p>
+
+    <p>Remove or comment out the following from the client's HTML file:</p>
+
+    <div class="note-red">
+      <i class="bi bi-x-circle-fill"></i>
+      <div><strong>Remove these entirely when using Plausible:</strong></div>
+    </div>
+
+    <div class="code-block" id="snippet-remove">
+      <button class="copy-btn" onclick="copyCode('snippet-remove', this)">Copy</button>
+      <pre><span class="comment">&lt;!-- 1. Remove the consent banner CSS link --&gt;</span>
+<span class="cross" style="color:#dc3545;">&lt;link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css"&gt;</span>
+
+<span class="comment">&lt;!-- 2. Remove the consent banner JS script at bottom of body --&gt;</span>
+<span class="cross" style="color:#dc3545;">&lt;script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"&gt;&lt;/script&gt;</span>
+
+<span class="comment">&lt;!-- 3. Remove the entire consent config + GA4 script block:
+     The block containing consentConfig, loadConsentState,
+     saveConsentState, loadGoogleAnalytics, cookiesBannerJs
+     — delete all of it. Plausible needs none of this. --&gt;</span></pre>
+    </div>
+
+    <div class="note-green">
+      <i class="bi bi-check-circle-fill"></i>
+      <div><strong>What stays:</strong> The WhatsApp tracking function (<code>trackWhatsAppClick</code>) and the Google Sheets tracking URL can remain if you're using them for your own click logging. That is separate from analytics and unrelated to cookies.</div>
+    </div>
+
+    <p>Also update the Privacy Policy page — use the <strong>Plausible block</strong> in the Cookies section (already included in the legal template) and remove the GA4 cookie table.</p>
+  </div>
+
+  <!-- VERIFICATION -->
+  <div class="guide-card">
+    <h2><i class="bi bi-patch-check"></i> Step 6 — Verifying It Works</h2>
+    <p class="step-sub">Before you hand over to the client, confirm tracking is live.</p>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">1</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Visit the live site</strong>
+          <p style="margin:0;">Open the client's published site in your browser. Visit two or three pages and click a WhatsApp button.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">2</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Check your Plausible dashboard</strong>
+          <p style="margin:0;">In your Plausible account, open the site. Go to <strong>Realtime</strong>. You should see yourself as an active visitor within 30 seconds. If you see it — it's working.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">3</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Confirm outbound clicks</strong>
+          <p style="margin:0;">Click any WhatsApp button on the site. In Plausible, go to <strong>Goal Conversions → Outbound Link: Click</strong>. Your click should appear with the <code>wa.me</code> URL. This confirms WhatsApp taps are being tracked.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start;">
+        <div class="step-num">4</div>
+        <div>
+          <strong style="display:block;margin-bottom:.25rem;font-size:.88rem;">Share access with the client (optional)</strong>
+          <p style="margin:0;">In Plausible, go to <strong>Settings → Visibility</strong> and enable the public dashboard link. Send this link to your client — they can see their live analytics without needing a Plausible account. This is your retainer deliverable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RETAINER REPORTING -->
+  <div class="guide-card">
+    <h2><i class="bi bi-file-earmark-bar-graph"></i> The Monthly Report — What to Send Clients</h2>
+    <p class="step-sub">This is how you justify the $75/month Growth retainer every single month.</p>
+
+    <p>At the end of each month, log into Plausible, select the past 30 days, and pull these numbers for a simple WhatsApp or email update:</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin:1rem 0;">
+      <thead>
+        <tr style="background:linear-gradient(135deg,var(--gold),var(--blue));color:#fff;">
+          <th style="padding:.6rem 1rem;text-align:left;border-radius:8px 0 0 0;">Metric</th>
+          <th style="padding:.6rem 1rem;text-align:left;">Where to Find It</th>
+          <th style="padding:.6rem 1rem;text-align:left;border-radius:0 8px 0 0;">Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);"><strong>Total visitors</strong></td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Top of dashboard</td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">How many people saw the site</td></tr>
+        <tr style="background:rgba(0,0,0,.02);"><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);"><strong>Top source</strong></td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Sources tab</td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Where traffic is coming from (Instagram, WhatsApp, Google)</td></tr>
+        <tr><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);"><strong>WhatsApp clicks</strong></td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Goal Conversions</td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">How many people tapped to order</td></tr>
+        <tr style="background:rgba(0,0,0,.02);"><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);"><strong>Mobile vs desktop</strong></td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Devices tab</td><td style="padding:.55rem 1rem;border-bottom:1px solid var(--border);">Confirms mobile-first design is correct</td></tr>
+        <tr><td style="padding:.55rem 1rem;"><strong>Top countries</strong></td><td style="padding:.55rem 1rem;">Map / Locations tab</td><td style="padding:.55rem 1rem;">Shows if international visitors are arriving</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Sample monthly message to send your client via WhatsApp:</strong></p>
+    <div style="background:#f0f0f0;border-radius:12px;padding:1.1rem 1.25rem;font-size:.84rem;line-height:1.8;font-family:'Courier New',monospace;color:#222;">
+      Hi [Client Name] 👋 Here's your site report for [Month]:<br><br>
+      📊 <strong>Visitors:</strong> 340<br>
+      📱 <strong>Mobile visitors:</strong> 91%<br>
+      💬 <strong>WhatsApp button taps:</strong> 41<br>
+      🌍 <strong>Top traffic source:</strong> Instagram<br>
+      🌐 <strong>Top countries:</strong> Saint Lucia, Trinidad, UK<br><br>
+      Your site is performing well. 41 people clicked to message you this month — that's 41 potential orders from your page alone. Let me know if you'd like to update anything. 🙌
+    </div>
+
+    <div class="note-gold" style="margin-top:1rem;">
+      <i class="bi bi-lightbulb"></i>
+      <div>That message takes you 3 minutes to write from the Plausible dashboard. To the client it feels like a full data service. That is the entire value proposition of the $75 retainer in one paragraph.</div>
+    </div>
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="guide-card" style="background:var(--navy);color:#fff;border-color:transparent;">
+    <h2 style="color:#fff;"><i class="bi bi-bookmark-star"></i> Quick Reference Card</h2>
+    <p style="opacity:.75;">Pin this. Use it on every build.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Script to use</div>
+        <code style="font-size:.75rem;color:#ccc;">script.outbound-links.js</code>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Where to place</div>
+        <code style="font-size:.75rem;color:#ccc;">Before &lt;/head&gt;</code>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Consent banner</div>
+        <code style="font-size:.75rem;color:#ccc;">Not needed ✔</code>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Verify with</div>
+        <code style="font-size:.75rem;color:#ccc;">Plausible Realtime tab</code>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Privacy policy</div>
+        <code style="font-size:.75rem;color:#ccc;">Use Plausible block</code>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:1rem;">
+        <div style="color:var(--gold);font-weight:700;font-size:.8rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;">Cost per client</div>
+        <code style="font-size:.75rem;color:#ccc;">&lt;$1/mo on Starter plan</code>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end guide-body -->
+
+<script>
+function copyCode(blockId, btn) {
+  const block = document.getElementById(blockId);
+  const pre = block.querySelector('pre');
+  const text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied ✔';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
