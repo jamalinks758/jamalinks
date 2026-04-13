@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy & Terms of Service — [BUSINESS_NAME]</title>
+<meta name="description" content="Privacy Policy and Terms of Service for [BUSINESS_NAME]. Learn how we handle your data and protect your privacy.">
+<meta name="robots" content="noindex, follow">
+
+<!-- ══ FAVICON — replace with client logo ════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ══ MAIN SITE STYLESHEET ═══════════════════════════ -->
+<!-- Keep this linked so dark mode, navbar, footer all match -->
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+/* ── GLOBAL ───────────────────────────────────────── */
+html, body { overflow-x: hidden; max-width: 100%; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── LEGAL PAGE HERO ──────────────────────────────── */
+.legal-hero {
+  padding: 7rem 0 4rem;
+  background: var(--bg, #f8f6f0);
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.07));
+  text-align: center;
+}
+.legal-hero .section-label {
+  display: inline-block;
+  margin-bottom: .75rem;
+}
+.legal-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: .5rem;
+}
+[data-theme="dark"] .legal-hero h1 { color: #f0ece3; }
+.legal-meta {
+  font-size: .82rem;
+  opacity: .55;
+  margin-top: .5rem;
+}
+.legal-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  margin: 0 .75rem;
+}
+
+/* ── LEGAL CONTENT AREA ───────────────────────────── */
+.legal-content {
+  padding: 4rem 0 5rem;
+}
+.legal-card {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+}
+@media (max-width: 576px) {
+  .legal-card { padding: 1.75rem 1.25rem; }
+}
+.legal-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.1rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.legal-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: 1rem;
+}
+[data-theme="dark"] .legal-card h2 { color: #f0ece3; }
+.legal-card h3 {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--gold, #c9a84c);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 1.5rem 0 .5rem;
+}
+.legal-card p {
+  font-size: .9rem;
+  line-height: 1.8;
+  opacity: .8;
+  margin-bottom: .75rem;
+}
+.legal-card ul {
+  padding-left: 1.25rem;
+  margin-bottom: .75rem;
+}
+.legal-card ul li {
+  font-size: .88rem;
+  line-height: 1.8;
+  opacity: .8;
+  margin-bottom: .25rem;
+}
+.legal-card ul li::marker { color: var(--gold, #c9a84c); }
+
+/* ── DATA TABLE ───────────────────────────────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: .83rem;
+}
+.data-table th {
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  color: #fff;
+  padding: .65rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .04em;
+}
+.data-table th:first-child { border-radius: 8px 0 0 0; }
+.data-table th:last-child  { border-radius: 0 8px 0 0; }
+.data-table td {
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.07));
+  opacity: .8;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:nth-child(even) td { background: rgba(0,0,0,.02); }
+[data-theme="dark"] .data-table tr:nth-child(even) td { background: rgba(255,255,255,.03); }
+
+/* ── HIGHLIGHT BOX ────────────────────────────────── */
+.legal-highlight {
+  background: rgba(201,168,76,.08);
+  border-left: 3px solid var(--gold, #c9a84c);
+  border-radius: 0 8px 8px 0;
+  padding: .85rem 1.1rem;
+  margin: 1rem 0;
+  font-size: .85rem;
+  line-height: 1.7;
+  opacity: .9;
+}
+[data-theme="dark"] .legal-highlight { background: rgba(201,168,76,.06); }
+
+/* ── RIGHTS GRID ──────────────────────────────────── */
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.right-item {
+  background: var(--bg-alt, rgba(0,0,0,.02));
+  border-radius: 10px;
+  padding: .85rem 1rem;
+  font-size: .82rem;
+  line-height: 1.5;
+}
+[data-theme="dark"] .right-item { background: rgba(255,255,255,.04); }
+.right-item i {
+  color: var(--gold, #c9a84c);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: .35rem;
+}
+.right-item strong { display: block; margin-bottom: .2rem; font-size: .83rem; }
+
+/* ── STICKY TOC ───────────────────────────────────── */
+.legal-toc {
+  position: sticky;
+  top: 5rem;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+}
+.legal-toc h6 {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--gold, #c9a84c);
+  margin-bottom: 1rem;
+}
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  color: var(--text, #333);
+  text-decoration: none;
+  padding: .35rem .5rem;
+  border-radius: 6px;
+  margin-bottom: .15rem;
+  transition: background .2s, color .2s;
+  opacity: .75;
+}
+.toc-link:hover {
+  background: rgba(201,168,76,.1);
+  color: var(--gold, #c9a84c);
+  opacity: 1;
+}
+.toc-link i { font-size: .7rem; color: var(--gold, #c9a84c); }
+[data-theme="dark"] .toc-link { color: #ccc; }
+
+/* ── CONTACT CARD ─────────────────────────────────── */
+.contact-card {
+  background: linear-gradient(135deg, var(--gold,#c9a84c) 0%, var(--blue,#1a6eb5) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.contact-card h4 { font-family: 'Playfair Display', serif; margin-bottom: .5rem; }
+.contact-card p { opacity: .9; font-size: .88rem; margin-bottom: 1rem; }
+.contact-card a {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: #fff; color: #1a1a1a;
+  padding: .6rem 1.4rem; border-radius: 50px;
+  font-weight: 700; font-size: .85rem;
+  text-decoration: none;
+  transition: transform .2s;
+}
+.contact-card a:hover { transform: scale(1.04); }
+
+/* ── WHATSAPP FLOAT ───────────────────────────────── */
+.wa-float {
+  position: fixed !important;
+  bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important;
+  transition: transform .2s ease, box-shadow .2s ease !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover {
+  transform: scale(1.08) translateZ(0) !important;
+  box-shadow: 0 6px 28px rgba(37,211,102,.6) !important;
+  color: #fff !important;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.webp" alt="[BUSINESS_NAME] Logo" class="rounded-pill img-fluid shadow mx-auto brand-logo">
+      <div>
+        <!-- ✏️ Replace with client brand name markup or just text -->
+        <span style="font-weight:700;font-size:1rem;">[BUSINESS_NAME]</span>
+      </div>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
+        <i id="themeIconMob" class="bi bi-sun-fill"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">← Back to Website</a></li>
+        <li class="nav-item ms-lg-2">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle theme">
+            <i id="themeIcon" class="bi bi-sun-fill"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ LEGAL HERO ══════════════════════════════════════ -->
+<div class="legal-hero">
+  <div class="container">
+    <span class="section-label">Legal</span>
+    <h1>Privacy Policy &amp; Terms of Service</h1>
+    <div class="divider" style="margin: .75rem auto;"></div>
+    <div class="legal-meta">
+      <span><i class="bi bi-calendar3"></i> Last updated: [DATE — e.g. January 2026]</span>
+      <span><i class="bi bi-globe2"></i> [WEBSITE_URL]</span>
+      <span><i class="bi bi-geo-alt"></i> [ISLAND / COUNTRY]</span>
+    </div>
+    <p class="text-m mx-auto mt-3" style="max-width:520px;opacity:.7;">
+      We believe in plain language. This page explains exactly what data we collect, why, and what your rights are — without legal jargon designed to confuse you.
+    </p>
+  </div>
+</div>
+
+<!-- ══ LEGAL CONTENT ═══════════════════════════════════ -->
+<section class="legal-content">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Table of Contents (desktop sidebar) -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="legal-toc">
+          <h6><i class="bi bi-list-ul me-1"></i> Contents</h6>
+          <a href="#who-we-are"       class="toc-link"><i class="bi bi-chevron-right"></i> Who We Are</a>
+          <a href="#data-collected"   class="toc-link"><i class="bi bi-chevron-right"></i> Data We Collect</a>
+          <a href="#why-we-collect"   class="toc-link"><i class="bi bi-chevron-right"></i> Why We Collect It</a>
+          <a href="#cookies"          class="toc-link"><i class="bi bi-chevron-right"></i> Cookies</a>
+          <a href="#third-parties"    class="toc-link"><i class="bi bi-chevron-right"></i> Third Parties</a>
+          <a href="#your-rights"      class="toc-link"><i class="bi bi-chevron-right"></i> Your Rights</a>
+          <a href="#data-retention"   class="toc-link"><i class="bi bi-chevron-right"></i> Data Retention</a>
+          <a href="#children"         class="toc-link"><i class="bi bi-chevron-right"></i> Children</a>
+          <a href="#terms"            class="toc-link"><i class="bi bi-chevron-right"></i> Terms of Service</a>
+          <a href="#changes"          class="toc-link"><i class="bi bi-chevron-right"></i> Policy Changes</a>
+          <a href="#contact"          class="toc-link"><i class="bi bi-chevron-right"></i> Contact Us</a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-9">
+
+        <!-- 1. WHO WE ARE -->
+        <div class="legal-card" id="who-we-are">
+          <div class="legal-card-icon"><i class="bi bi-building"></i></div>
+          <h2>1. Who We Are</h2>
+          <p>This website is owned and operated by <strong>[BUSINESS_NAME]</strong>, a business based in <strong>[ISLAND, COUNTRY]</strong>. We are responsible for this website and for any personal data collected through it.</p>
+          <p>For any questions about this policy, you can reach us at:</p>
+          <div class="legal-highlight">
+            <strong>[BUSINESS_NAME]</strong><br>
+            📍 [Business Address or "Based in [Island], [Country]"]<br>
+            📱 <a href="https://wa.me/[WHATSAPP_NUMBER]" style="color:var(--gold,#c9a84c)">WhatsApp: [PHONE NUMBER]</a><br>
+            ✉️ [EMAIL ADDRESS — if applicable]<br>
+            🌐 [WEBSITE_URL]
+          </div>
+          <p style="font-size:.82rem;opacity:.6;">This website was designed and built by <strong>jamaLinks</strong> on behalf of [BUSINESS_NAME]. jamaLinks is not the data controller for this site — [BUSINESS_NAME] is.</p>
+        </div>
+
+        <!-- 2. DATA WE COLLECT -->
+        <div class="legal-card" id="data-collected">
+          <div class="legal-card-icon"><i class="bi bi-database"></i></div>
+          <h2>2. What Data We Collect</h2>
+          <p>We collect only what we need — and nothing more. Here is a clear breakdown:</p>
+
+          <h3>Data Collected Automatically</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>What It Includes</th>
+                <th>How It's Collected</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Page visits</strong></td>
+                <td>Which pages were viewed and for how long</td>
+                <td>Analytics tool (see Section 5)</td>
+              </tr>
+              <tr>
+                <td><strong>Device type</strong></td>
+                <td>Mobile, tablet, or desktop — not your device model</td>
+                <td>Analytics tool</td>
+              </tr>
+              <tr>
+                <td><strong>Referral source</strong></td>
+                <td>How you arrived (e.g. Instagram, Google, direct link)</td>
+                <td>Analytics tool</td>
+              </tr>
+              <tr>
+                <td><strong>Country / region</strong></td>
+                <td>General location only — not your address or GPS</td>
+                <td>Analytics tool</td>
+              </tr>
+              <tr>
+                <td><strong>Button clicks</strong></td>
+                <td>Whether WhatsApp or order buttons were clicked</td>
+                <td>Analytics tool</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Data You Provide Voluntarily</h3>
+          <p>This website does not contain a contact form or registration system. If you tap a WhatsApp button, you are leaving this website and entering WhatsApp — which has its own privacy policy. Any information you share in WhatsApp is governed by WhatsApp's terms, not ours.</p>
+
+          <h3>Data We Do NOT Collect</h3>
+          <ul>
+            <li>Your name, email address, or phone number (unless you message us directly)</li>
+            <li>Your precise GPS location</li>
+            <li>Payment card details (all payments handled by PayPal — see Section 5)</li>
+            <li>Any sensitive personal data (health, religion, ethnicity, etc.)</li>
+          </ul>
+
+          <div class="legal-highlight">
+            <i class="bi bi-shield-check me-2" style="color:var(--gold,#c9a84c)"></i>
+            <strong>Plain English summary:</strong> We know roughly how many people visit this page, what country they're from, and whether they clicked a button. We do not know who you are unless you message us directly.
+          </div>
+        </div>
+
+        <!-- 3. WHY WE COLLECT -->
+        <div class="legal-card" id="why-we-collect">
+          <div class="legal-card-icon"><i class="bi bi-bar-chart"></i></div>
+          <h2>3. Why We Collect It</h2>
+          <p>We collect analytics data for one reason: to understand how visitors use our website so we can improve it for customers like you.</p>
+
+          <table class="data-table">
+            <thead>
+              <tr><th>Purpose</th><th>Legal Basis</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Website analytics (understanding visitor behaviour)</td>
+                <td>Your consent, given via the cookie banner on first visit</td>
+              </tr>
+              <tr>
+                <td>Improving our products and services</td>
+                <td>Legitimate interest</td>
+              </tr>
+              <tr>
+                <td>Responding to your WhatsApp messages</td>
+                <td>Performance of a contract / your request</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>We do not sell your data. We do not share your data with advertisers. We do not use your data for any purpose beyond what is listed above.</p>
+        </div>
+
+        <!-- 4. COOKIES -->
+        <div class="legal-card" id="cookies">
+          <div class="legal-card-icon"><i class="bi bi-cookie"></i></div>
+          <h2>4. Cookies</h2>
+          <p>Cookies are small text files stored on your device when you visit a website. Here is exactly what this site uses:</p>
+
+          <h3>Essential Cookies (No Consent Required)</h3>
+          <table class="data-table">
+            <thead>
+              <tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>jama-theme</code></td>
+                <td>Remembers your light/dark mode preference</td>
+                <td>Until cleared</td>
+              </tr>
+              <tr>
+                <td><code>cookie_consent</code></td>
+                <td>Remembers your cookie consent choice</td>
+                <td>1 year</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Analytics Cookies (Require Your Consent)</h3>
+          <!-- ✏️ BUILDER NOTE: Use whichever block matches what's installed — GA4 or Plausible. Delete the other. -->
+
+          <!-- === IF USING GA4 (delete this block if using Plausible) === -->
+          <table class="data-table">
+            <thead>
+              <tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Google Analytics</td>
+                <td>Distinguishes unique users</td>
+                <td>2 years</td>
+              </tr>
+              <tr>
+                <td><code>_ga_*</code></td>
+                <td>Google Analytics</td>
+                <td>Maintains session state</td>
+                <td>2 years</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:.82rem;opacity:.7;">These cookies are only set if you accept analytics via the banner shown on your first visit. You can change your preference at any time by clearing your browser cookies and revisiting this page.</p>
+          <!-- === END GA4 BLOCK === -->
+
+          <!-- === IF USING PLAUSIBLE — uncomment and use this block instead === -->
+          <!--
+          <div class="legal-highlight">
+            <i class="bi bi-shield-check me-2" style="color:var(--gold,#c9a84c)"></i>
+            <strong>This website uses Plausible Analytics</strong> — a privacy-first analytics tool that uses no cookies and collects no personal data. No consent banner is required and no data is stored on your device. <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Learn more about Plausible.</a>
+          </div>
+          -->
+          <!-- === END PLAUSIBLE BLOCK === -->
+
+          <h3>How to Manage Cookies</h3>
+          <p>You can control cookies through your browser settings. Removing analytics cookies will not affect the functionality of this website. Visit <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">allaboutcookies.org</a> for guidance on all major browsers.</p>
+        </div>
+
+        <!-- 5. THIRD PARTIES -->
+        <div class="legal-card" id="third-parties">
+          <div class="legal-card-icon"><i class="bi bi-diagram-3"></i></div>
+          <h2>5. Third-Party Services</h2>
+          <p>This website uses the following third-party services. Each has its own privacy policy which governs their data handling:</p>
+
+          <h3>Google Analytics 4 (if installed)</h3>
+          <p>Used to understand how visitors interact with this website. Data is anonymised and aggregated. Google may transfer data internationally. You can opt out of Google Analytics across all websites by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Google Analytics Opt-out Browser Add-on</a>.</p>
+          <p style="font-size:.82rem;opacity:.6;">Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">policies.google.com/privacy</a></p>
+
+          <h3>Plausible Analytics (if installed)</h3>
+          <p>A cookie-free, privacy-first analytics tool. Plausible does not collect personal data, does not use cookies, and does not track visitors across websites. No consent is required for Plausible.</p>
+          <p style="font-size:.82rem;opacity:.6;">Plausible's Privacy Policy: <a href="https://plausible.io/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">plausible.io/privacy</a></p>
+
+          <h3>WhatsApp</h3>
+          <p>This website contains links that open WhatsApp. When you tap these links, you leave this website. Any communication in WhatsApp is governed by WhatsApp's privacy policy. We do not receive any data from WhatsApp about your identity unless you choose to message us.</p>
+          <p style="font-size:.82rem;opacity:.6;">WhatsApp's Privacy Policy: <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">whatsapp.com/legal/privacy-policy</a></p>
+
+          <h3>PayPal (if payment buttons are installed)</h3>
+          <p>If this website contains a PayPal payment button, clicking it will redirect you to PayPal's platform. [BUSINESS_NAME] does not receive, store, or process your payment card details. All payment handling is conducted entirely by PayPal.</p>
+          <p style="font-size:.82rem;opacity:.6;">PayPal's Privacy Policy: <a href="https://www.paypal.com/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">paypal.com/privacy</a></p>
+
+          <h3>Google Fonts</h3>
+          <p>This website uses Google Fonts to display typography. Google may log the request for fonts. No personal data is shared in this process.</p>
+          <p style="font-size:.82rem;opacity:.6;">Google Fonts Privacy: <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">developers.google.com/fonts/faq/privacy</a></p>
+        </div>
+
+        <!-- 6. YOUR RIGHTS -->
+        <div class="legal-card" id="your-rights">
+          <div class="legal-card-icon"><i class="bi bi-person-check"></i></div>
+          <h2>6. Your Rights</h2>
+          <p>Depending on where you are located, you may have the following rights regarding your personal data:</p>
+
+          <div class="rights-grid">
+            <div class="right-item">
+              <i class="bi bi-eye"></i>
+              <strong>Right to Access</strong>
+              Request a copy of any personal data we hold about you.
+            </div>
+            <div class="right-item">
+              <i class="bi bi-pencil"></i>
+              <strong>Right to Rectification</strong>
+              Ask us to correct inaccurate data.
+            </div>
+            <div class="right-item">
+              <i class="bi bi-trash3"></i>
+              <strong>Right to Erasure</strong>
+              Request deletion of your personal data ("right to be forgotten").
+            </div>
+            <div class="right-item">
+              <i class="bi bi-x-circle"></i>
+              <strong>Right to Object</strong>
+              Object to processing based on legitimate interest.
+            </div>
+            <div class="right-item">
+              <i class="bi bi-pause-circle"></i>
+              <strong>Right to Restriction</strong>
+              Ask us to limit how we process your data.
+            </div>
+            <div class="right-item">
+              <i class="bi bi-download"></i>
+              <strong>Right to Portability</strong>
+              Receive your data in a machine-readable format.
+            </div>
+          </div>
+
+          <div class="legal-highlight">
+            Because this website collects very limited personal data (and none directly), most of these rights apply primarily to any WhatsApp conversation you have with us. To exercise any of these rights, contact us via WhatsApp or email using the details in Section 11.
+          </div>
+
+          <p>If you are located in the European Union, you also have the right to lodge a complaint with your local data protection authority. If you are in the UK, this is the <a href="https://ico.org.uk" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Information Commissioner's Office (ICO)</a>.</p>
+        </div>
+
+        <!-- 7. DATA RETENTION -->
+        <div class="legal-card" id="data-retention">
+          <div class="legal-card-icon"><i class="bi bi-clock-history"></i></div>
+          <h2>7. Data Retention</h2>
+          <p>We retain data only for as long as necessary:</p>
+          <ul>
+            <li><strong>Google Analytics data</strong> — retained for 14 months by default, then automatically deleted by Google.</li>
+            <li><strong>Plausible Analytics data</strong> — retained for up to 5 years in aggregate, anonymised form. No personal data is stored.</li>
+            <li><strong>WhatsApp conversations</strong> — retained within WhatsApp's platform per their policy. We do not export or store chat data externally.</li>
+            <li><strong>Cookie consent records</strong> — stored locally in your browser for 1 year.</li>
+          </ul>
+        </div>
+
+        <!-- 8. CHILDREN -->
+        <div class="legal-card" id="children">
+          <div class="legal-card-icon"><i class="bi bi-person-heart"></i></div>
+          <h2>8. Children's Privacy</h2>
+          <p>This website is not directed at children under the age of 13. We do not knowingly collect personal data from children. If you believe a child has provided us with personal information, please contact us immediately and we will take steps to delete it.</p>
+        </div>
+
+        <!-- 9. TERMS OF SERVICE -->
+        <div class="legal-card" id="terms">
+          <div class="legal-card-icon"><i class="bi bi-file-earmark-text"></i></div>
+          <h2>9. Terms of Service</h2>
+          <p>By using this website, you agree to the following terms:</p>
+
+          <h3>Acceptable Use</h3>
+          <p>You agree to use this website only for lawful purposes. You must not use this website in any way that is unlawful, harmful, fraudulent, or that violates the rights of others.</p>
+
+          <h3>Intellectual Property</h3>
+          <p>All content on this website — including text, images, logos, and design — is the property of <strong>[BUSINESS_NAME]</strong> unless otherwise stated. You may not reproduce, copy, or distribute any content without written permission.</p>
+
+          <h3>Accuracy of Information</h3>
+          <p>[BUSINESS_NAME] makes reasonable efforts to ensure the information on this website is accurate and up to date. However, we cannot guarantee that all information is error-free at all times. Prices, availability, and product details are subject to change.</p>
+
+          <h3>External Links</h3>
+          <p>This website contains links to WhatsApp and PayPal. We are not responsible for the content or privacy practices of these external platforms.</p>
+
+          <h3>Limitation of Liability</h3>
+          <p>To the fullest extent permitted by law, [BUSINESS_NAME] shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website or any products or services purchased through it.</p>
+
+          <h3>Governing Law</h3>
+          <p>These terms are governed by the laws of <strong>[ISLAND / COUNTRY]</strong>. Any disputes shall be subject to the jurisdiction of the courts of [ISLAND / COUNTRY].</p>
+
+          <h3>Orders and Payments</h3>
+          <p>All orders placed via WhatsApp are subject to availability and confirmation. Prices are listed in <strong>USD</strong> unless otherwise stated. [BUSINESS_NAME] reserves the right to refuse or cancel any order at its discretion. Refund and cancellation terms are available upon request via WhatsApp.</p>
+        </div>
+
+        <!-- 10. POLICY CHANGES -->
+        <div class="legal-card" id="changes">
+          <div class="legal-card-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <h2>10. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. Significant changes will be communicated via a notice on our website or through our WhatsApp channel where appropriate.</p>
+          <p>Continued use of this website after any changes constitutes your acceptance of the updated policy.</p>
+        </div>
+
+        <!-- 11. CONTACT -->
+        <div class="legal-card" id="contact">
+          <div class="legal-card-icon"><i class="bi bi-chat-dots"></i></div>
+          <h2>11. Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy, want to exercise your data rights, or have a concern about how your data is handled, please reach out:</p>
+          <div class="contact-card">
+            <h4>[BUSINESS_NAME]</h4>
+            <p>We're here to help. Message us on WhatsApp and we'll respond during business hours.</p>
+            <a href="https://wa.me/[WHATSAPP_NUMBER]?text=I%20have%20a%20question%20about%20your%20privacy%20policy">
+              <i class="bi bi-whatsapp"></i> Message Us on WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div><!-- end col-lg-9 -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© <span id="footer-year"></span> [BUSINESS_NAME]. All rights reserved.</span>
+      <a href="index.html" style="opacity:.55;font-size:.82rem;color:inherit;text-decoration:none;">← Back to Website</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ═══════════════════════════════════ -->
+<a href="https://wa.me/[WHATSAPP_NUMBER]?text=Hi%20I%20have%20a%20question" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── Theme Engine ──────────────────────────────────── */
+const html  = document.documentElement;
+const STORE = 'jama-theme';
+function getInitialTheme() {
+  const saved = localStorage.getItem(STORE);
+  if (saved) return saved;
+  const h = new Date().getHours();
+  return (h >= 19 || h < 6) ? 'dark' : 'light';
+}
+let current = getInitialTheme();
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(STORE, t);
+  const dark = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
+  const iconM = document.getElementById('themeIconMob');
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+}
+applyTheme(current);
+const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
+document.getElementById('themeToggle')    ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob') ?.addEventListener('click', toggle);
+
+/* ── Navbar scroll shadow ──────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Smooth scroll TOC links ───────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Auto year ─────────────────────────────────────── */
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
