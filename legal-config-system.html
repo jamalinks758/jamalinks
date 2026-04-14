@@ -4,15 +4,15 @@
   jamaLinks — LEGAL PAGE CONFIG SYSTEM v3.0
   ───────────────────────────────────────────────────────────────────
   HOW TO USE:
-  1. Scroll to the <script id="jl-config"> block below the <body> tag
+  1. Scroll to the <script id="jl-config"> block below the <body> tag. Line 1106
   2. Fill in ONLY the CONFIG values — nothing else needs editing
   3. Set feature flags to true/false based on what the site uses
   4. Save the file as legal.html in the client's site folder
   5. That's it. The script populates everything automatically.
   ───────────────────────────────────────────────────────────────────
   DEPLOYMENT CHECKLIST:
-  [ ] CONFIG values filled (business name, phone, URL, location, date)
-  [ ] Feature flags set correctly (analytics, payments, whatsapp, etc.)
+  [ y] CONFIG values filled (business name, phone, URL, location, date)
+  [ y] Feature flags set correctly (analytics, payments, whatsapp, etc.)
   [ ] File saved as legal.html in client site root
   [ ] "Do Not Sell" link added to index.html footer (US-facing sites)
   [ ] Tested in light mode and dark mode
@@ -1104,13 +1104,13 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 const CONFIG = {
 
   // ── Business Identity ──────────────────────────────────────────
-  businessName   : "Fresh Flow Juices",           // Client's trading name
-  businessPhone  : "17587231234",                 // WhatsApp number — digits only, no spaces
-  businessEmail  : "hello@freshflowjuices.com",   // Business email — leave "" if none
-  businessAddress: "Castries, Saint Lucia",       // Physical address or "Based in X, Y"
-  websiteURL     : "freshflowjuices.com",         // Domain — no https://
+  businessName   : "Island Bites",           // Client's trading name
+  businessPhone  : "17587235872",                 // WhatsApp number — digits only, no spaces
+  businessEmail  : "jamalinks758@gmail.com",   // Business email — leave "" if none
+  businessAddress: "Vieux Fort, Saint Lucia",       // Physical address or "Based in X, Y"
+  websiteURL     : "jamalinks758.github.io/jamalinks/",         // Domain — no https://
   location       : "Saint Lucia",                 // Island / Country (for governing law)
-  policyDate     : "January 2026",                // Month Year of this policy version
+  policyDate     : "April 2026",                // Month Year of this policy version
 
   // ── Business Hours (shown in contact section) ──────────────────
   businessHours  : "Monday – Saturday, 9 AM – 6 PM",
@@ -1125,8 +1125,8 @@ const CONFIG = {
    ══════════════════════════════════════════════════════════════════ */
 
   // ── Analytics ──────────────────────────────────────────────────
-  usesGA4        : true,    // Google Analytics 4 installed?
-  usesPlausible  : false,   // Plausible Analytics installed?
+  usesGA4        : false,    // Google Analytics 4 installed?
+  usesPlausible  : true,   // Plausible Analytics installed?
   // NOTE: Set only one to true. If both false, analytics section hides.
 
   // ── Tracking & Advertising ────────────────────────────────────
@@ -1143,7 +1143,7 @@ const CONFIG = {
 
   // ── Market ────────────────────────────────────────────────────
   targetsUS      : true,    // Will US visitors be targeted or expected?
-  targetsEU      : true,    // Will EU visitors be targeted or expected?
+  targetsEU      : false,    // Will EU visitors be targeted or expected?
 
 };
 
