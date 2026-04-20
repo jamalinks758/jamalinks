@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baking Classes — Lovelly Cakes TT | Chef Shelly-Ann Lovell</title>
+  <meta name="description" content="Join Chef Shelly-Ann Lovell for professional baking classes in Trinidad. Online and face-to-face workshops in Arima. Register instantly via WhatsApp.">
+  <meta property="og:title" content="Baking Classes — Lovelly Cakes TT | Chef Shelly-Ann Lovell">
+  <meta property="og:description" content="Online and face-to-face baking classes with Chef Shelly-Ann. Doughnuts, Cookies, Bread & Cake Decorating. Register in seconds.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Font Awesome (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    /* ============================================
+       CSS VARIABLES — LOVELLY CAKES TT
+       Palette: Deep royal purple · Warm gold · Amber
+    ============================================ */
+    :root {
+      --primary: #2A1245;
+      --primary-light: #3D1A6E;
+      --gold: #C9A227;
+      --gold-light: #E8C84A;
+      --gold-pale: rgba(201,162,39,0.13);
+      --accent: #E07B2A;
+      --bg: #FFF8F0;
+      --bg-2: #FDF2E8;
+      --surface: #FFFFFF;
+      --text: #1E0A3C;
+      --text-muted: #6B5B8A;
+      --border: rgba(201,162,39,0.22);
+      --shadow: rgba(42,18,69,0.1);
+      --wa: #25D366;
+      --wa-hover: #1DA851;
+      --inactive: #D4C9E8;
+      --radius: 16px;
+      --radius-sm: 10px;
+      font-display: swap;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0D0520;
+      --bg-2: #130A2E;
+      --surface: #1A0A38;
+      --text: #F0E8D5;
+      --text-muted: #B09ACC;
+      --border: rgba(201,162,39,0.18);
+      --shadow: rgba(0,0,0,0.4);
+      --inactive: #3D2A60;
+    }
+
+    /* ============================================
+       BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-display: swap;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-display: swap;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* Focus visible for keyboard nav */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      background: var(--primary) !important;
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--gold) !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-badge {
+      background: var(--gold);
+      color: var(--primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-family: 'Nunito', sans-serif;
+      letter-spacing: 0.4px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(240,232,213,0.8) !important;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 0.4rem 0.8rem !important;
+    }
+
+    .navbar-nav .nav-link:hover { color: var(--gold) !important; }
+
+    .navbar-toggler {
+      border-color: rgba(201,162,39,0.5) !important;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C9A227' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
+    .btn-nav-cta {
+      background: var(--gold) !important;
+      color: var(--primary) !important;
+      border-radius: 50px;
+      padding: 0.38rem 1.1rem !important;
+      font-weight: 700;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    .btn-nav-cta:hover {
+      background: var(--gold-light) !important;
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid rgba(201,162,39,0.5);
+      color: var(--gold);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      background: var(--primary);
+      padding: 4rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(224,123,42,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--gold-pale);
+      border: 1px solid rgba(201,162,39,0.3);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 0.4px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      color: var(--gold);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.12;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 em {
+      color: #F0E8D5;
+      font-style: italic;
+    }
+
+    .hero-sub {
+      color: rgba(240,232,213,0.72);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      max-width: 470px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201,162,39,0.2);
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 0.72rem;
+      color: rgba(240,232,213,0.55);
+      letter-spacing: 0.3px;
+      display: block;
+    }
+
+    .hero-visual {
+      background: rgba(201,162,39,0.09);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-emoji-row {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-visual p {
+      color: rgba(240,232,213,0.75);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .pill-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--gold-pale);
+      color: var(--gold);
+      border: 1px solid rgba(201,162,39,0.3);
+      padding: 3px 11px;
+      border-radius: 20px;
+      margin: 0.2rem;
+    }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn-gold {
+      background: var(--gold);
+      color: var(--primary);
+      border: none;
+      border-radius: 50px;
+      padding: 0.72rem 1.8rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,162,39,0.3);
+      color: var(--primary);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      padding: 0.65rem 1.8rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-wa {
+      background: var(--wa);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .btn-wa:hover {
+      background: var(--wa-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37,211,102,0.35);
+      color: white;
+    }
+
+    /* ============================================
+       SECTION TYPOGRAPHY
+    ============================================ */
+    .sec-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .sec-heading {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .sec-sub {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      max-width: 500px;
+      line-height: 1.65;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       CLASS TYPE CARDS
+    ============================================ */
+    .type-section { padding: 4rem 0; }
+
+    .type-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      text-align: center;
+    }
+
+    .type-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+
+    .type-card:hover,
+    .type-card:focus {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 35px var(--shadow);
+      outline: none;
+    }
+
+    .type-card:hover::before,
+    .type-card:focus::before { transform: scaleX(1); }
+
+    .type-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: var(--gold-pale);
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.3px;
+    }
+
+    .type-icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .type-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .type-card p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin: 0 0 0.8rem;
+      line-height: 1.5;
+    }
+
+    .type-price {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+    }
+
+    /* ============================================
+       BOOKING WIZARD
+    ============================================ */
+    .booking-section {
+      background: var(--bg-2);
+      padding: 4rem 0;
+    }
+
+    .wizard-card {
+      background: var(--surface);
+      border-radius: 22px;
+      box-shadow: 0 12px 50px var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .wizard-head {
+      background: var(--primary);
+      padding: 1.4rem 1.8rem;
+      border-bottom: 1px solid rgba(201,162,39,0.18);
+    }
+
+    .wizard-head h3 {
+      color: var(--gold);
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    .wizard-head p {
+      color: rgba(240,232,213,0.6);
+      font-size: 0.8rem;
+      margin: 0.25rem 0 0;
+    }
+
+    /* Progress dots */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      padding: 1.4rem 1.8rem 0;
+    }
+
+    .p-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--inactive);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      transition: all 0.3s;
+      flex-shrink: 0;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .p-dot.active {
+      background: var(--gold);
+      color: var(--primary);
+      box-shadow: 0 0 0 4px var(--gold-pale);
+    }
+
+    .p-dot.done {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .p-line {
+      flex: 1;
+      height: 2px;
+      background: var(--inactive);
+      transition: background 0.3s;
+      min-width: 15px;
+    }
+
+    .p-line.done { background: var(--gold); }
+
+    .p-labels {
+      display: flex;
+      padding: 0.4rem 1.8rem 0.2rem;
+    }
+
+    .p-lbl {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      flex: 1;
+      letter-spacing: 0.2px;
+    }
+
+    .p-lbl:last-child { text-align: right; }
+    .p-lbl.active { color: var(--gold); }
+
+    /* Wizard body */
+    .wizard-body {
+      padding: 1.4rem 1.8rem 1.8rem;
+    }
+
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    .step-q {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Option rows */
+    .opt-row {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+    }
+
+    .opt-row:hover,
+    .opt-row.sel {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .opt-row:focus {
+      border-color: var(--gold);
+      outline: none;
+      background: var(--gold-pale);
+    }
+
+    .opt-icon { font-size: 1.7rem; flex-shrink: 0; line-height: 1; }
+
+    .opt-info { flex: 1; min-width: 0; }
+
+    .opt-name {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .opt-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .opt-price-row { display: flex; gap: 0.4rem; align-items: center; }
+
+    .opt-price-main {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 0.88rem;
+    }
+
+    .opt-price-alt {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: var(--bg-2);
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    .chk {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--inactive);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .opt-row.sel .chk {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .opt-row.sel .chk::after {
+      content: '✓';
+      font-size: 0.68rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .inclusive-note {
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .inclusive-note strong { color: var(--gold); }
+
+    /* Date grid */
+    .date-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 500px) {
+      .date-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .date-card {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .date-card:hover,
+    .date-card.sel { border-color: var(--gold); background: var(--gold-pale); }
+
+    .date-card:focus { border-color: var(--gold); outline: none; background: var(--gold-pale); }
+
+    .d-wd { font-size: 0.62rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .d-num { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--text); line-height: 1; margin: 0.1rem 0; }
+    .d-mo { font-size: 0.65rem; color: var(--text-muted); }
+
+    .date-card.sel .d-wd,
+    .date-card.sel .d-num,
+    .date-card.sel .d-mo { color: var(--gold); }
+
+    /* Form */
+    .f-group { margin-bottom: 0.95rem; }
+
+    .f-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .f-input {
+      width: 100%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.72rem 1rem;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.93rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .f-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-pale);
+    }
+
+    .f-input::placeholder { color: var(--text-muted); opacity: 0.55; }
+
+    .err-msg {
+      color: #D94040;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .has-err .f-input { border-color: #D94040; }
+    .has-err .err-msg { display: block; }
+
+    /* Summary box */
+    .sum-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .sum-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.38rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      gap: 0.8rem;
+    }
+
+    .sum-row:last-child { border-bottom: none; }
+
+    .sum-lbl { color: var(--text-muted); font-weight: 600; flex-shrink: 0; }
+    .sum-val { color: var(--text); font-weight: 700; text-align: right; }
+
+    .sum-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      margin-top: 0.1rem;
+    }
+
+    .sum-price-lbl { font-size: 0.82rem; color: var(--text-muted); }
+
+    .sum-price-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* Wizard nav buttons */
+    .wiz-nav {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 1.4rem;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      padding: 0.6rem 1.3rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.88rem;
+    }
+
+    .btn-back:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-next {
+      background: var(--gold);
+      border: none;
+      border-radius: 50px;
+      padding: 0.65rem 1.8rem;
+      color: var(--primary);
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.88rem;
+      flex: 1;
+    }
+
+    .btn-next:hover:not(:disabled) {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-next:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* ============================================
+       WHAT'S INCLUDED
+    ============================================ */
+    .included-section { padding: 4rem 0; }
+
+    .inc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.7rem 1.4rem;
+      height: 100%;
+      transition: all 0.25s;
+    }
+
+    .inc-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .inc-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .inc-card h5 { font-size: 0.98rem; margin-bottom: 0.35rem; }
+    .inc-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* ============================================
+       HOW IT WORKS
+    ============================================ */
+    .how-section {
+      background: var(--primary);
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-section::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,162,39,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .how-section .sec-heading { color: var(--gold); }
+    .how-section .sec-sub { color: rgba(240,232,213,0.6); }
+
+    .how-step {
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      margin-bottom: 1.8rem;
+    }
+
+    .how-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      border: 2px solid rgba(201,162,39,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .how-info h5 { font-size: 0.92rem; color: #F0E8D5; margin-bottom: 0.2rem; }
+    .how-info p { font-size: 0.8rem; color: rgba(240,232,213,0.5); margin: 0; line-height: 1.5; }
+
+    /* ============================================
+       CTA SECTION
+    ============================================ */
+    .cta-section { padding: 4rem 0; }
+
+    .cta-box {
+      background: var(--primary);
+      border-radius: 22px;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,162,39,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-box h2 { color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 0.7rem; }
+    .cta-box p { color: rgba(240,232,213,0.65); margin-bottom: 1.7rem; font-size: 0.92rem; }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--primary);
+      border-top: 1px solid rgba(201,162,39,0.12);
+      padding: 2rem 0 1rem;
+      color: rgba(240,232,213,0.55);
+      font-size: 0.82rem;
+    }
+
+    footer a { color: var(--gold); opacity: 0.8; }
+    footer a:hover { opacity: 1; color: var(--gold-light); }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ============================================
+       FLOATING WHATSAPP
+    ============================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 9999;
+      text-decoration: none;
+    }
+
+    .wa-float-btn {
+      width: 56px;
+      height: 56px;
+      background: var(--wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.2s;
+      animation: wa-pulse 2.5s infinite;
+    }
+
+    .wa-float-btn:hover {
+      transform: scale(1.1);
+      background: var(--wa-hover);
+      color: white;
+    }
+
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 28px rgba(37,211,102,0.65), 0 0 0 8px rgba(37,211,102,0.1); }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 575px) {
+      .wizard-head,
+      .wizard-body { padding: 1.1rem; }
+      .progress-row { padding: 1.1rem 1.1rem 0; }
+      .p-labels { padding: 0.35rem 1.1rem 0; }
+      .hero { padding: 2.5rem 0 2rem; }
+      .hero-stats { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===========================
+     NAVBAR
+=========================== -->
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#" aria-label="Lovelly Cakes TT — Home">
+      🎂 Lovelly Cakes TT
+      <span class="nav-badge">ARIMA · T&amp;T</span>
+    </a>
+
+    <div class="d-flex align-items-center gap-2 order-lg-last">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navMain" aria-controls="navMain"
+        aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#classes">Classes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#booking">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#included">What's Included</a></li>
+      </ul>
+      <a href="#booking" class="btn-nav-cta nav-link" aria-label="Register for a baking class">
+        📚 Book a Class
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===========================
+     HERO
+=========================== -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="container">
+    <div class="row align-items-center g-4">
+
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="hero-badge">
+          <i class="fas fa-fire" aria-hidden="true"></i>
+          Chef Shelly-Ann Lovell · Arima, Trinidad &amp; Tobago
+        </div>
+
+        <h1 id="hero-h1">
+          Learn to Bake.<br>
+          <em>Professionally.</em>
+        </h1>
+
+        <p class="hero-sub">
+          From beginner basics to advanced pastry techniques — join Chef Shelly-Ann's baking classes online or face-to-face in Arima. Real skills. Real confidence.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#booking" class="btn-gold" aria-label="Register for a baking class now">
+            🎓 Register Now
+          </a>
+          <a href="#classes" class="btn-outline-gold" aria-label="Browse available class types">
+            Browse Classes
+          </a>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Key highlights">
+          <div role="listitem">
+            <span class="hero-stat-num">💻</span>
+            <span class="hero-stat-label">Online &amp; In-Person</span>
+          </div>
+          <div role="listitem">
+            <span class="hero-stat-num">4+</span>
+            <span class="hero-stat-label">Class Types</span>
+          </div>
+          <div role="listitem">
+            <span class="hero-stat-num">USD$25</span>
+            <span class="hero-stat-label">Online Classes From</span>
+          </div>
+          <div role="listitem">
+            <span class="hero-stat-num">🏆</span>
+            <span class="hero-stat-label">Certificate Awarded</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5" data-aos="fade-left" data-aos-delay="150">
+        <div class="hero-visual">
+          <span class="hero-emoji-row" role="img" aria-label="Baking items: doughnut, cake, cookie, bread">🍩 🎂 🍪 🍞</span>
+          <p><strong style="color: var(--gold);">4 Classes Available</strong><br>Choose your format. Learn at your pace.</p>
+          <div class="mt-3">
+            <span class="pill-tag">✈️ Online · TT$150 / USD$25</span>
+            <span class="pill-tag">🏫 Face-to-Face · TT$1,250</span>
+            <span class="pill-tag">📜 Certificate Included</span>
+            <span class="pill-tag">🍽️ Lunch &amp; Materials</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     CLASS TYPES
+=========================== -->
+<section class="type-section" id="classes" aria-labelledby="classes-h2">
+  <div class="container">
+
+    <div class="text-center mb-4" data-aos="fade-up">
+      <p class="sec-label">Choose How You Learn</p>
+      <h2 class="sec-heading" id="classes-h2">Two Ways to Bake With Us</h2>
+      <p class="sec-sub">Join Chef Shelly-Ann from your kitchen anywhere in the world — or come hands-on to Arima.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="50">
+        <div class="type-card" role="button" tabindex="0"
+          aria-label="Online classes — click to start registration"
+          onclick="startBooking('online')"
+          onkeypress="if(event.key==='Enter') startBooking('online')">
+          <span class="type-tag">ONLINE · LIVE INTERACTIVE</span>
+          <span class="type-icon" role="img" aria-label="Laptop computer">💻</span>
+          <h4>Online Classes</h4>
+          <p>Live, step-by-step sessions from anywhere. Join from Trinidad, the Caribbean, USA — anywhere with internet. Real-time guidance from Chef Shelly-Ann.</p>
+          <div class="d-flex flex-wrap gap-1 justify-content-center mb-3">
+            <span class="pill-tag">🍩 Doughnuts</span>
+            <span class="pill-tag">🍪 Cookies</span>
+            <span class="pill-tag">🍞 Bread</span>
+          </div>
+          <div class="type-price">TT$150 · USD$25 per class</div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="type-card" role="button" tabindex="0"
+          aria-label="Face-to-face workshop — click to start registration"
+          onclick="startBooking('inperson')"
+          onkeypress="if(event.key==='Enter') startBooking('inperson')">
+          <span class="type-tag">FACE-TO-FACE · ARIMA, T&amp;T</span>
+          <span class="type-icon" role="img" aria-label="Chef hat">👨‍🍳</span>
+          <h4>Face-to-Face Workshop</h4>
+          <p>Hands-on at The Labb, Malabar, Arima. Decorate a 6" double-layered cake in buttercream — piping, drip, intense colour mixing. Everything included.</p>
+          <div class="d-flex flex-wrap gap-1 justify-content-center mb-3">
+            <span class="pill-tag">🎂 Cake Decorating</span>
+            <span class="pill-tag">📜 Certificate</span>
+            <span class="pill-tag">🍽️ All-Inclusive</span>
+          </div>
+          <div class="type-price">TT$1,250 — Full Package</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     BOOKING WIZARD
+=========================== -->
+<section class="booking-section" id="booking" aria-labelledby="booking-h2">
+  <div class="container">
+
+    <div class="text-center mb-4" data-aos="fade-up">
+      <p class="sec-label">Registration</p>
+      <h2 class="sec-heading" id="booking-h2">Secure Your Spot</h2>
+      <p class="sec-sub">4 steps. Your registration arrives pre-filled in Chef Shelly-Ann's WhatsApp — no back-and-forth, no waiting.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="80">
+
+        <div class="wizard-card" role="region" aria-label="Class registration form">
+
+          <div class="wizard-head">
+            <h3>🎓 Class Registration</h3>
+            <p>Chef Shelly-Ann · Lovelly Cakes TT · Arima, Trinidad &amp; Tobago</p>
+          </div>
+
+          <!-- Progress indicator -->
+          <div class="progress-row" role="progressbar"
+            aria-label="Registration progress"
+            aria-valuenow="1" aria-valuemin="1" aria-valuemax="4"
+            id="progressBar">
+            <div class="p-dot active" id="pd1">1</div>
+            <div class="p-line" id="pl1"></div>
+            <div class="p-dot" id="pd2">2</div>
+            <div class="p-line" id="pl2"></div>
+            <div class="p-dot" id="pd3">3</div>
+            <div class="p-line" id="pl3"></div>
+            <div class="p-dot" id="pd4">4</div>
+          </div>
+
+          <div class="p-labels" aria-hidden="true">
+            <span class="p-lbl active" id="pl-lbl1">Type</span>
+            <span class="p-lbl" style="text-align:center;" id="pl-lbl2">Class</span>
+            <span class="p-lbl" style="text-align:center;" id="pl-lbl3">Date</span>
+            <span class="p-lbl" id="pl-lbl4">Details</span>
+          </div>
+
+          <div class="wizard-body">
+
+            <!-- ---- STEP 1: Class Type ---- -->
+            <div class="step-panel active" id="panel1"
+              role="group" aria-labelledby="q1">
+
+              <p class="step-q" id="q1">"How would you like to join us?"</p>
+
+              <div class="opt-row" id="opt-online"
+                role="button" tabindex="0"
+                aria-pressed="false"
+                aria-label="Select Online Class"
+                onclick="pickType('online')"
+                onkeypress="if(event.key==='Enter') pickType('online')">
+                <span class="opt-icon" role="img" aria-label="Laptop">💻</span>
+                <div class="opt-info">
+                  <div class="opt-name">Online Class — Live Interactive</div>
+                  <div class="opt-meta">Join from anywhere · Phone or laptop · Real-time with Chef Shelly</div>
+                  <div class="opt-price-row">
+                    <span class="opt-price-main">TT$150</span>
+                    <span class="opt-price-alt">USD$25</span>
+                  </div>
+                </div>
+                <div class="chk" aria-hidden="true"></div>
+              </div>
+
+              <div class="opt-row" id="opt-inperson"
+                role="button" tabindex="0"
+                aria-pressed="false"
+                aria-label="Select Face-to-Face Workshop"
+                onclick="pickType('inperson')"
+                onkeypress="if(event.key==='Enter') pickType('inperson')">
+                <span class="opt-icon" role="img" aria-label="Chef hat">👨‍🍳</span>
+                <div class="opt-info">
+                  <div class="opt-name">Face-to-Face Workshop — Arima</div>
+                  <div class="opt-meta">The Labb, Malabar · Hands-on · All materials &amp; lunch included</div>
+                  <div class="opt-price-row">
+                    <span class="opt-price-main">TT$1,250</span>
+                    <span class="opt-price-alt">All-inclusive</span>
+                  </div>
+                </div>
+                <div class="chk" aria-hidden="true"></div>
+              </div>
+
+              <div class="wiz-nav">
+                <button class="btn-next" id="s1-next" onclick="toStep(2)" disabled aria-label="Continue to class selection">
+                  Next: Choose Class →
+                </button>
+              </div>
+            </div>
+
+            <!-- ---- STEP 2: Specific Class ---- -->
+            <div class="step-panel" id="panel2"
+              role="group" aria-labelledby="q2">
+
+              <p class="step-q" id="q2">"Which class speaks to you?"</p>
+
+              <!-- Online options -->
+              <div id="cls-online">
+                <div class="opt-row" id="cls-donuts"
+                  role="button" tabindex="0" aria-pressed="false"
+                  aria-label="Select Doughnuts Class"
+                  onclick="pickClass('cls-donuts','Doughnuts Class','TT$150 / USD$25','Wed evenings · 6:00pm – 8:30pm AST · 2.5 hrs')"
+                  onkeypress="if(event.key==='Enter') pickClass('cls-donuts','Doughnuts Class','TT\$150 / USD\$25','Wed evenings · 6:00pm – 8:30pm AST · 2.5 hrs')">
+                  <span class="opt-icon" role="img" aria-label="Doughnut">🍩</span>
+                  <div class="opt-info">
+                    <div class="opt-name">Doughnuts Class</div>
+                    <div class="opt-meta">Wed evenings · 6:00pm – 8:30pm AST · 2.5 hrs</div>
+                    <div class="opt-price-row"><span class="opt-price-main">TT$150</span><span class="opt-price-alt">USD$25</span></div>
+                  </div>
+                  <div class="chk" aria-hidden="true"></div>
+                </div>
+
+                <div class="opt-row" id="cls-cookies"
+                  role="button" tabindex="0" aria-pressed="false"
+                  aria-label="Select Cookies Class"
+                  onclick="pickClass('cls-cookies','Cookies Class','TT$150 / USD$25','Sat mornings · 8:00am – 11:00am AST · 3 hrs')"
+                  onkeypress="if(event.key==='Enter') pickClass('cls-cookies','Cookies Class','TT\$150 / USD\$25','Sat mornings · 8:00am – 11:00am AST · 3 hrs')">
+                  <span class="opt-icon" role="img" aria-label="Cookie">🍪</span>
+                  <div class="opt-info">
+                    <div class="opt-name">Cookies Class</div>
+                    <div class="opt-meta">Sat mornings · 8:00am – 11:00am AST · 3 hrs</div>
+                    <div class="opt-price-row"><span class="opt-price-main">TT$150</span><span class="opt-price-alt">USD$25</span></div>
+                  </div>
+                  <div class="chk" aria-hidden="true"></div>
+                </div>
+
+                <div class="opt-row" id="cls-bread"
+                  role="button" tabindex="0" aria-pressed="false"
+                  aria-label="Select Bread Class"
+                  onclick="pickClass('cls-bread','Bread Class','TT$150 / USD$25','Sun mornings · 8:00am – 11:00am AST · 3 hrs')"
+                  onkeypress="if(event.key==='Enter') pickClass('cls-bread','Bread Class','TT\$150 / USD\$25','Sun mornings · 8:00am – 11:00am AST · 3 hrs')">
+                  <span class="opt-icon" role="img" aria-label="Bread loaf">🍞</span>
+                  <div class="opt-info">
+                    <div class="opt-name">Bread Class</div>
+                    <div class="opt-meta">Sun mornings · 8:00am – 11:00am AST · 3 hrs</div>
+                    <div class="opt-price-row"><span class="opt-price-main">TT$150</span><span class="opt-price-alt">USD$25</span></div>
+                  </div>
+                  <div class="chk" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- In-person option -->
+              <div id="cls-inperson" style="display:none;">
+                <div class="opt-row" id="cls-cakedeco"
+                  role="button" tabindex="0" aria-pressed="false"
+                  aria-label="Select Cake Decorating Workshop"
+                  onclick="pickClass('cls-cakedeco','Cake Decorating Workshop','TT$1,250 — All-inclusive','Sat · 8:00am – 2:00pm · The Labb, Malabar, Arima · 6 hrs')"
+                  onkeypress="if(event.key==='Enter') pickClass('cls-cakedeco','Cake Decorating Workshop','TT\$1,250 — All-inclusive','Sat · 8:00am – 2:00pm · The Labb, Malabar, Arima · 6 hrs')">
+                  <span class="opt-icon" role="img" aria-label="Birthday cake">🎂</span>
+                  <div class="opt-info">
+                    <div class="opt-name">Cake Decorating Workshop</div>
+                    <div class="opt-meta">Sat · 8:00am – 2:00pm · The Labb, Malabar, Arima · 6 hrs</div>
+                    <div class="opt-meta" style="margin-top:0.2rem;">Buttercream · Piping · Drip · Intense Colour Mixing</div>
+                    <div class="opt-price-row"><span class="opt-price-main">TT$1,250</span><span class="opt-price-alt">All-inclusive</span></div>
+                  </div>
+                  <div class="chk" aria-hidden="true"></div>
+                </div>
+
+                <div class="inclusive-note">
+                  <strong>✅ What's included:</strong> Ingredients, materials, light refreshments, lunch &amp; certificate upon completion. Just bring yourself.
+                </div>
+              </div>
+
+              <div class="wiz-nav">
+                <button class="btn-back" onclick="toStep(1)" aria-label="Go back to class type">← Back</button>
+                <button class="btn-next" id="s2-next" onclick="toStep(3)" disabled aria-label="Continue to date selection">
+                  Next: Pick a Date →
+                </button>
+              </div>
+            </div>
+
+            <!-- ---- STEP 3: Date ---- -->
+            <div class="step-panel" id="panel3"
+              role="group" aria-labelledby="q3">
+
+              <p class="step-q" id="q3">"When works for you?"</p>
+              <div class="date-grid" id="dateGrid"
+                role="list" aria-label="Available class dates">
+                <!-- Injected by JS -->
+              </div>
+
+              <div class="wiz-nav">
+                <button class="btn-back" onclick="toStep(2)" aria-label="Go back to class selection">← Back</button>
+                <button class="btn-next" id="s3-next" onclick="toStep(4)" disabled aria-label="Continue to your details">
+                  Next: Your Details →
+                </button>
+              </div>
+            </div>
+
+            <!-- ---- STEP 4: Details & Send ---- -->
+            <div class="step-panel" id="panel4"
+              role="group" aria-labelledby="q4">
+
+              <p class="step-q" id="q4">"Almost there — just a few details:"</p>
+
+              <!-- Summary -->
+              <div class="sum-box" role="region" aria-label="Your registration summary">
+                <div class="sum-row">
+                  <span class="sum-lbl">Class Type</span>
+                  <span class="sum-val" id="sum-type">—</span>
+                </div>
+                <div class="sum-row">
+                  <span class="sum-lbl">Class</span>
+                  <span class="sum-val" id="sum-class">—</span>
+                </div>
+                <div class="sum-row">
+                  <span class="sum-lbl">Date</span>
+                  <span class="sum-val" id="sum-date">—</span>
+                </div>
+                <div class="sum-price">
+                  <span class="sum-price-lbl">Total</span>
+                  <span class="sum-price-val" id="sum-price">—</span>
+                </div>
+              </div>
+
+              <!-- Name -->
+              <div class="f-group" id="fg-name">
+                <label class="f-label" for="inp-name">
+                  Full Name <span aria-hidden="true" style="color:#D94040;">*</span>
+                </label>
+                <input type="text" class="f-input" id="inp-name"
+                  placeholder="Your full name"
+                  autocomplete="name"
+                  required aria-required="true"
+                  aria-describedby="err-name">
+                <span class="err-msg" id="err-name" role="alert">Please enter your full name.</span>
+              </div>
+
+              <!-- Contact -->
+              <div class="f-group" id="fg-contact">
+                <label class="f-label" for="inp-contact">
+                  WhatsApp / Phone Number <span aria-hidden="true" style="color:#D94040;">*</span>
+                </label>
+                <input type="tel" class="f-input" id="inp-contact"
+                  placeholder="+1 868 xxx xxxx  or international number"
+                  autocomplete="tel"
+                  required aria-required="true"
+                  aria-describedby="err-contact">
+                <span class="err-msg" id="err-contact" role="alert">Please enter your contact number.</span>
+              </div>
+
+              <!-- Notes -->
+              <div class="f-group">
+                <label class="f-label" for="inp-notes">
+                  Anything for Chef Shelly to Know?
+                  <span style="color:var(--text-muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:0.72rem;"> — Optional</span>
+                </label>
+                <textarea class="f-input" id="inp-notes"
+                  rows="2"
+                  placeholder="Dietary restrictions, previous experience, questions..."
+                  aria-label="Optional notes for Chef Shelly-Ann"></textarea>
+              </div>
+
+              <!-- Send -->
+              <button class="btn-wa" id="sendBtn"
+                aria-label="Send class registration to Chef Shelly-Ann on WhatsApp"
+                onclick="sendToWA(event)">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Send My Registration to WhatsApp
+              </button>
+
+              <p style="font-size:0.74rem;color:var(--text-muted);text-align:center;margin-top:0.7rem;">
+                Chef Shelly-Ann replies within minutes to confirm your spot 🎂
+              </p>
+
+              <div class="wiz-nav" style="margin-top:0.5rem;">
+                <button class="btn-back" onclick="toStep(3)" aria-label="Go back to date selection">← Edit Order</button>
+              </div>
+            </div>
+
+          </div><!-- /wizard-body -->
+        </div><!-- /wizard-card -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     WHAT'S INCLUDED
+=========================== -->
+<section class="included-section" id="included" aria-labelledby="included-h2">
+  <div class="container">
+
+    <div class="text-center mb-4" data-aos="fade-up">
+      <p class="sec-label">No Hidden Surprises</p>
+      <h2 class="sec-heading" id="included-h2">What You Get With Every Class</h2>
+      <p class="sec-sub">Designed to deliver real skills, real confidence, and results you can taste.</p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="40">
+        <div class="inc-card">
+          <div class="inc-icon" role="img" aria-label="Chef">👩‍🍳</div>
+          <h5>Live Expert Instruction</h5>
+          <p>Real-time guidance directly from Chef Shelly-Ann — not pre-recorded. You can ask questions and get answers live.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="90">
+        <div class="inc-card">
+          <div class="inc-icon" role="img" aria-label="Certificate scroll">📜</div>
+          <h5>Certificate Upon Completion</h5>
+          <p>Complete the in-person Cake Decorating Workshop and receive a formal certificate recognising your achievement.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="140">
+        <div class="inc-card">
+          <div class="inc-icon" role="img" aria-label="Ingredients bag">🧂</div>
+          <h5>All Ingredients &amp; Materials</h5>
+          <p>In-person workshops include everything — ingredients, equipment, light refreshments, and lunch. Just show up ready to bake.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="190">
+        <div class="inc-card">
+          <div class="inc-icon" role="img" aria-label="Globe">🌍</div>
+          <h5>Attend From Anywhere</h5>
+          <p>Online classes run live over video. Join from Trinidad, the Caribbean, USA, or any country with internet access.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     HOW IT WORKS
+=========================== -->
+<section class="how-section" id="how" aria-labelledby="how-h2">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <p class="sec-label">Simple Process</p>
+        <h2 class="sec-heading" id="how-h2">Your Class in 4 Easy Steps</h2>
+        <p class="sec-sub">No complicated forms. No waiting days for a reply. Your spot is one WhatsApp message away.</p>
+        <a href="#booking" class="btn-gold mt-3 d-inline-block" aria-label="Register for a class now">
+          🎓 Register Now
+        </a>
+      </div>
+
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">01</div>
+          <div class="how-info">
+            <h5>Choose Your Class</h5>
+            <p>Pick online or face-to-face, select the class that interests you, and choose a date that fits your schedule.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">02</div>
+          <div class="how-info">
+            <h5>Send to WhatsApp</h5>
+            <p>Tap Register and your full selection arrives pre-filled in Chef Shelly-Ann's WhatsApp — no retyping, no confusion.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">03</div>
+          <div class="how-info">
+            <h5>Confirm &amp; Lock In Your Spot</h5>
+            <p>Chef Shelly-Ann replies to confirm your registration and share payment details to secure your place.</p>
+          </div>
+        </div>
+        <div class="how-step" style="margin-bottom:0;">
+          <div class="how-num" aria-hidden="true">04</div>
+          <div class="how-info">
+            <h5>Bake &amp; Learn</h5>
+            <p>Show up — online or in Arima — and walk away with new skills, new confidence, and baked goods you made yourself.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     CTA
+=========================== -->
+<section class="cta-section" aria-labelledby="cta-h2">
+  <div class="container">
+    <div class="cta-box" data-aos="fade-up">
+      <h2 id="cta-h2">Ready to Bake With Chef Shelly?</h2>
+      <p>Spots fill fast. Register now and secure your place in the next class.</p>
+      <a href="#booking" class="btn-gold" style="font-size:1rem;padding:0.85rem 2.2rem;" aria-label="Register for a baking class">
+        🎓 Register Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-md-6">
+        <span class="footer-brand">🎂 Lovelly Cakes TT</span>
+        <p style="margin:0;font-size:0.78rem;">Custom cakes &amp; professional baking classes · Arima, Trinidad &amp; Tobago</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p style="margin:0;font-size:0.78rem;">
+          WhatsApp: <a href="https://wa.me/18683761707" target="_blank" rel="noopener noreferrer">+1 868-376-1707</a>
+          · <a href="https://www.instagram.com/chef_shellyann_lovell" target="_blank" rel="noopener noreferrer">@chef_shellyann_lovell</a>
+        </p>
+        <p style="margin:0.3rem 0 0;font-size:0.73rem;">
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="JAMALINKS — Caribbean web design services">JAMALINKS</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/18683761707?text=Hi%20Chef%20Shelly-Ann%2C%20I%27d%20like%20to%20register%20for%20one%20of%20your%20baking%20classes%20%F0%9F%8E%82"
+   class="wa-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with Chef Shelly-Ann on WhatsApp to enquire about classes">
+  <div class="wa-float-btn" aria-hidden="true">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+  /* ============================================
+     AOS
+  ============================================ */
+  AOS.init({ duration: 580, once: true, offset: 40 });
+
+  /* ============================================
+     THEME — auto detect + manual toggle
+  ============================================ */
+  const hr = new Date().getHours();
+  let dark = hr < 6 || hr >= 18;
+
+  function applyTheme(d) {
+    document.body.setAttribute('data-theme', d ? 'dark' : 'light');
+    const ic = document.querySelector('#themeToggle i');
+    if (ic) ic.className = d ? 'fas fa-sun' : 'fas fa-moon';
+    dark = d;
+  }
+
+  applyTheme(dark);
+  document.getElementById('themeToggle').addEventListener('click', () => applyTheme(!dark));
+
+  /* ============================================
+     WIZARD STATE
+  ============================================ */
+  const S = {
+    type: null,        // 'online' | 'inperson'
+    clsId: null,       // element id
+    clsName: null,
+    clsPrice: null,
+    clsTime: null,
+    date: null,
+    step: 1
+  };
+
+  /* ============================================
+     PROGRESS UPDATE
+  ============================================ */
+  function updateProgress(step) {
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById('pd' + i);
+      const lbl = document.getElementById('pl-lbl' + i);
+      dot.classList.remove('active', 'done');
+      lbl.classList.remove('active');
+
+      if (i < step) {
+        dot.classList.add('done');
+        dot.textContent = '✓';
+      } else if (i === step) {
+        dot.classList.add('active');
+        dot.textContent = i;
+        lbl.classList.add('active');
+      } else {
+        dot.textContent = i;
+      }
+    }
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('pl' + i).classList.toggle('done', i < step);
+    }
+    document.getElementById('progressBar').setAttribute('aria-valuenow', step);
+  }
+
+  /* ============================================
+     NAVIGATE STEPS
+  ============================================ */
+  function toStep(step) {
+    // Show/hide panels
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel' + step).classList.add('active');
+    S.step = step;
+
+    // Side effects
+    if (step === 2) showClassOptions();
+    if (step === 3) buildDates();
+    if (step === 4) buildSummary();
+
+    updateProgress(step);
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ============================================
+     STEP 1 — TYPE SELECTION
+  ============================================ */
+  function pickType(type) {
+    S.type = type;
+    // Reset downstream
+    S.clsId = null; S.clsName = null; S.date = null;
+    document.getElementById('s2-next').disabled = true;
+    document.getElementById('s3-next').disabled = true;
+
+    ['online','inperson'].forEach(t => {
+      const el = document.getElementById('opt-' + t);
+      el.classList.toggle('sel', t === type);
+      el.setAttribute('aria-pressed', t === type ? 'true' : 'false');
+    });
+
+    document.getElementById('s1-next').disabled = false;
+  }
+
+  /* Helper — triggered from hero/class section cards */
+  function startBooking(type) {
+    pickType(type);
+    toStep(1);
+    setTimeout(() => toStep(2), 80);
+  }
+
+  /* ============================================
+     STEP 2 — CLASS SELECTION
+  ============================================ */
+  function showClassOptions() {
+    document.getElementById('cls-online').style.display = S.type === 'online' ? 'block' : 'none';
+    document.getElementById('cls-inperson').style.display = S.type === 'inperson' ? 'block' : 'none';
+    // Deselect all class rows
+    document.querySelectorAll('#panel2 .opt-row').forEach(r => {
+      r.classList.remove('sel');
+      r.setAttribute('aria-pressed', 'false');
+    });
+    document.getElementById('s2-next').disabled = true;
+  }
+
+  function pickClass(id, name, price, time) {
+    document.querySelectorAll('#panel2 .opt-row').forEach(r => {
+      r.classList.remove('sel');
+      r.setAttribute('aria-pressed', 'false');
+    });
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('sel');
+      el.setAttribute('aria-pressed', 'true');
+    }
+    S.clsId = id; S.clsName = name; S.clsPrice = price; S.clsTime = time;
+    // Reset date
+    S.date = null;
+    document.getElementById('s3-next').disabled = true;
+    document.getElementById('s2-next').disabled = false;
+  }
+
+  /* ============================================
+     STEP 3 — DATE GENERATION
+  ============================================ */
+  function buildDates() {
+    const grid = document.getElementById('dateGrid');
+    grid.innerHTML = '';
+    S.date = null;
+    document.getElementById('s3-next').disabled = true;
+
+    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+    // Determine which weekday(s) to look for
+    let targets = [];
+    if (S.type === 'online') {
+      if (S.clsName.includes('Doughnut')) targets = [3]; // Wed
+      else if (S.clsName.includes('Cookie')) targets = [6]; // Sat
+      else if (S.clsName.includes('Bread')) targets = [0];  // Sun
+      else targets = [0,3,6];
+    } else {
+      targets = [6]; // Sat for in-person
+    }
+
+    const today = new Date();
+    const d = new Date(today);
+    d.setDate(d.getDate() + 1);
+    let found = 0;
+
+    while (found < 6) {
+      if (targets.includes(d.getDay())) {
+        const full = DAYS[d.getDay()] + ' ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+        const card = document.createElement('div');
+        card.className = 'date-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-pressed', 'false');
+        card.setAttribute('aria-label', 'Select: ' + full);
+        card.innerHTML = `
+          <div class="d-wd">${DAYS[d.getDay()]}</div>
+          <div class="d-num">${d.getDate()}</div>
+          <div class="d-mo">${MONTHS[d.getMonth()]} ${d.getFullYear()}</div>
+        `;
+        card.addEventListener('click', () => pickDate(card, full));
+        card.addEventListener('keypress', e => { if (e.key === 'Enter') pickDate(card, full); });
+        grid.appendChild(card);
+        found++;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+  }
+
+  function pickDate(el, full) {
+    document.querySelectorAll('.date-card').forEach(c => {
+      c.classList.remove('sel');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    el.classList.add('sel');
+    el.setAttribute('aria-pressed', 'true');
+    S.date = full;
+    document.getElementById('s3-next').disabled = false;
+  }
+
+  /* ============================================
+     STEP 4 — SUMMARY + SEND
+  ============================================ */
+  function buildSummary() {
+    document.getElementById('sum-type').textContent  = S.type === 'online' ? '💻 Online — Live Interactive' : '👨‍🍳 Face-to-Face — Arima';
+    document.getElementById('sum-class').textContent = S.clsName  || '—';
+    document.getElementById('sum-date').textContent  = S.date     || '—';
+    document.getElementById('sum-price').textContent = S.clsPrice || '—';
+  }
+
+  function validateDetails() {
+    const name    = document.getElementById('inp-name').value.trim();
+    const contact = document.getElementById('inp-contact').value.trim();
+    let ok = true;
+
+    document.getElementById('fg-name').classList.toggle('has-err', !name);
+    document.getElementById('fg-contact').classList.toggle('has-err', !contact);
+    if (!name || !contact) ok = false;
+    return ok;
+  }
+
+  function sendToWA(e) {
+    e.preventDefault();
+    if (!validateDetails()) return;
+
+    const name    = document.getElementById('inp-name').value.trim();
+    const contact = document.getElementById('inp-contact').value.trim();
+    const notes   = document.getElementById('inp-notes').value.trim();
+    const typeStr = S.type === 'online' ? 'Online (Live Interactive)' : 'Face-to-Face (Arima, T&T)';
+
+    let msg = `🎂 *Class Registration — Lovelly Cakes TT*\n\n`;
+    msg += `👤 *Name:* ${name}\n`;
+    msg += `📚 *Class Type:* ${typeStr}\n`;
+    msg += `🎓 *Class:* ${S.clsName}\n`;
+    msg += `🕐 *Session Time:* ${S.clsTime}\n`;
+    msg += `📅 *Preferred Date:* ${S.date}\n`;
+    msg += `📞 *Contact:* ${contact}\n`;
+    msg += `💰 *Price:* ${S.clsPrice}\n`;
+    if (notes) msg += `📝 *Notes:* ${notes}\n`;
+    msg += `\n_Ready to learn and bake with you, Chef Shelly! 🙌_`;
+
+    window.open('https://wa.me/18683761707?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+  }
+
+  /* Clear validation on input */
+  document.getElementById('inp-name').addEventListener('input', () => {
+    document.getElementById('fg-name').classList.remove('has-err');
+  });
+  document.getElementById('inp-contact').addEventListener('input', () => {
+    document.getElementById('fg-contact').classList.remove('has-err');
+  });
+</script>
+
+</body>
+</html>
