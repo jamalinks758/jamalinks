@@ -978,6 +978,74 @@ footer a { color: var(--fire-light); text-decoration: none; }
   .add-btn { width: 100%; text-align: center; display: flex; justify-content: center; }
 }
 
+/* ── DELIVERY TOGGLE ── */
+.delivery-toggle-wrap {
+  margin-bottom: 14px;
+}
+
+.delivery-toggle-label {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.delivery-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.delivery-opt {
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1.2;
+}
+
+.delivery-opt:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.delivery-opt.active {
+  background: var(--fire);
+  color: white;
+}
+
+.delivery-opt.active.pickup-active {
+  background: var(--dark3);
+  color: var(--gold);
+  border-color: var(--gold);
+  outline: 1px solid var(--gold);
+}
+
+.delivery-fee-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 0.85rem;
+}
+
+.delivery-fee-row .label { color: var(--fire-light); }
+.delivery-fee-row .value { color: var(--fire-light); font-weight: 600; }
+
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark2); }
@@ -1115,6 +1183,21 @@ footer a { color: var(--fire-light); text-decoration: none; }
   <div class="cart-summary">
     <div class="summary-rows" id="summaryRows"></div>
     <hr class="summary-divider"/>
+    <div class="delivery-toggle-wrap">
+      <div class="delivery-toggle-label">How would you like it?</div>
+      <div class="delivery-toggle">
+        <button class="delivery-opt pickup-active active" id="optPickup" onclick="setDelivery('pickup')">
+          🏃 Pickup &nbsp;<span style="font-size:0.7rem;opacity:0.8;">Free</span>
+        </button>
+        <button class="delivery-opt" id="optDelivery" onclick="setDelivery('delivery')">
+          🛵 Delivery &nbsp;<span style="font-size:0.7rem;opacity:0.8;">+$15.00</span>
+        </button>
+      </div>
+    </div>
+    <div id="deliveryFeeRow" style="display:none;" class="delivery-fee-row">
+      <span class="label">🛵 Delivery Fee</span>
+      <span class="value">+$15.00</span>
+    </div>
     <div class="summary-total">
       <span class="total-label">Total</span>
       <span class="total-amount">$<span id="totalAmt">0.00</span></span>
@@ -1123,7 +1206,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
       Send Order on WhatsApp
     </button>
-    <p class="checkout-note">We'll confirm your order & arrange pickup / delivery 🌴</p>
+    <p class="checkout-note">Choose Pickup or Delivery above, then send your order 🌴</p>
   </div>
 </div>
 
@@ -1133,6 +1216,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
 <script>
 const PHONE = '17587235872';
 const SITE_URL = 'https://jamalinks758.github.io/jamalinks/islandbitesofficial.html';
+const DELIVERY_FEE = 15;
 
 const menu = [
   {
@@ -1194,6 +1278,7 @@ const menu = [
 const cats = ['All', ...new Set(menu.map(i => i.cat))];
 let activecat = 'All';
 let cart = {};
+let deliveryMethod = 'pickup'; // 'pickup' or 'delivery'
 
 // ── TICKER
 function buildTicker() {
@@ -1291,7 +1376,27 @@ function popBadge() {
 }
 
 function getTotal() {
-  return Object.values(cart).reduce((s, i) => s + i.item.price * i.qty, 0);
+  const subtotal = Object.values(cart).reduce((s, i) => s + i.item.price * i.qty, 0);
+  return deliveryMethod === 'delivery' ? subtotal + DELIVERY_FEE : subtotal;
+}
+
+function setDelivery(method) {
+  deliveryMethod = method;
+  const pickupBtn = document.getElementById('optPickup');
+  const deliveryBtn = document.getElementById('optDelivery');
+  const feeRow = document.getElementById('deliveryFeeRow');
+
+  if (method === 'delivery') {
+    pickupBtn.classList.remove('active', 'pickup-active');
+    deliveryBtn.classList.add('active');
+    deliveryBtn.classList.remove('pickup-active');
+    feeRow.style.display = 'flex';
+  } else {
+    deliveryBtn.classList.remove('active');
+    pickupBtn.classList.add('active', 'pickup-active');
+    feeRow.style.display = 'none';
+  }
+  renderCart();
 }
 
 function renderCart() {
@@ -1338,15 +1443,21 @@ function sendToWhatsApp() {
   const items = Object.values(cart);
   if (!items.length) return;
   const lines = items.map(i => `• ${i.item.emoji} ${i.item.name} ×${i.qty} = $${(i.item.price * i.qty).toFixed(2)}`);
-  const total = getTotal();
+  const subtotal = Object.values(cart).reduce((s, i) => s + i.item.price * i.qty, 0);
+  const isDelivery = deliveryMethod === 'delivery';
+  const total = isDelivery ? subtotal + DELIVERY_FEE : subtotal;
+  const fulfillmentLine = isDelivery
+    ? `🛵 *Delivery* (+$${DELIVERY_FEE.toFixed(2)} fee)`
+    : `🏃 *Pickup* (Free)`;
   const msg = [
     '🍽️ *Island Bites Order*',
     '━━━━━━━━━━━━━━━━━',
     ...lines,
     '━━━━━━━━━━━━━━━━━',
+    `Subtotal: $${subtotal.toFixed(2)}`,
+    fulfillmentLine,
     `*TOTAL: $${total.toFixed(2)}*`,
     '',
-    '📍 Please confirm: Pickup or Delivery?',
     `🔗 Ordered via: ${SITE_URL}`
   ].join('\n');
   window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -1392,3 +1503,4 @@ observeReveal();
 </script>
 </body>
 </html>
+
