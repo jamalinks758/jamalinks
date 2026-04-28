@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOLE•SLU — Premium sneakers in Saint Lucia. Nike, Adidas, Jordan. Order on WhatsApp. Islandwide delivery available.">
+    <meta property="og:title" content="SOLE•SLU — Fresh Kicks in Saint Lucia">
+    <meta property="og:description" content="Premium Nike, Adidas & Jordan sneakers. Based in Saint Lucia. Order on WhatsApp in seconds.">
+    <meta property="og:type" content="website">
+    <title>SOLE•SLU — Premium Sneakers in Saint Lucia</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        /* ========================================
+           CSS VARIABLES — SOLE•SLU THEME
+        ======================================== */
+        :root {
+            --bg:           #080808;
+            --bg-surface:   #111111;
+            --bg-card:      #181818;
+            --bg-elevated:  #202020;
+            --accent:       #FF4D00;
+            --accent-dim:   rgba(255, 77, 0, 0.12);
+            --accent-hover: #E04000;
+            --cyan:         #00E5FF;
+            --gold:         #FFD700;
+            --green-wa:     #25D366;
+            --green-wa-dk:  #128C7E;
+            --text-primary: #F0F0F0;
+            --text-sec:     #AAAAAA;
+            --text-muted:   #555555;
+            --border:       #222222;
+            --border-light: #2E2E2E;
+            --success:      #22C55E;
+            --danger:       #EF4444;
+            --warning:      #F59E0B;
+            --font-display: 'Bebas Neue', cursive;
+            --font-cond:    'Barlow Condensed', sans-serif;
+            --font-body:    'Outfit', sans-serif;
+            font-display: swap;
+        }
+
+        /* ========================================
+           RESET & BASE
+        ======================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; }
+
+        /* ========================================
+           TYPOGRAPHY
+        ======================================== */
+        .t-display {
+            font-family: var(--font-display);
+            font-size: clamp(4.5rem, 14vw, 11rem);
+            line-height: 0.88;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+        }
+        .t-section {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: 0.03em;
+        }
+        .t-label {
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .t-label::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           TICKER STRIP
+        ======================================== */
+        .ticker-wrap {
+            background: var(--accent);
+            overflow: hidden;
+            padding: 0.45rem 0;
+            position: relative;
+            z-index: 1001;
+        }
+        .ticker-track {
+            display: flex;
+            animation: tickerScroll 28s linear infinite;
+            width: max-content;
+        }
+        .ticker-item {
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 0 2.5rem;
+            white-space: nowrap;
+        }
+        .ticker-item::before {
+            content: '✦';
+            margin-right: 2.5rem;
+            opacity: 0.6;
+        }
+        @keyframes tickerScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            transition: padding 0.3s ease, border-color 0.3s ease;
+        }
+        .site-nav.scrolled {
+            padding: 0.65rem 0;
+            border-bottom-color: rgba(255, 77, 0, 0.35);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+        .nav-brand .dot { color: var(--accent); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            padding: 0.4rem 0.85rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .btn-nav {
+            background: var(--accent);
+            color: #fff !important;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.1rem;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-nav:hover { background: var(--accent-hover); transform: translateY(-1px); color: #fff; }
+
+        /* ========================================
+           HERO
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 90px;
+            padding-bottom: 4rem;
+        }
+        /* Grid lines overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,77,0,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,77,0,0.05) 1px, transparent 1px);
+            background-size: 55px 55px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Radial glow right */
+        .hero-glow {
+            position: absolute;
+            top: 15%;
+            right: -8%;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(255,77,0,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Big decorative BG text */
+        .hero-bg-word {
+            position: absolute;
+            right: -1%;
+            bottom: 5%;
+            font-family: var(--font-display);
+            font-size: clamp(7rem, 22vw, 20rem);
+            color: rgba(255,77,0,0.035);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.06em;
+            z-index: 0;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-eyebrow {
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.1rem;
+        }
+        .hero-eyebrow span { width: 40px; height: 1px; background: var(--accent); }
+        .hero-sub {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-sec);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-top: 1.5rem;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            margin-top: 2.25rem;
+        }
+        .btn-hero-primary {
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 2rem;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+        .btn-hero-primary:hover {
+            background: var(--accent-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,77,0,0.28);
+        }
+        .btn-hero-ghost {
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 2rem;
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+        .btn-hero-ghost:hover {
+            border-color: var(--text-sec);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .h-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .h-stat-label {
+            font-family: var(--font-cond);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* ========================================
+           TRUST STRIP
+        ======================================== */
+        .trust-strip {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+            overflow-x: auto;
+        }
+        .trust-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: nowrap;
+            min-width: max-content;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            white-space: nowrap;
+        }
+        .trust-item i { color: var(--accent); }
+        .trust-div {
+            width: 1px;
+            height: 24px;
+            background: var(--border-light);
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           SECTIONS
+        ======================================== */
+        .sec { padding: 5rem 0; }
+        .sec-dark { background: var(--bg-surface); }
+
+        /* ========================================
+           PRODUCT CARDS
+        ======================================== */
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 25px rgba(255,77,0,0.08);
+        }
+        .p-visual {
+            height: 210px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .p-visual-noise {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .p-icon {
+            font-size: 5.5rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+        }
+        .product-card:hover .p-icon { transform: scale(1.1) rotate(-7deg); }
+        .p-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.22rem 0.55rem;
+            border-radius: 2px;
+            z-index: 2;
+        }
+        .badge-bs  { background: var(--accent); color: #fff; }
+        .badge-hot { background: var(--danger); color: #fff; }
+        .badge-new { background: var(--success); color: #fff; }
+        .badge-lim { background: #7C3AED; color: #fff; }
+        .p-body { padding: 1.2rem; }
+        .p-brand {
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+        .p-name {
+            font-family: var(--font-cond);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .p-colorway {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+            margin-bottom: 0.9rem;
+        }
+        .p-price {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+            margin-bottom: 0.9rem;
+            line-height: 1;
+        }
+        .p-price sub {
+            font-family: var(--font-cond);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            vertical-align: baseline;
+            margin-left: 0.2rem;
+        }
+        .size-lbl {
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.45rem;
+        }
+        .size-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.85rem;
+        }
+        .sz-btn {
+            width: 37px;
+            height: 31px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            color: var(--text-sec);
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sz-btn:hover:not(.sz-out) { border-color: var(--accent); color: var(--accent); }
+        .sz-btn.sz-sel { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .sz-btn.sz-out {
+            opacity: 0.28;
+            cursor: not-allowed;
+            text-decoration: line-through;
+            pointer-events: none;
+        }
+        .btn-wa-order {
+            width: 100%;
+            background: var(--green-wa);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.7rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-wa-order:hover:not(.wa-idle) { background: var(--green-wa-dk); transform: translateY(-1px); }
+        .btn-wa-order.wa-idle {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        /* ========================================
+           URGENCY SECTION
+        ======================================== */
+        .urgency-sec {
+            background: linear-gradient(135deg, #160600 0%, #220900 50%, #160600 100%);
+            border-top: 1px solid rgba(255,77,0,0.18);
+            border-bottom: 1px solid rgba(255,77,0,0.18);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+        .urgency-sec::after {
+            content: 'STOCK';
+            position: absolute;
+            right: -2%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 18vw, 15rem);
+            color: rgba(255,77,0,0.04);
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+        .stock-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+        }
+        .stock-line {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+        }
+        .s-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: dotPulse 1.6s ease-in-out infinite;
+        }
+        .s-dot-red    { background: var(--danger); }
+        .s-dot-amber  { background: var(--warning); }
+        .s-dot-green  { background: var(--success); }
+        @keyframes dotPulse {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50%      { opacity: 0.5; transform: scale(0.75); }
+        }
+
+        /* ========================================
+           HOW TO ORDER — STEPS
+        ======================================== */
+        .step-wrap {
+            padding: 2rem 1.25rem;
+            text-align: center;
+            position: relative;
+        }
+        .step-bg-num {
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--accent-dim);
+            line-height: 1;
+            position: absolute;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.04em;
+        }
+        .step-icon-wrap {
+            width: 58px; height: 58px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            border: 1px solid rgba(255,77,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.1rem;
+            font-size: 1.3rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+        .step-title {
+            font-family: var(--font-cond);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+        .step-desc { font-size: 0.82rem; color: var(--text-sec); line-height: 1.65; }
+
+        /* ========================================
+           REVIEW CARDS
+        ======================================== */
+        .rev-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            height: 100%;
+            transition: border-color 0.3s;
+        }
+        .rev-card:hover { border-color: var(--accent); }
+        .rev-stars { color: var(--gold); font-size: 0.82rem; letter-spacing: 0.12em; margin-bottom: 0.7rem; }
+        .rev-text { font-size: 0.88rem; color: var(--text-sec); line-height: 1.65; font-style: italic; margin-bottom: 0.9rem; }
+        .rev-name {
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+        .rev-loc { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.1rem; }
+        .rev-verified {
+            font-size: 0.68rem;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ========================================
+           FAQ
+        ======================================== */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 0.65rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .faq-item.open { border-color: rgba(255,77,0,0.4); }
+        .faq-q-btn {
+            width: 100%;
+            background: var(--bg-card);
+            border: none;
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-align: left;
+        }
+        .faq-q-btn:hover { background: var(--bg-elevated); }
+        .faq-q-text {
+            font-family: var(--font-cond);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding-right: 1rem;
+        }
+        .faq-icon { color: var(--accent); transition: transform 0.3s; font-size: 0.85rem; flex-shrink: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            background: var(--bg-card);
+        }
+        .faq-item.open .faq-body { max-height: 280px; }
+        .faq-body-inner {
+            padding: 0 1.2rem 1rem;
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           CTA BAND
+        ======================================== */
+        .cta-band {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a0800 50%, #0f0f0f 100%);
+            border-top: 1px solid rgba(255,77,0,0.15);
+            border-bottom: 1px solid rgba(255,77,0,0.15);
+            padding: 4.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,77,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,77,0,0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        .cta-band-content { position: relative; z-index: 1; }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .site-footer {
+            background: #040404;
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 1.5rem;
+        }
+        .f-brand {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+        .f-brand .dot { color: var(--accent); }
+        .f-tagline { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; max-width: 260px; }
+        .f-head {
+            font-family: var(--font-cond);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.9rem;
+        }
+        .f-link {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 0.45rem;
+            transition: color 0.2s;
+        }
+        .f-link:hover { color: var(--text-primary); }
+        .f-bottom {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .f-credit { font-size: 0.72rem; color: var(--text-muted); }
+        .f-credit a { color: var(--accent); }
+        .f-credit a:hover { text-decoration: underline; }
+        .f-copy { font-size: 0.72rem; color: var(--text-muted); }
+
+        /* ========================================
+           FLOATING WHATSAPP
+        ======================================== */
+        .wa-float {
+            position: fixed;
+            bottom: 28px; right: 22px;
+            z-index: 997;
+            width: 56px; height: 56px;
+            background: var(--green-wa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.55rem;
+            color: #fff;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.38);
+            animation: waBounce 2.4s ease-in-out infinite;
+            transition: transform 0.2s, box-shadow 0.2s, animation 0.2s;
+        }
+        .wa-float:hover {
+            color: #fff;
+            transform: scale(1.12);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+            animation: none;
+        }
+        @keyframes waBounce {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-6px); }
+        }
+        .wa-tooltip {
+            position: absolute;
+            right: 66px;
+            background: rgba(0,0,0,0.88);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .wa-float:hover .wa-tooltip { opacity: 1; }
+
+        /* ========================================
+           STICKY MOBILE BAR
+        ======================================== */
+        .mob-cta {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(8,8,8,0.96);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-light);
+            padding: 0.65rem 1rem;
+            z-index: 996;
+        }
+        @media (max-width: 767px) {
+            .mob-cta { display: block; }
+            .wa-float { bottom: 78px; }
+        }
+        .btn-mob-wa {
+            width: 100%;
+            background: var(--green-wa);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 575px) {
+            .hero-ctas { flex-direction: column; }
+            .btn-hero-primary, .btn-hero-ghost { justify-content: center; }
+            .hero-stats { gap: 1.5rem; }
+            .trust-inner { padding: 0 1rem; }
+        }
+        @media (max-width: 767px) {
+            .d-nav-links { display: none; }
+        }
+
+        /* ========================================
+           SECTION DIVIDER LINE
+        ======================================== */
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker-wrap" role="marquee" aria-label="Promotions and announcements">
+    <div class="ticker-track" aria-hidden="true">
+        <span class="ticker-item">Free Delivery Islandwide on Orders $300+ XCD</span>
+        <span class="ticker-item">100% Authentic Nike, Adidas & Jordan</span>
+        <span class="ticker-item">Jordan 1 Mid Chicago — Limited Stock</span>
+        <span class="ticker-item">Order on WhatsApp — We Reply in Minutes</span>
+        <span class="ticker-item">New Air Max TN Plus Just Dropped</span>
+        <span class="ticker-item">Cash on Delivery Available</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">Free Delivery Islandwide on Orders $300+ XCD</span>
+        <span class="ticker-item">100% Authentic Nike, Adidas & Jordan</span>
+        <span class="ticker-item">Jordan 1 Mid Chicago — Limited Stock</span>
+        <span class="ticker-item">Order on WhatsApp — We Reply in Minutes</span>
+        <span class="ticker-item">New Air Max TN Plus Just Dropped</span>
+        <span class="ticker-item">Cash on Delivery Available</span>
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+        <a href="#home" class="nav-brand" aria-label="SOLE SLU Home">SOLE<span class="dot">•</span>SLU</a>
+
+        <ul class="nav-links d-nav-links d-none d-md-flex" role="list">
+            <li><a href="#catalog">Kicks</a></li>
+            <li><a href="#how-to-order">How It Works</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20see%20what%20kicks%20you%20have%20available!"
+           class="btn-nav" target="_blank" rel="noopener noreferrer"
+           aria-label="Order on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline">Order Now</span>
+            <span class="d-sm-none">Order</span>
+        </a>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home" aria-label="Hero — SOLE SLU">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-bg-word" aria-hidden="true">KICKS</div>
+
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-eyebrow" aria-label="Location: Premium Sneakers, Saint Lucia">
+                <span aria-hidden="true"></span>
+                Premium Sneakers · Saint Lucia
+                <span aria-hidden="true"></span>
+            </p>
+            <h1 class="t-display">
+                FRESH<br>
+                KICKS<br>
+                <span style="color:var(--accent);">DELIVERED.</span>
+            </h1>
+            <p class="hero-sub">
+                Nike. Adidas. Jordan. Browse the catalog, pick your size, and order directly on WhatsApp. No DM back-and-forth. One tap and you're done.
+            </p>
+            <div class="hero-ctas">
+                <a href="#catalog" class="btn-hero-primary"
+                   aria-label="Browse all sneakers">
+                    <i class="fas fa-shoe-prints" aria-hidden="true"></i>
+                    Shop Kicks
+                </a>
+                <a href="https://wa.me/17580000000?text=Hi%2C%20what%20kicks%20do%20you%20have%20available%3F"
+                   class="btn-hero-ghost" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ask about availability on WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Check Availability
+                </a>
+            </div>
+
+            <div class="hero-stats" aria-label="Key facts">
+                <div>
+                    <div class="h-stat-num">200<span style="color:var(--text-muted);font-size:1.4rem;">+</span></div>
+                    <div class="h-stat-label">Pairs Sold</div>
+                </div>
+                <div>
+                    <div class="h-stat-num">2K<span style="color:var(--text-muted);font-size:1.4rem;">+</span></div>
+                    <div class="h-stat-label">Customers</div>
+                </div>
+                <div>
+                    <div class="h-stat-num" style="font-size:2rem;">⚡</div>
+                    <div class="h-stat-label">Same-Day Reply</div>
+                </div>
+                <div>
+                    <div class="h-stat-num" style="font-size:2rem;">🇱🇨</div>
+                    <div class="h-stat-label">SLU Based</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="trust-strip" aria-label="Trust indicators">
+    <div class="container">
+        <div class="trust-inner">
+            <div class="trust-item">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <span>100% Authentic</span>
+            </div>
+            <div class="trust-div" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fas fa-motorcycle" aria-hidden="true"></i>
+                <span>Islandwide Delivery</span>
+            </div>
+            <div class="trust-div" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fas fa-hand-holding-dollar" aria-hidden="true"></i>
+                <span>Pay on Delivery</span>
+            </div>
+            <div class="trust-div" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp in Seconds</span>
+            </div>
+            <div class="trust-div" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span>Castries Pickup</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CATALOG ===== -->
+<section class="sec" id="catalog" aria-label="Sneaker catalog">
+    <div class="container">
+        <div class="row mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <p class="t-label">The Collection</p>
+                <h2 class="t-section">
+                    THIS SEASON'S<br>
+                    <span style="color:var(--accent);">FRESHEST KICKS</span>
+                </h2>
+                <p style="color:var(--text-sec); margin-top:0.9rem; max-width:480px; font-size:0.9rem; line-height:1.65;">
+                    Select your size and tap Order on WhatsApp. Your size and style arrive pre-filled — just hit send. We confirm availability and arrange delivery in minutes.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4" id="productGrid">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ===== URGENCY ===== -->
+<section class="urgency-sec" aria-label="Stock availability alert">
+    <div class="container" style="position:relative; z-index:1;">
+        <div class="row align-items-center g-4">
+            <div class="col-md-8" data-aos="fade-right">
+                <p class="t-label">⚡ Stock Alert</p>
+                <h2 class="t-section" style="color:var(--accent);">THESE WON'T LAST.</h2>
+                <p style="color:var(--text-sec); font-size:0.9rem; max-width:480px; margin-top:0.9rem; line-height:1.65;">
+                    We carry limited quantities per style. Popular sizes move within days — sometimes hours. Once a size is gone, it's gone.
+                </p>
+                <div class="stock-row">
+                    <div class="stock-line">
+                        <div class="s-dot s-dot-red" aria-hidden="true"></div>
+                        Jordan 1 Mid Chicago — Sizes 9 &amp; 10 only
+                    </div>
+                    <div class="stock-line">
+                        <div class="s-dot s-dot-amber" aria-hidden="true"></div>
+                        Air Force 1 Low — Sizes 6–11 available (12 sold out)
+                    </div>
+                    <div class="stock-line">
+                        <div class="s-dot s-dot-green" aria-hidden="true"></div>
+                        Adidas Samba OG — All sizes in stock
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center" data-aos="fade-left">
+                <a href="#catalog" class="btn-hero-primary"
+                   style="font-size:1rem; padding:1rem 2.25rem; display:inline-flex;"
+                   aria-label="Shop now before stock runs out">
+                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                    Shop Before It's Gone
+                </a>
+                <p style="color:var(--text-muted); font-size:0.72rem; margin-top:0.65rem; letter-spacing:0.05em;">
+                    Stock updated daily. No reservations without deposit.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW TO ORDER ===== -->
+<section class="sec sec-dark" id="how-to-order" aria-label="How to order">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="t-label justify-content-center">No Confusion</p>
+            <h2 class="t-section">
+                ORDER IN <span style="color:var(--accent);">4 STEPS</span>
+            </h2>
+        </div>
+
+        <div class="row g-0">
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="step-wrap">
+                    <div class="step-bg-num" aria-hidden="true">01</div>
+                    <div class="step-icon-wrap" aria-hidden="true">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="step-title">Pick Your Pair</div>
+                    <p class="step-desc">Browse the catalog. Find your style and select your size from the available options.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-wrap">
+                    <div class="step-bg-num" aria-hidden="true">02</div>
+                    <div class="step-icon-wrap" aria-hidden="true">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="step-title">Tap Order</div>
+                    <p class="step-desc">Hit "Order on WhatsApp." Your chosen size and style arrive pre-filled. Just send.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-wrap">
+                    <div class="step-bg-num" aria-hidden="true">03</div>
+                    <div class="step-icon-wrap" aria-hidden="true">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="step-title">Confirm &amp; Pay</div>
+                    <p class="step-desc">We confirm availability and arrange delivery or pickup. Payment on receipt — no upfront stress.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-wrap">
+                    <div class="step-bg-num" aria-hidden="true">04</div>
+                    <div class="step-icon-wrap" aria-hidden="true">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div class="step-title">Get Your Kicks</div>
+                    <p class="step-desc">Delivered islandwide or pick up in Castries. Lace up and step fresh.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="sec" id="reviews" aria-label="Customer reviews">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="t-label justify-content-center">Real People</p>
+            <h2 class="t-section">CUSTOMER <span style="color:var(--accent);">LOVE</span></h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="rev-card">
+                    <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="rev-text">"Got my Air Force 1s delivered within two days. Dead simple to order on WhatsApp — literally just sent one message and it was sorted. Shoes are 100% legit."</p>
+                    <div class="rev-name">Keron M.</div>
+                    <div class="rev-loc">Castries, Saint Lucia</div>
+                    <div class="rev-verified"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified Buyer</div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="rev-card">
+                    <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="rev-text">"Ordered my Sambas, got a reply in under 10 minutes, delivered on time. Genuinely shocked — best online shopping experience I've had in Saint Lucia. These are real Adidas."</p>
+                    <div class="rev-name">Tiffany R.</div>
+                    <div class="rev-loc">Vieux Fort, Saint Lucia</div>
+                    <div class="rev-verified"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified Buyer</div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="rev-card">
+                    <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="rev-text">"They followed up after delivery to make sure I was happy. That's rare. Quality is there, service is there. The Jordan 1s are crisp — no complaints at all."</p>
+                    <div class="rev-name">Andre J.</div>
+                    <div class="rev-loc">Gros Islet, Saint Lucia</div>
+                    <div class="rev-verified"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified Buyer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec sec-dark" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <p class="t-label justify-content-center">No Guessing</p>
+                    <h2 class="t-section">YOUR <span style="color:var(--accent);">QUESTIONS</span></h2>
+                </div>
+                <div id="faqList" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band" aria-label="Order call to action">
+    <div class="cta-band-content" data-aos="zoom-in">
+        <p class="t-label justify-content-center">One Tap Away</p>
+        <h2 class="t-section mb-3">YOUR NEXT PAIR<br><span style="color:var(--accent);">STARTS HERE.</span></h2>
+        <p style="color:var(--text-sec); font-size:0.9rem; max-width:400px; margin:0 auto 2rem; line-height:1.65;">
+            Don't DM asking if we have it. Browse above. Select your size. Send one WhatsApp. Done.
+        </p>
+        <a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20order%20a%20pair%20of%20kicks!"
+           class="btn-hero-primary"
+           style="font-size:1.05rem; padding:1rem 2.5rem;"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Order your sneakers on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Order on WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="f-brand">SOLE<span class="dot">•</span>SLU</div>
+                <p class="f-tagline">Premium Nike, Adidas & Jordan sneakers. Based in Saint Lucia. Delivered to your door or picked up in Castries.</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                       class="f-link" style="font-size:1.1rem;"
+                       aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://wa.me/17580000000" target="_blank" rel="noopener noreferrer"
+                       class="f-link" style="font-size:1.1rem;"
+                       aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                       class="f-link" style="font-size:1.1rem;"
+                       aria-label="Facebook">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 offset-md-1">
+                <h3 class="f-head">Shop</h3>
+                <a href="#catalog" class="f-link">Nike</a>
+                <a href="#catalog" class="f-link">Adidas</a>
+                <a href="#catalog" class="f-link">Jordan</a>
+                <a href="#catalog" class="f-link">New Arrivals</a>
+            </div>
+            <div class="col-6 col-md-2">
+                <h3 class="f-head">Info</h3>
+                <a href="#how-to-order" class="f-link">How to Order</a>
+                <a href="#reviews" class="f-link">Reviews</a>
+                <a href="#faq" class="f-link">FAQ</a>
+            </div>
+            <div class="col-md-3">
+                <h3 class="f-head">Contact</h3>
+                <span class="f-link" style="cursor:default;">
+                    <i class="fas fa-location-dot" style="color:var(--accent);" aria-hidden="true"></i>
+                    Castries, Saint Lucia
+                </span>
+                <a href="https://wa.me/17580000000" target="_blank" rel="noopener noreferrer" class="f-link">
+                    <i class="fab fa-whatsapp" style="color:var(--green-wa);" aria-hidden="true"></i>
+                    WhatsApp Us
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="f-link">
+                    <i class="fab fa-instagram" style="color:#E1306C;" aria-hidden="true"></i>
+                    Instagram
+                </a>
+            </div>
+        </div>
+
+        <div class="f-bottom">
+            <p class="f-credit">
+                Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a> · Web Design for Caribbean Businesses
+            </p>
+            <p class="f-copy">© 2025 SOLE•SLU · All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20order%20some%20kicks!"
+   class="wa-float"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Order on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <span class="wa-tooltip">Order on WhatsApp</span>
+</a>
+
+<!-- ===== STICKY MOBILE CTA ===== -->
+<div class="mob-cta" aria-label="Mobile order button">
+    <a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20order%20kicks!"
+       class="btn-mob-wa" target="_blank" rel="noopener noreferrer"
+       aria-label="Order on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Order on WhatsApp
+    </a>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+/* === AOS === */
+AOS.init({ duration: 680, once: true, offset: 55 });
+
+/* === NAVBAR SCROLL === */
+const siteNav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => {
+    siteNav.classList.toggle('scrolled', window.scrollY > 55);
+}, { passive: true });
+
+/* === CONFIG === */
+const WA_NUMBER = '17580000000'; // ⚠️ Replace with real number before launch
+
+/* === PRODUCT DATA === */
+const products = [
+    {
+        id: 1,
+        brand: 'Nike',
+        name: "Air Force 1 '07",
+        colorway: 'Triple White',
+        price: 280,
+        badge: 'BESTSELLER',
+        badgeClass: 'badge-bs',
+        gradient: 'linear-gradient(145deg, #e0e0e0 0%, #f5f5f5 55%, #c8c8c8 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10,11]
+    },
+    {
+        id: 2,
+        brand: 'Nike',
+        name: 'Air Max TN Plus',
+        colorway: 'Black / Blue Fury',
+        price: 320,
+        badge: '🔥 HOT',
+        badgeClass: 'badge-hot',
+        gradient: 'linear-gradient(145deg, #080820 0%, #0a2040 55%, #0d3060 100%)',
+        icon: '👟',
+        allSizes: [7,8,9,10,11],
+        availSizes: [7,8,9,10]
+    },
+    {
+        id: 3,
+        brand: 'Adidas',
+        name: 'Samba OG',
+        colorway: 'Core Black / White',
+        price: 260,
+        badge: 'NEW',
+        badgeClass: 'badge-new',
+        gradient: 'linear-gradient(145deg, #141414 0%, #2a2a2a 55%, #0d0d0d 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10,11,12]
+    },
+    {
+        id: 4,
+        brand: 'Air Jordan',
+        name: 'Jordan 1 Mid',
+        colorway: 'Chicago — Red / Black / White',
+        price: 380,
+        badge: 'LIMITED',
+        badgeClass: 'badge-lim',
+        gradient: 'linear-gradient(145deg, #5c0000 0%, #aa0000 40%, #1a1a1a 100%)',
+        icon: '🏀',
+        allSizes: [8,9,10,11],
+        availSizes: [9,10]
+    },
+    {
+        id: 5,
+        brand: 'Nike',
+        name: 'Dunk Low',
+        colorway: 'Stadium Green / White',
+        price: 300,
+        badge: 'NEW',
+        badgeClass: 'badge-new',
+        gradient: 'linear-gradient(145deg, #0d3b18 0%, #1b6b30 50%, #e8f0e8 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10]
+    },
+    {
+        id: 6,
+        brand: 'Adidas',
+        name: 'Ultraboost 22',
+        colorway: 'Carbon / Signal Orange',
+        price: 340,
+        badge: null,
+        badgeClass: '',
+        gradient: 'linear-gradient(145deg, #3a3a3a 0%, #666666 50%, #FF4D00 100%)',
+        icon: '👟',
+        allSizes: [7,8,9,10,11,12],
+        availSizes: [7,8,9,10,11,12]
+    }
+];
+
+/* === SELECTED SIZES MAP === */
+const selectedSizes = {};
+
+/* === RENDER PRODUCTS === */
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = products.map((p, idx) => `
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 80}">
+            <article class="product-card" aria-label="Product: ${p.brand} ${p.name}">
+
+                <div class="p-visual" style="background:${p.gradient};">
+                    <div class="p-visual-noise" aria-hidden="true"></div>
+                    ${p.badge ? `<span class="p-badge ${p.badgeClass}">${p.badge}</span>` : ''}
+                    <span class="p-icon" aria-hidden="true" role="img">${p.icon}</span>
+                </div>
+
+                <div class="p-body">
+                    <p class="p-brand">${p.brand}</p>
+                    <h3 class="p-name">${p.name}</h3>
+                    <p class="p-colorway">${p.colorway}</p>
+                    <p class="p-price">$${p.price}<sub>XCD</sub></p>
+
+                    <p class="size-lbl">Select UK Size</p>
+                    <div class="size-row" role="group" aria-label="Size options for ${p.name}">
+                        ${p.allSizes.map(sz => {
+                            const avail = p.availSizes.includes(sz);
+                            return `<button
+                                class="sz-btn${avail ? '' : ' sz-out'}"
+                                data-pid="${p.id}"
+                                data-sz="${sz}"
+                                onclick="pickSize(${p.id}, ${sz}, ${avail})"
+                                ${!avail ? 'disabled aria-disabled="true"' : ''}
+                                aria-label="Size ${sz}${avail ? '' : ', sold out'}"
+                                aria-pressed="false"
+                                type="button">
+                                ${sz}
+                            </button>`;
+                        }).join('')}
+                    </div>
+
+                    <button
+                        class="btn-wa-order wa-idle"
+                        data-pid="${p.id}"
+                        onclick="doOrder(${p.id})"
+                        aria-label="Select a size to order ${p.name} on WhatsApp"
+                        aria-disabled="true"
+                        type="button">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        Select a Size First
+                    </button>
+                </div>
+
+            </article>
+        </div>
+    `).join('');
+}
+
+/* === SIZE SELECTION === */
+function pickSize(pid, sz, avail) {
+    if (!avail) return;
+
+    // Deselect all for this product
+    document.querySelectorAll(`.sz-btn[data-pid="${pid}"]`).forEach(b => {
+        b.classList.remove('sz-sel');
+        b.setAttribute('aria-pressed', 'false');
+    });
+
+    // Select this one
+    const btn = document.querySelector(`.sz-btn[data-pid="${pid}"][data-sz="${sz}"]`);
+    if (btn) {
+        btn.classList.add('sz-sel');
+        btn.setAttribute('aria-pressed', 'true');
+    }
+
+    selectedSizes[pid] = sz;
+
+    // Update order button
+    const orderBtn = document.querySelector(`.btn-wa-order[data-pid="${pid}"]`);
+    if (orderBtn) {
+        orderBtn.classList.remove('wa-idle');
+        orderBtn.removeAttribute('aria-disabled');
+        const prod = products.find(p => p.id === pid);
+        orderBtn.innerHTML = `<i class="fab fa-whatsapp" aria-hidden="true"></i> Order Size UK ${sz}`;
+        orderBtn.setAttribute('aria-label', `Order ${prod.name} Size UK ${sz} on WhatsApp`);
+    }
+}
+
+/* === WHATSAPP ORDER === */
+function doOrder(pid) {
+    const sz = selectedSizes[pid];
+    if (!sz) {
+        // Visual feedback — flash border
+        const card = document.querySelector(`.btn-wa-order[data-pid="${pid}"]`).closest('.product-card');
+        card.style.borderColor = 'var(--accent)';
+        card.style.boxShadow = '0 0 20px rgba(255,77,0,0.2)';
+        setTimeout(() => {
+            card.style.borderColor = 'var(--border)';
+            card.style.boxShadow = 'none';
+        }, 1800);
+        return;
+    }
+    const p = products.find(x => x.id === pid);
+    const msg = `Hi! I'd like to order the ${p.brand} ${p.name} (${p.colorway}) — UK Size ${sz}. Is it available?`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+}
+
+/* === FAQ DATA === */
+const faqs = [
+    {
+        q: 'Are the sneakers 100% authentic / original?',
+        a: 'Yes — 100%. Every pair we sell is authentic from authorised channels. No replicas, no fakes. If you receive a pair and believe it\'s not genuine, contact us immediately and we will resolve it.'
+    },
+    {
+        q: 'How long does delivery take?',
+        a: 'Castries and surrounding areas: typically 1–2 business days. Island-wide: 2–4 business days depending on location. We confirm your estimated delivery date when you place your order.'
+    },
+    {
+        q: 'What if I order the wrong size?',
+        a: 'If the wrong size was shipped due to our error, we\'ll exchange it at no cost to you. If you change your mind, reach out via WhatsApp within 24 hours of ordering and we\'ll do our best to accommodate.'
+    },
+    {
+        q: 'Can I pick up in person instead of delivery?',
+        a: 'Yes. Pickup is available in Castries. Let us know when you order that you\'d prefer pickup and we\'ll arrange a convenient time.'
+    },
+    {
+        q: 'How do I pay?',
+        a: 'We accept cash on delivery and bank transfer. Payment method and details are confirmed when you place your order via WhatsApp.'
+    },
+    {
+        q: 'What if my size isn\'t listed on the catalog?',
+        a: 'WhatsApp us and ask. We occasionally have stock not yet listed on the site, and can sometimes source specific sizes. Never hurts to ask.'
+    }
+];
+
+/* === RENDER FAQ === */
+function renderFAQ() {
+    const list = document.getElementById('faqList');
+    list.innerHTML = faqs.map((f, i) => `
+        <div class="faq-item" id="fi${i}">
+            <button class="faq-q-btn"
+                    onclick="toggleFAQ(${i})"
+                    aria-expanded="false"
+                    aria-controls="fa${i}"
+                    type="button">
+                <span class="faq-q-text">${f.q}</span>
+                <i class="fas fa-plus faq-icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq-body" id="fa${i}" role="region" aria-labelledby="fi${i}">
+                <div class="faq-body-inner">${f.a}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+/* === FAQ TOGGLE === */
+function toggleFAQ(i) {
+    const item = document.getElementById(`fi${i}`);
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-q-btn').setAttribute('aria-expanded', 'false');
+    });
+    // Open if wasn't open
+    if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.faq-q-btn').setAttribute('aria-expanded', 'true');
+    }
+}
+
+/* === INIT === */
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts();
+    renderFAQ();
+});
+</script>
+
+</body>
+</html>

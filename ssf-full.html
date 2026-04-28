@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="S.S.F — Shoe Shop Factory Saint Lucia. Authentic Nike, Adidas & Jordan sneakers. Pickup in Castries / Johnsons Centre. Islandwide delivery. Order on WhatsApp.">
+    <meta name="keywords" content="sneakers Saint Lucia, Nike Saint Lucia, Adidas Saint Lucia, Jordan shoes SLU, buy shoes Castries, shoe shop Saint Lucia">
+    <meta property="og:title" content="S.S.F — Shoe Shop Factory Saint Lucia">
+    <meta property="og:description" content="Authentic Nike, Adidas & Jordan. Pickup in Castries or delivery islandwide. Order in seconds on WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shoeshopfactoryslu.com">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FF4D00">
+    <title>S.S.F — Shoe Shop Factory | Authentic Sneakers in Saint Lucia</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        /* =============================================
+           CSS VARIABLES
+        ============================================= */
+        :root {
+            --bg:           #060606;
+            --bg-surface:   #0e0e0e;
+            --bg-card:      #141414;
+            --bg-elevated:  #1c1c1c;
+            --bg-input:     #181818;
+            --accent:       #FF4D00;
+            --accent-light: #FF6A25;
+            --accent-dim:   rgba(255,77,0,0.12);
+            --accent-glow:  rgba(255,77,0,0.22);
+            --accent-hover: #E04000;
+            --cyan:         #00E5FF;
+            --gold:         #FFD700;
+            --silver:       #C0C0C0;
+            --green-wa:     #25D366;
+            --green-wa-dk:  #128C7E;
+            --text-primary: #EDEDED;
+            --text-sec:     #999999;
+            --text-muted:   #4A4A4A;
+            --border:       #1E1E1E;
+            --border-light: #2A2A2A;
+            --border-hover: #3A3A3A;
+            --success:      #22C55E;
+            --danger:       #EF4444;
+            --warning:      #F59E0B;
+            --font-display: 'Bebas Neue', cursive;
+            --font-cond:    'Barlow Condensed', sans-serif;
+            --font-body:    'Outfit', sans-serif;
+            --radius-sm:    4px;
+            --radius-md:    8px;
+            --radius-lg:    14px;
+            font-display:   swap;
+        }
+
+        /* =============================================
+           BASE
+        ============================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 1px; }
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); }
+
+        /* =============================================
+           TYPOGRAPHY
+        ============================================= */
+        .t-display {
+            font-family: var(--font-display);
+            font-size: clamp(4.2rem, 13vw, 10.5rem);
+            line-height: 0.87;
+            letter-spacing: 0.025em;
+        }
+        .t-section {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+            line-height: 0.92;
+            letter-spacing: 0.03em;
+        }
+        .t-label {
+            font-family: var(--font-cond);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .t-label::before {
+            content: '';
+            width: 24px; height: 1.5px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* =============================================
+           TICKER
+        ============================================= */
+        .ticker-wrap {
+            background: var(--accent);
+            overflow: hidden;
+            padding: 0.42rem 0;
+            position: relative;
+            z-index: 1001;
+        }
+        .ticker-track {
+            display: flex;
+            animation: tickerScroll 32s linear infinite;
+            width: max-content;
+        }
+        .ticker-item {
+            font-family: var(--font-cond);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 0 2.25rem;
+            white-space: nowrap;
+        }
+        .ticker-item::before { content: '✦'; margin-right: 2.25rem; opacity: 0.55; }
+        @keyframes tickerScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* =============================================
+           NAVBAR
+        ============================================= */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(6,6,6,0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            transition: padding 0.3s ease, border-color 0.3s ease;
+        }
+        .site-nav.scrolled { border-bottom-color: rgba(255,77,0,0.25); }
+        .nav-inner {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .nav-logo-badge {
+            width: 38px; height: 38px;
+            background: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 0.06em;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .nav-brand-text {
+            font-family: var(--font-cond);
+            font-weight: 900;
+            font-size: 1.05rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .nav-brand-sub {
+            font-family: var(--font-cond);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            padding: 0.45rem 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .nav-cta-wrap { display: flex; align-items: center; gap: 0.65rem; }
+        .btn-nav-ghost {
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.76rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            padding: 0.45rem 0.85rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .btn-nav-ghost:hover { color: var(--text-primary); border-color: var(--border-hover); }
+        .btn-nav-primary {
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.5rem 1.15rem;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-nav-primary:hover { background: var(--accent-hover); transform: translateY(-1px); color: #fff; }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            width: 38px; height: 38px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            border-radius: var(--radius-sm);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-sec);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        .nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        @media (max-width: 991px) {
+            .d-nav-links { display: none !important; }
+            .nav-toggle { display: flex; }
+        }
+
+        /* Mobile Drawer */
+        .nav-drawer {
+            position: fixed;
+            top: 0; right: -100%;
+            width: min(85vw, 320px);
+            height: 100dvh;
+            background: var(--bg-surface);
+            border-left: 1px solid var(--border-light);
+            z-index: 1100;
+            transition: right 0.32s cubic-bezier(0.4,0,0.2,1);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        .nav-drawer.open { right: 0; }
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 1050;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .drawer-overlay.visible { opacity: 1; pointer-events: all; }
+        .drawer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        .drawer-close {
+            width: 36px; height: 36px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-sec);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .drawer-links { list-style: none; }
+        .drawer-links li { border-bottom: 1px solid var(--border); }
+        .drawer-links a {
+            font-family: var(--font-cond);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            padding: 0.9rem 0;
+            display: block;
+            transition: color 0.2s;
+        }
+        .drawer-links a:hover { color: var(--accent); }
+        .drawer-wa {
+            margin-top: 2rem;
+            width: 100%;
+            background: var(--green-wa);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.85rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* =============================================
+           HERO
+        ============================================= */
+        .hero {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 90px;
+            padding-bottom: 5rem;
+        }
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,77,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,77,0,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-gradient-bl {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 520px; height: 520px;
+            background: radial-gradient(circle, rgba(255,77,0,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-gradient-tr {
+            position: absolute;
+            top: 8%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255,77,0,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-bg-text {
+            position: absolute;
+            right: -2%;
+            bottom: 2%;
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 24vw, 22rem);
+            color: rgba(255,77,0,0.028);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.06em;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-eyebrow {
+            font-family: var(--font-cond);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+        .hero-eyebrow .line { width: 36px; height: 1px; background: var(--accent); }
+        .hero-sub {
+            font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+            color: var(--text-sec);
+            max-width: 500px;
+            line-height: 1.72;
+            margin-top: 1.5rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        .btn-primary-lg {
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.95rem 2.1rem;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+        .btn-primary-lg:hover {
+            background: var(--accent-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255,77,0,0.28);
+        }
+        .btn-ghost-lg {
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.95rem 2.1rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+        .btn-ghost-lg:hover { border-color: var(--border-hover); color: var(--text-primary); transform: translateY(-2px); }
+        .hero-proof {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .proof-stat .num {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .proof-stat .lbl {
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+        .proof-divider { width: 1px; height: 44px; background: var(--border-light); flex-shrink: 0; }
+        .proof-verified {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+        }
+        .proof-verified i { color: var(--accent); font-size: 1.1rem; }
+
+        /* =============================================
+           TRUST STRIP
+        ============================================= */
+        .trust-strip {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.1rem 0;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .trust-strip::-webkit-scrollbar { display: none; }
+        .trust-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            min-width: max-content;
+            padding: 0 1rem;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            white-space: nowrap;
+        }
+        .trust-item i { color: var(--accent); font-size: 0.95rem; }
+        .trust-sep { width: 1px; height: 20px; background: var(--border-light); flex-shrink: 0; }
+
+        /* =============================================
+           SECTIONS
+        ============================================= */
+        .sec { padding: 5.5rem 0; }
+        .sec-surface { background: var(--bg-surface); }
+        .sec-dark { background: var(--bg); }
+        .sec-header { margin-bottom: 3.5rem; }
+
+        /* =============================================
+           FILTER TABS
+        ============================================= */
+        .filter-tabs {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .f-tab {
+            font-family: var(--font-cond);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.42rem 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-sec);
+            cursor: pointer;
+            transition: all 0.18s;
+        }
+        .f-tab:hover { border-color: var(--border-hover); color: var(--text-primary); }
+        .f-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        /* =============================================
+           PRODUCT CARDS
+        ============================================= */
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.32s cubic-bezier(0.2,0,0,1), border-color 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,77,0,0.5);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,77,0,0.07);
+        }
+        .p-media {
+            height: 220px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .p-media-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .p-shoe-icon {
+            font-size: 5.8rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.35s cubic-bezier(0.2,0,0,1);
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+        }
+        .product-card:hover .p-shoe-icon { transform: scale(1.12) rotate(-8deg) translateY(-4px); }
+        .p-tag {
+            position: absolute;
+            top: 12px; left: 12px;
+            font-family: var(--font-cond);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            z-index: 2;
+        }
+        .tag-bs  { background: var(--accent); color: #fff; }
+        .tag-hot { background: var(--danger); color: #fff; }
+        .tag-new { background: var(--success); color: #fff; }
+        .tag-lim { background: #7C3AED; color: #fff; }
+        .tag-avl { background: var(--bg-elevated); color: var(--text-sec); border: 1px solid var(--border-light); }
+        .p-wishlist {
+            position: absolute;
+            top: 12px; right: 12px;
+            width: 32px; height: 32px;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.2s;
+        }
+        .p-wishlist:hover, .p-wishlist.active { color: var(--danger); border-color: var(--danger); background: rgba(239,68,68,0.1); }
+        .p-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+        .p-brand-label {
+            font-family: var(--font-cond);
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .p-name {
+            font-family: var(--font-cond);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-top: 0.1rem;
+        }
+        .p-colorway { font-size: 0.76rem; color: var(--text-muted); margin-top: 0.15rem; margin-bottom: 1rem; }
+        .p-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .p-price {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .p-currency {
+            font-family: var(--font-cond);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .sz-lbl {
+            font-family: var(--font-cond);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .sz-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.28rem;
+            margin-bottom: 0.95rem;
+        }
+        .sz-btn {
+            width: 38px; height: 32px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            color: var(--text-sec);
+            font-family: var(--font-cond);
+            font-size: 0.76rem;
+            font-weight: 700;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.14s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sz-btn:hover:not(.sz-out) { border-color: var(--accent); color: var(--accent); }
+        .sz-btn.sz-sel { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .sz-btn.sz-out {
+            opacity: 0.22;
+            cursor: not-allowed;
+            pointer-events: none;
+            text-decoration: line-through;
+        }
+        .btn-order-wa {
+            width: 100%;
+            background: var(--green-wa);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.84rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.72rem 1rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            transition: background 0.2s, transform 0.14s;
+            margin-top: auto;
+        }
+        .btn-order-wa:hover:not(.wa-idle) { background: var(--green-wa-dk); transform: translateY(-1px); }
+        .btn-order-wa.wa-idle {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            cursor: default;
+        }
+        .no-results {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-family: var(--font-cond);
+            font-size: 0.88rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =============================================
+           HOT PICKS SECTION
+        ============================================= */
+        .hot-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: border-color 0.3s, transform 0.25s;
+        }
+        .hot-card:hover { border-color: var(--accent); transform: translateX(4px); }
+        .hot-icon { font-size: 3.5rem; flex-shrink: 0; }
+        .hot-brand {
+            font-family: var(--font-cond);
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .hot-name {
+            font-family: var(--font-cond);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .hot-price {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 0.15rem;
+        }
+        .hot-order {
+            margin-left: auto;
+            flex-shrink: 0;
+            background: var(--green-wa);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem 0.9rem;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: background 0.2s;
+        }
+        .hot-order:hover { background: var(--green-wa-dk); }
+
+        /* =============================================
+           URGENCY
+        ============================================= */
+        .urgency-sec {
+            background: linear-gradient(135deg, #0e0300 0%, #1e0500 50%, #0e0300 100%);
+            border-top: 1px solid rgba(255,77,0,0.15);
+            border-bottom: 1px solid rgba(255,77,0,0.15);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .urgency-sec .sec-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,77,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,77,0,0.03) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+        .stock-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.65rem 0.9rem;
+            border-radius: var(--radius-sm);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            margin-bottom: 0.6rem;
+        }
+        .si-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .si-dot.red    { background: var(--danger); animation: dotPulse 1.4s infinite; }
+        .si-dot.amber  { background: var(--warning); animation: dotPulse 2s infinite; }
+        .si-dot.green  { background: var(--success); animation: dotPulse 2.8s infinite; }
+        @keyframes dotPulse {
+            0%,100% { opacity:1; transform: scale(1); }
+            50%      { opacity: 0.45; transform: scale(0.7); }
+        }
+        .si-name {
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            flex: 1;
+        }
+        .si-status {
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .si-status.crit { color: var(--danger); }
+        .si-status.low  { color: var(--warning); }
+        .si-status.ok   { color: var(--success); }
+
+        /* =============================================
+           HOW TO ORDER
+        ============================================= */
+        .step-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+        .step-num-bg {
+            font-family: var(--font-display);
+            font-size: 7rem;
+            color: rgba(255,77,0,0.06);
+            line-height: 1;
+            position: absolute;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.04em;
+        }
+        .step-icon {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            border: 1px solid rgba(255,77,0,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin: 0 auto 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .step-title {
+            font-family: var(--font-cond);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 0.45rem;
+        }
+        .step-desc { font-size: 0.82rem; color: var(--text-sec); line-height: 1.65; }
+
+        /* =============================================
+           REVIEW CARDS
+        ============================================= */
+        .rev-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.6rem;
+            height: 100%;
+            transition: border-color 0.28s;
+        }
+        .rev-card:hover { border-color: rgba(255,77,0,0.35); }
+        .rev-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.9rem; }
+        .rev-stars { color: var(--gold); font-size: 0.78rem; letter-spacing: 0.1em; }
+        .rev-badge {
+            font-family: var(--font-cond);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .rev-text { font-size: 0.85rem; color: var(--text-sec); line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+        .rev-footer { display: flex; align-items: center; justify-content: space-between; }
+        .rev-name {
+            font-family: var(--font-cond);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+        .rev-loc { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.1rem; }
+        .rev-item {
+            font-family: var(--font-cond);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 0.18rem 0.5rem;
+            border-radius: 2px;
+        }
+
+        /* =============================================
+           ABOUT / SSF
+        ============================================= */
+        .about-stat {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .about-stat-lbl {
+            font-family: var(--font-cond);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* =============================================
+           FAQ
+        ============================================= */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+            transition: border-color 0.25s;
+        }
+        .faq-item.faq-open { border-color: rgba(255,77,0,0.35); }
+        .faq-btn {
+            width: 100%;
+            background: var(--bg-card);
+            border: none;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.18s;
+        }
+        .faq-btn:hover { background: var(--bg-elevated); }
+        .faq-q {
+            font-family: var(--font-cond);
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding-right: 1rem;
+        }
+        .faq-chevron { color: var(--accent); transition: transform 0.28s; font-size: 0.82rem; flex-shrink: 0; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(45deg); }
+        .faq-panel {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--bg-card);
+            transition: max-height 0.35s ease;
+        }
+        .faq-item.faq-open .faq-panel { max-height: 300px; }
+        .faq-panel-inner {
+            padding: 0 1.25rem 1rem;
+            font-size: 0.86rem;
+            color: var(--text-sec);
+            line-height: 1.72;
+        }
+
+        /* =============================================
+           CTA BAND
+        ============================================= */
+        .cta-band {
+            background: linear-gradient(135deg, #0a0400 0%, #1c0600 50%, #0a0400 100%);
+            border-top: 1px solid rgba(255,77,0,0.12);
+            border-bottom: 1px solid rgba(255,77,0,0.12);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,77,0,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,77,0,0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+        .cta-band-content { position: relative; z-index: 1; }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        .site-footer {
+            background: #030303;
+            border-top: 1px solid var(--border);
+            padding: 3.5rem 0 1.5rem;
+        }
+        .f-brand-logo {
+            font-family: var(--font-cond);
+            font-weight: 900;
+            font-size: 1.45rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .f-logo-badge {
+            width: 34px; height: 34px;
+            background: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .f-tagline { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; max-width: 260px; margin-top: 0.65rem; }
+        .f-socials { display: flex; gap: 0.6rem; margin-top: 1.25rem; }
+        .f-social {
+            width: 36px; height: 36px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .f-social:hover { border-color: var(--accent); color: var(--accent); }
+        .f-section-head {
+            font-family: var(--font-cond);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .f-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            transition: color 0.18s;
+        }
+        .f-link:hover { color: var(--text-primary); }
+        .f-link i { font-size: 0.75rem; }
+        .f-bottom {
+            border-top: 1px solid var(--border);
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+        .f-credit { font-size: 0.7rem; color: var(--text-muted); }
+        .f-credit a { color: var(--accent); transition: opacity 0.2s; }
+        .f-credit a:hover { opacity: 0.75; text-decoration: underline; }
+        .f-copy { font-size: 0.7rem; color: var(--text-muted); }
+        .f-parent {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .f-parent a { color: var(--text-sec); transition: color 0.2s; }
+        .f-parent a:hover { color: var(--accent); }
+
+        /* =============================================
+           FLOATING WA
+        ============================================= */
+        .wa-float {
+            position: fixed;
+            bottom: 26px; right: 20px;
+            z-index: 995;
+            width: 58px; height: 58px;
+            background: var(--green-wa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.65rem;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            animation: waFloat 2.8s ease-in-out infinite;
+            transition: transform 0.2s, box-shadow 0.2s, animation 0.2s;
+        }
+        .wa-float:hover {
+            color: #fff;
+            transform: scale(1.13);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+            animation: none;
+        }
+        @keyframes waFloat {
+            0%,100% { transform: translateY(0) scale(1); }
+            50%      { transform: translateY(-7px) scale(1.03); }
+        }
+        .wa-tt {
+            position: absolute;
+            right: 68px;
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.72rem;
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .wa-float:hover .wa-tt { opacity: 1; }
+
+        /* =============================================
+           MOBILE STICKY CTA
+        ============================================= */
+        .mob-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(6,6,6,0.97);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid var(--border-light);
+            padding: 0.65rem 1rem;
+            z-index: 994;
+        }
+        @media (max-width: 767px) {
+            .mob-bar { display: block; }
+            .wa-float { bottom: 80px; }
+        }
+        .btn-mob {
+            width: 100%;
+            background: var(--green-wa);
+            color: #fff;
+            font-family: var(--font-cond);
+            font-weight: 700;
+            font-size: 0.92rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.82rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* =============================================
+           RESPONSIVE UTILS
+        ============================================= */
+        @media (max-width: 575px) {
+            .hero-actions { flex-direction: column; }
+            .btn-primary-lg, .btn-ghost-lg { justify-content: center; }
+            .hero-proof { gap: 1.25rem; }
+        }
+        @media (max-width: 767px) {
+            .filter-tabs { gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SKIP NAV -->
+<a href="#catalog" class="visually-hidden-focusable" style="position:absolute; top:-9999px; left:1rem; background:var(--accent); color:#fff; padding:0.5rem 1rem; border-radius:3px; z-index:9999; font-family:var(--font-cond); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; font-size:0.82rem;" onfocus="this.style.top='0.5rem'">Skip to catalog</a>
+
+<!-- TICKER -->
+<div class="ticker-wrap" role="marquee" aria-label="Store announcements">
+    <div class="ticker-track" aria-hidden="true">
+        <span class="ticker-item">Free Delivery on Orders $300+ XCD Islandwide</span>
+        <span class="ticker-item">100% Authentic Nike · Adidas · Jordan</span>
+        <span class="ticker-item">Jordan 1 Mid Chicago — Size 9 &amp; 10 Only</span>
+        <span class="ticker-item">Order on WhatsApp — We Reply in Minutes</span>
+        <span class="ticker-item">Pickup Available — Castries / Johnsons Centre</span>
+        <span class="ticker-item">Cash on Delivery · Bank Transfer Accepted</span>
+        <span class="ticker-item">Free Delivery on Orders $300+ XCD Islandwide</span>
+        <span class="ticker-item">100% Authentic Nike · Adidas · Jordan</span>
+        <span class="ticker-item">Jordan 1 Mid Chicago — Size 9 &amp; 10 Only</span>
+        <span class="ticker-item">Order on WhatsApp — We Reply in Minutes</span>
+        <span class="ticker-item">Pickup Available — Castries / Johnsons Centre</span>
+        <span class="ticker-item">Cash on Delivery · Bank Transfer Accepted</span>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+        <a href="#home" class="nav-brand" aria-label="S.S.F Shoe Shop Factory home">
+            <div class="nav-logo-badge" aria-hidden="true">SSF</div>
+            <div>
+                <div class="nav-brand-text">Shoe Shop Factory</div>
+                <div class="nav-brand-sub">Saint Lucia</div>
+            </div>
+        </a>
+
+        <ul class="nav-links d-nav-links d-none d-lg-flex" role="list">
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#hot-picks">Hot Picks</a></li>
+            <li><a href="#how-to-order">How It Works</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="nav-cta-wrap">
+            <a href="#catalog" class="btn-nav-ghost d-none d-md-inline-flex"
+               aria-label="Browse catalog">Browse</a>
+            <a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20order%20some%20kicks%20from%20SSF!"
+               class="btn-nav-primary"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Order on WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <span class="d-none d-sm-inline">Order Now</span>
+                <span class="d-sm-none">Order</span>
+            </a>
+            <button class="nav-toggle"
+                    id="navToggle"
+                    onclick="openDrawer()"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()" role="presentation"></div>
+<nav class="nav-drawer" id="navDrawer" role="navigation" aria-label="Mobile navigation">
+    <div class="drawer-top">
+        <a href="#home" class="nav-brand" aria-label="Home">
+            <div class="nav-logo-badge" aria-hidden="true" style="width:32px;height:32px;font-size:0.85rem;">SSF</div>
+            <span class="nav-brand-text">Shoe Shop Factory</span>
+        </a>
+        <button class="drawer-close" onclick="closeDrawer()" type="button" aria-label="Close navigation">
+            <i class="fas fa-xmark" aria-hidden="true" style="color:var(--text-sec);"></i>
+        </button>
+    </div>
+    <ul class="drawer-links" role="list">
+        <li><a href="#catalog" onclick="closeDrawer()">Catalog</a></li>
+        <li><a href="#hot-picks" onclick="closeDrawer()">Hot Picks</a></li>
+        <li><a href="#how-to-order" onclick="closeDrawer()">How It Works</a></li>
+        <li><a href="#reviews" onclick="closeDrawer()">Reviews</a></li>
+        <li><a href="#faq" onclick="closeDrawer()">FAQ</a></li>
+    </ul>
+    <a href="https://wa.me/17580000000?text=Hi%2C%20I%20want%20to%20order%20some%20kicks!"
+       class="drawer-wa"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Order on WhatsApp"
+       onclick="closeDrawer()">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Order on WhatsApp
+    </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" aria-label="S.S.F — Premium Sneakers Saint Lucia">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-gradient-bl" aria-hidden="true"></div>
+    <div class="hero-gradient-tr" aria-hidden="true"></div>
+    <div class="hero-bg-text" aria-hidden="true">FACTORY</div>
+
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+            <p class="hero-eyebrow">
+                <span class="line" aria-hidden="true"></span>
+                Based in Saint Lucia · Islandwide Delivery
+                <span class="line" aria-hidden="true"></span>
+            </p>
+            <h1 class="t-display">
+                THE SHOE<br>
+                SHOP <span style="color:var(--accent);">FACTORY</span><br>
+                <span style="font-size:0.65em; color:var(--text-sec);">SAINT LUCIA</span>
+            </h1>
+            <p class="hero-sub">
+                Authentic Nike, Adidas &amp; Jordan. Browse the catalog, select your size, and order straight to WhatsApp. Pickup in Castries or delivery anywhere on the island.
+            </p>
+            <div class="hero-actions">
+                <a href="#catalog" class="btn-primary-lg" aria-label="Browse catalog">
+                    <i class="fas fa-shoe-prints" aria-hidden="true"></i>
+                    Browse Kicks
+                </a>
+                <a href="https://wa.me/17580000000?text=Hi%20SSF%2C%20what%20kicks%20do%20you%20have%20available%3F"
+                   class="btn-ghost-lg"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Ask on WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Ask About Stock
+                </a>
+            </div>
+            <div class="hero-proof" aria-label="Key facts about SSF">
+                <div class="proof-stat">
+                    <div class="num">300<span style="font-size:1.5rem;color:var(--text-muted);">+</span></div>
+                    <div class="lbl">Pairs Sold</div>
+                </div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-stat">
+                    <div class="num">2K<span style="font-size:1.5rem;color:var(--text-muted);">+</span></div>
+                    <div class="lbl">Followers</div>
+                </div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-verified">
+                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                    100% Authentic
+                </div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-verified">
+                    <i class="fab fa-instagram" aria-hidden="true" style="color:#E1306C;"></i>
+                    <a href="https://instagram.com/shoe_shop_factoryslu" target="_blank" rel="noopener noreferrer" style="color:var(--text-sec);">@shoe_shop_factoryslu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip" aria-label="Trust indicators">
+    <div class="container">
+        <div class="trust-inner">
+            <div class="trust-item"><i class="fas fa-certificate" aria-hidden="true"></i> 100% Authentic</div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item"><i class="fas fa-motorcycle" aria-hidden="true"></i> Islandwide Delivery</div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item"><i class="fas fa-hand-holding-dollar" aria-hidden="true"></i> Pay on Delivery</div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Order in Seconds</div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item"><i class="fas fa-location-dot" aria-hidden="true"></i> Pickup: Castries / Johnsons Centre</div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item"><i class="fas fa-shield-halved" aria-hidden="true"></i> Side Branch of <strong style="color:var(--text-sec);">@thewarehouseslu</strong></div>
+        </div>
+    </div>
+</div>
+
+<!-- CATALOG -->
+<section class="sec" id="catalog" aria-label="Sneaker catalog">
+    <div class="container">
+        <div class="sec-header">
+            <div class="row align-items-end" data-aos="fade-up">
+                <div class="col-md-7">
+                    <p class="t-label">Shop Now</p>
+                    <h2 class="t-section">
+                        THE FULL<br>
+                        <span style="color:var(--accent);">CATALOG</span>
+                    </h2>
+                    <p style="color:var(--text-sec); font-size:0.86rem; margin-top:0.8rem; max-width:460px; line-height:1.7;">
+                        Select your size and hit Order on WhatsApp. Your pair and size arrive pre-filled. We confirm in minutes.
+                    </p>
+                </div>
+                <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                    <div class="filter-tabs justify-content-md-end" id="filterTabs" role="group" aria-label="Filter by brand">
+                        <button class="f-tab active" data-filter="all" onclick="filterProducts('all')" type="button" aria-pressed="true">All</button>
+                        <button class="f-tab" data-filter="nike" onclick="filterProducts('nike')" type="button" aria-pressed="false">Nike</button>
+                        <button class="f-tab" data-filter="adidas" onclick="filterProducts('adidas')" type="button" aria-pressed="false">Adidas</button>
+                        <button class="f-tab" data-filter="jordan" onclick="filterProducts('jordan')" type="button" aria-pressed="false">Jordan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="productGrid"></div>
+    </div>
+</section>
+
+<!-- HOT PICKS -->
+<section class="sec sec-surface" id="hot-picks" aria-label="Hot picks — best sellers">
+    <div class="container">
+        <div class="row mb-4" data-aos="fade-up">
+            <div class="col-12">
+                <p class="t-label">🔥 Moving Fast</p>
+                <h2 class="t-section">HOT <span style="color:var(--accent);">PICKS</span></h2>
+            </div>
+        </div>
+        <div class="row g-3" id="hotPicksGrid"></div>
+    </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency-sec" aria-label="Stock alert">
+    <div class="sec-bg" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+        <div class="row align-items-center g-5">
+            <div class="col-md-7" data-aos="fade-right">
+                <p class="t-label">⚡ Live Stock Status</p>
+                <h2 class="t-section" style="color:var(--accent);">
+                    LIMITED<br>STOCK.
+                </h2>
+                <p style="color:var(--text-sec); font-size:0.86rem; max-width:460px; margin-top:0.9rem; line-height:1.7;">
+                    We carry limited pairs per colorway. Popular sizes sell out in days. No reservations without deposit.
+                </p>
+                <div style="margin-top:1.5rem;" id="stockIndicators"></div>
+            </div>
+            <div class="col-md-5 text-center text-md-end" data-aos="fade-left">
+                <div style="display:inline-block; text-align:left; background:var(--bg-elevated); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.5rem; max-width:280px;">
+                    <p style="font-family:var(--font-display); font-size:3.5rem; color:var(--accent); line-height:1; margin-bottom:0.3rem;">DON'T<br>SLEEP.</p>
+                    <p style="font-size:0.8rem; color:var(--text-sec); line-height:1.65; margin-bottom:1.2rem;">Once a size is gone, it's gone. We don't guarantee restocks.</p>
+                    <a href="#catalog" class="btn-primary-lg" style="font-size:0.85rem; padding:0.75rem 1.5rem;" aria-label="Shop now">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="sec sec-surface" id="how-to-order" aria-label="How to order">
+    <div class="container">
+        <div class="text-center sec-header" data-aos="fade-up">
+            <p class="t-label justify-content-center">Zero Confusion</p>
+            <h2 class="t-section">YOUR PAIR IN <span style="color:var(--accent);">4 STEPS</span></h2>
+            <p style="color:var(--text-sec); font-size:0.86rem; max-width:400px; margin:0.8rem auto 0; line-height:1.7;">
+                No confusing forms. No back-and-forth DMs. One tap to WhatsApp with everything pre-filled.
+            </p>
+        </div>
+        <div class="row g-0">
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="step-card">
+                    <div class="step-num-bg" aria-hidden="true">01</div>
+                    <div class="step-icon" aria-hidden="true"><i class="fas fa-shoe-prints"></i></div>
+                    <h3 class="step-title">Pick Your Pair</h3>
+                    <p class="step-desc">Browse the catalog above. Find your style. Select your UK size from the available options shown on each card.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
+                <div class="step-card">
+                    <div class="step-num-bg" aria-hidden="true">02</div>
+                    <div class="step-icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="step-title">Tap Order</h3>
+                    <p class="step-desc">Hit Order on WhatsApp. Your shoe name and size arrive pre-filled in the message. Just tap Send.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
+                <div class="step-card">
+                    <div class="step-num-bg" aria-hidden="true">03</div>
+                    <div class="step-icon" aria-hidden="true"><i class="fas fa-circle-check"></i></div>
+                    <h3 class="step-title">Confirm &amp; Pay</h3>
+                    <p class="step-desc">We confirm availability and delivery details. Pay on delivery (cash or transfer). No upfront payment stress.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
+                <div class="step-card">
+                    <div class="step-num-bg" aria-hidden="true">04</div>
+                    <div class="step-icon" aria-hidden="true"><i class="fas fa-box-open"></i></div>
+                    <h3 class="step-title">Get Your Kicks</h3>
+                    <p class="step-desc">Delivered islandwide or pickup in Castries at Johnsons Centre. Lace up and step out fresh.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews" aria-label="Customer reviews">
+    <div class="container">
+        <div class="text-center sec-header" data-aos="fade-up">
+            <p class="t-label justify-content-center">Real Customers</p>
+            <h2 class="t-section">CUSTOMER <span style="color:var(--accent);">LOVE</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <article class="rev-card">
+                    <div class="rev-header">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <span class="rev-badge"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified</span>
+                    </div>
+                    <p class="rev-text">"Ordered my Air Force 1s on a Thursday night. By Saturday they were at my door. The shoes are legitimately authentic — not a single doubt. Easy process, great communication."</p>
+                    <div class="rev-footer">
+                        <div>
+                            <div class="rev-name">Keron M.</div>
+                            <div class="rev-loc">Castries, SLU</div>
+                        </div>
+                        <span class="rev-item">Air Force 1</span>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+                <article class="rev-card">
+                    <div class="rev-header">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <span class="rev-badge"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified</span>
+                    </div>
+                    <p class="rev-text">"Sambas sold out everywhere online. Found SSF and they had my size. WhatsApp reply in less than 10 minutes. Delivered to Vieux Fort with no issue. Real deal."</p>
+                    <div class="rev-footer">
+                        <div>
+                            <div class="rev-name">Tiffany R.</div>
+                            <div class="rev-loc">Vieux Fort, SLU</div>
+                        </div>
+                        <span class="rev-item">Samba OG</span>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+                <article class="rev-card">
+                    <div class="rev-header">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <span class="rev-badge"><i class="fas fa-circle-check" aria-hidden="true"></i> Verified</span>
+                    </div>
+                    <p class="rev-text">"Jordan 1s arrived pristine. Packaging was clean, condition was flawless. They even followed up after delivery. You don't get that service from any online store."</p>
+                    <div class="rev-footer">
+                        <div>
+                            <div class="rev-name">Andre J.</div>
+                            <div class="rev-loc">Gros Islet, SLU</div>
+                        </div>
+                        <span class="rev-item">Jordan 1 Mid</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec sec-surface" aria-label="About S.S.F">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <p class="t-label">Who We Are</p>
+                <h2 class="t-section">S.S.F —<br><span style="color:var(--accent);">SAINT LUCIA'S</span><br>SNEAKER STORE</h2>
+                <p style="color:var(--text-sec); font-size:0.86rem; margin-top:1.1rem; line-height:1.8; max-width:480px;">
+                    Shoe Shop Factory is a Saint Lucia-based sneaker retail operation carrying authentic Nike, Adidas, and Jordan. Pickup available at Johnsons Centre in Castries, with delivery available anywhere on the island.
+                </p>
+                <p style="color:var(--text-sec); font-size:0.86rem; margin-top:0.85rem; line-height:1.8; max-width:480px;">
+                    SSF is a verified side branch of <a href="https://instagram.com/thewarehouseslu" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">@thewarehouseslu</a> — one of Saint Lucia's most trusted retail operations.
+                </p>
+                <div class="d-flex gap-3 mt-3" style="flex-wrap:wrap;">
+                    <a href="https://instagram.com/shoe_shop_factoryslu" target="_blank" rel="noopener noreferrer" class="btn-ghost-lg" style="font-size:0.8rem; padding:0.65rem 1.3rem;" aria-label="Follow on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        @shoe_shop_factoryslu
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="row g-3">
+                    <div class="col-6"><div class="about-stat"><div class="about-stat-num">300+</div><div class="about-stat-lbl">Pairs Delivered</div></div></div>
+                    <div class="col-6"><div class="about-stat"><div class="about-stat-num">2K+</div><div class="about-stat-lbl">Customers</div></div></div>
+                    <div class="col-6"><div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-lbl">Top Brands</div></div></div>
+                    <div class="col-6"><div class="about-stat"><div class="about-stat-num">✅</div><div class="about-stat-lbl">IG Verified</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="text-center sec-header" data-aos="fade-up">
+                    <p class="t-label justify-content-center">No Guessing</p>
+                    <h2 class="t-section">YOUR <span style="color:var(--accent);">QUESTIONS</span></h2>
+                </div>
+                <div id="faqList" data-aos="fade-up" data-aos-delay="80"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Order call to action">
+    <div class="cta-band-content" data-aos="zoom-in">
+        <p class="t-label justify-content-center">Step Fresh</p>
+        <h2 class="t-section mb-3">YOUR NEXT PAIR<br><span style="color:var(--accent);">IS ONE TAP AWAY.</span></h2>
+        <p style="color:var(--text-sec); font-size:0.86rem; max-width:400px; margin:0 auto 2rem; line-height:1.72;">
+            Browse above, select your size, and hit Order on WhatsApp. We reply in minutes — not days.
+        </p>
+        <a href="https://wa.me/17580000000?text=Hi%20SSF%2C%20I%20want%20to%20order%20some%20kicks!"
+           class="btn-primary-lg"
+           style="font-size:0.95rem; padding:1rem 2.5rem;"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Order on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Order on WhatsApp
+        </a>
+        <p style="font-size:0.7rem; color:var(--text-muted); margin-top:1rem;">
+            Pickup · Johnsons Centre, Castries &nbsp;|&nbsp; Delivery Islandwide
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 col-lg-4">
+                <a href="#home" class="f-brand-logo" aria-label="S.S.F home">
+                    <div class="f-logo-badge" aria-hidden="true">SSF</div>
+                    <div>
+                        <div>Shoe Shop Factory</div>
+                        <div style="font-family:var(--font-cond); font-size:0.6rem; font-weight:600; letter-spacing:0.18em; color:var(--text-muted); text-transform:uppercase;">Saint Lucia</div>
+                    </div>
+                </a>
+                <p class="f-tagline">Authentic Nike, Adidas &amp; Jordan. Pickup in Castries or delivered anywhere on the island.</p>
+                <div class="f-socials">
+                    <a href="https://instagram.com/shoe_shop_factoryslu" target="_blank" rel="noopener noreferrer" class="f-social" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/17580000000" target="_blank" rel="noopener noreferrer" class="f-social" style="border-color:rgba(37,211,102,0.25);" aria-label="WhatsApp"><i class="fab fa-whatsapp" style="color:var(--green-wa);" aria-hidden="true"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="f-social" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 col-lg-2 offset-md-1">
+                <h3 class="f-section-head">Shop</h3>
+                <a href="#catalog" class="f-link">Nike</a>
+                <a href="#catalog" class="f-link">Adidas</a>
+                <a href="#catalog" class="f-link">Jordan</a>
+                <a href="#hot-picks" class="f-link">Hot Picks</a>
+            </div>
+            <div class="col-6 col-md-2 col-lg-2">
+                <h3 class="f-section-head">Help</h3>
+                <a href="#how-to-order" class="f-link">How to Order</a>
+                <a href="#reviews" class="f-link">Reviews</a>
+                <a href="#faq" class="f-link">FAQ</a>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <h3 class="f-section-head">Find Us</h3>
+                <span class="f-link" style="cursor:default;">
+                    <i class="fas fa-location-dot" style="color:var(--accent);" aria-hidden="true"></i>
+                    Johnsons Centre, Castries
+                </span>
+                <a href="https://instagram.com/shoe_shop_factoryslu" target="_blank" rel="noopener noreferrer" class="f-link">
+                    <i class="fab fa-instagram" style="color:#E1306C;" aria-hidden="true"></i>
+                    @shoe_shop_factoryslu
+                </a>
+                <a href="https://wa.me/17580000000" target="_blank" rel="noopener noreferrer" class="f-link">
+                    <i class="fab fa-whatsapp" style="color:var(--green-wa);" aria-hidden="true"></i>
+                    WhatsApp Us
+                </a>
+                <span class="f-link" style="cursor:default; margin-top:0.25rem;">
+                    <i class="fas fa-building" style="color:var(--text-muted);" aria-hidden="true"></i>
+                    Side branch of <a href="https://instagram.com/thewarehouseslu" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">@thewarehouseslu</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="f-bottom">
+            <p class="f-credit">Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a> · Web Design for Caribbean Businesses</p>
+            <p class="f-parent"><i class="fas fa-link" aria-hidden="true"></i> Part of <a href="https://instagram.com/thewarehouseslu" target="_blank" rel="noopener noreferrer">@thewarehouseslu</a></p>
+            <p class="f-copy">© 2025 S.S.F Shoe Shop Factory · All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/17580000000?text=Hi%20SSF%2C%20I%20want%20to%20order%20some%20kicks!"
+   class="wa-float"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Order on WhatsApp — we reply in minutes">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <span class="wa-tt">Order on WhatsApp</span>
+</a>
+
+<!-- MOBILE BAR -->
+<div class="mob-bar" aria-label="Mobile order">
+    <a href="https://wa.me/17580000000?text=Hi%20SSF%2C%20I%20want%20to%20order%20some%20kicks!"
+       class="btn-mob" target="_blank" rel="noopener noreferrer"
+       aria-label="Order on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Order on WhatsApp
+    </a>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+/* =============================================
+   CONFIG
+============================================= */
+AOS.init({ duration: 720, once: true, offset: 50 });
+
+const WA_NUMBER = '17580000000'; // ⚠️ Replace with real SSF WhatsApp
+
+/* =============================================
+   NAVBAR SCROLL
+============================================= */
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+
+/* =============================================
+   MOBILE DRAWER
+============================================= */
+function openDrawer() {
+    document.getElementById('navDrawer').classList.add('open');
+    document.getElementById('drawerOverlay').classList.add('visible');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+    document.getElementById('navDrawer').classList.remove('open');
+    document.getElementById('drawerOverlay').classList.remove('visible');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+}
+
+/* =============================================
+   PRODUCT DATA
+============================================= */
+const products = [
+    {
+        id: 1, brand: 'Nike', filter: 'nike',
+        name: "Air Force 1 '07",
+        colorway: 'Triple White',
+        price: 280,
+        tag: 'BESTSELLER', tagClass: 'tag-bs',
+        gradient: 'linear-gradient(145deg, #d8d8d8 0%, #f0f0f0 50%, #c0c0c0 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10,11]
+    },
+    {
+        id: 2, brand: 'Nike', filter: 'nike',
+        name: 'Air Max TN Plus',
+        colorway: 'Black / Blue Fury',
+        price: 320,
+        tag: '🔥 HOT', tagClass: 'tag-hot',
+        gradient: 'linear-gradient(145deg, #060610 0%, #0a1830 50%, #0c2855 100%)',
+        icon: '👟',
+        allSizes: [7,8,9,10,11],
+        availSizes: [7,8,9,10]
+    },
+    {
+        id: 3, brand: 'Adidas', filter: 'adidas',
+        name: 'Samba OG',
+        colorway: 'Core Black / White',
+        price: 260,
+        tag: 'NEW', tagClass: 'tag-new',
+        gradient: 'linear-gradient(145deg, #101010 0%, #242424 50%, #080808 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10,11,12]
+    },
+    {
+        id: 4, brand: 'Air Jordan', filter: 'jordan',
+        name: 'Jordan 1 Mid',
+        colorway: 'Chicago — Red / Black / White',
+        price: 380,
+        tag: 'LIMITED', tagClass: 'tag-lim',
+        gradient: 'linear-gradient(145deg, #4a0000 0%, #960000 40%, #151515 100%)',
+        icon: '🏀',
+        allSizes: [8,9,10,11],
+        availSizes: [9,10]
+    },
+    {
+        id: 5, brand: 'Nike', filter: 'nike',
+        name: 'Dunk Low',
+        colorway: 'Stadium Green / White',
+        price: 300,
+        tag: 'NEW', tagClass: 'tag-new',
+        gradient: 'linear-gradient(145deg, #0a2e10 0%, #155820 50%, #d8e8d8 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10]
+    },
+    {
+        id: 6, brand: 'Adidas', filter: 'adidas',
+        name: 'Ultraboost 22',
+        colorway: 'Carbon / Signal Orange',
+        price: 340,
+        tag: null, tagClass: '',
+        gradient: 'linear-gradient(145deg, #2a2a2a 0%, #555 50%, #FF4D00 100%)',
+        icon: '👟',
+        allSizes: [7,8,9,10,11,12],
+        availSizes: [7,8,9,10,11,12]
+    },
+    {
+        id: 7, brand: 'Air Jordan', filter: 'jordan',
+        name: 'Jordan 4 Retro',
+        colorway: 'Military Black',
+        price: 420,
+        tag: 'LIMITED', tagClass: 'tag-lim',
+        gradient: 'linear-gradient(145deg, #111 0%, #333 50%, #555 100%)',
+        icon: '🏀',
+        allSizes: [8,9,10,11,12],
+        availSizes: [8,9,11]
+    },
+    {
+        id: 8, brand: 'Nike', filter: 'nike',
+        name: 'Air Max 97',
+        colorway: 'Silver Bullet',
+        price: 360,
+        tag: null, tagClass: '',
+        gradient: 'linear-gradient(145deg, #333 0%, #888 50%, #ccc 100%)',
+        icon: '👟',
+        allSizes: [7,8,9,10,11],
+        availSizes: [7,8,9,10,11]
+    },
+    {
+        id: 9, brand: 'Adidas', filter: 'adidas',
+        name: 'Forum Low',
+        colorway: 'Cloud White / Core Black',
+        price: 240,
+        tag: 'AVAILABLE', tagClass: 'tag-avl',
+        gradient: 'linear-gradient(145deg, #e8e8e8 0%, #f8f8f8 50%, #d0d0d0 100%)',
+        icon: '👟',
+        allSizes: [6,7,8,9,10,11,12],
+        availSizes: [6,7,8,9,10,11,12]
+    }
+];
+
+const selectedSizes = {};
+let currentFilter = 'all';
+
+/* =============================================
+   RENDER PRODUCTS
+============================================= */
+function renderProducts(filter) {
+    const grid = document.getElementById('productGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.filter === filter);
+
+    if (!filtered.length) {
+        grid.innerHTML = '<div class="no-results">No products match this filter.</div>';
+        return;
+    }
+
+    grid.innerHTML = filtered.map((p, idx) => `
+        <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${(idx % 3) * 70}">
+            <article class="product-card" aria-label="${p.brand} ${p.name}">
+                <div class="p-media" style="background:${p.gradient};">
+                    <div class="p-media-grain" aria-hidden="true"></div>
+                    ${p.tag ? `<span class="p-tag ${p.tagClass}">${p.tag}</span>` : ''}
+                    <button class="p-wishlist"
+                            data-wid="${p.id}"
+                            onclick="toggleWish(${p.id})"
+                            type="button"
+                            aria-label="Save ${p.name} to wishlist"
+                            aria-pressed="false">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <span class="p-shoe-icon" aria-hidden="true" role="img">${p.icon}</span>
+                </div>
+                <div class="p-body">
+                    <p class="p-brand-label">${p.brand}</p>
+                    <h3 class="p-name">${p.name}</h3>
+                    <p class="p-colorway">${p.colorway}</p>
+                    <div class="p-price-row">
+                        <span class="p-price">$${p.price}</span>
+                        <span class="p-currency">XCD</span>
+                    </div>
+                    <p class="sz-lbl">Select UK Size</p>
+                    <div class="sz-grid" role="group" aria-label="Sizes for ${p.name}">
+                        ${p.allSizes.map(sz => {
+                            const ok = p.availSizes.includes(sz);
+                            return `<button
+                                class="sz-btn${ok ? '' : ' sz-out'}"
+                                data-pid="${p.id}" data-sz="${sz}"
+                                onclick="pickSize(${p.id}, ${sz}, ${ok})"
+                                ${!ok ? 'disabled aria-disabled="true"' : ''}
+                                aria-label="Size UK ${sz}${ok ? '' : ' — sold out'}"
+                                aria-pressed="false"
+                                type="button">${sz}</button>`;
+                        }).join('')}
+                    </div>
+                    <button class="btn-order-wa wa-idle"
+                            data-pid="${p.id}"
+                            onclick="doOrder(${p.id})"
+                            aria-label="Select size to order ${p.name}"
+                            aria-disabled="true"
+                            type="button">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        Select a Size First
+                    </button>
+                </div>
+            </article>
+        </div>
+    `).join('');
+}
+
+/* =============================================
+   FILTER
+============================================= */
+function filterProducts(f) {
+    currentFilter = f;
+    document.querySelectorAll('.f-tab').forEach(t => {
+        const isActive = t.dataset.filter === f;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-pressed', String(isActive));
+    });
+    renderProducts(f);
+    AOS.refresh();
+}
+
+/* =============================================
+   SIZE PICK
+============================================= */
+function pickSize(pid, sz, ok) {
+    if (!ok) return;
+    document.querySelectorAll(`.sz-btn[data-pid="${pid}"]`).forEach(b => {
+        b.classList.remove('sz-sel');
+        b.setAttribute('aria-pressed', 'false');
+    });
+    const btn = document.querySelector(`.sz-btn[data-pid="${pid}"][data-sz="${sz}"]`);
+    if (btn) { btn.classList.add('sz-sel'); btn.setAttribute('aria-pressed', 'true'); }
+    selectedSizes[pid] = sz;
+    const ob = document.querySelector(`.btn-order-wa[data-pid="${pid}"]`);
+    if (ob) {
+        ob.classList.remove('wa-idle');
+        ob.removeAttribute('aria-disabled');
+        const p = products.find(x => x.id === pid);
+        ob.innerHTML = `<i class="fab fa-whatsapp" aria-hidden="true"></i> Order — UK Size ${sz}`;
+        ob.setAttribute('aria-label', `Order ${p.name} UK size ${sz} on WhatsApp`);
+    }
+}
+
+/* =============================================
+   WHATSAPP ORDER
+============================================= */
+function doOrder(pid) {
+    const sz = selectedSizes[pid];
+    if (!sz) {
+        const card = document.querySelector(`.btn-order-wa[data-pid="${pid}"]`).closest('.product-card');
+        card.style.borderColor = 'var(--accent)';
+        setTimeout(() => { card.style.borderColor = ''; }, 1800);
+        return;
+    }
+    const p = products.find(x => x.id === pid);
+    const msg = `Hi SSF! I'd like to order: ${p.brand} ${p.name} (${p.colorway}) — UK Size ${sz}. Is this available?`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+}
+
+/* =============================================
+   WISHLIST (UI-only)
+============================================= */
+function toggleWish(pid) {
+    const btn = document.querySelector(`.p-wishlist[data-wid="${pid}"]`);
+    if (!btn) return;
+    const active = btn.classList.toggle('active');
+    btn.setAttribute('aria-pressed', String(active));
+    btn.setAttribute('aria-label', active ? 'Remove from wishlist' : `Save to wishlist`);
+}
+
+/* =============================================
+   HOT PICKS
+============================================= */
+const hotPicks = [
+    { id: 1, brand: 'Nike', name: "Air Force 1 '07", colorway: 'Triple White', price: 280, icon: '👟' },
+    { id: 4, brand: 'Air Jordan', name: 'Jordan 1 Mid Chicago', colorway: 'Red / Black / White', price: 380, icon: '🏀' },
+    { id: 2, brand: 'Nike', name: 'Air Max TN Plus', colorway: 'Black / Blue Fury', price: 320, icon: '👟' },
+];
+
+function renderHotPicks() {
+    const grid = document.getElementById('hotPicksGrid');
+    grid.innerHTML = hotPicks.map((p, i) => `
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${i*70}">
+            <div class="hot-card">
+                <span class="hot-icon" aria-hidden="true" role="img">${p.icon}</span>
+                <div>
+                    <div class="hot-brand">${p.brand}</div>
+                    <div class="hot-name">${p.name}</div>
+                    <div class="hot-price">$${p.price} XCD</div>
+                </div>
+                <button class="hot-order"
+                        onclick="hotOrder(${p.id})"
+                        type="button"
+                        aria-label="Order ${p.name} on WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Order
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function hotOrder(pid) {
+    const p = products.find(x => x.id === pid);
+    const msg = `Hi SSF! I'm interested in the ${p.brand} ${p.name} (${p.colorway}). What sizes do you have available?`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+}
+
+/* =============================================
+   STOCK INDICATORS
+============================================= */
+const stockItems = [
+    { name: 'Jordan 1 Mid Chicago', status: 'crit', statusText: 'CRITICAL — UK 9 & 10 Only', dot: 'red' },
+    { name: 'Air Force 1 Triple White', status: 'low', statusText: 'LOW — Most Sizes Available', dot: 'amber' },
+    { name: 'Samba OG Black / White', status: 'ok', statusText: 'IN STOCK — All Sizes', dot: 'green' },
+    { name: 'Air Max TN Plus Black', status: 'low', statusText: 'LOW — UK 10, 11 Sold Out', dot: 'amber' },
+];
+
+function renderStock() {
+    const c = document.getElementById('stockIndicators');
+    c.innerHTML = stockItems.map(s => `
+        <div class="stock-indicator">
+            <div class="si-dot ${s.dot}" aria-hidden="true"></div>
+            <span class="si-name">${s.name}</span>
+            <span class="si-status ${s.status}">${s.statusText}</span>
+        </div>
+    `).join('');
+}
+
+/* =============================================
+   FAQ
+============================================= */
+const faqs = [
+    {
+        q: 'Are the sneakers 100% original / authentic?',
+        a: 'Yes — 100% authentic from authorised retail channels. No replicas, no fakes. S.S.F does not sell counterfeit footwear. If you receive a pair and have any doubt about authenticity, contact us immediately and we resolve it fully.'
+    },
+    {
+        q: 'How long does delivery take?',
+        a: 'Castries and nearby areas: 1–2 business days. Islandwide: 2–4 business days. Your estimated delivery date is confirmed when you order via WhatsApp.'
+    },
+    {
+        q: 'What if I order the wrong size or change my mind?',
+        a: 'If we send the wrong size due to our error, we exchange at no cost. If you change your mind, contact us within 24 hours of ordering and we\'ll do our best to accommodate. Once shipped, exchanges are subject to return of the item in original unworn condition.'
+    },
+    {
+        q: 'Can I pick up in person instead of delivery?',
+        a: 'Yes. Pickup is available at Johnsons Centre in Castries. Let us know you prefer pickup when you place your order and we\'ll arrange a time.'
+    },
+    {
+        q: 'How do I pay?',
+        a: 'Cash on delivery and bank transfer are both accepted. Payment method and instructions are confirmed via WhatsApp when you place your order. No upfront payments required.'
+    },
+    {
+        q: 'My size isn\'t listed. Can you source it?',
+        a: 'WhatsApp us and ask. We sometimes have stock not yet listed on the site, and can often source specific sizes. We\'re also part of @thewarehouseslu which gives us access to wider inventory.'
+    },
+    {
+        q: 'Is S.S.F the same as @thewarehouseslu?',
+        a: 'S.S.F is a side branch of @thewarehouseslu — Saint Lucia\'s established retail operation. SSF focuses specifically on authentic footwear. Both are run by the same team.'
+    }
+];
+
+function renderFAQ() {
+    const list = document.getElementById('faqList');
+    list.innerHTML = faqs.map((f, i) => `
+        <div class="faq-item" id="fi${i}">
+            <button class="faq-btn"
+                    onclick="toggleFAQ(${i})"
+                    aria-expanded="false"
+                    aria-controls="fp${i}"
+                    type="button">
+                <span class="faq-q">${f.q}</span>
+                <i class="fas fa-plus faq-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="faq-panel" id="fp${i}" role="region">
+                <div class="faq-panel-inner">${f.a}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function toggleFAQ(i) {
+    const item = document.getElementById(`fi${i}`);
+    const open = item.classList.contains('faq-open');
+    document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('faq-open');
+        el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+    });
+    if (!open) {
+        item.classList.add('faq-open');
+        item.querySelector('.faq-btn').setAttribute('aria-expanded', 'true');
+    }
+}
+
+/* =============================================
+   INIT
+============================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts('all');
+    renderHotPicks();
+    renderStock();
+    renderFAQ();
+});
+</script>
+</body>
+</html>
