@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cakes by Dominique — Brisbane's premier buttercream cake artist. Handcrafted vintage and Victorian-inspired custom cakes for birthdays, weddings, baby showers, and special events.">
+  <meta property="og:title" content="Cakes by Dominique | Buttercream Cake Artist · Brisbane">
+  <meta property="og:description" content="Handcrafted vintage buttercream cakes for every celebration. Custom orders via WhatsApp. Brisbane, QLD.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <title>Cakes by Dominique | Buttercream Cake Artist · Brisbane</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Cormorant Garamond (display) + Jost (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    /* ============================================
+       CSS VARIABLES
+    ============================================ */
+    :root {
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', sans-serif;
+      --bg:           #FAF8F4;
+      --bg-section:   #F2EEE7;
+      --card-bg:      #FFFFFF;
+      --text:         #2D2B28;
+      --text-mid:     #6B6560;
+      --sage:         #7A9980;
+      --sage-light:   #A8C5AD;
+      --sage-pale:    #EAF1EB;
+      --blush:        #D9898F;
+      --blush-pale:   #FAF0F1;
+      --gold:         #C9A96E;
+      --gold-light:   #F0E4CC;
+      --border:       rgba(0,0,0,0.09);
+      --shadow:       0 4px 30px rgba(0,0,0,0.08);
+      --shadow-hover: 0 10px 40px rgba(0,0,0,0.14);
+    }
+    [data-theme="dark"] {
+      --bg:           #1A1917;
+      --bg-section:   #231F1C;
+      --card-bg:      #2E2B27;
+      --text:         #F0ECE5;
+      --text-mid:     #A8A29A;
+      --sage:         #8FB898;
+      --sage-light:   #6D9A78;
+      --sage-pale:    #1E2B21;
+      --blush:        #C4888E;
+      --blush-pale:   #2A1E1F;
+      --gold:         #C9A96E;
+      --gold-light:   #3D3020;
+      --border:       rgba(255,255,255,0.08);
+      --shadow:       0 4px 30px rgba(0,0,0,0.35);
+      --shadow-hover: 0 10px 40px rgba(0,0,0,0.45);
+    }
+
+    /* ============================================
+       GLOBAL RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-display: swap;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    a { color: var(--sage); text-decoration: none; }
+    a:hover { color: var(--blush); }
+    img { font-display: swap; max-width: 100%; }
+    section { padding: 96px 0; }
+    .section-alt { background: var(--bg-section); }
+
+    .section-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+    .section-title em { font-style: italic; color: var(--sage); }
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 520px;
+    }
+
+    /* Shared image placeholder */
+    .img-hold {
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--blush-pale) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--text-mid);
+      font-size: 0.72rem;
+      text-align: center;
+      border: 1px dashed var(--border);
+    }
+    .img-hold i { font-size: 1.6rem; color: var(--sage-light); }
+
+    /* Ornament divider */
+    .ornament {
+      display: flex; align-items: center; gap: 0.75rem;
+      max-width: 180px; margin: 1.5rem 0;
+    }
+    .ornament span { flex:1; height:1px; background:var(--gold); opacity:0.35; }
+    .ornament i { color: var(--gold); font-size: 0.65rem; }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 0;
+      position: sticky; top: 0; z-index: 1000;
+      transition: background 0.3s;
+    }
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--text) !important;
+      letter-spacing: 0.02em;
+    }
+    .navbar-brand em { font-style: italic; color: var(--sage); }
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-mid) !important;
+      padding: 0.45rem 0.9rem !important;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--sage) !important; }
+    .btn-nav-order {
+      background: var(--sage); color: white !important;
+      border-radius: 50px; padding: 0.45rem 1.2rem !important;
+      font-size: 0.73rem !important; font-weight: 600 !important;
+      transition: background 0.2s;
+    }
+    .btn-nav-order:hover { background: var(--blush) !important; }
+    .theme-toggle {
+      background: none; border: 1px solid var(--border);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text-mid); transition: all 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .navbar-toggler {
+      border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      min-height: 91vh;
+      display: flex; align-items: center;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--blush-pale) 0%, transparent 68%);
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--sage-pale) 0%, transparent 65%);
+      z-index: 0;
+    }
+    .hero-inner { position: relative; z-index: 1; width: 100%; }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 28px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-size: clamp(3.2rem, 7.5vw, 6.8rem);
+      font-weight: 300; line-height: 1.0;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); }
+    .hero-sub {
+      font-size: 0.95rem; color: var(--text-mid);
+      line-height: 1.8; max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Shared CTA buttons */
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage); color: white; border: none;
+      border-radius: 50px; padding: 0.85rem 2rem;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; transition: all 0.25s; text-decoration: none;
+    }
+    .btn-cta-primary:hover {
+      background: var(--blush); color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(217,137,143,0.4);
+    }
+    .btn-cta-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 50px; padding: 0.85rem 2rem;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+      cursor: pointer; transition: all 0.25s; text-decoration: none;
+    }
+    .btn-cta-secondary:hover {
+      border-color: var(--sage); color: var(--sage);
+      transform: translateY(-2px);
+    }
+
+    /* Hero image */
+    .hero-cake-frame { position: relative; }
+    .hero-cake-img {
+      width: 100%; max-width: 460px;
+      height: 560px; object-fit: cover;
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      display: block; margin: 0 auto;
+    }
+    .hero-img-hold {
+      width: 100%; max-width: 460px; height: 560px;
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      position: absolute; bottom: 36px; left: 0;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 0.8rem 1.1rem;
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .badge-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage); font-size: 0.95rem; flex-shrink: 0;
+    }
+    .badge-text { font-size: 0.73rem; color: var(--text-mid); line-height: 1.35; }
+    .badge-text strong { display: block; color: var(--text); font-size: 0.82rem; }
+
+    /* ============================================
+       TRUST BAR
+    ============================================ */
+    .trust-bar {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+    }
+    .trust-items {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 1.5rem 2.5rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; color: var(--text-mid); font-weight: 500;
+    }
+    .trust-item i { color: var(--sage); font-size: 0.85rem; }
+
+    /* ============================================
+       #IFTHISWASACAKE
+    ============================================ */
+    .itwac-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3px; border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .itwac-cell { position: relative; overflow: hidden; }
+    .itwac-cell picture img,
+    .itwac-cell .img-hold {
+      width: 100%; height: 290px; object-fit: cover;
+      display: block; transition: transform 0.5s ease;
+    }
+    .itwac-cell:hover picture img { transform: scale(1.06); }
+    .itwac-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.85rem 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+      color: white; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .itwac-tag {
+      display: inline-block;
+      background: var(--blush-pale); color: var(--blush);
+      border: 1px solid var(--blush);
+      border-radius: 50px; padding: 0.28rem 1rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; margin-bottom: 1.25rem;
+    }
+
+    /* ============================================
+       GALLERY
+    ============================================ */
+    .gallery-filters {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0.5rem;
+      margin-bottom: 2.25rem;
+    }
+    .filter-btn {
+      background: transparent; border: 1px solid var(--border);
+      border-radius: 50px; padding: 0.4rem 1.1rem;
+      font-family: var(--font-body); font-size: 0.76rem; font-weight: 500;
+      color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--sage); border-color: var(--sage); color: white;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative; border-radius: 16px; overflow: hidden;
+      cursor: default; background: var(--card-bg);
+    }
+    .gallery-item picture img,
+    .gallery-item .img-hold {
+      width: 100%; height: 310px; object-fit: cover;
+      display: block; transition: transform 0.5s ease;
+    }
+    .gallery-item:hover picture img { transform: scale(1.06); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-end; padding: 1rem;
+      background: rgba(0,0,0,0); transition: background 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,0.32); }
+    .gallery-tag {
+      opacity: 0; background: white; color: var(--text);
+      border-radius: 50px; padding: 0.28rem 0.8rem;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-tag { opacity: 1; }
+
+    /* ============================================
+       OCCASIONS
+    ============================================ */
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+    .occ-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem 1.4rem; text-align: center;
+      transition: all 0.3s;
+    }
+    .occ-card:hover {
+      border-color: var(--sage);
+      transform: translateY(-4px); box-shadow: var(--shadow-hover);
+    }
+    .occ-emoji {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin: 0 auto 1.1rem;
+    }
+    .occ-card h4 { font-size: 1.15rem; margin-bottom: 0.45rem; }
+    .occ-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ============================================
+       ABOUT
+    ============================================ */
+    .about-frame {
+      position: relative; display: inline-block;
+    }
+    .about-frame::before {
+      content: '';
+      position: absolute; top: -14px; left: -14px; right: 14px; bottom: 14px;
+      border: 2px solid var(--gold); border-radius: 20px;
+      opacity: 0.25; z-index: 0;
+    }
+    .about-main-img {
+      width: 100%; max-width: 440px; height: 540px;
+      object-fit: cover; border-radius: 20px;
+      position: relative; z-index: 1; display: block;
+    }
+    .about-main-hold {
+      width: 100%; max-width: 440px; height: 540px;
+      border-radius: 20px; position: relative; z-index: 1;
+    }
+    .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+    .about-text p {
+      font-size: 0.93rem; color: var(--text-mid);
+      line-height: 1.92; margin-bottom: 1.2rem;
+    }
+    .about-sig {
+      font-family: var(--font-display); font-size: 2rem;
+      font-style: italic; color: var(--sage); margin-top: 1.25rem;
+    }
+
+    /* ============================================
+       TESTIMONIALS
+    ============================================ */
+    .testi-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.75rem; height: 100%;
+      transition: box-shadow 0.3s;
+    }
+    .testi-card:hover { box-shadow: var(--shadow-hover); }
+    .testi-stars {
+      display: flex; gap: 2px;
+      color: var(--gold); font-size: 0.75rem; margin-bottom: 1rem;
+    }
+    .testi-text {
+      font-family: var(--font-display); font-size: 1.12rem;
+      font-style: italic; line-height: 1.75; color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.7rem; }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700; color: var(--sage); flex-shrink: 0;
+    }
+    .testi-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .testi-handle { font-size: 0.75rem; color: var(--text-mid); }
+
+    /* ============================================
+       AMAZON PRODUCT
+    ============================================ */
+    .product-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 24px; overflow: hidden;
+      display: flex; align-items: stretch; box-shadow: var(--shadow);
+    }
+    .product-img-col { flex: 0 0 280px; background: var(--sage-pale); }
+    .product-img-col picture img,
+    .product-img-col .img-hold {
+      width: 100%; min-height: 320px; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .product-info { padding: 2.75rem; flex: 1; }
+    .product-badge {
+      display: inline-block;
+      background: var(--gold-light); color: var(--gold);
+      border-radius: 50px; padding: 0.28rem 0.9rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .product-info h3 { font-size: 1.9rem; margin-bottom: 1rem; }
+    .product-info p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.75rem; }
+    .btn-amazon {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--gold); color: white; border: none;
+      border-radius: 50px; padding: 0.85rem 2rem;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-amazon:hover { background: #b8924a; color: white; transform: translateY(-2px); }
+
+    /* ============================================
+       KLOOK STRIP
+    ============================================ */
+    .klook-strip {
+      background: linear-gradient(130deg, var(--sage) 0%, var(--sage-light) 100%);
+      padding: 80px 0; text-align: center; color: white;
+    }
+    .klook-strip .section-label { color: rgba(255,255,255,0.65); }
+    .klook-strip h2 { font-size: clamp(2rem, 5vw, 3.4rem); color: white; margin-bottom: 1rem; }
+    .klook-strip p { color: rgba(255,255,255,0.82); font-size: 0.93rem; line-height: 1.85; max-width: 480px; margin: 0 auto 1.75rem; }
+    .klook-code {
+      display: inline-block;
+      background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 12px; padding: 0.7rem 1.5rem;
+      font-size: 0.82rem; color: white; margin-bottom: 2rem;
+    }
+    .klook-code strong { font-size: 1.05rem; letter-spacing: 0.08em; display: block; margin-top: 2px; }
+    .btn-klook {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: white; color: var(--sage);
+      border: none; border-radius: 50px; padding: 0.9rem 2.2rem;
+      font-family: var(--font-body); font-size: 0.88rem; font-weight: 700;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-klook:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); color: var(--sage); }
+
+    /* ============================================
+       ORDER FORM
+    ============================================ */
+    .order-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 24px; padding: 2.75rem;
+      box-shadow: var(--shadow); max-width: 660px; margin: 0 auto;
+    }
+    .step-track {
+      display: flex; align-items: center; margin-bottom: 2.5rem;
+    }
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--bg-section); border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.73rem; font-weight: 700; color: var(--text-mid);
+      transition: all 0.3s; flex-shrink: 0;
+    }
+    .step-dot.active { background: var(--sage); border-color: var(--sage); color: white; }
+    .step-dot.done   { background: var(--sage-pale); border-color: var(--sage); color: var(--sage); }
+    .step-line {
+      flex: 1; height: 2px; background: var(--border);
+      margin: 0 0.4rem; transition: background 0.3s;
+    }
+    .step-line.done { background: var(--sage); }
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .step-title { font-family: var(--font-display); font-size: 1.55rem; margin-bottom: 0.4rem; }
+    .step-hint { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 1.75rem; }
+
+    .occ-opts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.7rem; margin-bottom: 1.75rem;
+    }
+    .occ-opt {
+      border: 1.5px solid var(--border); border-radius: 14px;
+      padding: 0.9rem 0.6rem; text-align: center; cursor: pointer;
+      background: var(--bg); transition: all 0.2s;
+    }
+    .occ-opt:hover, .occ-opt.selected { border-color: var(--sage); background: var(--sage-pale); }
+    .occ-opt .occ-em { font-size: 1.5rem; margin-bottom: 0.35rem; }
+    .occ-opt .occ-lbl { font-size: 0.76rem; font-weight: 600; color: var(--text); }
+
+    .form-control, .form-select {
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 12px; color: var(--text);
+      font-family: var(--font-body); font-size: 0.86rem;
+      padding: 0.72rem 1rem; transition: border-color 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(122,153,128,0.15);
+      background: var(--bg); color: var(--text);
+    }
+    .form-label {
+      font-size: 0.76rem; font-weight: 600; color: var(--text-mid);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.45rem;
+    }
+    .form-actions {
+      display: flex; gap: 1rem; margin-top: 1.75rem;
+      align-items: center; justify-content: space-between;
+    }
+    .btn-back {
+      background: transparent; border: 1px solid var(--border);
+      border-radius: 50px; padding: 0.7rem 1.5rem;
+      font-family: var(--font-body); font-size: 0.8rem;
+      color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: var(--text-mid); color: var(--text); }
+    .btn-next {
+      background: var(--sage); border: none; border-radius: 50px;
+      padding: 0.72rem 2rem; font-family: var(--font-body);
+      font-size: 0.83rem; font-weight: 700; color: white;
+      cursor: pointer; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.45rem; margin-left: auto;
+    }
+    .btn-next:hover { background: var(--blush); transform: translateY(-1px); }
+    .btn-wa-send {
+      background: #25D366; border: none; border-radius: 50px;
+      padding: 0.82rem 2rem; font-family: var(--font-body);
+      font-size: 0.86rem; font-weight: 700; color: white;
+      cursor: pointer; transition: all 0.25s;
+      display: inline-flex; align-items: center; gap: 0.5rem; margin-left: auto;
+    }
+    .btn-wa-send:hover { background: #1DB954; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(37,211,102,0.4); }
+
+    .order-summary {
+      background: var(--bg-section); border-radius: 14px;
+      padding: 1.35rem; margin-bottom: 1.5rem;
+    }
+    .sum-row {
+      display: flex; justify-content: space-between;
+      padding: 0.38rem 0; font-size: 0.83rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sum-row:last-child { border: none; }
+    .sum-row .lbl { color: var(--text-mid); }
+    .sum-row .val { font-weight: 600; color: var(--text); }
+
+    /* ============================================
+       FLOATING WHATSAPP
+    ============================================ */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    }
+    .wa-btn {
+      width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.45rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: all 0.3s; animation: wa-pulse 2.5s infinite;
+      border: none; outline: none;
+    }
+    .wa-btn:hover { background: #1DB954; transform: scale(1.1); color: white; }
+    @keyframes wa-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+      70%  { box-shadow: 0 0 0 13px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--text); color: rgba(255,255,255,0.55);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer-brand {
+      font-family: var(--font-display); font-size: 1.9rem;
+      font-weight: 300; color: white; margin-bottom: 0.4rem;
+    }
+    .footer-tagline { font-size: 0.78rem; margin-bottom: 1.4rem; }
+    .footer-socials { display: flex; gap: 0.7rem; margin-bottom: 2rem; }
+    .soc-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); font-size: 0.82rem; transition: all 0.2s;
+    }
+    .soc-btn:hover { border-color: var(--sage-light); color: var(--sage-light); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 2rem; }
+    .footer-links a {
+      font-size: 0.76rem; color: rgba(255,255,255,0.45);
+      text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sage-light); }
+    .footer-note { font-size: 0.78rem; line-height: 1.75; max-width: 340px; }
+    .footer-rule { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem; font-size: 0.73rem;
+    }
+    .jl-credit a { color: var(--sage-light); font-weight: 700; }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 991px) {
+      .hero { min-height: auto; padding: 60px 0 40px; }
+      .hero-cake-frame { margin-top: 3rem; }
+      .hero-badge { left: 8px; }
+      .product-card { flex-direction: column; }
+      .product-img-col { flex: none; height: 220px; }
+      .product-img-col picture img, .product-img-col .img-hold { height: 220px; }
+    }
+    @media (max-width: 767px) {
+      section { padding: 64px 0; }
+      .itwac-grid { grid-template-columns: 1fr; }
+      .itwac-cell picture img, .itwac-cell .img-hold { height: 220px; }
+      .order-card { padding: 1.75rem 1.2rem; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-item picture img, .gallery-item .img-hold { height: 200px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.8rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .occasions-grid { grid-template-columns: repeat(2,1fr); }
+      .wa-float { bottom: 18px; right: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===========================
+     NAVBAR
+=========================== -->
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#top" aria-label="Cakes by Dominique — Home">
+      Cakes by <em>Dominique</em>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <button class="theme-toggle" id="themeMob" aria-label="Toggle dark/light mode">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navMain" aria-controls="navMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#itwac">#IfThisWasACake</a></li>
+        <li class="nav-item"><a class="nav-link" href="#product">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle d-none d-lg-flex" id="themeDesk" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="#order" class="nav-link btn-nav-order" aria-label="Order a custom cake">🎂 Order a Cake</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main role="main">
+
+<!-- ===========================
+     HERO
+=========================== -->
+<section class="hero" id="top" aria-labelledby="hero-h1">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="900">
+          <div class="hero-eyebrow">Buttercream Cake Artist · Brisbane, QLD</div>
+          <h1 id="hero-h1">
+            Every layer<br>tells <em>your story.</em>
+          </h1>
+          <p class="hero-sub">
+            Handcrafted vintage and Victorian-inspired buttercream cakes
+            for birthdays, weddings, baby showers, and every celebration
+            that deserves something extraordinary.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn-cta-primary"
+              onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})"
+              aria-label="Order a custom cake via WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              Order a Custom Cake
+            </button>
+            <button class="btn-cta-secondary"
+              onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})"
+              aria-label="Browse the cake gallery">
+              Browse Gallery
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="900" data-aos-delay="140">
+          <div class="hero-cake-frame text-center mt-5 mt-lg-0">
+            <!-- REPLACE: images/hero-cake.jpg — Use your best portrait cake shot -->
+            <picture>
+              <img src="images/hero-cake.jpg"
+                   alt="An elegant Victorian-style multi-tier buttercream cake with pastel floral piping by Cakes by Dominique, Brisbane"
+                   width="460" height="560"
+                   class="hero-cake-img"
+                   loading="eager"
+                   onerror="this.style.display='none'">
+            </picture>
+            <div class="img-hold hero-img-hold" aria-hidden="true">
+              <i class="fa-solid fa-cake-candles"></i>
+              <span>Hero Cake Image<br><small>Replace with: images/hero-cake.jpg</small></span>
+            </div>
+            <div class="hero-badge" role="note" aria-label="111K Instagram followers">
+              <div class="badge-icon" aria-hidden="true">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="badge-text">
+                <strong>111K+ Followers</strong>
+                Brisbane's Buttercream Artist
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     TRUST BAR
+=========================== -->
+<div class="trust-bar" role="complementary" aria-label="Key facts">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Meta Verified</span></div>
+      <div class="trust-item"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Chandler, Brisbane QLD</span></div>
+      <div class="trust-item"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i><span>Vintage Buttercream Specialist</span></div>
+      <div class="trust-item"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Order via WhatsApp</span></div>
+      <div class="trust-item"><i class="fa-solid fa-star" aria-hidden="true"></i><span>Custom Orders Welcome</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================
+     GALLERY
+=========================== -->
+<section class="section-alt" id="gallery" aria-labelledby="gallery-h2">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Portfolio</span>
+      <h2 id="gallery-h2" class="section-title">Cakes that make <em>moments.</em></h2>
+      <p class="section-intro mx-auto text-center">
+        Every cake is handcrafted fresh to order. Browse by occasion below.
+      </p>
+    </div>
+    <div class="gallery-filters" role="group" aria-label="Filter gallery by occasion">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" data-filter="birthday" aria-pressed="false">Birthday</button>
+      <button class="filter-btn" data-filter="wedding" aria-pressed="false">Wedding</button>
+      <button class="filter-btn" data-filter="baby-shower" aria-pressed="false">Baby Shower</button>
+      <button class="filter-btn" data-filter="event" aria-pressed="false">Event</button>
+      <button class="filter-btn" data-filter="custom" aria-pressed="false">Custom</button>
+    </div>
+    <div class="gallery-grid" role="list" aria-label="Cake portfolio">
+
+      <div class="gallery-item" data-category="birthday" role="listitem" data-aos="fade-up" data-aos-delay="0">
+        <!-- REPLACE: images/cake-01.jpg — Birthday cake portrait -->
+        <picture>
+          <img src="images/cake-01.jpg" alt="Vintage Victorian buttercream birthday cake with pastel floral piping" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-cake-candles"></i><span>Birthday · cake-01.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Birthday</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="wedding" role="listitem" data-aos="fade-up" data-aos-delay="60">
+        <!-- REPLACE: images/cake-02.jpg — Wedding cake -->
+        <picture>
+          <img src="images/cake-02.jpg" alt="Elegant ivory multi-tier wedding buttercream cake with ruffle piping" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-heart"></i><span>Wedding · cake-02.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Wedding</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="baby-shower" role="listitem" data-aos="fade-up" data-aos-delay="120">
+        <!-- REPLACE: images/cake-03.jpg — Baby shower cake -->
+        <picture>
+          <img src="images/cake-03.jpg" alt="Soft pink baby shower buttercream cake with delicate floral decorations" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-baby"></i><span>Baby Shower · cake-03.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Baby Shower</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="custom" role="listitem" data-aos="fade-up" data-aos-delay="0">
+        <!-- REPLACE: images/cake-04.jpg — Fairy-tale/custom cake -->
+        <picture>
+          <img src="images/cake-04.jpg" alt="Custom fairy-tale themed cake with sculpted lavender door and garden detail" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-wand-magic-sparkles"></i><span>Custom · cake-04.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Custom</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="event" role="listitem" data-aos="fade-up" data-aos-delay="60">
+        <!-- REPLACE: images/cake-05.jpg — Event/IWD cake -->
+        <picture>
+          <img src="images/cake-05.jpg" alt="Pink event cake with vertical buttercream piping and pearl details created for IWD 2026" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-champagne-glasses"></i><span>Event · cake-05.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Event</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="birthday" role="listitem" data-aos="fade-up" data-aos-delay="120">
+        <!-- REPLACE: images/cake-06.jpg — Blue floral birthday cake -->
+        <picture>
+          <img src="images/cake-06.jpg" alt="Blue Lambeth piped birthday cake with sculpted floral garlands" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-cake-candles"></i><span>Birthday · cake-06.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Birthday</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="custom" role="listitem" data-aos="fade-up" data-aos-delay="0">
+        <!-- REPLACE: images/cake-07.jpg — Ruffle/custom cake -->
+        <picture>
+          <img src="images/cake-07.jpg" alt="Layered dusty blue ruffle buttercream cake with shell border detailing" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-wand-magic-sparkles"></i><span>Custom · cake-07.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Custom</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="wedding" role="listitem" data-aos="fade-up" data-aos-delay="60">
+        <!-- REPLACE: images/cake-08.jpg — Elegant wedding cake -->
+        <picture>
+          <img src="images/cake-08.jpg" alt="Blush and champagne two-tier wedding cake with cascading floral buttercream" width="400" height="310" loading="lazy" onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="height:310px" aria-hidden="true">
+          <i class="fa-solid fa-heart"></i><span>Wedding · cake-08.jpg</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-tag">Wedding</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     #IFTHISWASACAKE
+=========================== -->
+<section id="itwac" aria-labelledby="itwac-h2">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="section-label">Signature Series</span>
+        <span class="itwac-tag">#ifthiswasacake</span>
+        <h2 id="itwac-h2" class="section-title">
+          Fashion meets<br><em>buttercream.</em>
+        </h2>
+        <p class="section-intro mb-3">
+          What if your favourite outfit was a cake? Dominique's iconic
+          <strong>#ifthiswasacake</strong> series transforms fashion, art, and everyday beauty
+          into edible masterpieces — each design inspired by a piece she's wearing or a world she loves.
+        </p>
+        <p class="section-intro" style="font-size:0.85rem;">
+          From a linen set by Isabella Longginou to the Toowoomba Carnival of Flowers —
+          every edition is unexpected. Every cake tells a story only she could tell.
+        </p>
+        <div class="ornament">
+          <span></span><i class="fa-solid fa-seedling" aria-hidden="true"></i><span></span>
+        </div>
+        <a href="https://www.instagram.com/cakes.bydominique/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-cta-secondary"
+           aria-label="Follow the #ifthiswasacake series on Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          Follow the Series
+        </a>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+        <div class="itwac-grid" role="img" aria-label="If This Was A Cake — outfit and matching cake side by side">
+          <div class="itwac-cell">
+            <!-- REPLACE: images/itwac-outfit.jpg — Dominique wearing a fashion piece -->
+            <picture>
+              <img src="images/itwac-outfit.jpg" alt="Dominique wearing a floral linen outfit that inspired a cake design" width="420" height="290" loading="lazy" onerror="this.style.display='none'">
+            </picture>
+            <div class="img-hold" style="height:290px" aria-hidden="true">
+              <i class="fa-solid fa-shirt"></i><span>The Outfit<br><small>itwac-outfit.jpg</small></span>
+            </div>
+            <div class="itwac-label" aria-hidden="true">The Outfit</div>
+          </div>
+          <div class="itwac-cell">
+            <!-- REPLACE: images/itwac-cake.jpg — Matching cake for the outfit -->
+            <picture>
+              <img src="images/itwac-cake.jpg" alt="Buttercream cake designed to mirror the colours and textures of the floral outfit" width="420" height="290" loading="lazy" onerror="this.style.display='none'">
+            </picture>
+            <div class="img-hold" style="height:290px" aria-hidden="true">
+              <i class="fa-solid fa-cake-candles"></i><span>#IfThisWasACake<br><small>itwac-cake.jpg</small></span>
+            </div>
+            <div class="itwac-label" aria-hidden="true">#IfThisWasACake</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     OCCASIONS
+=========================== -->
+<section class="section-alt" aria-labelledby="occ-h2">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What We Create</span>
+      <h2 id="occ-h2" class="section-title">Every celebration <em>covered.</em></h2>
+    </div>
+    <div class="occasions-grid">
+      <div class="occ-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="occ-emoji" aria-hidden="true">🎂</div>
+        <h4>Birthdays</h4>
+        <p>From milestone moments to intimate gatherings — a cake as unique as the person you're celebrating.</p>
+      </div>
+      <div class="occ-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="occ-emoji" aria-hidden="true">💍</div>
+        <h4>Weddings</h4>
+        <p>Timeless, romantic multi-tier designs built for your most important day. Unforgettable by design.</p>
+      </div>
+      <div class="occ-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="occ-emoji" aria-hidden="true">🍼</div>
+        <h4>Baby Showers</h4>
+        <p>Soft palettes, gentle details, and all the sweetness that a new beginning deserves.</p>
+      </div>
+      <div class="occ-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="occ-emoji" aria-hidden="true">🥂</div>
+        <h4>Special Events</h4>
+        <p>Exhibitions, community events, corporate celebrations — cakes that become the centrepiece of the room.</p>
+      </div>
+      <div class="occ-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="occ-emoji" aria-hidden="true">✨</div>
+        <h4>Custom Orders</h4>
+        <p>Got a vision? Bring it. Every design starts as a conversation and ends as a masterpiece.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     ABOUT
+=========================== -->
+<section id="about" aria-labelledby="about-h2">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
+        <div class="about-frame d-inline-block">
+          <!-- REPLACE: images/about-dominique.jpg — Portrait of Dominique, ideally holding a cake -->
+          <picture>
+            <img src="images/about-dominique.jpg"
+                 class="about-main-img"
+                 alt="Dominique, Brisbane buttercream cake artist, holding one of her vintage Victorian cake creations"
+                 width="440" height="540"
+                 loading="lazy"
+                 onerror="this.style.display='none'">
+          </picture>
+          <div class="img-hold about-main-hold" aria-hidden="true">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Portrait of Dominique<br><small>about-dominique.jpg</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 about-text" data-aos="fade-left" data-aos-delay="100">
+        <span class="section-label">The Artist</span>
+        <h2 id="about-h2">
+          A passion born from<br><em>a Brixton street market.</em>
+        </h2>
+        <p>
+          It started with a small set of unbranded piping tips — picked up from a market stall in Brixton,
+          London. One leaf tip from that set has featured in every vintage cake Dominique has ever made.
+          She guards it fiercely to this day.
+        </p>
+        <p>
+          Her niche found her by accident. After making her first vintage cake for a baby shower celebration
+          with just 900 followers, the requests changed overnight. Everyone wanted the vintage style.
+          That single cake became the turning point that shaped everything that followed.
+        </p>
+        <p>
+          Based in Chandler, Brisbane, Dominique now creates handcrafted buttercream cakes for families,
+          events, and celebrations across Queensland. Her work — defined by Victorian Lambeth piping,
+          sculpted ruffles, and intricate florals — has earned over 111,000 followers who share her belief
+          that a cake should be more than just a cake.
+        </p>
+        <p>
+          She is grateful for every customer who has supported her from the very beginning, and for every
+          family that trusts her with their most important celebrations.
+        </p>
+        <div class="about-sig" aria-label="Dominique's signature">Dominique</div>
+        <div class="mt-3">
+          <a href="https://www.instagram.com/cakes.bydominique/"
+             target="_blank" rel="noopener noreferrer"
+             class="btn-cta-secondary"
+             aria-label="Follow Cakes by Dominique on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     TESTIMONIALS
+=========================== -->
+<section class="section-alt" aria-labelledby="testi-h2">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What People Say</span>
+      <h2 id="testi-h2" class="section-title">Real celebrations, <em>real smiles.</em></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="testi-text">"My little girl asked for a fairy tale cake. This is exactly what she was expecting. What a talentuous woman!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">B</div>
+            <div>
+              <div class="testi-name">@benyahiacoralie</div>
+              <div class="testi-handle">Instagram · 1 week ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="testi-text">"Your technique is mesmerizing. Absolutely breathtaking work every single time she posts."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">K</div>
+            <div>
+              <div class="testi-name">@kristreneep</div>
+              <div class="testi-handle">Instagram follower</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="testi-text">"Spectacular!!! Every time you amaze me. There truly is no one who does it quite like Dominique."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="testi-name">@lynda.lecatsas</div>
+              <div class="testi-handle">Instagram · 4 days ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="testi-text">"This is beautiful and I love the colour palette. Dominique has an extraordinary eye for detail."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">A</div>
+            <div>
+              <div class="testi-name">@aninabotes</div>
+              <div class="testi-handle">Instagram · 2 weeks ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     AMAZON PRODUCT
+=========================== -->
+<section id="product" aria-labelledby="product-h2">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Dominique's Tools</span>
+      <h2 id="product-h2" class="section-title">Get the tips she <em>creates with.</em></h2>
+    </div>
+    <div class="product-card" data-aos="fade-up">
+      <div class="product-img-col">
+        <!-- REPLACE: images/product-tips.jpg — Amazon product photo -->
+        <picture>
+          <img src="images/product-tips.jpg"
+               alt="Dominique's signature vintage piping tips collection — available on Amazon Australia"
+               width="280" height="320" loading="lazy"
+               onerror="this.style.display='none'">
+        </picture>
+        <div class="img-hold" style="min-height:320px" aria-hidden="true">
+          <i class="fa-solid fa-utensils"></i>
+          <span>Product Image<br><small>product-tips.jpg</small></span>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-badge">Now on Amazon Australia</div>
+        <h3>Dominique's Signature<br><em>Piping Tips Collection</em></h3>
+        <p>
+          The same tips Dominique reaches for every time she creates her iconic vintage cakes —
+          now available for you to bring home. Whether you're a beginner finding your rhythm or
+          a seasoned decorator looking for the tools that make the real difference, this is where to start.
+        </p>
+        <a href="https://www.amazon.com.au/dp/B0BMZZS83H"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-amazon"
+           aria-label="Shop Dominique's piping tips on Amazon Australia">
+          <i class="fa-brands fa-amazon" aria-hidden="true"></i>
+          Shop on Amazon Australia
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     KLOOK
+=========================== -->
+<section class="klook-strip" aria-labelledby="klook-h2">
+  <div class="container">
+    <span class="section-label">Cake Experiences</span>
+    <h2 id="klook-h2">Come make <em style="color:rgba(255,255,255,0.75)">a cake with me.</em></h2>
+    <p>
+      Dominique offers hands-on cake decorating experiences through Klook.
+      Learn the vintage buttercream techniques that made 111,000 people stop scrolling —
+      in person, with the artist herself.
+    </p>
+    <div class="klook-code" aria-label="Klook discount code: CAKESBYDOMINIQUE">
+      Use discount code
+      <strong>CAKESBYDOMINIQUE</strong>
+    </div>
+    <br>
+    <a href="https://www.klook.com"
+       target="_blank" rel="noopener noreferrer"
+       class="btn-klook"
+       aria-label="Book a cake decorating experience on Klook">
+      <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+      Book on Klook
+    </a>
+  </div>
+</section>
+
+<!-- ===========================
+     ORDER FORM
+=========================== -->
+<section class="section-alt" id="order" aria-labelledby="order-h2">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Custom Orders</span>
+      <h2 id="order-h2" class="section-title">Let's build <em>your cake.</em></h2>
+      <p class="section-intro mx-auto text-center">
+        Three quick steps and your details go straight to Dominique on WhatsApp. She'll reply within minutes.
+      </p>
+    </div>
+    <div class="order-card" data-aos="fade-up">
+
+      <!-- Progress track -->
+      <div class="step-track" role="progressbar" aria-label="Order form progress"
+           aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" id="stepTrack">
+        <div class="step-dot active" id="dot1" aria-label="Step 1: Choose occasion">1</div>
+        <div class="step-line" id="line1"></div>
+        <div class="step-dot" id="dot2" aria-label="Step 2: Date and size">2</div>
+        <div class="step-line" id="line2"></div>
+        <div class="step-dot" id="dot3" aria-label="Step 3: Details and send">3</div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="form-step active" id="fstep1" role="group" aria-labelledby="step1lbl">
+        <p class="step-title" id="step1lbl">What are we celebrating?</p>
+        <p class="step-hint">Choose the occasion for your custom cake</p>
+        <div class="occ-opts">
+          <div class="occ-opt" data-val="Birthday" role="button" tabindex="0" aria-pressed="false" aria-label="Birthday">
+            <div class="occ-em" aria-hidden="true">🎂</div>
+            <div class="occ-lbl">Birthday</div>
+          </div>
+          <div class="occ-opt" data-val="Wedding" role="button" tabindex="0" aria-pressed="false" aria-label="Wedding">
+            <div class="occ-em" aria-hidden="true">💍</div>
+            <div class="occ-lbl">Wedding</div>
+          </div>
+          <div class="occ-opt" data-val="Baby Shower" role="button" tabindex="0" aria-pressed="false" aria-label="Baby Shower">
+            <div class="occ-em" aria-hidden="true">🍼</div>
+            <div class="occ-lbl">Baby Shower</div>
+          </div>
+          <div class="occ-opt" data-val="Anniversary" role="button" tabindex="0" aria-pressed="false" aria-label="Anniversary">
+            <div class="occ-em" aria-hidden="true">❤️</div>
+            <div class="occ-lbl">Anniversary</div>
+          </div>
+          <div class="occ-opt" data-val="Event" role="button" tabindex="0" aria-pressed="false" aria-label="Special Event">
+            <div class="occ-em" aria-hidden="true">🥂</div>
+            <div class="occ-lbl">Event</div>
+          </div>
+          <div class="occ-opt" data-val="Custom" role="button" tabindex="0" aria-pressed="false" aria-label="Custom order">
+            <div class="occ-em" aria-hidden="true">✨</div>
+            <div class="occ-lbl">Custom</div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <span></span>
+          <button class="btn-next" onclick="goNext(1)" aria-label="Proceed to step 2">
+            Next <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" id="fstep2" role="group" aria-labelledby="step2lbl">
+        <p class="step-title" id="step2lbl">When and how big?</p>
+        <p class="step-hint">Help Dominique plan your order</p>
+        <div class="mb-3">
+          <label class="form-label" for="evtDate">Event Date</label>
+          <input type="date" class="form-control" id="evtDate" aria-required="true" aria-label="Event date">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="servings">Approximate Servings</label>
+          <select class="form-select" id="servings" aria-label="Number of servings">
+            <option value="">Select a size...</option>
+            <option value="10–15 servings">Small — 10 to 15 servings</option>
+            <option value="20–30 servings">Medium — 20 to 30 servings</option>
+            <option value="40–60 servings">Large — 40 to 60 servings</option>
+            <option value="60+ servings">Extra Large — 60+ servings</option>
+            <option value="Unsure — need guidance">Not sure yet — I need guidance</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="flavour">Flavour Preference</label>
+          <input type="text" class="form-control" id="flavour" placeholder="e.g. Vanilla, Lemon, Chocolate..." aria-label="Flavour preference">
+        </div>
+        <div class="form-actions">
+          <button class="btn-back" onclick="goBack(2)" aria-label="Back to step 1">← Back</button>
+          <button class="btn-next" onclick="goNext(2)" aria-label="Proceed to step 3">
+            Next <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step" id="fstep3" role="group" aria-labelledby="step3lbl">
+        <p class="step-title" id="step3lbl">Almost there — your details</p>
+        <p class="step-hint">So Dominique can respond to you personally</p>
+        <div class="mb-3">
+          <label class="form-label" for="custName">Your Name</label>
+          <input type="text" class="form-control" id="custName" placeholder="First name is fine" aria-required="true" aria-label="Your name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="designNotes">Design Notes or Inspiration</label>
+          <textarea class="form-control" id="designNotes" rows="4"
+            placeholder="Colours, themes, inspiration images, anything that matters to you..."
+            aria-label="Design notes or inspiration"></textarea>
+        </div>
+        <!-- Summary -->
+        <div class="order-summary" role="region" aria-label="Order summary">
+          <div class="sum-row"><span class="lbl">Occasion</span><span class="val" id="sumOcc">—</span></div>
+          <div class="sum-row"><span class="lbl">Event Date</span><span class="val" id="sumDate">—</span></div>
+          <div class="sum-row"><span class="lbl">Size</span><span class="val" id="sumSize">—</span></div>
+          <div class="sum-row"><span class="lbl">Flavour</span><span class="val" id="sumFlavour">—</span></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-back" onclick="goBack(3)" aria-label="Back to step 2">← Back</button>
+          <button class="btn-wa-send" onclick="sendWA()" aria-label="Send cake order via WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            Send on WhatsApp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="footer-brand">Cakes by Dominique</div>
+        <div class="footer-tagline">Buttercream Cake Artist · Chandler, Brisbane QLD</div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/cakes.bydominique/" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" aria-label="Follow on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.amazon.com.au/dp/B0BMZZS83H" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" aria-label="Shop on Amazon Australia">
+            <i class="fa-brands fa-amazon" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/WHATSAPP_NUMBER_HERE" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" aria-label="Message on WhatsApp" id="footerWA">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="#itwac">#IfThisWasACake</a>
+          <a href="#product">Shop</a>
+          <a href="#order">Order</a>
+        </nav>
+      </div>
+      <div class="col-lg-4">
+        <p class="footer-note">
+          Custom cake orders available across Brisbane and surrounds.
+          Please allow a minimum of 2 weeks' notice for custom orders.
+          Contact Dominique via WhatsApp for availability, pricing, and design consultations.
+        </p>
+      </div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-bottom">
+      <span>© 2025 Cakes by Dominique · All rights reserved</span>
+      <span class="jl-credit">
+        Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="JAMALINKS web design services">JAMALINKS</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===========================
+     FLOATING WHATSAPP
+=========================== -->
+<div class="wa-float" role="complementary" aria-label="WhatsApp quick order">
+  <a href="https://wa.me/WHATSAPP_NUMBER_HERE?text=Hi%20Dominique!%20I%27d%20love%20to%20order%20a%20custom%20cake%20%F0%9F%8E%82"
+     target="_blank" rel="noopener noreferrer"
+     class="wa-btn" id="waFloat"
+     aria-label="Order a cake on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+</div>
+
+<!-- ===========================
+     SCRIPTS
+=========================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+
+<script>
+  /* ==========================================
+     CONFIG — UPDATE BEFORE GOING LIVE
+  ========================================== */
+  const WA_NUMBER = 'WHATSAPP_NUMBER_HERE'; // Format: country code + number, no + or spaces e.g. 61412345678
+
+  /* ==========================================
+     THEME: AUTO-DETECT + MANUAL TOGGLE
+  ========================================== */
+  function getAutoTheme() {
+    const h = new Date().getHours();
+    return (h >= 6 && h < 18) ? 'light' : 'dark';
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    document.querySelectorAll('.theme-toggle i').forEach(i => {
+      i.className = t === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+    try { localStorage.setItem('cbd_theme', t); } catch(e){}
+  }
+  function toggleTheme() {
+    const cur = document.documentElement.getAttribute('data-theme');
+    applyTheme(cur === 'dark' ? 'light' : 'dark');
+  }
+  try {
+    const saved = localStorage.getItem('cbd_theme');
+    applyTheme(saved || getAutoTheme());
+  } catch(e) {
+    applyTheme(getAutoTheme());
+  }
+  document.querySelectorAll('.theme-toggle').forEach(b => b.addEventListener('click', toggleTheme));
+
+  /* ==========================================
+     AOS INIT
+  ========================================== */
+  window.addEventListener('load', function() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 700, once: true, offset: 55 });
+    }
+  });
+
+  /* ==========================================
+     GALLERY FILTER
+  ========================================== */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const f = this.dataset.filter;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (f === 'all' || item.dataset.category === f) ? 'block' : 'none';
+      });
+    });
+  });
+
+  /* ==========================================
+     OCCASION SELECTOR (Step 1)
+  ========================================== */
+  let chosenOcc = '';
+  document.querySelectorAll('.occ-opt').forEach(opt => {
+    opt.addEventListener('click', function() {
+      document.querySelectorAll('.occ-opt').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('selected');
+      this.setAttribute('aria-pressed', 'true');
+      chosenOcc = this.dataset.val;
+    });
+    opt.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+    });
+  });
+
+  /* ==========================================
+     MULTI-STEP FORM NAV
+  ========================================== */
+  let curStep = 1;
+
+  function renderStep(s) {
+    document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+    document.getElementById('fstep' + s).classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+      const dot = document.getElementById('dot' + i);
+      dot.classList.toggle('active', i === s);
+      dot.classList.toggle('done', i < s);
+    }
+    for (let i = 1; i <= 2; i++) {
+      document.getElementById('line' + i).classList.toggle('done', i < s);
+    }
+    const track = document.getElementById('stepTrack');
+    if (track) track.setAttribute('aria-valuenow', s);
+    if (s === 3) fillSummary();
+  }
+
+  function goNext(from) {
+    if (from === 1 && !chosenOcc) { alert('Please choose an occasion to continue.'); return; }
+    if (from === 2 && !document.getElementById('evtDate').value) {
+      alert('Please enter your event date to continue.'); return;
+    }
+    curStep = from + 1;
+    renderStep(curStep);
+  }
+
+  function goBack(from) { curStep = from - 1; renderStep(curStep); }
+
+  function fillSummary() {
+    const raw = document.getElementById('evtDate').value;
+    let dateStr = '—';
+    if (raw) {
+      try {
+        dateStr = new Date(raw + 'T00:00:00').toLocaleDateString('en-AU', {
+          weekday:'long', year:'numeric', month:'long', day:'numeric'
+        });
+      } catch(e) { dateStr = raw; }
+    }
+    document.getElementById('sumOcc').textContent     = chosenOcc || '—';
+    document.getElementById('sumDate').textContent    = dateStr;
+    document.getElementById('sumSize').textContent    = document.getElementById('servings').value || '—';
+    document.getElementById('sumFlavour').textContent = document.getElementById('flavour').value.trim() || 'Not specified';
+  }
+
+  /* ==========================================
+     WHATSAPP SEND
+  ========================================== */
+  function sendWA() {
+    const name    = document.getElementById('custName').value.trim();
+    const rawDate = document.getElementById('evtDate').value;
+    const size    = document.getElementById('servings').value;
+    const flavour = document.getElementById('flavour').value.trim();
+    const notes   = document.getElementById('designNotes').value.trim();
+
+    if (!name) { alert('Please enter your name before sending.'); return; }
+
+    let dateStr = 'Not specified';
+    if (rawDate) {
+      try {
+        dateStr = new Date(rawDate + 'T00:00:00').toLocaleDateString('en-AU', {
+          weekday:'long', year:'numeric', month:'long', day:'numeric'
+        });
+      } catch(e) { dateStr = rawDate; }
+    }
+
+    const msg =
+      `Hi Dominique! 🎂 I'd love to order a custom cake.\n\n` +
+      `👤 Name: ${name}\n` +
+      `🎉 Occasion: ${chosenOcc}\n` +
+      `📅 Event Date: ${dateStr}\n` +
+      `🎂 Size: ${size || 'Not specified'}\n` +
+      `🍰 Flavour: ${flavour || 'Not specified'}\n` +
+      `✏️ Design Notes: ${notes || 'None provided'}\n\n` +
+      `Looking forward to hearing from you!`;
+
+    const num = WA_NUMBER !== 'WHATSAPP_NUMBER_HERE' ? WA_NUMBER : '';
+    if (!num) { alert('WhatsApp number not yet configured — please contact Dominique via Instagram for now.'); return; }
+    window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+  }
+
+  /* ==========================================
+     REPLACE WA PLACEHOLDER LINKS ON LOAD
+  ========================================== */
+  document.addEventListener('DOMContentLoaded', function() {
+    if (WA_NUMBER !== 'WHATSAPP_NUMBER_HERE') {
+      ['footerWA', 'waFloat'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.href = el.href.replace('WHATSAPP_NUMBER_HERE', WA_NUMBER);
+      });
+    }
+  });
+</script>
+</body>
+</html>
