@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robust Surgical Empire | Luxury Surgical Care in Paradise</title>
+  <meta name="description" content="World-class cosmetic, general surgery, gynecology and cosmetogynecology in Saint Lucia. Serving patients from the Caribbean, USA and beyond. Now with dedicated Miami coordination." />
+  <meta property="og:title" content="Robust Surgical Empire | Luxury Surgical Care in Paradise" />
+  <meta property="og:description" content="Your Surgical Oasis in the Caribbean. Expert care. Luxury setting. Dedicated Miami coordination." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200" />
+  <meta property="og:type" content="website" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    /* ─── CSS Variables ─── */
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C97A;
+      --gold-dark:   #9A7A2E;
+      --navy:        #0D1B2A;
+      --navy-mid:    #162640;
+      --navy-soft:   #1E3354;
+      --cream:       #F8F4EE;
+      --cream-dark:  #EDE6D8;
+      --white:       #FFFFFF;
+      --text-dark:   #1A1A2E;
+      --text-mid:    #4A4A6A;
+      --text-light:  #8A8AAA;
+      --bg:          var(--cream);
+      --bg-section:  var(--cream-dark);
+      --text:        var(--text-dark);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Montserrat', sans-serif;
+      font-display: swap;
+    }
+
+    [data-theme="dark"] {
+      --bg:         var(--navy);
+      --bg-section: var(--navy-mid);
+      --text:       #E8DCC8;
+      --text-mid:   #B0A890;
+      --cream:      var(--navy-soft);
+    }
+
+    /* ─── Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    /* ─── Typography ─── */
+    .display-serif {
+      font-family: var(--font-display);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .gold { color: var(--gold); }
+    .gold-light { color: var(--gold-light); }
+
+    /* ─── Navbar ─── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    #navbar.scrolled {
+      background: rgba(13, 27, 42, 0.97);
+      backdrop-filter: blur(12px);
+      padding: 0.6rem 2rem;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold) !important;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-link-custom {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85) !important;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-link-custom:hover { color: var(--gold) !important; }
+
+    .nav-cta {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      background: var(--gold);
+      color: var(--navy) !important;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ─── Theme Toggle ─── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── Hero ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(13,27,42,0.72) 0%, rgba(13,27,42,0.45) 40%, rgba(13,27,42,0.85) 100%),
+        url('https://images.unsplash.com/photo-1584515933487-779824d29309?w=1600&q=80') center/cover no-repeat;
+    }
+
+    /* Piton silhouette overlay feel */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 1.5rem 0;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.95rem 2rem;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-outline-gold:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.25rem;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ─── Gold Bar Divider ─── */
+    .section-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-dark));
+      margin: 0 auto 1.5rem;
+    }
+
+    .section-divider.left { margin-left: 0; }
+
+    /* ─── Section Labels ─── */
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ─── Trust Bar ─── */
+    #trust-bar {
+      background: var(--navy);
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .trust-item {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .trust-item i { color: var(--gold); font-size: 0.9rem; }
+
+    /* ─── About / Doctors ─── */
+    #about {
+      padding: 6rem 0;
+      background: var(--bg);
+    }
+
+    .doctor-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .doctor-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      border-radius: 4px;
+    }
+
+    .doctor-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .doctor-img-wrap:hover img { transform: scale(1.04); }
+
+    .doctor-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.75) 0%, transparent 60%);
+    }
+
+    .doctor-info {
+      padding: 1.5rem 0;
+    }
+
+    .doctor-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .doctor-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── Services / Procedures ─── */
+    #services {
+      padding: 6rem 0;
+      background: var(--bg-section);
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-list li {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li i { color: var(--gold); font-size: 0.65rem; }
+
+    /* ─── Miami Section ─── */
+    #miami {
+      padding: 6rem 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #miami::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 50%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=70') center/cover no-repeat;
+      opacity: 0.15;
+    }
+
+    .miami-content { position: relative; z-index: 2; }
+
+    .miami-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .miami-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .miami-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .miami-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .miami-feature-icon {
+      width: 40px; height: 40px;
+      min-width: 40px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .miami-feature-text h6 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .miami-feature-text p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .miami-phone {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+      transition: color 0.3s;
+    }
+
+    .miami-phone:hover { color: var(--gold); }
+    .miami-phone i { font-size: 1.4rem; }
+
+    /* ─── Locations ─── */
+    #locations {
+      padding: 6rem 0;
+      background: var(--bg);
+    }
+
+    .location-card {
+      background: var(--bg-section);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+      height: 100%;
+      transition: all 0.3s;
+    }
+
+    .location-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .location-number {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+    }
+
+    .location-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .location-address {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ─── Patient Journey ─── */
+    #journey {
+      padding: 6rem 0;
+      background: var(--bg-section);
+    }
+
+    .journey-step {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .journey-step::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -10%;
+      width: 20%;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    .journey-step:last-child::after { display: none; }
+
+    .step-circle {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: rgba(201,168,76,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -5px; right: -5px;
+      width: 20px; height: 20px;
+      background: var(--gold);
+      border-radius: 50%;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ─── Testimonials ─── */
+    #testimonials {
+      padding: 6rem 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #testimonials::before {
+      content: '"';
+      position: absolute;
+      top: -2rem;
+      left: 2rem;
+      font-family: var(--font-display);
+      font-size: 20rem;
+      color: rgba(201,168,76,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 2.5rem;
+      height: 100%;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .testimonial-origin {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── Consultation CTA ─── */
+    #consult {
+      padding: 6rem 0;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .consult-box {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .consult-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .consult-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .consult-form input,
+    .consult-form select,
+    .consult-form textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 2px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      padding: 0.85rem 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .consult-form input::placeholder,
+    .consult-form textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .consult-form input:focus,
+    .consult-form select:focus,
+    .consult-form textarea:focus {
+      border-color: rgba(201,168,76,0.6);
+    }
+
+    .consult-form select option { background: var(--navy-mid); color: #fff; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--navy-mid);
+      padding: 4rem 0 1.5rem;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-heading {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-link {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      padding: 0.2rem 0;
+      transition: color 0.3s;
+    }
+
+    .footer-link:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .jamalinks-credit {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .jamalinks-credit:hover { color: var(--gold-light); }
+
+    /* ─── WhatsApp Float ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      z-index: 9999;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      animation: pulse-wa 2.5s infinite;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse-wa {
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ─── Animations ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Hamburger ─── */
+    .navbar-toggler-custom {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      width: 40px; height: 40px;
+      border-radius: 2px;
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0;
+    }
+
+    .navbar-toggler-custom span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,27,42,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-nav-link {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav-link:hover { color: var(--gold); }
+
+    .close-menu {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 991px) {
+      .desktop-nav { display: none !important; }
+      .navbar-toggler-custom { display: flex; }
+      .hero-stats { gap: 2rem; }
+    }
+
+    @media (max-width: 767px) {
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .stat-divider { display: none; }
+      .consult-box { padding: 2rem; }
+      .journey-step::after { display: none; }
+    }
+
+    @media (max-width: 575px) {
+      .hero-title { font-size: 2.4rem; }
+    }
+
+    /* ─── Section titles ─── */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .section-title.light { color: #fff; }
+
+    .section-body {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    /* ─── Credentials Strip ─── */
+    .credential-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ░░░ NAVBAR ░░░ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="#hero" class="nav-brand" aria-label="Robust Surgical Empire home">
+      Robust Surgical Empire
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="desktop-nav d-flex align-items-center gap-1">
+      <a href="#about"       class="nav-link-custom">About</a>
+      <a href="#services"    class="nav-link-custom">Procedures</a>
+      <a href="#miami"       class="nav-link-custom">Miami</a>
+      <a href="#locations"   class="nav-link-custom">Locations</a>
+      <a href="#testimonials" class="nav-link-custom">Patients</a>
+      <a href="#consult"     class="nav-link-custom">Consult</a>
+      <a href="#consult" class="nav-cta ms-2">Book Consultation</a>
+      <button class="theme-toggle ms-2" id="themeBtn" aria-label="Toggle light and dark mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="d-flex align-items-center gap-2">
+      <button class="theme-toggle d-lg-none" id="themeBtnMobile" aria-label="Toggle light and dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="navbar-toggler-custom" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="close-menu" id="closeMenu" aria-label="Close navigation menu">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="#about"        class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
+  <a href="#services"     class="mobile-nav-link" onclick="closeMobileMenu()">Procedures</a>
+  <a href="#miami"        class="mobile-nav-link" onclick="closeMobileMenu()">Miami</a>
+  <a href="#locations"    class="mobile-nav-link" onclick="closeMobileMenu()">Locations</a>
+  <a href="#testimonials" class="mobile-nav-link" onclick="closeMobileMenu()">Patients</a>
+  <a href="#consult"      class="mobile-nav-link" onclick="closeMobileMenu()">Consult</a>
+  <a href="https://wa.me/17587235872" class="btn-gold mt-2" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> WhatsApp Us
+  </a>
+</div>
+
+<!-- ░░░ HERO ░░░ -->
+<main role="main">
+<section id="hero" aria-label="Hero section">
+  <div class="hero-bg" role="img" aria-label="Aerial view of Saint Lucia's tropical coastline and Piton mountains"></div>
+
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-8 col-xl-7">
+
+        <div class="hero-eyebrow">
+          <span></span>
+          Saint Lucia, Caribbean
+          <span></span>
+        </div>
+
+        <h1 class="hero-title">
+          Your Surgical<br>
+          <em>Oasis</em> in the<br>
+          Caribbean
+        </h1>
+
+        <div class="hero-divider"></div>
+
+        <p class="hero-subtitle">
+          Luxury Surgical Care. World-Class Expertise.<br>
+          Now with Dedicated Miami Coordination.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a href="#consult" class="btn-gold">
+            <i class="fas fa-calendar-check"></i>
+            Book a Consultation
+          </a>
+          <a href="#services" class="btn-outline-gold">
+            <i class="fas fa-stethoscope"></i>
+            Explore Procedures
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Locations<br>in Saint Lucia</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Expert<br>Surgeons</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">Miami</div>
+            <div class="stat-label">Coordination<br>Office</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ TRUST BAR ░░░ -->
+<section id="trust-bar" aria-label="Trust indicators">
+  <div class="container">
+    <div class="row g-3 justify-content-center text-center text-md-start">
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <div class="trust-item">
+          <i class="fas fa-shield-halved"></i>
+          <span>Board-Certified Surgeons</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <div class="trust-item">
+          <i class="fas fa-plane"></i>
+          <span>International Patients Welcome</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <div class="trust-item">
+          <i class="fas fa-video"></i>
+          <span>Virtual Consultations Available</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <div class="trust-item">
+          <i class="fas fa-flag-usa"></i>
+          <span>Miami Coordination Office</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ ABOUT ░░░ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7 text-center fade-up">
+        <div class="section-eyebrow">Meet the Surgeons</div>
+        <div class="section-divider"></div>
+        <h2 id="about-title" class="section-title">
+          Expert Hands.<br>Compassionate Care.
+        </h2>
+        <p class="section-body mt-3">
+          Robust Surgical Empire is the vision of two dedicated surgeons committed to bringing 
+          world-class surgical care to the Caribbean — and the world to Saint Lucia.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-5 justify-content-center">
+
+      <!-- Dr. R. Edward -->
+      <div class="col-lg-5 fade-up">
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+              alt="Dr. R. Edward, Cosmetic and General Surgeon at Robust Surgical Empire"
+              width="600" height="800"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="doctor-info">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="credential-pill"><i class="fas fa-graduation-cap"></i> Cosmetic Surgery</span>
+              <span class="credential-pill"><i class="fas fa-graduation-cap"></i> General Surgery</span>
+            </div>
+            <h3 class="doctor-name">Dr. R. Edward</h3>
+            <div class="doctor-title">Lead Surgeon &amp; Founder · Robust Surgical Empire</div>
+            <p class="section-body mt-2" style="font-size:0.8rem;">
+              A visionary in cosmetic and general surgery with deep roots in Saint Lucia and a 
+              commitment to delivering luxury surgical outcomes in a tropical paradise setting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr. Y. Elena -->
+      <div class="col-lg-5 fade-up" style="transition-delay:0.15s">
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80"
+              alt="Dr. Y. Elena, Gynecologist and Cosmetogynecology specialist at Robust Surgical Empire"
+              width="600" height="800"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="doctor-info">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="credential-pill"><i class="fas fa-graduation-cap"></i> Gynecology</span>
+              <span class="credential-pill"><i class="fas fa-graduation-cap"></i> Cosmetogynecology</span>
+            </div>
+            <h3 class="doctor-name">Dr. Y. Elena</h3>
+            <div class="doctor-title">Specialist Surgeon · Gynecology &amp; Cosmetogynecology</div>
+            <p class="section-body mt-2" style="font-size:0.8rem;">
+              A specialist combining precision gynecological care with advanced cosmetogynecology —  
+              empowering women's health and confidence through expert, personalized surgical care.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ SERVICES ░░░ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7 text-center fade-up">
+        <div class="section-eyebrow">Our Specialties</div>
+        <div class="section-divider"></div>
+        <h2 id="services-title" class="section-title">
+          Procedures Tailored<br>to You
+        </h2>
+        <p class="section-body mt-3">
+          From life-enhancing cosmetic procedures to complex general and gynecological surgery —  
+          every procedure is performed with precision, privacy, and the luxury care you deserve.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-xl-3 fade-up">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true"><i class="fas fa-star"></i></div>
+          <h3 class="service-title">Cosmetic Surgery</h3>
+          <p class="service-desc">
+            Artistry meets medicine. Procedures designed to refine, restore, and enhance with natural, lasting results.
+          </p>
+          <ul class="service-list" aria-label="Cosmetic surgery procedures">
+            <li><i class="fas fa-chevron-right"></i> Body Contouring</li>
+            <li><i class="fas fa-chevron-right"></i> Liposuction</li>
+            <li><i class="fas fa-chevron-right"></i> Breast Procedures</li>
+            <li><i class="fas fa-chevron-right"></i> Facial Aesthetics</li>
+            <li><i class="fas fa-chevron-right"></i> Skin Tightening</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3 fade-up" style="transition-delay:0.1s">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true"><i class="fas fa-scalpel"></i></div>
+          <h3 class="service-title">General Surgery</h3>
+          <p class="service-desc">
+            Experienced surgical care for a broad range of conditions — delivered with precision in a modern facility.
+          </p>
+          <ul class="service-list" aria-label="General surgery procedures">
+            <li><i class="fas fa-chevron-right"></i> Hernia Repair</li>
+            <li><i class="fas fa-chevron-right"></i> Gallbladder Surgery</li>
+            <li><i class="fas fa-chevron-right"></i> Muscle Repair</li>
+            <li><i class="fas fa-chevron-right"></i> Abdominal Procedures</li>
+            <li><i class="fas fa-chevron-right"></i> Minimally Invasive</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3 fade-up" style="transition-delay:0.2s">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true"><i class="fas fa-heart-pulse"></i></div>
+          <h3 class="service-title">Gynecology</h3>
+          <p class="service-desc">
+            Comprehensive women's health care — from preventive screening to complex surgical interventions.
+          </p>
+          <ul class="service-list" aria-label="Gynecology procedures">
+            <li><i class="fas fa-chevron-right"></i> Fibroids Care &amp; Surgery</li>
+            <li><i class="fas fa-chevron-right"></i> Pelvic Restoration</li>
+            <li><i class="fas fa-chevron-right"></i> Pelvic Floor Function</li>
+            <li><i class="fas fa-chevron-right"></i> Minimally Invasive Gyn</li>
+            <li><i class="fas fa-chevron-right"></i> Diagnostic Procedures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3 fade-up" style="transition-delay:0.3s">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true"><i class="fas fa-spa"></i></div>
+          <h3 class="service-title">Cosmetogynecology</h3>
+          <p class="service-desc">
+            Intimacy, aesthetics, and function — a specialised discipline combining surgical precision with personal confidence.
+          </p>
+          <ul class="service-list" aria-label="Cosmetogynecology procedures">
+            <li><i class="fas fa-chevron-right"></i> Intimate Aesthetics</li>
+            <li><i class="fas fa-chevron-right"></i> Vaginal Rejuvenation</li>
+            <li><i class="fas fa-chevron-right"></i> Labial Procedures</li>
+            <li><i class="fas fa-chevron-right"></i> Functional Restoration</li>
+            <li><i class="fas fa-chevron-right"></i> Non-Surgical Options</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5 fade-up">
+      <a href="#consult" class="btn-gold">
+        <i class="fas fa-calendar-check"></i>
+        Discuss Your Procedure
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░░ MIAMI ░░░ -->
+<section id="miami" aria-labelledby="miami-title">
+  <div class="container miami-content">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 fade-up">
+        <div class="miami-badge">
+          <i class="fas fa-flag-usa"></i>
+          New · Miami Coordination
+        </div>
+
+        <h2 id="miami-title" class="miami-title">
+          Now Serving Patients<br>with <em style="color:var(--gold-light);font-style:italic;">Dedicated</em><br>Miami Coordination
+        </h2>
+
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:1.5rem;">
+          Planning surgery from the USA just became seamless. Our dedicated Miami team handles 
+          every step of your journey — from first consultation to travel logistics to your 
+          arrival in Saint Lucia.
+        </p>
+
+        <div class="miami-features">
+          <div class="miami-feature">
+            <div class="miami-feature-icon" aria-hidden="true"><i class="fas fa-video"></i></div>
+            <div class="miami-feature-text">
+              <h6>Online Consultations</h6>
+              <p>Meet your surgical team from the comfort of home before you travel.</p>
+            </div>
+          </div>
+          <div class="miami-feature">
+            <div class="miami-feature-icon" aria-hidden="true"><i class="fas fa-plane-departure"></i></div>
+            <div class="miami-feature-text">
+              <h6>Travel Planning</h6>
+              <p>We coordinate flights, accommodation, and transfers — stress-free from Miami.</p>
+            </div>
+          </div>
+          <div class="miami-feature">
+            <div class="miami-feature-icon" aria-hidden="true"><i class="fas fa-user-nurse"></i></div>
+            <div class="miami-feature-text">
+              <h6>Expert Guidance</h6>
+              <p>A dedicated coordinator guides you through every step of your surgical journey.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="tel:+13058971022" class="miami-phone" aria-label="Call our Miami coordination office">
+          <i class="fas fa-phone"></i>
+          +1 (305) 897-1022
+        </a>
+
+        <div class="d-flex flex-wrap gap-3 mt-3">
+          <a href="https://wa.me/13058971022" class="btn-gold" target="_blank" rel="noopener" aria-label="WhatsApp Miami coordination office">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp Miami Office
+          </a>
+          <a href="#consult" class="btn-outline-gold">
+            <i class="fas fa-calendar"></i>
+            Book Virtual Consult
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 fade-up" style="transition-delay:0.15s">
+        <div style="position:relative;">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80"
+            alt="Miami city skyline representing our Miami coordination office"
+            width="700" height="500"
+            loading="lazy"
+            onerror="this.style.display='none'"
+            style="width:100%;border-radius:4px;object-fit:cover;aspect-ratio:4/3;"
+          />
+          <div style="
+            position:absolute;
+            bottom:1.5rem; left:1.5rem;
+            background:rgba(13,27,42,0.92);
+            border:1px solid rgba(201,168,76,0.3);
+            border-radius:4px;
+            padding:1rem 1.5rem;
+          ">
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;">Miami Office</div>
+            <div style="font-size:0.95rem;color:#fff;font-family:var(--font-display);">+1 (305) 897-1022</div>
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">Expert Guidance · Online Consultations · Travel Planning</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ PATIENT JOURNEY ░░░ -->
+<section id="journey" aria-labelledby="journey-title">
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 text-center fade-up">
+        <div class="section-eyebrow">How It Works</div>
+        <div class="section-divider"></div>
+        <h2 id="journey-title" class="section-title">
+          Your Journey to<br>the Caribbean
+        </h2>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-2 fade-up">
+        <div class="journey-step">
+          <div class="step-circle" aria-hidden="true">
+            <i class="fas fa-comments"></i>
+            <span class="step-number">1</span>
+          </div>
+          <div class="step-title">Reach Out</div>
+          <p class="step-desc">Contact us via WhatsApp or our consultation form.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 fade-up" style="transition-delay:0.1s">
+        <div class="journey-step">
+          <div class="step-circle" aria-hidden="true">
+            <i class="fas fa-video"></i>
+            <span class="step-number">2</span>
+          </div>
+          <div class="step-title">Virtual Consult</div>
+          <p class="step-desc">Meet your surgeon online before committing to travel.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 fade-up" style="transition-delay:0.2s">
+        <div class="journey-step">
+          <div class="step-circle" aria-hidden="true">
+            <i class="fas fa-plane"></i>
+            <span class="step-number">3</span>
+          </div>
+          <div class="step-title">Travel Plan</div>
+          <p class="step-desc">Our Miami team coordinates your flights and stay.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 fade-up" style="transition-delay:0.3s">
+        <div class="journey-step">
+          <div class="step-circle" aria-hidden="true">
+            <i class="fas fa-island-tropical"></i>
+            <span class="step-number">4</span>
+          </div>
+          <div class="step-title">Arrive in Paradise</div>
+          <p class="step-desc">We receive you in Saint Lucia. Luxury from arrival.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 fade-up" style="transition-delay:0.4s">
+        <div class="journey-step">
+          <div class="step-circle" aria-hidden="true">
+            <i class="fas fa-scalpel"></i>
+            <span class="step-number">5</span>
+          </div>
+          <div class="step-title">Your Procedure</div>
+          <p class="step-desc">Expert surgery. World-class facility. Exceptional outcomes.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░░ LOCATIONS ░░░ -->
+<section id="locations" aria-labelledby="locations-title">
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 text-center fade-up">
+        <div class="section-eyebrow">Where to Find Us</div>
+        <div class="section-divider"></div>
+        <h2 id="locations-title" class="section-title">
+          Three Locations<br>Across Saint Lucia
+        </h2>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="location-card" role="region" aria-label="Rodney Bay location">
+          <div class="location-number" aria-hidden="true">01</div>
+          <div class="location-name">Rodney Bay</div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.5rem;">Rodney Bay Medical Center</div>
+          <p class="location-address">
+            Rodney Bay Medical Center<br>Rodney Bay, Saint Lucia
+          </p>
+          <a href="https://wa.me/17587323444?text=Hi,%20I'd%20like%20to%20book%20an%20appointment%20at%20your%20Rodney%20Bay%20location"
+             class="btn-gold d-inline-flex mt-3"
+             target="_blank" rel="noopener"
+             aria-label="Book appointment at Rodney Bay location via WhatsApp"
+             style="font-size:0.68rem;padding:0.6rem 1.2rem;">
+            <i class="fab fa-whatsapp"></i> Book Here
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:0.1s">
+        <div class="location-card" role="region" aria-label="Castries location">
+          <div class="location-number" aria-hidden="true">02</div>
+          <div class="location-name">Castries</div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.5rem;">Medical Imaging Inc.</div>
+          <p class="location-address">
+            Medical Imaging Inc.<br>Manoel Street, Castries, Saint Lucia
+          </p>
+          <a href="https://wa.me/17587323444?text=Hi,%20I'd%20like%20to%20book%20an%20appointment%20at%20your%20Castries%20location"
+             class="btn-gold d-inline-flex mt-3"
+             target="_blank" rel="noopener"
+             aria-label="Book appointment at Castries location via WhatsApp"
+             style="font-size:0.68rem;padding:0.6rem 1.2rem;">
+            <i class="fab fa-whatsapp"></i> Book Here
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:0.2s">
+        <div class="location-card" role="region" aria-label="Vieux Fort location">
+          <div class="location-number" aria-hidden="true">03</div>
+          <div class="location-name">Vieux Fort</div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.5rem;">Medical Imaging Inc.</div>
+          <p class="location-address">
+            Medical Imaging Inc.<br>St. Jude Highway, Vieux Fort, Saint Lucia
+          </p>
+          <a href="https://wa.me/17587323444?text=Hi,%20I'd%20like%20to%20book%20an%20appointment%20at%20your%20Vieux%20Fort%20location"
+             class="btn-gold d-inline-flex mt-3"
+             target="_blank" rel="noopener"
+             aria-label="Book appointment at Vieux Fort location via WhatsApp"
+             style="font-size:0.68rem;padding:0.6rem 1.2rem;">
+            <i class="fab fa-whatsapp"></i> Book Here
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 fade-up">
+      <p style="font-size:0.82rem;color:var(--text-mid);">
+        <i class="fas fa-phone" style="color:var(--gold);"></i>
+        &nbsp;Main Line: <a href="tel:+17587323444" style="color:var(--gold);text-decoration:none;">+1 (758) 732-3444</a>
+        &nbsp;·&nbsp; Website: <a href="https://robustsurgicalempire.com" style="color:var(--gold);text-decoration:none;">robustsurgicalempire.com</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░░ TESTIMONIALS ░░░ -->
+<section id="testimonials" aria-labelledby="testimonials-title">
+  <div class="container" style="position:relative;z-index:2;">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 text-center fade-up">
+        <div class="section-eyebrow" style="color:var(--gold);">Patient Voices</div>
+        <div class="section-divider"></div>
+        <h2 id="testimonials-title" class="section-title light">
+          What Our Patients Say
+        </h2>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="testimonial-card" role="article">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            "From Miami to Saint Lucia — the coordination was flawless. The team handled everything. 
+            I felt safe, cared for, and genuinely pampered. The results exceeded every expectation."
+          </p>
+          <div class="testimonial-author">M. Richardson</div>
+          <div class="testimonial-origin">Miami, Florida · Cosmetic Procedure</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:0.1s">
+        <div class="testimonial-card" role="article">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Dr. Edward's expertise is undeniable. I traveled from New York and would do it again 
+            in a heartbeat. The facility is world-class, the care is exceptional."
+          </p>
+          <div class="testimonial-author">T. Augustin</div>
+          <div class="testimonial-origin">New York, USA · General Surgery</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:0.2s">
+        <div class="testimonial-card" role="article">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            "As a Saint Lucian living abroad, coming home for surgery with Dr. Elena was the 
+            best decision I made. Professional, compassionate, and truly life-changing."
+          </p>
+          <div class="testimonial-author">C. Charles</div>
+          <div class="testimonial-origin">Toronto, Canada · Gynecology</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ CONSULTATION CTA ░░░ -->
+<section id="consult" aria-labelledby="consult-title">
+  <div class="container">
+    <div class="consult-box fade-up">
+
+      <div class="row g-5 align-items-start">
+
+        <div class="col-lg-5">
+          <div class="section-eyebrow">Begin Your Journey</div>
+          <div class="section-divider left" style="margin-bottom:1.5rem;"></div>
+          <h2 id="consult-title" class="consult-title">
+            Request Your<br>
+            <em style="font-style:italic;color:var(--gold-light);">Private</em><br>
+            Consultation
+          </h2>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-top:1rem;">
+            Take the first step toward your transformation. Our team responds within 24 hours. 
+            All enquiries are handled with complete discretion.
+          </p>
+
+          <div class="mt-4 d-flex flex-column gap-3">
+            <a href="https://wa.me/17587323444" target="_blank" rel="noopener"
+               class="btn-gold d-inline-flex w-fit"
+               aria-label="Contact us via WhatsApp Saint Lucia">
+              <i class="fab fa-whatsapp"></i> WhatsApp Saint Lucia
+            </a>
+            <a href="https://wa.me/13058971022" target="_blank" rel="noopener"
+               class="btn-outline-gold d-inline-flex"
+               aria-label="Contact Miami coordination office via WhatsApp">
+              <i class="fab fa-whatsapp"></i> WhatsApp Miami Office
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <form class="consult-form" id="consultForm" novalidate aria-label="Consultation request form">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="visually-hidden">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required autocomplete="given-name" />
+              </div>
+              <div class="col-sm-6">
+                <label for="lastName" class="visually-hidden">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required autocomplete="family-name" />
+              </div>
+              <div class="col-sm-6">
+                <label for="email" class="visually-hidden">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email" />
+              </div>
+              <div class="col-sm-6">
+                <label for="phone" class="visually-hidden">Phone / WhatsApp Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Phone / WhatsApp" autocomplete="tel" />
+              </div>
+              <div class="col-12">
+                <label for="country" class="visually-hidden">Country</label>
+                <input type="text" id="country" name="country" placeholder="Country / City" autocomplete="country-name" />
+              </div>
+              <div class="col-12">
+                <label for="procedure" class="visually-hidden">Procedure of Interest</label>
+                <select id="procedure" name="procedure" aria-label="Select procedure of interest">
+                  <option value="" disabled selected>Procedure of Interest</option>
+                  <option value="cosmetic">Cosmetic Surgery</option>
+                  <option value="general">General Surgery</option>
+                  <option value="gynecology">Gynecology</option>
+                  <option value="cosmetogynecology">Cosmetogynecology</option>
+                  <option value="unsure">Not Sure Yet — Need Guidance</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="visually-hidden">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us briefly what you're looking for (optional)"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-gold w-100 justify-content-center" aria-label="Submit consultation request">
+                  <i class="fas fa-paper-plane"></i>
+                  Send My Consultation Request
+                </button>
+              </div>
+              <div class="col-12">
+                <p style="font-size:0.68rem;color:rgba(255,255,255,0.3);text-align:center;margin:0;">
+                  <i class="fas fa-lock" style="color:var(--gold);"></i>
+                  Your information is treated with complete confidentiality. We respond within 24 hours.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ░░░ FOOTER ░░░ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+        <div class="footer-brand">Robust Surgical Empire</div>
+        <div class="footer-tagline">Luxury Surgical Care in Paradise</div>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.8;margin-top:1rem;">
+          A world-class surgical practice rooted in Saint Lucia, serving patients from the Caribbean, 
+          USA, and beyond with expert, compassionate care.
+        </p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="https://www.instagram.com/dr_tropical_curves" target="_blank" rel="noopener"
+             style="color:rgba(255,255,255,0.4);font-size:1.1rem;transition:color 0.3s;"
+             aria-label="Robust Surgical Empire on Instagram"
+             onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/17587323444" target="_blank" rel="noopener"
+             style="color:rgba(255,255,255,0.4);font-size:1.1rem;transition:color 0.3s;"
+             aria-label="WhatsApp Robust Surgical Empire"
+             onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Procedures</div>
+        <a href="#services" class="footer-link">Cosmetic Surgery</a>
+        <a href="#services" class="footer-link">General Surgery</a>
+        <a href="#services" class="footer-link">Gynecology</a>
+        <a href="#services" class="footer-link">Cosmetogynecology</a>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Navigate</div>
+        <a href="#about"        class="footer-link">About Us</a>
+        <a href="#miami"        class="footer-link">Miami Coordination</a>
+        <a href="#locations"    class="footer-link">Locations</a>
+        <a href="#testimonials" class="footer-link">Patient Stories</a>
+        <a href="#consult"      class="footer-link">Book Consultation</a>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="footer-heading">Contact</div>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:2;">
+          <a href="tel:+17587323444" style="color:var(--gold);text-decoration:none;">+1 (758) 732-3444</a><br>
+          <span style="font-size:0.68rem;color:rgba(255,255,255,0.3);">Saint Lucia Office</span>
+        </p>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:2;">
+          <a href="tel:+13058971022" style="color:var(--gold);text-decoration:none;">+1 (305) 897-1022</a><br>
+          <span style="font-size:0.68rem;color:rgba(255,255,255,0.3);">Miami Coordination</span>
+        </p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.5rem;">
+          <a href="https://robustsurgicalempire.com" style="color:rgba(255,255,255,0.3);text-decoration:none;">robustsurgicalempire.com</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© 2025 Robust Surgical Empire. All rights reserved.</span>
+      <span>
+        Built by
+        <a href="https://jamalinks758.github.io/jamalinks/" class="jamalinks-credit" target="_blank" rel="noopener" aria-label="Website built by JAMALINKS">JAMALINKS</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ░░░ WHATSAPP FLOAT ░░░ -->
+<a href="https://wa.me/17587323444?text=Hi,%20I%20found%20your%20website%20and%20I%27d%20like%20to%20enquire%20about%20a%20consultation."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat with Robust Surgical Empire on WhatsApp">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- ░░░ SCRIPTS ░░░ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ── Theme: Auto-detect + Toggle ──
+  function getAutoTheme() {
+    const h = new Date().getHours();
+    return (h >= 6 && h < 18) ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const icon = document.getElementById('themeIcon');
+    if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('rse-theme', theme);
+  }
+
+  const savedTheme = localStorage.getItem('rse-theme') || getAutoTheme();
+  applyTheme(savedTheme);
+
+  document.getElementById('themeBtn')?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  document.getElementById('themeBtnMobile')?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // ── Navbar Scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Mobile Menu ──
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
+  }
+
+  document.getElementById('menuBtn')?.addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.add('open');
+    document.getElementById('menuBtn').setAttribute('aria-expanded', 'true');
+  });
+
+  document.getElementById('closeMenu')?.addEventListener('click', closeMobileMenu);
+
+  // ── Scroll Animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Consultation Form → WhatsApp ──
+  document.getElementById('consultForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const country = document.getElementById('country').value.trim();
+    const procedure = document.getElementById('procedure').value;
+    const msg = document.getElementById('message').value.trim();
+
+    if (!fn || !ln || !email) {
+      alert('Please fill in your first name, last name, and email to continue.');
+      return;
+    }
+
+    const procedureLabel = {
+      'cosmetic': 'Cosmetic Surgery',
+      'general': 'General Surgery',
+      'gynecology': 'Gynecology',
+      'cosmetogynecology': 'Cosmetogynecology',
+      'unsure': 'Not Sure Yet'
+    }[procedure] || 'Not specified';
+
+    const text = encodeURIComponent(
+      `Hi, I'd like to request a consultation at Robust Surgical Empire.\n\n` +
+      `Name: ${fn} ${ln}\n` +
+      `Email: ${email}\n` +
+      `Phone: ${phone || 'Not provided'}\n` +
+      `Location: ${country || 'Not provided'}\n` +
+      `Procedure: ${procedureLabel}\n` +
+      `Message: ${msg || 'None'}`
+    );
+
+    window.open(`https://wa.me/17587323444?text=${text}`, '_blank', 'noopener');
+  });
+</script>
+
+</body>
+</html>
