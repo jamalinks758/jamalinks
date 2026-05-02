@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sugar Rush Cake Designs — Award-winning bespoke custom cakes in Barbados. Caribbean Baking Awards 2025 Winner. Order your dream cake today.">
+    <meta property="og:title" content="Sugar Rush Cake Designs | Bespoke Cakes · Barbados">
+    <meta property="og:description" content="Award-winning bespoke custom cakes for every occasion. Based in Bridgetown, Barbados. Vegan, Gluten-Free & Classic options.">
+    <meta property="og:type" content="website">
+    <title>Sugar Rush Cake Designs | Bespoke Cakes · Barbados</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- AOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES
+        ========================================= */
+        :root {
+            --primary:       #C8176B;
+            --primary-dark:  #9E1155;
+            --primary-light: #F0608F;
+            --secondary:     #1B3FA0;
+            --blush:         #FDF0F5;
+            --blush-mid:     #F8D7E6;
+            --rose:          #F9C5D5;
+            --gold:          #D4A547;
+            --text-dark:     #1A1A2E;
+            --text-mid:      #4A4A6A;
+            --text-light:    #8888AA;
+            --white:         #FFFFFF;
+            --bg:            #FFFAFC;
+            --card-bg:       #FFFFFF;
+            --border:        #F0D0DF;
+            --shadow:        0 8px 40px rgba(200,23,107,0.12);
+            --shadow-hover:  0 20px 60px rgba(200,23,107,0.22);
+            --font-display:  'DM Serif Display', serif;
+            --font-body:     'Plus Jakarta Sans', sans-serif;
+            --font-accent:   'Cormorant Garamond', serif;
+        }
+
+        /* =========================================
+           BASE
+        ========================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            font-display: swap;
+        }
+        h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); color: var(--text-dark); }
+        p { line-height: 1.75; color: var(--text-mid); }
+        a { text-decoration: none; color: inherit; }
+        img { font-display: swap; }
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+        .sr-navbar {
+            background: rgba(255,250,252,0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.65rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+        .sr-navbar.scrolled { box-shadow: 0 4px 30px rgba(200,23,107,0.1); }
+        .brand-logo {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            color: white; font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+        .brand-name span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .nav-link {
+            font-size: 0.8rem !important;
+            font-weight: 500 !important;
+            color: var(--text-mid) !important;
+            letter-spacing: 0.04em;
+            padding: 0.5rem 0.8rem !important;
+            transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--primary) !important; }
+        .btn-nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            border-radius: 50px !important;
+            padding: 0.5rem 1.25rem !important;
+            font-weight: 700 !important;
+            font-size: 0.78rem !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 12px rgba(200,23,107,0.3);
+        }
+        .btn-nav-cta:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(200,23,107,0.4);
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+        .hero-section {
+            background: linear-gradient(135deg, var(--blush) 0%, #FFFAFC 50%, var(--blush-mid) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0 5rem;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .blob-1 { width:550px; height:550px; background:var(--primary-light); top:-180px; right:-120px; }
+        .blob-2 { width:300px; height:300px; background:var(--rose); bottom:-60px; left:-80px; }
+        .blob-3 { width:180px; height:180px; background:#C5D5F0; top:40%; left:28%; }
+
+        .float-shapes { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+        .fshape {
+            position:absolute; border-radius:50%;
+            animation: floatAnim 6s ease-in-out infinite;
+        }
+        .fshape-1{width:12px;height:12px;background:var(--primary);top:20%;left:8%;opacity:.5;animation-delay:0s;}
+        .fshape-2{width:8px;height:8px;background:var(--gold);top:60%;left:14%;opacity:.4;animation-delay:1s;}
+        .fshape-3{width:14px;height:14px;background:var(--primary-light);top:25%;right:18%;opacity:.3;border-radius:4px;transform:rotate(45deg);animation-delay:2s;}
+        .fshape-4{width:10px;height:10px;background:var(--secondary);top:72%;right:14%;opacity:.3;animation-delay:.5s;}
+        .fshape-5{width:6px;height:6px;background:var(--primary);top:12%;right:33%;opacity:.5;animation-delay:3s;}
+        @keyframes floatAnim {
+            0%,100%{transform:translateY(0);}
+            50%{transform:translateY(-20px);}
+        }
+
+        .award-badge {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: linear-gradient(135deg, var(--gold), #E8B84B);
+            color: white; padding: .4rem 1.1rem; border-radius: 50px;
+            font-size: .7rem; font-weight: 700;
+            letter-spacing: .09em; text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(212,165,71,.4);
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: .72rem; font-weight: 700;
+            letter-spacing: .2em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: .75rem;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem,8vw,5.5rem);
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title em { font-style: italic; color: var(--primary); }
+
+        .hero-sub {
+            font-size: 1.05rem; line-height: 1.75;
+            color: var(--text-mid); margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+
+        .btn-hero-primary {
+            background: var(--primary); color: white; border: none;
+            padding: 1rem 2.2rem; border-radius: 50px;
+            font-family: var(--font-body); font-weight: 700; font-size: .9rem;
+            display: inline-flex; align-items: center; gap: .6rem;
+            transition: all .3s ease; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(200,23,107,.35);
+            text-decoration: none;
+        }
+        .btn-hero-primary:hover {
+            background: var(--primary-dark); color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(200,23,107,.45);
+        }
+        .btn-hero-secondary {
+            background: transparent; color: var(--text-dark);
+            border: 1.5px solid var(--border);
+            padding: 1rem 2.2rem; border-radius: 50px;
+            font-family: var(--font-body); font-weight: 500; font-size: .9rem;
+            display: inline-flex; align-items: center; gap: .6rem;
+            transition: all .3s ease; cursor: pointer; text-decoration: none;
+        }
+        .btn-hero-secondary:hover {
+            border-color: var(--primary); color: var(--primary);
+            background: rgba(200,23,107,.04);
+        }
+
+        .trust-strip { display:flex; gap:1.75rem; flex-wrap:wrap; }
+        .trust-item {
+            display:flex; align-items:center; gap:.5rem;
+            font-size:.78rem; font-weight:500; color:var(--text-mid);
+        }
+        .trust-item i { color: var(--primary); font-size:.95rem; }
+
+        /* Hero Visual */
+        .hero-visual { position:relative; display:flex; justify-content:center; align-items:center; }
+        .hero-circle {
+            width: 400px; height: 400px;
+            background: linear-gradient(145deg, var(--blush-mid), var(--rose));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9rem;
+            box-shadow: 0 20px 80px rgba(200,23,107,.2);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.03);} }
+        .stat-bubble {
+            position:absolute;
+            background:white; border-radius:16px;
+            padding:.75rem 1.2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,.1);
+            text-align:center;
+        }
+        .stat-bubble strong { display:block; font-size:1.4rem; color:var(--primary); font-weight:700; }
+        .stat-bubble span { font-size:.68rem; color:var(--text-light); font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
+        .sb-1 { bottom:30px; left:-10px; }
+        .sb-2 { top:35px; right:-10px; }
+        .sb-3 { top:50%; right:-55px; transform:translateY(-50%); }
+
+        /* =========================================
+           SECTION COMMONS
+        ========================================= */
+        .sec-label {
+            font-family: var(--font-body);
+            font-size: .7rem; font-weight: 700;
+            letter-spacing: .22em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: .75rem;
+        }
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem,4vw,3rem);
+            line-height: 1.1; margin-bottom: 1rem;
+        }
+        .sec-title em { font-style:italic; color:var(--primary); }
+        .sec-sub {
+            font-size:1rem; color:var(--text-mid);
+            line-height:1.75; max-width:600px;
+        }
+
+        /* =========================================
+           MENU SECTION
+        ========================================= */
+        .menu-section { padding: 6rem 0; background: var(--bg); }
+
+        .menu-tabs {
+            display:flex; gap:.5rem; justify-content:center;
+            flex-wrap:wrap; margin: 2.5rem 0;
+        }
+        .mtab {
+            background:white; border:1.5px solid var(--border);
+            border-radius:50px; padding:.6rem 1.5rem;
+            font-family:var(--font-body); font-size:.8rem; font-weight:600;
+            color:var(--text-mid); cursor:pointer;
+            transition:all .25s ease;
+            display:flex; align-items:center; gap:.4rem;
+        }
+        .mtab:hover { border-color:var(--primary); color:var(--primary); }
+        .mtab.active {
+            background:var(--primary); border-color:var(--primary); color:white;
+            box-shadow: 0 4px 15px rgba(200,23,107,.3);
+        }
+        .menu-panel { display:none; }
+        .menu-panel.active { display:block; }
+
+        .menu-search {
+            position:relative; max-width:420px; margin:0 auto 2rem;
+        }
+        .menu-search input {
+            width:100%;
+            padding:.75rem 1rem .75rem 2.75rem;
+            border:1.5px solid var(--border); border-radius:50px;
+            font-family:var(--font-body); font-size:.85rem;
+            background:white; outline:none;
+            transition:border-color .2s;
+        }
+        .menu-search input:focus { border-color:var(--primary); }
+        .menu-search i {
+            position:absolute; left:1rem; top:50%;
+            transform:translateY(-50%); color:var(--text-light);
+            font-size:.85rem;
+        }
+
+        .menu-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill, minmax(210px,1fr));
+            gap:.85rem;
+        }
+        .menu-card {
+            background:white; border:1px solid var(--border);
+            border-radius:16px; padding:1.1rem 1rem;
+            display:flex; align-items:flex-start; gap:.75rem;
+            transition:all .25s ease; cursor:default;
+        }
+        .menu-card:hover {
+            border-color:var(--primary);
+            box-shadow: 0 8px 25px rgba(200,23,107,.1);
+            transform:translateY(-2px);
+        }
+        .mc-icon {
+            width:36px; height:36px; background:var(--blush);
+            border-radius:10px; display:flex; align-items:center;
+            justify-content:center; font-size:.95rem; flex-shrink:0;
+        }
+        .mc-name {
+            font-family:var(--font-body);
+            font-size:.82rem; font-weight:600;
+            color:var(--text-dark); margin-bottom:.15rem;
+        }
+        .mc-note {
+            font-size:.68rem; color:var(--text-light);
+            line-height:1.4; margin:0;
+        }
+
+        .menu-section-head {
+            font-family:var(--font-display);
+            font-size:1.25rem; color:var(--primary);
+            margin:2rem 0 1rem;
+            padding-bottom:.5rem;
+            border-bottom:1px solid var(--border);
+        }
+        .menu-note-bar {
+            background:var(--blush);
+            border-left:3px solid var(--primary);
+            border-radius:0 12px 12px 0;
+            padding:.9rem 1.25rem;
+            font-size:.8rem; color:var(--text-mid);
+            margin:1.25rem 0;
+        }
+        .menu-note-bar strong { color:var(--text-dark); }
+
+        /* =========================================
+           CAKE BUILDER
+        ========================================= */
+        .builder-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, var(--blush) 0%, var(--bg) 100%);
+        }
+        .builder-card {
+            background:white; border-radius:32px;
+            box-shadow:var(--shadow);
+            overflow:hidden; max-width:820px; margin:0 auto;
+        }
+        .builder-head {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding:2.5rem; text-align:center; color:white;
+        }
+        .builder-head h3 {
+            font-family:var(--font-display); font-size:2rem;
+            color:white; margin-bottom:.5rem;
+        }
+        .builder-head p { color:rgba(255,255,255,.85); font-size:.9rem; margin:0; }
+
+        /* Progress */
+        .builder-progress {
+            display:flex; align-items:center;
+            padding:1.5rem 2rem; border-bottom:1px solid var(--border);
+            overflow-x:auto;
+        }
+        .pstep {
+            display:flex; flex-direction:column; align-items:center;
+            gap:.25rem; flex:1; min-width:55px; position:relative;
+        }
+        .pstep:not(:last-child)::after {
+            content:''; position:absolute; top:13px; left:50%;
+            width:100%; height:2px; background:var(--border); z-index:0;
+        }
+        .pstep.completed:not(:last-child)::after { background:var(--primary); }
+        .pdot {
+            width:26px; height:26px; border-radius:50%;
+            border:2px solid var(--border); background:white;
+            display:flex; align-items:center; justify-content:center;
+            font-size:.68rem; font-weight:700; color:var(--text-light);
+            z-index:1; transition:all .3s ease;
+        }
+        .pstep.active .pdot, .pstep.completed .pdot {
+            border-color:var(--primary); background:var(--primary); color:white;
+        }
+        .plabel {
+            font-size:.58rem; font-weight:700;
+            text-transform:uppercase; letter-spacing:.05em;
+            color:var(--text-light); text-align:center; white-space:nowrap;
+        }
+        .pstep.active .plabel { color:var(--primary); }
+
+        .builder-body { padding:2.5rem; }
+        .bstep { display:none; }
+        .bstep.active { display:block; }
+
+        .step-q {
+            font-family:var(--font-accent);
+            font-size:1.5rem; font-style:italic;
+            color:var(--text-dark); margin-bottom:1.5rem;
+        }
+
+        .option-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
+            gap:.75rem; margin-bottom:1.5rem;
+        }
+        .opt-btn {
+            background:white; border:1.5px solid var(--border);
+            border-radius:16px; padding:1rem;
+            text-align:center; cursor:pointer;
+            transition:all .25s ease; font-family:var(--font-body);
+        }
+        .opt-btn:hover { border-color:var(--primary); background:rgba(200,23,107,.03); }
+        .opt-btn.selected {
+            border-color:var(--primary); background:rgba(200,23,107,.06);
+            box-shadow:0 0 0 3px rgba(200,23,107,.12);
+        }
+        .opt-icon { font-size:1.8rem; margin-bottom:.4rem; display:block; }
+        .opt-lbl { font-size:.8rem; font-weight:700; color:var(--text-dark); display:block; }
+        .opt-sub { font-size:.67rem; color:var(--text-light); display:block; margin-top:.15rem; }
+
+        /* Flavour selects */
+        .sel-group { margin-bottom:1rem; }
+        .sel-group label {
+            font-size:.78rem; font-weight:700;
+            color:var(--text-mid); margin-bottom:.5rem; display:block;
+            text-transform:uppercase; letter-spacing:.06em;
+        }
+        .sel-group select {
+            width:100%; padding:.9rem 1rem;
+            border:1.5px solid var(--border); border-radius:12px;
+            font-family:var(--font-body); font-size:.85rem;
+            color:var(--text-dark); background:white;
+            outline:none; cursor:pointer; appearance:none;
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C8176B' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat:no-repeat; background-position:right 1rem center;
+            padding-right:2.5rem;
+        }
+        .sel-group select:focus { border-color:var(--primary); }
+
+        /* Order Summary */
+        .order-summary {
+            background:var(--blush); border-radius:20px;
+            padding:1.5rem; margin-bottom:1.5rem;
+        }
+        .sum-row {
+            display:flex; justify-content:space-between; align-items:flex-start;
+            padding:.6rem 0; border-bottom:1px solid var(--border);
+        }
+        .sum-row:last-child { border-bottom:none; }
+        .sum-lbl {
+            font-size:.72rem; font-weight:700;
+            color:var(--text-light); text-transform:uppercase; letter-spacing:.06em;
+        }
+        .sum-val { font-size:.88rem; font-weight:700; color:var(--text-dark); text-align:right; }
+
+        .notes-area {
+            width:100%; padding:1rem;
+            border:1.5px solid var(--border); border-radius:16px;
+            font-family:var(--font-body); font-size:.85rem;
+            resize:vertical; min-height:90px;
+            outline:none; transition:border-color .2s; margin-bottom:1.5rem;
+        }
+        .notes-area:focus { border-color:var(--primary); }
+
+        /* Builder Nav */
+        .bnav { display:flex; gap:1rem; justify-content:space-between; }
+        .btn-back {
+            background:white; border:1.5px solid var(--border);
+            color:var(--text-mid); padding:.85rem 1.75rem;
+            border-radius:50px; font-family:var(--font-body);
+            font-weight:600; font-size:.83rem; cursor:pointer;
+            transition:all .2s; display:flex; align-items:center; gap:.5rem;
+        }
+        .btn-back:hover { border-color:var(--text-mid); color:var(--text-dark); }
+        .btn-next {
+            background:var(--primary); border:none; color:white;
+            padding:.85rem 2rem; border-radius:50px;
+            font-family:var(--font-body); font-weight:700; font-size:.83rem;
+            cursor:pointer; transition:all .3s ease;
+            display:flex; align-items:center; gap:.5rem;
+            margin-left:auto;
+            box-shadow:0 4px 15px rgba(200,23,107,.3);
+        }
+        .btn-next:hover {
+            background:var(--primary-dark); transform:translateY(-2px);
+            box-shadow:0 8px 25px rgba(200,23,107,.4);
+        }
+        .btn-wa-send {
+            background:#25D366; border:none; color:white;
+            padding:1.1rem 2rem; border-radius:50px;
+            font-family:var(--font-body); font-weight:700; font-size:.92rem;
+            cursor:pointer; transition:all .3s ease;
+            display:flex; align-items:center; gap:.65rem;
+            width:100%; justify-content:center;
+            box-shadow:0 6px 20px rgba(37,211,102,.4);
+        }
+        .btn-wa-send:hover {
+            background:#1EAF57; transform:translateY(-2px);
+            box-shadow:0 12px 35px rgba(37,211,102,.5);
+        }
+
+        /* =========================================
+           PRICING
+        ========================================= */
+        .pricing-section { padding:6rem 0; background:var(--bg); }
+        .size-card {
+            background:white; border:1.5px solid var(--border);
+            border-radius:24px; padding:2rem; text-align:center;
+            transition:all .3s ease; height:100%;
+        }
+        .size-card:hover {
+            border-color:var(--primary);
+            box-shadow:var(--shadow); transform:translateY(-5px);
+        }
+        .size-card.featured {
+            border-color:var(--primary);
+            background:linear-gradient(145deg,rgba(200,23,107,.04),white);
+        }
+        .size-emoji { font-size:3rem; margin-bottom:1rem; }
+        .size-name { font-family:var(--font-display); font-size:1.5rem; margin-bottom:.25rem; }
+        .size-inches {
+            font-size:.72rem; color:var(--text-light); font-weight:600;
+            margin-bottom:1rem; text-transform:uppercase; letter-spacing:.08em;
+        }
+        .size-price { font-family:var(--font-display); font-size:2.2rem; color:var(--primary); font-weight:700; }
+        .size-note { font-size:.7rem; color:var(--text-light); margin-top:.25rem; }
+        .pricing-callout {
+            background:linear-gradient(135deg,var(--blush),#FFFAFC);
+            border-radius:20px; padding:1.5rem 2rem;
+            margin-top:2rem; font-size:.83rem;
+            color:var(--text-mid); text-align:center;
+            border:1px solid var(--border);
+        }
+
+        /* =========================================
+           HOURS + TRANSPORT
+        ========================================= */
+        .hours-section {
+            padding:6rem 0;
+            background:linear-gradient(180deg,var(--blush) 0%,var(--bg) 100%);
+        }
+        .hours-card {
+            background:white; border-radius:28px;
+            box-shadow:var(--shadow); overflow:hidden;
+        }
+        .hours-head {
+            background:linear-gradient(135deg,var(--primary),var(--primary-light));
+            padding:1.75rem 2rem; text-align:center;
+        }
+        .hours-head h4 { color:white; font-family:var(--font-display); font-size:1.6rem; margin:0; }
+        .hours-body { padding:1.5rem; }
+        .hours-row {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:.85rem .5rem; border-bottom:1px solid var(--border);
+        }
+        .hours-row:last-child { border-bottom:none; }
+        .day { font-weight:700; font-size:.82rem; color:var(--text-dark); text-transform:uppercase; letter-spacing:.06em; }
+        .time { font-size:.82rem; color:var(--text-mid); font-weight:500; }
+        .time-closed { color:var(--primary); font-weight:800; font-size:.82rem; }
+        .after-fee {
+            display:inline-flex; align-items:center; gap:.3rem;
+            background:rgba(200,23,107,.08); color:var(--primary);
+            padding:.35rem .9rem; border-radius:50px;
+            font-size:.7rem; font-weight:800;
+        }
+        .hours-footnote {
+            background:var(--blush); border-radius:12px;
+            padding:1rem; margin-top:1rem;
+            font-size:.76rem; color:var(--text-mid);
+            text-align:center; line-height:1.55;
+        }
+
+        /* Transport */
+        .transport-card {
+            background:linear-gradient(135deg,var(--secondary),#2251C8);
+            border-radius:28px; padding:2.5rem; color:white; height:100%;
+        }
+        .transport-card h4 { color:white; font-family:var(--font-display); font-size:1.7rem; margin-bottom:1rem; }
+        .transport-rule {
+            display:flex; gap:.75rem; margin-bottom:.85rem;
+            background:rgba(255,255,255,.1); border-radius:12px; padding:1rem;
+        }
+        .transport-rule i { font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
+        .transport-rule p { color:rgba(255,255,255,.9); font-size:.82rem; margin:0; line-height:1.55; }
+
+        /* =========================================
+           PAYMENT
+        ========================================= */
+        .payment-section { padding:6rem 0; background:var(--bg); }
+        .pay-card {
+            background:white; border:1.5px solid var(--border);
+            border-radius:20px; padding:2rem; text-align:center;
+            transition:all .3s ease; height:100%;
+        }
+        .pay-card:hover { border-color:var(--primary); box-shadow:var(--shadow); }
+        .pay-icon { font-size:2.5rem; margin-bottom:1rem; }
+        .pay-card h5 { font-family:var(--font-display); font-size:1.3rem; margin-bottom:.5rem; }
+        .btn-paypal {
+            background:#0070BA; color:white; border:none;
+            padding:.85rem 2rem; border-radius:50px;
+            font-weight:700; font-size:.83rem; cursor:pointer;
+            transition:all .3s ease;
+            display:inline-flex; align-items:center; gap:.5rem;
+            margin-top:1rem; text-decoration:none;
+        }
+        .btn-paypal:hover {
+            background:#005EA6; color:white; transform:translateY(-2px);
+            box-shadow:0 6px 20px rgba(0,112,186,.4);
+        }
+
+        /* =========================================
+           POLICIES BANNER
+        ========================================= */
+        .policies-band { padding:4rem 0; background:var(--text-dark); }
+        .policies-inner {
+            display:flex; align-items:center;
+            justify-content:space-between;
+            flex-wrap:wrap; gap:1.5rem;
+        }
+        .policies-inner h4 { color:white; font-family:var(--font-display); font-size:1.8rem; margin-bottom:.4rem; }
+        .policies-inner p { color:rgba(255,255,255,.65); font-size:.87rem; margin:0; max-width:500px; }
+        .btn-pol {
+            background:white; color:var(--text-dark);
+            padding:1rem 2rem; border-radius:50px;
+            font-weight:700; font-size:.83rem;
+            display:inline-flex; align-items:center; gap:.5rem;
+            transition:all .3s ease; white-space:nowrap; flex-shrink:0;
+            text-decoration:none;
+        }
+        .btn-pol:hover { background:var(--primary); color:white; transform:translateY(-2px); }
+
+        /* =========================================
+           REVIEWS
+        ========================================= */
+        .reviews-section {
+            padding:6rem 0;
+            background:linear-gradient(180deg,var(--blush) 0%,var(--bg) 100%);
+        }
+        .review-card {
+            background:white; border-radius:24px;
+            padding:2rem; box-shadow:0 4px 20px rgba(0,0,0,.06);
+            height:100%; transition:all .3s ease;
+        }
+        .review-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+        .review-stars { color:var(--gold); margin-bottom:.85rem; letter-spacing:.1em; font-size:1rem; }
+        .review-quote {
+            font-family:var(--font-accent); font-size:1.05rem;
+            font-style:italic; color:var(--text-mid);
+            line-height:1.7; margin-bottom:1.5rem;
+        }
+        .reviewer { display:flex; align-items:center; gap:.75rem; }
+        .r-avatar {
+            width:40px; height:40px; border-radius:50%;
+            background:linear-gradient(135deg,var(--primary),var(--primary-light));
+            display:flex; align-items:center; justify-content:center;
+            font-weight:700; color:white; font-size:.8rem; flex-shrink:0;
+        }
+        .r-name { font-weight:700; font-size:.83rem; color:var(--text-dark); }
+        .r-loc { font-size:.7rem; color:var(--text-light); }
+
+        /* =========================================
+           FINAL CTA
+        ========================================= */
+        .cta-section {
+            padding:7rem 0;
+            background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+            position:relative; overflow:hidden;
+        }
+        .cta-section::before {
+            content:''; position:absolute; inset:0;
+            background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cta-section h2 { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); color:white; margin-bottom:1rem; }
+        .cta-section p { color:rgba(255,255,255,.8); font-size:1.05rem; margin-bottom:2rem; }
+        .btn-cta-white {
+            background:white; color:var(--primary);
+            padding:1.15rem 2.75rem; border-radius:50px;
+            font-weight:700; font-size:.95rem;
+            display:inline-flex; align-items:center; gap:.6rem;
+            transition:all .3s ease; text-decoration:none;
+            box-shadow:0 8px 30px rgba(0,0,0,.15);
+        }
+        .btn-cta-white:hover {
+            transform:translateY(-3px); color:var(--primary-dark);
+            box-shadow:0 15px 40px rgba(0,0,0,.25);
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        footer {
+            background:var(--text-dark);
+            color:rgba(255,255,255,.6);
+            padding:3rem 0 1.5rem;
+        }
+        .footer-brand { font-family:var(--font-display); font-size:1.8rem; color:white; margin-bottom:.35rem; }
+        .footer-tag { font-size:.8rem; color:rgba(255,255,255,.45); margin-bottom:1.5rem; }
+        .footer-social { display:flex; gap:.65rem; }
+        .soc-link {
+            width:36px; height:36px; background:rgba(255,255,255,.08);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            color:rgba(255,255,255,.55); font-size:.83rem;
+            transition:all .2s; text-decoration:none;
+        }
+        .soc-link:hover { background:var(--primary); color:white; }
+        .footer-col-title {
+            color:rgba(255,255,255,.85); font-size:.72rem;
+            text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; display:block;
+        }
+        .footer-links { display:flex; flex-direction:column; gap:.4rem; }
+        .footer-links a {
+            color:rgba(255,255,255,.5); font-size:.8rem; font-weight:500;
+            transition:color .2s; text-decoration:none;
+        }
+        .footer-links a:hover { color:var(--primary-light); }
+        .footer-contact-item {
+            font-size:.8rem; margin-bottom:.5rem; display:flex; align-items:flex-start; gap:.5rem;
+        }
+        .footer-contact-item i { color:var(--primary-light); flex-shrink:0; margin-top:.2rem; }
+        .footer-divider { border-top:1px solid rgba(255,255,255,.08); margin:1.5rem 0; }
+        .footer-bottom {
+            display:flex; justify-content:space-between;
+            align-items:center; flex-wrap:wrap; gap:.75rem; font-size:.73rem;
+        }
+        .footer-bottom a { color:var(--primary-light); font-weight:700; }
+
+        /* =========================================
+           FLOATING WHATSAPP
+        ========================================= */
+        .wa-float {
+            position:fixed; bottom:24px; right:24px; z-index:9999;
+            display:flex; align-items:center; gap:.6rem;
+            background:#25D366; color:white; border:none;
+            border-radius:50px; padding:.85rem 1.25rem;
+            font-family:var(--font-body); font-weight:700; font-size:.83rem;
+            cursor:pointer; text-decoration:none;
+            box-shadow:0 8px 30px rgba(37,211,102,.5);
+            animation:waPulse 2.5s ease-in-out infinite;
+            transition:transform .2s ease;
+        }
+        .wa-float:hover {
+            color:white; transform:scale(1.05);
+            animation:none;
+            box-shadow:0 12px 40px rgba(37,211,102,.65);
+        }
+        @keyframes waPulse {
+            0%,100%{box-shadow:0 8px 30px rgba(37,211,102,.5);}
+            50%{box-shadow:0 8px 50px rgba(37,211,102,.75),0 0 0 8px rgba(37,211,102,.12);}
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+        @media (max-width:768px) {
+            .hero-section { min-height:auto; padding:5rem 0 3.5rem; }
+            .hero-circle { width:270px; height:270px; font-size:6.5rem; }
+            .sb-3 { display:none; }
+            .hero-ctas { flex-direction:column; }
+            .btn-hero-primary, .btn-hero-secondary { width:100%; justify-content:center; }
+            .builder-body { padding:1.5rem; }
+            .option-grid { grid-template-columns:repeat(2,1fr); }
+            .policies-inner { flex-direction:column; text-align:center; }
+            .wa-float span { display:none; }
+            .wa-float { border-radius:50%; width:56px; height:56px; padding:0; justify-content:center; font-size:1.35rem; }
+        }
+        @media (max-width:480px) {
+            .hero-circle { width:200px; height:200px; font-size:5rem; }
+            .sb-1, .sb-2 { display:none; }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position:absolute!important; width:1px; height:1px;
+            padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0);
+            white-space:nowrap; border:0;
+        }
+        :focus-visible {
+            outline:2px solid var(--primary);
+            outline-offset:2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====================================================
+     NAVBAR
+==================================================== -->
+<nav class="sr-navbar navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Sugar Rush Cake Designs — home">
+            <div class="brand-logo" aria-hidden="true">SR</div>
+            <div class="brand-name">Sugar Rush<span>Cake Designs · Barbados</span></div>
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navMain"
+                aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars" style="color:var(--primary);" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="#builder">Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hours">Hours</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                <li class="nav-item ms-2">
+                    <a class="nav-link btn-nav-cta" href="#builder">🎂 Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ====================================================
+     HERO
+==================================================== -->
+<section class="hero-section" aria-labelledby="hero-h1">
+    <div class="hero-blob blob-1" aria-hidden="true"></div>
+    <div class="hero-blob blob-2" aria-hidden="true"></div>
+    <div class="hero-blob blob-3" aria-hidden="true"></div>
+    <div class="float-shapes" aria-hidden="true">
+        <div class="fshape fshape-1"></div>
+        <div class="fshape fshape-2"></div>
+        <div class="fshape fshape-3"></div>
+        <div class="fshape fshape-4"></div>
+        <div class="fshape fshape-5"></div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="award-badge" role="img" aria-label="Caribbean Baking Awards 2025 Winner">
+                    <i class="fas fa-trophy" aria-hidden="true"></i>
+                    Caribbean Baking Awards 2025 Winner
+                </div>
+                <p class="hero-eyebrow">Bespoke Cakes · Bridgetown, Barbados</p>
+                <h1 class="hero-title" id="hero-h1">
+                    Every Cake<br>Tells <em>Your</em><br>Story.
+                </h1>
+                <p class="hero-sub">
+                    Handcrafted bespoke cakes for birthdays, weddings, and every milestone worth celebrating. Made to your exact vision — baked with love in Bim.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#builder" class="btn-hero-primary" aria-label="Build your custom cake order">
+                        <i class="fas fa-cake-candles" aria-hidden="true"></i> Build My Cake
+                    </a>
+                    <a href="#menu" class="btn-hero-secondary" aria-label="Browse the menu">
+                        <i class="fas fa-utensils" aria-hidden="true"></i> Browse Menu
+                    </a>
+                </div>
+                <div class="trust-strip">
+                    <div class="trust-item"><i class="fas fa-clock" aria-hidden="true"></i><span>3–4 Week Booking Lead</span></div>
+                    <div class="trust-item"><i class="fas fa-leaf" aria-hidden="true"></i><span>Vegan &amp; GF Options</span></div>
+                    <div class="trust-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>Direct WhatsApp Ordering</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="hero-visual">
+                    <div class="hero-circle" role="img" aria-label="Decorative cake illustration">🎂</div>
+                    <div class="stat-bubble sb-1" data-aos="zoom-in" data-aos-delay="500">
+                        <strong>23.8K</strong><span>Followers</span>
+                    </div>
+                    <div class="stat-bubble sb-2" data-aos="zoom-in" data-aos-delay="600">
+                        <strong>1,643</strong><span>Posts</span>
+                    </div>
+                    <div class="stat-bubble sb-3" data-aos="zoom-in" data-aos-delay="700">
+                        <strong>🏆</strong><span>2025 Winner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     MENU
+==================================================== -->
+<section class="menu-section" id="menu" aria-labelledby="menu-h2">
+    <div class="container">
+        <div class="text-center mb-2" data-aos="fade-up">
+            <p class="sec-label">The Menu</p>
+            <h2 class="sec-title" id="menu-h2">Flavours That <em>Move</em> You</h2>
+            <p class="sec-sub mx-auto">From classic vanilla to Caribbean-infused signature creations — all handcrafted to order. Browse by category below.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories" data-aos="fade-up" data-aos-delay="100">
+            <button class="mtab active" role="tab" aria-selected="true" id="tab-reg" aria-controls="panel-reg" onclick="switchTab('reg')">🎂 Regular Cakes</button>
+            <button class="mtab" role="tab" aria-selected="false" id="tab-veg" aria-controls="panel-veg" onclick="switchTab('veg')">🌿 Vegan</button>
+            <button class="mtab" role="tab" aria-selected="false" id="tab-gf"  aria-controls="panel-gf"  onclick="switchTab('gf')">🌾 Gluten Free</button>
+            <button class="mtab" role="tab" aria-selected="false" id="tab-cs"  aria-controls="panel-cs"  onclick="switchTab('cs')">🍰 Cheesecakes</button>
+        </div>
+
+        <!-- Search -->
+        <div class="menu-search" data-aos="fade-up" data-aos-delay="150">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="text" id="menuSearch" placeholder="Search flavours…" oninput="filterMenu()" aria-label="Search flavours">
+        </div>
+
+        <!-- Panel: Regular -->
+        <div class="menu-panel active" id="panel-reg" role="tabpanel" aria-labelledby="tab-reg" data-aos="fade-up" data-aos-delay="200">
+            <div class="menu-note-bar">
+                <strong>🎂 Frosting Guide:</strong> Butter Frosting = All Sections &nbsp;|&nbsp; Fondant = Sections 1 &amp; 2 only &nbsp;|&nbsp; Sculpted / 3D = Section 1 only
+            </div>
+            <h3 class="menu-section-head">Section 1 — Classic &amp; Signature Flavours</h3>
+            <div class="menu-grid" id="g-reg-s1"></div>
+            <h3 class="menu-section-head">Section 2 — Specialty &amp; Fruit Flavours</h3>
+            <div class="menu-grid" id="g-reg-s2"></div>
+            <h3 class="menu-section-head">Section 3 — Signature Dessert Cakes</h3>
+            <div class="menu-grid" id="g-reg-s3"></div>
+        </div>
+
+        <!-- Panel: Vegan -->
+        <div class="menu-panel" id="panel-veg" role="tabpanel" aria-labelledby="tab-veg">
+            <div class="menu-note-bar">
+                <strong>🌿 Vegan:</strong> No dairy, no eggs, no animal products. Items marked <strong>**</strong> are butter frosting only — not available for fondant.
+            </div>
+            <div class="row gy-2">
+                <div class="col-md-6">
+                    <h3 class="menu-section-head">Cake Flavours</h3>
+                    <div class="menu-grid" id="g-veg-f"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="menu-section-head">Frostings &amp; Fillings</h3>
+                    <div class="menu-grid" id="g-veg-fr"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel: Gluten Free -->
+        <div class="menu-panel" id="panel-gf" role="tabpanel" aria-labelledby="tab-gf">
+            <div class="menu-note-bar">
+                <strong>🌾 100% Gluten Free.</strong> ⚠️ <strong>NUT ALLERGY WARNING:</strong> Persons with nut allergies cannot order from this menu. Items marked <strong>**</strong> = butter frosting only.
+            </div>
+            <div class="row gy-2">
+                <div class="col-md-6">
+                    <h3 class="menu-section-head">Cake Flavours</h3>
+                    <div class="menu-grid" id="g-gf-f"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="menu-section-head">Frostings &amp; Fillings</h3>
+                    <div class="menu-grid" id="g-gf-fr"></div>
+                </div>
+            </div>
+            <div class="menu-note-bar mt-3">
+                <strong>GF Size Additions:</strong> 6 in +$50 &nbsp;|&nbsp; 8 in +$65 &nbsp;|&nbsp; 10 in +$75 &nbsp;|&nbsp; 12 in +$105
+            </div>
+        </div>
+
+        <!-- Panel: Cheesecake -->
+        <div class="menu-panel" id="panel-cs" role="tabpanel" aria-labelledby="tab-cs">
+            <div class="menu-note-bar">
+                <strong>🍰 Cheesecakes</strong> come as whole cakes. Most flavours can be layered with our cake flavours list as butterfrosting options to create Cheesecake Cakes.
+            </div>
+            <div class="menu-grid" id="g-cs"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     CAKE BUILDER
+==================================================== -->
+<section class="builder-section" id="builder" aria-labelledby="builder-h2">
+    <div class="container">
+        <div class="text-center mb-4" data-aos="fade-up">
+            <p class="sec-label">Custom Order</p>
+            <h2 class="sec-title" id="builder-h2">Build Your <em>Dream</em> Cake</h2>
+            <p class="sec-sub mx-auto">5 easy steps. Your complete specs go straight to WhatsApp — we reply within hours, not days.</p>
+        </div>
+
+        <div class="builder-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="builder-head">
+                <h3>🎂 Cake Builder</h3>
+                <p>Answer 5 quick questions — we'll confirm your quote and availability via WhatsApp.</p>
+            </div>
+
+            <!-- Progress -->
+            <div class="builder-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" aria-label="Order step progress">
+                <div class="pstep active" id="pi-1"><div class="pdot">1</div><div class="plabel">Occasion</div></div>
+                <div class="pstep"        id="pi-2"><div class="pdot">2</div><div class="plabel">Type</div></div>
+                <div class="pstep"        id="pi-3"><div class="pdot">3</div><div class="plabel">Size</div></div>
+                <div class="pstep"        id="pi-4"><div class="pdot">4</div><div class="plabel">Flavour</div></div>
+                <div class="pstep"        id="pi-5"><div class="pdot">5</div><div class="plabel">Review</div></div>
+            </div>
+
+            <div class="builder-body">
+
+                <!-- Step 1: Occasion -->
+                <div class="bstep active" id="bs-1">
+                    <p class="step-q">"What are we celebrating?"</p>
+                    <div class="option-grid">
+                        <button class="opt-btn" onclick="pick(this,'occasion','Birthday')" aria-label="Birthday" aria-pressed="false">
+                            <span class="opt-icon">🎂</span><span class="opt-lbl">Birthday</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'occasion','Wedding')" aria-label="Wedding" aria-pressed="false">
+                            <span class="opt-icon">💍</span><span class="opt-lbl">Wedding</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'occasion','Anniversary')" aria-label="Anniversary" aria-pressed="false">
+                            <span class="opt-icon">❤️</span><span class="opt-lbl">Anniversary</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'occasion','Baby Shower')" aria-label="Baby Shower" aria-pressed="false">
+                            <span class="opt-icon">🍼</span><span class="opt-lbl">Baby Shower</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'occasion','Corporate')" aria-label="Corporate" aria-pressed="false">
+                            <span class="opt-icon">🏢</span><span class="opt-lbl">Corporate</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'occasion','Other')" aria-label="Other" aria-pressed="false">
+                            <span class="opt-icon">✨</span><span class="opt-lbl">Other</span>
+                        </button>
+                    </div>
+                    <div class="bnav">
+                        <div></div>
+                        <button class="btn-next" onclick="nextStep(1)" aria-label="Next step: Cake type">
+                            Next: Cake Type <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Cake Type -->
+                <div class="bstep" id="bs-2">
+                    <p class="step-q">"What type of cake?"</p>
+                    <div class="option-grid">
+                        <button class="opt-btn" onclick="pick(this,'cakeType','Regular')" aria-label="Regular cake" aria-pressed="false">
+                            <span class="opt-icon">🎂</span><span class="opt-lbl">Regular</span><span class="opt-sub">All sections</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'cakeType','Vegan')" aria-label="Vegan cake" aria-pressed="false">
+                            <span class="opt-icon">🌿</span><span class="opt-lbl">Vegan</span><span class="opt-sub">Dairy &amp; egg free</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'cakeType','Gluten Free')" aria-label="Gluten free cake" aria-pressed="false">
+                            <span class="opt-icon">🌾</span><span class="opt-lbl">Gluten Free</span><span class="opt-sub">⚠️ Not nut-allergy safe</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'cakeType','Cheesecake')" aria-label="Cheesecake" aria-pressed="false">
+                            <span class="opt-icon">🍰</span><span class="opt-lbl">Cheesecake</span><span class="opt-sub">Whole cakes</span>
+                        </button>
+                    </div>
+                    <div class="bnav">
+                        <button class="btn-back" onclick="prevStep(2)" aria-label="Go back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+                        <button class="btn-next" onclick="nextStep(2)" aria-label="Next: Size">Next: Size <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Size -->
+                <div class="bstep" id="bs-3">
+                    <p class="step-q">"How big should it be?"</p>
+                    <div class="option-grid">
+                        <button class="opt-btn" onclick="pick(this,'size','6 inch (Standard)')" aria-label="6 inch standard" aria-pressed="false">
+                            <span class="opt-icon">⚪</span><span class="opt-lbl">6 inch</span><span class="opt-sub">Standard · 3–4"</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'size','8 inch (Standard)')" aria-label="8 inch standard" aria-pressed="false">
+                            <span class="opt-icon">🟡</span><span class="opt-lbl">8 inch</span><span class="opt-sub">Standard · 3–4"</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'size','10 inch (Tall)')" aria-label="10 inch tall" aria-pressed="false">
+                            <span class="opt-icon">🟠</span><span class="opt-lbl">10 inch</span><span class="opt-sub">Tall · 5–6"</span>
+                        </button>
+                        <button class="opt-btn" onclick="pick(this,'size','12 inch (Double Barrel)')" aria-label="12 inch double barrel" aria-pressed="false">
+                            <span class="opt-icon">🔴</span><span class="opt-lbl">12 inch</span><span class="opt-sub">Double Barrel · 7–8"</span>
+                        </button>
+                    </div>
+                    <div class="bnav">
+                        <button class="btn-back" onclick="prevStep(3)" aria-label="Go back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+                        <button class="btn-next" onclick="nextStep(3)" aria-label="Next: Flavour">Next: Flavour <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Flavour -->
+                <div class="bstep" id="bs-4">
+                    <p class="step-q">"What flavour calls to you?"</p>
+                    <div class="sel-group">
+                        <label for="selFlavour">Cake Flavour</label>
+                        <select id="selFlavour" aria-label="Select cake flavour">
+                            <option value="">— Select a flavour —</option>
+                        </select>
+                    </div>
+                    <div class="sel-group">
+                        <label for="selFrosting">Frosting / Filling</label>
+                        <select id="selFrosting" aria-label="Select frosting or filling">
+                            <option value="">— Select frosting —</option>
+                        </select>
+                    </div>
+                    <div class="sel-group">
+                        <label for="selIcing">Icing Style</label>
+                        <select id="selIcing" aria-label="Select icing style">
+                            <option value="">— Select icing style —</option>
+                            <option value="Butter Frosting">Butter Frosting (All types)</option>
+                            <option value="Fondant">Fondant (Regular Sections 1 &amp; 2 only)</option>
+                            <option value="Sculpted / 3D">Sculpted / 3D (Regular Section 1 only)</option>
+                        </select>
+                    </div>
+                    <div class="bnav">
+                        <button class="btn-back" onclick="prevStep(4)" aria-label="Go back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+                        <button class="btn-next" onclick="nextStep(4)" aria-label="Review your order">Review Order <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Review & Send -->
+                <div class="bstep" id="bs-5">
+                    <p class="step-q">"Almost there — your cake summary:"</p>
+                    <div class="order-summary" role="region" aria-label="Order summary">
+                        <div class="sum-row"><span class="sum-lbl">Occasion</span><span class="sum-val" id="sv-occ">—</span></div>
+                        <div class="sum-row"><span class="sum-lbl">Cake Type</span><span class="sum-val" id="sv-type">—</span></div>
+                        <div class="sum-row"><span class="sum-lbl">Size</span><span class="sum-val" id="sv-size">—</span></div>
+                        <div class="sum-row"><span class="sum-lbl">Flavour</span><span class="sum-val" id="sv-flav">—</span></div>
+                        <div class="sum-row"><span class="sum-lbl">Frosting</span><span class="sum-val" id="sv-frost">—</span></div>
+                        <div class="sum-row"><span class="sum-lbl">Icing Style</span><span class="sum-val" id="sv-icing">—</span></div>
+                    </div>
+                    <label for="specNotes" style="font-size:.8rem;font-weight:700;color:var(--text-mid);margin-bottom:.5rem;display:block;">
+                        Any special message or design details?
+                    </label>
+                    <textarea id="specNotes" class="notes-area"
+                        placeholder="e.g. 'Blue unicorn theme, gold letters — Happy 5th Birthday Zara!'"
+                        aria-label="Special notes or design details"></textarea>
+                    <p style="font-size:.73rem;color:var(--text-light);text-align:center;margin-bottom:1.5rem;">
+                        ⏰ A deposit is required 3–4 weeks before your collection date to secure your booking.
+                    </p>
+                    <button class="btn-wa-send" onclick="sendWA()" aria-label="Send order on WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Send My Order on WhatsApp
+                    </button>
+                    <div class="bnav mt-3">
+                        <button class="btn-back" onclick="prevStep(5)" aria-label="Edit order"><i class="fas fa-arrow-left" aria-hidden="true"></i> Edit Order</button>
+                        <div></div>
+                    </div>
+                </div>
+
+            </div><!-- /builder-body -->
+        </div><!-- /builder-card -->
+    </div>
+</section>
+
+<!-- ====================================================
+     PRICING
+==================================================== -->
+<section class="pricing-section" id="pricing" aria-labelledby="pricing-h2">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="sec-label">Estimate Guide</p>
+            <h2 class="sec-title" id="pricing-h2">Know Before <em>You</em> Order</h2>
+            <p class="sec-sub mx-auto">Starting prices for Round &amp; Square butter frosting cakes. Fondant, sculpted, and specialty cakes are quoted individually.</p>
+        </div>
+        <div class="row gy-4">
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="size-card">
+                    <div class="size-emoji" aria-hidden="true">⚪</div>
+                    <h4 class="size-name">6 inch</h4>
+                    <p class="size-inches">Standard · 3–4" height</p>
+                    <div class="size-price">$50<span style="font-size:1.1rem">+</span></div>
+                    <p class="size-note">Starting price</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="size-card featured">
+                    <div class="size-emoji" aria-hidden="true">🟡</div>
+                    <h4 class="size-name">8 inch</h4>
+                    <p class="size-inches">Standard · 3–4" height</p>
+                    <div class="size-price">$65<span style="font-size:1.1rem">+</span></div>
+                    <p class="size-note">Most popular size ⭐</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="size-card">
+                    <div class="size-emoji" aria-hidden="true">🟠</div>
+                    <h4 class="size-name">10 inch</h4>
+                    <p class="size-inches">Tall · 5–6" height</p>
+                    <div class="size-price">$75<span style="font-size:1.1rem">+</span></div>
+                    <p class="size-note">Great for gatherings</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="size-card">
+                    <div class="size-emoji" aria-hidden="true">🔴</div>
+                    <h4 class="size-name">12 inch</h4>
+                    <p class="size-inches">Double Barrel · 7–8"</p>
+                    <div class="size-price">$105<span style="font-size:1.1rem">+</span></div>
+                    <p class="size-note">Statement centrepiece</p>
+                </div>
+            </div>
+        </div>
+        <div class="pricing-callout" data-aos="fade-up">
+            <strong>📋 Note:</strong> Gluten-Free adds $50–$105 to each size above. Fondant, sculpted, and 3D cakes are priced individually.
+            Use the <a href="#builder" style="color:var(--primary);font-weight:700;">Cake Builder</a> to send your full specs and receive an accurate quote via WhatsApp.
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     HOURS + TRANSPORT
+==================================================== -->
+<section class="hours-section" id="hours" aria-labelledby="hours-h2">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="sec-label">Operations</p>
+            <h2 class="sec-title" id="hours-h2">Hours &amp; <em>Collection</em></h2>
+        </div>
+        <div class="row gy-4">
+            <!-- Hours -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="hours-card">
+                    <div class="hours-head"><h4>🕐 Opening Hours</h4></div>
+                    <div class="hours-body">
+                        <div class="text-center mb-3">
+                            <span class="after-fee"><i class="fas fa-moon" aria-hidden="true"></i> After-Hours Fee: $25</span>
+                        </div>
+                        <div class="hours-row"><span class="day">Monday</span><span class="time-closed">Closed</span></div>
+                        <div class="hours-row"><span class="day">Tuesday</span><span class="time">9:00am – 5:30pm</span></div>
+                        <div class="hours-row"><span class="day">Wednesday</span><span class="time">9:00am – 5:30pm</span></div>
+                        <div class="hours-row"><span class="day">Thursday</span><span class="time">9:00am – 5:30pm</span></div>
+                        <div class="hours-row"><span class="day">Friday</span><span class="time">9:00am – 5:30pm</span></div>
+                        <div class="hours-row"><span class="day">Saturday</span><span class="time">9:00am – 5:30pm</span></div>
+                        <div class="hours-row"><span class="day">Sunday</span><span class="time">11:00am – 3:00pm</span></div>
+                        <div class="hours-footnote">
+                            📍 Our location is <strong>not a shop</strong> — we do not accept unannounced pop-ins.<br>
+                            Hours are for <strong>pre-ordered collections, deposits, calls &amp; communications</strong>.<br>
+                            <strong>Closed on Bank Holidays.</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="transport-card">
+                    <span style="font-size:3rem;margin-bottom:.75rem;display:block;" aria-hidden="true">🚗</span>
+                    <h4>Transporting Your Cake</h4>
+                    <p style="color:rgba(255,255,255,.8);font-size:.88rem;margin-bottom:1.5rem;">Please follow these rules to keep your masterpiece safe on the way home.</p>
+                    <div class="transport-rule">
+                        <i class="fas fa-times-circle" style="color:#FF8FAB;" aria-hidden="true"></i>
+                        <p><strong>NEVER</strong> place the cake on a car seat. Seats are slanted — the cake can slide backwards off the board in the box, causing damage.</p>
+                    </div>
+                    <div class="transport-rule">
+                        <i class="fas fa-check-circle" style="color:#6EFFA8;" aria-hidden="true"></i>
+                        <p><strong>ALWAYS</strong> place the cake flat on the floor of your vehicle — it must remain level throughout the entire journey.</p>
+                    </div>
+                    <div class="transport-rule">
+                        <i class="fas fa-wind" style="color:#93C5FD;" aria-hidden="true"></i>
+                        <p><strong>KEEP IT COOL:</strong> Air conditioning on at all times. Never leave a cake in a parked car in Barbados heat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     PAYMENT
+==================================================== -->
+<section class="payment-section" id="payment" aria-labelledby="pay-h2">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="sec-label">Payment</p>
+            <h2 class="sec-title" id="pay-h2">Secure Your <em>Date</em></h2>
+            <p class="sec-sub mx-auto">A deposit is required 3–4 weeks before your collection date. Choose how you'd like to proceed.</p>
+        </div>
+        <div class="row gy-4 justify-content-center">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="pay-card">
+                    <div class="pay-icon" aria-hidden="true">💳</div>
+                    <h5>PayPal</h5>
+                    <p style="font-size:.8rem;color:var(--text-mid);">Secure online deposit — accepted internationally. We'll confirm the amount via WhatsApp first.</p>
+                    <a href="https://www.paypal.com" target="_blank" rel="noopener noreferrer" class="btn-paypal" aria-label="Pay deposit via PayPal">
+                        <i class="fab fa-paypal" aria-hidden="true"></i> Pay via PayPal
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="pay-card">
+                    <div class="pay-icon" aria-hidden="true">💬</div>
+                    <h5>WhatsApp First</h5>
+                    <p style="font-size:.8rem;color:var(--text-mid);">Build your order, send it via WhatsApp, and we'll confirm pricing and payment details with you directly.</p>
+                    <a href="#builder" class="btn-hero-primary" style="margin-top:1rem;font-size:.8rem;padding:.75rem 1.5rem;" aria-label="Go to cake builder">
+                        <i class="fas fa-cake-candles" aria-hidden="true"></i> Start Order
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="pay-card">
+                    <div class="pay-icon" aria-hidden="true">📋</div>
+                    <h5>Inquiry Form</h5>
+                    <p style="font-size:.8rem;color:var(--text-mid);">Prefer a formal quote? Use our detailed inquiry form — ideal for complex, multi-tier, or sculpted orders.</p>
+                    <a href="https://form.jotform.com/220638076006047" target="_blank" rel="noopener noreferrer"
+                       class="btn-hero-secondary" style="margin-top:1rem;font-size:.8rem;padding:.75rem 1.5rem;"
+                       aria-label="Open cake inquiry form">
+                        <i class="fas fa-file-alt" aria-hidden="true"></i> Inquiry Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     POLICIES BANNER
+==================================================== -->
+<section class="policies-band" aria-labelledby="pol-h4">
+    <div class="container">
+        <div class="policies-inner">
+            <div data-aos="fade-right">
+                <h4 id="pol-h4">📋 Our Policies</h4>
+                <p>Please read our full policies before placing an order. Depositing confirms you are in full agreement with all terms. Deposits are non-refundable.</p>
+            </div>
+            <a href="https://www.sugarrushcakedesigns.com/policies" target="_blank" rel="noopener noreferrer"
+               class="btn-pol" data-aos="fade-left" aria-label="View full policies on Sugar Rush website">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i> View Full Policies
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     REVIEWS
+==================================================== -->
+<section class="reviews-section" id="reviews" aria-labelledby="reviews-h2">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="sec-label">Customer Love</p>
+            <h2 class="sec-title" id="reviews-h2">What <em>Bim</em> Is Saying</h2>
+        </div>
+        <div class="row gy-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="review-card">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-quote">"The most stunning wedding cake I've ever seen — and the taste matched the look. Our guests were completely speechless."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar" aria-hidden="true">MA</div>
+                        <div><div class="r-name">Maria A.</div><div class="r-loc">Wedding Cake · Bridgetown</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="review-card">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-quote">"She captured exactly what I described for my daughter's birthday. The Sangster's Hot Chocolate Cake was absolutely incredible."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar" aria-hidden="true">SB</div>
+                        <div><div class="r-name">Sandra B.</div><div class="r-loc">Birthday Cake · St. Michael</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="review-card">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-quote">"The vegan cheesecake was phenomenal. I didn't miss the dairy at all. Malibu Coconut — I order it every single year."</p>
+                    <div class="reviewer">
+                        <div class="r-avatar" aria-hidden="true">KC</div>
+                        <div><div class="r-name">Kezia C.</div><div class="r-loc">Vegan Cheesecake · Barbados</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <a href="https://www.sugarrushcakedesigns.com" target="_blank" rel="noopener noreferrer"
+               class="btn-hero-secondary" aria-label="Read all reviews on the Sugar Rush website">
+                <i class="fas fa-star" aria-hidden="true"></i> Read All Reviews
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================
+     FINAL CTA
+==================================================== -->
+<section class="cta-section" aria-labelledby="cta-h2">
+    <div class="container text-center position-relative">
+        <p class="sec-label" style="color:rgba(255,255,255,.7);" data-aos="fade-up">Ready?</p>
+        <h2 data-aos="fade-up" data-aos-delay="100" id="cta-h2">
+            Your Perfect Cake<br>Starts <em style="font-style:italic;color:rgba(255,255,255,.85);">Here.</em>
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="200">Every great celebration begins with the right cake.<br>Let's make yours unforgettable — one layer at a time.</p>
+        <a href="#builder" class="btn-cta-white" data-aos="fade-up" data-aos-delay="300" aria-label="Go to cake builder">
+            <i class="fas fa-cake-candles" aria-hidden="true"></i> Build My Cake Now
+        </a>
+    </div>
+</section>
+
+<!-- ====================================================
+     FOOTER
+==================================================== -->
+<footer role="contentinfo">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-5">
+                <div class="footer-brand">Sugar Rush</div>
+                <p class="footer-tag">Bespoke cakes in Bim. Made with love. 🇧🇧</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/sugarrushcakedesigns" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/sugarrushcakedesigns" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@sugarrushcakedesigns" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <span class="footer-col-title">Quick Links</span>
+                <div class="footer-links">
+                    <a href="#menu">Menu</a>
+                    <a href="#builder">Order Now</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#hours">Hours</a>
+                    <a href="https://www.sugarrushcakedesigns.com/policies" target="_blank" rel="noopener noreferrer">Policies</a>
+                    <a href="https://form.jotform.com/220638076006047" target="_blank" rel="noopener noreferrer">Inquiry Form</a>
+                    <a href="https://www.sugarrushcakedesigns.com/deposit" target="_blank" rel="noopener noreferrer">Pay Deposit</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="footer-col-title">Get in Touch</span>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Lower Carlton St. James, Bridgetown, Barbados</span></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span>srcakedesigns@gmail.com</span></div>
+                <div class="footer-contact-item"><i class="fab fa-instagram" aria-hidden="true"></i><span>@sugarrushcakedesigns</span></div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <span>© 2025 Sugar Rush Cake Designs · Barbados. All rights reserved.</span>
+            <span>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="Visit JAMALINKS">JAMALINKS</a></span>
+        </div>
+    </div>
+</footer>
+
+<!-- ====================================================
+     FLOATING WHATSAPP
+==================================================== -->
+<a href="https://wa.me/12461234567?text=Hi%20Sugar%20Rush!%20I%27d%20like%20to%20enquire%20about%20a%20custom%20cake%20order."
+   class="wa-float"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Sugar Rush Cake Designs on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true" style="font-size:1.4rem;"></i>
+    <span>WhatsApp Us</span>
+</a>
+
+<!-- ====================================================
+     SCRIPTS
+==================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+/* =========================================
+   INIT
+========================================= */
+AOS.init({ duration:700, once:true, offset:60 });
+
+window.addEventListener('scroll', () => {
+    document.querySelector('.sr-navbar').classList.toggle('scrolled', window.scrollY > 30);
+});
+
+/* =========================================
+   MENU DATA
+========================================= */
+const MD = {
+    regS1:[
+        {n:'Vanilla',i:'🍦'},{n:'Chocolate',i:'🍫'},{n:'Marbled (Chocolate & Vanilla Swirl)',i:'🌀'},
+        {n:'Cookies N\' Cream',i:'🍪'},{n:'Midnight Cookies N\' Cream',i:'🌙'},
+        {n:'Coconut',i:'🥥'},{n:'Confetti',i:'🎉'},{n:'Chocolate Peanut Butter',i:'🥜'},
+        {n:'Lemon / Lemon Poppy Seed',i:'🍋'},{n:'Orange',i:'🍊'},{n:'Strawberry',i:'🍓'},
+        {n:'Chocolate Peppermint',i:'🍬'},{n:'Blueberry Swirl',i:'🫐'},{n:'Espresso',i:'☕'},
+        {n:'Mocha',i:'☕'},{n:'Margarita',i:'🍹'},{n:'Vanilla Latte',i:'☕'},
+        {n:'Vanilla/Chocolate Eldorado Rum Cream',i:'🥃'},{n:'Strawberry Daiquiri',i:'🍓'},
+        {n:'Rum Spiced Cake',i:'🥃'},{n:'Malibu Coconut',i:'🥥'},{n:'Chocolate Amaretto',i:'🍫'},
+        {n:'Tequila Sunrise',i:'🌅',note:'Orange flavoured tequila cake, grenadine syrup flavoured icing'},
+    ],
+    regS2:[
+        {n:'Ferrero Rocher',i:'🍫'},{n:'Almond',i:'🌰'},{n:'Great Cake (Black Cake)',i:'🎂'},
+        {n:'Light Fruit Cake',i:'🍇'},{n:'Rum N\' Raisin',i:'🥃'},{n:'Chocolate Chip',i:'🍪'},
+        {n:'Double Chocolate Chip',i:'🍫'},
+    ],
+    regS3:[
+        {n:'Red Velvet',i:'❤️'},{n:'Raspberry & White Chocolate',i:'🫐'},
+        {n:'Sangster\'s Hot Chocolate Cake',i:'🍫',note:'Chocolate cake soaked with Sangster\'s Jamaican Chocolate rum cream, cinnamon & molten marshmallows'},
+        {n:'Boston Cream Pie',i:'🍮',note:'Vanilla cake with rich custard filling, topped with chocolate ganache'},
+        {n:'Chocolate Threesome',i:'🍫',note:'Moist chocolate cake layered with smooth ganache, iced in chocolate frosting'},
+        {n:'Biscotto Velvet Affair',i:'❤️',note:'Red velvet layers sandwiched with Cookies n\' Cream Cheesecake'},
+        {n:'Hawaiian Rise',i:'🌺',note:'Vanilla cake soaked with premium white rum, rich guava compote filling'},
+        {n:'Berry Citrus Smash',i:'🫐',note:'Lemon cake with blueberries, fresh raspberry buttercream'},
+        {n:'Butter Pecan Caramel Swirl',i:'🍯'},
+        {n:'Opera Gateau',i:'🎭',note:'Chocolate & vanilla layers, coffee liqueur, coffee buttercream and ganache'},
+        {n:'Decadent Chocolate Mousse Cake',i:'🍫'},
+    ],
+    vegF:[
+        {n:'Vanilla',i:'🍦'},{n:'Fudgy Chocolate',i:'🍫'},{n:'Red Velvet',i:'❤️'},
+        {n:'Midnight Cookies n\' Cream',i:'🌙'},{n:'Coconut',i:'🥥'},{n:'Spiced Latte',i:'☕'},
+        {n:'Almond',i:'🌰'},{n:'Carrot Cake',i:'🥕'},{n:'Chocolate Raspberry',i:'🍓'},
+        {n:'**Chocolate Mousse Cake',i:'🍫',note:'Butter frosting only'},
+        {n:'**Chocolate Threesome',i:'🍫',note:'Filled with vegan dark chocolate ganache · Butter frosting only'},
+    ],
+    vegFr:[
+        {n:'Vanilla Frosting',i:'🍦'},{n:'Chocolate Frosting',i:'🍫'},{n:'Cotton Candy',i:'🍭'},
+        {n:'Coconut Frosting',i:'🥥'},{n:'Vanilla w/ Coconut Caramel Sauce',i:'🍯'},
+        {n:'Peanut Butter Frosting',i:'🥜'},{n:'Hazelnut Frosting',i:'🌰'},
+        {n:'Espresso Frosting',i:'☕'},{n:'Lemon/Orange/Lavender Frosting',i:'🍋'},
+        {n:'**Apple Pie',i:'🍎',note:'Butter frosting only'},{n:'**Dark Chocolate Ganache',i:'🍫',note:'Butter frosting only'},
+        {n:'**Berry Compote / Berry Frosting',i:'🫐',note:'Butter frosting only'},
+        {n:'**Passionfruit Curd',i:'🌺',note:'Butter frosting only'},
+    ],
+    gfF:[
+        {n:'Vanilla',i:'🍦'},{n:'Chocolate or Chocolate El Dorado',i:'🍫'},{n:'Red Velvet',i:'❤️'},
+        {n:'Maple Almond',i:'🍁'},{n:'Coconut',i:'🥥'},{n:'Chocolate Chip',i:'🍪'},
+        {n:'Bajan Great Cake',i:'🇧🇧'},{n:'Carrot Cake',i:'🥕'},
+        {n:'**Pecan & Caramel',i:'🍯',note:'Butter frosting only'},
+        {n:'**Cheesecakes',i:'🍰',note:'Butter frosting only'},
+        {n:'**Chocolate Mousse Cake',i:'🍫',note:'Butter frosting only'},
+        {n:'**Chocolate Threesome',i:'🍫',note:'Ganache cake · Butter frosting only'},
+        {n:'**Vanilla or Chocolate Dulce de Leche & Nutella',i:'🍯',note:'Butter frosting only'},
+    ],
+    gfFr:[
+        {n:'Vanilla or Chocolate',i:'🍦'},{n:'Coconut Frosting',i:'🥥'},{n:'Espresso Frosting',i:'☕'},
+        {n:'White Chocolate Frosting',i:'🤍'},{n:'Lemon/Orange/Berry Frostings',i:'🍋'},
+        {n:'**Cream Cheese Frosting',i:'🧀',note:'Butter frosting only'},
+        {n:'**Pastry Cream & Jam',i:'🍓',note:'Butter frosting only'},
+        {n:'**Chocolate Ganache',i:'🍫',note:'Butter frosting only'},
+        {n:'**Fruit Compotes (guava, strawberry, passionfruit, mixed berries)',i:'🍇',note:'Butter frosting only'},
+    ],
+    cs:[
+        {n:'Brownie',i:'🍫'},{n:'Red Velvet',i:'❤️'},{n:'Tiramisu',i:'☕'},
+        {n:'Salted Caramel',i:'🍯'},{n:'Chocolate Hazelnut',i:'🌰'},
+        {n:'Passion Fruit Mojito',i:'🌺'},{n:'Sangster\'s Chocolate Rum Cream',i:'🥃'},
+        {n:'Caramel Swirl',i:'🍯'},{n:'Vanilla',i:'🍦'},{n:'Coconut',i:'🥥'},
+        {n:'Lemon Meringue',i:'🍋'},{n:'Chocolate Swirl',i:'🌀'},{n:'Chocolate Chip',i:'🍪'},
+        {n:'Eldorado Rum Cream',i:'🥃'},{n:'Malibu Coconut',i:'🥥'},{n:'Pina Colada',i:'🍹'},
+        {n:'Mango',i:'🥭'},{n:'Passion Fruit',i:'🌺'},{n:'Cookies n\' Cream',i:'🍪'},
+        {n:"S'mores",i:'🔥'},{n:'Espresso',i:'☕'},
+        {n:'Strawberry',i:'🍓',note:'Flavoured, or fresh strawberries on the inside'},
+    ],
+};
+
+function renderGrid(data, id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = data.map(d => `
+        <div class="menu-card" data-name="${d.n.toLowerCase()}">
+            <div class="mc-icon" aria-hidden="true">${d.i}</div>
+            <div>
+                <div class="mc-name">${d.n.replace('**','')}</div>
+                ${d.note ? `<p class="mc-note">${d.note}</p>` : ''}
+            </div>
+        </div>`).join('');
+}
+
+renderGrid(MD.regS1,'g-reg-s1');
+renderGrid(MD.regS2,'g-reg-s2');
+renderGrid(MD.regS3,'g-reg-s3');
+renderGrid(MD.vegF,'g-veg-f');
+renderGrid(MD.vegFr,'g-veg-fr');
+renderGrid(MD.gfF,'g-gf-f');
+renderGrid(MD.gfFr,'g-gf-fr');
+renderGrid(MD.cs,'g-cs');
+
+function switchTab(id) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.mtab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    document.getElementById('panel-'+id).classList.add('active');
+    document.getElementById('tab-'+id).classList.add('active');
+    document.getElementById('tab-'+id).setAttribute('aria-selected','true');
+}
+
+function filterMenu() {
+    const q = document.getElementById('menuSearch').value.toLowerCase();
+    document.querySelectorAll('.menu-card').forEach(c => {
+        c.style.display = c.dataset.name.includes(q) ? '' : 'none';
+    });
+}
+
+/* =========================================
+   CAKE BUILDER
+========================================= */
+let curStep = 1;
+const order = { occasion:'', cakeType:'', size:'', flavour:'', frosting:'', icing:'' };
+
+function pick(btn, field, val) {
+    btn.closest('.option-grid').querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('selected'); b.setAttribute('aria-pressed','false');
+    });
+    btn.classList.add('selected'); btn.setAttribute('aria-pressed','true');
+    order[field] = val;
+    if (field === 'cakeType') loadFlavours(val);
+}
+
+function loadFlavours(type) {
+    const fSel = document.getElementById('selFlavour');
+    const frSel = document.getElementById('selFrosting');
+    fSel.innerHTML = '<option value="">— Select a flavour —</option>';
+    frSel.innerHTML = '<option value="">— Select frosting —</option>';
+
+    let flavs=[], frosts=[];
+    if (type==='Regular') {
+        flavs = [...MD.regS1,...MD.regS2,...MD.regS3].map(d=>d.n);
+        frosts = ['Vanilla Buttercream','Chocolate Buttercream','Cream Cheese','Swiss Meringue','Chocolate Ganache','Fruit Compote','Fondant (finish)'];
+    } else if (type==='Vegan') {
+        flavs = MD.vegF.map(d=>d.n);
+        frosts = MD.vegFr.map(d=>d.n);
+    } else if (type==='Gluten Free') {
+        flavs = MD.gfF.map(d=>d.n);
+        frosts = MD.gfFr.map(d=>d.n);
+    } else if (type==='Cheesecake') {
+        flavs = MD.cs.map(d=>d.n);
+        frosts = ['None (Whole Cheesecake)','Layered with Cake Flavour (Butter Frosting)'];
+    }
+    flavs.forEach(f => { const o=document.createElement('option'); o.value=f; o.textContent=f.replace('**',''); fSel.appendChild(o); });
+    frosts.forEach(f => { const o=document.createElement('option'); o.value=f; o.textContent=f.replace('**',''); frSel.appendChild(o); });
+}
+
+function nextStep(cur) {
+    if (cur===1 && !order.occasion)    { alert('Please select an occasion.'); return; }
+    if (cur===2 && !order.cakeType)    { alert('Please select a cake type.'); return; }
+    if (cur===3 && !order.size)        { alert('Please select a size.'); return; }
+    if (cur===4) {
+        order.flavour  = document.getElementById('selFlavour').value;
+        order.frosting = document.getElementById('selFrosting').value;
+        order.icing    = document.getElementById('selIcing').value;
+        if (!order.flavour)  { alert('Please select a flavour.'); return; }
+        if (!order.icing)    { alert('Please select an icing style.'); return; }
+        updateSummary();
+    }
+    goTo(cur+1);
+}
+
+function prevStep(cur) { if (cur>1) goTo(cur-1); }
+
+function goTo(target) {
+    document.getElementById('bs-'+curStep).classList.remove('active');
+    const prevInd = document.getElementById('pi-'+curStep);
+    prevInd.classList.remove('active');
+    if (target > curStep) prevInd.classList.add('completed');
+    else prevInd.classList.remove('completed');
+
+    curStep = target;
+    document.getElementById('bs-'+curStep).classList.add('active');
+    document.getElementById('pi-'+curStep).classList.add('active');
+    document.getElementById('pi-'+curStep).classList.remove('completed');
+
+    // Clear future completions when going back
+    for (let i=curStep+1; i<=5; i++) {
+        document.getElementById('pi-'+i).classList.remove('active','completed');
+    }
+
+    document.getElementById('builder').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function updateSummary() {
+    document.getElementById('sv-occ').textContent  = order.occasion  || '—';
+    document.getElementById('sv-type').textContent = order.cakeType  || '—';
+    document.getElementById('sv-size').textContent = order.size      || '—';
+    document.getElementById('sv-flav').textContent = (order.flavour||'—').replace('**','');
+    document.getElementById('sv-frost').textContent= (order.frosting||'—').replace('**','');
+    document.getElementById('sv-icing').textContent= order.icing     || '—';
+}
+
+function sendWA() {
+    const notes = document.getElementById('specNotes').value;
+    const msg = encodeURIComponent(
+        `🎂 *Sugar Rush Cake Order*\n\n` +
+        `📅 Occasion: ${order.occasion}\n` +
+        `🎂 Cake Type: ${order.cakeType}\n` +
+        `📏 Size: ${order.size}\n` +
+        `🍰 Flavour: ${order.flavour.replace('**','')}\n` +
+        `🍦 Frosting: ${order.frosting.replace('**','')}\n` +
+        `✨ Icing Style: ${order.icing}\n` +
+        (notes ? `📝 Notes: ${notes}\n` : '') +
+        `\nI'd love to get a quote and secure my date! 🙏`
+    );
+    // ⚠️ REPLACE 12461234567 with Sugar Rush's actual WhatsApp number before going live
+    window.open(`https://wa.me/12461234567?text=${msg}`, '_blank');
+}
+</script>
+</body>
+</html>
