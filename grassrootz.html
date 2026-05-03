@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grassrootz Vegan Cuisine — Bonne Terre, Gros Islet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:   #0e2a1a;
+    --emerald:  #1b4d2e;
+    --mid:      #2d7a4f;
+    --leaf:     #4caf6f;
+    --lime:     #6fcf82;
+    --cream:    #f7f2e8;
+    --parchment:#ede7d4;
+    --gold:     #c8973a;
+    --gold-lt:  #e0b96a;
+    --gold-pale:#f5e4b0;
+    --white:    #ffffff;
+    --text-dk:  #1a2e1e;
+    --text-md:  #3a5c42;
+    --text-lt:  #6b8f72;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dk);
+    font-family: 'Jost', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(247,242,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,151,58,0.18);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(14,42,26,0.10); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-circle {
+    width: 44px; height: 44px;
+    background: radial-gradient(circle at 40% 35%, #6fcf82, #1b4d2e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(45,122,79,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .nav-logo-circle::after {
+    content: '🌿';
+    font-size: 18px;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: 0.04em;
+  }
+  .nav-brand span {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-md);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--emerald);
+    color: var(--gold-pale) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.3s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--forest) !important; color: var(--gold-lt) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .hero-bg-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(200,151,58,0.12);
+    animation: ringPulse 8s ease-in-out infinite;
+  }
+  .hero-bg-ring:nth-child(1) { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 0s; }
+  .hero-bg-ring:nth-child(2) { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 1s; }
+  .hero-bg-ring:nth-child(3) { width: 1000px; height: 1000px; top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: 2s; }
+
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%,-50%) scale(1.02); }
+  }
+
+  /* Hero green glow blob */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(76,175,111,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .hero-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+  .hero-logo {
+    width: 130px; height: 130px;
+    background: radial-gradient(circle at 38% 32%, #7ce096, #1b4d2e 65%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 36px;
+    box-shadow:
+      0 0 0 6px rgba(200,151,58,0.15),
+      0 0 0 12px rgba(200,151,58,0.07),
+      0 24px 64px rgba(14,42,26,0.22);
+    animation: logoFloat 6s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-logo-inner {
+    width: 90px; height: 90px;
+    background: radial-gradient(circle at 35% 30%, #a8e6b6, #2d7a4f 60%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .hero-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    line-height: 1;
+  }
+  .hero-logo-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.38rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    color: var(--forest);
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--mid);
+  }
+  .hero h1 .gold-word {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-md);
+    margin: 22px 0 40px;
+    max-width: 560px;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--emerald);
+    color: var(--gold-pale);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(27,77,46,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--forest);
+    color: var(--gold-lt);
+    box-shadow: 0 12px 40px rgba(14,42,26,0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    background: var(--gold);
+    color: var(--forest);
+    transform: translateY(-2px);
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 400;
+    color: var(--text-lt);
+    letter-spacing: 0.06em;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ── GOLD DIVIDER ── */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 5%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .gold-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
+  }
+  .gold-divider-icon {
+    font-size: 1.4rem;
+    color: var(--gold);
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.15;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--mid);
+  }
+  .section-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--text-lt);
+    margin-top: 14px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ── ABOUT / CHEF SECTION ── */
+  .section-about {
+    padding: 80px 5%;
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+  }
+  .section-about::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(76,175,111,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-left .section-eyebrow { color: var(--gold-lt); text-align: left; }
+  .about-left .section-title { color: var(--cream); text-align: left; }
+
+  .about-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.22rem;
+    line-height: 1.85;
+    color: rgba(247,242,232,0.8);
+    margin-top: 24px;
+    font-weight: 300;
+  }
+
+  .gimies-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(200,151,58,0.12);
+    border: 1px solid rgba(200,151,58,0.35);
+    padding: 14px 22px;
+    border-radius: 2px;
+    margin-top: 32px;
+  }
+  .gimies-icon { font-size: 1.6rem; }
+  .gimies-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--gold-lt);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .gimies-text strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gold-pale);
+  }
+
+  .about-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .about-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,151,58,0.12);
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  .about-stat:hover { background: rgba(200,151,58,0.07); }
+  .about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+  }
+  .about-stat-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: rgba(247,242,232,0.55);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── MENU SECTION ── */
+  .section-menu {
+    padding: 100px 5%;
+    background: var(--cream);
+  }
+
+  .menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 56px;
+    background: var(--parchment);
+    border-radius: 3px;
+    padding: 5px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 56px;
+  }
+  .menu-tab {
+    flex: 1;
+    padding: 12px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    color: var(--text-lt);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .menu-tab.active {
+    background: var(--emerald);
+    color: var(--gold-pale);
+    box-shadow: 0 4px 16px rgba(27,77,46,0.25);
+  }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .menu-card {
+    background: var(--white);
+    border: 1px solid rgba(45,122,79,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+    position: relative;
+  }
+  .menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(14,42,26,0.12);
+  }
+  .menu-card:hover::before { opacity: 1; }
+
+  .menu-card-img {
+    height: 200px;
+    background: linear-gradient(135deg, #1b4d2e, #4caf6f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14,42,26,0.4), transparent);
+  }
+
+  .menu-card-body {
+    padding: 28px;
+  }
+  .menu-card-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .menu-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .menu-card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-lt);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+  .menu-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--emerald);
+  }
+  .menu-card-price span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--text-lt);
+    margin-left: 4px;
+  }
+  .menu-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--emerald);
+    color: var(--gold-pale);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .menu-card-btn:hover {
+    background: var(--forest);
+    color: var(--gold-lt);
+  }
+
+  /* Featured card */
+  .menu-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu-card.featured .menu-card-img {
+    height: 100%;
+    min-height: 260px;
+  }
+
+  /* ── PIZZA NIGHT SECTION ── */
+  .section-pizza {
+    padding: 100px 5%;
+    background: var(--emerald);
+    position: relative;
+    overflow: hidden;
+  }
+  .section-pizza::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,151,58,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .pizza-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .pizza-left .section-eyebrow { color: var(--gold-lt); text-align: left; }
+  .pizza-left .section-title { color: var(--cream); text-align: left; font-size: clamp(2.2rem, 5vw, 3.8rem); }
+
+  .pizza-left .section-sub {
+    color: rgba(247,242,232,0.65);
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .pizza-details {
+    margin: 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pizza-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .pizza-detail-icon {
+    width: 38px; height: 38px;
+    background: rgba(200,151,58,0.12);
+    border: 1px solid rgba(200,151,58,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .pizza-detail-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(247,242,232,0.8);
+    padding-top: 8px;
+    line-height: 1.5;
+  }
+  .pizza-detail-text strong {
+    color: var(--gold-lt);
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .pizza-right {
+    position: relative;
+  }
+  .pizza-visual {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,151,58,0.2);
+    border-radius: 4px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .pizza-emoji { font-size: 5rem; display: block; margin-bottom: 24px; }
+  .pizza-price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .pizza-price-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: rgba(247,242,232,0.6);
+    font-style: italic;
+    margin-top: 6px;
+    margin-bottom: 28px;
+  }
+  .pizza-toppings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  .topping-chip {
+    background: rgba(200,151,58,0.12);
+    border: 1px solid rgba(200,151,58,0.22);
+    color: var(--gold-lt);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .pizza-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(247,242,232,0.45);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  /* ── SPRING ROLLS / PRODUCTS ── */
+  .section-products {
+    padding: 100px 5%;
+    background: var(--parchment);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: var(--white);
+    border: 1px solid rgba(45,122,79,0.1);
+    padding: 40px 32px;
+    border-radius: 3px;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--emerald));
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(14,42,26,0.1);
+  }
+
+  .product-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 10px;
+  }
+  .product-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-lt);
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .product-tag {
+    display: inline-block;
+    background: rgba(45,122,79,0.08);
+    color: var(--mid);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  /* ── HOW TO ORDER ── */
+  .section-order {
+    padding: 100px 5%;
+    background: var(--cream);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: calc(16.67% + 20px); right: calc(16.67% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), var(--leaf), var(--gold));
+  }
+
+  .step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(14,42,26,0.2);
+  }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-lt);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIAL STRIP ── */
+  .section-testimonials {
+    padding: 80px 5%;
+    background: var(--forest);
+  }
+  .testimonial-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    padding: 40px 36px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,151,58,0.08);
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(200,151,58,0.15);
+    position: absolute;
+    top: 16px; left: 24px;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(247,242,232,0.8);
+    font-style: italic;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+  }
+  .testimonial-author {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 20px;
+    display: block;
+  }
+  .star-row { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 4px; }
+
+  /* ── LOCATION ── */
+  .section-location {
+    padding: 100px 5%;
+    background: var(--parchment);
+  }
+  .location-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .location-card {
+    background: var(--white);
+    border: 1px solid rgba(45,122,79,0.1);
+    padding: 48px 40px;
+    border-radius: 3px;
+  }
+  .location-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(45,122,79,0.08);
+  }
+  .location-item:last-child { border-bottom: none; }
+  .location-item-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .location-item-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .location-item-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--text-dk);
+    line-height: 1.5;
+  }
+  .location-item-value a {
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .location-item-value a:hover { color: var(--forest); text-decoration: underline; }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 0;
+  }
+  .hours-item {
+    background: var(--cream);
+    padding: 20px 22px;
+    border-radius: 2px;
+  }
+  .hours-day {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .hours-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-dk);
+    font-style: italic;
+  }
+  .hours-item.special {
+    background: var(--forest);
+  }
+  .hours-item.special .hours-day { color: var(--gold-lt); }
+  .hours-item.special .hours-time { color: rgba(247,242,232,0.85); }
+
+  /* ── CTA BANNER ── */
+  .section-cta {
+    padding: 100px 5%;
+    background: var(--gold);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -10%;
+    width: 120%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--forest);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(14,42,26,0.7);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--forest);
+    color: var(--gold-pale);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(14,42,26,0.25);
+  }
+  .btn-cta-primary:hover {
+    background: var(--emerald);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(14,42,26,0.3);
+  }
+  .btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--forest);
+    color: var(--forest);
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .btn-cta-secondary:hover {
+    background: var(--forest);
+    color: var(--gold-pale);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    padding: 60px 5% 32px;
+    border-top: 1px solid rgba(200,151,58,0.12);
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(247,242,232,0.06);
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .footer-brand span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+    margin-top: 4px;
+  }
+  .footer-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: rgba(247,242,232,0.5);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(200,151,58,0.25);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  .social-link:hover {
+    background: rgba(200,151,58,0.12);
+    border-color: var(--gold);
+  }
+  .footer-col-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: rgba(247,242,232,0.55);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-style: italic;
+  }
+  .footer-links a:hover { color: var(--gold-lt); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(247,242,232,0.25);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 200;
+    width: 58px; height: 58px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+    text-decoration: none;
+    font-size: 1.7rem;
+    animation: waPulse 2.5s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 8px 48px rgba(37,211,102,0.7); }
+  }
+  .wa-tooltip {
+    position: absolute;
+    right: 68px;
+    background: var(--forest);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    padding: 8px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .about-grid, .pizza-inner, .location-inner, .footer-inner { grid-template-columns: 1fr; gap: 48px; }
+    .menu-card.featured { grid-column: span 1; display: block; }
+    .testimonial-strip { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .hours-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/17584892828" target="_blank" class="wa-float" aria-label="WhatsApp Order">
+  💬
+  <span class="wa-tooltip">Order on WhatsApp</span>
+</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circle"></div>
+    <div class="nav-brand">
+      Grassrootz
+      <span>Vegan Cuisine</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#pizza">Pizza Night</a></li>
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="https://wa.me/17584892828" class="nav-cta">Order Now →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-ring"></div>
+  <div class="hero-bg-ring"></div>
+  <div class="hero-bg-ring"></div>
+
+  <div class="hero-eyebrow reveal">
+    <span></span>
+    Saint Lucia's Premier Vegan Cuisine
+    <span></span>
+  </div>
+
+  <div class="hero-logo reveal reveal-delay-1">
+    <div class="hero-logo-inner">
+      <div class="hero-logo-text">GRASSROOTZ</div>
+      <div class="hero-logo-sub">vegan cuisine</div>
+    </div>
+  </div>
+
+  <h1 class="reveal reveal-delay-2">
+    Nourish Your<br>
+    <em>Body &</em> <span class="gold-word">Soul</span>
+  </h1>
+
+  <p class="hero-tagline reveal reveal-delay-3">
+    Hand-crafted, plant-based meals rooted in Caribbean flavour.<br>
+    Fresh. Intentional. Unapologetically delicious.
+  </p>
+
+  <div class="hero-actions reveal reveal-delay-4">
+    <a href="#menu" class="btn-primary">🌿 View Full Menu</a>
+    <a href="https://wa.me/17584892828" class="btn-secondary" target="_blank">📱 Order via WhatsApp</a>
+  </div>
+
+  <div class="hero-badges reveal reveal-delay-4">
+    <div class="hero-badge"><div class="badge-dot"></div> 100% Plant-Based</div>
+    <div class="hero-badge"><div class="badge-dot"></div> Fresh Daily</div>
+    <div class="hero-badge"><div class="badge-dot"></div> Delivery Available</div>
+    <div class="hero-badge"><div class="badge-dot"></div> GIMIES Nominated Chef</div>
+  </div>
+</section>
+
+<!-- ABOUT / CHEF -->
+<section class="section-about" id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="section-eyebrow reveal">The Chef Behind the Vision</p>
+      <h2 class="section-title reveal reveal-delay-1">Ngugi Lucien —<br><em>From Passion to Profession</em></h2>
+      <p class="about-text reveal reveal-delay-2">
+        What started as a deeply personal commitment to health and the Caribbean land became something far greater. 
+        Ngugi built Grassrootz from the ground up — sourcing fresh, honest ingredients and transforming them into 
+        plant-based meals that don't ask you to sacrifice pleasure for principle. 
+        The result is a cuisine that is nutritious without apology, and delicious without compromise.
+      </p>
+      <div class="gimies-badge reveal reveal-delay-3">
+        <span class="gimies-icon">🏆</span>
+        <div class="gimies-text">
+          <strong>GIMIES People's Choice Nominee</strong>
+          Saint Lucia Hospitality &amp; Tourism Association
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-stat">
+        <span class="about-stat-num">4K+</span>
+        <span class="about-stat-label">Community Followers</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-label">Plant-Based</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">5</span>
+        <span class="about-stat-label">Days a Week</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">🏆</span>
+        <span class="about-stat-label">Award Nominated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider">
+  <div class="gold-divider-line"></div>
+  <div class="gold-divider-icon">🌿</div>
+  <div class="gold-divider-line"></div>
+</div>
+
+<!-- MENU -->
+<section class="section-menu" id="menu">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Daily Offerings</p>
+    <h2 class="section-title reveal reveal-delay-1">The <em>Grassrootz</em> Menu</h2>
+    <p class="section-sub reveal reveal-delay-2">Nutritious. Delicious. Prepared fresh each day.</p>
+  </div>
+
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" onclick="switchTab(this,'daily')">Daily Meals</button>
+    <button class="menu-tab" onclick="switchTab(this,'featured')">Featured</button>
+    <button class="menu-tab" onclick="switchTab(this,'sides')">Sides &amp; Extras</button>
+  </div>
+
+  <div id="tab-daily" class="menu-panel active">
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-card-img">🥗</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Tue – Fri</p>
+          <h3 class="menu-card-name">Vegan Bouillon — Coalpot Style</h3>
+          <p class="menu-card-desc">A rich, aromatic broth cooked the traditional Caribbean way over a coalpot. Packed with ground provisions and seasonal vegetables.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Call <span>for pricing</span></div>
+            <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%20want%20to%20order%20the%20Vegan%20Bouillon" class="menu-card-btn" target="_blank">Order 💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="menu-card-img">🌽</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Tue – Fri</p>
+          <h3 class="menu-card-name">Plant-Based Plates</h3>
+          <p class="menu-card-desc">Rotating daily specials featuring the freshest local produce. Think roasted plantains, lentil stews, grain bowls and vibrant Caribbean salads.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Call <span>for today's special</span></div>
+            <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20What%20is%20today's%20special?" class="menu-card-btn" target="_blank">Ask Today 💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card featured reveal reveal-delay-2">
+        <div class="menu-card-img">🫚</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Daily Special — Most Popular</p>
+          <h3 class="menu-card-name">The Grassrootz Full Plate</h3>
+          <p class="menu-card-desc">Our signature daily plate — a hearty combination of protein-rich legumes, roasted ground provisions, steamed rice and a vibrant slaw. Everything your body needs, nothing it doesn't.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Market <span>price daily</span></div>
+            <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%20want%20to%20order%20a%20full%20plate" class="menu-card-btn" target="_blank">Order Now 💬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-featured" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-card-img">🍕</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Every Saturday</p>
+          <h3 class="menu-card-name">Vegan Pizza Night</h3>
+          <p class="menu-card-desc">Gluten-free coconut flour crust, cashew cheese sauce, loaded with fresh toppings. A Grassrootz Saturday tradition.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$40 <span>12-inch</span></div>
+            <a href="#pizza" class="menu-card-btn">See Details →</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Retail — Take Home</p>
+          <h3 class="menu-card-name">Veggie Spring Rolls</h3>
+          <p class="menu-card-desc">Made with fresh ingredients. Frozen for your convenience. Comes with a complimentary sweet chili sauce. Ready when you are.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Order <span>to enquire</span></div>
+            <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%27d%20like%20to%20order%20Veggie%20Spring%20Rolls" class="menu-card-btn" target="_blank">Order 💬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-sides" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-card-img">🍌</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Baked Fresh</p>
+          <h3 class="menu-card-name">Vegan Banana Bread</h3>
+          <p class="menu-card-desc">Dense, moist, naturally sweetened. The kind that makes you wonder why you ever needed dairy.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Ask <span>for availability</span></div>
+            <a href="https://wa.me/17584892828?text=Hi!%20Is%20Banana%20Bread%20available%20today?" class="menu-card-btn" target="_blank">Enquire 💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img">🫐</div>
+        <div class="menu-card-body">
+          <p class="menu-card-label">Handcrafted</p>
+          <h3 class="menu-card-name">Vegan Cheesecake</h3>
+          <p class="menu-card-desc">Creamy, indulgent, and entirely plant-based. The dessert that converts non-believers.</p>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">Ask <span>for availability</span></div>
+            <a href="https://wa.me/17584892828?text=Hi!%20Is%20Cheesecake%20available?" class="menu-card-btn" target="_blank">Enquire 💬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIZZA NIGHT -->
+<section class="section-pizza" id="pizza">
+  <div class="pizza-inner">
+    <div class="pizza-left">
+      <p class="section-eyebrow reveal">Every Saturday</p>
+      <h2 class="section-title reveal reveal-delay-1">Vegan<br><em>Pizza Night</em></h2>
+      <p class="section-sub reveal reveal-delay-1">A Marisule tradition, every Saturday evening</p>
+      <div class="pizza-details reveal reveal-delay-2">
+        <div class="pizza-detail">
+          <div class="pizza-detail-icon">🕕</div>
+          <div class="pizza-detail-text">
+            <strong>Hours</strong>
+            6:00 PM – 9:00 PM
+          </div>
+        </div>
+        <div class="pizza-detail">
+          <div class="pizza-detail-icon">📍</div>
+          <div class="pizza-detail-text">
+            <strong>Location</strong>
+            Marisule, Gros Islet, Saint Lucia
+          </div>
+        </div>
+        <div class="pizza-detail">
+          <div class="pizza-detail-icon">🚗</div>
+          <div class="pizza-detail-text">
+            <strong>Delivery Zone</strong>
+            North – Castries · Delivery fee: $5 XCD
+          </div>
+        </div>
+        <div class="pizza-detail">
+          <div class="pizza-detail-icon">📞</div>
+          <div class="pizza-detail-text">
+            <strong>Pre-Order Required</strong>
+            Call or WhatsApp to secure your pie
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%27d%20like%20to%20pre-order%20a%20Vegan%20Pizza%20for%20Saturday" class="btn-primary reveal reveal-delay-3" target="_blank">Pre-Order Your Pizza →</a>
+    </div>
+    <div class="pizza-right reveal reveal-delay-2">
+      <div class="pizza-visual">
+        <span class="pizza-emoji">🍕</span>
+        <span class="pizza-price-tag">$40</span>
+        <p class="pizza-price-desc">12-inch gluten-free coconut flour crust · Cashew cheese sauce</p>
+        <div class="pizza-toppings">
+          <span class="topping-chip">🫑 Bell Peppers</span>
+          <span class="topping-chip">🧅 Red Onions</span>
+          <span class="topping-chip">🌽 Corn</span>
+          <span class="topping-chip">🟫 BBQ Tofu</span>
+          <span class="topping-chip">+ Delivery $5</span>
+        </div>
+        <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%27d%20like%20to%20pre-order%20a%20Saturday%20Vegan%20Pizza" class="btn-primary" target="_blank" style="width:100%;justify-content:center;">📱 Reserve My Pizza</a>
+        <p class="pizza-note">Limited pies each Saturday — preorder to guarantee yours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section-products" id="products">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Take Grassrootz Home</p>
+    <h2 class="section-title reveal reveal-delay-1">Shop Our <em>Products</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Frozen, fresh-prepared — ready when your hunger calls</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card reveal">
+      <span class="product-icon">🥟</span>
+      <h3 class="product-name">Veggie Spring Rolls</h3>
+      <p class="product-desc">Fresh-ingredient veggie rolls, frozen for your convenience. Comes with a complimentary sweet chili sauce. Fry or bake — crispy perfection every time.</p>
+      <span class="product-tag">🌿 Frozen · Ready to Cook</span>
+      <a href="https://wa.me/17584892828?text=Hi!%20I%27d%20like%20to%20order%20Veggie%20Spring%20Rolls" class="btn-primary" target="_blank">Order via WhatsApp</a>
+    </div>
+    <div class="product-card reveal reveal-delay-1">
+      <span class="product-icon">🍞</span>
+      <h3 class="product-name">Vegan Banana Bread</h3>
+      <p class="product-desc">Baked fresh in small batches. Naturally sweetened, dairy-free, and deeply satisfying. Perfect for breakfast or a clean snack on the go.</p>
+      <span class="product-tag">🍌 Freshly Baked · Limited Batches</span>
+      <a href="https://wa.me/17584892828?text=Hi!%20Is%20Banana%20Bread%20available?" class="btn-primary" target="_blank">Check Availability</a>
+    </div>
+    <div class="product-card reveal reveal-delay-2">
+      <span class="product-icon">🎪</span>
+      <h3 class="product-name">Event Catering</h3>
+      <p class="product-desc">Bringing the Grassrootz experience to your gathering. From intimate dinners to community events — vegan cuisine that impresses even the skeptics.</p>
+      <span class="product-tag">📅 By Request · Enquire Early</span>
+      <a href="https://wa.me/17584892828?text=Hi!%20I%27m%20interested%20in%20catering%20for%20an%20event" class="btn-primary" target="_blank">Enquire Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="section-order" id="order">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Simple Process</p>
+    <h2 class="section-title reveal reveal-delay-1">How to <em>Order</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Three steps between you and your next great meal</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <h3 class="step-title">Browse & Choose</h3>
+      <p class="step-desc">Explore our daily menu and seasonal specials. Decide what nourishes you today.</p>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-num">2</div>
+      <h3 class="step-title">WhatsApp Us</h3>
+      <p class="step-desc">Send us a quick message on WhatsApp with your order. We'll confirm and give you a time.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-num">3</div>
+      <h3 class="step-title">Receive & Enjoy</h3>
+      <p class="step-desc">Pick up at Marisule or we deliver straight to you across North–Castries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-testimonials">
+  <div class="testimonial-strip">
+    <div class="testimonial reveal">
+      <div class="star-row">★★★★★</div>
+      <p class="testimonial-text">Grassrootz changed how I think about food. Ngugi cooks with real intention — every plate tells you something was made with care. I don't miss meat at all anymore.</p>
+      <span class="testimonial-author">— Saint Lucia Community Member</span>
+    </div>
+    <div class="testimonial reveal reveal-delay-1">
+      <div class="star-row">★★★★★</div>
+      <p class="testimonial-text">The vegan pizza on Saturday is something special. A coconut flour crust with cashew cheese sounds like it shouldn't work. It absolutely works. My family preorders every week now.</p>
+      <span class="testimonial-author">— Saturday Pizza Night Regular</span>
+    </div>
+    <div class="testimonial reveal reveal-delay-2">
+      <div class="star-row">★★★★★</div>
+      <p class="testimonial-text">I keep the spring rolls in my freezer at all times. That sweet chili sauce they include — it's the finishing touch that makes the whole thing. Consistently brilliant.</p>
+      <span class="testimonial-author">— Loyal Customer, Castries</span>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section-location" id="location">
+  <div class="section-header">
+    <p class="section-eyebrow reveal">Find Us</p>
+    <h2 class="section-title reveal reveal-delay-1">Location & <em>Hours</em></h2>
+  </div>
+  <div class="location-inner">
+    <div class="location-card reveal">
+      <div class="location-item">
+        <div class="location-item-icon">📍</div>
+        <div>
+          <p class="location-item-label">Address</p>
+          <p class="location-item-value">Bonne Terre / Marisule<br>Gros Islet, Saint Lucia</p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">📞</div>
+        <div>
+          <p class="location-item-label">Phone / WhatsApp</p>
+          <p class="location-item-value"><a href="https://wa.me/17584892828">(758) 489-2828</a></p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">✉️</div>
+        <div>
+          <p class="location-item-label">Email</p>
+          <p class="location-item-value"><a href="mailto:grassrootzvegan758@gmail.com">grassrootzvegan758@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">🚗</div>
+        <div>
+          <p class="location-item-label">Delivery Zone</p>
+          <p class="location-item-value">North Saint Lucia — Castries corridor<br><em style="font-size:0.9rem;color:var(--text-lt);">Delivery fee: $5 XCD</em></p>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">📱</div>
+        <div>
+          <p class="location-item-label">Instagram</p>
+          <p class="location-item-value"><a href="https://www.instagram.com/grassrootzvegan758" target="_blank">@grassrootzvegan758</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="section-eyebrow" style="text-align:left;margin-bottom:24px;">Opening Hours</div>
+      <div class="hours-grid">
+        <div class="hours-item">
+          <p class="hours-day">Tuesday</p>
+          <p class="hours-time">Open for Orders</p>
+        </div>
+        <div class="hours-item">
+          <p class="hours-day">Wednesday</p>
+          <p class="hours-time">Open for Orders</p>
+        </div>
+        <div class="hours-item">
+          <p class="hours-day">Thursday</p>
+          <p class="hours-time">Open for Orders</p>
+        </div>
+        <div class="hours-item">
+          <p class="hours-day">Friday</p>
+          <p class="hours-time">Open for Orders</p>
+        </div>
+        <div class="hours-item special">
+          <p class="hours-day">🍕 Saturday</p>
+          <p class="hours-time">Pizza Night 6–9 PM</p>
+        </div>
+        <div class="hours-item">
+          <p class="hours-day">Sunday – Mon</p>
+          <p class="hours-time">Closed</p>
+        </div>
+      </div>
+      <div style="margin-top:28px; padding:22px 24px; background:rgba(200,151,58,0.08); border:1px solid rgba(200,151,58,0.2); border-radius:2px;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--text-md); font-style:italic; line-height:1.65;">
+          💡 <strong style="font-style:normal;color:var(--gold);">Pro tip:</strong> WhatsApp your order before 11AM for same-day delivery, or pre-order your Saturday pizza before Friday evening to guarantee your spot.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="section-cta">
+  <h2 class="cta-title reveal">Your Next<br>Great Meal Awaits</h2>
+  <p class="cta-sub reveal reveal-delay-1">Tap below. Order in seconds. Eat well today.</p>
+  <div class="cta-actions reveal reveal-delay-2">
+    <a href="https://wa.me/17584892828?text=Hi%20Grassrootz!%20I%27d%20like%20to%20place%20an%20order" class="btn-cta-primary" target="_blank">💬 Order on WhatsApp</a>
+    <a href="https://www.instagram.com/grassrootzvegan758" class="btn-cta-secondary" target="_blank">📸 Follow on Instagram</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        Grassrootz
+        <span>Vegan Cuisine · Saint Lucia</span>
+      </div>
+      <p class="footer-desc">Nutritious and delicious plant-based meals, prepared fresh in the heart of Gros Islet. Rooted in Caribbean tradition. Built on clean ingredients.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/grassrootzvegan758" class="social-link" target="_blank" title="Instagram">📸</a>
+        <a href="https://wa.me/17584892828" class="social-link" target="_blank" title="WhatsApp">💬</a>
+        <a href="mailto:grassrootzvegan758@gmail.com" class="social-link" title="Email">✉️</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Menu</p>
+      <ul class="footer-links">
+        <li><a href="#menu">Daily Meals</a></li>
+        <li><a href="#pizza">Pizza Night</a></li>
+        <li><a href="#products">Spring Rolls</a></li>
+        <li><a href="#products">Catering</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Order</p>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/17584892828">WhatsApp Order</a></li>
+        <li><a href="tel:+17584892828">Call Us</a></li>
+        <li><a href="#order">How It Works</a></li>
+        <li><a href="#location">Delivery Info</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/grassrootzvegan758" target="_blank">Instagram</a></li>
+        <li><a href="#about">About Ngugi</a></li>
+        <li><a href="#location">Find Us</a></li>
+        <li><a href="mailto:grassrootzvegan758@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Grassrootz Vegan Cuisine · Bonne Terre, Gros Islet, Saint Lucia</span>
+    <span>Powered by JamaLinks · Built for Caribbean Food Excellence</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Trigger hero reveals immediately
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 100);
+
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Menu tabs
+  function switchTab(btn, id) {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+</script>
+</body>
+</html>
