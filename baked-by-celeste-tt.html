@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baked By Celeste — Premium Quality Bakery. Custom cakes, fresh breads, and artisan pastries. South based, Trinidad. Order via WhatsApp.">
+  <meta property="og:title" content="Baked By Celeste | Premium Quality Bakery · Trinidad 🇹🇹">
+  <meta property="og:description" content="Life is what you bake it! Custom cakes, breads & pastries. South Trinidad.">
+  <title>Baked By Celeste 🇹🇹 | Premium Quality Bakery</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Font Awesome (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    /* ── VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --deep:           #0B0408;
+      --surface:        #160A0E;
+      --card-bg:        #1E0D13;
+      --card-border:    rgba(212,25,109,0.16);
+      --pink:           #D4196D;
+      --pink-hover:     #E8207A;
+      --pink-soft:      rgba(212,25,109,0.10);
+      --gold:           #D4A843;
+      --gold-light:     #ECC96A;
+      --gold-soft:      rgba(212,168,67,0.10);
+      --cream:          #FDF6F0;
+      --text-body:      #E8D6D0;
+      --text-muted:     #9A7080;
+      --wa:             #25D366;
+      --glow-pink:      rgba(212,25,109,0.30);
+      --glow-gold:      rgba(212,168,67,0.22);
+      --ease:           cubic-bezier(.25,.46,.45,.94);
+      --r-card:         1.25rem;
+      --r-pill:         3rem;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deep);
+      color: var(--text-body);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ─────────────────────────────────────────── */
+    .text-pink  { color: var(--pink); }
+    .text-gold  { color: var(--gold); }
+    .text-cream { color: var(--cream); }
+
+    .section-pad { padding: 6rem 0; }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--pink);
+      opacity: .45;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.15;
+    }
+    .section-heading span { color: var(--pink); }
+
+    .section-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* ── NAVBAR ────────────────────────────────────────────── */
+    .nav-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(11,4,8,.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 0;
+      transition: padding .3s var(--ease), background .3s var(--ease);
+    }
+    .nav-bar.scrolled {
+      padding: .65rem 0;
+      background: rgba(11,4,8,.97);
+    }
+
+    .brand-link {
+      display: flex; align-items: center; gap: .7rem;
+      text-decoration: none;
+    }
+    .brand-orb {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), #8B0D47);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; color: #fff; flex-shrink: 0;
+      box-shadow: 0 0 14px var(--glow-pink);
+    }
+    .brand-top  { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); line-height: 1; font-weight: 500; }
+    .brand-name { font-family: 'Great Vibes', cursive; font-size: 1.45rem; color: var(--cream); line-height: 1; }
+
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-link-item {
+      color: var(--text-muted); font-size: .78rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem .8rem; text-decoration: none;
+      border-radius: 2rem; transition: color .25s;
+    }
+    .nav-link-item:hover { color: var(--cream); }
+
+    .btn-nav {
+      background: linear-gradient(135deg, var(--pink), #8B0D47);
+      color: #fff; border: none; border-radius: var(--r-pill);
+      padding: .44rem 1.2rem; font-size: .75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 0 14px var(--glow-pink);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .btn-nav:hover { color: #fff; box-shadow: 0 0 24px var(--glow-pink); transform: translateY(-1px); }
+
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center;
+      overflow: hidden; padding-top: 80px;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 78% 18%, rgba(212,25,109,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 45% at 18% 82%, rgba(212,168,67,.07) 0%, transparent 55%),
+        linear-gradient(180deg, #160A0E 0%, var(--deep) 100%);
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+
+    .blob { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; }
+    .blob-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(212,25,109,.11) 0%, transparent 70%);
+      top: -120px; right: -80px;
+      animation: blobDrift 9s ease-in-out infinite;
+    }
+    .blob-2 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(212,168,67,.07) 0%, transparent 70%);
+      bottom: 40px; left: -60px;
+      animation: blobDrift 11s ease-in-out infinite reverse;
+    }
+    @keyframes blobDrift {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-28px) scale(1.06); }
+    }
+
+    /* Floating petals */
+    .petal {
+      position: absolute; border-radius: 50% 0 50% 0;
+      background: var(--pink); opacity: 0; z-index: 1;
+      animation: petalFall linear infinite;
+      pointer-events: none;
+    }
+    @keyframes petalFall {
+      0%   { transform: translateY(-10px) rotate(0deg);   opacity: .55; }
+      100% { transform: translateY(100vh) rotate(400deg); opacity: 0;   }
+    }
+
+    .hero-inner { position: relative; z-index: 2; width: 100%; }
+
+    /* Badge */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--gold-soft); border: 1px solid rgba(212,168,67,.28);
+      border-radius: 2rem; padding: .38rem 1rem;
+      font-size: .68rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.45; transform:scale(.75); }
+    }
+
+    .hero-locale {
+      font-size: .72rem; font-weight: 500; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: .75rem;
+    }
+
+    .title-baked {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(.9rem, 2.5vw, 1.2rem);
+      font-weight: 300; letter-spacing: .45em;
+      text-transform: uppercase; color: var(--text-muted);
+      display: block; line-height: 1;
+    }
+    .title-celeste {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4rem, 11vw, 7rem);
+      color: var(--cream); line-height: .9; display: block;
+      text-shadow: 0 0 60px rgba(212,25,109,.28);
+    }
+    .title-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(.58rem, 1.4vw, .78rem);
+      font-weight: 500; letter-spacing: .4em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-top: .5rem;
+    }
+
+    .hero-rule {
+      width: 72px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+      margin: 1.75rem 0;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2.4vw, 1.38rem);
+      font-weight: 300; font-style: italic;
+      color: var(--text-body); line-height: 1.65;
+      max-width: 460px;
+    }
+    .hero-tagline em { font-style: normal; color: var(--pink); }
+
+    /* CTA buttons */
+    .btn-pink {
+      background: linear-gradient(135deg, var(--pink) 0%, #8B0D47 100%);
+      color: #fff; border: none; border-radius: var(--r-pill);
+      padding: .85rem 2rem; font-size: .8rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; display: inline-flex; align-items: center; gap: .55rem;
+      box-shadow: 0 4px 24px var(--glow-pink);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      position: relative; overflow: hidden;
+    }
+    .btn-pink::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.09), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .btn-pink:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 8px 36px var(--glow-pink); }
+    .btn-pink:hover::after { opacity: 1; }
+
+    .btn-ghost {
+      background: transparent; color: var(--cream);
+      border: 1px solid rgba(253,246,240,.22); border-radius: var(--r-pill);
+      padding: .85rem 2rem; font-size: .8rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; display: inline-flex; align-items: center; gap: .55rem;
+      transition: border-color .3s, color .3s, transform .3s;
+    }
+    .btn-ghost:hover { color: var(--pink); border-color: var(--pink); transform: translateY(-2px); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.055);
+    }
+    .stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600; color: var(--cream);
+      line-height: 1; display: block;
+    }
+    .stat-lbl {
+      font-size: .65rem; font-weight: 500; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--text-muted);
+      display: block; margin-top: .2rem;
+    }
+
+    /* Hero orbital emblem */
+    .orbit-wrap {
+      width: min(360px, 88vw); height: min(360px, 88vw);
+      margin: 0 auto; position: relative;
+    }
+    .orbit-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid var(--card-border);
+      animation: ringTurn 24s linear infinite;
+    }
+    .orbit-ring::before {
+      content: ''; position: absolute; inset: 14px; border-radius: 50%;
+      border: 1px solid rgba(212,168,67,.1);
+    }
+    .orbit-ring::after {
+      content: ''; position: absolute; inset: 28px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,25,109,.09) 0%, rgba(11,4,8,.85) 65%);
+    }
+    @keyframes ringTurn { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+
+    .orbit-dot {
+      position: absolute; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--pink); box-shadow: 0 0 10px var(--glow-pink);
+    }
+    .od-n { top: -5px;    left: 50%; transform: translateX(-50%); }
+    .od-s { bottom: -5px; left: 50%; transform: translateX(-50%); background: var(--gold); box-shadow: 0 0 10px var(--glow-gold); }
+    .od-w { left: -5px;   top: 50%;  transform: translateY(-50%); }
+    .od-e { right: -5px;  top: 50%;  transform: translateY(-50%); }
+
+    .orbit-center {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; z-index: 1;
+      animation: ringTurn 24s linear infinite reverse;
+    }
+    .orbit-icon  { font-size: 3.5rem; filter: drop-shadow(0 0 18px rgba(212,25,109,.5)); }
+    .orbit-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .85rem; font-weight: 300; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-muted); margin-top: .4rem;
+    }
+
+    /* ── TICKER ────────────────────────────────────────────── */
+    .ticker-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: .85rem 0; overflow: hidden; position: relative;
+    }
+    .ticker-bar::before, .ticker-bar::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1;
+      pointer-events: none;
+    }
+    .ticker-bar::before { left: 0;  background: linear-gradient(90deg, var(--surface), transparent); }
+    .ticker-bar::after  { right: 0; background: linear-gradient(-90deg, var(--surface), transparent); }
+
+    .ticker-track {
+      display: flex; gap: 2.5rem;
+      animation: tick 22s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: .65rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold); flex-shrink: 0;
+    }
+    .ticker-sep { color: var(--pink); font-size: .9rem; }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── MENU SECTION ──────────────────────────────────────── */
+    .menu-section {
+      background:
+        radial-gradient(ellipse 55% 50% at 100% 55%, rgba(212,25,109,.055) 0%, transparent 60%),
+        var(--surface);
+    }
+
+    /* Filter */
+    .filter-row { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+    .filter-btn {
+      background: transparent; color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,.08); border-radius: 2rem;
+      padding: .46rem 1.2rem; font-size: .75rem; font-weight: 500;
+      letter-spacing: .07em; cursor: pointer;
+      transition: background .25s, border-color .25s, color .25s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(212,25,109,.14);
+      border-color: var(--pink); color: #F06292;
+    }
+
+    /* Cards */
+    .p-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: var(--r-card); overflow: hidden; height: 100%;
+      position: relative; transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+    }
+    .p-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: var(--r-card);
+      background: linear-gradient(135deg, rgba(212,25,109,.055) 0%, transparent 60%);
+      opacity: 0; transition: opacity .35s; z-index: 0;
+    }
+    .p-card:hover { transform: translateY(-6px); border-color: rgba(212,25,109,.32); box-shadow: 0 20px 45px rgba(0,0,0,.28), 0 0 28px rgba(212,25,109,.1); }
+    .p-card:hover::before { opacity: 1; }
+
+    .p-card-top { padding: 1.75rem 1.75rem 1rem; position: relative; z-index: 1; }
+    .p-card-body { padding: 0 1.75rem 1.75rem; position: relative; z-index: 1; }
+
+    .card-icon-box {
+      width: 58px; height: 58px; border-radius: .9rem;
+      background: var(--pink-soft); border: 1px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1.1rem;
+      transition: transform .3s, background .3s;
+    }
+    .p-card:hover .card-icon-box { transform: scale(1.1); background: rgba(212,25,109,.18); }
+
+    .card-pill {
+      display: inline-block; border-radius: 1.5rem;
+      padding: .2rem .75rem; font-size: .62rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: .7rem;
+    }
+    .pill-gold    { background: var(--gold-soft); color: var(--gold);      border: 1px solid rgba(212,168,67,.22); }
+    .pill-pink    { background: var(--pink-soft); color: #F06292;           border: 1px solid var(--card-border);  }
+    .pill-special {
+      background: linear-gradient(135deg, rgba(212,25,109,.18), rgba(212,168,67,.1));
+      color: var(--gold-light); border: 1px solid rgba(212,168,67,.28);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%,100% { opacity:1; } 50% { opacity:.65; } }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; font-weight: 600; color: var(--cream); margin-bottom: .5rem;
+    }
+    .card-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.7; margin-bottom: .9rem; }
+    .card-list { list-style: none; padding: 0; margin: 0 0 1.1rem; }
+    .card-list li {
+      font-size: .78rem; color: var(--text-muted); padding: .28rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .card-list li::before { content: '✦'; color: var(--pink); font-size: .48rem; flex-shrink: 0; }
+
+    .card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600; color: var(--gold); margin-bottom: 1.1rem;
+    }
+    .card-price small { font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:400; color:var(--text-muted); margin-left:.3rem; }
+
+    .btn-wa {
+      background: transparent; color: var(--wa);
+      border: 1px solid rgba(37,211,102,.28); border-radius: var(--r-pill);
+      padding: .58rem 1.2rem; font-size: .75rem; font-weight: 600;
+      letter-spacing: .06em; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      width: 100%; transition: background .25s, border-color .25s, transform .25s;
+    }
+    .btn-wa:hover { background: rgba(37,211,102,.1); border-color: var(--wa); color: var(--wa); transform: translateY(-1px); }
+
+    /* Mother's Day card */
+    .md-card {
+      background: linear-gradient(135deg, #1C0B12 0%, #130810 100%);
+      border-color: rgba(212,168,67,.22);
+      position: relative; overflow: hidden;
+    }
+    .md-card::after {
+      content: '🌸'; position: absolute; top: 1.2rem; right: 1.4rem;
+      font-size: 3.2rem; opacity: .1; filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .pkg-box {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(212,168,67,.15);
+      border-radius: 1rem; padding: 1.1rem;
+    }
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: .4rem;
+    }
+    .pkg-desc { font-size: .78rem; color: var(--text-muted); line-height: 1.6; }
+
+    .pickup-box {
+      background: var(--gold-soft); border: 1px solid rgba(212,168,67,.18);
+      border-radius: .75rem; padding: .9rem 1rem; margin-bottom: 1.1rem;
+    }
+    .pickup-label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+    .pickup-info  { font-size: .79rem; color: var(--text-muted); }
+
+    /* ── ORDER SECTION ─────────────────────────────────────── */
+    .order-section {
+      background: var(--deep);
+      position: relative; overflow: hidden;
+    }
+    .order-section::before {
+      content: ''; position: absolute;
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,25,109,.055) 0%, transparent 70%);
+      top: -200px; left: -180px; pointer-events: none;
+    }
+
+    /* Steps */
+    .steps-wrap { position: relative; }
+    .steps-line {
+      position: absolute; left: 23px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--pink), rgba(212,25,109,.06));
+    }
+
+    .step { display: flex; gap: 1.4rem; padding: 1.4rem 0; }
+    .step-num {
+      width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--pink);
+      position: relative; z-index: 1;
+      transition: background .3s, border-color .3s, box-shadow .3s;
+    }
+    .step:hover .step-num { background: rgba(212,25,109,.14); border-color: var(--pink); box-shadow: 0 0 14px var(--glow-pink); }
+    .step-info { flex: 1; padding-top: .2rem; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); margin-bottom: .25rem; }
+    .step-desc  { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA box */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212,25,109,.11) 0%, rgba(212,168,67,.06) 100%);
+      border: 1px solid var(--card-border); border-radius: 1.5rem; padding: 3rem 2.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 28% 50%, rgba(212,25,109,.07) 0%, transparent 50%),
+        radial-gradient(circle at 72% 50%, rgba(212,168,67,.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cta-overline { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 4vw, 2.7rem); font-weight: 600;
+      color: var(--cream); line-height: 1.2;
+      margin: .6rem 0; position: relative; z-index: 1;
+    }
+    .cta-sub {
+      font-family: 'Cormorant Garamond', serif; font-size: .98rem;
+      font-style: italic; color: var(--text-muted);
+      margin: 0 auto 2rem; max-width: 420px; position: relative; z-index: 1;
+    }
+
+    .btn-wa-main {
+      background: linear-gradient(135deg, #128C7E 0%, var(--wa) 100%);
+      color: #fff; border: none; border-radius: var(--r-pill);
+      padding: 1rem 2.5rem; font-size: .85rem; font-weight: 600;
+      letter-spacing: .09em; text-transform: uppercase;
+      text-decoration: none; display: inline-flex; align-items: center; gap: .7rem;
+      box-shadow: 0 4px 24px rgba(37,211,102,.3); position: relative; z-index: 1;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-wa-main:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,.42); }
+
+    .cta-icons { position: relative; z-index: 1; }
+    .cta-icon-lbl { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-top: .35rem; }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: #07030A;
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 0; text-align: center;
+    }
+    .footer-name { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--cream); display: block; }
+    .footer-tagline { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--text-muted); }
+    .footer-rule { width: 36px; height: 1px; background: var(--pink); margin: 1.5rem auto; }
+    .footer-nav { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .footer-link { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color .25s; }
+    .footer-link:hover { color: var(--pink); }
+    .footer-credit { font-size: .68rem; color: rgba(255,255,255,.18); }
+    .footer-credit a { color: rgba(212,25,109,.45); text-decoration: none; transition: color .25s; }
+    .footer-credit a:hover { color: var(--pink); }
+
+    /* ── FLOATING WA ───────────────────────────────────────── */
+    .wa-float { position: fixed; bottom: 26px; right: 22px; z-index: 9999; }
+    .wa-float a {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, #128C7E 0%, var(--wa) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.4rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,.38);
+      animation: waPulse 2.6s ease-in-out infinite;
+      transition: transform .3s;
+    }
+    .wa-float a:hover { transform: scale(1.12); }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.38), 0 0 0 0 rgba(37,211,102,.28); }
+      50%      { box-shadow: 0 4px 20px rgba(37,211,102,.38), 0 0 0 10px rgba(37,211,102,0); }
+    }
+
+    /* ── HIDDEN STATE ──────────────────────────────────────── */
+    .p-wrap { transition: opacity .3s, transform .3s; }
+    .p-wrap.hidden { display: none; }
+
+    /* ── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .hero-stats { gap: 1.6rem; }
+      .stat-val { font-size: 1.55rem; }
+      .orbit-wrap { width: 240px; height: 240px; }
+      .orbit-icon { font-size: 2.8rem; }
+      .hero-decoration { margin-top: 2.5rem; }
+      .cta-box { padding: 2rem 1.5rem; }
+      .btn-pink, .btn-ghost { width: 100%; justify-content: center; }
+      .hero-ctas { flex-direction: column; }
+      .filter-btn { font-size: .7rem; padding: .4rem .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAVBAR ══════════════════════ -->
+<nav class="nav-bar" id="navbar" aria-label="Main navigation">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="brand-link" href="#home" aria-label="Baked By Celeste home">
+      <div class="brand-orb" aria-hidden="true">🎂</div>
+      <div>
+        <span class="brand-top">Baked By</span>
+        <span class="brand-name">Celeste</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#menu"  class="nav-link-item d-none d-md-inline">Menu</a>
+      <a href="#order" class="nav-link-item d-none d-md-inline">Order</a>
+      <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20%F0%9F%8E%82%20I'd%20love%20to%20place%20an%20order.%20Can%20you%20help%20me%20get%20started?"
+         class="btn-nav" target="_blank" rel="noopener noreferrer"
+         aria-label="Order via WhatsApp">
+        Order Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ════════════════════════ -->
+<section class="hero" id="home" aria-label="Welcome to Baked By Celeste">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
+  <!-- Floating petals -->
+  <span class="petal" style="left:8%;  width:7px; height:7px; animation-duration:9s;  animation-delay:0s;"  aria-hidden="true"></span>
+  <span class="petal" style="left:22%; width:5px; height:5px; animation-duration:12s; animation-delay:1.5s;" aria-hidden="true"></span>
+  <span class="petal" style="left:48%; width:6px; height:6px; animation-duration:10s; animation-delay:3s;  background:var(--gold);" aria-hidden="true"></span>
+  <span class="petal" style="left:68%; width:5px; height:5px; animation-duration:8s;  animation-delay:.8s;"  aria-hidden="true"></span>
+  <span class="petal" style="left:87%; width:7px; height:7px; animation-duration:11s; animation-delay:2s;"  aria-hidden="true"></span>
+
+  <div class="container hero-inner py-5">
+    <div class="row align-items-center">
+
+      <!-- Left -->
+      <div class="col-lg-7" data-aos="fade-right" data-aos-duration="850">
+        <div class="hero-badge" role="status">
+          <span class="badge-dot" aria-hidden="true"></span>
+          🌸 Mother's Day Orders — Closing May 7th
+        </div>
+        <p class="hero-locale">South Based · Trinidad 🇹🇹</p>
+
+        <div class="mb-1">
+          <span class="title-baked">Baked By</span>
+          <span class="title-celeste">Celeste</span>
+          <span class="title-sub">Premium Quality Bakery</span>
+        </div>
+
+        <div class="hero-rule" aria-hidden="true"></div>
+
+        <p class="hero-tagline">
+          <em>Life is what you bake it!</em><br>
+          Come experience the Art of baking, elevated.<br>
+          Where every bite, is a Delight!
+        </p>
+
+        <div class="d-flex gap-3 flex-wrap hero-ctas mt-4">
+          <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20%F0%9F%8E%82%20I%20found%20your%20bakery%20and%20I'd%20love%20to%20place%20an%20order.%20Can%20you%20help%20me?"
+             class="btn-pink" target="_blank" rel="noopener noreferrer"
+             aria-label="Order via WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Order via WhatsApp
+          </a>
+          <a href="#menu" class="btn-ghost" aria-label="Browse the menu">
+            <i class="fas fa-utensils" aria-hidden="true"></i>
+            Browse the Menu
+          </a>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Bakery highlights">
+          <div class="stat" role="listitem">
+            <span class="stat-val">353+</span>
+            <span class="stat-lbl">Creations Posted</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-val">3</span>
+            <span class="stat-lbl">Product Ranges</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-val">South</span>
+            <span class="stat-lbl">Trinidad Based</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: orbital emblem -->
+      <div class="col-lg-5 d-flex justify-content-center" data-aos="fade-left" data-aos-duration="850" data-aos-delay="180">
+        <div class="hero-decoration">
+          <div class="orbit-wrap" role="img" aria-label="Baked By Celeste bakery emblem">
+            <div class="orbit-ring" aria-hidden="true">
+              <span class="orbit-dot od-n" aria-hidden="true"></span>
+              <span class="orbit-dot od-s" aria-hidden="true"></span>
+              <span class="orbit-dot od-w" aria-hidden="true"></span>
+              <span class="orbit-dot od-e" aria-hidden="true"></span>
+            </div>
+            <div class="orbit-center" aria-hidden="true">
+              <div class="orbit-icon">🎂</div>
+              <div class="orbit-label">Est. South TT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ TICKER ══════════════════════ -->
+<div class="ticker-bar" role="marquee" aria-label="Promotions and announcements">
+  <div class="ticker-track" aria-hidden="true">
+    <span class="ticker-item">🌸 <span>Mother's Day — Order Before May 7th</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🎂 <span>Bento Boxes from $110 TTD</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">📍 <span>Pickup: C3 Centre &amp; Brentwood Mall · Sat May 9th</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🍞 <span>Fresh Breads · Cakes · Pastries</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">💬 <span>DM to Place Your Order — Spots Are Limited</span></span>
+    <span class="ticker-sep">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">🌸 <span>Mother's Day — Order Before May 7th</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🎂 <span>Bento Boxes from $110 TTD</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">📍 <span>Pickup: C3 Centre &amp; Brentwood Mall · Sat May 9th</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🍞 <span>Fresh Breads · Cakes · Pastries</span></span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">💬 <span>DM to Place Your Order — Spots Are Limited</span></span>
+    <span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ MENU ════════════════════════ -->
+<section class="menu-section section-pad" id="menu" aria-label="Our baked creations">
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-eyebrow">Our Creations</div>
+      <h2 class="section-heading">Baked with <span>Love</span> &amp; Purpose</h2>
+      <p class="section-sub mt-2 mx-auto" style="max-width:480px;">
+        From artisan breads to celebration cakes — every creation is made fresh, made with care, made for you.
+      </p>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-row" role="group" aria-label="Filter by product category" data-aos="fade-up" data-aos-delay="80">
+      <button class="filter-btn active" data-filter="all"     aria-pressed="true" >All</button>
+      <button class="filter-btn"        data-filter="cakes"   aria-pressed="false">🎂 Cakes</button>
+      <button class="filter-btn"        data-filter="breads"  aria-pressed="false">🍞 Breads</button>
+      <button class="filter-btn"        data-filter="pastries"aria-pressed="false">🥐 Pastries</button>
+      <button class="filter-btn"        data-filter="special" aria-pressed="false">🌸 Special</button>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- CAKES -->
+      <div class="col-md-6 col-lg-4 p-wrap" data-category="cakes" data-aos="fade-up" data-aos-delay="0">
+        <article class="p-card">
+          <div class="p-card-top">
+            <div class="card-icon-box" aria-hidden="true">🎂</div>
+            <span class="card-pill pill-pink">Custom Orders</span>
+          </div>
+          <div class="p-card-body">
+            <h3 class="card-title">Custom Cakes</h3>
+            <p class="card-desc">Celebration cakes designed to your exact vision. Birthdays, weddings, and every milestone in between.</p>
+            <ul class="card-list" aria-label="Custom cake offerings">
+              <li>Birthday &amp; Celebration Cakes</li>
+              <li>Wedding &amp; Tiered Cakes</li>
+              <li>Floral &amp; Botanical Designs</li>
+              <li>Photo &amp; Themed Cakes</li>
+            </ul>
+            <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20I'm%20interested%20in%20ordering%20a%20custom%20cake.%20%F0%9F%8E%82%20Can%20you%20help%20with%20details%20and%20pricing?"
+               class="btn-wa" target="_blank" rel="noopener noreferrer"
+               aria-label="Order custom cake via WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Order a Custom Cake
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- BREADS -->
+      <div class="col-md-6 col-lg-4 p-wrap" data-category="breads" data-aos="fade-up" data-aos-delay="100">
+        <article class="p-card">
+          <div class="p-card-top">
+            <div class="card-icon-box" aria-hidden="true">🍞</div>
+            <span class="card-pill pill-gold">Fresh Baked</span>
+          </div>
+          <div class="p-card-body">
+            <h3 class="card-title">Artisan Breads</h3>
+            <p class="card-desc">Fresh-baked breads crafted with premium ingredients — soft, golden, and straight from the oven.</p>
+            <ul class="card-list" aria-label="Bread offerings">
+              <li>Hot Cross Buns</li>
+              <li>Dinner Rolls &amp; Slider Buns</li>
+              <li>Sweet Bread</li>
+              <li>Seasonal Specialty Loaves</li>
+            </ul>
+            <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20I'd%20love%20to%20order%20some%20fresh%20bread.%20%F0%9F%8D%9E%20What's%20available%20this%20week?"
+               class="btn-wa" target="_blank" rel="noopener noreferrer"
+               aria-label="Order fresh bread via WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Order Fresh Bread
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- PASTRIES -->
+      <div class="col-md-6 col-lg-4 p-wrap" data-category="pastries" data-aos="fade-up" data-aos-delay="200">
+        <article class="p-card">
+          <div class="p-card-top">
+            <div class="card-icon-box" aria-hidden="true">🥐</div>
+            <span class="card-pill pill-gold">Artisan</span>
+          </div>
+          <div class="p-card-body">
+            <h3 class="card-title">Pastries &amp; Treats</h3>
+            <p class="card-desc">Cupcakes, cheesecake parfaits, trifles — perfect for gifting, events, or a moment of pure indulgence.</p>
+            <ul class="card-list" aria-label="Pastry offerings">
+              <li>Cupcakes (custom flavours)</li>
+              <li>Berry Cheesecake Parfaits</li>
+              <li>Chocolate Trifle</li>
+              <li>Bento Dessert Boxes</li>
+            </ul>
+            <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20I'm%20interested%20in%20your%20pastries%20and%20treats.%20%F0%9F%A5%90%20What%20is%20currently%20available?"
+               class="btn-wa" target="_blank" rel="noopener noreferrer"
+               aria-label="Order pastries via WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Order Pastries
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- MOTHER'S DAY — FULL WIDTH -->
+      <div class="col-12 p-wrap" data-category="special" data-aos="fade-up" data-aos-delay="100">
+        <article class="p-card md-card">
+          <div class="row g-0 align-items-center">
+
+            <div class="col-lg-5">
+              <div class="p-card-top">
+                <div class="card-icon-box" style="background:var(--gold-soft); border-color:rgba(212,168,67,.22);" aria-hidden="true">🌸</div>
+                <span class="card-pill pill-special">🌸 Limited · Orders Close May 7th</span>
+                <h3 class="card-title mt-1">Mother's Day<br>Bento Collection</h3>
+                <p class="card-desc">Curated to make mom feel a little extra sweet — available for pickup Saturday May 9th.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="p-card-body">
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <div class="pkg-box">
+                      <div class="pkg-price">$175 TTD</div>
+                      <div class="pkg-desc">
+                        5" 1-layer Bento Cake<br>
+                        + 1 Cupcake<br>
+                        + 1 Berry Cheesecake Parfait
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="pkg-box">
+                      <div class="pkg-price">$110 TTD</div>
+                      <div class="pkg-desc">
+                        2 Cupcakes<br>
+                        + 2oz Berry Cheesecake Parfait<br>
+                        + 2oz Chocolate Trifle
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pickup-box">
+                  <div class="pickup-label">📍 Pickup · Saturday May 9th, 2026</div>
+                  <div class="pickup-info">
+                    C3 Centre: 2:00pm – 3:00pm &nbsp;|&nbsp; Brentwood Mall: 3:30pm – 5:00pm
+                  </div>
+                </div>
+
+                <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20%F0%9F%8C%B8%20I'd%20love%20to%20order%20from%20your%20Mother's%20Day%20menu.%20Can%20you%20help%20me%20place%20my%20order?"
+                   class="btn-wa" target="_blank" rel="noopener noreferrer"
+                   aria-label="Order Mother's Day bento via WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Order Mother's Day Box — Limited Spots
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ ORDER ═══════════════════════ -->
+<section class="order-section section-pad" id="order" aria-label="How to order from Baked By Celeste">
+  <div class="container">
+    <div class="row align-items-start g-5">
+
+      <!-- Steps -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="section-eyebrow">Simple Process</div>
+        <h2 class="section-heading mb-3">Ordering is<br><span>Easy.</span></h2>
+        <p class="section-sub" style="max-width:400px;">
+          No complicated forms. No waiting days for a reply. Your order is one WhatsApp message away.
+        </p>
+
+        <div class="steps-wrap mt-4">
+          <div class="steps-line d-md-none" aria-hidden="true"></div>
+
+          <div class="step" data-aos="fade-up" data-aos-delay="0">
+            <div class="step-num" aria-label="Step 1">01</div>
+            <div class="step-info">
+              <div class="step-title">Browse &amp; Choose</div>
+              <div class="step-desc">Explore our cakes, breads, and pastries — find exactly what you love from the menu above.</div>
+            </div>
+          </div>
+
+          <div class="step" data-aos="fade-up" data-aos-delay="80">
+            <div class="step-num" aria-label="Step 2">02</div>
+            <div class="step-info">
+              <div class="step-title">Send to WhatsApp</div>
+              <div class="step-desc">Tap any order button — your details arrive pre-filled to Celeste's WhatsApp. She replies fast.</div>
+            </div>
+          </div>
+
+          <div class="step" data-aos="fade-up" data-aos-delay="160">
+            <div class="step-num" aria-label="Step 3">03</div>
+            <div class="step-info">
+              <div class="step-title">Confirm &amp; Pay</div>
+              <div class="step-desc">Finalise your design, confirm your date, and secure your order with a deposit.</div>
+            </div>
+          </div>
+
+          <div class="step" data-aos="fade-up" data-aos-delay="240">
+            <div class="step-num" aria-label="Step 4">04</div>
+            <div class="step-info">
+              <div class="step-title">Collect &amp; Celebrate</div>
+              <div class="step-desc">Pick up your creation and watch faces light up. That's the Baked By Celeste promise.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA box -->
+      <div class="col-lg-7 d-flex align-items-center" data-aos="fade-left" data-aos-delay="200">
+        <div class="cta-box w-100">
+          <p class="cta-overline">🌸 South Based · Trinidad 🇹🇹</p>
+          <h2 class="cta-title">Your Perfect Bake<br>Starts Here.</h2>
+          <p class="cta-sub">"Life is what you bake it!" — let Celeste make your next moment unforgettable.</p>
+
+          <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20%F0%9F%8E%82%20I%20found%20your%20bakery%20and%20I'd%20love%20to%20place%20an%20order.%20Can%20you%20help%20me%20get%20started?"
+             class="btn-wa-main" target="_blank" rel="noopener noreferrer"
+             aria-label="Start your order on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Start My Order on WhatsApp
+          </a>
+
+          <div class="mt-4 pt-4 cta-icons" style="border-top:1px solid rgba(255,255,255,.055);">
+            <div class="row g-2 text-center">
+              <div class="col-4">
+                <div style="font-size:1.6rem;" aria-hidden="true">🎂</div>
+                <div class="cta-icon-lbl">Custom Cakes</div>
+              </div>
+              <div class="col-4">
+                <div style="font-size:1.6rem;" aria-hidden="true">🍞</div>
+                <div class="cta-icon-lbl">Fresh Breads</div>
+              </div>
+              <div class="col-4">
+                <div style="font-size:1.6rem;" aria-hidden="true">🥐</div>
+                <div class="cta-icon-lbl">Artisan Pastries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ══════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <span class="footer-name">Baked by Celeste</span>
+    <div class="footer-tagline">Premium Quality Bakery · South Based, Trinidad 🇹🇹</div>
+    <div class="footer-rule" aria-hidden="true"></div>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="#home"  class="footer-link">Home</a>
+      <a href="#menu"  class="footer-link">Menu</a>
+      <a href="#order" class="footer-link">Order</a>
+      <a href="https://wa.me/18684995571" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Celeste">WhatsApp</a>
+      <a href="https://www.instagram.com/baked_by_celeste_tt" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    </nav>
+    <div class="footer-credit">
+      © 2026 Baked By Celeste · All rights reserved ·
+      <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="Built by JAMALINKS">Built by JAMALINKS</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ FLOATING WA ══════════════════ -->
+<div class="wa-float" role="complementary" aria-label="Quick WhatsApp order button">
+  <a href="https://wa.me/18684995571?text=Hi%20Celeste!%20%F0%9F%8E%82%20I'd%20love%20to%20place%20an%20order.%20Can%20you%20help%20me?"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Order now via WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════ SCRIPTS ══════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // AOS
+  AOS.init({ once: true, offset: 55, duration: 680, easing: 'ease-out-cubic' });
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 48);
+  }, { passive: true });
+
+  // Filter tabs
+  const filterBtns    = document.querySelectorAll('.filter-btn');
+  const productWraps  = document.querySelectorAll('.p-wrap');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      productWraps.forEach(wrap => {
+        const match = filter === 'all' || wrap.dataset.category === filter;
+        wrap.classList.toggle('hidden', !match);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
