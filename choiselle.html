@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choiselle | All-Natural Caribbean Skincare &amp; Candles · Saint Lucia</title>
+  <meta name="description" content="Choiselle — water-free, all-natural luxury skincare and candles handcrafted in Saint Lucia by founder Nydia Norville. Featured in Panache Jamaica, Beauty Store Business &amp; more. Order via WhatsApp." />
+  <meta property="og:title" content="Choiselle | Luxury Caribbean Skincare &amp; Candles" />
+  <meta property="og:description" content="Water-free. Organic. All-natural fragrances. Caribbean botanicals. Handcrafted in Saint Lucia since 2014." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="bg1.jpg" />
+  <meta name="theme-color" content="#2E1A0E" />
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+  <!-- Font Awesome (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        media="print" onload="this.media='all'" />
+
+  <style>
+    /* ============================================================
+       BRAND CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --cream:       #FBF6EE;
+      --ivory:       #F2E8D5;
+      --oyster:      #E8D5B5;
+      --coconut:     #2E1A0E;
+      --bark:        #5C3825;
+      --gold:        #C8943A;
+      --gold-light:  #E8B86D;
+      --gold-dark:   #A07028;
+      --teal:        #1A6E6E;
+      --teal-light:  #2A9090;
+      --sage:        #4A6A4A;
+      --text-body:   #3A2418;
+      --text-muted:  #7A5A48;
+      --border:      rgba(200,148,58,0.2);
+      --border-soft: rgba(232,213,181,0.6);
+      --shadow:      0 12px 48px rgba(46,26,14,0.14);
+      --shadow-sm:   0 4px 20px rgba(46,26,14,0.08);
+      --radius:      6px;
+      --radius-lg:   14px;
+      font-display: swap;
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      background: var(--cream);
+      color: var(--text-body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.08;
+      color: var(--coconut);
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       HERO PICTURE — bg1.jpg / bg1.webp
+       ⚠️ Place bg1.jpg (and bg1.webp if available) in the same
+          folder as this HTML file.
+    ============================================================ */
+    #hero { position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; padding: 7rem 0 5rem; }
+
+    .hero-picture {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-picture img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(145deg,
+        rgba(46,26,14,0.90) 0%,
+        rgba(26,15,7,0.78) 45%,
+        rgba(26,70,70,0.65) 100%);
+    }
+
+    /* Botanical atmosphere shapes (visible even without bg image) */
+    .hero-atmo {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 65% at 90% 40%, rgba(200,148,58,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 55% at 8%  80%, rgba(26,110,110,0.13) 0%, transparent 55%);
+    }
+
+    /* Decorative concentric ring */
+    .hero-ring {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      width: 340px; height: 340px; border-radius: 50%;
+      border: 1px solid rgba(200,148,58,0.16); z-index: 3;
+    }
+    .hero-ring::before {
+      content: ''; position: absolute; inset: 22px; border-radius: 50%;
+      border: 1px solid rgba(200,148,58,0.10);
+    }
+    .hero-ring::after {
+      content: ''; position: absolute; inset: 44px; border-radius: 50%;
+      border: 1px solid rgba(200,148,58,0.06);
+    }
+
+    .hero-inner { position: relative; z-index: 4; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block; height: 1px; width: 36px;
+      background: var(--gold); opacity: 0.5;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 300; color: var(--cream); line-height: 1.04;
+      margin-bottom: 1.4rem;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold-light); font-weight: 400; }
+
+    .hero-sub {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(251,246,238,0.62); line-height: 1.82;
+      max-width: 470px; margin-bottom: 2.4rem;
+    }
+
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2.4rem;
+    }
+    .hero-pill {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 50px;
+      border: 1px solid rgba(200,148,58,0.35);
+      color: rgba(251,246,238,0.65);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: var(--gold); color: #fff;
+      font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.95rem 2.1rem; border-radius: 50px; border: 2px solid var(--gold);
+      transition: all 0.3s ease;
+    }
+    .btn-hero-primary:hover { background: transparent; color: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-hero-ghost {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: transparent; color: rgba(251,246,238,0.78);
+      font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.95rem 2.1rem; border-radius: 50px;
+      border: 1.5px solid rgba(251,246,238,0.22); transition: all 0.3s ease;
+    }
+    .btn-hero-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 2.4rem;
+      margin-top: 3.5rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(200,148,58,0.18);
+    }
+    .hero-stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem; font-weight: 600; color: var(--gold-light); line-height: 1;
+    }
+    .hero-stat-lbl {
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(251,246,238,0.38); margin-top: 0.22rem;
+    }
+
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    .trust-bar { background: var(--ivory); border-bottom: 1px solid var(--border-soft); padding: 1.05rem 0; }
+    .trust-item { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.77rem; font-weight: 500; letter-spacing: 0.04em; color: var(--bark); white-space: nowrap; }
+    .trust-item i { color: var(--gold); font-size: 0.9rem; }
+
+    /* ============================================================
+       AS SEEN IN
+    ============================================================ */
+    #press { background: var(--coconut); padding: 2.5rem 0; }
+    .press-eyebrow {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(200,148,58,0.6);
+      display: block; text-align: center; margin-bottom: 1.6rem;
+    }
+    .press-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem 3.5rem; }
+    .press-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem; font-weight: 600; letter-spacing: 0.06em;
+      color: rgba(251,246,238,0.35);
+      transition: color 0.25s;
+      text-align: center; line-height: 1.2;
+    }
+    .press-item span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.2rem; color: rgba(200,148,58,0.4); }
+    .press-item:hover { color: rgba(200,148,58,0.8); }
+
+    /* ============================================================
+       SECTION UTILITIES
+    ============================================================ */
+    .sec    { padding: 6rem 0; }
+    .sec-sm { padding: 4rem 0; }
+
+    .eyebrow { display: block; font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.65rem; }
+
+    .sec-title { font-size: clamp(1.85rem, 4vw, 3rem); font-weight: 400; color: var(--coconut); margin-bottom: 0.85rem; }
+    .sec-title em { font-style: italic; color: var(--gold); }
+
+    .divider { width: 50px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 1.1rem 0 1.7rem; }
+    .divider-c { margin-left: auto; margin-right: auto; }
+
+    .lead-body { font-size: 0.93rem; line-height: 1.82; color: var(--text-muted); }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--gold); color: #fff;
+      font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.78rem 1.75rem; border-radius: 50px; border: 2px solid var(--gold);
+      transition: all 0.27s ease; cursor: pointer;
+    }
+    .btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); color: #fff; transform: translateY(-2px); }
+    .btn-gold:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .btn-teal {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--teal); color: #fff;
+      font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.78rem 1.75rem; border-radius: 50px; border: 2px solid var(--teal);
+      transition: all 0.27s ease; cursor: pointer;
+    }
+    .btn-teal:hover { background: var(--teal-light); border-color: var(--teal-light); color: #fff; transform: translateY(-2px); }
+    .btn-teal:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    .btn-outline-gold {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--gold);
+      font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.78rem 1.75rem; border-radius: 50px; border: 2px solid var(--gold);
+      transition: all 0.27s ease; cursor: pointer;
+    }
+    .btn-outline-gold:hover { background: var(--gold); color: #fff; transform: translateY(-2px); }
+    .btn-outline-gold:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .btn-outline-cream {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: rgba(251,246,238,0.82);
+      font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.78rem 1.75rem; border-radius: 50px; border: 1.5px solid rgba(251,246,238,0.28);
+      transition: all 0.27s ease; cursor: pointer;
+    }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #mainNav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(251,246,238,0.96); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.82rem 0; transition: padding 0.3s, box-shadow 0.3s;
+    }
+    #mainNav.scrolled { padding: 0.52rem 0; box-shadow: var(--shadow-sm); }
+
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em; color: var(--coconut); line-height: 1.1; }
+    .nav-brand em { font-style: italic; color: var(--gold); font-weight: 400; }
+    .nav-brand small { display: block; font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--text-muted); }
+
+    .nav-link-item { font-family: 'Jost', sans-serif; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bark); padding: 0.32rem 0.85rem; border-radius: 4px; transition: color 0.2s; }
+    .nav-link-item:hover { color: var(--gold); }
+
+    .btn-nav { font-family: 'Jost', sans-serif; font-size: 0.73rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; background: var(--gold); color: #fff !important; padding: 0.52rem 1.35rem; border-radius: 50px; border: 2px solid var(--gold); transition: all 0.25s; white-space: nowrap; }
+    .btn-nav:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-1px); }
+
+    .navbar-toggler-custom { background: none; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 0.38rem 0.62rem; cursor: pointer; color: var(--coconut); font-size: 1.05rem; }
+    .navbar-toggler-custom:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    #mobileMenu { background: var(--ivory); border-top: 1px solid var(--border-soft); padding: 1rem 0; }
+
+    /* ============================================================
+       PRODUCT SECTION
+    ============================================================ */
+    #products { background: var(--cream); }
+
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.6rem; }
+    .filter-btn {
+      font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.48rem 1.25rem; border-radius: 50px;
+      border: 1.5px solid var(--oyster); background: transparent;
+      color: var(--bark); cursor: pointer; transition: all 0.22s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+    .filter-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    .product-card { background: var(--ivory); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-soft); height: 100%; display: flex; flex-direction: column; transition: transform 0.32s, box-shadow 0.32s; }
+    .product-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+
+    /* Picture-wrapped product image */
+    .prod-img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+    .prod-img-wrap picture { display: block; width: 100%; height: 100%; }
+    .prod-img-wrap picture img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.45s ease; }
+    .product-card:hover .prod-img-wrap picture img { transform: scale(1.04); }
+
+    /* CSS gradient fallback (shows when image file is missing) */
+    .prod-fallback {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .pf-lemon   { background: linear-gradient(135deg,#F0F5E0 0%,#C8D8A0 45%,#4A6A4A 100%); }
+    .pf-spice   { background: linear-gradient(135deg,#F7EECB 0%,#E8C97A 45%,#C9993C 100%); }
+    .pf-lavender{ background: linear-gradient(135deg,#F0ECF8 0%,#C8B0E0 45%,#6A4A8A 100%); }
+    .pf-rosemary{ background: linear-gradient(135deg,#E8F0E8 0%,#A0C0A0 45%,#3A6A3A 100%); }
+    .pf-ylang   { background: linear-gradient(135deg,#FBF0D8 0%,#E8D090 45%,#C09020 100%); }
+    .pf-neroli  { background: linear-gradient(135deg,#E8F5E8 0%,#A8C890 45%,#2E5A2E 100%); }
+    .pf-coconut { background: linear-gradient(135deg,#F0E5D0 0%,#C9A882 45%,#7A5A38 100%); }
+    .pf-oyster  { background: linear-gradient(135deg,#EAF4F4 0%,#A8CECE 45%,#5A9898 100%); }
+    .pf-gift    { background: linear-gradient(135deg,#FAF0EA 0%,#F0C8B0 45%,#C0604A 100%); }
+
+    .prod-body { padding: 1.35rem 1.45rem 1.55rem; flex: 1; display: flex; flex-direction: column; }
+    .prod-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .prod-name { font-family: 'Cormorant Garamond', serif; font-size: 1.22rem; font-weight: 600; color: var(--coconut); margin-bottom: 0.4rem; line-height: 1.2; }
+    .prod-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 1.1rem; }
+
+    .prod-benefits { list-style: none; padding: 0; margin: 0 0 1.15rem; }
+    .prod-benefits li { font-size: 0.76rem; color: var(--bark); padding: 0.16rem 0; display: flex; align-items: center; gap: 0.5rem; }
+    .prod-benefits li::before { content: '✦'; color: var(--gold); font-size: 0.5rem; flex-shrink: 0; }
+
+    .btn-prod-order {
+      display: inline-flex; align-items: center; gap: 0.42rem;
+      background: transparent; color: var(--teal);
+      font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.52rem 1.1rem; border-radius: 50px; border: 1.5px solid var(--teal);
+      transition: all 0.22s; align-self: flex-start;
+    }
+    .btn-prod-order:hover { background: var(--teal); color: #fff; }
+    .btn-prod-order:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+    .product-item.hidden { display: none !important; }
+
+    /* ============================================================
+       STORY SECTION (dark)
+    ============================================================ */
+    #story { background: var(--coconut); position: relative; overflow: hidden; }
+    .story-atmo {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 60% at 92% 22%, rgba(200,148,58,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 50% at 6%  78%, rgba(26,110,110,0.13) 0%, transparent 55%);
+    }
+    .story-z { position: relative; z-index: 2; }
+
+    .story-h2 { font-size: clamp(1.9rem, 4.5vw, 3.4rem); font-weight: 300; color: var(--cream); line-height: 1.09; }
+    .story-h2 em { font-style: italic; color: var(--gold-light); }
+
+    .story-pullquote {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.2rem;
+      margin: 1.8rem 0;
+    }
+    .story-pullquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-style: italic;
+      color: rgba(251,246,238,0.7); line-height: 1.55;
+    }
+    .story-pullquote cite { font-size: 0.72rem; font-style: normal; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+
+    .story-p { font-size: 0.93rem; font-weight: 300; line-height: 1.88; color: rgba(251,246,238,0.6); }
+
+    /* Founder image */
+    .founder-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(200,148,58,0.18); }
+    .founder-wrap picture { display: block; }
+    .founder-wrap picture img { width: 100%; height: 100%; object-fit: cover; }
+    .founder-fallback {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #3A2010 0%, var(--teal) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .founder-fallback .founder-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; font-weight: 300; color: rgba(200,148,58,0.5);
+    }
+    .founder-fallback p { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,148,58,0.45); text-align: center; }
+
+    .founder-caption { margin-top: 1rem; }
+    .founder-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--cream); }
+    .founder-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-top: 0.12rem; }
+
+    .story-timeline { list-style: none; padding: 0; }
+    .story-timeline li { display: flex; align-items: flex-start; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(200,148,58,0.1); }
+    .story-timeline li:last-child { border-bottom: none; }
+    .tl-year { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); flex: 0 0 42px; margin-top: 0.05rem; }
+    .tl-text { font-size: 0.84rem; color: rgba(251,246,238,0.55); line-height: 1.6; }
+
+    /* ============================================================
+       FORMULATION SECTION
+    ============================================================ */
+    #formulation { background: var(--ivory); }
+
+    .form-card {
+      background: var(--cream); border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem; border: 1px solid var(--border-soft);
+      text-align: center; height: 100%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .form-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-sm); }
+    .form-icon { font-size: 2.4rem; margin-bottom: 0.9rem; }
+    .form-title { font-size: 1.22rem; color: var(--coconut); margin-bottom: 0.55rem; }
+    .form-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ============================================================
+       OUR BRANDS (Sub-brands)
+    ============================================================ */
+    #our-brands { background: var(--cream); }
+
+    .brand-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 100%; transition: transform 0.3s, box-shadow 0.3s;
+      background: var(--ivory);
+    }
+    .brand-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+    .brand-banner {
+      height: 120px; display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; position: relative; overflow: hidden;
+    }
+    .bb-parent { background: linear-gradient(135deg, var(--coconut) 0%, #3A2010 50%, var(--teal) 100%); }
+    .bb-lokal  { background: linear-gradient(135deg, #2E1A0E 0%, #C8943A 100%); }
+    .bb-bloom  { background: linear-gradient(135deg, #1A6E6E 0%, #4A6A4A 100%); }
+    .bb-cocktails { background: linear-gradient(135deg, #5C3825 0%, #C8943A 70%, #1A6E6E 100%); }
+
+    .brand-body { padding: 1.4rem 1.5rem 1.6rem; }
+    .brand-tag { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--coconut); margin-bottom: 0.45rem; }
+    .brand-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; }
+    .brand-handle { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; color: var(--teal); }
+
+    /* ============================================================
+       WHERE TO FIND US
+    ============================================================ */
+    #stockists { background: var(--coconut); position: relative; overflow: hidden; }
+    .stockists-atmo { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 55% 55% at 80% 30%, rgba(200,148,58,0.08) 0%, transparent 55%); }
+    .stockists-z { position: relative; z-index: 2; }
+
+    .stockist-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(200,148,58,0.15);
+      border-radius: var(--radius-lg); padding: 1.4rem 1.5rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .stockist-card:hover { background: rgba(200,148,58,0.07); border-color: rgba(200,148,58,0.3); }
+    .stockist-flag { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .stockist-region { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 0.3rem; }
+    .stockist-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 0.2rem; }
+    .stockist-loc { font-size: 0.8rem; color: rgba(251,246,238,0.42); }
+
+    /* Delivery box */
+    .delivery-box {
+      background: linear-gradient(135deg, var(--teal) 0%, #0F4848 100%);
+      border-radius: var(--radius-lg); padding: 2rem 2.2rem;
+      position: relative; overflow: hidden;
+    }
+    .delivery-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 30%, rgba(200,148,58,0.15) 0%, transparent 60%); }
+    .delivery-box-inner { position: relative; z-index: 1; }
+    .delivery-day { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--gold-light); line-height: 1; }
+    .delivery-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251,246,238,0.5); margin-top: 0.2rem; }
+    .delivery-zones { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .delivery-zones li { font-size: 0.72rem; color: rgba(251,246,238,0.5); background: rgba(255,255,255,0.06); border-radius: 4px; padding: 0.22rem 0.65rem; }
+
+    /* ============================================================
+       CORPORATE & EVENTS
+    ============================================================ */
+    #bespoke { background: var(--ivory); }
+
+    .bespoke-card {
+      background: var(--cream); border-radius: var(--radius-lg);
+      padding: 2.4rem; border: 1px solid var(--border-soft);
+      height: 100%; position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .bespoke-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .bespoke-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .bespoke-card.corp::before { background: var(--teal); }
+    .bespoke-card.wed::before  { background: var(--gold); }
+
+    .bespoke-icon { font-size: 2.3rem; margin-bottom: 1rem; }
+    .bespoke-title { font-size: 1.5rem; color: var(--coconut); margin-bottom: 0.65rem; }
+    .bespoke-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.74; margin-bottom: 1.35rem; }
+    .bespoke-list { list-style: none; padding: 0; margin: 0 0 1.9rem; }
+    .bespoke-list li { font-size: 0.82rem; color: var(--bark); padding: 0.26rem 0; display: flex; align-items: center; gap: 0.55rem; }
+    .bespoke-list li::before { content: '✦'; color: var(--gold); font-size: 0.52rem; flex-shrink: 0; }
+
+    /* ============================================================
+       HOW TO ORDER
+    ============================================================ */
+    #how-to-order { background: var(--cream); }
+
+    .step-wrap { text-align: center; padding: 1.4rem 1.2rem; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4.2rem; font-weight: 300; color: var(--oyster); line-height: 1; display: block; margin-bottom: 0.2rem; }
+    .step-ico { font-size: 1.8rem; color: var(--gold); margin-bottom: 0.85rem; display: block; }
+    .step-title { font-size: 1.12rem; color: var(--coconut); margin-bottom: 0.4rem; }
+    .step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+    .step-arrow-col { display: flex; align-items: center; justify-content: center; color: var(--gold); opacity: 0.3; font-size: 1.1rem; padding-top: 1rem; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { background: var(--ivory); }
+
+    .testimonial-card { background: var(--cream); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-soft); height: 100%; }
+    .t-quote { font-family: 'Cormorant Garamond', serif; font-size: 4.2rem; color: var(--gold); opacity: 0.16; line-height: 0.75; display: block; margin-bottom: 0.45rem; }
+    .t-stars { color: var(--gold); font-size: 0.73rem; letter-spacing: 0.1em; margin-bottom: 0.7rem; }
+    .t-body { font-size: 0.91rem; font-style: italic; color: var(--bark); line-height: 1.72; margin-bottom: 1.35rem; }
+    .t-name { font-family: 'Cormorant Garamond', serif; font-size: 1.03rem; font-weight: 600; color: var(--coconut); }
+    .t-detail { font-size: 0.73rem; color: var(--text-muted); }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    #cta-banner { background: linear-gradient(135deg, var(--teal) 0%, #0F4848 100%); position: relative; overflow: hidden; }
+    #cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 80% at 88% 50%, rgba(200,148,58,0.12) 0%, transparent 58%); pointer-events: none; }
+    .cta-z { position: relative; z-index: 2; }
+    .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 400; color: #fff; line-height: 1.15; }
+    .cta-h2 em { font-style: italic; color: var(--gold-light); }
+    .cta-sub { font-size: 0.9rem; color: rgba(255,255,255,0.58); font-weight: 300; margin-top: 0.45rem; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer { background: var(--coconut); padding: 4.5rem 0 2rem; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 700; color: var(--cream); }
+    .footer-brand em { font-style: italic; color: var(--gold); font-weight: 400; }
+    .footer-tagline { font-size: 0.81rem; color: rgba(251,246,238,0.42); line-height: 1.72; margin: 0.45rem 0 1.35rem; }
+
+    .footer-social { display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; border: 1px solid rgba(200,148,58,0.25); color: rgba(251,246,238,0.48); font-size: 0.82rem; transition: all 0.22s; }
+    .footer-social:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+    .footer-social:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    .footer-hd { font-family: 'Jost', sans-serif; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.05rem; }
+    .footer-lnk { display: block; font-size: 0.82rem; color: rgba(251,246,238,0.45); padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-lnk:hover { color: var(--gold-light); }
+
+    .footer-contact-row { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.82rem; color: rgba(251,246,238,0.45); padding: 0.25rem 0; }
+    .footer-contact-row i { color: var(--gold); width: 13px; text-align: center; flex-shrink: 0; margin-top: 0.15rem; }
+
+    .footer-bottom { border-top: 1px solid rgba(200,148,58,0.11); margin-top: 3rem; padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.71rem; color: rgba(251,246,238,0.25); }
+    .footer-jamalinks { font-size: 0.71rem; color: rgba(251,246,238,0.25); }
+    .footer-jamalinks a { color: var(--gold); transition: color 0.2s; }
+    .footer-jamalinks a:hover { color: var(--gold-light); }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    #wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; align-items: center; }
+    .wa-btn { display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; background: #25D366; border-radius: 50%; box-shadow: 0 6px 24px rgba(37,211,102,0.38); color: #fff; font-size: 1.5rem; transition: transform 0.25s; animation: waPulse 2.8s ease-in-out infinite; }
+    .wa-btn:hover { transform: scale(1.1); color: #fff; }
+    .wa-btn:focus-visible { outline: 3px solid #25D366; outline-offset: 3px; }
+    @keyframes waPulse { 0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.38)}50%{box-shadow:0 6px 44px rgba(37,211,102,0.7)} }
+    .wa-tip { position: absolute; right: 68px; top: 50%; transform: translateY(-50%); background: var(--coconut); color: var(--cream); font-family: 'Jost',sans-serif; font-size: 0.73rem; font-weight: 500; white-space: nowrap; padding: 0.36rem 0.82rem; border-radius: 50px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+    #wa-float:hover .wa-tip { opacity: 1; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media(max-width:991px) { .hero-ring{display:none;} .hero-stats{gap:1.65rem;} }
+    @media(max-width:767px) { .sec{padding:4rem 0;} .step-arrow-col{display:none;} .hero-actions{flex-direction:column;align-items:flex-start;} }
+    @media(max-width:575px) { .hero-h1{font-size:2.4rem;} .hero-stats{flex-wrap:wrap;gap:1.3rem;} .filter-tabs{justify-content:center;} }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container d-flex align-items-center justify-content-between gap-3">
+
+      <a href="#hero" class="nav-brand" aria-label="Choiselle — Home">
+        Choi<em>selle</em>
+        <small>Luxury Caribbean Skincare · Est. 2014</small>
+      </a>
+
+      <div class="d-none d-lg-flex align-items-center gap-1 flex-grow-1 justify-content-center">
+        <a href="#products"   class="nav-link-item">Products</a>
+        <a href="#story"      class="nav-link-item">Our Story</a>
+        <a href="#our-brands" class="nav-link-item">Our Brands</a>
+        <a href="#stockists"  class="nav-link-item">Find Us</a>
+        <a href="#bespoke"    class="nav-link-item">Corporate &amp; Events</a>
+      </div>
+
+      <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20shop%20with%20Choiselle.%20Can%20you%20help%20me%3F"
+         class="btn-nav d-none d-lg-inline-flex align-items-center gap-2"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Shop Choiselle via WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> Shop Now
+      </a>
+
+      <button class="navbar-toggler-custom d-lg-none"
+              id="mobileToggle" type="button"
+              aria-label="Open navigation menu"
+              aria-expanded="false" aria-controls="mobileMenu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu" role="menu" aria-label="Mobile navigation" style="display:none!important;">
+      <div class="container d-flex flex-column gap-1">
+        <a href="#products"   class="nav-link-item" role="menuitem">Products</a>
+        <a href="#story"      class="nav-link-item" role="menuitem">Our Story</a>
+        <a href="#our-brands" class="nav-link-item" role="menuitem">Our Brands</a>
+        <a href="#stockists"  class="nav-link-item" role="menuitem">Find Us</a>
+        <a href="#bespoke"    class="nav-link-item" role="menuitem">Corporate &amp; Events</a>
+        <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20shop%20with%20Choiselle."
+           class="btn-gold mt-2 align-self-start" target="_blank" rel="noopener noreferrer"
+           role="menuitem" aria-label="Shop via WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Shop via WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════
+       HERO
+       ⚠️  Drop bg1.jpg (and bg1.webp if available)
+           into the same folder as this file.
+  ══════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-h1">
+
+    <!-- BACKGROUND IMAGE — <picture> standard -->
+    <picture class="hero-picture" aria-hidden="true">
+      <source srcset="bg1.webp" type="image/webp" />
+      <source srcset="bg1.jpg"  type="image/jpeg" />
+      <img src="bg1.jpg"
+           alt=""
+           role="presentation"
+           width="1920" height="1080"
+           loading="eager"
+           fetchpriority="high"
+           onerror="this.parentElement.style.display='none'" />
+    </picture>
+
+    <div class="hero-overlay"  aria-hidden="true"></div>
+    <div class="hero-atmo"     aria-hidden="true"></div>
+    <div class="hero-ring"     aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-xl-6">
+          <div class="hero-inner">
+
+            <div class="hero-eyebrow" data-aos="fade-right">
+              Luxury Caribbean Skincare · Saint Lucia · Est. 2014
+            </div>
+
+            <h1 class="hero-h1" id="hero-h1" data-aos="fade-up" data-aos-delay="80">
+              Match the Nature<br>
+              of Your Skin<br>
+              <em>with Nature.</em>
+            </h1>
+
+            <div class="hero-pills" data-aos="fade-up" data-aos-delay="140">
+              <div class="hero-pill">Water-Free</div>
+              <div class="hero-pill">Organic Ingredients</div>
+              <div class="hero-pill">All-Natural Fragrances</div>
+              <div class="hero-pill">Caribbean Botanicals</div>
+            </div>
+
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="180">
+              Founded by Nydia Norville in Saint Lucia. Born in a kitchen. Carried by nature.
+              Every formula is water-free, certified organic, and fragrant only with pure essential oils
+              — the Caribbean, in a bottle.
+            </p>
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="250">
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20browse%20the%20Choiselle%20collection.%20Can%20you%20help%20me%20shop%3F"
+                 class="btn-hero-primary"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Shop Choiselle via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Shop the Collection
+              </a>
+              <a href="#story" class="btn-hero-ghost" aria-label="Read our story">
+                Our Story <i class="fas fa-arrow-down fa-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="320">
+              <div><div class="hero-stat-val">2014</div><div class="hero-stat-lbl">Est. Saint Lucia</div></div>
+              <div><div class="hero-stat-val">4+</div><div class="hero-stat-lbl">Magazines Featured</div></div>
+              <div><div class="hero-stat-val">6+</div><div class="hero-stat-lbl">Retail Stockists</div></div>
+              <div><div class="hero-stat-val">3</div><div class="hero-stat-lbl">Sister Brands</div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TRUST BAR
+  ══════════════════════════════════════ -->
+  <div class="trust-bar" role="complementary" aria-label="Brand formulation promises">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center justify-content-md-between gap-3 text-center text-md-start">
+        <div class="trust-item"><i class="fas fa-tint-slash" aria-hidden="true"></i> Water-Free Formula</div>
+        <div class="trust-item"><i class="fas fa-leaf" aria-hidden="true"></i> Certified Organic Ingredients</div>
+        <div class="trust-item"><i class="fas fa-wind" aria-hidden="true"></i> All-Natural Essential Oil Fragrances</div>
+        <div class="trust-item"><i class="fab fa-whatsapp" aria-hidden="true"></i> Order via WhatsApp</div>
+        <div class="trust-item"><i class="fas fa-truck" aria-hidden="true"></i> Island Delivery Every Thursday</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       AS SEEN IN
+  ══════════════════════════════════════ -->
+  <section id="press" aria-label="Media features and press mentions">
+    <div class="container">
+      <span class="press-eyebrow">As Featured In</span>
+      <div class="press-strip">
+        <div class="press-item">
+          Panache Jamaica Magazine
+          <span>Beauty &amp; Lifestyle</span>
+        </div>
+        <div class="press-item">
+          Beauty Store Business
+          <span>US Trade Publication · 2015</span>
+        </div>
+        <div class="press-item">
+          Sophisticate's Hair Style Guide
+          <span>Beauty Giveaway Feature</span>
+        </div>
+        <div class="press-item">
+          Potent Magazine
+          <span>Founder Feature</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       PRODUCTS
+  ══════════════════════════════════════ -->
+  <section id="products" class="sec" aria-labelledby="products-h2">
+    <div class="container">
+
+      <div class="row align-items-end mb-3 g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="eyebrow">The Collection</span>
+          <h2 class="sec-title" id="products-h2">
+            Pure Caribbean<br><em>Botanicals, Bottled.</em>
+          </h2>
+          <div class="divider"></div>
+          <p class="lead-body">
+            Every product is water-free — meaning more active botanicals per drop, no harmful preservatives required, and results you can feel from the very first use. Caribbean ingredients. Caribbean soul.
+          </p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="filter-tabs" role="group" aria-label="Filter products by category">
+            <button class="filter-btn active" onclick="filterProds('all',this)"    aria-pressed="true">All</button>
+            <button class="filter-btn"        onclick="filterProds('oil',this)"    aria-pressed="false">Body Oils</button>
+            <button class="filter-btn"        onclick="filterProds('hair',this)"   aria-pressed="false">Hair Oils</button>
+            <button class="filter-btn"        onclick="filterProds('candle',this)" aria-pressed="false">Candles</button>
+            <button class="filter-btn"        onclick="filterProds('face',this)"   aria-pressed="false">Face Care</button>
+            <button class="filter-btn"        onclick="filterProds('gift',this)"   aria-pressed="false">Gifts</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4" id="prod-grid">
+
+        <!-- ── Lemongrass Hair & Body Oil ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="oil hair" data-aos="fade-up" data-aos-delay="0">
+          <article class="product-card" aria-label="Lemongrass Infused Hair and Body Oil">
+            <div class="prod-img-wrap">
+              <!--
+                ⚠️ REPLACE: supply file images/prod-lemongrass.jpg + images/prod-lemongrass.webp
+                   The gradient fallback below shows until the real image is placed.
+              -->
+              <picture>
+                <source srcset="images/prod-lemongrass.webp" type="image/webp" />
+                <source srcset="images/prod-lemongrass.jpg"  type="image/jpeg" />
+                <img src="images/prod-lemongrass.jpg"
+                     alt="Choiselle Lemongrass Infused Coconut Hair and Body Oil — green glass bottle"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-lemon" aria-hidden="true">🌿</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Hair &amp; Body Oil</div>
+              <h3 class="prod-name">Lemongrass Infused Coconut Oil</h3>
+              <ul class="prod-benefits" aria-label="Key benefits">
+                <li>Anti-inflammatory properties</li>
+                <li>Natural insect repellent</li>
+                <li>Moisturizes dry hair &amp; scalp</li>
+                <li>Hydrates skin &amp; reduces fine lines</li>
+              </ul>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Lemongrass%20Infused%20Coconut%20Hair%20%26%20Body%20Oil.%20Can%20you%20share%20pricing%20and%20availability%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Lemongrass Oil via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Caribbean Spice Body Oil ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="oil" data-aos="fade-up" data-aos-delay="70">
+          <article class="product-card" aria-label="Caribbean Spice Infused Coconut Body Oil">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-caribspice.webp" type="image/webp" />
+                <source srcset="images/prod-caribspice.jpg"  type="image/jpeg" />
+                <img src="images/prod-caribspice.jpg"
+                     alt="Choiselle Caribbean Spice Infused Coconut Body Oil — warm amber bottle"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-spice" aria-hidden="true">🌶️</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Body Oil</div>
+              <h3 class="prod-name">Caribbean Spice Coconut Body Oil</h3>
+              <p class="prod-desc">Infused with cinnamon, nutmeg, star anise &amp; clove — the true essence of the Caribbean. Captures the warmth of the islands in every drop.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Caribbean%20Spice%20Infused%20Coconut%20Body%20Oil.%20Can%20you%20share%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Caribbean Spice Oil via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Lavender Bath & Body Oil ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="oil" data-aos="fade-up" data-aos-delay="140">
+          <article class="product-card" aria-label="Lavender Bath and Body Oil">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-lavender.webp" type="image/webp" />
+                <source srcset="images/prod-lavender.jpg"  type="image/jpeg" />
+                <img src="images/prod-lavender.jpg"
+                     alt="Choiselle Lavender Bath and Body Oil — frosted gold bottle"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-lavender" aria-hidden="true">💜</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Bath &amp; Body Oil</div>
+              <h3 class="prod-name">Lavender Bath &amp; Body Oil</h3>
+              <ul class="prod-benefits" aria-label="Key benefits">
+                <li>Eases sunburn &amp; calms irritation</li>
+                <li>Deeply moisturizes sun-drenched skin</li>
+                <li>Aromatherapeutic — calms anxiety</li>
+                <li>Promotes deeper, restful sleep</li>
+              </ul>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Lavender%20Bath%20%26%20Body%20Oil.%20Can%20you%20share%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Lavender Oil via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Rosemary Mint Hair + Body Oil ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="hair oil" data-aos="fade-up" data-aos-delay="0">
+          <article class="product-card" aria-label="Rosemary Mint Infused Coconut Hair and Body Oil">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-rosemary.webp" type="image/webp" />
+                <source srcset="images/prod-rosemary.jpg"  type="image/jpeg" />
+                <img src="images/prod-rosemary.jpg"
+                     alt="Choiselle Rosemary Mint Infused Coconut Hair and Body Oil"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-rosemary" aria-hidden="true">🌱</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Hair &amp; Body Oil</div>
+              <h3 class="prod-name">Rosemary Mint Coconut Oil</h3>
+              <p class="prod-desc">Promotes natural hair growth, strengthens from root to tip, and refreshes the scalp. A crisp, invigorating Caribbean botanical blend.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Rosemary%20Mint%20Infused%20Coconut%20Hair%20%26%20Body%20Oil.%20Can%20you%20share%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Rosemary Mint Oil via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Ylang Ylang Body Oil ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="oil hair" data-aos="fade-up" data-aos-delay="70">
+          <article class="product-card" aria-label="Ylang Ylang Body Oil">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-ylang.webp" type="image/webp" />
+                <source srcset="images/prod-ylang.jpg"  type="image/jpeg" />
+                <img src="images/prod-ylang.jpg"
+                     alt="Choiselle Ylang Ylang Body Oil — golden oil bottle"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-ylang" aria-hidden="true">✨</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Body &amp; Hair Oil</div>
+              <h3 class="prod-name">Ylang Ylang Body Oil</h3>
+              <ul class="prod-benefits" aria-label="Key benefits">
+                <li>Balances oil production</li>
+                <li>Boosts skin radiance</li>
+                <li>Improves scalp health</li>
+                <li>Reduces hair fall</li>
+              </ul>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Ylang%20Ylang%20Body%20Oil.%20Can%20you%20share%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Ylang Ylang Oil via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Neroli Isle Face Elixir ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="face" data-aos="fade-up" data-aos-delay="140">
+          <article class="product-card" aria-label="Neroli Isle Face Elixir">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-neroli.webp" type="image/webp" />
+                <source srcset="images/prod-neroli.jpg"  type="image/jpeg" />
+                <img src="images/prod-neroli.jpg"
+                     alt="Choiselle Neroli Isle Face Elixir — dark olive glass dropper bottle Formula No. 067"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-neroli" aria-hidden="true">🌸</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Face Elixir · Formula No. 067</div>
+              <h3 class="prod-name">Neroli Isle Face Elixir</h3>
+              <p class="prod-desc">Vitamin C-rich Soursop seed oil. Acai Berry, Watermelon &amp; Papaya Seed oils. Hibiscus antioxidants. Orange Blossom (Neroli). A luxury facial serum — as featured in Panache Jamaica Magazine.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Neroli%20Isle%20Face%20Elixir.%20Can%20you%20share%20details%20and%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Neroli Isle Face Elixir via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Coconut Shell Candle ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="candle" data-aos="fade-up" data-aos-delay="0">
+          <article class="product-card" aria-label="Coconut Shell Candle">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-coconut-candle.webp" type="image/webp" />
+                <source srcset="images/prod-coconut-candle.jpg"  type="image/jpeg" />
+                <img src="images/prod-coconut-candle.jpg"
+                     alt="Choiselle Coconut Shell Candle — candle poured in a natural coconut shell"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-coconut" aria-hidden="true">🥥</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Candle</div>
+              <h3 class="prod-name">Coconut Shell Candle</h3>
+              <p class="prod-desc">Poured into a real coconut shell — each one completely unique. Warm Caribbean scents. Zero waste. An unforgettable gift with a story rooted in Saint Lucia.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Coconut%20Shell%20Candle.%20Can%20you%20share%20scents%2C%20pricing%20and%20availability%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Coconut Shell Candle via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Oyster Shell Candle ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="candle" data-aos="fade-up" data-aos-delay="70">
+          <article class="product-card" aria-label="Oyster Shell Candle">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-oyster-candle.webp" type="image/webp" />
+                <source srcset="images/prod-oyster-candle.jpg"  type="image/jpeg" />
+                <img src="images/prod-oyster-candle.jpg"
+                     alt="Choiselle Oyster Shell Candle — candle set inside a natural Saint Lucia oyster shell"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-oyster" aria-hidden="true">🐚</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Candle</div>
+              <h3 class="prod-name">Oyster Shell Candle</h3>
+              <p class="prod-desc">Harvested from Saint Lucia's coastline and transformed into a one-of-a-kind candle vessel. No two shells are the same. A piece of the Caribbean sea, glowing in your home.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20the%20Oyster%20Shell%20Candle.%20Can%20you%20share%20details%20and%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Order Oyster Shell Candle via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order This
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ── Gift Sets ── -->
+        <div class="col-sm-6 col-lg-4 product-item" data-cat="gift" data-aos="fade-up" data-aos-delay="140">
+          <article class="product-card" aria-label="Choiselle Curated Gift Sets">
+            <div class="prod-img-wrap">
+              <picture>
+                <source srcset="images/prod-gift-set.webp" type="image/webp" />
+                <source srcset="images/prod-gift-set.jpg"  type="image/jpeg" />
+                <img src="images/prod-gift-set.jpg"
+                     alt="Choiselle curated gift set — oil and candle collection beautifully boxed"
+                     width="600" height="450" loading="lazy"
+                     onerror="this.style.display='none'" />
+              </picture>
+              <div class="prod-fallback pf-gift" aria-hidden="true">🎁</div>
+            </div>
+            <div class="prod-body">
+              <div class="prod-tag">Gift Sets</div>
+              <h3 class="prod-name">Choiselle Curated Gift Sets</h3>
+              <p class="prod-desc">Beautifully curated oil and candle collections for any occasion. Wedding favours, corporate gifts, hotel amenities, or a personal treat. Custom branding available for bulk orders.</p>
+              <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20a%20Choiselle%20gift%20set.%20Can%20you%20share%20what%27s%20available%20and%20pricing%3F"
+                 class="btn-prod-order" target="_blank" rel="noopener noreferrer"
+                 aria-label="Enquire about Gift Sets via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire Now
+              </a>
+            </div>
+          </article>
+        </div>
+
+      </div><!-- /prod-grid -->
+
+      <div class="text-center mt-5" data-aos="fade-up">
+        <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20see%20the%20full%20Choiselle%20catalogue.%20What%20do%20you%20currently%20have%20available%3F"
+           class="btn-gold" target="_blank" rel="noopener noreferrer"
+           aria-label="View full catalogue on WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> View Full Catalogue on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FORMULATION PHILOSOPHY
+  ══════════════════════════════════════ -->
+  <section id="formulation" class="sec" aria-labelledby="form-h2">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="eyebrow">Why It Works</span>
+        <h2 class="sec-title" id="form-h2">Formulated to <em>Actually Perform.</em></h2>
+        <div class="divider divider-c"></div>
+        <p class="lead-body mx-auto" style="max-width:480px;">No fillers. No water. No synthetic fragrances. Just pure botanicals — exactly as nature intended them to reach your skin.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="form-card">
+            <div class="form-icon" aria-hidden="true">💧</div>
+            <h3 class="form-title">Water-Free</h3>
+            <p class="form-desc">Formulating without water means every drop is 100% active botanicals. No dilution. No harmful preservatives needed to stabilize a water base. More product per millilitre — your skin feels the difference immediately.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="form-card">
+            <div class="form-icon" aria-hidden="true">🌿</div>
+            <h3 class="form-title">Organic Ingredients</h3>
+            <p class="form-desc">Where possible, Choiselle sources certified organic, skin-compatible ingredients — assuring the highest level of purity and efficacy. Your skin absorbs only what belongs there.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="form-card">
+            <div class="form-icon" aria-hidden="true">🌺</div>
+            <h3 class="form-title">All-Natural Fragrances</h3>
+            <p class="form-desc">Only pure essential oils are used to fragrance our formulas. These extraordinary compounds have incredible healing powers in addition to balancing emotions and lifting the spirit. No synthetic perfumes — ever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       OUR STORY
+  ══════════════════════════════════════ -->
+  <section id="story" class="sec" aria-labelledby="story-h2" style="position:relative; background: var(--coconut);">
+    <div class="story-atmo" aria-hidden="true"></div>
+    <div class="container story-z">
+      <div class="row align-items-center g-5">
+
+        <!-- Founder image column -->
+        <div class="col-lg-4" data-aos="fade-right">
+          <div class="founder-wrap">
+            <!--
+              ⚠️ REPLACE: supply founder.jpg + founder.webp
+                 The fallback below shows until the real photo is placed.
+            -->
+            <picture>
+              <source srcset="images/founder.webp" type="image/webp" />
+              <source srcset="images/founder.jpg"  type="image/jpeg" />
+              <img src="images/founder.jpg"
+                   alt="Nydia Norville — Founder of Choiselle, luxury Caribbean skincare"
+                   width="600" height="800" loading="lazy"
+                   onerror="this.style.display='none'" />
+            </picture>
+            <div class="founder-fallback">
+              <div class="founder-monogram" aria-hidden="true">N</div>
+              <p>⚠️ Add founder.jpg here</p>
+            </div>
+          </div>
+          <div class="founder-caption">
+            <div class="founder-name">Nydia Norville</div>
+            <div class="founder-title">Founder · Choiselle · Saint Lucia</div>
+          </div>
+        </div>
+
+        <!-- Story text column -->
+        <div class="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+          <span class="eyebrow" style="color:var(--gold);">The Origin</span>
+          <h2 class="story-h2" id="story-h2">
+            Born in a Kitchen.<br>
+            Rooted in the<br>
+            <em>Caribbean.</em>
+          </h2>
+          <div class="divider" style="background: linear-gradient(90deg, var(--gold), transparent);"></div>
+
+          <div class="story-pullquote">
+            <p>"There is a place where nature is, well, natural."</p>
+            <cite>— Panache Jamaica Magazine, on Choiselle</cite>
+          </div>
+
+          <p class="story-p">
+            On the Caribbean island of Saint Lucia, in the shadows of the Pitons, surrounded by waterfalls and rainforests, Choiselle was born. Founded in 2014 by Nydia Norville — a Saint Lucian creator who began in her own kitchen — the brand started with a single mission: to formulate skincare that matches the nature of your skin with the nature around you.
+          </p>
+          <p class="story-p mt-3">
+            What began with luxurious body butter grew into a full collection of water-free body oils, facial elixirs, and coconut wax candles — each crafted with certified organic ingredients, all-natural essential oil fragrances, and the botanical richness the Caribbean offers in abundance. Featured in four international publications and stocked across Saint Lucia and the United States, Choiselle remains rooted in the island that inspired it.
+          </p>
+
+          <ul class="story-timeline mt-4" aria-label="Choiselle brand timeline">
+            <li><div class="tl-year">2014</div><div class="tl-text">Founded by Nydia Norville. Launched with luxurious body butter. Made in Saint Lucia.</div></li>
+            <li><div class="tl-year">2015</div><div class="tl-text">Featured in Beauty Store Business Magazine (USA) — Lemongrass Oil named an upmarket offering.</div></li>
+            <li><div class="tl-year">2017</div><div class="tl-text">Expanded into bath &amp; body oils and coconut wax candles. International media features follow.</div></li>
+            <li><div class="tl-year">Now</div><div class="tl-text">Three sister brands. Six-plus retail stockists. Island-wide delivery. Growing globally.</div></li>
+          </ul>
+
+          <div class="mt-4">
+            <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20learn%20more%20about%20Choiselle%20and%20your%20story."
+               class="btn-outline-cream" target="_blank" rel="noopener noreferrer"
+               aria-label="Connect with Choiselle on WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Connect With Us
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       OUR BRANDS
+  ══════════════════════════════════════ -->
+  <section id="our-brands" class="sec" aria-labelledby="brands-h2">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="eyebrow">The Brand Family</span>
+        <h2 class="sec-title" id="brands-h2">One Vision. <em>Three Expressions.</em></h2>
+        <div class="divider divider-c"></div>
+        <p class="lead-body mx-auto" style="max-width:480px;">Choiselle is the parent of a growing family of Caribbean-rooted brands — each with its own focus, but all sharing the same commitment to natural quality.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="brand-card">
+            <div class="brand-banner bb-lokal" aria-hidden="true">🥥</div>
+            <div class="brand-body">
+              <div class="brand-tag">Skincare &amp; Gifts</div>
+              <h3 class="brand-name">Choiselle Lokal Edition</h3>
+              <p class="brand-desc">Coconut shell candles, oyster shell candles, infused oils, keychains, bag charms, corporate gifts, wedding favours, and island-made souvenirs — all handcrafted in Saint Lucia.</p>
+              <div class="brand-handle">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/choisellelokaledition"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit Choiselle Lokal Edition on Instagram">
+                  @choisellelokaledition
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="brand-card">
+            <div class="brand-banner bb-bloom" aria-hidden="true">🕯️</div>
+            <div class="brand-body">
+              <div class="brand-tag">Candle Studio</div>
+              <h3 class="brand-name">Candle Bloom Studio</h3>
+              <p class="brand-desc">A dedicated candle brand celebrating Caribbean scents and natural vessels. From coconut shells to elegant poured wax — handcrafted candles that tell a story with every flicker.</p>
+              <div class="brand-handle">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/candlebloomstudio"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit Candle Bloom Studio on Instagram">
+                  @candlebloomstudio
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="brand-card">
+            <div class="brand-banner bb-cocktails" aria-hidden="true">🍹</div>
+            <div class="brand-body">
+              <div class="brand-tag">Workshops &amp; Experiences</div>
+              <h3 class="brand-name">Candles &amp; Cocktails Workshop</h3>
+              <p class="brand-desc">Hands-on candle making experiences with a Caribbean twist. For friends, corporate teams, hen parties, and anyone who wants to make something beautiful with their own hands — and leave with a drink too.</p>
+              <div class="brand-handle">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/candlesandcocktailsworkshop"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit Candles and Cocktails Workshop on Instagram">
+                  @candlesandcocktailsworkshop
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       WHERE TO FIND US
+  ══════════════════════════════════════ -->
+  <section id="stockists" class="sec" aria-labelledby="stockists-h2" style="position:relative;">
+    <div class="stockists-atmo" aria-hidden="true"></div>
+    <div class="container stockists-z">
+
+      <div class="row align-items-start g-5">
+
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="eyebrow" style="color:var(--gold);">Retail &amp; Delivery</span>
+          <h2 class="sec-title story-h2" id="stockists-h2" style="font-size:clamp(1.85rem,4vw,2.9rem);">
+            Find Us <em>Across<br>the Island.</em>
+          </h2>
+          <div class="divider" style="background:linear-gradient(90deg,var(--gold),transparent);"></div>
+          <p class="story-p">Choiselle products are stocked in trusted health and wellness stores across Saint Lucia, at select hotel boutiques — and internationally at spas in the United States. You can also order online via WhatsApp for island-wide delivery.</p>
+          <div class="mt-3">
+            <div class="delivery-box">
+              <div class="delivery-box-inner">
+                <div class="delivery-day" aria-label="Every Thursday">Thursday</div>
+                <div class="delivery-label">Island-Wide Delivery Day</div>
+                <p class="story-p mt-2" style="font-size:0.82rem;">Place your WhatsApp order by Wednesday evening. We deliver to all communities island-wide every Thursday.</p>
+                <ul class="delivery-zones" aria-label="Delivery zones">
+                  <li>Anse La Raye</li><li>Canaries</li><li>Soufriere</li><li>Choiseul</li>
+                  <li>Laborie</li><li>Vieux Fort</li><li>Micoud</li><li>Dennery</li>
+                  <li>+ More areas</li>
+                </ul>
+                <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20like%20to%20place%20a%20delivery%20order%20with%20Choiselle.%20Can%20you%20confirm%20my%20delivery%20area%20and%20available%20products%3F"
+                   class="btn-gold mt-3" target="_blank" rel="noopener noreferrer"
+                   aria-label="Order for Thursday delivery via WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Order for Thursday Delivery
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="mb-3">
+            <div class="eyebrow" style="color:var(--gold);opacity:.65;">Saint Lucia</div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Rodney Bay</div>
+                <div class="stockist-name">Massy Store Gourmet</div>
+                <div class="stockist-loc">Rodney Bay, Saint Lucia</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Castries</div>
+                <div class="stockist-name">The Health Emporium</div>
+                <div class="stockist-loc">Blue Coral Mall, Castries</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Bois D'Orange</div>
+                <div class="stockist-name">Suzie's Variety</div>
+                <div class="stockist-loc">Bois D'Orange, Saint Lucia</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Rodney Bay</div>
+                <div class="stockist-name">H&amp;B St. Lucia</div>
+                <div class="stockist-loc">Rodney Bay, Saint Lucia</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Soufriere</div>
+                <div class="stockist-name">Kai en Ciel — Jade Mountain</div>
+                <div class="stockist-loc">Jade Mountain Resort, Soufriere</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇱🇨</div>
+                <div class="stockist-region">Soufriere</div>
+                <div class="stockist-name">The Body Holiday Spa</div>
+                <div class="stockist-loc">The Body Holiday Resort, Saint Lucia</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <div class="eyebrow" style="color:var(--gold);opacity:.65;">United States</div>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="stockist-card">
+                <div class="stockist-flag" aria-hidden="true">🇺🇸</div>
+                <div class="stockist-region">Connecticut, USA</div>
+                <div class="stockist-name">Aetheria Relaxation Spa</div>
+                <div class="stockist-loc">Connecticut, United States</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CORPORATE & EVENTS
+  ══════════════════════════════════════ -->
+  <section id="bespoke" class="sec" aria-labelledby="bespoke-h2" style="background:var(--ivory);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="eyebrow">Bespoke Orders</span>
+        <h2 class="sec-title" id="bespoke-h2">For Every <em>Occasion That Matters.</em></h2>
+        <div class="divider divider-c"></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="bespoke-card corp h-100">
+            <div class="bespoke-icon" aria-hidden="true">🏢</div>
+            <h3 class="bespoke-title">Corporate Gifting</h3>
+            <p class="bespoke-desc">Elevate your brand with curated Choiselle gift sets. Caribbean luxury that your clients and team will remember. Custom branded packaging available for bulk orders.</p>
+            <ul class="bespoke-list" aria-label="Corporate gifting features">
+              <li>Custom branding &amp; packaging</li>
+              <li>Conference &amp; event goody bags</li>
+              <li>Hotel welcome amenity sets</li>
+              <li>Year-end client appreciation gifts</li>
+              <li>Bulk pricing available — contact us</li>
+            </ul>
+            <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20interested%20in%20corporate%20gifting%20from%20Choiselle.%20Can%20we%20discuss%20bulk%20orders%20and%20custom%20branding%3F"
+               class="btn-teal" target="_blank" rel="noopener noreferrer"
+               aria-label="Corporate gifting enquiry via WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Corporate Enquiry
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="bespoke-card wed h-100">
+            <div class="bespoke-icon" aria-hidden="true">💍</div>
+            <h3 class="bespoke-title">Weddings &amp; Events</h3>
+            <p class="bespoke-desc">Your guests deserve a favour they'll actually keep. Handcrafted Choiselle candles and oils make wedding and baby shower favours as unforgettable as the day itself.</p>
+            <ul class="bespoke-list" aria-label="Wedding and event features">
+              <li>Custom favour sets — 20 to 500+ guests</li>
+              <li>Personalised packaging &amp; labelling</li>
+              <li>Destination wedding orders welcome</li>
+              <li>Baby shower &amp; gender reveal sets</li>
+              <li>Coordination with wedding planners</li>
+            </ul>
+            <a href="https://wa.me/17587217316?text=Hello!%20I%27m%20planning%20a%20wedding%20or%20event%20and%20I%27m%20interested%20in%20custom%20favours%20from%20Choiselle.%20Can%20we%20discuss%20options%3F"
+               class="btn-gold" target="_blank" rel="noopener noreferrer"
+               aria-label="Wedding and event enquiry via WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Wedding Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       HOW TO ORDER
+  ══════════════════════════════════════ -->
+  <section id="how-to-order" class="sec" aria-labelledby="order-h2" style="background:var(--cream);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="eyebrow">It's Simple</span>
+        <h2 class="sec-title" id="order-h2">Your Order, <em>Three Steps Away.</em></h2>
+        <div class="divider divider-c"></div>
+      </div>
+
+      <div class="row align-items-start justify-content-center">
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="step-wrap">
+            <span class="step-num" aria-hidden="true">01</span>
+            <span class="step-ico" aria-hidden="true"><i class="fas fa-search"></i></span>
+            <h3 class="step-title">Browse &amp; Choose</h3>
+            <p class="step-desc">Explore the collection on this page. Find what speaks to you — or message us and we'll guide you to the perfect product.</p>
+          </div>
+        </div>
+        <div class="col-md-auto step-arrow-col" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-wrap">
+            <span class="step-num" aria-hidden="true">02</span>
+            <span class="step-ico" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
+            <h3 class="step-title">Message Us on WhatsApp</h3>
+            <p class="step-desc">Tap any order button — a pre-filled WhatsApp message opens instantly. We reply fast, usually within minutes during business hours.</p>
+          </div>
+        </div>
+        <div class="col-md-auto step-arrow-col" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
+        <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-wrap">
+            <span class="step-num" aria-hidden="true">03</span>
+            <span class="step-ico" aria-hidden="true"><i class="fas fa-check-circle"></i></span>
+            <h3 class="step-title">Confirm &amp; Receive</h3>
+            <p class="step-desc">We finalise your order, confirm payment, and deliver your Choiselle products — beautifully packaged, ready to use or gift.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4" data-aos="fade-up">
+        <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20like%20to%20place%20a%20Choiselle%20order.%20Can%20you%20help%20me%3F"
+           class="btn-gold" target="_blank" rel="noopener noreferrer"
+           aria-label="Start your order via WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Start My Order
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TESTIMONIALS
+       ⚠️  Replace with real reviews when available
+  ══════════════════════════════════════ -->
+  <section id="testimonials" class="sec" aria-labelledby="t-h2" style="background:var(--ivory);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="eyebrow">Customer Love</span>
+        <h2 class="sec-title" id="t-h2">What People Are <em>Saying.</em></h2>
+        <div class="divider divider-c"></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <blockquote class="testimonial-card">
+            <span class="t-quote" aria-hidden="true">"</span>
+            <div class="t-stars" aria-label="5 star rating">★★★★★</div>
+            <p class="t-body">"The Lemongrass oil is the best I've ever used. Skin is softer than it's been in years and I love that it's a natural insect repellent too. A Caribbean essential — full stop."</p>
+            <footer><div class="t-name">Simone B.</div><div class="t-detail">Choiselle Customer · Saint Lucia</div></footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <blockquote class="testimonial-card">
+            <span class="t-quote" aria-hidden="true">"</span>
+            <div class="t-stars" aria-label="5 star rating">★★★★★</div>
+            <p class="t-body">"We ordered Choiselle gift sets for our corporate year-end event. They were a massive hit. The packaging, the quality, the story behind the brand — our clients were genuinely impressed."</p>
+            <footer><div class="t-name">M. Charles</div><div class="t-detail">Corporate Client · Saint Lucia</div></footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <blockquote class="testimonial-card">
+            <span class="t-quote" aria-hidden="true">"</span>
+            <div class="t-stars" aria-label="5 star rating">★★★★★</div>
+            <p class="t-body">"Choiselle's Lavender oil on my skin after a day at the beach is pure joy. It smells incredible and the quality is everything you want from a luxury product — at a price that makes sense."</p>
+            <footer><div class="t-name">Kezia L.</div><div class="t-detail">Regular Customer · Saint Lucia</div></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════ -->
+  <section id="cta-banner" class="sec-sm" aria-labelledby="cta-h2">
+    <div class="container cta-z">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8" data-aos="fade-right">
+          <h2 class="cta-h2" id="cta-h2">Ready to Let<br><em>Caribbean Nature</em> Nourish Your Skin?</h2>
+          <p class="cta-sub">Message us on WhatsApp — we reply within minutes.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end" data-aos="fade-left">
+          <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20shop%20Choiselle.%20Can%20you%20help%20me%20choose%20the%20right%20product%3F"
+             class="btn-gold" target="_blank" rel="noopener noreferrer"
+             aria-label="Shop Choiselle now via WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Shop Now on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">Choi<em>selle</em></div>
+          <p class="footer-tagline">
+            Water-free, all-natural luxury skincare and candles handcrafted in Saint Lucia.<br>
+            Founded by Nydia Norville · Est. 2014.
+          </p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="https://www.instagram.com/choiselle" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Follow Choiselle on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.threads.net/@choiselle" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Follow Choiselle on Threads"><i class="fas fa-at" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/CHOISELLE" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Follow Choiselle on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://wa.me/17587217316" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Message Choiselle on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <div class="footer-hd">Products</div>
+          <a href="#products" class="footer-lnk">Lemongrass Oil</a>
+          <a href="#products" class="footer-lnk">Caribbean Spice Oil</a>
+          <a href="#products" class="footer-lnk">Lavender Oil</a>
+          <a href="#products" class="footer-lnk">Rosemary Mint Oil</a>
+          <a href="#products" class="footer-lnk">Ylang Ylang Oil</a>
+          <a href="#products" class="footer-lnk">Neroli Isle Face Elixir</a>
+          <a href="#products" class="footer-lnk">Shell Candles</a>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <div class="footer-hd">Our Brands</div>
+          <a href="https://www.instagram.com/choisellelokaledition"  target="_blank" rel="noopener noreferrer" class="footer-lnk">Choiselle Lokal Edition</a>
+          <a href="https://www.instagram.com/candlebloomstudio"       target="_blank" rel="noopener noreferrer" class="footer-lnk">Candle Bloom Studio</a>
+          <a href="https://www.instagram.com/candlesandcocktailsworkshop" target="_blank" rel="noopener noreferrer" class="footer-lnk">Candles &amp; Cocktails</a>
+          <div class="footer-hd mt-4">Services</div>
+          <a href="#bespoke"      class="footer-lnk">Corporate Gifts</a>
+          <a href="#bespoke"      class="footer-lnk">Wedding Favours</a>
+          <a href="#stockists"    class="footer-lnk">Find Us</a>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="footer-hd">Get in Touch</div>
+          <div class="footer-contact-row">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/17587217316" target="_blank" rel="noopener noreferrer" class="footer-lnk" style="padding:0;" aria-label="WhatsApp Choiselle at +1 758-721-7316">+1 758-721-7316</a>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:info@choiselle.com" class="footer-lnk" style="padding:0;" aria-label="Email info@choiselle.com">info@choiselle.com</a>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>Saint Lucia &amp; United States</span>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <a href="https://www.instagram.com/choiselle" target="_blank" rel="noopener noreferrer" class="footer-lnk" style="padding:0;" aria-label="Instagram @choiselle">@choiselle</a>
+          </div>
+          <div class="footer-hd mt-4">As Featured In</div>
+          <p class="footer-lnk" style="pointer-events:none;line-height:1.8;">Panache Jamaica Magazine · Beauty Store Business · Sophisticate's Hair Style Guide · Potent Magazine</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Choiselle · All rights reserved · Founded in Saint Lucia by Nydia Norville</div>
+        <div class="footer-jamalinks">Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="JAMALINKS Caribbean web design">JAMALINKS</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       FLOATING WHATSAPP
+  ══════════════════════════════════════ -->
+  <div id="wa-float" role="complementary" aria-label="Quick WhatsApp order">
+    <a href="https://wa.me/17587217316?text=Hello!%20I%27d%20love%20to%20shop%20with%20Choiselle."
+       class="wa-btn" target="_blank" rel="noopener noreferrer"
+       aria-label="Order via WhatsApp — Choiselle">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <div class="wa-tip" aria-hidden="true">Shop via WhatsApp</div>
+  </div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+    'use strict';
+
+    /* ── AOS ── */
+    AOS.init({ once: true, offset: 50, easing: 'ease-out-cubic', duration: 720 });
+
+    /* ── Navbar scroll ── */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 55);
+    }, { passive: true });
+
+    /* ── Mobile menu ── */
+    const toggle   = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let   open     = false;
+
+    toggle.addEventListener('click', () => {
+      open = !open;
+      mobileMenu.style.setProperty('display', open ? 'block' : 'none', 'important');
+      toggle.setAttribute('aria-expanded', open.toString());
+      toggle.innerHTML = open
+        ? '<i class="fas fa-times" aria-hidden="true"></i>'
+        : '<i class="fas fa-bars"  aria-hidden="true"></i>';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        open = false;
+        mobileMenu.style.setProperty('display', 'none', 'important');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+      });
+    });
+
+    /* ── Product Filter ── */
+    function filterProds(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      document.querySelectorAll('.product-item').forEach(item => {
+        const itemCats = (item.dataset.cat || '').split(' ');
+        const show = cat === 'all' || itemCats.includes(cat);
+        item.classList.toggle('hidden', !show);
+      });
+    }
+
+    /* ── Active nav link on scroll ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link-item[href^="#"]');
+
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => {
+            l.style.color = l.getAttribute('href') === '#' + e.target.id ? 'var(--gold)' : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 }).observe;
+
+    sections.forEach(s => {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navLinks.forEach(l => {
+              l.style.color = l.getAttribute('href') === '#' + e.target.id ? 'var(--gold)' : '';
+            });
+          }
+        });
+      }, { threshold: 0.4 }).observe(s);
+    });
+  </script>
+
+</body>
+</html>
