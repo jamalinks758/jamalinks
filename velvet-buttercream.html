@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Velvet Buttercream | Gourmet Custom Cakes & Cupcakes · Phoenix, AZ</title>
+  <meta name="description" content="Family-owned scratch bakery in Phoenix, AZ. Custom cakes, gourmet cupcakes & artisan desserts by Chef Aaron — third-generation baker with 20+ years of experience.">
+  <meta property="og:title" content="The Velvet Buttercream | Phoenix's Premier Custom Bakery">
+  <meta property="og:description" content="Third-generation craft. Scratch-baked daily. Custom cakes, gourmet cupcakes & artisan desserts in Phoenix, AZ.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Great+Vibes&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    @font-face { font-display: swap; }
+    :root {
+      --bg:#080306; --bg2:#0C0609; --surface:#150B10; --surface2:#1C1018;
+      --border:#2A1520; --primary:#C0102C; --primary-hov:#E01535; --primary-dark:#8A0B1E;
+      --gold:#C9A84C; --gold-lt:#E8D070; --cream:#F0E6E0; --cream-dim:#C4AFA8;
+      --text:#EDE0DC; --text-muted:#8A7070;
+      --ring-grad:linear-gradient(135deg,#C0102C 0%,#8A0B1E 100%);
+      --logo-ring:#C8C8C8;
+      --gold-grad:linear-gradient(135deg,#C9A84C,#E8D070,#C9A84C);
+      --shadow-glow:0 0 60px rgba(192,16,44,.15); --shadow-gold:0 0 40px rgba(201,168,76,.12);
+      --radius:4px; --radius-lg:14px; --ease:0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;font-size:16px;line-height:1.7;overflow-x:hidden;}
+    .skip-link{position:absolute;top:-44px;left:0;background:var(--primary);color:#fff;padding:.5rem 1rem;z-index:9999;font-family:'Jost',sans-serif;font-size:.85rem;text-decoration:none;transition:top .2s;border-bottom-right-radius:4px;}
+    .skip-link:focus{top:0;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+    h1,h2,h3,h4,h5{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.1;}
+    h1{font-size:clamp(3.2rem,7.5vw,8rem);}
+    h2{font-size:clamp(2.2rem,4.5vw,4.2rem);}
+    h3{font-size:clamp(1.5rem,3vw,2.4rem);}
+    p{font-family:'Jost',sans-serif;font-weight:300;}
+    .label{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem;}
+    .script{font-family:'Great Vibes',cursive;}
+    .text-gold{color:var(--gold);} .text-cream{color:var(--cream);}
+    .gradient-text{background:var(--ring-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .gold-text{background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .divider-gold{width:55px;height:1px;background:var(--gold-grad);margin:1.4rem auto;}
+    .divider-ring{width:70px;height:2px;background:var(--ring-grad);margin:1.4rem auto;border-radius:2px;}
+
+    /* BUTTONS */
+    .btn-primary-vbc{background:var(--primary);color:#fff;border:none;padding:.88rem 2.2rem;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:inline-block;position:relative;overflow:hidden;border-radius:2px;transition:var(--ease);}
+    .btn-primary-vbc::before{content:'';position:absolute;inset:0;background:var(--primary-hov);transform:scaleX(0);transform-origin:left;transition:transform var(--ease);}
+    .btn-primary-vbc:hover::before{transform:scaleX(1);}
+    .btn-primary-vbc span,.btn-primary-vbc i{position:relative;z-index:1;color:#fff;}
+    .btn-primary-vbc:hover{color:#fff;}
+    .btn-outline-vbc{background:transparent;color:var(--cream);border:1px solid rgba(201,168,76,.38);padding:.88rem 2.2rem;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:inline-block;border-radius:2px;transition:var(--ease);}
+    .btn-outline-vbc:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.12);}
+    .btn-wa{background:#25D366;color:#fff;border:none;padding:.88rem 2rem;font-family:'Jost',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.55rem;border-radius:2px;transition:var(--ease);}
+    .btn-wa:hover{background:#1fba58;color:#fff;transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.32);}
+
+    .sec{padding:6rem 0;} .sec-sm{padding:3.5rem 0;}
+
+    /* NAV */
+    #nav{position:fixed;top:0;width:100%;z-index:1000;padding:1.5rem 0;transition:all .4s ease;}
+    #nav.scrolled{background:rgba(8,3,6,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:.9rem 0;border-bottom:1px solid var(--border);}
+    .nav-brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;}
+    .ring-wrap{width:42px;height:42px;background:var(--logo-ring);border-radius:50%;padding:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .ring-inner{width:100%;height:100%;background:#FFFFFF;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+    .ring-inner span{font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:700;color:var(--primary);letter-spacing:.02em;}
+    .brand-txt{display:flex;flex-direction:column;line-height:1;}
+    .brand-the{font-family:'Jost',sans-serif;font-size:.52rem;font-weight:400;letter-spacing:.45em;text-transform:uppercase;color:var(--text-muted);}
+    .brand-name{font-family:'Great Vibes',cursive;font-size:1.55rem;color:var(--cream);line-height:1.15;}
+    .nav-link{font-family:'Jost',sans-serif!important;font-size:.7rem!important;font-weight:500!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:var(--text-muted)!important;padding:.3rem .75rem!important;transition:color var(--ease)!important;}
+    .nav-link:hover,.nav-link.active{color:var(--cream)!important;}
+    .nav-cta{font-family:'Jost',sans-serif!important;font-size:.7rem!important;font-weight:600!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#fff!important;background:var(--primary)!important;padding:.5rem 1.2rem!important;border-radius:2px!important;transition:background var(--ease)!important;}
+    .nav-cta:hover{background:var(--primary-hov)!important;}
+    .navbar-toggler{border:1px solid var(--border);padding:.38rem .65rem;border-radius:3px;}
+    .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(240,230,224,.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");}
+    .navbar-toggler:focus{box-shadow:0 0 0 2px var(--gold);}
+
+    /* HERO */
+    #hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--bg);}
+    .hero-glow{position:absolute;inset:0;pointer-events:none;}
+    .hero-glow::before{content:'';position:absolute;top:25%;left:50%;transform:translateX(-50%);width:700px;height:600px;background:radial-gradient(ellipse,rgba(192,16,44,.1) 0%,transparent 68%);border-radius:50%;}
+    .hero-glow::after{content:'';position:absolute;bottom:10%;right:8%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 68%);border-radius:50%;}
+    .hero-ring-deco{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(44vw,560px);height:min(44vw,560px);pointer-events:none;}
+    .ring-o{position:absolute;inset:0;background:var(--primary);border-radius:50%;opacity:.08;animation:pulse-ring 4.5s ease-in-out infinite;}
+    .ring-m{position:absolute;inset:35px;border:1px solid rgba(201,168,76,.18);border-radius:50%;animation:spin-slow 32s linear infinite;}
+    .ring-i{position:absolute;inset:70px;border:1px solid rgba(192,16,44,.18);border-radius:50%;animation:spin-slow 22s linear infinite reverse;}
+    .ring-dot{position:absolute;top:50%;left:50%;width:80px;height:80px;margin:-40px 0 0 -40px;background:var(--primary);border-radius:50%;opacity:.15;filter:blur(20px);animation:pulse-ring 3s ease-in-out infinite alternate;}
+    @keyframes pulse-ring{0%,100%{opacity:.1;transform:scale(1);}50%{opacity:.18;transform:scale(1.04);}}
+    @keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    .hero-content{position:relative;z-index:2;padding-top:6rem;}
+    .hero-overline{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
+    .hero-overline::before,.hero-overline::after{content:'';flex:0 0 36px;height:1px;background:var(--gold);opacity:.45;}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,8.5rem);font-weight:600;line-height:.93;color:var(--cream);}
+    .hero-h1 .italic{font-style:italic;font-weight:300;color:var(--primary);}
+    .hero-script{font-family:'Great Vibes',cursive;font-size:clamp(2.5rem,5.5vw,5.5rem);color:var(--gold);line-height:1;display:block;margin:.6rem 0 1.2rem;}
+    .hero-sub{font-family:'Jost',sans-serif;font-size:.98rem;font-weight:300;color:var(--text-muted);max-width:460px;line-height:1.9;margin-bottom:2.5rem;}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;}
+    .hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+    .hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--cream);line-height:1;}
+    .hero-stat-lbl{font-family:'Jost',sans-serif;font-size:.63rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);margin-top:.25rem;}
+
+    /* STRIP */
+    .strip{background:var(--surface);overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.1rem 0;}
+    .strip-track{display:flex;animation:marquee 35s linear infinite;white-space:nowrap;}
+    .strip-item{display:inline-flex;align-items:center;gap:1.2rem;padding:0 1.8rem;font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);flex-shrink:0;}
+    .sdot{width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;display:inline-block;}
+    @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    /* ABOUT */
+    #about{background:var(--bg2);position:relative;overflow:hidden;}
+    .legacy-bg-num{position:absolute;right:-1.5rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:14rem;font-weight:700;line-height:1;color:rgba(201,168,76,.05);pointer-events:none;user-select:none;}
+    .stat-card{background:var(--surface);border:1px solid var(--border);padding:1.8rem 1.4rem;text-align:center;border-radius:var(--radius);transition:var(--ease);}
+    .stat-card:hover{border-color:rgba(201,168,76,.3);box-shadow:var(--shadow-gold);transform:translateY(-4px);}
+    .stat-big{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--gold);line-height:1;display:block;}
+    .stat-desc{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-top:.4rem;}
+    .quote-card{background:var(--surface);border:1px solid var(--border);padding:1.8rem;border-radius:var(--radius);position:relative;overflow:hidden;margin-top:1.2rem;}
+    .quote-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ring-grad);}
+
+    /* SIGNATURE */
+    #signature{background:var(--surface);position:relative;overflow:hidden;}
+    .sig-backdrop{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 80% 50%,rgba(192,16,44,.07) 0%,transparent 60%),radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.04) 0%,transparent 60%);}
+    .sig-card{background:var(--bg2);border:1px solid var(--border);padding:3rem 2.5rem;border-radius:var(--radius-lg);position:relative;overflow:hidden;}
+    .sig-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ring-grad);}
+    .sig-ring-icon{width:100px;height:100px;background:var(--logo-ring);border-radius:50%;padding:3px;display:flex;align-items:center;justify-content:center;margin:0 auto;}
+    .sig-ring-icon-inner{width:100%;height:100%;background:#FFFFFF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
+
+    /* CUPCAKES */
+    #cupcakes{background:var(--bg);}
+    .flavor-card{background:var(--surface);border:1px solid var(--border);padding:1.6rem 1.2rem;border-radius:var(--radius);position:relative;overflow:hidden;transition:var(--ease);}
+    .flavor-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ring-grad);transform:scaleX(0);transition:transform var(--ease);}
+    .flavor-card:hover{border-color:rgba(192,16,44,.32);transform:translateY(-5px);box-shadow:0 20px 44px rgba(0,0,0,.45);}
+    .flavor-card:hover::after{transform:scaleX(1);}
+    .flavor-icon{font-size:2rem;margin-bottom:.7rem;display:block;}
+    .flavor-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--cream);margin-bottom:.2rem;}
+    .flavor-note{font-size:.75rem;color:var(--text-muted);font-weight:300;}
+    .sunday-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(192,16,44,.18);border:1px solid rgba(192,16,44,.3);padding:.65rem 1.8rem;border-radius:100px;}
+    .sunday-pill span{font-family:'Jost',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);}
+
+    /* BUILDER */
+    #builder{background:var(--bg2);position:relative;}
+    #builder::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(192,16,44,.07) 0%,transparent 60%);}
+    .builder-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;max-width:760px;margin:0 auto;}
+    .builder-head{background:var(--surface2);border-bottom:1px solid var(--border);padding:2rem 2.5rem;}
+    .builder-progress{display:flex;gap:4px;margin-top:1.3rem;}
+    .prog-step{flex:1;height:3px;background:var(--border);border-radius:2px;transition:background .4s ease;}
+    .prog-step.on{background:var(--ring-grad);}
+    .builder-body{padding:2.5rem;}
+    .step-lbl{font-family:'Jost',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem;}
+    .step-q{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--cream);margin-bottom:1.8rem;}
+    .opt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:.75rem;}
+    .opt-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text-muted);padding:.85rem .7rem;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:400;text-align:center;cursor:pointer;border-radius:var(--radius);line-height:1.4;transition:var(--ease);appearance:none;width:100%;}
+    .opt-btn:hover{border-color:var(--primary);color:var(--cream);}
+    .opt-btn.on{background:var(--primary-dark);border-color:var(--primary);color:var(--cream);}
+    .opt-icon{display:block;font-size:1.4rem;margin-bottom:.25rem;}
+    .builder-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+    .b-back{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:.65rem 1.4rem;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;border-radius:2px;display:flex;align-items:center;gap:.45rem;transition:var(--ease);appearance:none;}
+    .b-back:hover{border-color:var(--gold);color:var(--gold);}
+    .b-next{background:var(--primary);border:none;color:#fff;padding:.8rem 1.9rem;font-family:'Jost',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px;display:flex;align-items:center;gap:.5rem;transition:var(--ease);appearance:none;}
+    .b-next:hover{background:var(--primary-hov);}
+    .b-next-wa{background:#25D366;} .b-next-wa:hover{background:#1fba58;}
+    .order-summary{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;margin-bottom:1.4rem;}
+    .sum-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.88rem;}
+    .sum-row:last-child{border-bottom:none;}
+    .sum-key{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);}
+    .sum-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--cream);}
+    .builder-ta{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1.1rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.88rem;resize:vertical;min-height:100px;transition:border-color var(--ease);}
+    .builder-ta:focus{outline:none;border-color:var(--primary);}
+    .builder-ta::placeholder{color:var(--text-muted);}
+
+    /* SPECIALTY */
+    #specialty{background:var(--surface);}
+    .spec-card{background:var(--bg2);border:1px solid var(--border);padding:2.4rem 2rem;border-radius:var(--radius);transition:var(--ease);height:100%;}
+    .spec-card:hover{border-color:rgba(192,16,44,.38);transform:translateY(-5px);box-shadow:var(--shadow-glow);}
+    .spec-icon{font-size:2.5rem;margin-bottom:1.1rem;display:block;}
+
+    /* SUNDAY DEAL */
+    #sunday{background:var(--primary-dark);position:relative;overflow:hidden;text-align:center;}
+    #sunday::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.04) 0%,transparent 65%);}
+    #sunday::after{content:'50%';position:absolute;font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:700;color:rgba(255,255,255,.04);right:-2rem;top:50%;transform:translateY(-50%);line-height:1;pointer-events:none;}
+
+    /* REVIEWS */
+    #reviews{background:var(--bg);}
+    .review-card{background:var(--surface);border:1px solid var(--border);padding:2rem 1.8rem;border-radius:var(--radius);transition:var(--ease);height:100%;}
+    .review-card:hover{border-color:rgba(201,168,76,.2);transform:translateY(-3px);}
+    .stars{color:var(--gold);font-size:.82rem;letter-spacing:.08em;margin-bottom:.9rem;}
+    .review-txt{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-style:italic;color:var(--cream);line-height:1.75;margin-bottom:1.1rem;}
+    .reviewer{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);}
+
+    /* HOW TO ORDER */
+    #howtoorder{background:var(--surface);}
+    .order-step{display:flex;gap:1.4rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border);}
+    .order-step:last-child{border-bottom:none;}
+    .order-num{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:700;color:rgba(201,168,76,.16);line-height:1;min-width:68px;flex-shrink:0;}
+    .order-icon{font-size:1.7rem;flex-shrink:0;padding-top:.15rem;}
+
+    /* VISIT */
+    #visit{background:var(--bg2);}
+    .visit-card{background:var(--surface);border:1px solid var(--border);padding:2.4rem 2rem;border-radius:var(--radius);height:100%;}
+    .hours-row{display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.88rem;}
+    .hours-row:last-child{border-bottom:none;}
+    .hours-day{font-family:'Jost',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);}
+    .hours-time{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--cream);}
+
+    /* CTA */
+    #cta{background:var(--bg);position:relative;overflow:hidden;text-align:center;}
+    #cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(192,16,44,.09) 0%,transparent 68%);pointer-events:none;}
+
+    /* FOOTER */
+    #footer{background:var(--surface);border-top:1px solid var(--border);padding:3.5rem 0 2rem;}
+    .footer-brand{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--cream);}
+    .footer-sub{font-family:'Jost',sans-serif;font-size:.68rem;color:var(--text-muted);letter-spacing:.18em;text-transform:uppercase;}
+    .foot-nav a{font-family:'Jost',sans-serif;font-size:.72rem;color:var(--text-muted);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color var(--ease);}
+    .foot-nav a:hover{color:var(--cream);}
+    .footer-credit{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--text-muted);}
+    .footer-credit a{color:var(--gold);text-decoration:none;transition:color var(--ease);}
+    .footer-credit a:hover{color:var(--gold-lt);}
+
+    /* FLOAT WA */
+    #wa-float{position:fixed;bottom:2rem;right:1.5rem;z-index:999;}
+    .wa-btn{width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,.4);animation:wa-pulse 2.5s ease-in-out infinite;transition:transform .3s ease;}
+    .wa-btn:hover{transform:scale(1.1);color:#fff;box-shadow:0 6px 30px rgba(37,211,102,.6);}
+    @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4);}50%{box-shadow:0 4px 28px rgba(37,211,102,.65),0 0 0 10px rgba(37,211,102,.1);}}
+    .wa-tip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);padding:.45rem .85rem;border-radius:6px;font-family:'Jost',sans-serif;font-size:.73rem;font-weight:500;color:var(--text);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--ease);}
+    #wa-float:hover .wa-tip{opacity:1;}
+
+    @media(max-width:991.98px){.hero-ring-deco{display:none;}.legacy-bg-num{font-size:7rem;}.hero-stats{gap:1.5rem;}#sunday::after{font-size:10rem;}}
+    @media(max-width:767.98px){.sec{padding:4rem 0;}.builder-body{padding:1.5rem;}.builder-head{padding:1.5rem;}.sig-card{padding:2rem 1.5rem;}.order-step{flex-direction:column;gap:.5rem;}}
+    @media(max-width:575.98px){.hero-overline{display:none;}.hero-h1{font-size:3rem;}.hero-script{font-size:2.2rem;}.opt-grid{grid-template-columns:repeat(2,1fr);}}
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- FLOATING WA -->
+  <div id="wa-float">
+    <div class="wa-tip" role="tooltip">Order on WhatsApp</div>
+    <a href="https://wa.me/16027341408?text=Hello!%20I'd%20like%20to%20place%20an%20order%20with%20The%20Velvet%20Buttercream."
+       class="wa-btn" aria-label="Order via WhatsApp" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand nav-brand" href="#" aria-label="The Velvet Buttercream home">
+        <div class="ring-wrap" aria-hidden="true">
+          <div class="ring-inner"><span>VBC</span></div>
+        </div>
+        <div class="brand-txt">
+          <span class="brand-the">The</span>
+          <span class="brand-name">Velvet Buttercream</span>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cupcakes">Cupcakes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#builder">Custom Cakes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#specialty">Specialty</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#visit">Visit Us</a></li>
+          <li class="nav-item ms-2">
+            <a class="nav-link nav-cta" href="#builder">Build Your Cake</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" role="main">
+
+    <!-- HERO -->
+    <section id="hero" aria-label="Welcome">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-ring-deco" aria-hidden="true">
+        <div class="ring-o"></div>
+        <div class="ring-m"></div>
+        <div class="ring-i"></div>
+        <div class="ring-dot"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="row">
+          <div class="col-lg-8 col-xl-7">
+            <div class="hero-overline" data-aos="fade-up">
+              <span class="label" style="margin-bottom:0">Phoenix, Arizona · Est. 2010</span>
+            </div>
+            <h1 class="hero-h1" data-aos="fade-up" data-aos-delay="80">
+              Where Every<br><span class="italic">Layer</span><br>Tells a Story.
+            </h1>
+            <span class="hero-script" data-aos="fade-up" data-aos-delay="170">The Velvet Buttercream</span>
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="250">
+              Third-generation craft. Scratch-baked daily. Custom cakes, gourmet cupcakes &amp; artisan desserts — built to your exact vision, delivered with pride.
+            </p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="330">
+              <a href="#builder" class="btn-primary-vbc"><span>🎂 Build Your Cake</span></a>
+              <a href="#cupcakes" class="btn-outline-vbc">Browse Signatures</a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="430">
+              <div><div class="hero-stat-num">20+</div><div class="hero-stat-lbl">Years of Craft</div></div>
+              <div><div class="hero-stat-num">125+</div><div class="hero-stat-lbl">5-Star Reviews</div></div>
+              <div><div class="hero-stat-num">3<sup style="font-size:.5em">rd</sup></div><div class="hero-stat-lbl">Generation Baker</div></div>
+              <div><div class="hero-stat-num">2,952</div><div class="hero-stat-lbl">Posts & Creations</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="strip" role="region" aria-label="Highlights">
+      <div class="strip-track" aria-hidden="true">
+        <span class="strip-item"><span class="sdot"></span>Scratch-Baked Daily</span>
+        <span class="strip-item"><span class="sdot"></span>Custom Cakes</span>
+        <span class="strip-item"><span class="sdot"></span>Gourmet Cupcakes</span>
+        <span class="strip-item"><span class="sdot"></span>Wedding Cakes</span>
+        <span class="strip-item"><span class="sdot"></span>Vegan &amp; Gluten-Free</span>
+        <span class="strip-item"><span class="sdot"></span>Family-Owned</span>
+        <span class="strip-item"><span class="sdot"></span>Phoenix · AZ</span>
+        <span class="strip-item"><span class="sdot"></span>50% Off Large Cupcakes Every Sunday</span>
+        <span class="strip-item"><span class="sdot"></span>125+ Five-Star Reviews</span>
+        <span class="strip-item"><span class="sdot"></span>Artisan Desserts</span>
+        <span class="strip-item"><span class="sdot"></span>Scratch-Baked Daily</span>
+        <span class="strip-item"><span class="sdot"></span>Custom Cakes</span>
+        <span class="strip-item"><span class="sdot"></span>Gourmet Cupcakes</span>
+        <span class="strip-item"><span class="sdot"></span>Wedding Cakes</span>
+        <span class="strip-item"><span class="sdot"></span>Vegan &amp; Gluten-Free</span>
+        <span class="strip-item"><span class="sdot"></span>Family-Owned</span>
+        <span class="strip-item"><span class="sdot"></span>Phoenix · AZ</span>
+        <span class="strip-item"><span class="sdot"></span>50% Off Large Cupcakes Every Sunday</span>
+        <span class="strip-item"><span class="sdot"></span>125+ Five-Star Reviews</span>
+        <span class="strip-item"><span class="sdot"></span>Artisan Desserts</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="sec" aria-label="Our story">
+      <div class="container position-relative">
+        <div class="legacy-bg-num" aria-hidden="true">20</div>
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-5" data-aos="fade-right">
+            <span class="label">The Legacy</span>
+            <h2 class="text-cream mb-4">More Than a Bakery.<br>
+              <span class="script text-gold" style="font-size:1.25em;line-height:1.1">A Family Legacy.</span>
+            </h2>
+            <p style="color:var(--text-muted);margin-bottom:1.4rem;line-height:1.9;font-size:.95rem">
+              The Velvet Buttercream is more than just a bakery — it's a family legacy. As a third-generation baker with over 20 years of experience and a culinary degree from the Art Institute of Phoenix, Aaron has honed his skills to ensure that every cake tells a story. Our commitment to quality and creativity allows us to design cakes that not only please the eye but also tantalize the palate.
+            </p>
+            <p style="color:var(--text-muted);margin-bottom:1.4rem;line-height:1.9;font-size:.95rem">
+              Aaron advanced to The Art Institute of Phoenix where he earned his way onto the Dean's List for three consecutive semesters. Graduating in 2006, he worked as a Tournant Chef — learning every aspect of the kitchen before settling on his passion for working with sweets.
+            </p>
+            <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.9;font-size:.95rem">
+              In 2010 he began laying the foundation for what is now The Velvet Buttercream. He is truly in it to change your perceptions by combining new modern with old classical. No stone has been left unturned, no cup of sugar left uncooked.
+            </p>
+            <a href="#builder" class="btn-primary-vbc"><span>Order Your Cake</span></a>
+          </div>
+          <div class="col-lg-6 offset-lg-1" data-aos="fade-left" data-aos-delay="100">
+            <div class="row g-3">
+              <div class="col-6"><div class="stat-card"><span class="stat-big">20+</span><span class="stat-desc">Years Experience</span></div></div>
+              <div class="col-6" style="margin-top:1.4rem"><div class="stat-card"><span class="stat-big">125+</span><span class="stat-desc">5-Star Reviews</span></div></div>
+              <div class="col-6" style="margin-top:-1.4rem"><div class="stat-card"><span class="stat-big">3rd</span><span class="stat-desc">Generation Baker</span></div></div>
+              <div class="col-6"><div class="stat-card"><span class="stat-big">2010</span><span class="stat-desc">Year Founded</span></div></div>
+            </div>
+            <div class="quote-card mt-3" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-quote-left text-gold" style="font-size:1.1rem;opacity:.7;margin-bottom:.8rem;display:block" aria-hidden="true"></i>
+              <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--cream);margin-bottom:.9rem;line-height:1.75">
+                "He is truly in it to change your perceptions by combining new modern with old classical."
+              </p>
+              <span class="label" style="margin-bottom:0">— Chef Aaron, Founder</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE FROSTING -->
+    <section id="signature" class="sec" aria-label="The Signature Velvet Buttercream frosting">
+      <div class="sig-backdrop" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">The Icon</span>
+            <h2 class="text-cream mb-2">The Frosting That<br><span class="gradient-text">Started Everything.</span></h2>
+            <div class="divider-ring"></div>
+            <p class="label" style="color:var(--text-muted);margin-bottom:0">16 Years in the Making</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="sig-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="row align-items-center gy-4">
+                <div class="col-md-3 text-center">
+                  <div class="sig-ring-icon" aria-hidden="true">
+                    <div class="sig-ring-icon-inner">🧁</div>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <span class="label">The Signature Velvet Buttercream</span>
+                  <h3 class="text-cream mb-3" style="font-size:1.85rem">A recipe 16 years in the making.</h3>
+                  <p style="color:var(--text-muted);font-size:.95rem;line-height:1.9;margin-bottom:1rem">
+                    This 16-year-old recipe was created by Chef Aaron himself. The Signature Velvet Buttercream is a lightly sweetened, melt-in-your-mouth vanilla buttercream — designed like a traditional buttercream, as fluffy as whipped cream, and yet as velvety smooth and flavorful as a cream cheese icing.
+                  </p>
+                  <p style="color:var(--text-muted);font-size:.9rem;line-height:1.9">
+                    Our cakes are built with <strong style="color:var(--cream)">3 layers of cake and 2 layers of filling</strong>. For a taller, more sophisticated look, ask about our <strong style="color:var(--gold)">5-layer "Tall-boy" premium option</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUPCAKES -->
+    <section id="cupcakes" class="sec" aria-label="Cupcake flavors">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-4">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">Signature Flavors</span>
+            <h2 class="text-cream mb-3">Cupcakes That Taste<br><span class="script text-gold" style="font-size:1.2em">Like a Celebration.</span></h2>
+            <div class="divider-gold"></div>
+            <p style="color:var(--text-muted);max-width:500px;margin:0 auto;font-size:.93rem">Each large cupcake is about the serving size of a slice of cake — available by the dozen, or grab-and-go in store. Seasonal flavors rotate weekly.</p>
+          </div>
+        </div>
+        <div class="text-center mb-5" data-aos="fade-up">
+          <div class="sunday-pill d-inline-flex">
+            <span aria-hidden="true">🔥</span>
+            <span>Every Sunday — 50% Off Large Cupcakes</span>
+            <span aria-hidden="true">🔥</span>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🍰</span><div class="flavor-name">Scarlett O'Hara Red Velvet</div><div class="flavor-note">★ Guest Favourite</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="40"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🥕</span><div class="flavor-name">Carrot Pecan</div><div class="flavor-note">★ Guest Favourite</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="80"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🍫</span><div class="flavor-name">German Chocolate</div><div class="flavor-note">Rich &amp; Indulgent</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🎊</span><div class="flavor-name">Confetti Velvet</div><div class="flavor-note">Signature</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🥜</span><div class="flavor-name">Peanut Butter Cup</div><div class="flavor-note">Indulgent Classic</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="40"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">✨</span><div class="flavor-name">Bouji Caramel</div><div class="flavor-note">Premium Select</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="80"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🍪</span><div class="flavor-name">Cookies &amp; Cream</div><div class="flavor-note">Fan Favourite</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🌅</span><div class="flavor-name">Havana Sunset</div><div class="flavor-note">Tropical &amp; Bold</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">⭐</span><div class="flavor-name">Black &amp; Gold Signature</div><div class="flavor-note">Luxury Edition</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="40"><div class="flavor-card"><span class="flavor-icon" aria-hidden="true">🫐</span><div class="flavor-name">Blackberry Velvet Chambord</div><div class="flavor-note">Artisan Select</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="80"><div class="flavor-card" style="border-color:rgba(76,175,80,.22)"><span class="flavor-icon" aria-hidden="true">🌿</span><div class="flavor-name">Vegan Options</div><div class="flavor-note" style="color:#66BB6A">Plant-Based Available</div></div></div>
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120"><div class="flavor-card" style="border-style:dashed;border-color:rgba(201,168,76,.28)"><span class="flavor-icon" aria-hidden="true">🔄</span><div class="flavor-name">Weekly Specials</div><div class="flavor-note" style="color:var(--gold)">In-Store Rotation</div></div></div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a href="https://wa.me/16027341408?text=Hi!%20I'd%20like%20to%20know%20today's%20cupcake%20flavors%20and%20availability."
+             class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="Ask about today's cupcake flavors on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Ask About Today's Flavors
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAKE BUILDER -->
+    <section id="builder" class="sec" aria-label="Custom cake builder">
+      <div class="container position-relative">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">Custom Orders</span>
+            <h2 class="text-cream mb-3">Build Your Dream Cake</h2>
+            <div class="divider-ring"></div>
+            <p style="color:var(--text-muted);max-width:480px;margin:0 auto;font-size:.93rem">Tell us exactly what you want in 4 easy steps. Your specs arrive pre-filled on WhatsApp — we reply to confirm details and pricing.</p>
+          </div>
+        </div>
+        <div class="builder-wrap" data-aos="fade-up" data-aos-delay="100">
+          <div class="builder-head">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="step-lbl" id="step-ind" aria-live="polite" aria-atomic="true">Step 1 of 4</span>
+              <span style="font-family:'Jost',sans-serif;font-size:.7rem;color:var(--text-muted)">We reply within minutes 🎂</span>
+            </div>
+            <div class="builder-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" aria-label="Order progress">
+              <div class="prog-step on" id="p1"></div>
+              <div class="prog-step" id="p2"></div>
+              <div class="prog-step" id="p3"></div>
+              <div class="prog-step" id="p4"></div>
+            </div>
+          </div>
+          <div class="builder-body">
+
+            <!-- STEP 1 -->
+            <div id="s1" class="bstep" role="group" aria-labelledby="q1">
+              <span class="step-lbl">Step 1 — Occasion</span>
+              <h3 class="step-q" id="q1">"What are we celebrating?"</h3>
+              <div class="opt-grid" role="radiogroup" aria-label="Select occasion">
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Birthday')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🎂</span>Birthday</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Wedding')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">💍</span>Wedding</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Anniversary')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">💕</span>Anniversary</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Graduation')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🎓</span>Graduation</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Baby Shower')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">👶</span>Baby Shower</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Corporate / Event')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🏢</span>Corporate</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Quinceañera')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">👑</span>Quinceañera</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'occasion','Just Because')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">💛</span>Just Because</button>
+              </div>
+              <div class="builder-nav">
+                <div></div>
+                <button class="b-next" type="button" onclick="go(2)" aria-label="Go to size selection">
+                  Next: Choose Size <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div id="s2" class="bstep" style="display:none" role="group" aria-labelledby="q2" aria-hidden="true">
+              <span class="step-lbl">Step 2 — Size</span>
+              <h3 class="step-q" id="q2">"How many are we feeding?"</h3>
+              <div class="opt-grid" role="radiogroup" aria-label="Select size">
+                <button class="opt-btn" type="button" onclick="pick(this,'size','6&quot; Round — Serves 8–10')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">⬡</span>6&quot; Round<br><small>Serves 8–10</small></button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','8&quot; Round — Serves 15–20')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">⬡</span>8&quot; Round<br><small>Serves 15–20</small></button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','10&quot; Round — Serves 25–30')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">⬡</span>10&quot; Round<br><small>Serves 25–30</small></button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','Tall-Boy 5-Layer — Premium')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🏆</span>Tall-Boy<br><small>5-Layer Premium</small></button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','2-Tier Cake')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🎂</span>2-Tier Cake</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','3-Tier Cake')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">👑</span>3-Tier Cake</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','1 Dozen Cupcakes')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🧁</span>1 Dozen<br><small>Cupcakes</small></button>
+                <button class="opt-btn" type="button" onclick="pick(this,'size','2 Dozen Cupcakes')" aria-pressed="false"><span class="opt-icon" aria-hidden="true">🧁</span>2 Dozen<br><small>Cupcakes</small></button>
+              </div>
+              <div class="builder-nav">
+                <button class="b-back" type="button" onclick="go(1)" aria-label="Back to occasion"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+                <button class="b-next" type="button" onclick="go(3)" aria-label="Go to flavor selection">Next: Pick Flavor <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div id="s3" class="bstep" style="display:none" role="group" aria-labelledby="q3" aria-hidden="true">
+              <span class="step-lbl">Step 3 — Flavor</span>
+              <h3 class="step-q" id="q3">"What flavor calls to you?"</h3>
+              <div class="opt-grid" role="radiogroup" aria-label="Select flavor">
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Scarlett O\'Hara Red Velvet')" aria-pressed="false">🍰 Scarlett O'Hara Red Velvet</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Carrot Pecan')" aria-pressed="false">🥕 Carrot Pecan</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','German Chocolate')" aria-pressed="false">🍫 German Chocolate</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Confetti Velvet')" aria-pressed="false">🎊 Confetti Velvet</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Peanut Butter Cup')" aria-pressed="false">🥜 Peanut Butter Cup</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Bouji Caramel')" aria-pressed="false">✨ Bouji Caramel</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Cookies & Cream')" aria-pressed="false">🍪 Cookies &amp; Cream</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Havana Sunset')" aria-pressed="false">🌅 Havana Sunset</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Black & Gold Signature')" aria-pressed="false">⭐ Black &amp; Gold</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Blackberry Velvet Chambord')" aria-pressed="false">🫐 Blackberry Velvet Chambord</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Vegan Option')" aria-pressed="false">🌿 Vegan Option</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Gluten-Free Option')" aria-pressed="false">🌾 Gluten-Free</button>
+                <button class="opt-btn" type="button" onclick="pick(this,'flavor','Custom Flavor — I will describe')" aria-pressed="false">🎨 Custom Flavor</button>
+              </div>
+              <div class="builder-nav">
+                <button class="b-back" type="button" onclick="go(2)" aria-label="Back to size"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</button>
+                <button class="b-next" type="button" onclick="go(4)" aria-label="Go to details">Next: Add Details <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div id="s4" class="bstep" style="display:none" role="group" aria-labelledby="q4" aria-hidden="true">
+              <span class="step-lbl">Step 4 — Review &amp; Send</span>
+              <h3 class="step-q" id="q4">"Almost there — your cake summary:"</h3>
+              <div class="order-summary" aria-label="Order summary">
+                <div class="sum-row"><span class="sum-key">Occasion</span><span class="sum-val" id="sum-o">—</span></div>
+                <div class="sum-row"><span class="sum-key">Size</span><span class="sum-val" id="sum-s">—</span></div>
+                <div class="sum-row"><span class="sum-key">Flavor</span><span class="sum-val" id="sum-f">—</span></div>
+              </div>
+              <label for="extras" style="font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.65rem">Special Design Requests or Notes</label>
+              <textarea id="extras" class="builder-ta" placeholder="Special message, design inspiration, colors, allergy info, pickup or delivery date..." aria-describedby="extras-hint"></textarea>
+              <p id="extras-hint" style="font-size:.72rem;color:var(--text-muted);margin-top:.4rem">The more detail you share, the better we can craft your perfect cake.</p>
+              <div class="builder-nav">
+                <button class="b-back" type="button" onclick="go(3)" aria-label="Back to flavor"><i class="fas fa-arrow-left" aria-hidden="true"></i> Edit Order</button>
+                <button class="b-next b-next-wa" type="button" onclick="sendWA()" aria-label="Send order on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Send on WhatsApp
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+          <p style="color:var(--text-muted);font-size:.84rem">Prefer to shop online? <a href="https://bit.ly/VBCshop" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;font-weight:500">Visit our online shop →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALTY CAKES -->
+    <section id="specialty" class="sec" aria-label="Specialty cakes">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">For Every Vision</span>
+            <h2 class="text-cream mb-3">Specialty Cakes &amp;<br><span class="gold-text">Bespoke Creations</span></h2>
+            <div class="divider-gold"></div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="spec-card"><span class="spec-icon" aria-hidden="true">💍</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Wedding Cakes</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">Your wedding deserves a cake as extraordinary as your love story. Custom-designed tiered cakes built to your exact vision, flavors, and aesthetic. Consultations available.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="70">
+            <div class="spec-card"><span class="spec-icon" aria-hidden="true">🌿</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Vegan Cakes</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">Made with Violife plant-based butter and organic powdered sugar. Egg alternative uses potato starch and tapioca flour. All the flavor — none of the compromise.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="140">
+            <div class="spec-card"><span class="spec-icon" aria-hidden="true">🌾</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Gluten-Free</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">Made with rice flour, whole grain brown rice, potato starch, tapioca starch, grain sorghum flour, and xanthan gum. Indulgence without restriction.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="spec-card"><span class="spec-icon" aria-hidden="true">🍦</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Ice Cream Cakes</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">Available in chocolate, vanilla bean, and cream cheese. A uniquely decadent fusion of our signature cake craft and creamy, cold indulgence.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="70">
+            <div class="spec-card"><span class="spec-icon" aria-hidden="true">🏆</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Tiered Event Cakes</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">Multi-tier creations for grand occasions — weddings, quinceañeras, galas, and milestone celebrations. Each tier tells another layer of your story.</p></div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="140">
+            <div class="spec-card" style="border-color:rgba(201,168,76,.22)"><span class="spec-icon" aria-hidden="true">🎪</span><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.7rem">Dessert Tables</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.85">A fully curated dessert experience for your event. Cakes, cupcakes, cookies, tarts, macarons and more — styled for maximum visual impact.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISAN DESSERTS -->
+    <section id="desserts" class="sec" style="background:var(--bg2)" aria-label="Artisan desserts">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">Beyond the Cake</span>
+            <h2 class="text-cream mb-3">Artisan Treats &amp;<br><span class="script" style="font-size:1.2em;color:var(--primary)">Sweet Indulgences.</span></h2>
+            <div class="divider-ring"></div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div data-aos="fade-up" data-aos-delay="0" style="display:flex;gap:1.8rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border)">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1;color:rgba(201,168,76,.12);min-width:56px;flex-shrink:0" aria-hidden="true">01</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.4rem">Brown Butter Chocolate Chip Cookie</h3><p style="color:var(--text-muted);font-size:.88rem;line-height:1.8">Rich, thick, and chewy — browned butter with dark chocolate chips. Consistently rated 5/5 by customers who can't stop ordering them.</p></div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="60" style="display:flex;gap:1.8rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border)">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1;color:rgba(201,168,76,.12);min-width:56px;flex-shrink:0" aria-hidden="true">02</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.4rem">J.R. Sugar Cookie</h3><p style="color:var(--text-muted);font-size:.88rem;line-height:1.8">Named after Chef Aaron's great-grandfather. Thick and buttery, rolled in sugar, baked to a light golden color, finished with a sugar frosting drizzle. A family recipe, shared with you.</p></div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="120" style="display:flex;gap:1.8rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border)">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1;color:rgba(201,168,76,.12);min-width:56px;flex-shrink:0" aria-hidden="true">03</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.4rem">Fruit Tarts &amp; Macarons</h3><p style="color:var(--text-muted);font-size:.88rem;line-height:1.8">Lemon Raspberry White Chocolate Tart, Raspberry Ganache Tartlet, Raspberry Macaron, Cinnamon Roll Macaron — each a precision pastry built for delight.</p></div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="180" style="display:flex;gap:1.8rem;align-items:flex-start;padding:1.8rem 0;border-bottom:1px solid var(--border)">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1;color:rgba(201,168,76,.12);min-width:56px;flex-shrink:0" aria-hidden="true">04</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.4rem">Crème Brûlée</h3><p style="color:var(--text-muted);font-size:.88rem;line-height:1.8">Classic French technique, VBC perfection. Customers call it superb. Silky custard beneath a perfectly torched sugar crust. Available seasonally.</p></div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="240" style="display:flex;gap:1.8rem;align-items:flex-start;padding:1.8rem 0">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1;color:rgba(201,168,76,.12);min-width:56px;flex-shrink:0" aria-hidden="true">05</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:.4rem">Mini Cupcake Platters</h3><p style="color:var(--text-muted);font-size:.88rem;line-height:1.8">Our 28ct. mini cupcake platter features Chef's choice of four flavors — perfect for events, showers, corporate gatherings, and gifting. Seasonal flavors may be present.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUNDAY DEAL -->
+    <section id="sunday" class="sec-sm sec" aria-label="Sunday special offer">
+      <div class="container position-relative" style="z-index:1">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center" data-aos="zoom-in">
+            <span class="label" style="color:rgba(255,255,255,.6)">Every Week</span>
+            <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,5rem);color:#fff;margin-bottom:.5rem">
+              Cupcake Day — Every Sunday
+            </h2>
+            <div class="script" style="font-size:clamp(2rem,4vw,3.5rem);color:rgba(255,255,255,.85);margin-bottom:1.4rem">50% Off Large Cupcakes</div>
+            <p style="color:rgba(255,255,255,.65);max-width:460px;margin:0 auto 2rem;font-size:.95rem;line-height:1.85">
+              Buy 12, get 2% off. Buy 6, get 6% off. Stop in Sunday 10am–1pm and treat yourself — or the whole office.
+            </p>
+            <a href="https://wa.me/16027341408?text=Hi!%20I'd%20like%20to%20order%20large%20cupcakes%20for%20this%20Sunday%20at%2050%25%20off."
+               class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="Order Sunday cupcakes on WhatsApp" style="margin:0 auto;display:inline-flex">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Order for Sunday
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="sec" aria-label="Customer reviews">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">Customer Love</span>
+            <h2 class="text-cream mb-3">Real Celebrations,<br><span class="script text-gold" style="font-size:1.2em">Real Smiles.</span></h2>
+            <div class="divider-gold"></div>
+            <p style="color:var(--text-muted);font-size:.9rem">125+ five-star reviews from Yelp, Google, and Facebook combined. Word of mouth has been our greatest marketing.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"By far some of the best cupcakes we've ever had. The cream cheese frosting is beyond amazing."</p>
+              <div class="reviewer">Verified Customer — Yelp</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"Everything I have ever ordered from this pâtisserie has been superb. The Crème Brûlée? Y'all..."</p>
+              <div class="reviewer">Verified Customer — Google</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"Scarlett O'Hara Red Velvet: 5/5. Brown Butter Chocolate Chip Cookie: 5/5. Very chocolatey and not overly sweet."</p>
+              <div class="reviewer">Verified Customer — DoorDash</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"The Raspberry Ganache Tartlet was amazing. So was the Cinnamon Roll Macaron. We will absolutely continue ordering."</p>
+              <div class="reviewer">Verified Customer — DoorDash</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"The texture was good and they looked Insta-ready beautiful! German Chocolate: 4/5. Carrot Pecan: 4/5. Scarlett O'Hara: 5/5."</p>
+              <div class="reviewer">Verified Customer — Yelp</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="review-txt">"The friendly, attentive staff accommodated our custom request with precision and genuine care. A truly boutique experience."</p>
+              <div class="reviewer">Verified Customer — Google</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO ORDER -->
+    <section id="howtoorder" class="sec" aria-label="How to order">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">The Process</span>
+            <h2 class="text-cream mb-3">Your Cake in<br><span class="gold-text">4 Simple Steps.</span></h2>
+            <div class="divider-ring"></div>
+            <p style="color:var(--text-muted);font-size:.93rem">No complicated forms. No waiting days for a quote. Your cake is one WhatsApp message away.</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="order-step" data-aos="fade-right" data-aos-delay="0">
+              <div class="order-num" aria-hidden="true">01</div>
+              <div class="order-icon" aria-hidden="true">🎂</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--cream);margin-bottom:.4rem">Browse or Build</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.8">Explore our menu or use the custom builder above to spec your perfect cake — occasion, size, flavor, and design details.</p></div>
+            </div>
+            <div class="order-step" data-aos="fade-right" data-aos-delay="60">
+              <div class="order-num" aria-hidden="true">02</div>
+              <div class="order-icon" aria-hidden="true">💬</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--cream);margin-bottom:.4rem">Send to WhatsApp</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.8">Tap any order button and your specs arrive pre-filled in WhatsApp. We reply within minutes — not days. No forms. No waiting.</p></div>
+            </div>
+            <div class="order-step" data-aos="fade-right" data-aos-delay="120">
+              <div class="order-num" aria-hidden="true">03</div>
+              <div class="order-icon" aria-hidden="true">✅</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--cream);margin-bottom:.4rem">Confirm &amp; Pay</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.8">We confirm your order, finalise any design details, and process your deposit to lock in your date. Simple and stress-free.</p></div>
+            </div>
+            <div class="order-step" data-aos="fade-right" data-aos-delay="180">
+              <div class="order-num" aria-hidden="true">04</div>
+              <div class="order-icon" aria-hidden="true">🎉</div>
+              <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--cream);margin-bottom:.4rem">Collect &amp; Celebrate</h3><p style="color:var(--text-muted);font-size:.9rem;line-height:1.8">Pickup is always free. Delivery starts from $12 within midtown Phoenix. Watch faces light up — that's the Velvet Buttercream promise.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section id="visit" class="sec" aria-label="Visit us">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-7" data-aos="fade-up">
+            <span class="label">Come See Us</span>
+            <h2 class="text-cream mb-3">Visit the Bakery</h2>
+            <div class="divider-gold"></div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="visit-card">
+              <span class="label">Location</span>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:1rem">702 W Camelback Rd<br>Suite 5<br>Phoenix, AZ 85013</h3>
+              <a href="https://maps.google.com/?q=702+W+Camelback+Rd+Suite+5+Phoenix+AZ+85013" target="_blank" rel="noopener noreferrer" class="btn-outline-vbc" style="font-size:.68rem;padding:.65rem 1.3rem" aria-label="Get directions on Google Maps">Get Directions →</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+            <div class="visit-card">
+              <span class="label">Hours</span>
+              <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time" style="color:var(--primary);font-size:.8rem;letter-spacing:.1em">Closed</span></div>
+              <div class="hours-row"><span class="hours-day">Tue – Fri</span><span class="hours-time">9:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00am – 6:00pm</span></div>
+              <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00am – 1:00pm</span></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+            <div class="visit-card">
+              <span class="label">Contact</span>
+              <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.4rem;line-height:1.8">Call or text us directly. We also take online orders at our shop, and custom quotes via WhatsApp.</p>
+              <a href="tel:6027341408" style="display:flex;align-items:center;gap:.7rem;color:var(--cream);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1rem" aria-label="Call us at 602-734-1408">
+                <i class="fas fa-phone" style="color:var(--gold);font-size:1rem" aria-hidden="true"></i> 602-734-1408
+              </a>
+              <a href="https://wa.me/16027341408" target="_blank" rel="noopener noreferrer" class="btn-wa" style="width:100%;justify-content:center" aria-label="WhatsApp us">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
+              </a>
+              <div class="mt-3">
+                <a href="https://bit.ly/VBCshop" target="_blank" rel="noopener noreferrer" class="btn-outline-vbc" style="width:100%;text-align:center;font-size:.68rem;padding:.65rem" aria-label="Visit online shop">Shop Online →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="sec" aria-label="Order call to action">
+      <div class="container position-relative" style="z-index:1">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <span class="label">Ready?</span>
+            <h2 class="text-cream mb-3">
+              Your Perfect Cake<br>
+              <span class="script text-gold" style="font-size:1.2em">Starts Here.</span>
+            </h2>
+            <div class="divider-ring"></div>
+            <p style="color:var(--text-muted);max-width:450px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.9">Every great celebration begins with the right cake. Let's make yours unforgettable — one layer at a time.</p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+              <a href="#builder" class="btn-primary-vbc"><span>🎂 Build My Cake</span></a>
+              <a href="https://wa.me/16027341408?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20The%20Velvet%20Buttercream."
+                 class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp now">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">The Velvet Buttercream</div>
+          <div class="footer-sub mt-1 mb-3">Phoenix, Arizona · Est. 2010</div>
+          <p style="color:var(--text-muted);font-size:.82rem;line-height:1.8;max-width:280px">Handcrafted custom cakes for every celebration. Scratch-baked daily. Family owned and operated.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <span class="label" style="color:var(--text-muted)">Menu</span>
+          <nav class="foot-nav d-flex flex-column gap-2" aria-label="Footer navigation">
+            <a href="#about">Our Story</a>
+            <a href="#signature">The Signature</a>
+            <a href="#cupcakes">Cupcakes</a>
+            <a href="#specialty">Specialty</a>
+            <a href="#desserts">Desserts</a>
+          </nav>
+        </div>
+        <div class="col-6 col-lg-2">
+          <span class="label" style="color:var(--text-muted)">Order</span>
+          <nav class="foot-nav d-flex flex-column gap-2" aria-label="Order links">
+            <a href="#builder">Custom Builder</a>
+            <a href="#howtoorder">How It Works</a>
+            <a href="https://bit.ly/VBCshop" target="_blank" rel="noopener noreferrer">Online Shop</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#visit">Visit Us</a>
+          </nav>
+        </div>
+        <div class="col-lg-4">
+          <span class="label" style="color:var(--text-muted)">Get in Touch</span>
+          <p style="color:var(--text-muted);font-size:.82rem;margin-bottom:1rem">702 W Camelback Rd, Suite 5<br>Phoenix, AZ 85013</p>
+          <a href="tel:6027341408" style="color:var(--cream);text-decoration:none;font-size:.88rem;display:block;margin-bottom:.5rem" aria-label="Call 602-734-1408">📞 602-734-1408</a>
+          <div class="d-flex gap-3 mt-3">
+            <a href="https://www.instagram.com/velvetbuttercream" target="_blank" rel="noopener noreferrer"
+               style="color:var(--text-muted);font-size:1.2rem;transition:color var(--ease)"
+               aria-label="Follow us on Instagram" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--text-muted)'">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/TheVelvetButtercream" target="_blank" rel="noopener noreferrer"
+               style="color:var(--text-muted);font-size:1.2rem;transition:color var(--ease)"
+               aria-label="Like us on Facebook" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--text-muted)'">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/16027341408" target="_blank" rel="noopener noreferrer"
+               style="color:var(--text-muted);font-size:1.2rem;transition:color var(--ease)"
+               aria-label="Message us on WhatsApp" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='var(--text-muted)'">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem">
+        <span class="footer-credit">© 2025 The Velvet Buttercream · Phoenix, AZ</span>
+        <span class="footer-credit">
+          Demo page built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // AOS
+    AOS.init({ duration: 750, once: true, offset: 60 });
+
+    // Navbar scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Builder state
+    const order = { occasion: '', size: '', flavor: '' };
+    let curStep = 1;
+
+    function go(step) {
+      // Validation on next
+      if (step > curStep) {
+        const keys = ['', 'occasion', 'size', 'flavor'];
+        if (keys[curStep] && !order[keys[curStep]]) {
+          const grids = ['','#s1 .opt-grid','#s2 .opt-grid','#s3 .opt-grid'];
+          const g = document.querySelector(grids[curStep]);
+          if (g) { g.style.animation = 'shake .4s ease'; setTimeout(() => g.style.animation = '', 450); }
+          return;
+        }
+      }
+      const cur = document.getElementById('s' + curStep);
+      const nxt = document.getElementById('s' + step);
+      if (!nxt) return;
+      cur.style.display = 'none'; cur.setAttribute('aria-hidden','true');
+      nxt.style.display = 'block'; nxt.setAttribute('aria-hidden','false');
+      // Update progress
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById('p' + i).classList.toggle('on', i <= step);
+      }
+      document.getElementById('step-ind').textContent = 'Step ' + step + ' of 4';
+      document.querySelector('.builder-progress').setAttribute('aria-valuenow', step);
+      curStep = step;
+      // Fill summary
+      if (step === 4) {
+        document.getElementById('sum-o').textContent = order.occasion || '—';
+        document.getElementById('sum-s').textContent = order.size || '—';
+        document.getElementById('sum-f').textContent = order.flavor || '—';
+      }
+      // Scroll builder into view smoothly
+      document.getElementById('builder').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function pick(btn, key, val) {
+      order[key] = val;
+      const parent = btn.closest('.opt-grid');
+      parent.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('on');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('on');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+
+    function sendWA() {
+      const extras = document.getElementById('extras').value.trim();
+      const msg = [
+        '🎂 *Custom Cake Order — The Velvet Buttercream*',
+        '',
+        '📌 *Occasion:* ' + (order.occasion || 'Not specified'),
+        '📏 *Size:* ' + (order.size || 'Not specified'),
+        '🍰 *Flavor:* ' + (order.flavor || 'Not specified'),
+        extras ? '📝 *Special Notes:* ' + extras : '',
+        '',
+        'Please confirm details and pricing. Thank you! 🙏'
+      ].filter(Boolean).join('\n');
+      const url = 'https://wa.me/16027341408?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    // Shake animation
+    const style = document.createElement('style');
+    style.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}';
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
