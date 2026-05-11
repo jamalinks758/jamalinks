@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy Cafe Jamaica — Bubble Tea, Boba & Eats | Kingston</title>
+    <meta name="description" content="Yummy Cafe Jamaica — Premium bubble tea, boba, smoothies, Xiao Long Bao and more. Order directly via WhatsApp. Constant Spring & Summit Food Village, Kingston.">
+    <meta property="og:title" content="Yummy Cafe Jamaica | Bubble Tea & Boba Kingston">
+    <meta property="og:description" content="Your favourite bubble tea spot in Kingston. 50+ drinks. Fresh eats. Order straight from WhatsApp.">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <style>
+        /* ========================
+           CSS VARIABLES & THEME
+        ======================== */
+        :root {
+            --green-deep:   #1B4332;
+            --green-mid:    #2D6A4F;
+            --green-light:  #40916C;
+            --gold:         #C9A96E;
+            --gold-light:   #E8D5B0;
+            --cream:        #F8F3EC;
+            --cream-dark:   #EDE4D3;
+            --surface:      #ffffff;
+            --bg:           #F8F3EC;
+            --text:         #1a1a1a;
+            --text-muted:   #5a5a5a;
+            --border:       rgba(27,67,50,0.14);
+            --shadow:       0 4px 24px rgba(27,67,50,0.10);
+        }
+
+        [data-theme="dark"] {
+            --surface:    #1B4332;
+            --bg:         #0D2018;
+            --text:       #F8F3EC;
+            --text-muted: rgba(248,243,236,0.6);
+            --border:     rgba(201,169,110,0.18);
+            --shadow:     0 4px 24px rgba(0,0,0,0.35);
+        }
+
+        /* ========================
+           BASE
+        ======================== */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-display: swap;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-display: swap;
+        }
+
+        a { text-decoration: none; }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ========================
+           NAVBAR
+        ======================== */
+        .navbar {
+            background: var(--green-deep) !important;
+            padding: 0.85rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1050;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 2px solid var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--green-deep);
+            flex-shrink: 0;
+        }
+
+        .brand-text-wrap .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            display: block;
+            line-height: 1;
+        }
+
+        .brand-text-wrap .brand-sub {
+            font-size: 0.62rem;
+            color: rgba(248,243,236,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-link {
+            color: rgba(248,243,236,0.82) !important;
+            font-size: 0.84rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.5rem 0.75rem !important;
+        }
+
+        .nav-link:hover { color: var(--gold) !important; }
+
+        .btn-nav-order {
+            background: var(--gold);
+            color: var(--green-deep) !important;
+            border-radius: 50px;
+            padding: 0.45rem 1.25rem !important;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: background 0.2s;
+        }
+
+        .btn-nav-order:hover { background: var(--gold-light); }
+
+        .theme-btn {
+            background: none;
+            border: 1px solid rgba(248,243,236,0.25);
+            border-radius: 50px;
+            color: rgba(248,243,236,0.7);
+            cursor: pointer;
+            font-size: 0.82rem;
+            padding: 0.3rem 0.65rem;
+            transition: all 0.2s;
+        }
+
+        .theme-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .navbar-toggler {
+            border-color: rgba(248,243,236,0.25) !important;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(248,243,236,0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* ========================
+           HERO
+        ======================== */
+        .hero {
+            background: var(--green-deep);
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0;
+        }
+
+        .hero-glow-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(201,169,110,0.10) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(45,106,79,0.45) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(201,169,110,0.12);
+            border: 1px solid rgba(201,169,110,0.28);
+            border-radius: 50px;
+            padding: 0.38rem 1rem;
+            font-size: 0.72rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7.5vw, 5.5rem);
+            color: var(--cream);
+            line-height: 1.05;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            color: rgba(248,243,236,0.68);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            max-width: 430px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.25rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .hero-stat .lbl {
+            font-size: 0.65rem;
+            color: rgba(248,243,236,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--green-deep);
+            border-radius: 50px;
+            padding: 0.85rem 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-hero-primary:hover {
+            background: var(--gold-light);
+            color: var(--green-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201,169,110,0.3);
+        }
+
+        .btn-hero-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: rgba(248,243,236,0.85);
+            border: 1.5px solid rgba(248,243,236,0.28);
+            border-radius: 50px;
+            padding: 0.85rem 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-hero-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-pill {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 50px;
+            padding: 0.28rem 0.9rem;
+            font-size: 0.73rem;
+            color: rgba(248,243,236,0.72);
+        }
+
+        /* ========================
+           SECTION SHARED
+        ======================== */
+        .sec-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .sec-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.9rem, 4.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.6rem;
+        }
+
+        .sec-sub {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        /* ========================
+           MENU SECTION
+        ======================== */
+        .menu-sec {
+            padding: 5.5rem 0;
+            background: var(--bg);
+        }
+
+        /* Category tabs */
+        .cat-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .cat-tab {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            padding: 0.42rem 1.1rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.18s;
+            white-space: nowrap;
+        }
+
+        .cat-tab:hover, .cat-tab.active {
+            background: var(--green-deep);
+            border-color: var(--green-deep);
+            color: #fff;
+        }
+
+        [data-theme="dark"] .cat-tab:hover,
+        [data-theme="dark"] .cat-tab.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--green-deep);
+        }
+
+        /* Menu grids */
+        .menu-grid {
+            display: none;
+        }
+
+        .menu-grid.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 0.9rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+        .drink-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 1.1rem 1rem;
+            cursor: pointer;
+            transition: all 0.18s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drink-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s;
+        }
+
+        .drink-card:hover, .drink-card.selected {
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+        }
+
+        .drink-card:hover::after, .drink-card.selected::after {
+            transform: scaleX(1);
+        }
+
+        .drink-card.selected {
+            background: rgba(27,67,50,0.04);
+        }
+
+        [data-theme="dark"] .drink-card.selected {
+            background: rgba(201,169,110,0.08);
+        }
+
+        .d-emoji { font-size: 1.9rem; display: block; margin-bottom: 0.45rem; }
+
+        .d-name {
+            font-weight: 700;
+            font-size: 0.8rem;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .d-price {
+            font-size: 0.72rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .d-tag {
+            display: inline-block;
+            background: rgba(201,169,110,0.1);
+            color: var(--gold);
+            font-size: 0.58rem;
+            padding: 0.08rem 0.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 0.35rem;
+            font-weight: 600;
+        }
+
+        /* ========================
+           EATS SECTION
+        ======================== */
+        .eats-sec {
+            background: var(--green-deep);
+            padding: 5.5rem 0;
+        }
+
+        .eats-sec .sec-title,
+        .eats-sec .sec-label { color: var(--gold); }
+
+        .eats-sec .sec-sub {
+            color: rgba(248,243,236,0.6);
+        }
+
+        .eats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .eats-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,169,110,0.18);
+            border-radius: 20px;
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .eats-card:hover, .eats-card.selected {
+            background: rgba(201,169,110,0.10);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .e-icon { font-size: 2.4rem; margin-bottom: 0.9rem; display: block; }
+
+        .e-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .e-sub {
+            font-size: 0.72rem;
+            color: rgba(248,243,236,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.65rem;
+        }
+
+        .e-desc {
+            font-size: 0.8rem;
+            color: rgba(248,243,236,0.62);
+            line-height: 1.6;
+        }
+
+        .e-price {
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        /* ========================
+           ORDER BUILDER
+        ======================== */
+        .builder-sec {
+            padding: 5.5rem 0;
+            background: var(--cream-dark);
+        }
+
+        [data-theme="dark"] .builder-sec {
+            background: #0a1810;
+        }
+
+        .builder-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 640px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+
+        /* Progress dots */
+        .prog-dots {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .prog-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all 0.3s;
+        }
+
+        .prog-dot.active {
+            background: var(--green-deep);
+            width: 22px;
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] .prog-dot.active { background: var(--gold); }
+
+        .prog-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-left: 0.35rem;
+        }
+
+        .step-q {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        /* Choice buttons */
+        .choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-btn {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text);
+            text-align: left;
+            transition: all 0.18s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .choice-btn:hover, .choice-btn.selected {
+            background: var(--green-deep);
+            border-color: var(--green-deep);
+            color: var(--cream);
+        }
+
+        [data-theme="dark"] .choice-btn:hover,
+        [data-theme="dark"] .choice-btn.selected {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--green-deep);
+        }
+
+        /* Topping grid */
+        .topping-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.45rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .top-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.45rem 0.4rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            color: var(--text);
+            text-align: center;
+            transition: all 0.18s;
+            line-height: 1.3;
+        }
+
+        .top-btn.selected {
+            background: rgba(27,67,50,0.07);
+            border-color: var(--green-deep);
+            color: var(--green-deep);
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .top-btn.selected {
+            background: rgba(201,169,110,0.12);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Flavor input */
+        .flavor-input {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            background: transparent;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 1.25rem;
+        }
+
+        .flavor-input:focus { border-color: var(--green-deep); }
+        [data-theme="dark"] .flavor-input:focus { border-color: var(--gold); }
+        .flavor-input::placeholder { color: var(--text-muted); }
+
+        /* Location buttons */
+        .loc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .loc-btn {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.18s;
+            width: 100%;
+        }
+
+        .loc-btn:hover, .loc-btn.selected {
+            border-color: var(--green-deep);
+            background: rgba(27,67,50,0.04);
+        }
+
+        [data-theme="dark"] .loc-btn:hover,
+        [data-theme="dark"] .loc-btn.selected {
+            border-color: var(--gold);
+            background: rgba(201,169,110,0.06);
+        }
+
+        .loc-name {
+            display: block;
+            font-weight: 700;
+            font-size: 0.84rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .loc-detail {
+            font-size: 0.68rem;
+            color: var(--gold);
+            line-height: 1.5;
+        }
+
+        /* Order summary */
+        .order-summary {
+            background: var(--green-deep);
+            border-radius: 14px;
+            padding: 1.35rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .sum-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.38rem 0;
+            border-bottom: 1px solid rgba(248,243,236,0.08);
+            font-size: 0.8rem;
+        }
+
+        .sum-row:last-child { border-bottom: none; font-weight: 700; font-size: 0.85rem; }
+
+        .sum-lbl { color: rgba(248,243,236,0.62); flex-shrink: 0; }
+        .sum-val { color: var(--gold); text-align: right; max-width: 70%; }
+
+        .notes-input {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.82rem;
+            background: transparent;
+            color: var(--text);
+            resize: none;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 1.25rem;
+        }
+
+        .notes-input:focus { border-color: var(--green-deep); }
+        [data-theme="dark"] .notes-input:focus { border-color: var(--gold); }
+        .notes-input::placeholder { color: var(--text-muted); }
+
+        /* Send button */
+        .btn-wa-send {
+            width: 100%;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+        }
+
+        .btn-wa-send:hover {
+            background: #1ebe5d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+        }
+
+        .btn-wa-send:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Nav buttons */
+        .btn-nxt, .btn-bk {
+            border-radius: 50px;
+            padding: 0.72rem 1.75rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.18s;
+            border: none;
+        }
+
+        .btn-nxt {
+            background: var(--green-deep);
+            color: var(--cream);
+        }
+
+        .btn-nxt:hover { background: var(--green-mid); }
+
+        .btn-nxt:disabled {
+            background: var(--border);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .btn-bk {
+            background: transparent;
+            color: var(--text);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn-bk:hover { border-color: var(--green-deep); }
+
+        /* Step visibility */
+        .build-step { display: none; }
+        .build-step.active { display: block; animation: fadeIn 0.2s ease; }
+
+        /* Section subheading */
+        .sub-head {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        /* ========================
+           LOCATIONS SECTION
+        ======================== */
+        .locations-sec {
+            padding: 5.5rem 0;
+            background: var(--bg);
+        }
+
+        .loc-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: var(--shadow);
+        }
+
+        .loc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(27,67,50,0.07);
+            border-radius: 50px;
+            padding: 0.28rem 0.85rem;
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: var(--green-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .loc-badge {
+            background: rgba(201,169,110,0.12);
+            color: var(--gold);
+        }
+
+        .loc-card-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .loc-card-addr {
+            font-size: 0.82rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hours-ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-ul li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .hours-ul li:last-child { border-bottom: none; }
+        .hours-ul .day { color: var(--text-muted); }
+        .hours-ul .time { font-weight: 600; color: var(--green-mid); }
+        [data-theme="dark"] .hours-ul .time { color: var(--gold); }
+
+        .loc-note {
+            background: rgba(201,169,110,0.08);
+            border: 1px solid rgba(201,169,110,0.22);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            font-size: 0.78rem;
+            color: var(--gold);
+            margin-top: 1.35rem;
+            line-height: 1.55;
+        }
+
+        /* ========================
+           DELIVERY BAND
+        ======================== */
+        .delivery-band {
+            background: var(--green-mid);
+            padding: 1.25rem 0;
+            text-align: center;
+        }
+
+        .delivery-band p {
+            color: var(--cream);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        .delivery-band a { color: var(--gold); font-weight: 700; }
+
+        /* ========================
+           FLOATING WHATSAPP
+        ======================== */
+        .wa-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.55rem;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+            transition: transform 0.2s;
+            animation: wa-pulse 2.5s infinite;
+        }
+
+        @keyframes wa-pulse {
+            0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
+            50%       { box-shadow: 0 4px 30px rgba(37,211,102,0.65), 0 0 0 9px rgba(37,211,102,0.10); }
+        }
+
+        .wa-float:hover {
+            transform: scale(1.12);
+            color: #fff;
+        }
+
+        /* ========================
+           FOOTER
+        ======================== */
+        footer {
+            background: #071410;
+            padding: 3.5rem 0 2rem;
+        }
+
+        .ft-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .ft-sub {
+            font-size: 0.78rem;
+            color: rgba(248,243,236,0.4);
+            margin-top: 0.25rem;
+        }
+
+        .ft-link {
+            display: block;
+            color: rgba(248,243,236,0.55);
+            font-size: 0.8rem;
+            margin-bottom: 0.45rem;
+            transition: color 0.2s;
+        }
+
+        .ft-link:hover { color: var(--gold); }
+
+        .ft-col-head {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ft-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 1.5rem;
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.73rem;
+            color: rgba(248,243,236,0.3);
+        }
+
+        .ft-bottom a { color: var(--gold); }
+
+        .ft-social a {
+            color: rgba(248,243,236,0.45);
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            transition: color 0.2s;
+        }
+
+        .ft-social a:hover { color: var(--gold); }
+
+        /* ========================
+           RESPONSIVE
+        ======================== */
+        @media (max-width: 575.98px) {
+            .builder-card { padding: 1.5rem; }
+            .choice-grid { grid-template-columns: 1fr; }
+            .topping-grid { grid-template-columns: repeat(2, 1fr); }
+            .loc-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            .hero { padding: 4rem 0; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 3px; }
+
+        /* Focus visible */
+        :focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========================
+     NAVBAR
+======================== -->
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <a class="navbar-brand" href="#" aria-label="Yummy Cafe Jamaica - Home">
+            <div class="brand-circle" aria-hidden="true">YC</div>
+            <div class="brand-text-wrap">
+                <span class="brand-name">Yummy Cafe</span>
+                <span class="brand-sub">Bubble Tea · Kingston, Jamaica</span>
+            </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+            <button class="theme-btn" id="themeMob" aria-label="Toggle light or dark mode">
+                <i class="fas fa-sun" aria-hidden="true"></i>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navCollapse" aria-controls="navCollapse"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navCollapse">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 gap-1 py-3 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#menu">Drinks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eats">Eats</a></li>
+                <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+                <li class="nav-item ms-lg-1">
+                    <button class="theme-btn d-none d-lg-block" id="themeDesk" aria-label="Toggle light or dark mode">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a class="nav-link btn-nav-order" href="#order" aria-label="Order now via WhatsApp">💬 Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ========================
+     HERO
+======================== -->
+<section class="hero" role="banner" aria-label="Yummy Cafe Jamaica hero">
+    <div class="hero-glow-1" aria-hidden="true"></div>
+    <div class="hero-glow-2" aria-hidden="true"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-duration="700">
+                <div class="hero-badge" aria-label="Location">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    Kingston, Jamaica &mdash; Constant Spring
+                </div>
+                <h1>
+                    Kingston's<br>
+                    Favourite<br>
+                    <em>Bubble Tea.</em>
+                </h1>
+                <p class="hero-desc">
+                    50+ premium drinks. Asian-inspired eats. Every order built your way —
+                    and sent straight to our WhatsApp. We reply fast.
+                </p>
+
+                <div class="hero-stats" role="list" aria-label="Cafe highlights">
+                    <div class="hero-stat" role="listitem">
+                        <div class="num">50+</div>
+                        <div class="lbl">Drink Options</div>
+                    </div>
+                    <div class="hero-stat" role="listitem">
+                        <div class="num">20+</div>
+                        <div class="lbl">Toppings</div>
+                    </div>
+                    <div class="hero-stat" role="listitem">
+                        <div class="num">2</div>
+                        <div class="lbl">Locations</div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#order" class="btn-hero-primary" aria-label="Build your order and send via WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Build Your Order
+                    </a>
+                    <a href="#menu" class="btn-hero-outline" aria-label="Browse the drinks menu">
+                        Browse Menu <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="hero-pills" aria-label="Menu highlights">
+                    <span class="hero-pill">🧋 Bubble Milk Tea</span>
+                    <span class="hero-pill">🍃 Fruit Tea</span>
+                    <span class="hero-pill">✨ Specialty Boba</span>
+                    <span class="hero-pill">🧊 Slushies</span>
+                    <span class="hero-pill">🥟 Xiao Long Bao</span>
+                    <span class="hero-pill">🧇 Bubble Waffle</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     DRINKS MENU
+======================== -->
+<section class="menu-sec" id="menu" aria-labelledby="menu-heading">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col" data-aos="fade-up">
+                <div class="sec-label" aria-hidden="true">— The Drinks Menu</div>
+                <h2 class="sec-title" id="menu-heading">Drinks That Hit Different.</h2>
+                <p class="sec-sub">
+                    Pick a category. Every drink is fully customisable —
+                    mix flavours <strong>+J$200</strong>, add toppings <strong>+J$200</strong> each.
+                    All prices in Jamaican Dollars (JMD).
+                </p>
+            </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="cat-tabs" role="tablist" aria-label="Drink categories" data-aos="fade-up" data-aos-delay="100">
+            <button class="cat-tab active" role="tab" aria-selected="true"
+                    aria-controls="cat-bmt" onclick="switchCat(this,'bmt')">🧋 Bubble Milk Tea</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-fruit" onclick="switchCat(this,'fruit')">🍃 Fruit Tea</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-spec" onclick="switchCat(this,'spec')">✨ Specialty</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-smoo" onclick="switchCat(this,'smoo')">🥭 Smoothies</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-slush" onclick="switchCat(this,'slush')">🧊 Slushies</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-coco" onclick="switchCat(this,'coco')">🥥 Coconut Milk</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-milks" onclick="switchCat(this,'milks')">🥛 Milkshake</button>
+            <button class="cat-tab" role="tab" aria-selected="false"
+                    aria-controls="cat-yog" onclick="switchCat(this,'yog')">🍧 Yogurt Drink</button>
+        </div>
+
+        <!-- Menu grids — populated by JS -->
+        <div class="menu-grid active" id="cat-bmt" role="tabpanel" aria-label="Bubble Milk Tea options"></div>
+        <div class="menu-grid" id="cat-fruit" role="tabpanel" aria-label="Fruit Tea options"></div>
+        <div class="menu-grid" id="cat-spec" role="tabpanel" aria-label="Specialty Bubble Tea options"></div>
+        <div class="menu-grid" id="cat-smoo" role="tabpanel" aria-label="Smoothie options"></div>
+        <div class="menu-grid" id="cat-slush" role="tabpanel" aria-label="Slushie options"></div>
+        <div class="menu-grid" id="cat-coco" role="tabpanel" aria-label="Coconut Milk options"></div>
+        <div class="menu-grid" id="cat-milks" role="tabpanel" aria-label="Milkshake options"></div>
+        <div class="menu-grid" id="cat-yog" role="tabpanel" aria-label="Yogurt Drink options"></div>
+
+        <div class="text-center mt-5" data-aos="fade-up">
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.25rem;">
+                Can't find what you want? WhatsApp us directly — we'll guide you through the full menu.
+            </p>
+            <a href="#order" class="btn-hero-primary" style="background:var(--green-deep);color:var(--cream);" aria-label="Go to order builder">
+                Build My Order <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     EATS SECTION
+======================== -->
+<section class="eats-sec" id="eats" aria-labelledby="eats-heading">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col" data-aos="fade-up">
+                <div class="sec-label" aria-hidden="true">— Eats</div>
+                <h2 class="sec-title" id="eats-heading">Bites Worth Coming For.</h2>
+                <p class="sec-sub">
+                    Asian-inspired eats that pair perfectly with any drink.
+                    Tap a card to add to your order.
+                </p>
+            </div>
+        </div>
+
+        <div class="eats-grid" id="eatsGrid" role="list" aria-label="Food menu" data-aos="fade-up" data-aos-delay="100">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     ORDER BUILDER
+======================== -->
+<section class="builder-sec" id="order" aria-labelledby="builder-heading">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="sec-label" aria-hidden="true">— Order Builder</div>
+            <h2 class="sec-title" id="builder-heading">Build Your Order.</h2>
+            <p class="sec-sub mx-auto" style="text-align:center;">
+                3 steps. Lands straight in WhatsApp. We reply fast.
+            </p>
+        </div>
+
+        <div class="builder-card" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Progress -->
+            <div class="prog-dots" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" aria-label="Order progress">
+                <div class="prog-dot active" id="pd1"></div>
+                <div class="prog-dot" id="pd2"></div>
+                <div class="prog-dot" id="pd3"></div>
+                <span class="prog-label" id="progLabel">Step 1 of 3</span>
+            </div>
+
+            <!-- ---- STEP 1 ---- -->
+            <div class="build-step active" id="step1">
+                <p class="step-q">What are you ordering today?</p>
+                <div class="choice-grid" role="group" aria-label="Order type">
+                    <button class="choice-btn" onclick="pickType(this,'drink')" aria-pressed="false">🧋 A Drink</button>
+                    <button class="choice-btn" onclick="pickType(this,'eat')" aria-pressed="false">🥟 Something to Eat</button>
+                    <button class="choice-btn" onclick="pickType(this,'both')" aria-pressed="false">🎉 Drink + Eat Combo</button>
+                    <button class="choice-btn" onclick="pickType(this,'delivery')" aria-pressed="false">🛵 Doorstep Delivery</button>
+                </div>
+                <button class="btn-nxt w-100" id="nxt1" onclick="goStep(2)" disabled aria-label="Continue to step 2">
+                    Next: Choose Item →
+                </button>
+            </div>
+
+            <!-- ---- STEP 2 ---- -->
+            <div class="build-step" id="step2">
+                <p class="step-q">Customise your order.</p>
+
+                <div id="s2DrinkArea">
+                    <p class="sub-head">Select Drink Category</p>
+                    <div class="choice-grid" role="group" aria-label="Drink category">
+                        <button class="choice-btn" onclick="pickDrink(this,'Bubble Milk Tea – from J$1,150')" aria-pressed="false">🧋 Bubble Milk Tea</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Fruit Tea – from J$950')" aria-pressed="false">🍃 Fruit Tea</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Specialty Bubble Tea – from J$1,450')" aria-pressed="false">✨ Specialty</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Smoothie – from J$1,400')" aria-pressed="false">🥭 Smoothie</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Yummy Splash Slushie – from J$1,200')" aria-pressed="false">🧊 Slushie</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Coconut Milk Drink – from J$1,300')" aria-pressed="false">🥥 Coconut Milk</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Milkshake – from J$1,200')" aria-pressed="false">🥛 Milkshake</button>
+                        <button class="choice-btn" onclick="pickDrink(this,'Yogurt Drink – from J$1,300')" aria-pressed="false">🍧 Yogurt Drink</button>
+                    </div>
+                </div>
+
+                <div id="s2EatArea" style="display:none;">
+                    <p class="sub-head">Select Food Item</p>
+                    <div class="choice-grid" role="group" aria-label="Food item">
+                        <button class="choice-btn" onclick="pickEat(this,'Xiao Long Bao (Steamed Dumplings) – J$1,500')" aria-pressed="false">🥟 Xiao Long Bao</button>
+                        <button class="choice-btn" onclick="pickEat(this,'Chicken Bites – J$1,500')" aria-pressed="false">🍗 Chicken Bites</button>
+                        <button class="choice-btn" onclick="pickEat(this,'Chicken Wings – J$1,500')" aria-pressed="false">🍗 Chicken Wings</button>
+                        <button class="choice-btn" onclick="pickEat(this,'Bubble Waffle')" aria-pressed="false">🧇 Bubble Waffle</button>
+                        <button class="choice-btn" onclick="pickEat(this,'Bubble Waffle with Ice-Cream')" aria-pressed="false">🍦 Waffle + Ice Cream</button>
+                        <button class="choice-btn" onclick="pickEat(this,'Double Egg & Cheese Bagel – J$1,200')" aria-pressed="false">🥯 Bagel</button>
+                    </div>
+                </div>
+
+                <div id="s2FlavorArea" style="margin-top:1.1rem;">
+                    <label for="flavorTxt" class="sub-head" style="display:block;">
+                        Flavour / Style (e.g. Strawberry, Brown Sugar, Pork)
+                    </label>
+                    <input type="text" id="flavorTxt" class="flavor-input"
+                           placeholder="e.g. Mango Matcha, Dirty Brown Sugar, Sweet n' Spicy…"
+                           aria-label="Enter your flavour or style choice">
+                </div>
+
+                <div style="margin-top:1.25rem;">
+                    <p class="sub-head">Add Toppings <span style="font-weight:400;">(+J$200 each — choose as many as you like)</span></p>
+                    <div class="topping-grid" role="group" aria-label="Topping selection">
+                        <button class="top-btn" onclick="toggleTop(this,'Tapioca Pearls')" aria-pressed="false">Tapioca Pearls</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Lychee Popping Boba')" aria-pressed="false">Lychee Boba</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Peach Popping Boba')" aria-pressed="false">Peach Boba</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Passion Popping Boba')" aria-pressed="false">Passion Boba</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Mango Popping Boba')" aria-pressed="false">Mango Boba</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Rainbow Jelly')" aria-pressed="false">Rainbow Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Crystal Jelly')" aria-pressed="false">Crystal Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Coconut Jelly')" aria-pressed="false">Coconut Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Brown Sugar Jelly')" aria-pressed="false">Brown Sugar Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Strawberry Jelly')" aria-pressed="false">Strawberry Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Mango Jelly')" aria-pressed="false">Mango Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Chocolate Jelly')" aria-pressed="false">Chocolate Jelly</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Whipped Cream')" aria-pressed="false">Whipped Cream</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Caramel Syrup')" aria-pressed="false">Caramel Syrup</button>
+                        <button class="top-btn" onclick="toggleTop(this,'Chocolate Syrup')" aria-pressed="false">Chocolate Syrup</button>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn-bk" onclick="goStep(1)" aria-label="Back to step 1">← Back</button>
+                    <button class="btn-nxt flex-grow-1" id="nxt2" onclick="goStep(3)" disabled aria-label="Continue to step 3">
+                        Next: Confirm & Send →
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---- STEP 3 ---- -->
+            <div class="build-step" id="step3">
+                <p class="step-q">Where are you picking up?</p>
+
+                <div class="loc-grid" role="group" aria-label="Pickup location">
+                    <button class="loc-btn" onclick="pickLoc(this,'Constant Spring')" aria-pressed="false">
+                        <span class="loc-name">📍 Constant Spring</span>
+                        <span class="loc-detail">
+                            112½ Constant Spring Rd, Kingston<br>
+                            Mon–Sat 10:30 AM – 7:00 PM<br>
+                            Sunday 10:00 AM – 5:00 PM
+                        </span>
+                    </button>
+                    <button class="loc-btn" onclick="pickLoc(this,'Summit Food Village (16 Chelsea Ave)')" aria-pressed="false">
+                        <span class="loc-name">🏪 Summit Food Village</span>
+                        <span class="loc-detail">
+                            16 Chelsea Avenue<br>
+                            Thursday & Friday<br>
+                            From 6:00 PM
+                        </span>
+                    </button>
+                </div>
+
+                <div class="order-summary" id="orderSummary" role="region" aria-label="Order summary" aria-live="polite">
+                    <div class="sum-row">
+                        <span class="sum-lbl">Order Type</span>
+                        <span class="sum-val" id="sType">—</span>
+                    </div>
+                    <div class="sum-row">
+                        <span class="sum-lbl">Item</span>
+                        <span class="sum-val" id="sItem">—</span>
+                    </div>
+                    <div class="sum-row">
+                        <span class="sum-lbl">Flavour</span>
+                        <span class="sum-val" id="sFlavor">—</span>
+                    </div>
+                    <div class="sum-row">
+                        <span class="sum-lbl">Toppings</span>
+                        <span class="sum-val" id="sTops">None</span>
+                    </div>
+                    <div class="sum-row">
+                        <span class="sum-lbl">Location</span>
+                        <span class="sum-val" id="sLoc">—</span>
+                    </div>
+                </div>
+
+                <label for="specialNotes" class="sub-head" style="display:block;">
+                    Special Requests (optional)
+                </label>
+                <textarea id="specialNotes" class="notes-input" rows="2"
+                          placeholder="e.g. Less sugar, extra ice, no pearls, extra spicy…"
+                          aria-label="Any special requests for your order"></textarea>
+
+                <button class="btn-wa-send" id="sendBtn" onclick="sendWA()" disabled
+                        aria-label="Send your order to Yummy Cafe on WhatsApp">
+                    <i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i>
+                    Send Order to WhatsApp
+                </button>
+
+                <button class="btn-bk w-100 mt-2" onclick="goStep(2)" aria-label="Back to step 2">← Edit Order</button>
+            </div>
+
+        </div><!-- /builder-card -->
+
+        <p class="text-center mt-3" style="font-size:0.76rem;color:var(--text-muted);">
+            Typically reply within minutes 🎉 &nbsp;|&nbsp;
+            Large / group orders? Call us:
+            <a href="tel:+18764269328" style="color:var(--gold);font-weight:700;">+1 876-426-9328</a>
+        </p>
+    </div>
+</section>
+
+<!-- ========================
+     LOCATIONS
+======================== -->
+<section class="locations-sec" id="locations" aria-labelledby="loc-heading">
+    <div class="container">
+        <div class="sec-label" aria-hidden="true" data-aos="fade-up">— Find Us</div>
+        <h2 class="sec-title" id="loc-heading" data-aos="fade-up">Two Spots. One Vibe.</h2>
+
+        <div class="row g-4 mt-2">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="loc-card">
+                    <div class="loc-badge"><i class="fas fa-store" aria-hidden="true"></i> Main Location</div>
+                    <div class="loc-card-name">Constant Spring</div>
+                    <div class="loc-card-addr">112½ Constant Spring Road, Kingston, Jamaica</div>
+                    <ul class="hours-ul" aria-label="Constant Spring opening hours">
+                        <li><span class="day">Monday – Saturday</span><span class="time">10:30 AM – 7:00 PM</span></li>
+                        <li><span class="day">Sunday</span><span class="time">10:00 AM – 5:00 PM</span></li>
+                    </ul>
+                    <div class="loc-note">
+                        📦 Delivery available via Doorstep — download the app or WhatsApp us to arrange.
+                    </div>
+                    <div class="d-flex gap-2 mt-3 flex-wrap">
+                        <a href="https://maps.app.goo.gl/uicgBcKEwo6XNGHV9"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn-hero-primary" style="font-size:0.78rem;padding:0.55rem 1.1rem;"
+                           aria-label="Get directions to Constant Spring on Google Maps">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Get Directions
+                        </a>
+                        <a href="https://wa.me/18764269328?text=Hi%20Yummy%20Cafe!%20I%27d%20like%20to%20order%20for%20pickup%20at%20Constant%20Spring%20%F0%9F%A7%8B"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn-hero-outline" style="font-size:0.78rem;padding:0.55rem 1.1rem;color:var(--green-deep);border-color:var(--green-deep);"
+                           aria-label="Order via WhatsApp for Constant Spring pickup">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="loc-card">
+                    <div class="loc-badge"><i class="fas fa-star" aria-hidden="true"></i> Pop-Up Location</div>
+                    <div class="loc-card-name">Summit Food Village</div>
+                    <div class="loc-card-addr">16 Chelsea Avenue, Kingston, Jamaica</div>
+                    <ul class="hours-ul" aria-label="Summit Food Village opening hours">
+                        <li><span class="day">Thursday & Friday</span><span class="time">6:00 PM – close</span></li>
+                        <li><span class="day">All other days</span><span class="time">Constant Spring only</span></li>
+                    </ul>
+                    <div class="loc-note">
+                        🎉 Thursday & Friday evening vibes only. Noodle bowls, dumplings, and full menu available.
+                    </div>
+                    <div class="d-flex mt-3">
+                        <a href="https://wa.me/18764269328?text=Hi%20Yummy%20Cafe!%20Are%20you%20set%20up%20at%20Summit%20Food%20Village%20tonight%3F%20%F0%9F%A7%8B"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn-hero-primary" style="font-size:0.78rem;padding:0.55rem 1.1rem;"
+                           aria-label="Check tonight's availability at Summit Food Village via WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Check Tonight's Availability
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================
+     DELIVERY BAND
+======================== -->
+<div class="delivery-band" role="complementary" aria-label="Delivery information">
+    <p>
+        <i class="fas fa-motorcycle" aria-hidden="true"></i>&ensp;
+        <strong>Can't make it in?</strong>&nbsp;
+        Order via
+        <a href="https://wa.me/18764269328?text=Hi!%20I%27d%20like%20to%20arrange%20a%20Doorstep%20delivery%20for%20my%20Yummy%20Cafe%20order%20%F0%9F%A7%8B"
+           target="_blank" rel="noopener noreferrer" aria-label="Arrange Doorstep delivery via WhatsApp">Doorstep delivery</a>
+        &nbsp;or call us:&nbsp;
+        <a href="tel:+18764269328" aria-label="Call Yummy Cafe">+1 876-426-9328</a>
+    </p>
+</div>
+
+<!-- ========================
+     FLOATING WA
+======================== -->
+<a href="https://wa.me/18764269328?text=Hi%20Yummy%20Cafe!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%A7%8B"
+   class="wa-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with Yummy Cafe on WhatsApp to place an order">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- ========================
+     FOOTER
+======================== -->
+<footer role="contentinfo">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="ft-brand">Yummy Cafe</div>
+                <div class="ft-sub">Bubble Tea · Boba · Eats · Kingston, Jamaica</div>
+                <div class="ft-social mt-3">
+                    <a href="https://www.instagram.com/yummycafeja" target="_blank" rel="noopener noreferrer" aria-label="Follow Yummy Cafe on Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="tel:+18764269328" aria-label="Call Yummy Cafe">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:admin@yummycafelimited.com" aria-label="Email Yummy Cafe">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <div class="ft-col-head">Drinks</div>
+                <a class="ft-link" href="#menu">Bubble Milk Tea</a>
+                <a class="ft-link" href="#menu">Fruit Tea</a>
+                <a class="ft-link" href="#menu">Specialty Boba</a>
+                <a class="ft-link" href="#menu">Smoothies</a>
+                <a class="ft-link" href="#menu">Slushies</a>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <div class="ft-col-head">Eats</div>
+                <a class="ft-link" href="#eats">Xiao Long Bao</a>
+                <a class="ft-link" href="#eats">Chicken Bites</a>
+                <a class="ft-link" href="#eats">Chicken Wings</a>
+                <a class="ft-link" href="#eats">Bubble Waffle</a>
+                <a class="ft-link" href="#eats">Bagel</a>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ft-col-head">Find Us</div>
+                <a class="ft-link" href="#locations">Constant Spring — Daily</a>
+                <a class="ft-link" href="#locations">Summit Food Village — Thu &amp; Fri</a>
+                <a class="ft-link" href="mailto:admin@yummycafelimited.com">admin@yummycafelimited.com</a>
+                <a class="ft-link" href="tel:+18764269328">+1 876-426-9328</a>
+            </div>
+        </div>
+
+        <div class="ft-bottom">
+            <p>&copy; 2025 Yummy Cafe Jamaica. All rights reserved.</p>
+            <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========================
+     SCRIPTS
+======================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    /* ========================
+       AOS INIT
+    ======================== */
+    AOS.init({ duration: 650, once: true, offset: 50 });
+
+    /* ========================
+       THEME
+    ======================== */
+    function getAutoTheme() {
+        const h = new Date().getHours();
+        return (h >= 6 && h < 18) ? 'light' : 'dark';
+    }
+
+    function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : '');
+        const ico = t === 'dark' ? 'fa-moon' : 'fa-sun';
+        document.querySelectorAll('.theme-btn i').forEach(el => el.className = `fas ${ico}`);
+        localStorage.setItem('yc-theme', t);
+    }
+
+    const initTheme = localStorage.getItem('yc-theme') || getAutoTheme();
+    applyTheme(initTheme);
+
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            applyTheme(cur === 'dark' ? 'light' : 'dark');
+        });
+    });
+
+    /* ========================
+       MENU DATA
+    ======================== */
+    const MENU = {
+        bmt: [
+            {n:'Original',    p:'J$1,150', t:'With Pearls', e:'🧋'},
+            {n:'Tai Tea',     p:'J$1,150', t:'With Pearls', e:'🧋'},
+            {n:'Strawberry',  p:'J$1,150', t:'With Pearls', e:'🍓'},
+            {n:'Mango',       p:'J$1,150', t:'With Pearls', e:'🥭'},
+            {n:'Matcha',      p:'J$1,150', t:'With Pearls', e:'🍵'},
+            {n:'Chocolate',   p:'J$1,150', t:'With Pearls', e:'🍫'},
+            {n:'Honey Melon', p:'J$1,150', t:'With Pearls', e:'🍈'},
+            {n:'Taro',        p:'J$1,150', t:'With Pearls', e:'🫐'},
+            {n:'Brown Sugar', p:'J$1,150', t:'With Pearls', e:'🧋'},
+            {n:'Sakura',      p:'J$1,150', t:'With Pearls', e:'🌸'},
+            {n:'Lily Milk',   p:'J$1,150', t:'With Pearls', e:'🌿'},
+            {n:'Yin Yang',    p:'J$1,350', t:'With Pearls', e:'☯️'},
+            {n:'Strawberry Matcha', p:'J$1,450', t:'Specialty', e:'🍓'},
+            {n:'Mango Matcha',      p:'J$1,450', t:'Specialty', e:'🥭'},
+            {n:'Blueberry Taro',    p:'J$1,450', t:'Specialty', e:'🫐'}
+        ],
+        fruit: [
+            {n:'Strawberry',   p:'From J$950', t:'Fruit Tea', e:'🍓'},
+            {n:'Passion Fruit',p:'From J$950', t:'Fruit Tea', e:'🌺'},
+            {n:'Lemon',        p:'From J$950', t:'Fruit Tea', e:'🍋'},
+            {n:'Kumquat',      p:'From J$950', t:'Fruit Tea', e:'🍊'},
+            {n:'Grapefruit',   p:'From J$950', t:'Fruit Tea', e:'🍊'},
+            {n:'Lily Flower',  p:'From J$950', t:'Fruit Tea', e:'🌸'},
+            {n:'Chinese Pear', p:'From J$950', t:'Fruit Tea', e:'🍐'},
+            {n:'Pineapple',    p:'From J$950', t:'Fruit Tea', e:'🍍'},
+            {n:'Peach',        p:'From J$950', t:'Fruit Tea', e:'🍑'},
+            {n:'Lychee',       p:'From J$950', t:'Fruit Tea', e:'🍈'},
+            {n:'Honey Melon',  p:'From J$950', t:'Fruit Tea', e:'🍈'}
+        ],
+        spec: [
+            {n:'Strawberry Matcha', p:'J$1,450', t:'Specialty', e:'🍓'},
+            {n:'Mango Matcha',      p:'J$1,450', t:'Specialty', e:'🥭'},
+            {n:'Blueberry Taro',    p:'J$1,450', t:'Specialty', e:'🫐'},
+            {n:'Strawberry Taro',   p:'J$1,450', t:'Specialty', e:'🍓'},
+            {n:'Dirty Brown Sugar', p:'J$1,650', t:'🔥 Fan Fave', e:'⚡'},
+            {n:'Dirty Taro',        p:'J$1,650', t:'Specialty', e:'🫐'},
+            {n:'Dirty Matcha',      p:'J$1,650', t:'Specialty', e:'🍵'}
+        ],
+        smoo: [
+            {n:'Strawberry',     p:'From J$1,400', t:'Smoothie', e:'🍓'},
+            {n:'Tropical',       p:'From J$1,400', t:'Smoothie', e:'🌴'},
+            {n:'Mango',          p:'From J$1,400', t:'Smoothie', e:'🥭'},
+            {n:'Pineapple',      p:'From J$1,400', t:'Smoothie', e:'🍍'},
+            {n:'Blueberry',      p:'From J$1,400', t:'Smoothie', e:'🫐'},
+            {n:'Lychee',         p:'From J$1,400', t:'Smoothie', e:'🍈'},
+            {n:'Pina Colada',    p:'From J$1,400', t:'Smoothie', e:'🥥'},
+            {n:'Strawberry Colada', p:'From J$1,400', t:'Smoothie', e:'🍓'},
+            {n:'Lychee Colada',  p:'From J$1,400', t:'Smoothie', e:'🍈'},
+            {n:'Passion Colada', p:'From J$1,400', t:'Smoothie', e:'🌺'}
+        ],
+        slush: [
+            {n:'Pink Lemonade',    p:'J$1,200', t:'Slushie', e:'🍋'},
+            {n:'Mango Passion',    p:'J$1,200', t:'Slushie', e:'🥭'},
+            {n:'Berry Splash',     p:'J$1,200', t:'Slushie', e:'🍓'},
+            {n:'Cherry Peach Splash', p:'J$1,200', t:'Slushie', e:'🍑'},
+            {n:'Pine Berry Splash',p:'J$1,200', t:'Slushie', e:'🍍'},
+            {n:'Strawberry Kiwi', p:'J$1,200', t:'Slushie', e:'🍓'},
+            {n:'Strawberry Cherry',p:'J$1,200', t:'Slushie', e:'🍒'},
+            {n:'Peach Melon',      p:'J$1,200', t:'Slushie', e:'🍑'},
+            {n:'Melon Kiwi',       p:'J$1,200', t:'Slushie', e:'🍈'},
+            {n:'Dragon Fruit',     p:'J$1,200', t:'Slushie', e:'🐉'},
+            {n:'Honey Melon',      p:'J$1,200', t:'Slushie', e:'🍈'},
+            {n:'Kiwi',             p:'J$1,200', t:'Slushie', e:'🥝'},
+            {n:'Cherry',           p:'J$1,200', t:'Slushie', e:'🍒'}
+        ],
+        coco: [
+            {n:'Strawberry',   p:'From J$1,300', t:'Non-Dairy', e:'🍓'},
+            {n:'Passion Fruit',p:'From J$1,300', t:'Non-Dairy', e:'🌺'},
+            {n:'Mango',        p:'From J$1,300', t:'Non-Dairy', e:'🥭'},
+            {n:'Cherry',       p:'From J$1,300', t:'Non-Dairy', e:'🍒'},
+            {n:'Pineapple',    p:'From J$1,300', t:'Non-Dairy', e:'🍍'},
+            {n:'Blueberry',    p:'From J$1,300', t:'Non-Dairy', e:'🫐'},
+            {n:'Lychee',       p:'From J$1,300', t:'Non-Dairy', e:'🍈'},
+            {n:'Peach',        p:'From J$1,300', t:'Non-Dairy', e:'🍑'}
+        ],
+        milks: [
+            {n:'Strawberry', p:'From J$1,200', t:'Milkshake', e:'🍓'},
+            {n:'Mango',      p:'From J$1,200', t:'Milkshake', e:'🥭'},
+            {n:'Pineapple',  p:'From J$1,200', t:'Milkshake', e:'🍍'},
+            {n:'Blueberry',  p:'From J$1,200', t:'Milkshake', e:'🫐'},
+            {n:'Peach',      p:'From J$1,200', t:'Milkshake', e:'🍑'},
+            {n:'Lychee',     p:'From J$1,200', t:'Milkshake', e:'🍈'},
+            {n:'Cherry',     p:'From J$1,200', t:'Milkshake', e:'🍒'},
+            {n:'Kiwi',       p:'From J$1,200', t:'Milkshake', e:'🥝'},
+            {n:'Oreo',       p:'From J$1,200', t:'Dairy', e:'🍪'},
+            {n:'Chocolate',  p:'From J$1,200', t:'Milkshake', e:'🍫'}
+        ],
+        yog: [
+            {n:'Strawberry', p:'From J$1,300', t:'Yogurt Drink', e:'🍓'},
+            {n:'Cherry',     p:'From J$1,300', t:'Yogurt Drink', e:'🍒'},
+            {n:'Mango',      p:'From J$1,300', t:'Yogurt Drink', e:'🥭'},
+            {n:'Pineapple',  p:'From J$1,300', t:'Yogurt Drink', e:'🍍'},
+            {n:'Blueberry',  p:'From J$1,300', t:'Yogurt Drink', e:'🫐'},
+            {n:'Lychee',     p:'From J$1,300', t:'Yogurt Drink', e:'🍈'},
+            {n:'Peach',      p:'From J$1,300', t:'Yogurt Drink', e:'🍑'},
+            {n:'Passionfruit',p:'From J$1,300',t:'Yogurt Drink', e:'🌺'},
+            {n:'Kiwi',       p:'From J$1,300', t:'Yogurt Drink', e:'🥝'}
+        ]
+    };
+
+    const EATS = [
+        {e:'🥟', n:'Xiao Long Bao',     sub:'Steamed Dumplings',            d:'Juicy handmade steamed dumplings — Pork, Beef, or Chicken. The one that stopped traffic when it launched.',  p:'J$1,500'},
+        {e:'🍗', n:'Chicken Bites',      sub:"Sweet n' Spicy · Sweet n' Sour",d:'Crispy chicken bites tossed in your choice of bold house-made sauce. Ideal alongside any drink.',          p:'J$1,500'},
+        {e:'🍗', n:'Chicken Wings',      sub:"Sweet n' Spicy · Sweet n' Sour",d:"Full wings, same treatment. A crowd favourite every single time.",                                           p:'J$1,500'},
+        {e:'🧇', n:'Bubble Waffle',      sub:'Plain + Add-On Options',       d:'Crispy golden bubble waffle. Add caramel, chocolate, whipped cream, Oreo crunch, or strawberry sauce.',      p:'See Menu'},
+        {e:'🍦', n:'Bubble Waffle + Ice Cream', sub:'With Ice Cream & All Add-Ons',d:'Elevated. Bubble waffle stacked with ice cream and your choice of drizzles.',                          p:'See Menu'},
+        {e:'🥯', n:'Double Egg & Cheese Bagel', sub:'Breakfast · Anytime Snack',  d:'Simple, satisfying, and underrated. Double egg with melted cheese on a fresh bagel.',                  p:'J$1,200'}
+    ];
+
+    /* ========================
+       RENDER MENUS
+    ======================== */
+    function renderMenus() {
+        Object.keys(MENU).forEach(cat => {
+            const g = document.getElementById('cat-' + cat);
+            if (!g) return;
+            g.innerHTML = MENU[cat].map(item => `
+                <div class="drink-card"
+                     role="option"
+                     aria-selected="false"
+                     tabindex="0"
+                     onclick="selectCard(this)"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){this.click();}"
+                     aria-label="${item.n}, ${item.p}">
+                    <span class="d-emoji" aria-hidden="true">${item.e}</span>
+                    <div class="d-name">${item.n}</div>
+                    <div class="d-price">${item.p}</div>
+                    <span class="d-tag">${item.t}</span>
+                </div>
+            `).join('');
+        });
+    }
+
+    function renderEats() {
+        const g = document.getElementById('eatsGrid');
+        if (!g) return;
+        g.innerHTML = EATS.map(item => `
+            <div class="eats-card"
+                 role="listitem"
+                 tabindex="0"
+                 onclick="this.classList.toggle('selected')"
+                 onkeydown="if(event.key==='Enter'||event.key===' '){this.click();}"
+                 aria-label="${item.n}: ${item.d} Price: ${item.p}">
+                <span class="e-icon" aria-hidden="true">${item.e}</span>
+                <div class="e-name">${item.n}</div>
+                <div class="e-sub">${item.sub}</div>
+                <div class="e-desc">${item.d}</div>
+                <div class="e-price">${item.p}</div>
+            </div>
+        `).join('');
+    }
+
+    renderMenus();
+    renderEats();
+
+    /* ========================
+       CATEGORY TABS
+    ======================== */
+    function switchCat(btn, cat) {
+        document.querySelectorAll('.cat-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected','false');
+        });
+        document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        document.getElementById('cat-' + cat).classList.add('active');
+    }
+
+    function selectCard(card) {
+        const grid = card.closest('.menu-grid');
+        grid.querySelectorAll('.drink-card').forEach(c => {
+            c.classList.remove('selected');
+            c.setAttribute('aria-selected','false');
+        });
+        card.classList.add('selected');
+        card.setAttribute('aria-selected','true');
+    }
+
+    /* ========================
+       ORDER BUILDER STATE
+    ======================== */
+    const OS = { type:'', drink:'', eat:'', flavor:'', tops:[], loc:'' };
+
+    function goStep(n) {
+        document.querySelectorAll('.build-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + n).classList.add('active');
+        for (let i = 1; i <= 3; i++) {
+            const d = document.getElementById('pd' + i);
+            d.classList.toggle('active', i === n);
+        }
+        document.getElementById('progLabel').textContent = `Step ${n} of 3`;
+        if (n === 3) updateSummary();
+    }
+
+    function pickType(btn, type) {
+        document.querySelectorAll('#step1 .choice-btn').forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-pressed','true');
+        OS.type = type;
+        document.getElementById('nxt1').disabled = false;
+
+        const drinkA = document.getElementById('s2DrinkArea');
+        const eatA   = document.getElementById('s2EatArea');
+        const flavA  = document.getElementById('s2FlavorArea');
+
+        drinkA.style.display = (type === 'drink' || type === 'both') ? 'block' : 'none';
+        eatA.style.display   = (type === 'eat'   || type === 'both') ? 'block' : 'none';
+        flavA.style.display  = (type !== 'delivery') ? 'block' : 'none';
+    }
+
+    function pickDrink(btn, val) {
+        document.querySelectorAll('#s2DrinkArea .choice-btn').forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-pressed','true');
+        OS.drink = val;
+        checkStep2();
+    }
+
+    function pickEat(btn, val) {
+        document.querySelectorAll('#s2EatArea .choice-btn').forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-pressed','true');
+        OS.eat = val;
+        checkStep2();
+    }
+
+    function checkStep2() {
+        let ready = false;
+        if (OS.type === 'drink'    && OS.drink) ready = true;
+        if (OS.type === 'eat'      && OS.eat)   ready = true;
+        if (OS.type === 'both'     && OS.drink && OS.eat) ready = true;
+        if (OS.type === 'delivery') ready = true;
+        document.getElementById('nxt2').disabled = !ready;
+    }
+
+    function toggleTop(btn, top) {
+        const idx = OS.tops.indexOf(top);
+        if (idx === -1) {
+            OS.tops.push(top);
+            btn.classList.add('selected');
+            btn.setAttribute('aria-pressed','true');
+        } else {
+            OS.tops.splice(idx, 1);
+            btn.classList.remove('selected');
+            btn.setAttribute('aria-pressed','false');
+        }
+    }
+
+    function pickLoc(btn, loc) {
+        document.querySelectorAll('.loc-grid .loc-btn').forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-pressed','false');
+        });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-pressed','true');
+        OS.loc = loc;
+        document.getElementById('sendBtn').disabled = false;
+        updateSummary();
+    }
+
+    function updateSummary() {
+        OS.flavor = document.getElementById('flavorTxt').value.trim();
+        let item = '—';
+        if (OS.drink && OS.eat)    item = OS.drink + ' + ' + OS.eat;
+        else if (OS.drink)         item = OS.drink;
+        else if (OS.eat)           item = OS.eat;
+        else if (OS.type === 'delivery') item = 'Doorstep Delivery';
+
+        document.getElementById('sType').textContent   = OS.type   || '—';
+        document.getElementById('sItem').textContent   = item;
+        document.getElementById('sFlavor').textContent = OS.flavor  || '—';
+        document.getElementById('sTops').textContent   = OS.tops.length ? OS.tops.join(', ') : 'None';
+        document.getElementById('sLoc').textContent    = OS.loc     || '—';
+    }
+
+    function sendWA() {
+        OS.flavor = document.getElementById('flavorTxt').value.trim();
+        const notes = document.getElementById('specialNotes').value.trim();
+
+        let msg = 'Hi Yummy Cafe! 🧋 I\'d like to place an order:\n\n';
+        msg += `📋 *Order Type:* ${OS.type}\n`;
+        if (OS.drink) msg += `🧋 *Drink:* ${OS.drink}\n`;
+        if (OS.eat)   msg += `🥟 *Food:* ${OS.eat}\n`;
+        if (OS.flavor) msg += `✨ *Flavour / Style:* ${OS.flavor}\n`;
+        if (OS.tops.length) msg += `➕ *Toppings:* ${OS.tops.join(', ')}\n`;
+        msg += `📍 *Pickup:* ${OS.loc}\n`;
+        if (notes) msg += `📝 *Special Requests:* ${notes}\n`;
+        msg += '\nLooking forward to it! 😊';
+
+        window.open('https://wa.me/18764269328?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+    }
+</script>
+</body>
+</html>
