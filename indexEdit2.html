@@ -173,6 +173,28 @@
   padding: .3rem .9rem; margin-top: 1rem;
 }
 
+.demo-picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.demo-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.demo-card:hover .demo-picture img {
+  transform: scale(1.05);
+}
+
 /* ══════════════════════════════════════════════════════
    AI COMPARISON SECTION
    ══════════════════════════════════════════════════════ */
