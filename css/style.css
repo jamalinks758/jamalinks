@@ -64,13 +64,13 @@
   --text-2:       #C9C5BC;
   --muted:        #9A9587;
 
-  --blue:         #4A90D9;
+  --blue:         #03164E;
   --blue-mid:     #5BA3E8;
   --blue-light:   #7BBFF5;
   --blue-pale:    rgba(74,144,217,.07);
   --blue-glow:    rgba(74,144,217,.18);
 
-  --gold:         #C9A84C;
+  --gold:         #B38C35;
   --gold-light:   #E8C97A;
   --gold-pale:    rgba(201,168,76,.07);
   --gold-glow:    rgba(201,168,76,.15);
@@ -166,10 +166,10 @@ h1,h2,h3,h4,h5 {
 /* ── JAMALINKS brand: JAMA = blue, L = gold, INKS = blue */
 .brand-jama { color: var(--blue); transition: color .2s; }
 .brand-l    { color: var(--gold); transition: color .2s; }
-.brand-inks { color: var(--blue-mid); transition: color .2s; }
-[data-theme="dark"] .brand-jama { color: var(--blue-light); }
-[data-theme="dark"] .brand-l    { color: var(--gold-light); }
-[data-theme="dark"] .brand-inks { color: var(--blue-light); }
+.brand-inks { color: var(--gold); transition: color .2s; }
+[data-theme="dark"] .brand-jama { color: var(--blue); }
+[data-theme="dark"] .brand-l    { color: var(--gold); }
+[data-theme="dark"] .brand-inks { color: var(--gold); }
 
 .brand-tagline {
   display: block;
