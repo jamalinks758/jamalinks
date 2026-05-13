@@ -451,11 +451,11 @@ section { padding: 96px 0; position: relative; }
 .demo-card:hover { border-color:var(--blue-mid); }
 [data-theme="dark"] .demo-card:hover { border-color:var(--gold); }
 
-/* Picture container — fixed height, no overflow onto body */
+/* Picture container — 16:9 ratio, no overflow onto body */
 .demo-picture {
   display: block;
   width: 100%;
-  height: 175px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   flex-shrink: 0;
   border-bottom: 1px solid var(--border);
