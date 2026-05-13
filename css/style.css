@@ -538,10 +538,10 @@ footer {
 .footer-brand { font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900; }
 .footer-brand .fb-jama { color:var(--blue); transition:color .2s; }
 .footer-brand .fb-l    { color:var(--gold); transition:color .2s; }
-.footer-brand .fb-inks { color:var(--blue-mid); transition:color .2s; }
-[data-theme="dark"] .footer-brand .fb-jama { color:var(--blue-light); }
-[data-theme="dark"] .footer-brand .fb-l    { color:var(--gold-light); }
-[data-theme="dark"] .footer-brand .fb-inks { color:var(--blue-light); }
+.footer-brand .fb-inks { color:var(--gold); transition:color .2s; }
+[data-theme="dark"] .footer-brand .fb-jama { color:var(--blue); }
+[data-theme="dark"] .footer-brand .fb-l    { color:var(--gold); }
+[data-theme="dark"] .footer-brand .fb-inks { color:var(--gold); }
 .footer-about { font-size:.875rem;color:var(--muted);max-width:340px;line-height:1.85;transition:color .2s; }
 .footer-head { font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:1.1rem;transition:color .2s; }
 [data-theme="dark"] .footer-head { color:var(--gold); }
