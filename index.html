@@ -195,6 +195,86 @@
   transform: scale(1.05);
 }
 
+/* ── DEMO SCROLL ROW (Row 3 — Athlete & Personal Brand) ─ */
+.demo-row-header {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+.demo-new-badge {
+  display: inline-flex; align-items: center;
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold, #C9A84C), #f0c94b);
+  color: #1a1a1a; padding: .2rem .7rem; border-radius: 20px;
+}
+.demo-scroll-wrapper { position: relative; width: 100%; }
+.demo-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: .5rem .25rem 1.5rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #C9A84C) transparent;
+}
+.demo-scroll-track::-webkit-scrollbar { height: 4px; }
+.demo-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.demo-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #C9A84C); border-radius: 4px; }
+.demo-card-scroll {
+  flex: 0 0 270px; min-width: 270px; scroll-snap-align: start;
+}
+@media (min-width: 768px) { .demo-card-scroll { flex: 0 0 300px; min-width: 300px; } }
+
+/* ── ATHLETE PRICING SECTION ─────────────────────────── */
+.athlete-pricing-wrap {
+  margin-top: 3.5rem; position: relative; overflow: hidden;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.5rem; padding: 2.5rem 2rem;
+}
+.athlete-pricing-wrap::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold, #C9A84C), var(--blue, #1E3A5F), transparent);
+}
+.athlete-tier-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  height: 100%; display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  position: relative;
+}
+.athlete-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.athlete-tier-card.athlete-featured {
+  border-color: var(--gold, #C9A84C);
+  box-shadow: 0 8px 32px rgba(201,168,76,.18);
+}
+.athlete-market-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #C9A84C); color: #1a1a1a;
+  font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .22rem .85rem; border-radius: 20px; white-space: nowrap;
+}
+.athlete-range-row {
+  display: flex; align-items: baseline; gap: .35rem; flex-wrap: wrap; margin: .5rem 0;
+}
+.athlete-range-low {
+  font-family: 'Playfair Display', serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0d1b2e);
+}
+[data-theme="dark"] .athlete-range-low { color: #f0ece3; }
+.athlete-range-sep { font-size: 1rem; opacity: .4; font-weight: 400; }
+.athlete-range-high {
+  font-family: 'Playfair Display', serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--gold, #C9A84C);
+}
+.athlete-range-label { font-size: .72rem; opacity: .5; font-weight: 500; }
+.athlete-flag-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .06em;
+  background: var(--blue-pale, #EEF4FF); border: 1px solid rgba(46,95,163,.2);
+  color: var(--blue-mid, #2E5FA3); border-radius: 50px; padding: .2rem .7rem;
+  margin-bottom: .75rem;
+}
+[data-theme="dark"] .athlete-flag-pill {
+  background: var(--gold-pale); border-color: rgba(201,168,76,.2); color: var(--gold);
+}
+
 /* ══════════════════════════════════════════════════════
    AI COMPARISON SECTION
    ══════════════════════════════════════════════════════ */
@@ -1026,6 +1106,108 @@ html, body { overflow-x: hidden; max-width: 100%; }
     </article>
   </div>
 </div>
+  <!-- ── Row 3 — Athlete & Personal Brand Profiles (Scrollable) ── -->
+  <div class="mt-4 mb-2 reveal">
+    <div class="demo-row-header">
+      <span class="section-label" style="margin:0;">Athlete &amp; Personal Brand Profiles</span>
+      <span class="demo-new-badge" aria-label="New service offering">New</span>
+    </div>
+    <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
+      Professional digital identity systems for athletes, coaches, and personal brands — built to attract sponsors, scouts, and media opportunities. Scroll to explore.
+    </p>
+  </div>
+
+  <div class="demo-scroll-wrapper reveal d1" aria-label="Athlete and personal brand profile examples">
+    <div class="demo-scroll-track" role="list">
+
+      <!-- ── CARD 1: Zael Emmanuel — Active ── -->
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Zael Emmanuel — Saint Lucian Sprint Athlete profile example">
+        <div class="demo-picture">
+          <img src="images/zael-emmanuel-hero.webp" class="demo-card-img img-fluid mx-auto object-fit-cover" alt="Zael Emmanuel sprint athlete profile sprinter on track" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Athlete Profile</span>
+          <h3 class="h5">Zael Emmanuel &mdash; &ldquo;The Saint&rdquo;</h3>
+          <p>Elite sprinter profile with career timeline, performance stats, brand analytics, sponsorship inquiry system, and media kit CTA. Built for LA 2028.</p>
+          <a href="zael-emmanuel.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Zael Emmanuel athlete brand profile example">
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      <!--
+      ══════════════════════════════════════════════════════════════
+      COMMENTED-OUT CARDS — Uncomment when builds are ready
+      ══════════════════════════════════════════════════════════════
+
+      ── CARD 2: Personal Coach / Life Coach Brand Profile ──
+      Idea: A Caribbean certified life/wellness coach targeting Caribbean + diaspora clients.
+      Features: About, certifications, coaching packages, testimonials, WhatsApp booking CTA.
+      Tag: Personal Brand | Coach
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Life Coach personal brand profile example">
+        <div class="demo-picture">
+          <img src="coach-profile.webp" class="demo-card-img" alt="Life Coach personal brand profile example" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Personal Brand</span>
+          <h3 class="h5">Clarity with Coach Nadine</h3>
+          <p>Certified life and wellness coach profile with service packages, testimonials, session booking, and WhatsApp consultation CTA.</p>
+          <a href="coach-nadine.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ── CARD 3: Musician / Recording Artist Profile ──
+      Idea: An emerging Caribbean artist (soca, reggae, dancehall) targeting streaming + bookings.
+      Features: Bio, music player embed, event bookings, social links, press kit request, WhatsApp booking.
+      Tag: Artist Profile | Music
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Music artist digital profile example">
+        <div class="demo-picture">
+          <img src="artist-profile.webp" class="demo-card-img" alt="Caribbean music artist digital profile" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Artist Profile</span>
+          <h3 class="h5">Kiel D. — Artist & Performer</h3>
+          <p>Emerging Caribbean artist profile with discography, Spotify embeds, upcoming events, booking inquiry form, and press kit download.</p>
+          <a href="kiel-d-artist.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ── CARD 4: Real Estate Agent Personal Brand ──
+      Idea: A Caribbean or diaspora real estate agent building trust + listings visibility.
+      Features: Agent bio, credentials, listings grid, testimonials, WhatsApp contact CTA.
+      Tag: Personal Brand | Real Estate
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Real estate agent personal brand profile example">
+        <div class="demo-picture">
+          <img src="agent-profile.webp" class="demo-card-img" alt="Real estate agent personal brand profile" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Personal Brand</span>
+          <h3 class="h5">Denise Charles — Agent & Consultant</h3>
+          <p>Personal brand profile for a Caribbean real estate agent. Listings, credentials, testimonials, and a WhatsApp inquiry system that converts trust into leads.</p>
+          <a href="denise-charles-agent.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ══════════════════════════════════════════════════════════════
+      END COMMENTED-OUT CARDS
+      ══════════════════════════════════════════════════════════════
+      -->
+
+    </div>
+    <div class="pricing-scroll-hint" aria-hidden="true">
+      <i class="bi bi-arrow-left-right me-1"></i> Swipe to see more profiles
+    </div>
+  </div>
+
     <div class="text-center mt-2 reveal d3">
       <p class="text-m" style="font-size:.85rem;">
         <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
@@ -1166,7 +1348,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <span class="section-label">Investment</span>
       <h2 class="display-5 mt-2 mb-3">Pricing Built Around Your Cash Flow</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:560px">Every tier is a revenue-generating system, not just a website. The Professional plan and above use a low setup fee + monthly partnership model — a smaller upfront ask that keeps us invested in your results long after launch day.</p>
+      <p class="text-m mx-auto" style="max-width:560px">Every tier is a revenue-generating system, not just a website. The Professional plan and above use a low setup fee + monthly partnership model, a smaller upfront ask that keeps us invested in your results long after launch day.</p>
     </div>
 
     <!-- ROI Anchor Strip -->
@@ -1432,6 +1614,140 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <p>If your system doesn't receive its first genuine WhatsApp order or booking within 30 days of going live, we'll redesign any section of your choice at no cost — no questions asked. We build systems that work. If yours isn't working, we fix it.</p>
       </div>
     </div>
+
+    <!-- ══ ATHLETE BRAND PROFILES — Pricing ══════════════════
+         A separate product vertical for athletes, coaches &
+         personal brands. Distinct from the business web systems above.
+    ══════════════════════════════════════════════════════════ -->
+    <div class="athlete-pricing-wrap reveal" aria-label="Athlete and personal brand profile pricing">
+
+      <!-- Section header -->
+      <div class="text-center mb-4">
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label" style="margin:0">Athlete &amp; Personal Brand Profiles</span>
+          <span class="demo-new-badge">New Vertical</span>
+        </div>
+        <h3 class="mt-1 mb-2">Sponsorship-Ready Digital Profiles for Athletes</h3>
+        <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
+          This is not a regular website. It's a professional brand platform built to help athletes attract sponsors, get noticed by scouts and recruiters, and establish credibility online — before the next opportunity passes them by.
+        </p>
+        <p class="text-m mx-auto mt-2" style="max-width:480px;font-size:.82rem;opacity:.7;">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+          Pricing reflects two distinct markets. Caribbean builds and US / diaspora builds are priced separately based on market positioning and purchasing power.
+        </p>
+      </div>
+
+      <!-- Two-column pricing cards -->
+      <div class="row g-4 justify-content-center">
+
+        <!-- Caribbean Athletes -->
+        <div class="col-md-6 col-lg-5 reveal d1">
+          <div class="athlete-tier-card" aria-label="Caribbean Athlete Profile pricing">
+            <div class="athlete-flag-pill"><span>🌴</span> Caribbean Market · Saint Lucia, Barbados, Trinidad, Jamaica &amp; Region</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">Caribbean Athlete Profile</span>
+            <p class="tier-desc mb-3">For regional athletes, CARIFTA competitors, national champions, and rising Caribbean talent ready to be seen by brands and scouts beyond their island.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $350 to $700 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">350</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$700</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $40 – $65/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$590</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full athlete bio &amp; personal story</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Career &amp; achievements timeline</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Personal best stats &amp; ranking display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Highlight video embed</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship &amp; brand inquiry form</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media &amp; audience analytics section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Photo gallery with swap points</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Media kit request CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp management contact</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full SEO — name, sport, country, event</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> JSON-LD structured data for Google</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup option (+$15/yr)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly stat &amp; content updates</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20an%20Athlete%20Profile%20for%20a%20Caribbean%20athlete" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a Caribbean athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Payment plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Payment plan available — ask us
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- USA / Diaspora Athletes -->
+        <div class="col-md-6 col-lg-5 reveal d2">
+          <div class="athlete-tier-card athlete-featured" aria-label="USA and diaspora athlete profile pricing">
+            <div class="athlete-market-badge" aria-label="Higher market value tier">USA &amp; Diaspora Market</div>
+            <div class="athlete-flag-pill" style="margin-top:.6rem"><span>🇺🇸</span> USA · Canada · UK · Diaspora Athletes &amp; NIL Candidates</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">USA &amp; Diaspora Athlete Profile</span>
+            <p class="tier-desc mb-3">For Caribbean-heritage athletes in US colleges, NIL-eligible athletes, semi-pro competitors, and diaspora athletes building their brand for the US sponsorship market.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $700 to $1,200 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">700</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$1,200</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $65 – $100/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$1,090</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">Everything in Caribbean, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> NIL-ready brand positioning copy</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship tier menu (Bronze / Silver / Gold)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Downloadable PDF media kit coordination</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Audience demographic analytics display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Geographic reach breakdown (US, Caribbean, UK)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Brand partnership type grid (6 categories)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Coach &amp; federation testimonials section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> LA 2028 / Olympic positioning section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Annual plan option ($699 – $999/yr) available</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority build turnaround (2–4 days)</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20USA%20or%20diaspora%20Athlete%20Profile%20build" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a USA or diaspora athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Annual plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Annual plan available — ask for details
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+
+      <!-- Athlete pricing note -->
+      <div class="text-center mt-3">
+        <small class="text-m" style="opacity:.65;font-size:.76rem;">
+          Athlete profile pricing covers setup and ongoing monthly content management. Custom domain registration (~$15/yr) billed separately. 50% of setup fee required to begin. One sponsorship deal typically covers the full build cost many times over.
+        </small>
+      </div>
+
+    </div><!-- /athlete-pricing-wrap -->
 
     <!-- Monthly Partnership Plans header -->
     <div class="text-center mt-6 mb-4 reveal">
