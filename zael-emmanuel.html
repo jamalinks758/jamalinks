@@ -190,6 +190,20 @@
         .sl-gold-flag { background: #FCD116; }
         .sl-black { background: #1A1A1A; }
 
+        /* Mobile: hide the absolute-positioned badge — it overlaps hero content */
+        @media (max-width: 768px) {
+            .hero-badge { display: none; }
+            .hero-bg {
+                background:
+                    linear-gradient(to bottom,
+                        rgba(7,9,13,0.30) 0%,
+                        rgba(7,9,13,0.72) 45%,
+                        rgba(7,9,13,0.97) 78%,
+                        rgba(7,9,13,1.00) 100%),
+                    url('images/zael-emmanuel-hero.webp') center top / cover no-repeat;
+            }
+        }
+
         .hero-content {
             position: relative; z-index: 2;
             padding: 0 2rem; padding-top: 5.5rem;
@@ -859,7 +873,7 @@
     </div>
 
     <div class="hero-content">
-        <div class="hero-kicker">Elite Sprinter &nbsp;&middot;&nbsp; LA 2028 Olympic Hopeful</div>
+        <div class="hero-kicker">🇱🇨 Elite Sprinter &nbsp;&middot;&nbsp; LA 2028 Olympic Hopeful</div>
 
         <h1 class="hero-name">ZAEL<br>EMMANUEL</h1>
 
@@ -1536,7 +1550,7 @@
 </footer>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/17584999999?text=Hi%2C%20I%20am%20interested%20in%20a%20brand%20partnership%20with%20Zael%20Emmanuel.%20Please%20share%20the%20media%20kit."
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%20am%20interested%20in%20a%20brand%20partnership%20with%20Zael%20Emmanuel.%20Please%20share%20the%20media%20kit."
    class="wa-float" target="_blank" aria-label="WhatsApp inquiry">
     <i class="bi bi-whatsapp"></i>
 </a>
