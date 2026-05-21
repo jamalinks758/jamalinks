@@ -100,96 +100,182 @@
             <!-- Left Panel: Hunt Form -->
             <div class="lg:col-span-4 space-y-6">
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
-                    <div class="flex items-center gap-2 pb-4 border-b border-slate-800">
-                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 11-4 0m0-4h8m4 0-4-4m8 8h-6" />
-                        </svg>
-                        <h3 class="font-bold text-slate-200">Configure Hunt Filters</h3>
+                    <!-- Tab Switcher Header -->
+                    <div class="flex border-b border-slate-800 pb-1 gap-2">
+                        <button type="button" 
+                                @click="activeTab = 'hunt'"
+                                class="flex-1 pb-3 text-xs font-bold uppercase tracking-wider text-center transition-all border-b-2"
+                                :class="activeTab === 'hunt' ? 'border-emerald-500 text-emerald-400' : 'border-transparent text-slate-500 hover:text-slate-300'">
+                            AI Hunt Scan
+                        </button>
+                        <button type="button" 
+                                @click="activeTab = 'manual'"
+                                class="flex-1 pb-3 text-xs font-bold uppercase tracking-wider text-center transition-all border-b-2"
+                                :class="activeTab === 'manual' ? 'border-emerald-500 text-emerald-400' : 'border-transparent text-slate-500 hover:text-slate-300'">
+                            Manual Intake
+                        </button>
                     </div>
 
-                    <!-- Target Region -->
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Target Region / Country</label>
-                        <div class="grid grid-cols-1 gap-2">
-                            <select x-model="searchParams.region" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm transition-all">
-                                <option value="Caribbean">Caribbean (Bahamas, Jamaica, Barbados, St. Lucia, etc.)</option>
-                                <option value="USA">United States of America</option>
-                                <option value="Canada">Canada</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="UAE">United Arab Emirates</option>
-                            </select>
+                    <!-- Hunt Mode Form (Existing) -->
+                    <div x-show="activeTab === 'hunt'" class="space-y-6">
+                        <!-- Target Region -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Target Region / Country</label>
+                            <div class="grid grid-cols-1 gap-2">
+                                <select x-model="searchParams.region" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm transition-all">
+                                    <option value="Caribbean">Caribbean (Bahamas, Jamaica, Barbados, St. Lucia, etc.)</option>
+                                    <option value="USA">United States of America</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="UAE">United Arab Emirates</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Niche Custom/Preset Choice -->
-                    <div class="space-y-3">
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Target Niche / Category</label>
-                        
-                        <!-- Presets Quick Selection -->
-                        <div class="flex flex-wrap gap-1.5">
-                            <template x-for="niche in presets" :key="niche">
+                        <!-- Niche Custom/Preset Choice -->
+                        <div class="space-y-3">
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Target Niche / Category</label>
+                            
+                            <!-- Presets Quick Selection -->
+                            <div class="flex flex-wrap gap-1.5">
+                                <template x-for="niche in presets" :key="niche">
+                                    <button type="button"
+                                            @click="searchParams.niche = niche"
+                                            class="px-3 py-1.5 rounded-lg text-xs transition-all border"
+                                            :class="searchParams.niche === niche ? 'bg-emerald-500 border-emerald-400 text-slate-950 font-semibold' : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'">
+                                        <span x-text="niche"></span>
+                                    </button>
+                                </template>
+                            </div>
+
+                            <!-- Custom Input -->
+                            <div class="relative">
+                                <input type="text" 
+                                       x-model="searchParams.niche" 
+                                       placeholder="Or enter a custom niche (e.g., Landscaping, Yoga Studio)"
+                                       class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-4 pr-10 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm transition-all" />
+                                <span class="absolute right-3 top-3.5 text-slate-500">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Mode Select: Real Grounded AI Search vs Quick Verified Lead Pool -->
+                        <div class="space-y-2 pt-2">
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Search Strategy</label>
+                            <div class="grid grid-cols-2 gap-2">
                                 <button type="button"
-                                        @click="searchParams.niche = niche"
-                                        class="px-3 py-1.5 rounded-lg text-xs transition-all border"
-                                        :class="searchParams.niche === niche ? 'bg-emerald-500 border-emerald-400 text-slate-950 font-semibold' : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'">
-                                    <span x-text="niche"></span>
+                                        @click="searchParams.strategy = 'grounded'"
+                                        class="p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center gap-1"
+                                        :class="searchParams.strategy === 'grounded' ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400' : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-800'">
+                                    <span class="text-sm font-bold">Live AI Scan</span>
+                                    <span class="text-[10px] opacity-85">Grounded Web Search</span>
                                 </button>
-                            </template>
+                                <button type="button"
+                                        @click="searchParams.strategy = 'fallback'"
+                                        class="p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center gap-1"
+                                        :class="searchParams.strategy === 'fallback' ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400' : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-800'">
+                                    <span class="text-sm font-bold">Curated Pool</span>
+                                    <span class="text-[10px] opacity-85">Verified High-Value</span>
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-slate-500 leading-normal mt-1">
+                                * Live AI Scan uses Google Search grounding. If external connection limits or CORS constraints hit, we automatically fallback to our premium verified local pool so you are never left hanging!
+                            </p>
                         </div>
 
-                        <!-- Custom Input -->
-                        <div class="relative">
-                            <input type="text" 
-                                   x-model="searchParams.niche" 
-                                   placeholder="Or enter a custom niche (e.g., Landscaping, Yoga Studio)"
-                                   class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-4 pr-10 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm transition-all" />
-                            <span class="absolute right-3 top-3.5 text-slate-500">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-                            </span>
-                        </div>
+                        <!-- Hunt Trigger Button -->
+                        <button type="button"
+                                @click="triggerSearch()"
+                                :disabled="isLoading || !searchParams.niche"
+                                class="w-full relative overflow-hidden group py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 text-slate-950 font-bold tracking-wide shadow-xl shadow-emerald-500/15 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-teal-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <div class="relative flex items-center gap-2">
+                                <svg class="w-5 h-5 animate-spin" x-show="isLoading" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <svg class="w-5 h-5" x-show="!isLoading" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span x-text="isLoading ? 'Hunting Prospects...' : 'Hunt 3 Prospects'">Hunt 3 Prospects</span>
+                            </div>
+                        </button>
                     </div>
 
-                    <!-- Mode Select: Real Grounded AI Search vs Quick Verified Lead Pool -->
-                    <div class="space-y-2 pt-2">
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Search Strategy</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button type="button"
-                                    @click="searchParams.strategy = 'grounded'"
-                                    class="p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center gap-1"
-                                    :class="searchParams.strategy === 'grounded' ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400' : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-800'">
-                                <span class="text-sm font-bold">Live AI Scan</span>
-                                <span class="text-[10px] opacity-85">Grounded Web Search</span>
-                            </button>
-                            <button type="button"
-                                    @click="searchParams.strategy = 'fallback'"
-                                    class="p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center gap-1"
-                                    :class="searchParams.strategy === 'fallback' ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400' : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-800'">
-                                <span class="text-sm font-bold">Curated Pool</span>
-                                <span class="text-[10px] opacity-85">Verified High-Value</span>
-                            </button>
+                    <!-- Manual Intake Mode Form -->
+                    <div x-show="activeTab === 'manual'" class="space-y-4" style="display: none;">
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Business Name</label>
+                            <input type="text" x-model="manualForm.name" placeholder="e.g. Bella's Boutique Spa" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" />
                         </div>
-                        <p class="text-[10px] text-slate-500 leading-normal mt-1">
-                            * Live AI Scan uses Google Search grounding. If external connection limits or CORS constraints hit, we automatically fallback to our premium verified local pool so you are never left hanging!
-                        </p>
-                    </div>
 
-                    <!-- Hunt Trigger Button -->
-                    <button type="button"
-                            @click="triggerSearch()"
-                            :disabled="isLoading || !searchParams.niche"
-                            class="w-full relative overflow-hidden group py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-400 text-slate-950 font-bold tracking-wide shadow-xl shadow-emerald-500/15 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-95 flex items-center justify-center gap-2">
-                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-teal-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="relative flex items-center gap-2">
-                            <svg class="w-5 h-5 animate-spin" x-show="isLoading" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <svg class="w-5 h-5" x-show="!isLoading" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            <span x-text="isLoading ? 'Hunting Prospects...' : 'Hunt 3 Prospects'">Hunt 3 Prospects</span>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Niche</label>
+                                <input type="text" x-model="manualForm.niche" placeholder="e.g. Day Spa" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" />
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Region</label>
+                                <select x-model="manualForm.location" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all">
+                                    <option value="Caribbean">Caribbean</option>
+                                    <option value="USA">USA</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="UK">UK</option>
+                                    <option value="UAE">UAE</option>
+                                </select>
+                            </div>
                         </div>
-                    </button>
+
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="col-span-1 space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Social Platform</label>
+                                <select x-model="manualForm.socialPlatform" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-2 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all">
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="TikTok">TikTok</option>
+                                    <option value="Yelp">Yelp</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                </select>
+                            </div>
+                            <div class="col-span-2 space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Social Link / Account URL</label>
+                                <input type="url" x-model="manualForm.socialUrl" placeholder="https://instagram.com/bellaspa" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Contact Phone (Opt)</label>
+                                <input type="text" x-model="manualForm.phone" placeholder="+1 (246) 555-0100" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" />
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Contact Email (Opt)</label>
+                                <input type="email" x-model="manualForm.email" placeholder="contact@bellaspa.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" />
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons: Add Direct or Add via AI audit -->
+                        <div class="space-y-2 pt-2">
+                            <button type="button"
+                                    @click="processManualLead(true)"
+                                    :disabled="isAnalyzingManualLead || !manualForm.name"
+                                    class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 text-xs font-bold transition-all transform active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 shadow-lg">
+                                <svg class="w-4 h-4 animate-spin" x-show="isAnalyzingManualLead" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span x-text="isAnalyzingManualLead ? 'Analyzing with Gemini...' : 'Analyze & Inject Lead with AI'">Analyze & Inject Lead with AI</span>
+                            </button>
+                            
+                            <button type="button"
+                                    @click="processManualLead(false)"
+                                    :disabled="isAnalyzingManualLead || !manualForm.name"
+                                    class="w-full py-2.5 px-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                                <span>Direct Quick Inject</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Live Metrics Widget -->
@@ -644,6 +730,7 @@
         function bizFinderApp() {
             return {
                 // Application states
+                activeTab: 'hunt', // 'hunt' or 'manual'
                 searchParams: {
                     region: 'Caribbean',
                     niche: 'Bake Shop',
@@ -656,6 +743,18 @@
                 discoveredLeads: [],
                 savedLeads: [],
                 
+                // Manual Form State
+                manualForm: {
+                    name: '',
+                    niche: 'Boutique Clothing',
+                    location: 'Caribbean',
+                    socialPlatform: 'Instagram',
+                    socialUrl: '',
+                    phone: '',
+                    email: ''
+                },
+                isAnalyzingManualLead: false,
+
                 // Drawer Pitch states
                 isPitchDrawerOpen: false,
                 pitchLead: null,
@@ -940,6 +1039,116 @@
                             this.savedLeads = [];
                         }
                     }
+                },
+
+                async processManualLead(useAI = true) {
+                    if (!this.manualForm.name) return;
+                    this.isAnalyzingManualLead = true;
+                    this.isLoading = true;
+                    this.searchLogs = [];
+                    this.discoveredLeads = [];
+                    this.currentSearchStrategy = useAI ? "AI Enhanced Custom Audit" : "Direct Manual Intake";
+
+                    this.addLog(`Processing manual intake for business: <span class='text-emerald-400 font-bold'>${this.manualForm.name}</span>`, "MANUAL");
+                    await this.wait(400);
+
+                    let analyzedLead = {
+                        name: this.manualForm.name,
+                        niche: this.manualForm.niche,
+                        location: this.manualForm.location,
+                        socialPlatform: this.manualForm.socialPlatform,
+                        socialUrl: this.manualForm.socialUrl || `https://${this.manualForm.socialPlatform.toLowerCase()}.com/account`,
+                        phone: this.manualForm.phone || "",
+                        email: this.manualForm.email || "",
+                        description: `A local ${this.manualForm.niche} business based in ${this.manualForm.location}. Active on ${this.manualForm.socialPlatform} but lacking a custom branded digital experience.`,
+                        painPoints: [
+                            "Relies strictly on manual social messages to field rates, pricing, and availability queries.",
+                            "Completely invisible on global search listings for potential visitors who lack social app accounts.",
+                            "Lacks self-serve online reservation tools, resulting in booking drops and friction."
+                        ],
+                        whyNoWebsite: "Manually Added"
+                    };
+
+                    if (useAI) {
+                        this.addLog("Harnessing Gemini API to perform custom competitive audit for your input...", "INFO");
+                        await this.wait(600);
+                        this.addLog("Analyzing niche-specific pain points and website pitch angles...", "ANALYZING");
+
+                        try {
+                            const systemPrompt = "You are a world-class sales intelligence strategist. Your role is to analyze a business that relies strictly on social media, highlight its pain points, and detail why it needs a custom website.";
+                            const userQuery = `Audit this business profile:
+Name: ${analyzedLead.name}
+Niche: ${analyzedLead.niche}
+Location: ${analyzedLead.location}
+Platform: ${analyzedLead.socialPlatform}
+Link: ${analyzedLead.socialUrl}
+
+Generate custom analysis including a 2-3 sentence 'description' representing their service, and exactly 3 targeted 'painPoints' describing how not having a website hurts their operations or sales in this niche.
+
+Return as raw JSON:
+{
+  "description": "2-3 sentence overview...",
+  "painPoints": ["Point 1...", "Point 2...", "Point 3..."]
+}`;
+
+                            const apiKey = "";
+                            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                            const response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    contents: [{ parts: [{ text: userQuery }] }],
+                                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                                    generationConfig: { responseMimeType: "application/json" }
+                                })
+                            });
+
+                            if (response.ok) {
+                                const data = await response.json();
+                                const jsonText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                                if (jsonText) {
+                                    const parsed = JSON.parse(jsonText.trim());
+                                    if (parsed.description) analyzedLead.description = parsed.description;
+                                    if (Array.isArray(parsed.painPoints)) analyzedLead.painPoints = parsed.painPoints;
+                                    this.addLog("AI Successfully compiled personalized competitive hooks!", "SUCCESS");
+                                }
+                            } else {
+                                this.addLog("Gemini audit query throttled. Applied robust pre-verified template instead.", "WARNING");
+                            }
+                        } catch (err) {
+                            console.warn("AI enhancement failed. Using default template: ", err);
+                            this.addLog("Analysis fallback activated. Loaded localized niche-focused descriptors.", "INFO");
+                        }
+                    } else {
+                        this.addLog("Skipping AI enhancement. Populating instant template metadata...", "INFO");
+                        await this.wait(500);
+                    }
+
+                    this.discoveredLeads = [analyzedLead];
+                    this.addLog("<span class='text-emerald-400 font-bold'>Intake complete!</span> Lead rendered in console below.", "SUCCESS");
+
+                    // Clean form
+                    this.manualForm = {
+                        name: '',
+                        niche: 'Boutique Clothing',
+                        location: 'Caribbean',
+                        socialPlatform: 'Instagram',
+                        socialUrl: '',
+                        phone: '',
+                        email: ''
+                    };
+
+                    this.isAnalyzingManualLead = false;
+                    this.isLoading = false;
+                    
+                    // Automatically scroll to view results card
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: document.querySelector('.lg:col-span-8').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
                 },
 
                 // Simulated and Live Web Scanning
