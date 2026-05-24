@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krishna Henry — Digital Creator from Saint Lucia. Luxury. Food. Adventure. Vibes. Partner with one of the Caribbean's most engaging voices. 75K+ Instagram · 63K+ TikTok · 2M+ TikTok Likes.">
+  <meta property="og:title" content="Krishna Henry — soul._.peachy | Saint Lucia Digital Creator">
+  <meta property="og:description" content="Luxury. Food. Adventure. Vibes. Partner with Krishna Henry — Saint Lucia's most vibrant digital creator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jamalinks758.github.io/jamalinks/krishna-henry.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <title>Krishna Henry — soul._.peachy | Saint Lucia Digital Creator</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Fraunces (editorial serif) + Syne (bold UI) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <style>
+    /* font-display swap fallback */
+    @font-face { font-display: swap; }
+
+    /* ============================================================
+       CSS VARIABLES — ST. LUCIA FLAG PALETTE + BRAND
+       Flag: Royal blue · Gold/yellow · Black · White
+    ============================================================ */
+    :root {
+      --blue-deep:   #002060;
+      --blue:        #0042A3;
+      --blue-mid:    #1458C8;
+      --gold:        #F4B223;
+      --gold-dark:   #C9900A;
+      --gold-light:  #FDDDA0;
+      --black:       #080A0F;
+      --off-white:   #FAFAF7;
+      --cream:       #FDF7EE;
+      --warm-gray:   #7A7268;
+      --border:      rgba(0,0,0,0.07);
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-ui:      'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius:      12px;
+      --radius-lg:   24px;
+      --shadow:      0 8px 40px rgba(0,0,0,0.10);
+      --shadow-gold: 0 8px 40px rgba(244,178,35,0.28);
+      --shadow-blue: 0 8px 40px rgba(0,32,96,0.20);
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--black);
+      background: var(--off-white);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    .navbar {
+      background: rgba(0, 32, 96, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 1.1rem 0;
+      transition: padding 0.3s ease, background 0.3s ease;
+      border-bottom: 1px solid rgba(244,178,35,0.18);
+      z-index: 1050;
+    }
+    .navbar.scrolled {
+      padding: 0.6rem 0;
+      background: rgba(0, 20, 60, 0.99);
+    }
+    .navbar-brand {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--gold) !important;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .navbar-brand em {
+      font-style: normal;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-link {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65) !important;
+      padding: 0.4rem 0.9rem !important;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link:focus { color: var(--gold) !important; }
+    .navbar-toggler {
+      border: 1.5px solid rgba(244,178,35,0.45);
+      padding: 0.3rem 0.6rem;
+    }
+    .navbar-toggler-icon { filter: invert(1) brightness(2); }
+    .btn-nav-cta {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+      font-weight: 700 !important;
+      border-radius: 50px !important;
+      padding: 0.5rem 1.4rem !important;
+      transition: all 0.22s !important;
+    }
+    .btn-nav-cta:hover {
+      background: #fff !important;
+      color: var(--black) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--blue-deep);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 90px;
+    }
+
+    /* Radial light atmosphere */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 72% 45%, rgba(244,178,35,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 45% at 15% 15%, rgba(20,88,200,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0,10,40,0.6) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    /* Subtle noise grain */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    /* St. Lucia Piton silhouettes — bottom corners */
+    .piton {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .piton-a {
+      left: -10px;
+      border-left: 200px solid transparent;
+      border-right: 200px solid transparent;
+      border-bottom: 370px solid rgba(244,178,35,0.06);
+    }
+    .piton-b {
+      left: 120px;
+      border-left: 130px solid transparent;
+      border-right: 130px solid transparent;
+      border-bottom: 280px solid rgba(244,178,35,0.04);
+    }
+    .piton-c {
+      right: -10px;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-bottom: 310px solid rgba(244,178,35,0.05);
+    }
+
+    .hero-inner { position: relative; z-index: 2; }
+
+    /* Location pill */
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.28);
+      border-radius: 50px;
+      padding: 0.38rem 1rem;
+      margin-bottom: 1.6rem;
+      font-family: var(--font-ui);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-dot 2.2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.45; transform:scale(1.4); }
+    }
+
+    /* Name */
+    .hero-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name .n1 {
+      display: block;
+      font-size: clamp(3.8rem, 10.5vw, 8.5rem);
+      color: #fff;
+    }
+    .hero-name .n2 {
+      display: block;
+      font-size: clamp(3.8rem, 10.5vw, 8.5rem);
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* Handle */
+    .hero-handle {
+      font-family: var(--font-ui);
+      font-size: clamp(0.78rem, 1.8vw, 0.98rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin: 1.2rem 0 1.6rem;
+    }
+
+    /* Tagline */
+    .hero-tagline {
+      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-tagline strong { color: var(--gold); font-weight: 500; }
+
+    /* CTA row */
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 3.5rem; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gold:hover {
+      background: #fff;
+      color: var(--black);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+    .s-item { display: flex; flex-direction: column; gap: 3px; }
+    .s-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      color: #fff;
+      line-height: 1;
+    }
+    .s-num span { color: var(--gold); }
+    .s-lbl {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+    .s-div {
+      width: 1px;
+      align-self: center;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero image frame */
+    .hero-img-col { position: relative; z-index: 2; }
+    .img-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .img-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-lg) + 2px);
+      background: linear-gradient(140deg, var(--gold) 0%, rgba(244,178,35,0.2) 40%, var(--blue-mid) 100%);
+      z-index: -1;
+    }
+    .img-frame img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Floating verified badge */
+    .verified-badge {
+      position: absolute;
+      bottom: 28px;
+      left: -18px;
+      background: white;
+      border-radius: 14px;
+      padding: 13px 18px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      z-index: 5;
+    }
+    .vb-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .vb-strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .vb-sub {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+    }
+
+    /* Second floating stat card */
+    .stat-badge {
+      position: absolute;
+      top: 32px;
+      right: -18px;
+      background: var(--blue-deep);
+      border: 1px solid rgba(244,178,35,0.3);
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+      z-index: 5;
+    }
+    .sb-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .sb-lbl {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 3px;
+    }
+
+    /* ============================================================
+       GLOBAL SECTION UTILITIES
+    ============================================================ */
+    .sec-pad { padding: 100px 0; }
+    .sec-pad-sm { padding: 80px 0; }
+
+    .sec-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .sec-label::before {
+      content: '';
+      width: 22px; height: 2px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .sec-label.dark { color: var(--gold-dark); }
+    .sec-label.dark::before { background: var(--gold); }
+    .sec-label.light { color: var(--gold-light); }
+    .sec-label.light::before { background: var(--gold); }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+    }
+    .sec-title.dark { color: var(--black); }
+    .sec-title.light { color: #fff; }
+
+    /* ============================================================
+       ABOUT SECTION
+    ============================================================ */
+    #about {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle Piton motif top-right */
+    #about::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 0; height: 0;
+      border-left: 180px solid transparent;
+      border-right: 180px solid transparent;
+      border-bottom: 300px solid rgba(244,178,35,0.05);
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+
+    .about-lead {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.8vw, 1.7rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+    .about-lead strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .about-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--warm-gray);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Content pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .pillar {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pillar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .pillar:hover::after { transform: scaleX(1); }
+    .pillar-emoji { font-size: 1.75rem; margin-bottom: 0.75rem; display: block; }
+    .pillar-name {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+    .pillar-desc { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.55; }
+
+    /* Demographics panel */
+    .demo-panel {
+      background: var(--blue-deep);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 0; height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 180px solid rgba(244,178,35,0.06);
+      pointer-events: none;
+    }
+    .demo-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .demo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .demo-row:last-of-type { border-bottom: none; }
+    .demo-key { font-size: 0.82rem; color: rgba(255,255,255,0.48); font-family: var(--font-body); }
+    .demo-val { font-family: var(--font-ui); font-size: 0.88rem; font-weight: 700; color: white; text-align: right; }
+
+    .bar-section { margin-top: 1.75rem; }
+    .bar-row { margin-bottom: 0.9rem; }
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 5px;
+    }
+    .bar-track {
+      height: 5px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      border-radius: 3px;
+      width: 0;
+      transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+    }
+    .demo-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+      margin-top: 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       WORK WITH ME
+    ============================================================ */
+    #work {
+      background: var(--blue-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    #work::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 400px solid transparent;
+      border-right: 400px solid transparent;
+      border-top: 120px solid rgba(244,178,35,0.03);
+      pointer-events: none;
+    }
+
+    .work-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s, border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+    }
+    .work-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .work-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(244,178,35,0.25);
+      transform: translateY(-7px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .work-card:hover::before { transform: scaleX(1); }
+
+    .wc-icon {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      background: rgba(244,178,35,0.12);
+      border: 1px solid rgba(244,178,35,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .wc-name {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+    .wc-desc {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.65;
+      margin-bottom: 1.35rem;
+    }
+    .wc-tag {
+      display: inline-block;
+      background: rgba(244,178,35,0.1);
+      border: 1px solid rgba(244,178,35,0.2);
+      color: var(--gold-light);
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+    }
+
+    /* ============================================================
+       COLLABS
+    ============================================================ */
+    #collabs {
+      background: white;
+    }
+
+    .collab-lead {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+      font-style: italic;
+      color: rgba(0,0,0,0.38);
+      max-width: 460px;
+      line-height: 1.6;
+      margin-bottom: 2.8rem;
+    }
+
+    .brand-cloud { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .b-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 50px;
+      padding: 0.65rem 1.4rem;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.03em;
+      transition: all 0.22s;
+      cursor: default;
+    }
+    .b-chip:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244,178,35,0.28);
+    }
+    .b-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold-dark);
+      flex-shrink: 0;
+      transition: background 0.22s;
+    }
+    .b-chip:hover .b-dot { background: var(--black); }
+
+    /* Stats strip */
+    .stats-strip {
+      background: var(--blue-deep);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2.5rem;
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(244,178,35,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .strip-item { text-align: center; position: relative; z-index: 1; }
+    .strip-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .strip-lbl {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      display: block;
+      margin-top: 5px;
+    }
+    .strip-div {
+      width: 1px;
+      height: 52px;
+      background: rgba(255,255,255,0.09);
+      align-self: center;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { background: var(--cream); }
+
+    .testi {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      height: 100%;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .testi:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+    .t-mark {
+      font-family: Georgia, serif;
+      font-size: 5.5rem;
+      line-height: 0.45;
+      color: var(--gold-light);
+      margin-bottom: 1.1rem;
+      display: block;
+    }
+    .t-text {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--black);
+      margin-bottom: 1.6rem;
+    }
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border);
+    }
+    .t-av {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--blue-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .t-stars { color: var(--gold); font-size: 0.72rem; margin-bottom: 2px; }
+    .t-name { font-family: var(--font-ui); font-weight: 700; font-size: 0.86rem; color: var(--black); }
+    .t-role { font-size: 0.76rem; color: var(--warm-gray); }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { background: var(--black); }
+
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .gal-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 200px;
+      transition: transform 0.55s ease;
+      display: block;
+    }
+    .gal-item:hover img { transform: scale(1.07); }
+    .gal-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,32,96,0.72) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.32s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.1rem;
+    }
+    .gal-item:hover .gal-overlay { opacity: 1; }
+    .gal-tag {
+      font-family: var(--font-ui);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(0,0,0,0.45);
+      padding: 0.28rem 0.8rem;
+      border-radius: 50px;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(244,178,35,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #contact::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,32,96,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.6rem;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      border: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    .contact-card h3 {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--black);
+      margin-bottom: 1.6rem;
+    }
+
+    .form-label {
+      font-family: var(--font-ui);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.45rem;
+      display: block;
+    }
+    .form-control, .form-select {
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius);
+      padding: 0.82rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--black);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      width: 100%;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(244,178,35,0.15);
+      background: white;
+      outline: none;
+    }
+    textarea.form-control { resize: vertical; min-height: 130px; }
+
+    .btn-submit {
+      background: var(--blue-deep);
+      color: white;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.05em;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      width: 100%;
+    }
+    .btn-submit:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* Contact info column */
+    .ci-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.3rem;
+    }
+    .ci-icon {
+      width: 44px; height: 44px;
+      border-radius: 11px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .ci-strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .ci-sub { font-size: 0.82rem; color: var(--warm-gray); }
+
+    /* Social links */
+    .soc-row { display: flex; gap: 0.7rem; margin-top: 2.2rem; flex-wrap: wrap; }
+    .soc-btn {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      border: 1.5px solid rgba(0,0,0,0.1);
+      color: var(--black);
+      transition: all 0.22s;
+      background: white;
+    }
+    .soc-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(244,178,35,0.28);
+    }
+
+    /* Form success */
+    #formSuccess {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    #formSuccess .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    #formSuccess h4 {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 0.5rem;
+    }
+    #formSuccess p { color: var(--warm-gray); font-size: 0.9rem; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--black);
+      padding: 2.8rem 0;
+      border-top: 1px solid rgba(244,178,35,0.12);
+    }
+    .foot-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--gold);
+    }
+    .foot-sub {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-top: 3px;
+    }
+    .foot-credit {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.25);
+    }
+    .foot-credit a { color: var(--gold); }
+    .foot-credit a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    .wa-btn {
+      position: fixed;
+      bottom: 28px; right: 26px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.42);
+      animation: wa-pulse 3s infinite;
+      transition: transform 0.2s;
+    }
+    .wa-btn:hover { color: white; transform: scale(1.1); }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,0.42); }
+      50%      { box-shadow: 0 4px 44px rgba(37,211,102,0.72), 0 0 0 14px rgba(37,211,102,0.07); }
+    }
+
+    /* ============================================================
+       RESPONSIVE OVERRIDES
+    ============================================================ */
+    @media (max-width: 991.98px) {
+      .hero-img-col { display: none; }
+      .s-div { display: none; }
+      .hero-stats { gap: 1.3rem; }
+      .gal-grid { grid-template-columns: repeat(2,1fr); }
+      .gal-item.tall { grid-row: span 1; }
+      .stats-strip { padding: 1.6rem; }
+      .strip-div { display: none; }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero-name .n1,
+      .hero-name .n2 { font-size: clamp(3.2rem, 16vw, 5rem); }
+      .cta-row { gap: 0.7rem; }
+      .btn-gold, .btn-ghost { font-size: 0.82rem; padding: 0.8rem 1.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .contact-card { padding: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#hero" aria-label="Krishna Henry — soul._.peachy home">
+      KH &nbsp;<em>/ soul._.peachy</em>
+    </a>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false"
+            aria-label="Toggle navigation menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#work">Work With Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="#collabs">Collabs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav-cta" href="#contact"
+             aria-label="Get in touch to collaborate with Krishna Henry">
+            Let's Collab
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero" aria-label="Krishna Henry — hero section">
+  <!-- Piton silhouettes — St. Lucia national symbol -->
+  <div class="piton piton-a" aria-hidden="true"></div>
+  <div class="piton piton-b" aria-hidden="true"></div>
+  <div class="piton piton-c" aria-hidden="true"></div>
+
+  <div class="container py-5">
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Copy -->
+      <div class="col-lg-7 hero-inner">
+
+        <div class="hero-location" aria-label="Based in Saint Lucia">
+          <span class="live-dot" aria-hidden="true"></span>
+          🇱🇨 &nbsp;Saint Lucia, Caribbean
+        </div>
+
+        <h1 class="hero-name">
+          <span class="n1">Krishna</span>
+          <span class="n2">Henry.</span>
+        </h1>
+
+        <p class="hero-handle" aria-label="Instagram handle: @soul._.peachy">
+          @soul._.peachy
+        </p>
+
+        <p class="hero-tagline">
+          <strong>Luxury. Food. Adventure. Vibes.</strong><br>
+          Authentic Caribbean storytelling that moves real audiences
+          to real places — and real purchasing decisions.
+        </p>
+
+        <div class="cta-row">
+          <a href="#contact" class="btn-gold" aria-label="Partner with Krishna Henry">
+            <i class="fas fa-handshake" aria-hidden="true"></i>
+            Let's Partner
+          </a>
+          <a href="#gallery" class="btn-ghost" aria-label="View content gallery">
+            View Content
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Stat counters -->
+        <div class="hero-stats" role="list" aria-label="Social media reach statistics">
+          <div class="s-item" role="listitem">
+            <span class="s-num" id="statIG" data-target="75500" aria-label="75,500 Instagram followers">0</span>
+            <span class="s-lbl">Instagram</span>
+          </div>
+          <div class="s-div" aria-hidden="true"></div>
+          <div class="s-item" role="listitem">
+            <span class="s-num" id="statTT" data-target="63600" aria-label="63,600 TikTok followers">0</span>
+            <span class="s-lbl">TikTok</span>
+          </div>
+          <div class="s-div" aria-hidden="true"></div>
+          <div class="s-item" role="listitem">
+            <span class="s-num" aria-label="Over 2 million TikTok likes">2M<span>+</span></span>
+            <span class="s-lbl">TikTok Likes</span>
+          </div>
+          <div class="s-div" aria-hidden="true"></div>
+          <div class="s-item" role="listitem">
+            <span class="s-num" aria-label="4 active platforms">4</span>
+            <span class="s-lbl">Platforms</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Image frame -->
+      <div class="col-lg-5 hero-img-col">
+        <div class="img-frame" style="max-width:420px; margin:0 auto;">
+          <img
+            src="https://picsum.photos/seed/krishnaHenry/420/560"
+            alt="Krishna Henry — Digital Creator, Saint Lucia"
+            width="420" height="560"
+            loading="eager"
+            onerror="this.style.display='none'"
+          >
+        </div>
+        <!-- Verified badge -->
+        <div class="verified-badge" aria-label="Verified creator badge">
+          <div class="vb-icon" aria-hidden="true">✓</div>
+          <div>
+            <span class="vb-strong">Verified Creator</span>
+            <span class="vb-sub">Multi-platform reach</span>
+          </div>
+        </div>
+        <!-- Floating stat -->
+        <div class="stat-badge" aria-label="2 million TikTok likes">
+          <span class="sb-num">2M+</span>
+          <span class="sb-lbl">TikTok Likes</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT / NICHE
+============================================================ -->
+<section id="about" class="sec-pad" aria-labelledby="about-h">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left -->
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="sec-label dark">About Krishna</div>
+        <h2 class="sec-title dark mb-4" id="about-h">
+          Caribbean Life,<br><em>Told Beautifully.</em>
+        </h2>
+        <p class="about-lead">
+          Born and raised in <strong>Saint Lucia</strong>, Krishna Henry captures the Caribbean
+          in a way that doesn't just show it — it makes you feel it.
+        </p>
+        <p class="about-body">
+          From luxury stays to hidden food spots, natural hair journeys to jazz festival nights,
+          her content is grounded in lived Caribbean experience. With a blue-verified Instagram
+          presence and a TikTok library that has accumulated over 2 million likes, she has built
+          a platform rooted in trust — the most valuable currency a brand can access.
+        </p>
+
+        <h3 style="font-family:var(--font-ui);font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:1rem;">
+          Content Pillars
+        </h3>
+        <div class="pillars">
+          <div class="pillar" data-aos="fade-up" data-aos-delay="60">
+            <span class="pillar-emoji" aria-hidden="true">🏝️</span>
+            <div class="pillar-name">Luxury Travel</div>
+            <p class="pillar-desc">Caribbean stays, island adventures, upscale experience reviews.</p>
+          </div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="120">
+            <span class="pillar-emoji" aria-hidden="true">🍽️</span>
+            <div class="pillar-name">Food Culture</div>
+            <p class="pillar-desc">Restaurant reviews, street food finds, Caribbean culinary scenes.</p>
+          </div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="180">
+            <span class="pillar-emoji" aria-hidden="true">✨</span>
+            <div class="pillar-name">Lifestyle & Vibes</div>
+            <p class="pillar-desc">Fashion, outfits, events, and everyday Caribbean luxury living.</p>
+          </div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="240">
+            <span class="pillar-emoji" aria-hidden="true">💇🏾‍♀️</span>
+            <div class="pillar-name">Natural Hair & Beauty</div>
+            <p class="pillar-desc">Type 4 hair content, product reviews, and beauty journeys.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Demographics -->
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="demo-panel" role="region" aria-label="Audience demographics overview">
+          <div class="demo-label">Audience Overview</div>
+
+          <div class="demo-row">
+            <span class="demo-key">Primary Age Group</span>
+            <span class="demo-val">18 – 34</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">Primary Gender</span>
+            <span class="demo-val">75%+ Female</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">Top Locations</span>
+            <span class="demo-val">🇱🇨 Caribbean · 🇺🇸 US · 🇬🇧 UK</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">TikTok Likes</span>
+            <span class="demo-val">2,000,000+</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">Instagram Posts</span>
+            <span class="demo-val">479</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">Verification</span>
+            <span class="demo-val">✅ Blue Check (Instagram)</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-key">Active Platforms</span>
+            <span class="demo-val">IG · TikTok · YouTube · Facebook</span>
+          </div>
+
+          <div class="bar-section" aria-label="Audience interest breakdown">
+            <div class="bar-row">
+              <div class="bar-meta"><span>Travel & Lifestyle</span><span>82%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="82%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span>Food & Dining</span><span>74%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="74%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span>Beauty & Natural Hair</span><span>63%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="63%"></div></div>
+            </div>
+          </div>
+
+          <p class="demo-note">
+            * Estimated from public platform data. Full media kit with verified analytics available on request.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WORK WITH ME
+============================================================ -->
+<section id="work" class="sec-pad" aria-labelledby="work-h">
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="sec-label light">Collaboration</div>
+        <h2 class="sec-title light mb-3" id="work-h">Work With Me</h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;line-height:1.75;max-width:500px;">
+          Every brand partnership is crafted to feel native — not forced.
+          Your product, woven into the world your audience already trusts.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="work-card">
+          <div class="wc-icon" aria-hidden="true">📸</div>
+          <div class="wc-name">Sponsored Posts</div>
+          <p class="wc-desc">Beautifully styled feed content featuring your brand — crafted to perform and feel completely authentic to her audience.</p>
+          <span class="wc-tag">Feed · Carousel</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="work-card">
+          <div class="wc-icon" aria-hidden="true">📖</div>
+          <div class="wc-name">Story Features</div>
+          <p class="wc-desc">Time-sensitive story coverage that drives immediate action — ideal for promotions, product launches, and limited offers.</p>
+          <span class="wc-tag">Stories · Polls · Links</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="work-card">
+          <div class="wc-icon" aria-hidden="true">🎬</div>
+          <div class="wc-name">Reel Collaborations</div>
+          <p class="wc-desc">Short-form video content for Instagram Reels and TikTok — high-energy, high-reach, built to travel the algorithm.</p>
+          <span class="wc-tag">Reels · TikTok</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="work-card">
+          <div class="wc-icon" aria-hidden="true">🎤</div>
+          <div class="wc-name">Events & Appearances</div>
+          <p class="wc-desc">In-person presence, hosting, and live coverage for brand activations, launches, and cultural events across the Caribbean.</p>
+          <span class="wc-tag">Live · Hosting · Coverage</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5 pt-2" data-aos="fade-up">
+      <a href="#contact" class="btn-gold" aria-label="Send a collaboration inquiry to Krishna Henry">
+        Start a Conversation
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAST COLLABORATIONS
+============================================================ -->
+<section id="collabs" class="sec-pad-sm" aria-labelledby="collabs-h">
+  <div class="container">
+
+    <div class="row" data-aos="fade-up">
+      <div class="col-lg-8">
+        <div class="sec-label dark">Brand Partners</div>
+        <h2 class="sec-title dark mb-2" id="collabs-h">
+          Trusted By Brands<br>
+          <em style="color:var(--blue);">Who Know Their Audience.</em>
+        </h2>
+        <p class="collab-lead">
+          From Saint Lucian businesses to regional and international brands —
+          a track record of partnerships that convert.
+        </p>
+      </div>
+    </div>
+
+    <div class="brand-cloud" data-aos="fade-up" role="list" aria-label="Past brand collaborations">
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>St. Lucia Tourism</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Caribbean Hotels & Resorts</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Local Fashion Labels</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Natural Hair & Beauty Brands</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Food & Dining Venues</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>St. Lucia Jazz & Arts Festival</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Lifestyle & Wellness</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Event Planners & Venues</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Caribbean Stays & AirBnB</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Reading & Education</div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip" data-aos="fade-up" role="region" aria-label="Total platform reach">
+      <div class="strip-item">
+        <span class="strip-num" aria-label="75,500 Instagram followers">75.5K</span>
+        <span class="strip-lbl">Instagram</span>
+      </div>
+      <div class="strip-div" aria-hidden="true"></div>
+      <div class="strip-item">
+        <span class="strip-num" aria-label="63,600 TikTok followers">63.6K</span>
+        <span class="strip-lbl">TikTok</span>
+      </div>
+      <div class="strip-div" aria-hidden="true"></div>
+      <div class="strip-item">
+        <span class="strip-num" aria-label="Over 2 million TikTok likes">2M+</span>
+        <span class="strip-lbl">TikTok Likes</span>
+      </div>
+      <div class="strip-div" aria-hidden="true"></div>
+      <div class="strip-item">
+        <span class="strip-num" aria-label="479 Instagram posts">479</span>
+        <span class="strip-lbl">IG Posts</span>
+      </div>
+      <div class="strip-div" aria-hidden="true"></div>
+      <div class="strip-item">
+        <span class="strip-num" aria-label="4 active platforms">4</span>
+        <span class="strip-lbl">Platforms</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials" class="sec-pad" aria-labelledby="testi-h">
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col-12 text-center" data-aos="fade-up">
+        <div class="sec-label dark justify-content-center">What Brands Say</div>
+        <h2 class="sec-title dark" id="testi-h">Results That Speak.</h2>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi">
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">Working with Krishna was effortless. Her audience is genuinely engaged — we saw real movement within 48 hours of her post going live. The quality of the content exceeded everything we briefed.</p>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">SL</div>
+            <div>
+              <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="t-name">Sarah L.</div>
+              <div class="t-role">Brand Manager · Caribbean Stays</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testi">
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">Krishna doesn't just promote a product — she builds a genuine moment around it. The quality and authenticity of her content is consistently better than what our in-house team could have produced.</p>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">MC</div>
+            <div>
+              <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="t-name">Marcus C.</div>
+              <div class="t-role">Marketing Director · Hospitality Group</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testi">
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">If you want to reach the Caribbean market authentically, Krishna is the standard. Her community trusts her — and that trust is the whole reason this works. Our best-performing campaign this year.</p>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">AT</div>
+            <div>
+              <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <div class="t-name">Alicia T.</div>
+              <div class="t-role">Founder · Caribbean Beauty Brand</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery" class="sec-pad" aria-labelledby="gallery-h">
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col-12" data-aos="fade-up">
+        <div class="sec-label light">Content Gallery</div>
+        <h2 class="sec-title light" id="gallery-h">Life Through Her Lens.</h2>
+      </div>
+    </div>
+
+    <div class="gal-grid" data-aos="fade-up" role="region" aria-label="Content gallery">
+
+      <div class="gal-item tall">
+        <img src="https://picsum.photos/seed/kh-g1/400/720"
+             alt="Krishna Henry — travel content, Saint Lucia landscape"
+             width="400" height="720" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Travel</span></div>
+      </div>
+
+      <div class="gal-item">
+        <img src="https://picsum.photos/seed/kh-g2/400/350"
+             alt="Krishna Henry — food content, Caribbean dining"
+             width="400" height="350" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Food</span></div>
+      </div>
+
+      <div class="gal-item">
+        <img src="https://picsum.photos/seed/kh-g8/400/350"
+             alt="Krishna Henry — lifestyle and fashion content"
+             width="400" height="350" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Style</span></div>
+      </div>
+
+      <div class="gal-item">
+        <img src="https://picsum.photos/seed/kh-g3/400/350"
+             alt="Krishna Henry — event coverage, Jazz and Arts Festival"
+             width="400" height="350" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Events</span></div>
+      </div>
+
+      <div class="gal-item tall">
+        <img src="https://picsum.photos/seed/kh-g4/400/720"
+             alt="Krishna Henry — Caribbean luxury lifestyle content"
+             width="400" height="720" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Luxury</span></div>
+      </div>
+
+      <div class="gal-item">
+        <img src="https://picsum.photos/seed/kh-g5/400/350"
+             alt="Krishna Henry — natural hair and beauty content"
+             width="400" height="350" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Beauty</span></div>
+      </div>
+
+      <div class="gal-item">
+        <img src="https://picsum.photos/seed/kh-g6/400/350"
+             alt="Krishna Henry — brand collaboration content"
+             width="400" height="350" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gal-overlay"><span class="gal-tag">Brands</span></div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://www.instagram.com/soul._.peachy"
+         target="_blank" rel="noopener noreferrer"
+         class="btn-ghost"
+         aria-label="View full Instagram feed for @soul._.peachy">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+        Full Gallery on Instagram
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact" class="sec-pad" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Info column -->
+      <div class="col-lg-5" data-aos="fade-up">
+        <div class="sec-label dark">Get In Touch</div>
+        <h2 class="sec-title dark mb-4" id="contact-h">
+          Ready to Build<br>
+          <em style="color:var(--blue);">Something Real?</em>
+        </h2>
+        <p style="color:var(--warm-gray);line-height:1.85;font-size:0.95rem;margin-bottom:2rem;">
+          Brands that want genuine Caribbean reach start here.
+          Fill out the inquiry form and expect a response within
+          <strong>48 business hours.</strong>
+        </p>
+
+        <div class="ci-item">
+          <div class="ci-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+          <div>
+            <span class="ci-strong">Email</span>
+            <span class="ci-sub">soulpeachycreates@gmail.com</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon" aria-hidden="true"><i class="fab fa-instagram"></i></div>
+          <div>
+            <span class="ci-strong">Instagram DM</span>
+            <span class="ci-sub">@soul._.peachy</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <span class="ci-strong">Based In</span>
+            <span class="ci-sub">🇱🇨 Saint Lucia, Caribbean</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+          <div>
+            <span class="ci-strong">Response Time</span>
+            <span class="ci-sub">Within 48 business hours</span>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div class="soc-row" role="list" aria-label="Krishna Henry social media links">
+          <a href="https://www.instagram.com/soul._.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem"
+             aria-label="Instagram — @soul._.peachy">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@soul.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem"
+             aria-label="TikTok — soul peachy">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.youtube.com/@soulpeachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem"
+             aria-label="YouTube — soul peachy">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/soul.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem"
+             aria-label="Facebook — soul peachy">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://beacons.ai/soulpeachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem"
+             aria-label="Beacons link tree — soul peachy">
+            <i class="fas fa-link" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form column -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="150">
+        <div class="contact-card">
+          <h3>Brand Collaboration Inquiry</h3>
+
+          <form id="inquiryForm" novalidate aria-label="Brand collaboration inquiry form">
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label for="brandName" class="form-label">
+                  Brand / Company Name <span style="color:#C0392B" aria-hidden="true">*</span>
+                </label>
+                <input type="text" class="form-control" id="brandName"
+                       name="brandName" required aria-required="true"
+                       placeholder="e.g. Caribbean Stays Co.">
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactName" class="form-label">
+                  Your Name <span style="color:#C0392B" aria-hidden="true">*</span>
+                </label>
+                <input type="text" class="form-control" id="contactName"
+                       name="contactName" required aria-required="true"
+                       placeholder="First and last name">
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactEmail" class="form-label">
+                  Email Address <span style="color:#C0392B" aria-hidden="true">*</span>
+                </label>
+                <input type="email" class="form-control" id="contactEmail"
+                       name="contactEmail" required aria-required="true"
+                       placeholder="you@yourbrand.com">
+              </div>
+
+              <div class="col-md-6">
+                <label for="collabType" class="form-label">
+                  Type of Collaboration <span style="color:#C0392B" aria-hidden="true">*</span>
+                </label>
+                <select class="form-select" id="collabType"
+                        name="collabType" required aria-required="true">
+                  <option value="" disabled selected>Select a type</option>
+                  <option value="Sponsored Post">Sponsored Post</option>
+                  <option value="Story Feature">Story Feature</option>
+                  <option value="Reel / TikTok">Reel / TikTok</option>
+                  <option value="Event / Appearance">Event / Appearance</option>
+                  <option value="Multi-Platform Campaign">Multi-Platform Campaign</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="budget" class="form-label">Estimated Budget (USD)</label>
+                <select class="form-select" id="budget" name="budget">
+                  <option value="" disabled selected>Select a range (optional)</option>
+                  <option value="Under $500">Under $500</option>
+                  <option value="$500 – $1,000">$500 – $1,000</option>
+                  <option value="$1,000 – $2,500">$1,000 – $2,500</option>
+                  <option value="$2,500 – $5,000">$2,500 – $5,000</option>
+                  <option value="$5,000+">$5,000+</option>
+                  <option value="Open to Discussion">Open to Discussion</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label">
+                  Tell Krishna About Your Brand & Vision <span style="color:#C0392B" aria-hidden="true">*</span>
+                </label>
+                <textarea class="form-control" id="message"
+                          name="message" rows="5"
+                          required aria-required="true"
+                          placeholder="What's your brand about? What do you want to achieve? Any timeline in mind?"></textarea>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn-submit"
+                        aria-label="Submit brand collaboration inquiry">
+                  <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>
+                  Send My Inquiry
+                </button>
+              </div>
+
+              <div class="col-12">
+                <p style="font-size:0.73rem;color:var(--warm-gray);text-align:center;margin-top:0.25rem;">
+                  We respond within 48 business hours. Your information is kept confidential.
+                </p>
+              </div>
+
+            </div>
+          </form>
+
+          <!-- Success state -->
+          <div id="formSuccess" role="alert" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">🎉</div>
+            <h4>Inquiry Sent!</h4>
+            <p>Thank you for reaching out. Krishna's team will be in touch within 48 business hours.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+
+      <div class="col-md-4">
+        <div class="foot-name">Krishna Henry</div>
+        <div class="foot-sub">Digital Creator · 🇱🇨 Saint Lucia</div>
+      </div>
+
+      <div class="col-md-4 text-md-center">
+        <div class="d-flex justify-content-md-center gap-2" role="list" aria-label="Footer social links">
+          <a href="https://www.instagram.com/soul._.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="Instagram"
+             style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);background:transparent;">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@soul.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="TikTok"
+             style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);background:transparent;">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.youtube.com/@soulpeachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="YouTube"
+             style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);background:transparent;">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/soul.peachy"
+             target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="Facebook"
+             style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);background:transparent;">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-md-end">
+        <p class="foot-credit">
+          Built by
+          <a href="https://jamalinks758.github.io/jamalinks/"
+             target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+          &nbsp;·&nbsp; &copy; <span id="fyear"></span> Krishna Henry
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20brand%20partnership%20with%20Krishna%20Henry%20%40soul._.peachy"
+   class="wa-btn"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp about partnering with Krishna Henry">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  /* ---- AOS Init ---- */
+  AOS.init({ duration: 680, once: true, offset: 55 });
+
+  /* ---- Navbar scroll ---- */
+  const nav = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- Footer year ---- */
+  document.getElementById('fyear').textContent = new Date().getFullYear();
+
+  /* ---- Animated stat counters ---- */
+  function runCounter(el, target) {
+    const dur = 2000;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(ease * target);
+      if (target >= 1000) {
+        el.innerHTML = (val / 1000).toFixed(1) + '<span>K</span>';
+      } else {
+        el.textContent = val;
+      }
+      if (t < 1) requestAnimationFrame(step);
+      else {
+        if (target >= 1000) {
+          el.innerHTML = (target / 1000).toFixed(1) + '<span>K</span>';
+        } else {
+          el.textContent = target;
+        }
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  const counterEls = document.querySelectorAll('.s-num[data-target]');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        runCounter(e.target, parseInt(e.target.dataset.target));
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counterEls.forEach(el => counterObs.observe(el));
+
+  /* ---- Animate demo bars ---- */
+  const demoPanel = document.querySelector('.demo-panel');
+  if (demoPanel) {
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width;
+          });
+          barObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    barObs.observe(demoPanel);
+  }
+
+  /* ---- Form submission ---- */
+  const form = document.getElementById('inquiryForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    /* Basic validation */
+    const required = form.querySelectorAll('[required]');
+    let ok = true;
+    required.forEach(f => {
+      if (!f.value.trim()) {
+        f.style.borderColor = '#C0392B';
+        f.setAttribute('aria-invalid', 'true');
+        ok = false;
+      } else {
+        f.style.borderColor = '';
+        f.setAttribute('aria-invalid', 'false');
+      }
+    });
+    if (!ok) return;
+
+    /* Build mailto */
+    const brand   = document.getElementById('brandName').value;
+    const contact = document.getElementById('contactName').value;
+    const email   = document.getElementById('contactEmail').value;
+    const type    = document.getElementById('collabType').value;
+    const budget  = document.getElementById('budget').value || 'Not specified';
+    const msg     = document.getElementById('message').value;
+
+    const sub  = encodeURIComponent(`Brand Collab Inquiry — ${brand}`);
+    const body = encodeURIComponent(
+      `Brand: ${brand}\nContact Name: ${contact}\nContact Email: ${email}\nCollab Type: ${type}\nBudget: ${budget}\n\nMessage:\n${msg}`
+    );
+
+    window.location.href = `mailto:soulpeachycreates@gmail.com?subject=${sub}&body=${body}`;
+
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+
+  /* Clear error borders on input */
+  form.querySelectorAll('.form-control, .form-select').forEach(f => {
+    f.addEventListener('input', function() {
+      this.style.borderColor = '';
+      this.setAttribute('aria-invalid', 'false');
+    });
+  });
+</script>
+</body>
+</html>
