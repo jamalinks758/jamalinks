@@ -131,8 +131,19 @@
             display: flex; align-items: center;
             overflow: hidden;
         }
+        /* Hero cake background photo */
+        .hero-cake-img {
+            position:absolute; inset:0; z-index:0;
+            background:
+                url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=75')
+                center center / cover no-repeat;
+            opacity:0.07;
+            filter: blur(1px) saturate(0.8);
+        }
+        [data-theme="dark"] .hero-cake-img { opacity:0.04; }
+
         .hero-bg {
-            position:absolute; inset:0;
+            position:absolute; inset:0; z-index:1;
             background:
                 radial-gradient(ellipse 60% 70% at 5% 50%,  rgba(42,173,168,.07)  0%, transparent 70%),
                 radial-gradient(ellipse 50% 55% at 95% 15%,  rgba(217,83,109,.07)  0%, transparent 60%),
@@ -141,6 +152,7 @@
         .orb {
             position:absolute; border-radius:50%; pointer-events:none;
             animation: orb-float 9s ease-in-out infinite;
+            z-index:1;
         }
         .orb-1 { width:420px; height:420px; background:var(--teal);   opacity:.05; top:-140px; right:-110px; }
         .orb-2 { width:260px; height:260px; background:var(--pink);   opacity:.06; bottom:-60px; left:-60px; animation-delay:3s; }
@@ -150,7 +162,7 @@
             50%      { transform:translateY(-22px) rotate(6deg); }
         }
         /* sprinkles */
-        .sp { position:absolute; border-radius:50px; opacity:.18; pointer-events:none; }
+        .sp { position:absolute; border-radius:50px; opacity:.18; pointer-events:none; z-index:1; }
 
         .hero-eyebrow {
             font-family: var(--font-script);
@@ -203,6 +215,7 @@
             position:relative;
             width:320px; height:320px;
             display:flex; align-items:center; justify-content:center;
+            overflow:visible;
         }
         .ring-outer {
             position:absolute; inset:-18px; border-radius:50%;
@@ -228,6 +241,8 @@
             display:flex; align-items:center; justify-content:center;
             overflow:hidden; position:relative; z-index:1;
         }
+        /* hero-visual col needs overflow visible for floating cards */
+        .hero-visual { overflow:visible !important; }
         .logo-circle img { width:88%; height:88%; object-fit:contain; }
 
         /* Floating stat cards */
@@ -237,9 +252,10 @@
             padding:.7rem 1rem; box-shadow:0 8px 30px var(--shadow);
             display:flex; align-items:center; gap:10px;
             animation: orb-float 6s ease-in-out infinite;
+            z-index:10;
         }
-        .fcard-1 { top:8%; right:-12px; animation-delay:0s; }
-        .fcard-2 { bottom:12%; left:-12px; animation-delay:2s; }
+        .fcard-1 { top:0%; right:-90px; animation-delay:0s; }
+        .fcard-2 { bottom:5%; left:-90px; animation-delay:2s; }
         .fcard-icon {
             width:34px; height:34px; border-radius:10px;
             display:flex; align-items:center; justify-content:center; font-size:1.05rem;
@@ -645,6 +661,7 @@
      ║  HERO                                    ║
      ╚══════════════════════════════════════════╝ -->
 <section class="hero" id="home" aria-label="Welcome to Sweet Solace Cake Studio">
+  <div class="hero-cake-img" aria-hidden="true"></div>
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="orb orb-1" aria-hidden="true"></div>
   <div class="orb orb-2" aria-hidden="true"></div>
@@ -658,7 +675,7 @@
   <div class="sp" style="width:7px;height:7px;background:var(--teal);top:14%;right:29%;border-radius:50%" aria-hidden="true"></div>
   <div class="sp" style="width:5px;height:14px;background:var(--pink);top:30%;left:12%;transform:rotate(20deg)" aria-hidden="true"></div>
 
-  <div class="container">
+  <div class="container" style="position:relative;z-index:2">
     <div class="row align-items-center">
 
       <!-- Text -->
@@ -1325,8 +1342,51 @@
           {weekday:'long', year:'numeric', month:'long', day:'numeric'})
       : 'To be confirmed') + "\n";
     if(notes) msg += "\n✨ *Special Requests:*\n" + notes + "\n";
-    msg += "\nLooking forward to hearing from you! 😊";
+    msg += "\n🌐 *Ordered via:* www.sweetsolacecakestudio.com";
+    msg += "\n\nLooking forward to hearing from you! 😊";
+
+    /* ── GOOGLE SHEETS LOG ── */
+    logToSheets({
+      item:     oState.item     || 'Not specified',
+      occasion: oState.occasion || 'Not specified',
+      size:     oState.size     || 'Not specified',
+      date:     oState.date     || 'Not confirmed',
+      notes:    notes           || '',
+      source:   'Website Order Builder'
+    });
+
     window.open('https://wa.me/12424652263?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+  }
+
+  /* ─────────────────────────────────────────────
+     GOOGLE SHEETS INTEGRATION
+     Replace APPS_SCRIPT_URL with your deployed
+     Google Apps Script Web App URL after setup.
+  ───────────────────────────────────────────── */
+  const APPS_SCRIPT_URL = 'YOUR_DEPLOYED_SCRIPT_URL_HERE';
+
+  function logToSheets(data) {
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_DEPLOYED_SCRIPT_URL_HERE') {
+      console.warn('Sweet Solace: Google Sheets URL not configured yet.');
+      return;
+    }
+    const payload = {
+      timestamp:  new Date().toLocaleString('en-US', { timeZone: 'America/Nassau' }),
+      item:       data.item,
+      occasion:   data.occasion,
+      size:       data.size,
+      dateNeeded: data.date,
+      notes:      data.notes,
+      source:     data.source
+    };
+    fetch(APPS_SCRIPT_URL, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    })
+    .then(() => console.log('Sweet Solace: Order logged to Sheets ✅'))
+    .catch(err => console.warn('Sweet Solace: Sheets log failed —', err));
   }
 
   /* navbar shadow on scroll */
