@@ -1353,9 +1353,13 @@
       date:     oState.date     || 'Not confirmed',
       notes:    notes           || '',
       source:   'Website Order Builder'
+    }).then(() => {
+      // Only open WhatsApp after logging succeeds (or continue anyway)
+      window.open('https://wa.me/12424652263?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+    }).catch((err) => {
+      console.warn('Sweet Solace: Log failed but proceeding with WhatsApp -', err);
+      window.open('https://wa.me/12424652263?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
     });
-
-    window.open('https://wa.me/12424652263?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
   }
 
   /* ─────────────────────────────────────────────
@@ -1363,13 +1367,14 @@
      Replace APPS_SCRIPT_URL with your deployed
      Google Apps Script Web App URL after setup.
   ───────────────────────────────────────────── */
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0qsZEaDFIqrhqRabALqaUU_Ec1XQd1agC7gzpvRmeyTDH0EIsL1SCjmoA6i0yG6om/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoe67Q1NKg4S5vogmeW-IKFKJuhZjy5XQdfUybedvBJyAKMUSTJsAcRXf-M7Mnw1wz/exec';
 
-  function logToSheets(data) {
+  async function logToSheets(data) {
     if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_DEPLOYED_SCRIPT_URL_HERE') {
       console.warn('Sweet Solace: Google Sheets URL not configured yet.');
-      return;
+      return Promise.reject('URL not configured');
     }
+    
     const payload = {
       timestamp:  new Date().toLocaleString('en-US', { timeZone: 'America/Nassau' }),
       item:       data.item,
@@ -1379,14 +1384,26 @@
       notes:      data.notes,
       source:     data.source
     };
-    fetch(APPS_SCRIPT_URL, {
-      method:  'POST',
-      mode:    'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
-    })
-    .then(() => console.log('Sweet Solace: Order logged to Sheets ✅'))
-    .catch(err => console.warn('Sweet Solace: Sheets log failed —', err));
+    
+    try {
+      // REMOVED 'no-cors' mode - this was causing the issue
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Sweet Solace: Order logged to Sheets ✅', result);
+      return result;
+    } catch (err) {
+      console.warn('Sweet Solace: Sheets log failed —', err);
+      throw err; // Re-throw so the calling function knows it failed
+    }
   }
 
   /* navbar shadow on scroll */
