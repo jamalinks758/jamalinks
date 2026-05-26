@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cupcake Creations by Elle — Bespoke cakes, cupcakes & tray bakes handcrafted in CR0, Surrey. 5★ Food Hygiene rated. Custom orders & cake trailer hire for events across Surrey & South London.">
+  <meta property="og:title" content="Cupcake Creations by Elle | Bespoke Cakes & Cake Trailer | Surrey">
+  <meta property="og:description" content="Handcrafted cakes, cupcakes & tray bakes from CR0, Surrey. 5★ Food Hygiene. Custom orders & cake trailer hire for events.">
+  <meta property="og:type" content="website">
+  <title>Cupcake Creations by Elle | Bespoke Cakes, Cupcakes & Cake Trailer | CR0, Surrey</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts (deferred) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Font Awesome 6 (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       CSS VARIABLES — ELLE'S BRAND PALETTE
+       Sage green + blush rose + warm cream
+       ============================================= */
+    :root {
+      --sage:        #7A9B77;
+      --sage-light:  #A8C5A5;
+      --sage-dark:   #556E53;
+      --rose:        #E2A7B0;
+      --rose-light:  #F7E4E7;
+      --rose-dark:   #C07D87;
+      --cream:       #FDF8F2;
+      --cream-dark:  #F3E9DF;
+      --text:        #2C2A28;
+      --text-mid:    #6B6460;
+      --white:       #FFFFFF;
+      --gold:        #C9A96E;
+      --shadow-sm:   rgba(0,0,0,0.06);
+      --shadow-md:   rgba(0,0,0,0.10);
+      --nav-bg:      rgba(253,248,242,0.96);
+    }
+
+    [data-theme="dark"] {
+      --cream:       #1C1A17;
+      --cream-dark:  #252220;
+      --text:        #F0E8DF;
+      --text-mid:    #A89A8C;
+      --nav-bg:      rgba(28,26,23,0.96);
+      --shadow-sm:   rgba(0,0,0,0.25);
+      --shadow-md:   rgba(0,0,0,0.35);
+      --rose-light:  rgba(226,167,176,0.12);
+    }
+
+    /* =============================================
+       BASE
+       ============================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-display: swap;
+      background-color: var(--cream);
+      color: var(--text);
+      transition: background-color 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Playfair Display', serif;
+      font-display: swap;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* =============================================
+       NAVBAR
+       ============================================= */
+    .navbar {
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--rose-light);
+      padding: 12px 0;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--sage-dark) !important;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-brand .brand-accent { color: var(--rose-dark); }
+
+    .nav-link {
+      color: var(--text) !important;
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 14px !important;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus { color: var(--sage-dark) !important; }
+
+    .btn-nav-cta {
+      background: var(--sage);
+      color: white !important;
+      border-radius: 50px;
+      padding: 9px 22px !important;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-nav-cta:hover, .btn-nav-cta:focus {
+      background: var(--sage-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(85,110,83,0.3);
+      color: white !important;
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1.5px solid var(--rose);
+      color: var(--text);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: background 0.25s, color 0.25s;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover, .theme-btn:focus {
+      background: var(--rose-light);
+      outline: 2px solid var(--rose);
+      outline-offset: 2px;
+    }
+
+    /* =============================================
+       GLOBAL BUTTONS
+       ============================================= */
+    .btn-sage {
+      background: var(--sage);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-sage:hover, .btn-sage:focus {
+      background: var(--sage-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(85,110,83,0.35);
+      color: white;
+    }
+
+    .btn-sage-pulse {
+      animation: sagePulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes sagePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(122,155,119,0.4); }
+      60%      { box-shadow: 0 0 0 14px rgba(122,155,119,0); }
+    }
+
+    .btn-outline-rose {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--rose);
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-outline-rose:hover, .btn-outline-rose:focus {
+      background: var(--rose-light);
+      border-color: var(--rose-dark);
+      color: var(--text);
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--sage-dark);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-white:hover, .btn-white:focus {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      color: var(--sage-dark);
+    }
+
+    /* =============================================
+       SECTION TYPOGRAPHY
+       ============================================= */
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+      color: var(--sage);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 560px;
+    }
+
+    /* =============================================
+       HERO
+       ============================================= */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(140deg, var(--cream) 0%, var(--rose-light) 55%, var(--cream-dark) 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    /* Decorative background blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -15%;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, var(--sage-light) 0%, transparent 68%);
+      opacity: 0.18;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -15%;
+      left: -8%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
+      opacity: 0.14;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1.5px solid var(--rose-light);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      box-shadow: 0 2px 14px var(--shadow-sm);
+      margin-bottom: 22px;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--rose-dark);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      color: var(--sage-dark);
+      font-style: italic;
+    }
+
+    .hero h1 .rose-word { color: var(--rose-dark); }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--text-mid);
+      max-width: 480px;
+      line-height: 1.9;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-mid);
+    }
+
+    .hero-trust-chip i { color: var(--sage); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-emoji-main {
+      font-size: 9rem;
+      line-height: 1;
+      display: block;
+      animation: floatCake 4.5s ease-in-out infinite;
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,0.12));
+    }
+
+    @keyframes floatCake {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-18px); }
+    }
+
+    .hero-floating-pill {
+      position: absolute;
+      background: white;
+      border-radius: 50px;
+      padding: 9px 18px;
+      box-shadow: 0 6px 24px var(--shadow-md);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid var(--rose-light);
+      white-space: nowrap;
+    }
+
+    .pill-1 { top: 5%;  right: -5%; color: var(--sage-dark); }
+    .pill-2 { bottom: 30%; left: -8%; color: var(--rose-dark); }
+    .pill-3 { bottom: 8%;  right: 0%;  color: var(--gold); }
+
+    /* Food Hygiene badge */
+    .hygiene-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B5E20;
+      color: white;
+      border-radius: 10px;
+      padding: 7px 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .hygiene-stars { color: #FFD600; letter-spacing: 1px; }
+
+    /* =============================================
+       TRUST BAR
+       ============================================= */
+    .trust-bar {
+      background: var(--sage-dark);
+      padding: 16px 0;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px 24px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .trust-item i { opacity: 0.8; }
+
+    .trust-sep {
+      color: rgba(255,255,255,0.25);
+      font-size: 1rem;
+    }
+
+    /* =============================================
+       CREATIONS SECTION
+       ============================================= */
+    .creations-section {
+      background: var(--cream-dark);
+      padding: 100px 0;
+    }
+
+    /* Custom tab pills */
+    .creation-tabs .nav-link {
+      color: var(--text-mid) !important;
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      padding: 10px 26px !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      transition: all 0.25s;
+    }
+
+    .creation-tabs .nav-link.active,
+    .creation-tabs .nav-link:hover {
+      background: var(--sage) !important;
+      color: white !important;
+      border-color: var(--sage) !important;
+    }
+
+    .product-card {
+      background: var(--cream);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1.5px solid var(--rose-light);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 48px var(--shadow-md);
+    }
+
+    .product-card-thumb {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      background: linear-gradient(135deg, var(--rose-light), var(--cream-dark));
+      flex-shrink: 0;
+    }
+
+    .product-card-body {
+      padding: 20px 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card-body h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .product-card-body p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+
+    .product-price {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--sage-dark);
+    }
+
+    /* Allergen box */
+    .allergen-box {
+      background: #FFFDE7;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      padding: 14px 20px;
+      font-size: 0.82rem;
+      color: #5D4037;
+      margin-top: 20px;
+    }
+
+    /* =============================================
+       CUSTOM ORDER BUILDER
+       ============================================= */
+    .builder-section {
+      background: var(--cream);
+      padding: 100px 0;
+    }
+
+    .builder-card {
+      background: var(--white);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px var(--shadow-md);
+      border: 1.5px solid var(--rose-light);
+    }
+
+    [data-theme="dark"] .builder-card { background: var(--cream-dark); }
+
+    .builder-head {
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      padding: 28px 36px;
+      color: white;
+    }
+
+    .builder-head h3 {
+      color: white;
+      margin: 0 0 6px;
+      font-size: 1.4rem;
+    }
+
+    .builder-head p {
+      opacity: 0.82;
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .builder-body {
+      padding: 36px;
+    }
+
+    /* Progress dots */
+    .step-track {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .step-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: var(--cream-dark);
+      border: 2px solid var(--rose-light);
+      color: var(--text-mid);
+      transition: all 0.35s;
+    }
+
+    .step-dot.active  { background: var(--sage);      border-color: var(--sage);      color: white; }
+    .step-dot.done    { background: var(--sage-light); border-color: var(--sage-light); color: white; }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--rose-light);
+      transition: background 0.4s;
+    }
+
+    .step-line.done { background: var(--sage-light); }
+
+    .step-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step-hint {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      margin-bottom: 22px;
+    }
+
+    .opts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .opt {
+      background: var(--cream-dark);
+      border: 2px solid var(--rose-light);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .opt .oi {
+      display: block;
+      font-size: 1.9rem;
+      margin-bottom: 6px;
+    }
+
+    .opt:hover, .opt.sel {
+      background: var(--rose-light);
+      border-color: var(--sage);
+      color: var(--sage-dark);
+    }
+
+    .builder-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 2px solid var(--rose);
+      color: var(--text);
+      border-radius: 50px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-back:hover { background: var(--rose-light); }
+
+    .btn-next {
+      background: var(--sage);
+      border: none;
+      color: white;
+      border-radius: 50px;
+      padding: 11px 28px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-next:hover { background: var(--sage-dark); }
+
+    .btn-wa-send {
+      background: #25D366;
+      border: none;
+      color: white;
+      border-radius: 50px;
+      padding: 13px 28px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .btn-wa-send:hover { background: #1EBD59; transform: translateY(-1px); }
+
+    .summary-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--cream-dark);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+
+    .summary-row strong {
+      color: var(--sage-dark);
+      min-width: 86px;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       CAKE TRAILER SECTION
+       ============================================= */
+    .trailer-section {
+      background: linear-gradient(140deg, var(--sage-dark) 0%, #3E5A3D 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trailer-section::before {
+      content: '';
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .trailer-section::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 350px;
+      height: 350px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .trailer-section .section-eyebrow { color: var(--rose-light); }
+    .trailer-section .section-title   { color: white; }
+    .trailer-section .section-sub     { color: rgba(255,255,255,0.75); }
+
+    .trailer-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .trailer-feat-icon {
+      width: 46px;
+      height: 46px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .trailer-feat-text h6 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 3px;
+      font-size: 0.95rem;
+    }
+
+    .trailer-feat-text p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.83rem;
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .event-card {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 26px 20px;
+      text-align: center;
+      color: white;
+      transition: all 0.3s;
+      backdrop-filter: blur(6px);
+      height: 100%;
+    }
+
+    .event-card:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-5px);
+    }
+
+    .event-card .ev-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .event-card h5 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .event-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .booking-notice {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 18px 24px;
+      color: white;
+      font-size: 0.85rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* =============================================
+       HOW IT WORKS
+       ============================================= */
+    .how-section {
+      background: var(--cream-dark);
+      padding: 100px 0;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 28px 16px;
+    }
+
+    .step-num {
+      width: 58px;
+      height: 58px;
+      background: var(--rose-light);
+      border: 2.5px solid var(--rose);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--rose-dark);
+      margin: 0 auto 18px;
+    }
+
+    .step-card h5 { font-size: 1rem; margin-bottom: 8px; }
+    .step-card p  { font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; margin: 0; }
+
+    /* =============================================
+       AVAILABILITY CALENDAR
+       ============================================= */
+    .avail-section {
+      background: var(--cream);
+      padding: 80px 0;
+    }
+
+    .month-card {
+      background: var(--cream-dark);
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+      border: 1.5px solid var(--rose-light);
+      transition: transform 0.25s;
+    }
+
+    .month-card:hover { transform: translateY(-4px); }
+
+    .month-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .av-badge {
+      display: inline-block;
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-size: 0.73rem;
+      font-weight: 700;
+    }
+
+    .av-available { background: #E8F5E9; color: #2E7D32; }
+    .av-limited   { background: #FFF3E0; color: #E65100; }
+    .av-full      { background: #FFEBEE; color: #B71C1C; }
+
+    /* =============================================
+       TESTIMONIALS
+       ============================================= */
+    .reviews-section {
+      background: var(--rose-light);
+      padding: 100px 0;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 4px 20px var(--shadow-sm);
+      border: 1px solid rgba(226,167,176,0.3);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    [data-theme="dark"] .review-card { background: var(--cream-dark); }
+
+    .stars-row {
+      color: var(--gold);
+      font-size: 0.88rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-style: italic;
+      color: var(--text);
+      font-size: 0.94rem;
+      line-height: 1.85;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+
+    .review-author { font-weight: 700; font-size: 0.85rem; color: var(--sage-dark); }
+    .review-event  { font-size: 0.78rem; color: var(--text-mid); }
+
+    /* =============================================
+       FAQ
+       ============================================= */
+    .faq-section { background: var(--cream-dark); padding: 100px 0; }
+
+    .accordion-item {
+      border: 1.5px solid var(--rose-light) !important;
+      border-radius: 16px !important;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--cream) !important;
+    }
+
+    .accordion-button {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 0.98rem !important;
+      color: var(--text) !important;
+      background: var(--cream) !important;
+      font-weight: 600 !important;
+      box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed) { color: var(--sage-dark) !important; }
+
+    .accordion-body {
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      background: var(--cream);
+    }
+
+    [data-theme="dark"] .accordion-item,
+    [data-theme="dark"] .accordion-button,
+    [data-theme="dark"] .accordion-body {
+      background: var(--cream-dark) !important;
+    }
+
+    /* =============================================
+       CTA SECTION
+       ============================================= */
+    .cta-section {
+      background: linear-gradient(135deg, var(--rose-light), var(--cream-dark));
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      background: #191613;
+      color: rgba(255,255,255,0.65);
+      padding: 64px 0 28px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: var(--rose); }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 270px;
+      opacity: 0.62;
+      margin-bottom: 20px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.25s;
+      margin-right: 6px;
+    }
+
+    .social-link:hover {
+      background: var(--rose-dark);
+      color: white;
+    }
+
+    .footer-head {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .footer-link {
+      display: block;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 9px;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover { color: var(--rose-light); }
+
+    .footer-hr { border-color: rgba(255,255,255,0.08); margin: 40px 0 20px; }
+
+    .footer-bottom {
+      font-size: 0.76rem;
+      opacity: 0.45;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-bottom a { color: var(--rose-light); text-decoration: none; }
+    .footer-bottom a:hover { color: white; }
+
+    /* =============================================
+       FLOATING WHATSAPP
+       ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 1.7rem;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      animation: waPulse 2.8s ease-in-out infinite;
+      transition: transform 0.25s;
+    }
+
+    .wa-float:hover, .wa-float:focus {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+      55%      { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.08); }
+    }
+
+    .wa-label {
+      position: fixed;
+      bottom: 34px;
+      right: 92px;
+      background: white;
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+      box-shadow: 0 4px 16px var(--shadow-sm);
+      z-index: 9998;
+      animation: labelSlide 0.5s ease 3.5s both;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes labelSlide {
+      from { opacity: 0; transform: translateX(10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+      position: fixed;
+      bottom: 94px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 9997;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+
+    .scroll-top.visible { display: flex; }
+    .scroll-top:hover   { background: var(--sage-dark); transform: translateY(-2px); }
+
+    /* =============================================
+       RESPONSIVE
+       ============================================= */
+    @media (max-width: 991px) {
+      .hero-floating-pill { display: none; }
+    }
+
+    @media (max-width: 767px) {
+      .hero { padding-top: 90px; padding-bottom: 60px; }
+      .hero-visual { margin-top: 32px; }
+      .builder-body { padding: 24px 18px; }
+      .opts { grid-template-columns: repeat(2, 1fr); }
+      .builder-head { padding: 22px 24px; }
+      .wa-label { display: none; }
+      .trust-sep { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.6rem; }
+      .section-title { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <span class="wa-label" aria-hidden="true">💬 Enquire Now</span>
+  <a href="https://wa.me/447700000000?text=Hi%20Elle!%20I'd%20love%20to%20enquire%20about%20a%20custom%20order%20or%20the%20cake%20trailer%20%F0%9F%8E%82"
+     class="wa-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with Cupcake Creations on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- ===== SCROLL TOP ===== -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll back to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <span aria-hidden="true">🧁</span>
+        Cupcake <span class="brand-accent">Creations</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-last">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle light or dark mode">
+          <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
+        </button>
+        <a href="#order" class="btn-nav-cta d-none d-md-inline-block" aria-label="Order a custom cake">
+          Order Now
+        </a>
+        <button class="navbar-toggler border-0 ps-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navMenu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-0 gap-lg-1" role="list">
+          <li class="nav-item" role="listitem"><a class="nav-link" href="#creations">Creations</a></li>
+          <li class="nav-item" role="listitem"><a class="nav-link" href="#order">Order</a></li>
+          <li class="nav-item" role="listitem"><a class="nav-link" href="#trailer">Cake Trailer</a></li>
+          <li class="nav-item" role="listitem"><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li class="nav-item" role="listitem"><a class="nav-link" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home" aria-labelledby="hero-heading">
+    <div class="container hero-content">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="900">
+          <div class="hero-badge">
+            <span class="dot" aria-hidden="true"></span>
+            5★ Food Hygiene Rated &nbsp;·&nbsp; CR0, Surrey
+          </div>
+
+          <h1 id="hero-heading">
+            Baked with <em>Love.</em><br>
+            Built for <span class="rose-word">Your</span><br>
+            Celebration.
+          </h1>
+
+          <p class="hero-lead">
+            Bespoke cakes, cupcakes &amp; tray bakes — handcrafted in Surrey for every occasion.
+            Plus our one-of-a-kind <strong>Cake Trailer</strong> to bring the sweetness to you.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#order" class="btn-sage btn-sage-pulse">
+              <span aria-hidden="true">🎂</span> Build My Cake
+            </a>
+            <a href="#trailer" class="btn-outline-rose">
+              <span aria-hidden="true">🚚</span> Book the Trailer
+            </a>
+          </div>
+
+          <div class="hero-trust" role="list" aria-label="Trust signals">
+            <div class="hero-trust-chip" role="listitem">
+              <i class="fas fa-award" aria-hidden="true"></i>
+              <span>5★ Food Hygiene</span>
+            </div>
+            <div class="hero-trust-chip" role="listitem">
+              <i class="fas fa-heart" aria-hidden="true"></i>
+              <span>Handcrafted to Order</span>
+            </div>
+            <div class="hero-trust-chip" role="listitem">
+              <i class="fas fa-truck" aria-hidden="true"></i>
+              <span>Cake Trailer for Hire</span>
+            </div>
+            <div class="hero-trust-chip" role="listitem">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <span>Fast WhatsApp Replies</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="900" data-aos-delay="250">
+          <div class="hero-visual">
+            <span class="hero-emoji-main" role="img" aria-label="Decorated celebration cake">🎂</span>
+            <div class="hero-floating-pill pill-1" aria-hidden="true">🧁 Cupcakes &amp; Tray Bakes</div>
+            <div class="hero-floating-pill pill-2" aria-hidden="true">🚚 Trailer Available for Events</div>
+            <div class="hero-floating-pill pill-3" aria-hidden="true">⭐ Bespoke &amp; Beautiful</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar" aria-label="Business trust signals">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item"><i class="fas fa-award" aria-hidden="true"></i> 5★ Food Hygiene Rated</div>
+        <span class="trust-sep" aria-hidden="true">|</span>
+        <div class="trust-item"><i class="fas fa-magic" aria-hidden="true"></i> Handcrafted to Order</div>
+        <span class="trust-sep" aria-hidden="true">|</span>
+        <div class="trust-item"><i class="fas fa-truck" aria-hidden="true"></i> Cake Trailer for Events</div>
+        <span class="trust-sep" aria-hidden="true">|</span>
+        <div class="trust-item"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Ordering</div>
+        <span class="trust-sep" aria-hidden="true">|</span>
+        <div class="trust-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> CR0, Surrey</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CREATIONS ===== -->
+  <section class="creations-section" id="creations" aria-labelledby="creations-heading">
+    <div class="container">
+
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">What We Make</span>
+        <h2 class="section-title" id="creations-heading">Every Sweet Occasion,<br>Covered.</h2>
+        <p class="section-sub mx-auto">
+          From celebration cakes to cupcake towers, tray bakes to wedding showpieces — everything is made fresh to your order with care and creativity.
+        </p>
+      </div>
+
+      <!-- Tab Pills -->
+      <ul class="nav creation-tabs justify-content-center flex-wrap mb-4 gap-2"
+          id="creationTabs"
+          role="tablist"
+          aria-label="Product categories">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="cakes-tab" data-bs-toggle="tab" data-bs-target="#cakes"
+                  type="button" role="tab" aria-controls="cakes" aria-selected="true">
+            🎂 Cakes
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="cupcakes-tab" data-bs-toggle="tab" data-bs-target="#cupcakes"
+                  type="button" role="tab" aria-controls="cupcakes" aria-selected="false">
+            🧁 Cupcakes
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="traybakes-tab" data-bs-toggle="tab" data-bs-target="#traybakes"
+                  type="button" role="tab" aria-controls="traybakes" aria-selected="false">
+            🍫 Tray Bakes
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="creationTabsContent">
+
+        <!-- CAKES -->
+        <div class="tab-pane fade show active" id="cakes" role="tabpanel" aria-labelledby="cakes-tab">
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🎂</div>
+                <div class="product-card-body">
+                  <h3>Birthday Cakes</h3>
+                  <p>Any theme, any flavour, any tier. Custom-designed to make the birthday person feel truly one-of-a-kind.</p>
+                  <span class="product-price">From £60 · Enquire for quote</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">💒</div>
+                <div class="product-card-body">
+                  <h3>Wedding Cakes</h3>
+                  <p>Elegant, tiered, and designed around your big day. A showpiece that tastes as breathtaking as it looks.</p>
+                  <span class="product-price">From £150 · Enquire for quote</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🎀</div>
+                <div class="product-card-body">
+                  <h3>Celebration Cakes</h3>
+                  <p>Christenings, graduations, baby showers, retirements — no celebration is too big or too intimate.</p>
+                  <span class="product-price">From £60 · Enquire for quote</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🌈</div>
+                <div class="product-card-body">
+                  <h3>Bespoke Creations</h3>
+                  <p>Got a wild idea? Bring it. We love a challenge and we love making one-of-a-kind cakes nobody else has seen.</p>
+                  <span class="product-price">Priced on enquiry</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUPCAKES -->
+        <div class="tab-pane fade" id="cupcakes" role="tabpanel" aria-labelledby="cupcakes-tab">
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🧁</div>
+                <div class="product-card-body">
+                  <h3>Birthday Cupcakes</h3>
+                  <p>Personalised toppers, your choice of flavour and frosting. A crowd-pleasing classic made beautiful.</p>
+                  <span class="product-price">From £3.50 each · Min. 6</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">💝</div>
+                <div class="product-card-body">
+                  <h3>Wedding Favours</h3>
+                  <p>Beautifully boxed cupcakes your guests will take home and rave about. Colour-matched to your scheme.</p>
+                  <span class="product-price">Bulk pricing available</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🏢</div>
+                <div class="product-card-body">
+                  <h3>Corporate Orders</h3>
+                  <p>Branded cupcakes for launches, team events, and corporate gifting. Professional, on-theme, and delicious.</p>
+                  <span class="product-price">Bulk discounts apply</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">📦</div>
+                <div class="product-card-body">
+                  <h3>Gift Boxes</h3>
+                  <p>Curated cupcake gift boxes — perfect for birthdays, thank-yous, and "just because" surprises.</p>
+                  <span class="product-price">From £18 per box</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRAY BAKES -->
+        <div class="tab-pane fade" id="traybakes" role="tabpanel" aria-labelledby="traybakes-tab">
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🍫</div>
+                <div class="product-card-body">
+                  <h3>Brownies</h3>
+                  <p>Rich, fudgy, and dangerously good. Plain or loaded — Biscoff, Oreo, white chocolate &amp; more.</p>
+                  <span class="product-price">From £12 per tray</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🌟</div>
+                <div class="product-card-body">
+                  <h3>Blondies</h3>
+                  <p>The brownie's golden twin. Buttery, caramel-sweet, and utterly impossible to stop at one.</p>
+                  <span class="product-price">From £12 per tray</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🍯</div>
+                <div class="product-card-body">
+                  <h3>Caramel Slices</h3>
+                  <p>Buttery shortbread, salted caramel, rich chocolate. A proper British tea-time indulgence.</p>
+                  <span class="product-price">From £14 per tray</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+              <article class="product-card">
+                <div class="product-card-thumb" aria-hidden="true">🎉</div>
+                <div class="product-card-body">
+                  <h3>Event Platters</h3>
+                  <p>Mixed tray bake selections — brilliant for parties, buffets, fairs, and corporate dos of any size.</p>
+                  <span class="product-price">Enquire for bulk pricing</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /tab-content -->
+
+      <div class="text-center mt-4" data-aos="fade-up">
+        <a href="https://wa.me/447700000000?text=Hi%20Elle!%20I'd%20love%20to%20see%20the%20full%20menu%20and%20discuss%20a%20custom%20order%20%F0%9F%8E%82"
+           class="btn-outline-rose" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> See Full Range on WhatsApp
+        </a>
+      </div>
+
+      <!-- ALLERGEN NOTICE — UK Legal Requirement -->
+      <div class="row justify-content-center mt-4" data-aos="fade-up">
+        <div class="col-md-9">
+          <div class="allergen-box" role="note" aria-label="Allergen information notice">
+            <strong>⚠️ Allergen Information:</strong> Our products are made in a kitchen that handles
+            <strong>gluten, dairy, eggs, nuts, and soya</strong>. We cannot guarantee a completely
+            allergen-free product. Full allergen information is available on request — please inform
+            us of any dietary requirements or allergies when placing your order.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CUSTOM ORDER BUILDER ===== -->
+  <section class="builder-section" id="order" aria-labelledby="order-heading">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="section-eyebrow">Custom Orders</span>
+          <h2 class="section-title" id="order-heading">Build Your<br>Dream Cake.</h2>
+          <p class="section-sub">
+            Tell us your occasion, how many you're feeding, and your favourite flavour. Your order goes straight to WhatsApp — no forms, no fuss.
+          </p>
+          <div class="d-flex flex-column gap-3 mt-4">
+            <div class="d-flex align-items-center gap-3">
+              <span style="font-size:1.8rem" aria-hidden="true">⚡</span>
+              <div>
+                <strong style="font-size:0.9rem;">We reply fast</strong><br>
+                <span style="font-size:0.82rem;color:var(--text-mid)">Most messages answered the same day</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <span style="font-size:1.8rem" aria-hidden="true">🔒</span>
+              <div>
+                <strong style="font-size:0.9rem;">Secure your date with a deposit</strong><br>
+                <span style="font-size:0.82rem;color:var(--text-mid)">Deposits confirm your slot — dates fill fast</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <span style="font-size:1.8rem" aria-hidden="true">🎨</span>
+              <div>
+                <strong style="font-size:0.9rem;">Fully bespoke to your vision</strong><br>
+                <span style="font-size:0.82rem;color:var(--text-mid)">Every design detail discussed and matched</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="150">
+          <div class="builder-card">
+            <div class="builder-head">
+              <h3>🎂 Your Custom Order</h3>
+              <p>4 quick questions · Sent straight to WhatsApp · We reply with pricing &amp; availability</p>
+            </div>
+            <div class="builder-body">
+
+              <!-- Progress track -->
+              <div class="step-track"
+                   role="progressbar"
+                   aria-label="Order progress"
+                   aria-valuenow="1"
+                   aria-valuemin="1"
+                   aria-valuemax="4">
+                <div class="step-dot active" id="dot1">1</div>
+                <div class="step-line" id="line1"></div>
+                <div class="step-dot" id="dot2">2</div>
+                <div class="step-line" id="line2"></div>
+                <div class="step-dot" id="dot3">3</div>
+                <div class="step-line" id="line3"></div>
+                <div class="step-dot" id="dot4">4</div>
+              </div>
+
+              <!-- STEP 1 -->
+              <div id="step1">
+                <h4 class="step-q">"What are we celebrating?"</h4>
+                <p class="step-hint">Choose the occasion for your order</p>
+                <div class="opts" role="group" aria-label="Select occasion">
+                  <button class="opt" onclick="pick(this,'occasion','Birthday')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🎂</span>Birthday
+                  </button>
+                  <button class="opt" onclick="pick(this,'occasion','Wedding')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">💒</span>Wedding
+                  </button>
+                  <button class="opt" onclick="pick(this,'occasion','Christening')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">👶</span>Christening
+                  </button>
+                  <button class="opt" onclick="pick(this,'occasion','Graduation')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🎓</span>Graduation
+                  </button>
+                  <button class="opt" onclick="pick(this,'occasion','Anniversary')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">❤️</span>Anniversary
+                  </button>
+                  <button class="opt" onclick="pick(this,'occasion','Other')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🌈</span>Other
+                  </button>
+                </div>
+                <div class="builder-nav-row">
+                  <span></span>
+                  <button class="btn-next" onclick="goNext(1)" aria-label="Proceed to step 2">
+                    Next: Choose Size →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div id="step2" class="d-none">
+                <h4 class="step-q">"How many guests are we feeding?"</h4>
+                <p class="step-hint">This helps us recommend the right size</p>
+                <div class="opts" role="group" aria-label="Select serving size">
+                  <button class="opt" onclick="pick(this,'size','Up to 10')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">👨‍👩‍👧</span>Up to 10
+                  </button>
+                  <button class="opt" onclick="pick(this,'size','10–20')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🎉</span>10–20
+                  </button>
+                  <button class="opt" onclick="pick(this,'size','20–40')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🥳</span>20–40
+                  </button>
+                  <button class="opt" onclick="pick(this,'size','40–60')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🏟️</span>40–60
+                  </button>
+                  <button class="opt" onclick="pick(this,'size','60+')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🎊</span>60+
+                  </button>
+                  <button class="opt" onclick="pick(this,'size','Not sure yet')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🤔</span>Not sure
+                  </button>
+                </div>
+                <div class="builder-nav-row">
+                  <button class="btn-back" onclick="goBack(2)" aria-label="Return to step 1">← Back</button>
+                  <button class="btn-next" onclick="goNext(2)" aria-label="Proceed to step 3">
+                    Next: Pick Flavour →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div id="step3" class="d-none">
+                <h4 class="step-q">"What flavour calls to you?"</h4>
+                <p class="step-hint">We can mix flavours across tiers — just ask</p>
+                <div class="opts" role="group" aria-label="Select flavour">
+                  <button class="opt" onclick="pick(this,'flavour','Vanilla')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🍦</span>Vanilla
+                  </button>
+                  <button class="opt" onclick="pick(this,'flavour','Chocolate')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🍫</span>Chocolate
+                  </button>
+                  <button class="opt" onclick="pick(this,'flavour','Lemon')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🍋</span>Lemon
+                  </button>
+                  <button class="opt" onclick="pick(this,'flavour','Red Velvet')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">❤️</span>Red Velvet
+                  </button>
+                  <button class="opt" onclick="pick(this,'flavour','Biscoff')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">🍪</span>Biscoff
+                  </button>
+                  <button class="opt" onclick="pick(this,'flavour','Surprise Me!')" aria-pressed="false">
+                    <span class="oi" aria-hidden="true">✨</span>Surprise Me
+                  </button>
+                </div>
+                <div class="builder-nav-row">
+                  <button class="btn-back" onclick="goBack(3)" aria-label="Return to step 2">← Back</button>
+                  <button class="btn-next" onclick="goNext(3)" aria-label="Proceed to step 4">
+                    Next: Final Details →
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 4 — REVIEW & SEND -->
+              <div id="step4" class="d-none">
+                <h4 class="step-q">"Almost there — your order summary:"</h4>
+                <p class="step-hint">Review your choices then add any extra details</p>
+                <div id="orderSummary" aria-live="polite" aria-label="Your order summary"></div>
+                <div class="mb-3 mt-3">
+                  <label for="extraDetails" style="font-weight:700;font-size:0.86rem;display:block;margin-bottom:6px;">
+                    Any special requests, colours, or design ideas?
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="extraDetails"
+                    rows="3"
+                    placeholder="E.g. Pink &amp; gold theme, personalised message, matching wedding colour scheme..."
+                    style="border:1.5px solid var(--rose-light);border-radius:12px;font-size:0.86rem;background:var(--cream-dark);color:var(--text);"
+                    aria-label="Special requests or design details for your cake"
+                  ></textarea>
+                </div>
+                <div class="builder-nav-row">
+                  <button class="btn-back" onclick="goBack(4)" aria-label="Return to step 3 to edit order">
+                    ← Edit Order
+                  </button>
+                  <button class="btn-wa-send" onclick="sendToWhatsApp()">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    Send on WhatsApp
+                  </button>
+                </div>
+                <p style="font-size:0.76rem;color:var(--text-mid);text-align:center;margin-top:14px;">
+                  🎂 Elle will reply with pricing &amp; availability — usually within a few hours
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAKE TRAILER SECTION ===== -->
+  <section class="trailer-section" id="trailer" aria-labelledby="trailer-heading">
+    <div class="container position-relative" style="z-index:2">
+      <div class="row align-items-start gy-5">
+
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="section-eyebrow">🚚 The Cake Trailer</span>
+          <h2 class="section-title" id="trailer-heading">
+            Bring the Magic<br><em style="color:var(--rose-light)">to Your Event.</em>
+          </h2>
+          <p class="section-sub">
+            Our beautiful mobile Cake Trailer is available for hire at weddings, birthday parties, fêtes, fairs, and corporate events across Surrey, South London, and beyond. It's not just cakes — it's an experience.
+          </p>
+
+          <div class="mt-4">
+            <div class="trailer-feat">
+              <div class="trailer-feat-icon" aria-hidden="true">🎪</div>
+              <div class="trailer-feat-text">
+                <h6>Events &amp; Fairs</h6>
+                <p>A stunning centrepiece that draws a crowd — stocked with cupcakes, tray bakes, and smiles.</p>
+              </div>
+            </div>
+            <div class="trailer-feat">
+              <div class="trailer-feat-icon" aria-hidden="true">💒</div>
+              <div class="trailer-feat-text">
+                <h6>Weddings &amp; Celebrations</h6>
+                <p>A bespoke dessert station that doubles as décor. Your guests will never forget it.</p>
+              </div>
+            </div>
+            <div class="trailer-feat">
+              <div class="trailer-feat-icon" aria-hidden="true">🏢</div>
+              <div class="trailer-feat-text">
+                <h6>Corporate &amp; Brand Events</h6>
+                <p>Branded treats, professionally styled and delivered. A team favourite every time.</p>
+              </div>
+            </div>
+            <div class="trailer-feat">
+              <div class="trailer-feat-icon" aria-hidden="true">📍</div>
+              <div class="trailer-feat-text">
+                <h6>Surrey &amp; South London</h6>
+                <p>Based in CR0, Croydon. We travel across Surrey, South London, and nearby counties.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/447700000000?text=Hi%20Elle!%20I'd%20love%20to%20enquire%20about%20hiring%20the%20Cupcake%20Creations%20Cake%20Trailer%20for%20my%20event%20%F0%9F%9A%9A"
+             class="btn-white mt-4" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Enquire About the Trailer
+          </a>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+          <div class="row g-3">
+            <div class="col-6">
+              <article class="event-card">
+                <span class="ev-icon" aria-hidden="true">🎂</span>
+                <h5>Birthday Parties</h5>
+                <p>The trailer arrives, styled and stocked — your guests will be buzzing about it all night.</p>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="event-card">
+                <span class="ev-icon" aria-hidden="true">💍</span>
+                <h5>Weddings</h5>
+                <p>A dreamy dessert experience for your guests — completely bespoke and utterly Instagrammable.</p>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="event-card">
+                <span class="ev-icon" aria-hidden="true">🎪</span>
+                <h5>Fêtes &amp; Fairs</h5>
+                <p>A crowd-drawing stall with cupcakes, tray bakes, and the kind of charm that brings people back.</p>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="event-card">
+                <span class="ev-icon" aria-hidden="true">🏢</span>
+                <h5>Corporate Events</h5>
+                <p>Branded, professional, and delicious. A team event upgrade that your colleagues will request again.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="booking-notice mt-3" role="note" aria-label="Trailer availability notice">
+            <strong>📅 Currently Booking Trailer Events From July 2026</strong><br>
+            <span style="opacity:0.75;font-size:0.82rem;">Trailer slots fill fast — DM Elle early to check your date and discuss packages.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section" id="how" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Simple Process</span>
+        <h2 class="section-title" id="how-heading">Your Cake in 4 Easy Steps</h2>
+        <p class="section-sub mx-auto">
+          No confusing forms. No days waiting for a quote. From your first message to collecting your masterpiece — it's simple.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">01</div>
+            <h5>Browse or Build</h5>
+            <p>Explore our creations or use the custom builder above to spec your perfect order — occasion, size, flavour, and design details.</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">02</div>
+            <h5>Send via WhatsApp</h5>
+            <p>Your specs arrive pre-filled in WhatsApp. Elle replies with pricing, availability, and any questions — usually same day.</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">03</div>
+            <h5>Confirm &amp; Pay Deposit</h5>
+            <p>Agree your design, pay a deposit to secure your date, and leave the rest to Elle's brilliant hands.</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="step-card">
+            <div class="step-num" aria-hidden="true">04</div>
+            <h5>Collect &amp; Celebrate</h5>
+            <p>Pick up your masterpiece from CR0, Surrey, or ask about local delivery options. Then watch the faces light up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AVAILABILITY ===== -->
+  <section class="avail-section" aria-labelledby="avail-heading">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <span class="section-eyebrow">Booking Calendar</span>
+        <h2 class="section-title" id="avail-heading" style="font-size:clamp(1.7rem,3vw,2.5rem)">
+          Currently Taking Orders For:
+        </h2>
+      </div>
+      <div class="row g-3 justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="month-card">
+            <div class="month-name">June '26</div>
+            <span class="av-badge av-limited">Limited</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="month-card">
+            <div class="month-name">July '26</div>
+            <span class="av-badge av-available">Available</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="month-card">
+            <div class="month-name">August '26</div>
+            <span class="av-badge av-available">Available</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="month-card">
+            <div class="month-name">September '26</div>
+            <span class="av-badge av-available">Available</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2">
+          <div class="month-card">
+            <div class="month-name">October '26</div>
+            <span class="av-badge av-available">Available</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-3" style="font-size:0.8rem;color:var(--text-mid);" data-aos="fade-up">
+        📅 Dates go quickly — especially at weekends and over school holidays. DM Elle to secure yours. Deposits required at booking.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews-section" id="reviews" aria-labelledby="reviews-heading">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Customer Love</span>
+        <h2 class="section-title" id="reviews-heading">Real Celebrations,<br>Real Smiles.</h2>
+        <p class="section-sub mx-auto">Every cake is a memory we had a hand in making — that's the bit that matters most.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="review-card">
+            <div class="stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">"Absolutely stunning birthday cake — Elle went above and beyond with the design. It tasted even better than it looked, and everyone at the party was speechless. Will 100% be ordering again!"</p>
+            <div class="review-author">Sarah M.</div>
+            <div class="review-event">Birthday Cake · Croydon, Surrey</div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="review-card">
+            <div class="stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">"We had the Cake Trailer at our wedding and honestly it was the highlight of the whole reception. Our guests couldn't stop talking about it. The cupcakes were perfect and Elle was an absolute dream to work with."</p>
+            <div class="review-author">Jade &amp; Tom R.</div>
+            <div class="review-event">Wedding Cake Trailer · Surrey</div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="review-card">
+            <div class="stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">"Ordered tray bakes for our office event — three flavours, huge trays, gone within minutes. So professional, so friendly, and the quality is genuinely outstanding. Our go-to from now on!"</p>
+            <div class="review-author">Lisa T.</div>
+            <div class="review-event">Corporate Tray Bake Order · South London</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-eyebrow">Got Questions?</span>
+            <h2 class="section-title" id="faq-heading">Everything You<br>Need to Know.</h2>
+          </div>
+
+          <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-delay="80">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                  How far in advance should I order?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We recommend at least <strong>2–4 weeks in advance</strong> for custom cakes, and
+                  <strong>6–8 weeks</strong> for weddings or trailer hires. Weekend dates in particular
+                  fill up fast — the earlier you get in touch, the better. DM Elle on WhatsApp or
+                  Instagram to check availability for your date.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                  Do you offer collection and delivery?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Orders are available for <strong>collection from CR0, Croydon, Surrey</strong>.
+                  Local delivery may be available for large orders — please ask when you enquire.
+                  The Cake Trailer can travel across Surrey, South London, and surrounding counties
+                  for your event.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                  Can you cater for dietary requirements?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We do our best to accommodate dietary needs — please always let us know when ordering.
+                  However, all products are made in a kitchen that handles
+                  <strong>gluten, dairy, eggs, nuts, and soya</strong>. We cannot guarantee a
+                  completely allergen-free environment. For serious allergies, please discuss with Elle
+                  directly before placing an order.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                  How does the Cake Trailer hire work?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Get in touch via WhatsApp to discuss your event date, location, guest numbers,
+                  and what you'd like on the trailer. We'll put together a quote based on the package,
+                  travel, and how long you need us. A deposit secures the date. On the day, the trailer
+                  arrives styled and stocked — you just enjoy it.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                  Is a deposit required to confirm my order?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes — a <strong>non-refundable deposit</strong> is required to hold your date and
+                  begin work on your order. This covers initial costs and confirms your slot in our
+                  diary. The remaining balance is due closer to your collection or event date. Specific
+                  deposit amounts will be confirmed when you enquire.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                  Can I see examples of previous work?
+                </button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Absolutely — head to our
+                  <a href="https://www.instagram.com/cupcakee_creationss" target="_blank"
+                     rel="noopener noreferrer" style="color:var(--sage-dark);">Instagram @cupcakee_creationss</a>
+                  or our
+                  <a href="https://www.facebook.com/cupcakecreationsss" target="_blank"
+                     rel="noopener noreferrer" style="color:var(--sage-dark);">Facebook page</a>
+                  to see hundreds of real orders, trailer setups, and customer photos. What you see is
+                  what you get — nothing is staged.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" aria-label="Final call to action">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 text-center">
+          <span class="section-eyebrow">Ready When You Are</span>
+          <h2 class="section-title">Your Perfect Cake<br>Starts with a Message.</h2>
+          <p class="section-sub mx-auto mb-4">
+            Whether it's a bespoke celebration cake, a cupcake tower, a tray of brownies, or the full Cake Trailer experience — let's make your next moment unforgettable.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+            <a href="#order" class="btn-sage btn-sage-pulse">
+              <span aria-hidden="true">🎂</span> Build My Cake
+            </a>
+            <a href="https://wa.me/447700000000?text=Hi%20Elle!%20I'd%20love%20to%20enquire%20about%20a%20Cupcake%20Creations%20order%20%F0%9F%8E%82"
+               class="btn-outline-rose" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
+            </a>
+          </div>
+          <div class="hygiene-badge" style="display:inline-flex;">
+            <i class="fas fa-award" aria-hidden="true"></i>
+            5<span class="hygiene-stars">★</span> Food Hygiene · CR0, Surrey, UK
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-md-4">
+          <div class="footer-logo">🧁 Cupcake <span>Creations</span></div>
+          <p class="footer-desc">
+            Bespoke cakes, cupcakes &amp; tray bakes handcrafted in CR0, Surrey.
+            5★ Food Hygiene rated. Cake Trailer available for events.
+          </p>
+          <div>
+            <a href="https://www.instagram.com/cupcakee_creationss"
+               class="social-link" target="_blank" rel="noopener noreferrer"
+               aria-label="Follow Cupcake Creations on Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/cupcakecreationsss"
+               class="social-link" target="_blank" rel="noopener noreferrer"
+               aria-label="Like Cupcake Creations on Facebook">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/447700000000"
+               class="social-link" target="_blank" rel="noopener noreferrer"
+               aria-label="Message Cupcake Creations on WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <div class="footer-head">Our Creations</div>
+          <a href="#creations" class="footer-link">Custom Cakes</a>
+          <a href="#creations" class="footer-link">Cupcakes</a>
+          <a href="#creations" class="footer-link">Tray Bakes</a>
+          <a href="#trailer" class="footer-link">Cake Trailer</a>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <div class="footer-head">Order</div>
+          <a href="#order" class="footer-link">Custom Builder</a>
+          <a href="#how" class="footer-link">How It Works</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="https://wa.me/447700000000" class="footer-link"
+             target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </div>
+
+        <div class="col-md-4">
+          <div class="footer-head">Get in Touch</div>
+          <p style="font-size:0.84rem;opacity:0.6;line-height:2;">
+            📍 CR0, Croydon, Surrey, UK<br>
+            📱 WhatsApp or Instagram DM<br>
+            ⭐ 5★ Food Hygiene Rated<br>
+            📅 Now booking July–Oct 2026
+          </p>
+          <a href="https://wa.me/447700000000?text=Hi%20Elle!%20I'd%20like%20to%20enquire%20about%20a%20Cupcake%20Creations%20order."
+             class="btn-white mt-2" style="font-size:0.82rem;padding:10px 22px;"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+
+      <hr class="footer-hr">
+
+      <div class="footer-bottom">
+        <span>© 2025 Cupcake Creations by Elle · CR0, Surrey, UK · All rights reserved</span>
+        <span>
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+          &nbsp;·&nbsp;
+          <a href="#" style="color:rgba(255,255,255,0.35);">Privacy Policy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    /* ---- AOS INIT ---- */
+    AOS.init({ once: true, duration: 750, easing: 'ease-out-quad' });
+
+    /* ---- TIME-BASED DARK / LIGHT ---- */
+    (function () {
+      const h = new Date().getHours();
+      if (h < 6 || h >= 18) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeIcon').className = 'fas fa-sun';
+      }
+    })();
+
+    /* ---- MANUAL THEME TOGGLE ---- */
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        icon.className = 'fas fa-moon';
+        this.setAttribute('aria-label', 'Switch to dark mode');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        icon.className = 'fas fa-sun';
+        this.setAttribute('aria-label', 'Switch to light mode');
+      }
+    });
+
+    /* ---- NAVBAR SHADOW ON SCROLL ---- */
+    const nav = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 30
+        ? '0 4px 24px rgba(0,0,0,0.08)'
+        : 'none';
+    }, { passive: true });
+
+    /* ---- SCROLL TOP ---- */
+    const stBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      stBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    stBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ---- SMOOTH SCROLL + CLOSE MOBILE MENU ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const menu = document.getElementById('navMenu');
+          if (menu && menu.classList.contains('show')) {
+            bootstrap.Collapse.getInstance(menu)?.hide();
+          }
+        }
+      });
+    });
+
+    /* ---- ORDER BUILDER ---- */
+    const order = { occasion: '', size: '', flavour: '' };
+    const keys  = ['occasion', 'size', 'flavour'];
+
+    function pick(el, key, value) {
+      el.closest('.opts').querySelectorAll('.opt').forEach(b => {
+        b.classList.remove('sel');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      el.classList.add('sel');
+      el.setAttribute('aria-pressed', 'true');
+      order[key] = value;
+    }
+
+    function goNext(current) {
+      if (current <= 3 && !order[keys[current - 1]]) {
+        /* Announce error accessibly */
+        const msgs = ['Please choose an occasion to continue.',
+                      'Please choose a serving size to continue.',
+                      'Please choose a flavour to continue.'];
+        alert(msgs[current - 1]);
+        return;
+      }
+      show(current + 1);
+      updateProgress(current + 1);
+      if (current + 1 === 4) renderSummary();
+    }
+
+    function goBack(current) {
+      show(current - 1);
+      updateProgress(current - 1);
+    }
+
+    function show(n) {
+      [1, 2, 3, 4].forEach(i => {
+        document.getElementById('step' + i).classList.toggle('d-none', i !== n);
+      });
+    }
+
+    function updateProgress(active) {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById('dot' + i);
+        dot.classList.remove('active', 'done');
+        if (i < active)      dot.classList.add('done');
+        else if (i === active) dot.classList.add('active');
+        if (i < 4) {
+          document.getElementById('line' + i).classList.toggle('done', i < active);
+        }
+      }
+      document.querySelector('.step-track').setAttribute('aria-valuenow', active);
+    }
+
+    function renderSummary() {
+      const labels = {
+        occasion: '🎉 Occasion',
+        size:     '👥 Serves',
+        flavour:  '🍰 Flavour'
+      };
+      let html = '';
+      for (const [key, label] of Object.entries(labels)) {
+        html += `<div class="summary-row">
+                   <strong>${label}</strong>
+                   <span>${order[key]}</span>
+                 </div>`;
+      }
+      document.getElementById('orderSummary').innerHTML = html;
+    }
+
+    function sendToWhatsApp() {
+      const extra = document.getElementById('extraDetails').value.trim();
+      const msg = encodeURIComponent(
+        `Hi Elle! 👋 I'd love to place a custom order:\n\n` +
+        `🎉 Occasion: ${order.occasion}\n` +
+        `👥 Serves: ${order.size}\n` +
+        `🍰 Flavour: ${order.flavour}\n` +
+        (extra ? `\n📝 Extra details: ${extra}` : '') +
+        `\n\nCould you let me know about availability and pricing? Thank you! 🎂`
+      );
+      window.open(`https://wa.me/447700000000?text=${msg}`, '_blank', 'noopener,noreferrer');
+    }
+  </script>
+
+</body>
+</html>
