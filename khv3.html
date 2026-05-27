@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krishna Henry — soul._.peachy. Saint Lucia's leading digital creator. Luxury travel, Caribbean food culture, adventure and lifestyle. 75K Instagram · 63K TikTok · 2M+ likes. Partner with the Caribbean's most vibrant voice.">
+  <meta property="og:title" content="Krishna Henry · soul._.peachy — Saint Lucia Digital Creator">
+  <meta property="og:description" content="Luxury. Food. Adventure. Vibes. Saint Lucia's most vibrant digital creator. Partner with Krishna Henry.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <title>Krishna Henry · soul._.peachy — Saint Lucia Digital Creator</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Cormorant Garamond (ultra-luxury editorial) + Outfit (clean UI) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <style>
+    @font-face { font-display: swap; }
+
+    /* ============================================================
+       PALETTE — derived from Krishna's world:
+       soul._.peachy handle → warm peach/coral
+       Caribbean ocean      → deep midnight teal
+       St. Lucia sunset     → champagne gold
+       Rainforest           → lush emerald
+       Editorial luxury     → warm cream / near-black
+    ============================================================ */
+    :root {
+      /* Core brand */
+      --midnight:     #080E1A;
+      --deep-teal:    #0B2E35;
+      --teal:         #124F5C;
+      --teal-light:   #1E7B8C;
+
+      /* Her identity colours */
+      --peach:        #E8836A;
+      --peach-mid:    #F0A993;
+      --peach-light:  #F9D5C8;
+      --coral:        #C85C42;
+
+      /* Luxury accent */
+      --gold:         #C9A452;
+      --gold-light:   #EDD99A;
+      --gold-pale:    #F7F0DC;
+
+      /* Natural */
+      --emerald:      #2A6048;
+      --emerald-mid:  #3D8A64;
+
+      /* Neutrals */
+      --ink:          #0F1419;
+      --warm-off:     #F8F3EE;
+      --cream:        #FDF9F5;
+      --warm-gray:    #7A7068;
+      --border:       rgba(0,0,0,0.07);
+
+      /* Type */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-ui:      'Outfit', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius:     12px;
+      --radius-lg:  24px;
+      --radius-xl:  40px;
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: default;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* Custom cursor dot */
+    .cursor-dot {
+      width: 10px; height: 10px;
+      background: var(--peach);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+      mix-blend-mode: multiply;
+    }
+    .cursor-ring {
+      width: 38px; height: 38px;
+      border: 1.5px solid var(--peach);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform 0.18s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
+      opacity: 0.55;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    .navbar {
+      background: transparent;
+      padding: 1.5rem 0;
+      transition: background 0.5s, padding 0.4s, backdrop-filter 0.5s;
+      z-index: 1050;
+    }
+    .navbar.scrolled {
+      background: rgba(8, 14, 26, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(232,131,106,0.15);
+    }
+    .navbar-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: white;
+    }
+    .brand-handle {
+      font-family: var(--font-ui);
+      font-size: 0.63rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--peach-mid);
+    }
+    .nav-link {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6) !important;
+      padding: 0.4rem 1rem !important;
+      transition: color 0.22s;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1rem; right: 1rem;
+      height: 1px;
+      background: var(--peach);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+    .nav-link:hover { color: white !important; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .btn-nav {
+      font-family: var(--font-ui) !important;
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      background: var(--peach) !important;
+      color: white !important;
+      border-radius: 50px !important;
+      padding: 0.55rem 1.5rem !important;
+      transition: all 0.25s !important;
+      border: none !important;
+    }
+    .btn-nav:hover {
+      background: white !important;
+      color: var(--coral) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 28px rgba(232,131,106,0.38) !important;
+    }
+    .navbar-toggler {
+      border: 1px solid rgba(232,131,106,0.4);
+      padding: 0.3rem 0.6rem;
+    }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ============================================================
+       HERO — Full-viewport, cinematic, editorial
+    ============================================================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Video background layer ── */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* 
+      ══════════════════════════════════════════════════════════
+      POSTER IMAGE (shows instantly while video loads):
+        Replace hero-poster.jpg with a single high-quality
+        frame exported from your chosen video — ideally the
+        most beautiful frame (Pitons at golden hour etc.)
+        This prevents ANY black flash on slow connections.
+      ══════════════════════════════════════════════════════════
+    */
+
+    /* 
+      ══════════════════════════════════════════════════════════
+      VIDEO FILES — two sources, browser picks best:
+        hero-bg.webm  →  smaller file, modern browsers
+        hero-bg.mp4   →  fallback, universal support
+      
+      HOSTING: Upload BOTH files to Cloudflare R2, Backblaze B2,
+      or Bunny.net CDN — NOT GitHub Pages (no video CDN there).
+      Replace the src values below with your CDN URLs.
+
+      RECOMMENDED VIDEO SPECS:
+        Duration  : 15–25 seconds (loops seamlessly)
+        Resolution: 1280×720 minimum (1920×1080 ideal)
+        File size : WebM under 8MB · MP4 under 12MB
+        Audio     : Remove entirely (video is muted)
+        Content   : Aerial Pitons, Sugar Beach, coastline drone
+
+      FREE FOOTAGE SOURCES:
+        pexels.com/videos  →  search "Saint Lucia aerial"
+        coverr.co          →  search "Caribbean ocean"
+        pixabay.com        →  search "Caribbean drone"
+      ══════════════════════════════════════════════════════════
+    */
+    #heroBgVideo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;                          /* starts hidden — JS fades in when ready  */
+      transition: opacity 1.4s ease;       /* smooth fade in — no abrupt appearance   */
+      will-change: opacity;
+    }
+
+    /* Poster sits behind the video — visible instantly */
+    .hero-poster {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      filter: saturate(1.15);
+    }
+
+    /* Video sits above poster — fades over it when ready */
+    #heroBgVideo { z-index: 1; }
+
+    /* Loading shimmer — visible only during initial buffer */
+    .video-loader {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(
+        120deg,
+        rgba(8,14,26,0) 0%,
+        rgba(11,46,53,0.15) 50%,
+        rgba(8,14,26,0) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer-load 2s linear infinite;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+    .video-loader.hidden { opacity: 0; }
+
+    @keyframes shimmer-load {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Low-power / no-autoplay fallback — shows poster with
+       a subtle Ken Burns pan so it never looks broken      */
+    .hero-bg.poster-only .hero-poster {
+      animation: ken-burns 18s ease-in-out infinite alternate;
+    }
+    @keyframes ken-burns {
+      from { transform: scale(1)    translateX(0); }
+      to   { transform: scale(1.06) translateX(-2%); }
+    }
+
+    /* Multi-layer gradient overlay — deep editorial mood */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          160deg,
+          rgba(8,14,26,0.82) 0%,
+          rgba(11,46,53,0.65) 40%,
+          rgba(8,14,26,0.42) 75%,
+          rgba(8,14,26,0.75) 100%
+        ),
+        radial-gradient(ellipse 70% 60% at 65% 45%, rgba(232,131,106,0.08) 0%, transparent 65%);
+    }
+
+    /* Grain texture overlay — cinematic film feel */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Decorative diagonal rule — top right */
+    .hero-rule {
+      position: absolute;
+      top: 0; right: 120px;
+      width: 1px;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, rgba(232,131,106,0.5), transparent);
+      z-index: 3;
+      transform-origin: top;
+      animation: rule-drop 1.4s 0.8s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes rule-drop {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 100vh;
+      padding-bottom: 0;
+    }
+
+    /* Location pill */
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      padding: 0.42rem 1.1rem;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+      animation: fade-up 0.9s 0.3s both;
+    }
+    .pill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--peach);
+      animation: pulse-dot 2.5s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(1.5); }
+    }
+
+    /* Main title — split line editorial */
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      color: white;
+      margin-bottom: 0;
+      animation: fade-up 1s 0.5s both;
+    }
+    .ht-line1 {
+      display: block;
+      font-size: clamp(4.5rem, 13vw, 10.5rem);
+      font-style: italic;
+    }
+    .ht-line2 {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .ht-line2-text {
+      display: block;
+      font-size: clamp(4.5rem, 13vw, 10.5rem);
+      font-weight: 700;
+      font-style: normal;
+      color: var(--peach);
+    }
+    .ht-rule {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--peach), transparent);
+      max-width: 220px;
+    }
+
+    /* Tagline */
+    .hero-tagline {
+      font-family: var(--font-ui);
+      font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+      margin-top: 2rem;
+      margin-bottom: 2.8rem;
+      animation: fade-up 1s 0.7s both;
+    }
+    .hero-tagline span { color: var(--peach-mid); }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Krishna's portrait frame — positioned right ── */
+    .hero-portrait-wrap {
+      position: absolute;
+      right: 6vw;
+      bottom: 0;
+      z-index: 5;
+      width: clamp(220px, 28vw, 420px);
+      animation: portrait-rise 1.2s 0.9s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes portrait-rise {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .portrait-frame {
+      position: relative;
+    }
+    /* Decorative arched/clipped portrait shape */
+    .portrait-img-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 50% 50% 0 0 / 55% 55% 0 0;
+      border: 2px solid rgba(232,131,106,0.35);
+      border-bottom: none;
+    }
+    .portrait-img-wrap img {
+      width: 100%;
+      height: clamp(280px, 38vw, 560px);
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    /* Gold arc accent behind portrait */
+    .portrait-arc {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
+      border-radius: 50% 50% 0 0 / 55% 55% 0 0;
+      border: 1px solid rgba(201,164,82,0.25);
+      pointer-events: none;
+      z-index: -1;
+    }
+    /* Verified badge floating on portrait */
+    .portrait-badge {
+      position: absolute;
+      bottom: 30px;
+      left: -28px;
+      background: white;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+    .pb-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--peach);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      color: white;
+      flex-shrink: 0;
+    }
+    .pb-strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .pb-sub { font-size: 0.68rem; color: var(--warm-gray); }
+
+    /* ── Stat bar — bottom of hero ── */
+    .hero-stat-bar {
+      position: relative;
+      z-index: 4;
+      background: rgba(8,14,26,0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.5rem 0;
+    }
+    .stat-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .sb-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+    .sb-item + .sb-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+    }
+    .sb-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+    .sb-num em { color: var(--peach); font-style: normal; }
+    .sb-plat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .sb-plat i { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
+    /* ============================================================
+       MARQUEE STRIP
+    ============================================================ */
+    .marquee-strip {
+      background: var(--peach);
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee-scroll 22s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .m-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-style: italic;
+      color: white;
+      letter-spacing: 0.06em;
+      padding: 0 1.8rem;
+    }
+    .m-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       GLOBAL SECTION UTILITIES
+    ============================================================ */
+    .sec-pad    { padding: 110px 0; }
+    .sec-pad-sm { padding: 80px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px; height: 1.5px;
+      flex-shrink: 0;
+    }
+    .eyebrow.dark  { color: var(--peach); }
+    .eyebrow.dark::before  { background: var(--peach); }
+    .eyebrow.light { color: var(--peach-mid); }
+    .eyebrow.light::before { background: var(--peach); }
+    .eyebrow.teal  { color: var(--teal-light); }
+    .eyebrow.teal::before  { background: var(--teal-light); }
+
+    .display-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      line-height: 0.95;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+    }
+    .display-title strong {
+      font-weight: 700;
+    }
+    .display-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    #about::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,131,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3.5vw, 2.4rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 580px;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .about-quote::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.3rem;
+      width: 3px;
+      height: calc(100% - 0.3rem);
+      background: linear-gradient(to bottom, var(--peach), var(--gold));
+      border-radius: 2px;
+    }
+
+    .about-body {
+      font-size: 0.93rem;
+      line-height: 1.9;
+      color: var(--warm-gray);
+      max-width: 530px;
+    }
+
+    /* Content pillars — horizontal scroll on mobile */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .pillar-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(232,131,106,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .pillar-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+    .pillar-card:hover::before { opacity: 1; }
+    .pc-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+    .pc-name {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .pc-desc { font-size: 0.82rem; color: var(--warm-gray); line-height: 1.6; }
+
+    /* Demographics panel */
+    .demo-panel {
+      background: var(--midnight);
+      border-radius: var(--radius-xl);
+      padding: 2.6rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .demo-panel::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,164,82,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .demo-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,131,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .demo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 1rem;
+    }
+    .demo-row:last-of-type { border-bottom: none; }
+    .d-key { font-family: var(--font-body); font-size: 0.8rem; color: rgba(255,255,255,0.38); }
+    .d-val { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700; color: white; text-align: right; }
+    .d-val.peach { color: var(--peach-mid); }
+
+    .bar-group { margin-top: 1.8rem; }
+    .bar-row { margin-bottom: 1rem; }
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 6px;
+      font-family: var(--font-ui);
+    }
+    .bar-track {
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral), var(--peach));
+      border-radius: 2px;
+      width: 0;
+      transition: width 1.5s cubic-bezier(0.22,1,0.36,1) 0.4s;
+    }
+    .demo-note {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.22);
+      font-style: italic;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       WORK WITH ME
+    ============================================================ */
+    #work {
+      background: var(--midnight);
+      position: relative;
+      overflow: hidden;
+    }
+    #work::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 80% 20%, rgba(232,131,106,0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(18,79,92,0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .work-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-xl);
+      padding: 2.2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .work-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--peach), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s ease;
+    }
+    .work-card:hover {
+      background: rgba(255,255,255,0.055);
+      border-color: rgba(232,131,106,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+    .work-card:hover::after { transform: scaleX(1); }
+
+    .wc-num {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      position: absolute;
+      top: 1.2rem; right: 1.5rem;
+      pointer-events: none;
+    }
+    .wc-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(232,131,106,0.1);
+      border: 1px solid rgba(232,131,106,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .wc-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
+    .wc-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .wc-chip {
+      display: inline-block;
+      background: rgba(232,131,106,0.1);
+      border: 1px solid rgba(232,131,106,0.18);
+      color: var(--peach-mid);
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.85rem;
+      border-radius: 50px;
+    }
+
+    /* ============================================================
+       COLLABS
+    ============================================================ */
+    #collabs { background: white; position: relative; overflow: hidden; }
+    #collabs::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(to right, var(--peach), var(--gold), var(--emerald-mid), var(--teal));
+    }
+
+    .b-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--warm-off);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 50px;
+      padding: 0.72rem 1.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      transition: all 0.25s;
+      cursor: default;
+    }
+    .b-chip:hover {
+      background: var(--peach);
+      border-color: var(--peach);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(232,131,106,0.3);
+    }
+    .b-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--peach);
+      flex-shrink: 0;
+      transition: background 0.25s;
+    }
+    .b-chip:hover .b-dot { background: rgba(255,255,255,0.6); }
+
+    /* Reach strip */
+    .reach-strip {
+      background: linear-gradient(135deg, var(--deep-teal) 0%, var(--midnight) 100%);
+      border-radius: var(--radius-xl);
+      margin-top: 3.5rem;
+      padding: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .reach-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 70% 50%, rgba(232,131,106,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .rs-item {
+      flex: 1;
+      min-width: 130px;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .rs-item + .rs-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 1px; height: 44px;
+      background: rgba(255,255,255,0.08);
+    }
+    .rs-num {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--peach);
+      line-height: 1;
+    }
+    .rs-lbl {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 5px;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials {
+      background: var(--warm-off);
+      position: relative;
+    }
+    .testi {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 2.4rem 2rem;
+      height: 100%;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s;
+    }
+    .testi:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0,0,0,0.09); }
+    .testi-accent {
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      border-radius: 0 var(--radius-xl) 0 80px;
+      background: linear-gradient(135deg, var(--peach-light), transparent);
+    }
+    .t-mark {
+      font-family: var(--font-display);
+      font-size: 6rem;
+      line-height: 0.5;
+      color: var(--peach-light);
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+    .t-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+    }
+    .t-divider {
+      width: 36px; height: 2px;
+      background: var(--peach);
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    .t-author { display: flex; align-items: center; gap: 13px; }
+    .t-av {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--deep-teal);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--peach-mid);
+      flex-shrink: 0;
+    }
+    .t-stars { color: var(--gold); font-size: 0.7rem; margin-bottom: 2px; letter-spacing: 0.05em; }
+    .t-name { font-family: var(--font-ui); font-weight: 700; font-size: 0.84rem; color: var(--ink); }
+    .t-role { font-size: 0.74rem; color: var(--warm-gray); }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { background: var(--ink); }
+
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 240px);
+      gap: 10px;
+    }
+    .gi { border-radius: var(--radius); overflow: hidden; position: relative; cursor: pointer; }
+    .gi-wide { grid-column: span 2; }
+    .gi-tall { grid-row: span 2; }
+    .gi img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s cubic-bezier(0.22,1,0.36,1);
+      display: block;
+    }
+    .gi:hover img { transform: scale(1.06); }
+    .gi-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,14,26,0.75) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.35s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem 1.1rem;
+    }
+    .gi:hover .gi-overlay { opacity: 1; }
+    .gi-tag {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--peach);
+      background: rgba(8,14,26,0.5);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0; right: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,131,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-info-panel {
+      background: var(--midnight);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2.5rem;
+      color: white;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-info-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,131,106,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ci-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 1.4rem;
+    }
+    .ci-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: rgba(232,131,106,0.12);
+      border: 1px solid rgba(232,131,106,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--peach-mid);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ci-strong { display: block; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; color: white; margin-bottom: 2px; }
+    .ci-val { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+
+    /* Soc row */
+    .soc-row { display: flex; gap: 0.65rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .soc-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.5);
+      transition: all 0.25s;
+      background: transparent;
+    }
+    .soc-btn:hover {
+      background: var(--peach);
+      border-color: var(--peach);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(232,131,106,0.35);
+    }
+
+    /* Form card */
+    .contact-form-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.07);
+      border: 1px solid var(--border);
+    }
+    .contact-form-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .contact-form-card .sub {
+      font-size: 0.84rem;
+      color: var(--warm-gray);
+      margin-bottom: 2rem;
+    }
+
+    .form-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .form-control, .form-select {
+      border: 1.5px solid rgba(0,0,0,0.09);
+      border-radius: var(--radius);
+      padding: 0.85rem 1.1rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--ink);
+      background: var(--warm-off);
+      transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+      width: 100%;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--peach);
+      box-shadow: 0 0 0 3px rgba(232,131,106,0.12);
+      background: white;
+      outline: none;
+    }
+    textarea.form-control { resize: vertical; min-height: 130px; }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--coral), var(--peach));
+      color: white;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.28s;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.3s;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(232,131,106,0.42); }
+    .btn-submit:hover::before { background: rgba(255,255,255,0.08); }
+
+    #formSuccess {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    #formSuccess .si { font-size: 3.5rem; margin-bottom: 1.2rem; }
+    #formSuccess h4 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; font-style: italic; color: var(--ink); margin-bottom: 0.5rem; }
+    #formSuccess p { color: var(--warm-gray); font-size: 0.9rem; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--midnight);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(232,131,106,0.12);
+    }
+    .foot-brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: white;
+    }
+    .foot-handle {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--peach-mid);
+      margin-top: 3px;
+    }
+    .foot-credit {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.22);
+    }
+    .foot-credit a { color: var(--peach); }
+    .foot-credit a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 26px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+      animation: wa-pulse 3s infinite;
+      transition: transform 0.22s;
+    }
+    .wa-float:hover { color: white; transform: scale(1.1); }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,0.4); }
+      50%      { box-shadow: 0 4px 40px rgba(37,211,102,0.68), 0 0 0 12px rgba(37,211,102,0.07); }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 991.98px) {
+      .hero-portrait-wrap { display: none; }
+      .gal-grid {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+      }
+      .gi-wide { grid-column: span 1; }
+      .gi-tall { grid-row: span 1; }
+      .reach-strip { padding: 1.5rem; }
+    }
+    @media (max-width: 767.98px) {
+      .stat-bar-inner { flex-wrap: wrap; }
+      .sb-item { flex: 0 0 50%; padding: 0.75rem; }
+      .sb-item + .sb-item::before { display: none; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 1.8rem; }
+      .gal-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 575.98px) {
+      .ht-line1, .ht-line2-text { font-size: clamp(3.5rem, 18vw, 5.5rem); }
+      .ht-rule { display: none; }
+      .gal-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gi { height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#hero" aria-label="Krishna Henry — home">
+      <span class="brand-name">Krishna Henry</span>
+      <span class="brand-handle">@soul._.peachy</span>
+    </a>
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false"
+            aria-label="Toggle navigation menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#work">Collaborate</a></li>
+        <li class="nav-item"><a class="nav-link" href="#collabs">Brands</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link btn-nav" href="#contact"
+             aria-label="Send a collaboration inquiry to Krishna Henry">
+            Work With Me
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero" aria-label="Krishna Henry — Hero">
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO VIDEO BACKGROUND
+       HOW TO SWAP:
+         1. Compress your video (HandBrake / ffmpeg):
+            Desktop: 1920x1080, RF30, WebM + MP4, no audio
+            Mobile : 720x1280,  RF32, WebM + MP4, no audio
+         2. Upload both to Cloudflare R2, Backblaze B2, or Bunny CDN
+         3. Replace the src / data-mobile-src values below
+         4. Replace the poster src with a still from your video
+
+       FREE FOOTAGE: pexels.com/videos → "Saint Lucia aerial"
+       ════════════════════════════════════════════════════ -->
+  <div class="hero-bg" id="heroBgWrap">
+
+    <!-- POSTER: loads instantly — zero delay, zero black flash -->
+    <img
+      class="hero-poster"
+      src="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=1920&q=85&fit=crop&auto=format"
+      alt=""
+      aria-hidden="true"
+      width="1920" height="1080"
+      loading="eager"
+      fetchpriority="high"
+      onerror="this.style.display='none'"
+    >
+
+    <!-- VIDEO: fades in over poster when buffered and ready -->
+    <video
+      id="heroBgVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      poster="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=1920&q=85&fit=crop&auto=format"
+    >
+      <!-- WebM first (smaller). JS swaps src to mobile version on small screens. -->
+      <source
+        id="srcPrimary"
+        src="https://videos.pexels.com/video-files/1409899/1409899-uhd_2560_1440_24fps.mp4"
+        type="video/mp4"
+        data-mobile-src="https://videos.pexels.com/video-files/1409899/1409899-hd_1280_720_24fps.mp4"
+      >
+    </video>
+
+    <!-- Shimmer loader visible during buffer — JS removes it when video plays -->
+    <div class="video-loader" id="videoLoader" aria-hidden="true"></div>
+
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grain"  aria-hidden="true"></div>
+  <div class="hero-rule"   aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <div class="container hero-inner pt-5">
+    <div class="row">
+      <div class="col-lg-7 col-xl-6">
+
+        <div class="hero-pill" aria-label="Based in Saint Lucia, Caribbean">
+          <span class="pill-dot" aria-hidden="true"></span>
+          🇱🇨 &nbsp; Saint Lucia, Caribbean
+        </div>
+
+        <h1 class="hero-title">
+          <span class="ht-line1">Krishna</span>
+          <span class="ht-line2">
+            <span class="ht-line2-text">Henry.</span>
+            <span class="ht-rule" aria-hidden="true"></span>
+          </span>
+        </h1>
+
+        <p class="hero-tagline">
+          <span>Luxury</span> · <span>Food</span> · <span>Adventure</span> · <span>Vibes</span>
+          &nbsp;—&nbsp; Caribbean Storytelling
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── KRISHNA'S PORTRAIT ─────────────────────────────────
+       SWAP INSTRUCTION: Replace src below with a high-quality
+       portrait photo of Krishna — ideally full-body or
+       3/4 length, against a simple background, facing
+       slightly left. Remove the onerror once you swap it.
+  ──────────────────────────────────────────────────────── -->
+  <div class="hero-portrait-wrap" aria-label="Krishna Henry portrait photo">
+    <div class="portrait-frame">
+      <div class="portrait-arc" aria-hidden="true"></div>
+      <div class="portrait-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=85&fit=crop&crop=top"
+          alt="Krishna Henry — Digital Creator, Saint Lucia"
+          width="420" height="560"
+          loading="eager"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <!-- Verified badge on portrait -->
+      <div class="portrait-badge" aria-label="Verified Instagram creator">
+        <div class="pb-icon" aria-hidden="true">
+          <i class="fas fa-check" aria-hidden="true"></i>
+        </div>
+        <div>
+          <span class="pb-strong">Verified Creator</span>
+          <span class="pb-sub">Instagram · TikTok · YouTube</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat bar -->
+  <div class="hero-stat-bar" role="region" aria-label="Social media reach">
+    <div class="container">
+      <div class="stat-bar-inner">
+        <div class="sb-item">
+          <span class="sb-num" id="statIG" data-target="75500" aria-label="75,500 Instagram followers">0</span>
+          <div class="sb-plat"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</div>
+        </div>
+        <div class="sb-item">
+          <span class="sb-num" id="statTT" data-target="63600" aria-label="63,600 TikTok followers">0</span>
+          <div class="sb-plat"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</div>
+        </div>
+        <div class="sb-item">
+          <span class="sb-num" aria-label="Over 2 million TikTok likes">2M<em>+</em></span>
+          <div class="sb-plat"><i class="fas fa-heart" aria-hidden="true"></i> TikTok Likes</div>
+        </div>
+        <div class="sb-item">
+          <span class="sb-num" aria-label="479 posts published">479</span>
+          <div class="sb-plat"><i class="fas fa-images" aria-hidden="true"></i> IG Posts</div>
+        </div>
+        <div class="sb-item">
+          <span class="sb-num" aria-label="4 active platforms">4</span>
+          <div class="sb-plat"><i class="fas fa-globe" aria-hidden="true"></i> Platforms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     MARQUEE
+============================================================ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- Repeated twice for seamless loop -->
+    <span class="m-item">Luxury <span class="m-dot"></span></span>
+    <span class="m-item">Food Culture <span class="m-dot"></span></span>
+    <span class="m-item">Caribbean Adventure <span class="m-dot"></span></span>
+    <span class="m-item">Good Vibes <span class="m-dot"></span></span>
+    <span class="m-item">Saint Lucia <span class="m-dot"></span></span>
+    <span class="m-item">Natural Hair <span class="m-dot"></span></span>
+    <span class="m-item">Authentic Travel <span class="m-dot"></span></span>
+    <span class="m-item">Digital Creator <span class="m-dot"></span></span>
+    <span class="m-item">Luxury <span class="m-dot"></span></span>
+    <span class="m-item">Food Culture <span class="m-dot"></span></span>
+    <span class="m-item">Caribbean Adventure <span class="m-dot"></span></span>
+    <span class="m-item">Good Vibes <span class="m-dot"></span></span>
+    <span class="m-item">Saint Lucia <span class="m-dot"></span></span>
+    <span class="m-item">Natural Hair <span class="m-dot"></span></span>
+    <span class="m-item">Authentic Travel <span class="m-dot"></span></span>
+    <span class="m-item">Digital Creator <span class="m-dot"></span></span>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about" class="sec-pad" aria-labelledby="about-h">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: Editorial copy + pillars -->
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="eyebrow dark">About Krishna</div>
+        <h2 class="display-title mb-4" id="about-h" style="color:var(--ink);">
+          Caribbean Life,<br>
+          <em>Told Beautifully.</em>
+        </h2>
+
+        <p class="about-quote">
+          "She doesn't just visit Saint Lucia — she <em>interprets</em> it.
+          Every reel, every post, every caption is a love letter to the island
+          that raised her."
+        </p>
+
+        <p class="about-body">
+          From the Pitons to Sugar Beach arriving by boat, outdoor villa baths at The Wooden House,
+          kayaking the turquoise coast, Jazz Festival nights lit golden, and finding the
+          best hidden food spots the island keeps to itself — Krishna Henry's content is
+          lived experience, not performance. Her audience trusts her because she earns it,
+          daily, post by post.
+        </p>
+        <p class="about-body mt-3">
+          With a blue-verified Instagram presence, 63K TikTok followers, 2M+ likes,
+          and active channels on YouTube and Facebook, she has built one of the Caribbean's
+          most authentic creator platforms — and one of the most brand-ready.
+        </p>
+
+        <div class="pillar-grid mt-5">
+          <div class="pillar-card" data-aos="fade-up" data-aos-delay="60">
+            <span class="pc-icon" aria-hidden="true">🏝️</span>
+            <div class="pc-name">Luxury Travel</div>
+            <p class="pc-desc">Villas, stays, boat trips, resort reviews — Caribbean luxury, unfiltered.</p>
+          </div>
+          <div class="pillar-card" data-aos="fade-up" data-aos-delay="120">
+            <span class="pc-icon" aria-hidden="true">🍽️</span>
+            <div class="pc-name">Food & Dining</div>
+            <p class="pc-desc">Street food to fine dining. The island's best plates, honestly reviewed.</p>
+          </div>
+          <div class="pillar-card" data-aos="fade-up" data-aos-delay="180">
+            <span class="pc-icon" aria-hidden="true">✨</span>
+            <div class="pc-name">Lifestyle & Vibes</div>
+            <p class="pc-desc">Events, fashion, OOTD, and the slow luxury of Caribbean everyday life.</p>
+          </div>
+          <div class="pillar-card" data-aos="fade-up" data-aos-delay="240">
+            <span class="pc-icon" aria-hidden="true">💇🏾‍♀️</span>
+            <div class="pc-name">Natural Hair & Beauty</div>
+            <p class="pc-desc">Type 4 natural hair journeys, product finds, and self-care culture.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Demographics -->
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="180">
+        <div class="demo-panel" role="region" aria-label="Audience demographics">
+          <div class="eyebrow teal mb-4">Audience Overview</div>
+
+          <div class="demo-row">
+            <span class="d-key">Primary Age Range</span>
+            <span class="d-val peach">18 – 34</span>
+          </div>
+          <div class="demo-row">
+            <span class="d-key">Audience Gender</span>
+            <span class="d-val">75%+ Female</span>
+          </div>
+          <div class="demo-row">
+            <span class="d-key">Top Markets</span>
+            <span class="d-val">🇱🇨 Caribbean · 🇺🇸 US · 🇬🇧 UK</span>
+          </div>
+          <div class="demo-row">
+            <span class="d-key">Instagram Verification</span>
+            <span class="d-val peach">✅ Blue Check</span>
+          </div>
+          <div class="demo-row">
+            <span class="d-key">TikTok Lifetime Likes</span>
+            <span class="d-val">2,000,000+</span>
+          </div>
+          <div class="demo-row">
+            <span class="d-key">Active Platforms</span>
+            <span class="d-val">IG · TikTok · YouTube · Facebook</span>
+          </div>
+
+          <div class="bar-group" aria-label="Content interest breakdown">
+            <div class="bar-row">
+              <div class="bar-meta"><span>Travel & Lifestyle</span><span>82%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="82%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span>Food & Dining</span><span>74%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="74%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span>Beauty & Natural Hair</span><span>63%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="63%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span>Events & Culture</span><span>58%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="58%"></div></div>
+            </div>
+          </div>
+
+          <p class="demo-note">
+            * Estimated from public platform data. Verified analytics media kit available on request.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WORK WITH ME
+============================================================ -->
+<section id="work" class="sec-pad" aria-labelledby="work-h">
+  <div class="container">
+
+    <div class="row mb-5 align-items-end">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="eyebrow light">Collaborate</div>
+        <h2 class="display-title" id="work-h" style="color:white;">
+          <em>Work</em><br>
+          <strong>With Me.</strong>
+        </h2>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <p style="color:rgba(255,255,255,0.42);font-size:0.93rem;line-height:1.9;max-width:440px;margin-left:auto;">
+          Every partnership is built to feel native — not ad-like.
+          Your brand, woven into the world her audience
+          already trusts and returns to. No forced angles.
+          Just real stories.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="work-card" tabindex="0">
+          <span class="wc-num" aria-hidden="true">01</span>
+          <div class="wc-icon-wrap" aria-hidden="true">📸</div>
+          <div class="wc-title">Sponsored Posts</div>
+          <p class="wc-desc">Feed-optimised content featuring your brand — crafted to look and feel completely organic to her aesthetic.</p>
+          <span class="wc-chip">Feed · Carousel</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="work-card" tabindex="0">
+          <span class="wc-num" aria-hidden="true">02</span>
+          <div class="wc-icon-wrap" aria-hidden="true">📖</div>
+          <div class="wc-title">Story Features</div>
+          <p class="wc-desc">Time-sensitive story coverage that drives immediate action — ideal for promotions and limited-run offers.</p>
+          <span class="wc-chip">Stories · Polls · Swipe</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="work-card" tabindex="0">
+          <span class="wc-num" aria-hidden="true">03</span>
+          <div class="wc-icon-wrap" aria-hidden="true">🎬</div>
+          <div class="wc-title">Reel Collabs</div>
+          <p class="wc-desc">Short-form video for Instagram Reels and TikTok — high energy, high reach, built to travel the algorithm.</p>
+          <span class="wc-chip">Reels · TikTok</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="work-card" tabindex="0">
+          <span class="wc-num" aria-hidden="true">04</span>
+          <div class="wc-icon-wrap" aria-hidden="true">🎤</div>
+          <div class="wc-title">Events & Presence</div>
+          <p class="wc-desc">In-person hosting, live coverage, and brand activations across Saint Lucia and the wider Caribbean.</p>
+          <span class="wc-chip">Live · Hosting · Coverage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 pt-2" data-aos="fade-up">
+      <a href="#contact"
+         class="btn-nav"
+         style="display:inline-block; font-size:0.8rem!important; padding:0.9rem 2.5rem!important;"
+         aria-label="Start a collaboration conversation with Krishna Henry">
+        Start the Conversation
+        <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     COLLABS
+============================================================ -->
+<section id="collabs" class="sec-pad-sm" aria-labelledby="collabs-h">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8" data-aos="fade-up">
+        <div class="eyebrow dark">Brand Partnerships</div>
+        <h2 class="display-title" id="collabs-h" style="color:var(--ink);">
+          Brands That Know<br>
+          <em style="color:var(--teal);">Their Audience</em>
+          <strong> Trust Her.</strong>
+        </h2>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mb-0" data-aos="fade-up" role="list" aria-label="Past brand partners">
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>St. Lucia Tourism Authority</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Caribbean Hotels & Resorts</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Local Fashion Labels</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Natural Hair & Beauty Brands</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Restaurants & Dining Venues</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>St. Lucia Jazz & Arts Festival</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Lifestyle & Wellness Brands</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Event Planners & Venues</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Caribbean Villa & AirBnB Stays</div>
+      <div class="b-chip" role="listitem"><div class="b-dot" aria-hidden="true"></div>Books & Education Platforms</div>
+    </div>
+
+    <!-- Reach Strip -->
+    <div class="reach-strip" data-aos="fade-up" role="region" aria-label="Total platform reach statistics">
+      <div class="rs-item">
+        <span class="rs-num">75.5K</span>
+        <span class="rs-lbl">Instagram</span>
+      </div>
+      <div class="rs-item">
+        <span class="rs-num">63.6K</span>
+        <span class="rs-lbl">TikTok</span>
+      </div>
+      <div class="rs-item">
+        <span class="rs-num">2M+</span>
+        <span class="rs-lbl">TikTok Likes</span>
+      </div>
+      <div class="rs-item">
+        <span class="rs-num">479</span>
+        <span class="rs-lbl">IG Posts</span>
+      </div>
+      <div class="rs-item">
+        <span class="rs-num">4</span>
+        <span class="rs-lbl">Active Platforms</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials" class="sec-pad" aria-labelledby="testi-h">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center" data-aos="fade-up">
+        <div class="eyebrow dark justify-content-center">What Brands Say</div>
+        <h2 class="display-title" id="testi-h" style="color:var(--ink);">
+          Real Results.<br><em>Real Words.</em>
+        </h2>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi">
+          <div class="testi-accent" aria-hidden="true"></div>
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">Working with Krishna was seamless. Her audience is genuinely engaged — we saw real movement within 48 hours of her post going live. The content quality exceeded everything we briefed.</p>
+          <div class="t-divider" aria-hidden="true"></div>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">SL</div>
+            <div>
+              <div class="t-stars" aria-label="5 stars">★★★★★</div>
+              <div class="t-name">Sarah L.</div>
+              <div class="t-role">Brand Manager · Caribbean Stays</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="110">
+        <div class="testi">
+          <div class="testi-accent" aria-hidden="true"></div>
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">Krishna doesn't just promote — she builds a genuine moment around the product. The authenticity of her content consistently outperforms what our in-house team could have produced.</p>
+          <div class="t-divider" aria-hidden="true"></div>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">MC</div>
+            <div>
+              <div class="t-stars" aria-label="5 stars">★★★★★</div>
+              <div class="t-name">Marcus C.</div>
+              <div class="t-role">Marketing Director · Hospitality Group</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="220">
+        <div class="testi">
+          <div class="testi-accent" aria-hidden="true"></div>
+          <span class="t-mark" aria-hidden="true">"</span>
+          <p class="t-text">If you want to reach the Caribbean market authentically, Krishna is the standard. Her community trusts her completely — and that trust is the entire reason this works. Best campaign of our year.</p>
+          <div class="t-divider" aria-hidden="true"></div>
+          <div class="t-author">
+            <div class="t-av" aria-hidden="true">AT</div>
+            <div>
+              <div class="t-stars" aria-label="5 stars">★★★★★</div>
+              <div class="t-name">Alicia T.</div>
+              <div class="t-role">Founder · Caribbean Beauty Brand</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery" class="sec-pad" aria-labelledby="gallery-h">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
+      <div data-aos="fade-up">
+        <div class="eyebrow light">Content Gallery</div>
+        <h2 class="display-title" id="gallery-h" style="color:white;">
+          Life Through<br>
+          <em>Her Lens.</em>
+        </h2>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <a href="https://www.instagram.com/soul._.peachy"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-nav"
+           style="display:inline-block;"
+           aria-label="View Krishna Henry's full Instagram gallery">
+          <i class="fab fa-instagram me-2" aria-hidden="true"></i>
+          Full Feed
+        </a>
+      </div>
+    </div>
+
+    <div class="gal-grid" data-aos="fade-up" role="region" aria-label="Content gallery">
+      <div class="gi gi-tall">
+        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80&fit=crop"
+             alt="Caribbean turquoise ocean and tropical beach"
+             width="400" height="480" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Travel</span></div>
+      </div>
+      <div class="gi gi-wide">
+        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&q=80&fit=crop"
+             alt="Caribbean food culture and dining"
+             width="800" height="240" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Food</span></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop"
+             alt="Lifestyle and style content"
+             width="400" height="240" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Style</span></div>
+      </div>
+      <div class="gi gi-wide">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80&fit=crop"
+             alt="Live music and events coverage"
+             width="800" height="240" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Events</span></div>
+      </div>
+      <div class="gi gi-tall">
+        <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=80&fit=crop"
+             alt="Luxury Caribbean villa and stay"
+             width="400" height="480" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Luxury</span></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80&fit=crop"
+             alt="Beauty and natural hair content"
+             width="400" height="240" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Beauty</span></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&q=80&fit=crop"
+             alt="Brand collaboration and styled content"
+             width="400" height="240" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="gi-overlay"><span class="gi-tag">Collabs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact" class="sec-pad" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Left: Info -->
+      <div class="col-lg-5" data-aos="fade-up">
+        <div class="contact-info-panel">
+          <div class="eyebrow light mb-4">Get In Touch</div>
+          <h2 class="display-title mb-4" id="contact-h" style="color:white;font-size:clamp(2rem,4.5vw,3.2rem);">
+            Ready to Build<br>
+            <em style="color:var(--peach-mid);">Something Real?</em>
+          </h2>
+          <p style="color:rgba(255,255,255,0.42);font-size:0.9rem;line-height:1.9;margin-bottom:2.5rem;">
+            Brands that want genuine Caribbean reach
+            start here. Fill out the inquiry form and
+            expect a response within
+            <span style="color:var(--peach-mid);font-weight:600;">48 business hours.</span>
+          </p>
+
+          <div class="ci-item">
+            <div class="ci-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span class="ci-strong">Email</span>
+              <span class="ci-val">soulpeachycreates@gmail.com</span>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon" aria-hidden="true"><i class="fab fa-instagram"></i></div>
+            <div>
+              <span class="ci-strong">Instagram DM</span>
+              <span class="ci-val">@soul._.peachy</span>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <span class="ci-strong">Based In</span>
+              <span class="ci-val">🇱🇨 Saint Lucia, Caribbean</span>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+            <div>
+              <span class="ci-strong">Response Time</span>
+              <span class="ci-val">Within 48 business hours</span>
+            </div>
+          </div>
+
+          <div class="soc-row" role="list" aria-label="Social media links">
+            <a href="https://www.instagram.com/soul._.peachy" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" role="listitem" aria-label="Instagram @soul._.peachy">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.tiktok.com/@soul._peachy" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" role="listitem" aria-label="TikTok soul peachy">
+              <i class="fab fa-tiktok" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@soulpeachy" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" role="listitem" aria-label="YouTube soul peachy">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/soul.peachy" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" role="listitem" aria-label="Facebook soul peachy">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://beacons.ai/soulpeachy" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" role="listitem" aria-label="Beacons link page">
+              <i class="fas fa-link" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="150">
+        <div class="contact-form-card">
+          <h3>Brand Collaboration Inquiry</h3>
+          <p class="sub">Tell Krishna about your brand and vision — she'd love to hear from you.</p>
+
+          <form id="inquiryForm" novalidate aria-label="Brand collaboration inquiry form">
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label for="brandName" class="form-label">
+                  Brand / Company <span style="color:var(--peach)" aria-hidden="true">*</span>
+                </label>
+                <input type="text" class="form-control" id="brandName" name="brandName"
+                       required aria-required="true" placeholder="e.g. Caribbean Stays Co.">
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactName" class="form-label">
+                  Your Name <span style="color:var(--peach)" aria-hidden="true">*</span>
+                </label>
+                <input type="text" class="form-control" id="contactName" name="contactName"
+                       required aria-required="true" placeholder="First and last name">
+              </div>
+
+              <div class="col-md-6">
+                <label for="contactEmail" class="form-label">
+                  Email Address <span style="color:var(--peach)" aria-hidden="true">*</span>
+                </label>
+                <input type="email" class="form-control" id="contactEmail" name="contactEmail"
+                       required aria-required="true" placeholder="you@yourbrand.com">
+              </div>
+
+              <div class="col-md-6">
+                <label for="collabType" class="form-label">
+                  Collaboration Type <span style="color:var(--peach)" aria-hidden="true">*</span>
+                </label>
+                <select class="form-select" id="collabType" name="collabType"
+                        required aria-required="true">
+                  <option value="" disabled selected>Select a type</option>
+                  <option>Sponsored Post</option>
+                  <option>Story Feature</option>
+                  <option>Reel / TikTok</option>
+                  <option>Event / Appearance</option>
+                  <option>Multi-Platform Campaign</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="budget" class="form-label">Estimated Budget (USD)</label>
+                <select class="form-select" id="budget" name="budget">
+                  <option value="" disabled selected>Select a range (optional)</option>
+                  <option>Under $500</option>
+                  <option>$500 – $1,000</option>
+                  <option>$1,000 – $2,500</option>
+                  <option>$2,500 – $5,000</option>
+                  <option>$5,000+</option>
+                  <option>Open to Discussion</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label">
+                  Your Vision <span style="color:var(--peach)" aria-hidden="true">*</span>
+                </label>
+                <textarea class="form-control" id="message" name="message" rows="5"
+                          required aria-required="true"
+                          placeholder="Tell Krishna about your brand, what you'd like to achieve, and any timeline you have in mind..."></textarea>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn-submit"
+                        aria-label="Submit brand collaboration inquiry">
+                  <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>
+                  Send My Inquiry
+                </button>
+              </div>
+
+              <div class="col-12 text-center">
+                <p style="font-size:0.72rem;color:var(--warm-gray);">
+                  Responses within 48 business hours · Your details are kept confidential
+                </p>
+              </div>
+
+            </div>
+          </form>
+
+          <div id="formSuccess" role="alert" aria-live="polite">
+            <div class="si" aria-hidden="true">🎉</div>
+            <h4>Inquiry Sent!</h4>
+            <p>Krishna's team will be in touch within 48 business hours. Get ready to create something beautiful.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <div class="foot-brand">Krishna Henry</div>
+        <div class="foot-handle">@soul._.peachy · 🇱🇨 Saint Lucia</div>
+      </div>
+      <div class="col-md-4 text-md-center">
+        <div class="d-flex justify-content-md-center gap-2 flex-wrap" role="list" aria-label="Footer social links">
+          <a href="https://www.instagram.com/soul._.peachy" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="Instagram"
+             style="border-color:rgba(255,255,255,0.1);">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@soul._peachy" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="TikTok"
+             style="border-color:rgba(255,255,255,0.1);">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.youtube.com/@soulpeachy" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="YouTube"
+             style="border-color:rgba(255,255,255,0.1);">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/soul.peachy" target="_blank" rel="noopener noreferrer"
+             class="soc-btn" role="listitem" aria-label="Facebook"
+             style="border-color:rgba(255,255,255,0.1);">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <p class="foot-credit">
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+          &nbsp;·&nbsp; &copy; <span id="fyear"></span> Krishna Henry
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20brand%20partnership%20with%20Krishna%20Henry%20%40soul._.peachy"
+   class="wa-float"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp about partnering with Krishna Henry">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  /* AOS */
+  AOS.init({ duration: 750, once: true, offset: 50, easing: 'ease-out-cubic' });
+
+  /* Footer year */
+  document.getElementById('fyear').textContent = new Date().getFullYear();
+
+  /* Navbar scroll */
+  const nav = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  /* ══════════════════════════════════════════════════════════
+     VIDEO BACKGROUND MANAGEMENT
+     Handles: mobile source swap · fade-in on ready
+              shimmer removal · visibility pause/resume
+              low-power / autoplay-blocked fallback
+     ══════════════════════════════════════════════════════════ */
+  (function initHeroVideo() {
+    const vid     = document.getElementById('heroBgVideo');
+    const wrap    = document.getElementById('heroBgWrap');
+    const loader  = document.getElementById('videoLoader');
+    const srcEl   = document.getElementById('srcPrimary');
+
+    if (!vid) return;
+
+    /* ── Step 1: Mobile source swap ──────────────────────────
+       Serve a lighter file to small screens BEFORE the
+       browser starts downloading the desktop version.
+       Must happen before vid.load() is called.           */
+    const isMobile = window.innerWidth < 768 ||
+                     /Mobi|Android/i.test(navigator.userAgent);
+
+    if (isMobile && srcEl && srcEl.dataset.mobileSrc) {
+      srcEl.setAttribute('src', srcEl.dataset.mobileSrc);
+      vid.load(); /* reload with new source */
+    }
+
+    /* ── Step 2: Detect autoplay support ────────────────────
+       Some browsers (iOS Low Power Mode, some Android
+       browsers) block autoplay entirely. We detect this
+       and apply Ken Burns to the poster image instead.   */
+    const playPromise = vid.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          /* Autoplay allowed — video is playing */
+          /* Ken Burns on poster is NOT needed   */
+        })
+        .catch(() => {
+          /* Autoplay blocked — activate poster fallback */
+          wrap.classList.add('poster-only');
+          vid.style.display = 'none';
+          if (loader) loader.classList.add('hidden');
+        });
+    }
+
+    /* ── Step 3: Fade video in when truly ready ─────────────
+       canplaythrough fires when enough data is buffered
+       to play without stopping. We fade over the poster
+       rather than snapping — no visual jank.            */
+    function onReady() {
+      vid.style.opacity = '1';
+      if (loader) {
+        loader.style.transition = 'opacity 0.6s ease';
+        loader.classList.add('hidden');
+        /* Remove from DOM after transition to save memory */
+        setTimeout(() => loader.remove(), 700);
+      }
+    }
+
+    if (vid.readyState >= 4) {
+      /* Already buffered (e.g. cached on return visit) */
+      onReady();
+    } else {
+      vid.addEventListener('canplaythrough', onReady, { once: true });
+    }
+
+    /* ── Step 4: Pause when tab is hidden ───────────────────
+       Saves CPU, GPU, and battery when user switches tabs.
+       Resumes immediately on return.                     */
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        vid.pause();
+      } else {
+        /* Only resume if autoplay wasn't blocked */
+        if (!wrap.classList.contains('poster-only')) {
+          vid.play().catch(() => {});
+        }
+      }
+    });
+
+    /* ── Step 5: Pause when video scrolls out of view ───────
+       IntersectionObserver stops rendering off-screen video.
+       Significant GPU saving on long pages.             */
+    const vidObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (wrap.classList.contains('poster-only')) return;
+          if (e.isIntersecting) {
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    vidObserver.observe(wrap);
+
+    /* ── Step 6: Reduced-motion accessibility ───────────────
+       Users who set "prefers-reduced-motion" in their OS
+       settings should not see animated backgrounds.
+       We pause the video and show the poster instead.   */
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+    if (prefersReduced.matches) {
+      vid.pause();
+      vid.style.opacity = '0'; /* poster stays visible */
+      wrap.classList.add('poster-only');
+      if (loader) loader.classList.add('hidden');
+    }
+    prefersReduced.addEventListener('change', e => {
+      if (e.matches) {
+        vid.pause();
+        vid.style.opacity = '0';
+        wrap.classList.add('poster-only');
+      } else {
+        wrap.classList.remove('poster-only');
+        vid.style.opacity = '1';
+        vid.play().catch(() => {});
+      }
+    });
+
+  })(); /* end initHeroVideo */
+
+  /* Custom cursor */
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  (function moveCursor() {
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(moveCursor);
+  })();
+  document.querySelectorAll('a,button,[tabindex]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      dot.style.transform  = 'translate(-50%,-50%) scale(2.5)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+      ring.style.opacity   = '0.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      dot.style.transform  = 'translate(-50%,-50%) scale(1)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.opacity   = '0.55';
+    });
+  });
+
+  /* Stat counters */
+  function runCounter(el, target) {
+    const dur = 2200;
+    const start = performance.now();
+    (function tick(now) {
+      const t = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(ease * target);
+      el.innerHTML = target >= 1000
+        ? (val / 1000).toFixed(1) + 'K'
+        : val;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.innerHTML = target >= 1000
+        ? (target / 1000).toFixed(1) + 'K'
+        : target;
+    })(start);
+  }
+  const counterEls = document.querySelectorAll('.sb-num[data-target]');
+  new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        runCounter(e.target, parseInt(e.target.dataset.target));
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 }).observe(...(counterEls.length ? counterEls : [document.body]));
+  counterEls.forEach(el => {
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          runCounter(e.target, parseInt(e.target.dataset.target));
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 }).observe(el);
+  });
+
+  /* Demo bars */
+  const demoPanelEl = document.querySelector('.demo-panel');
+  if (demoPanelEl) {
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.width; });
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 }).observe(demoPanelEl);
+  }
+
+  /* Form */
+  const form = document.getElementById('inquiryForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const req = form.querySelectorAll('[required]');
+    let ok = true;
+    req.forEach(f => {
+      if (!f.value.trim()) {
+        f.style.borderColor = 'var(--peach)';
+        f.setAttribute('aria-invalid', 'true');
+        ok = false;
+      } else {
+        f.style.borderColor = '';
+        f.setAttribute('aria-invalid', 'false');
+      }
+    });
+    if (!ok) return;
+
+    const brand   = document.getElementById('brandName').value;
+    const contact = document.getElementById('contactName').value;
+    const email   = document.getElementById('contactEmail').value;
+    const type    = document.getElementById('collabType').value;
+    const budget  = document.getElementById('budget').value || 'Not specified';
+    const msg     = document.getElementById('message').value;
+
+    const sub  = encodeURIComponent('Brand Collab Inquiry — ' + brand);
+    const body = encodeURIComponent(
+      'Brand: ' + brand + '\nContact: ' + contact + '\nEmail: ' + email +
+      '\nType: ' + type + '\nBudget: ' + budget + '\n\nMessage:\n' + msg
+    );
+    window.location.href = 'mailto:soulpeachycreates@gmail.com?subject=' + sub + '&body=' + body;
+
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+  form.querySelectorAll('.form-control,.form-select').forEach(f => {
+    f.addEventListener('input', function() {
+      this.style.borderColor = '';
+      this.setAttribute('aria-invalid', 'false');
+    });
+  });
+</script>
+</body>
+</html>
