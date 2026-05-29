@@ -332,11 +332,21 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%;
   z-index: 0;
 }
-/* SVG Illustrated Portrait Placeholder */
-.portrait-svg-wrap {
+/* Real portrait image */
+.portrait-img-wrap {
   position: relative; z-index: 1;
-  padding: 2rem 1.5rem 0;
-  display: flex; justify-content: center;
+  width: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+  line-height: 0;
+}
+.portrait-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 2rem;
 }
 .portrait-badge {
   position: absolute; bottom: 1.5rem; right: -1rem;
@@ -830,46 +840,15 @@ footer {
       <div class="hero-portrait-wrap reveal from-right d2" aria-hidden="true">
         <div class="portrait-frame">
           <div class="portrait-bg"></div>
-          <div class="portrait-svg-wrap">
-            <!-- Elegant SVG portrait illustration -->
-            <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" width="300" aria-hidden="true">
-              <!-- Background wash -->
-              <ellipse cx="160" cy="380" rx="140" ry="60" fill="rgba(201,165,90,0.08)"/>
-              <!-- Body / garment -->
-              <path d="M60 420 Q60 320 80 300 Q100 290 160 285 Q220 290 240 300 Q260 320 260 420Z" fill="#2C1A0E"/>
-              <!-- Neck -->
-              <rect x="135" y="240" width="50" height="55" rx="8" fill="#C4956A"/>
-              <!-- Head -->
-              <ellipse cx="160" cy="200" rx="65" ry="75" fill="#C4956A"/>
-              <!-- Hair — natural/elegant updo -->
-              <path d="M95 175 Q85 110 110 90 Q135 72 160 70 Q185 72 210 90 Q235 110 225 175" fill="#1A0D05"/>
-              <path d="M100 175 Q92 140 100 115 Q120 80 160 75 Q200 80 220 115 Q228 140 220 175" fill="#261208"/>
-              <!-- Hair detail — side swept -->
-              <path d="M95 175 Q88 155 93 130 Q102 108 118 97" stroke="#1A0D05" stroke-width="8" fill="none" stroke-linecap="round"/>
-              <!-- Bun detail -->
-              <ellipse cx="160" cy="78" rx="28" ry="18" fill="#1A0D05"/>
-              <ellipse cx="150" cy="73" rx="15" ry="10" fill="#261208"/>
-              <!-- Face details -->
-              <!-- Eyes -->
-              <ellipse cx="138" cy="195" rx="9" ry="7" fill="#1A0D05"/>
-              <ellipse cx="182" cy="195" rx="9" ry="7" fill="#1A0D05"/>
-              <ellipse cx="136" cy="193" rx="3" ry="3" fill="#fff"/>
-              <ellipse cx="180" cy="193" rx="3" ry="3" fill="#fff"/>
-              <!-- Eyebrows -->
-              <path d="M126 183 Q138 178 150 181" stroke="#1A0D05" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <path d="M170 181 Q182 178 194 183" stroke="#1A0D05" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <!-- Nose -->
-              <path d="M158 200 Q156 212 152 218 Q158 222 168 218 Q164 212 162 200" fill="rgba(0,0,0,0.12)"/>
-              <!-- Smile -->
-              <path d="M146 228 Q160 238 174 228" stroke="#8B4E2F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <!-- Gold earring accents -->
-              <circle cx="96" cy="205" r="5" fill="#C9A55A"/>
-              <circle cx="224" cy="205" r="5" fill="#C9A55A"/>
-              <!-- Neckline detail / collar -->
-              <path d="M135 285 Q160 272 185 285" stroke="rgba(201,165,90,0.4)" stroke-width="1.5" fill="none"/>
-              <!-- Blouse detail -->
-              <path d="M80 310 Q160 295 240 310" stroke="rgba(201,165,90,0.2)" stroke-width="1" fill="none"/>
-            </svg>
+          <div class="portrait-img-wrap">
+            <img
+              src="images/nadine-charles-portrait.webp"
+              alt="Nadine Charles — Certified Life and Clarity Coach, Saint Lucia"
+              width="420"
+              height="520"
+              loading="eager"
+              fetchpriority="high"
+            >
           </div>
           <!-- Floating badges -->
           <div class="portrait-badge-2" aria-label="ICF Certified credential">
