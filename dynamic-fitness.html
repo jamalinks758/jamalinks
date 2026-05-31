@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Fitness — Ignite Your Fitness Journey | Gros Islet, Saint Lucia</title>
+  <meta name="description" content="Personal training and nutrition coaching with Jaylan Chandler — Certified Personal Trainer and Diet Nutritionist based in Gros Islet, Saint Lucia. Book your session on WhatsApp today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #080808;
+      --bg-surface: #0f0f0f;
+      --bg-card: #141414;
+      --bg-card-hover: #1c1c1c;
+      --accent: #dc2626;
+      --accent-light: #ef4444;
+      --accent-glow: rgba(220,38,38,0.12);
+      --accent-border: rgba(220,38,38,0.28);
+      --text: #f2f2f2;
+      --text-muted: #888;
+      --text-dim: #555;
+      --border: rgba(255,255,255,0.07);
+      --border-light: rgba(255,255,255,0.13);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 8px;
+      --radius-lg: 16px;
+      --t: 0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 80px 0; }
+
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: 0.5px; }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-sub { font-size: 1rem; color: var(--text-muted); margin-top: 12px; max-width: 560px; line-height: 1.7; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; transition: all var(--t); white-space: nowrap; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-light); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ANNOUNCE */
+    .announce-bar { background: var(--accent); color: #fff; text-align: center; padding: 10px 20px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.3px; }
+    .announce-bar a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(8,8,8,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 0 20px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px; }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-main { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 1px; }
+    .nav-logo-main span { color: var(--accent); }
+    .nav-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); transition: color var(--t); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; padding: 80px 0 60px; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center top; filter: brightness(0.22); z-index: 0; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(220,38,38,0.06) 0%, transparent 50%, rgba(0,0,0,0.5) 100%); z-index: 1; }
+    .hero-overlay-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 220px; background: linear-gradient(to top, var(--bg), transparent); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
+
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-glow); border: 1px solid var(--accent-border); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-light); margin-bottom: 24px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
+
+    .hero-title { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.95; letter-spacing: 1px; margin-bottom: 20px; }
+    .hero-title em { font-style: normal; color: var(--accent); display: block; }
+    .hero-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 500px; margin-bottom: 36px; }
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .hero-credentials { display: flex; align-items: center; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
+    .credential-tag { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+    .credential-tag svg { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; }
+
+    /* STATS */
+    .stats-bar { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-item { padding: 28px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: var(--font-display); font-size: 2.4rem; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 0.77rem; color: var(--text-muted); margin-top: 6px; font-weight: 500; letter-spacing: 0.4px; }
+
+    /* SERVICES */
+    .services-header { margin-bottom: 48px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+
+    .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 16px; transition: all var(--t); position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .service-card:hover { border-color: var(--accent-border); background: var(--bg-card-hover); transform: translateY(-2px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card.featured { border-color: var(--accent-border); background: linear-gradient(135deg, rgba(220,38,38,0.05), var(--bg-card)); }
+    .service-card.featured::before { transform: scaleX(1); }
+
+    .service-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .service-icon { width: 44px; height: 44px; background: var(--accent-glow); border: 1px solid var(--accent-border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .service-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: var(--accent); color: #fff; height: fit-content; }
+    .service-badge.outline { background: transparent; border: 1px solid var(--accent-border); color: var(--accent); }
+
+    .service-name { font-family: var(--font-display); font-size: 1.45rem; letter-spacing: 0.5px; }
+    .service-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
+    .service-features { display: flex; flex-direction: column; gap: 8px; }
+    .service-feature { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-muted); }
+    .service-feature::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+    .service-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+    .service-price { display: flex; flex-direction: column; }
+    .service-price-from { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+    .service-price-amount { font-family: var(--font-display); font-size: 1.65rem; line-height: 1.1; }
+    .service-price-period { font-size: 0.73rem; color: var(--text-muted); }
+    .service-cta { font-size: 0.82rem; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 6px; transition: gap var(--t); }
+    .service-cta:hover { gap: 10px; }
+
+    /* ABOUT */
+    .about { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-image-wrap { position: relative; }
+    .about-image { border-radius: var(--radius-lg); aspect-ratio: 4/5; overflow: hidden; }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; }
+    .about-image:hover img { transform: scale(1.03); }
+    .about-image-badge { position: absolute; bottom: -16px; right: -16px; background: var(--accent); color: #fff; padding: 16px 20px; border-radius: var(--radius); font-size: 0.78rem; font-weight: 600; text-align: center; line-height: 1.5; box-shadow: 0 8px 24px rgba(220,38,38,0.3); }
+    .about-image-badge span { display: block; font-family: var(--font-display); font-size: 1.8rem; line-height: 1; }
+
+    .about-content { display: flex; flex-direction: column; gap: 20px; }
+    .about-name { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: 0.5px; }
+    .about-bio { font-size: 0.93rem; color: var(--text-muted); line-height: 1.75; }
+    .cert-list { display: flex; flex-direction: column; gap: 10px; }
+    .cert-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.85rem; font-weight: 500; }
+    .cert-icon { width: 32px; height: 32px; background: var(--accent-glow); border: 1px solid var(--accent-border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+
+    /* GALLERY */
+    .gallery-header { margin-bottom: 36px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .gallery-item { border-radius: var(--radius); overflow: hidden; position: relative; aspect-ratio: 4/3; }
+    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+    .gallery-item img { width: 100%; height: 100%; transition: transform 0.5s ease, filter 0.3s ease; filter: brightness(0.82); }
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(1); }
+    .gallery-label { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.72); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.4px; backdrop-filter: blur(4px); }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--bg-surface); border-top: 1px solid var(--border); }
+    .testimonials-header { margin-bottom: 40px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: border-color var(--t); }
+    .testimonial-card:hover { border-color: var(--accent-border); }
+    .testimonial-stars { color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; font-style: italic; flex: 1; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-glow); border: 1px solid var(--accent-border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.9rem; color: var(--accent); flex-shrink: 0; }
+    .testimonial-name { font-size: 0.85rem; font-weight: 600; }
+    .testimonial-service { font-size: 0.73rem; color: var(--text-dim); }
+
+    /* PROCESS */
+    .process-header { margin-bottom: 52px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 23px; left: 14%; right: 14%; height: 1px; background: linear-gradient(to right, transparent, var(--accent-border), var(--accent-border), transparent); }
+    .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 14px; }
+    .step-number { width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1; }
+    .step-emoji { font-size: 1.3rem; margin-bottom: 10px; }
+    .step-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; }
+    .step-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 88px 0; position: relative; overflow: hidden; }
+    .cta-section::before { content: 'DYNAMIC'; position: absolute; font-family: var(--font-display); font-size: 18vw; color: rgba(220,38,38,0.04); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; user-select: none; }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-title { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05; margin-bottom: 16px; }
+    .cta-title em { font-style: normal; color: var(--accent); }
+    .cta-sub { font-size: 1rem; color: var(--text-muted); max-width: 460px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--bg-surface); border-top: 1px solid var(--border); padding: 40px 20px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--t); }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1100px; margin: 24px auto 0; padding-top: 20px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 0.78rem; color: var(--text-dim); }
+    .footer-powered { font-size: 0.75rem; color: var(--text-dim); display: flex; align-items: center; gap: 5px; }
+    .footer-powered a { color: var(--accent); font-weight: 600; }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+    .wa-float a { display: flex; align-items: center; gap: 10px; background: #25d366; color: #fff; padding: 13px 20px; border-radius: 100px; font-size: 0.87rem; font-weight: 700; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: all var(--t); animation: wa-pulse 3s infinite; }
+    @keyframes wa-pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.35)} 50%{box-shadow:0 4px 32px rgba(37,211,102,0.55)} }
+    .wa-float a:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-badge { right: 12px; bottom: -12px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { min-height: 82vh; padding: 60px 0 40px; }
+      .hero-title { font-size: clamp(2.8rem, 14vw, 4rem); }
+      .hero-credentials { gap: 14px; margin-top: 36px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .stat-item:nth-child(4) { border-right: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+      .process-steps { grid-template-columns: repeat(2,1fr); gap: 36px; }
+      .process-steps::before { display: none; }
+      .footer-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2.4rem, 12vw, 3rem); }
+      .process-steps { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:first-child { grid-column: auto; aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar">
+    Now accepting new clients in Gros Islet, Saint Lucia &mdash;
+    <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'd%20like%20to%20enquire%20about%20training.">Book your first session on WhatsApp &rarr;</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-main">DYNAMIC <span>FITNESS</span></span>
+        <span class="nav-logo-sub">Gros Islet &middot; Saint Lucia</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Programs</a></li>
+        <li><a href="#about">Trainer</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Results</a></li>
+      </ul>
+      <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'd%20like%20to%20book%20a%20session." class="btn btn-primary nav-cta">Book a Session</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-bottom"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Gros Islet, Saint Lucia</div>
+      <h1 class="hero-title">
+        Ignite Your<br>
+        <em>Fitness Journey</em>
+      </h1>
+      <p class="hero-sub">
+        Certified personal training and nutrition coaching built around your goals.
+        <strong>Real plans. Real accountability. Real results.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'd%20like%20to%20start%20my%20fitness%20journey%20and%20learn%20about%20your%20programs." class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Start on WhatsApp
+        </a>
+        <a href="#services" class="btn btn-outline">View Programs</a>
+      </div>
+      <div class="hero-credentials">
+        <div class="credential-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Certified Personal Trainer
+        </div>
+        <div class="credential-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Certified Diet Nutritionist
+        </div>
+        <div class="credential-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gros Islet, Saint Lucia
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Clients Trained</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">1:1</div>
+        <div class="stat-label">Personal Attention</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">24hr</div>
+        <div class="stat-label">WhatsApp Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <p class="section-label">Training Programs</p>
+        <h2 class="section-title">Your Goal.<br><em>Your Plan.</em></h2>
+        <p class="section-sub">Every program is built around you — your schedule, your goal, your starting point. No generic plans. No guesswork.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card featured reveal">
+          <div class="service-card-top">
+            <div class="service-icon">🏋️</div>
+            <span class="service-badge">Most Popular</span>
+          </div>
+          <div class="service-name">Personal Training</div>
+          <p class="service-desc">One-on-one sessions built entirely around your body, your goals, and your schedule. Undivided attention, form correction, and a plan that actually works for you.</p>
+          <div class="service-features">
+            <div class="service-feature">Customized training plan per session</div>
+            <div class="service-feature">Technique correction &amp; coaching</div>
+            <div class="service-feature">Session recap via WhatsApp</div>
+            <div class="service-feature">Flexible scheduling</div>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">
+              <span class="service-price-from">from</span>
+              <span class="service-price-amount">$60</span>
+              <span class="service-price-period">per session</span>
+            </div>
+            <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'm%20interested%20in%20Personal%20Training%20sessions.%20Can%20we%20talk%20about%20my%20goals?" class="service-cta">Book Now &rarr;</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-top">
+            <div class="service-icon">🔥</div>
+          </div>
+          <div class="service-name">Monthly Training Package</div>
+          <p class="service-desc">Commit to your transformation with a structured monthly program. Regular sessions, progressive training, and consistent check-ins to keep you on track every week.</p>
+          <div class="service-features">
+            <div class="service-feature">4&ndash;8 sessions per month</div>
+            <div class="service-feature">Progressive overload planning</div>
+            <div class="service-feature">Weekly WhatsApp check-ins</div>
+            <div class="service-feature">Monthly progress review</div>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">
+              <span class="service-price-from">from</span>
+              <span class="service-price-amount">$200</span>
+              <span class="service-price-period">per month</span>
+            </div>
+            <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'm%20interested%20in%20the%20Monthly%20Training%20Package.%20Can%20we%20discuss?" class="service-cta">Enquire &rarr;</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-top">
+            <div class="service-icon">🥗</div>
+          </div>
+          <div class="service-name">Nutrition Coaching</div>
+          <p class="service-desc">A custom diet plan built around your lifestyle, health goals, and what you actually enjoy eating. Designed by a certified nutritionist — not a generic template.</p>
+          <div class="service-features">
+            <div class="service-feature">Personalised meal plan</div>
+            <div class="service-feature">Macro &amp; calorie guidance</div>
+            <div class="service-feature">Grocery &amp; shopping guidance</div>
+            <div class="service-feature">WhatsApp nutrition support</div>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">
+              <span class="service-price-from">from</span>
+              <span class="service-price-amount">$80</span>
+              <span class="service-price-period">one-time plan</span>
+            </div>
+            <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'm%20interested%20in%20a%20Nutrition%20Plan.%20Can%20we%20talk?" class="service-cta">Get a Plan &rarr;</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-top">
+            <div class="service-icon">💻</div>
+            <span class="service-badge outline">Online</span>
+          </div>
+          <div class="service-name">Online Coaching</div>
+          <p class="service-desc">Get coached by Jaylan no matter where you are. Full training program, video demonstrations, and regular WhatsApp check-ins — for clients across the Caribbean and beyond.</p>
+          <div class="service-features">
+            <div class="service-feature">Full remote training program</div>
+            <div class="service-feature">Video form checks via WhatsApp</div>
+            <div class="service-feature">Bi-weekly check-in calls</div>
+            <div class="service-feature">Nutrition plan included</div>
+          </div>
+          <div class="service-footer">
+            <div class="service-price">
+              <span class="service-price-from">from</span>
+              <span class="service-price-amount">$120</span>
+              <span class="service-price-period">per month</span>
+            </div>
+            <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'm%20interested%20in%20Online%20Coaching.%20Can%20we%20talk?" class="service-cta">Start Online &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-image-wrap reveal">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+              alt="Jaylan Chandler — Certified Personal Trainer and Diet Nutritionist, Gros Islet Saint Lucia"
+            />
+          </div>
+          <div class="about-image-badge">
+            <span>CPT</span>
+            Certified<br>Trainer
+          </div>
+        </div>
+        <div class="about-content reveal">
+          <p class="section-label">Your Trainer</p>
+          <h2 class="about-name">Jaylan Chandler</h2>
+          <p class="about-bio">
+            I'm a Certified Personal Trainer and Diet Nutritionist based right here in Gros Islet, Saint Lucia. I built Dynamic Fitness around one purpose: to help people in our community build healthier, stronger versions of themselves — with real guidance, not generic advice.
+          </p>
+          <p class="about-bio">
+            Every client gets a plan built specifically for them. Your body, your schedule, your goal. That's what separates a real coach from a gym membership that goes to waste.
+          </p>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-icon">🎓</div>
+              Certified Personal Trainer (CPT)
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">🥗</div>
+              Certified Diet Nutritionist (CDN)
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">📍</div>
+              Based in Gros Islet, Saint Lucia
+            </div>
+          </div>
+          <a href="https://wa.me/17587235872?text=Hi%20Jaylan!%20I'd%20like%20to%20talk%20about%20starting%20my%20fitness%20journey%20with%20Dynamic%20Fitness." class="btn btn-primary" style="width:fit-content;margin-top:4px;">Message Jaylan Directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <p class="section-label">Training Gallery</p>
+        <h2 class="section-title">In The <em>Gym.</em></h2>
+        <p class="section-sub">Real training. Real effort. Real environment.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Strength training at Dynamic Fitness" />
+          <span class="gallery-label">Strength Training</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="1-on-1 personal training session" />
+          <span class="gallery-label">1-on-1 Sessions</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80" alt="Cardio workout session" />
+          <span class="gallery-label">Cardio</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80" alt="Nutrition coaching and meal planning" />
+          <span class="gallery-label">Nutrition</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80" alt="Weightlifting and resistance training" />
+          <span class="gallery-label">Weight Training</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=600&q=80" alt="Core and functional fitness training" />
+          <span class="gallery-label">Functional Fitness</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <p class="section-label">Client Results</p>
+        <h2 class="section-title">What Happens<br><em>When You Commit.</em></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Jaylan doesn't let you cut corners. He pushed me harder than I'd push myself — and that's exactly what I needed. Lost 14 lbs in two months and actually kept it off."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MJ</div>
+            <div>
+              <div class="testimonial-name">Marcus J.</div>
+              <div class="testimonial-service">Personal Training</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"The nutrition plan alone changed my energy levels completely. I had no idea how badly I was eating until Jaylan broke it down for me. Total game changer."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KT</div>
+            <div>
+              <div class="testimonial-name">Kezia T.</div>
+              <div class="testimonial-service">Nutrition Coaching</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"I'm in Barbados and do the online program. Honestly didn't expect it to work as well as it does. He checks in constantly and the program is legit. Highly recommend."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DC</div>
+            <div>
+              <div class="testimonial-name">Danielle C.</div>
+              <div class="testimonial-service">Online Coaching</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="process-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">One Message.<br><em>That's All It Takes.</em></h2>
+        <p class="section-sub">No long forms, no waiting rooms. Start your journey in four steps — all through WhatsApp.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-emoji">💬</div>
+          <div class="step-title">Message on WhatsApp</div>
+          <p class="step-desc">Tell us your goal. We reply fast and ask a few quick questions to understand where you're starting from.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-emoji">📋</div>
+          <div class="step-title">Get Your Plan</div>
+          <p class="step-desc">We build your personalised training and nutrition plan based on your goal, schedule, and fitness level.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-emoji">🏋️</div>
+          <div class="step-title">Start Training</div>
+          <p class="step-desc">Show up, put in the work. Jaylan is with you every step — in the gym and on WhatsApp between sessions.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">04</div>
+          <div class="step-emoji">🏆</div>
+          <div class="step-title">See Real Results</div>
+          <p class="step-desc">Track your progress weekly. Hit milestones. Become the version of yourself you've been working toward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <p class="section-label">Ready to Start?</p>
+        <h2 class="cta-title">Stop Waiting.<br><em>Start Training.</em></h2>
+        <p class="cta-sub">Every day you wait is a day your goal stays exactly where it is. One message to Jaylan changes that.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I%20want%20to%20start%20my%20fitness%20journey.%20Can%20we%20talk%20about%20the%20best%20program%20for%20me?" class="btn btn-primary" style="font-size:1rem;padding:16px 32px;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Message Jaylan Now
+          </a>
+          <a href="tel:+17587235872" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">DYNAMIC <span>FITNESS</span></div>
+      <ul class="footer-links">
+        <li><a href="#services">Programs</a></li>
+        <li><a href="#about">Trainer</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Results</a></li>
+        <li><a href="https://wa.me/17587235872">WhatsApp</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Dynamic Fitness &middot; Gros Islet, Saint Lucia &middot; All rights reserved</p>
+      <p class="footer-powered">
+        Built with care by
+        <a href="https://jamalinks758.github.io/AkraLink/index.html" target="_blank" rel="noopener">AkraLink</a>
+        &middot; Caribbean Business Websites
+      </p>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <div class="wa-float">
+    <a href="https://wa.me/17587235872?text=Hi%20Dynamic%20Fitness!%20I'd%20like%20to%20enquire%20about%20training." aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Book a Session
+    </a>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
