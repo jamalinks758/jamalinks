@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthPlus Pharmacy | Your Trusted Community Pharmacy</title>
+  <meta name="description" content="HealthPlus Pharmacy — your trusted community pharmacy for generic and branded medications, health & wellness products, and personal care. Multiple locations. WhatsApp ordering available.">
+  <meta name="keywords" content="pharmacy, medications, health, wellness, prescription refill, WhatsApp pharmacy, community pharmacy, generic medications, Saint Lucia">
+  <meta name="author" content="HealthPlus Pharmacy">
+  <meta property="og:title" content="HealthPlus Pharmacy | Trusted Community Pharmacy">
+  <meta property="og:description" content="Your trusted community pharmacy for medications, wellness products, and personal care. Fast service. WhatsApp ordering.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://healthpluspharmacy.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HealthPlus Pharmacy">
+  <meta name="twitter:description" content="Your trusted community pharmacy. WhatsApp ordering available.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Pharmacy",
+    "name": "HealthPlus Pharmacy",
+    "description": "Your trusted community pharmacy for generic and branded medications, health and wellness products.",
+    "url": "https://healthpluspharmacy.com",
+    "telephone": "+1-758-457-0000",
+    "openingHours": ["Mo-Fr 08:00-20:00","Sa 08:00-18:00","Su 09:00-17:00"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Orange Grove Plaza",
+      "addressLocality": "Castries",
+      "addressRegion": "Saint Lucia"
+    },
+    "sameAs": [
+      "https://www.instagram.com/healthpluspharmacy",
+      "https://www.facebook.com/healthpluspharmacy"
+    ]
+  }
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== THEME VARIABLES ===== */
+    :root {
+      --primary: #0A5C6B;
+      --primary-light: #0e7a8f;
+      --secondary: #00B4D8;
+      --accent: #F0A500;
+      --accent-light: #FFD166;
+      --bg: #F4FAFB;
+      --surface: #ffffff;
+      --surface2: #EBF5F7;
+      --text: #0d1b2a;
+      --text-muted: #4a6572;
+      --border: #d1e8ed;
+      --nav-bg: rgba(255,255,255,0.96);
+      --shadow: 0 4px 24px rgba(10,92,107,0.10);
+      --shadow-hover: 0 10px 40px rgba(10,92,107,0.20);
+      --hero-overlay: linear-gradient(135deg, rgba(10,92,107,0.93) 0%, rgba(0,100,130,0.82) 60%, rgba(0,180,216,0.70) 100%);
+      --card-bg: #ffffff;
+      --footer-bg: #07111f;
+      --footer-text: #7a9ba6;
+    }
+
+    [data-theme="dark"] {
+      --primary: #00B4D8;
+      --primary-light: #29c5e6;
+      --secondary: #0A5C6B;
+      --accent: #F0A500;
+      --accent-light: #FFD166;
+      --bg: #08121e;
+      --surface: #0d1f31;
+      --surface2: #0f243a;
+      --text: #e2eff3;
+      --text-muted: #7aabb9;
+      --border: #1a3344;
+      --nav-bg: rgba(8,18,30,0.97);
+      --shadow: 0 4px 24px rgba(0,0,0,0.45);
+      --shadow-hover: 0 10px 40px rgba(0,0,0,0.60);
+      --hero-overlay: linear-gradient(135deg, rgba(5,12,22,0.95) 0%, rgba(10,60,80,0.88) 100%);
+      --card-bg: #0d1f31;
+      --footer-bg: #040c16;
+      --footer-text: #4a7080;
+    }
+
+    /* ===== BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+      padding-top: 36px; /* announcement bar height */
+    }
+
+    h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; color: var(--text); }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announcement-bar {
+      background: var(--accent);
+      color: #07111f;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1002;
+      letter-spacing: 0.2px;
+    }
+    .announcement-bar a { color: #07111f; text-decoration: underline; font-weight: 700; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+      position: fixed;
+      top: 36px; width: 100%;
+      z-index: 1000;
+      transition: box-shadow 0.3s, background 0.4s;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar-brand { display: flex; align-items: center; gap: 10px; }
+
+    .brand-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px; flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--primary); display: block; line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.62rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: var(--text) !important;
+      font-weight: 500; font-size: 0.88rem;
+      padding: 6px 12px !important;
+      border-radius: 7px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { color: var(--primary) !important; background: var(--surface2); }
+
+    .btn-wa-nav {
+      background: #25D366; color: white !important;
+      border-radius: 8px; padding: 8px 18px !important;
+      font-weight: 600; font-size: 0.83rem;
+      display: flex; align-items: center; gap: 6px;
+      transition: all 0.25s;
+    }
+    .btn-wa-nav:hover { background: #1ebe5d; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,211,102,0.38); }
+
+    .theme-btn {
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px; transition: all 0.2s;
+    }
+    .theme-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+    .navbar-toggler { border: none; color: var(--text); padding: 4px; }
+    .navbar-toggler:focus { box-shadow: none; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--hero-overlay),
+        url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1800&q=85') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 130px 0 90px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
+
+    /* Geometric decoration */
+    .hero-deco {
+      position: absolute; top: 15%; right: 0;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: white;
+      padding: 6px 16px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500;
+      backdrop-filter: blur(8px); margin-bottom: 22px;
+    }
+
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.35); }
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      line-height: 1.13; margin-bottom: 20px; font-weight: 700;
+    }
+
+    .hero h1 em { color: var(--accent-light); font-style: italic; }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.83);
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      line-height: 1.75; margin-bottom: 36px;
+      max-width: 540px; font-weight: 300;
+    }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 44px; }
+
+    .btn-hero-gold {
+      background: var(--accent); color: #07111f;
+      border: none; padding: 14px 30px; border-radius: 10px;
+      font-weight: 700; font-size: 0.97rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .btn-hero-gold:hover {
+      background: var(--accent-light); transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240,165,0,0.42); color: #07111f;
+    }
+
+    .btn-hero-outline {
+      background: transparent; color: white;
+      border: 2px solid rgba(255,255,255,0.45);
+      padding: 14px 30px; border-radius: 10px;
+      font-weight: 600; font-size: 0.97rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .btn-hero-outline:hover { background: rgba(255,255,255,0.13); border-color: white; color: white; }
+
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: 18px;
+    }
+
+    .trust-pill {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(255,255,255,0.88); font-size: 0.82rem; font-weight: 500;
+    }
+    .trust-pill i { color: var(--accent-light); font-size: 0.95rem; }
+
+    /* Stats Glass Card */
+    .stats-card {
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px; padding: 36px 30px;
+    }
+
+    .stat-row { display: flex; align-items: center; }
+
+    .stat-item { flex: 1; text-align: center; padding: 10px; }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--accent-light); display: block; line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 0.72rem; color: rgba(255,255,255,0.68);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px;
+      display: block;
+    }
+
+    .vd { width: 1px; background: rgba(255,255,255,0.18); align-self: stretch; }
+
+    .stars-row {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--accent-light); font-size: 0.85rem; margin-top: 18px;
+    }
+    .stars-row span { color: rgba(255,255,255,0.65); margin-left: 4px; }
+
+    .wa-card-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25D366; color: white;
+      border: none; border-radius: 10px;
+      padding: 13px 20px; font-weight: 700; font-size: 0.9rem;
+      width: 100%; margin-top: 18px; cursor: pointer;
+      transition: all 0.3s; text-decoration: none;
+    }
+    .wa-card-btn:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(37,211,102,0.45); color: white; }
+
+    /* ===== SECTION UTILITIES ===== */
+    section { padding: 88px 0; }
+
+    .sec-label {
+      display: inline-block;
+      color: var(--primary); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 12px;
+    }
+
+    .sec-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.55rem);
+      font-weight: 700; line-height: 1.2; margin-bottom: 16px;
+    }
+
+    .sec-sub {
+      color: var(--text-muted);
+      font-size: 1rem; line-height: 1.75; max-width: 580px;
+    }
+
+    /* ===== SERVICES STRIP ===== */
+    .strip { background: var(--primary); padding: 0; }
+
+    .strip-tab {
+      display: flex; align-items: center; gap: 16px;
+      padding: 30px 26px;
+      border-right: 1px solid rgba(255,255,255,0.10);
+      transition: background 0.25s; cursor: default; height: 100%;
+    }
+    .strip-tab:last-child { border-right: none; }
+    .strip-tab:hover { background: rgba(255,255,255,0.07); }
+
+    .strip-icon {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.14);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; color: var(--accent-light); flex-shrink: 0;
+    }
+
+    .strip-info h6 {
+      color: white; font-family: 'Playfair Display', serif;
+      font-weight: 600; font-size: 0.94rem; margin-bottom: 4px;
+    }
+    .strip-info p { color: rgba(255,255,255,0.62); font-size: 0.76rem; margin: 0; }
+
+    /* ===== PRODUCT CARDS ===== */
+    .products-bg { background: var(--bg); }
+
+    .cat-card {
+      background: var(--card-bg);
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      height: 100%; box-shadow: var(--shadow);
+    }
+    .cat-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-hover); border-color: var(--secondary); }
+
+    .cat-img {
+      height: 185px; background-size: cover; background-position: center;
+      position: relative;
+    }
+    .cat-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,92,107,0.55), transparent 60%);
+    }
+
+    .cat-tag {
+      position: absolute; top: 12px; left: 12px; z-index: 1;
+      background: var(--accent); color: #07111f;
+      font-size: 0.67rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 50px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .cat-body { padding: 22px; }
+    .cat-body h5 { font-size: 1.03rem; font-weight: 600; margin-bottom: 7px; }
+    .cat-body p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px; }
+
+    .cat-link {
+      color: var(--primary); font-size: 0.82rem; font-weight: 600;
+      display: flex; align-items: center; gap: 4px; transition: gap 0.2s;
+    }
+    .cat-card:hover .cat-link { gap: 9px; }
+
+    /* ===== WHY CHOOSE US ===== */
+    .why-bg { background: var(--surface2); }
+
+    .why-card {
+      background: var(--card-bg);
+      border-radius: 16px; padding: 32px 26px;
+      border: 1px solid var(--border); height: 100%;
+      transition: all 0.3s; box-shadow: var(--shadow);
+    }
+    .why-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--secondary); }
+
+    .why-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.45rem; margin-bottom: 20px;
+    }
+    .ic-teal { background: rgba(0,180,216,0.12); color: var(--primary); }
+    .ic-gold { background: rgba(240,165,0,0.12); color: var(--accent); }
+    .ic-green { background: rgba(76,175,80,0.12); color: #4CAF50; }
+    .ic-blue { background: rgba(33,150,243,0.12); color: #2196F3; }
+
+    .why-card h5 { font-size: 1.02rem; font-weight: 600; margin-bottom: 10px; }
+    .why-card p { color: var(--text-muted); font-size: 0.862rem; line-height: 1.68; margin: 0; }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-bg { background: var(--bg); }
+
+    .step-wrap { text-align: center; padding: 28px 18px; position: relative; }
+
+    .step-num {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+    }
+
+    .step-line {
+      position: absolute; top: 56px;
+      left: calc(50% + 28px); right: calc(-50% + 28px);
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      opacity: 0.25;
+    }
+
+    .step-wrap h5 { font-size: 0.98rem; font-weight: 600; margin-bottom: 10px; }
+    .step-wrap p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
+
+    .wa-cta-box {
+      background: linear-gradient(135deg, #061422 0%, #0A5C6B 100%);
+      border-radius: 22px; padding: 52px 40px;
+      color: white; text-align: center; position: relative; overflow: hidden;
+    }
+    .wa-cta-box::before {
+      content: ''; position: absolute;
+      top: -40%; right: -8%;
+      width: 320px; height: 320px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%; pointer-events: none;
+    }
+    .wa-cta-box::after {
+      content: ''; position: absolute;
+      bottom: -30%; left: -5%;
+      width: 250px; height: 250px;
+      background: rgba(0,180,216,0.06);
+      border-radius: 50%; pointer-events: none;
+    }
+    .wa-cta-box h3 { color: white; margin-bottom: 12px; }
+    .wa-cta-box p { color: rgba(255,255,255,0.72); margin-bottom: 28px; font-size: 1rem; }
+
+    .btn-wa-lg {
+      background: #25D366; color: white;
+      border: none; padding: 16px 38px; border-radius: 12px;
+      font-size: 1.02rem; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all 0.3s; cursor: pointer; text-decoration: none;
+    }
+    .btn-wa-lg:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.48); color: white; }
+
+    /* ===== LOCATIONS ===== */
+    .loc-bg { background: var(--surface2); }
+
+    .loc-card {
+      background: var(--card-bg);
+      border-radius: 18px; padding: 28px;
+      border: 1px solid var(--border); height: 100%;
+      transition: all 0.3s; box-shadow: var(--shadow);
+    }
+    .loc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
+
+    .loc-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 600; color: var(--primary);
+      margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .loc-card h5 { font-size: 1.04rem; font-weight: 700; margin-bottom: 16px; }
+
+    .loc-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 0.83rem; color: var(--text-muted);
+    }
+    .loc-row i { color: var(--primary); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; }
+
+    .loc-btns { display: flex; gap: 8px; margin-top: 20px; }
+
+    .btn-loc-wa {
+      flex: 1; background: #25D366; color: white;
+      border: none; padding: 10px; border-radius: 9px;
+      font-size: 0.78rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      transition: all 0.2s; cursor: pointer; text-decoration: none;
+    }
+    .btn-loc-wa:hover { background: #1ebe5d; color: white; }
+
+    .btn-loc-call {
+      flex: 1; background: var(--surface2); color: var(--text);
+      border: 1px solid var(--border); padding: 10px; border-radius: 9px;
+      font-size: 0.78rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      transition: all 0.2s; cursor: pointer; text-decoration: none;
+    }
+    .btn-loc-call:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ===== TESTIMONIALS ===== */
+    .testi-bg { background: var(--bg); }
+
+    .testi-card {
+      background: var(--card-bg);
+      border-radius: 20px; padding: 32px 28px;
+      border: 1px solid var(--border); height: 100%;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .testi-card::before {
+      content: '\201C'; position: absolute;
+      top: 20px; right: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem; color: var(--primary);
+      opacity: 0.08; line-height: 1;
+    }
+
+    .testi-stars { color: var(--accent); font-size: 0.88rem; margin-bottom: 14px; }
+
+    .testi-text {
+      font-size: 0.89rem; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 22px; font-style: italic;
+    }
+
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+
+    .author-av {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 0.98rem; flex-shrink: 0;
+    }
+
+    .author-name { font-weight: 600; font-size: 0.88rem; display: block; }
+    .author-loc { font-size: 0.74rem; color: var(--text-muted); }
+
+    /* ===== HEALTH TIPS ===== */
+    .tips-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, #007a90 50%, var(--secondary) 100%);
+      padding: 72px 0;
+    }
+
+    .tip-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px; padding: 30px 22px;
+      text-align: center; backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .tip-card:hover { background: rgba(255,255,255,0.16); transform: translateY(-5px); }
+
+    .tip-icon { font-size: 2.3rem; color: var(--accent-light); display: block; margin-bottom: 16px; }
+    .tip-card h6 { color: white; font-weight: 600; margin-bottom: 9px; }
+    .tip-card p { color: rgba(255,255,255,0.72); font-size: 0.79rem; line-height: 1.65; margin: 0; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--footer-bg); padding: 68px 0 28px; }
+
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .footer-logo h4 { color: white; margin: 0; font-size: 1.18rem; }
+    .footer-desc { color: var(--footer-text); font-size: 0.83rem; line-height: 1.75; max-width: 275px; }
+
+    .footer-socials { display: flex; gap: 9px; margin-top: 22px; }
+    .soc-btn {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.07); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--footer-text); font-size: 1.05rem;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .soc-btn:hover { background: var(--primary); color: white; }
+
+    .footer-head {
+      color: white; font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 20px;
+    }
+
+    .f-link {
+      display: block; color: var(--footer-text);
+      font-size: 0.83rem; margin-bottom: 11px; transition: color 0.2s;
+    }
+    .f-link:hover { color: var(--accent); }
+
+    .f-hours { display: flex; justify-content: space-between; margin-bottom: 9px; font-size: 0.8rem; }
+    .f-day { color: rgba(255,255,255,0.5); }
+    .f-time { color: var(--accent-light); }
+
+    .footer-hr { border-color: rgba(255,255,255,0.07); margin: 44px 0 26px; }
+
+    .f-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+    .f-copy { color: rgba(255,255,255,0.28); font-size: 0.75rem; }
+    .f-credit { color: rgba(255,255,255,0.35); font-size: 0.72rem; }
+    .f-credit a { color: var(--accent); font-weight: 600; }
+    .f-credit a:hover { color: var(--accent-light); }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float { position: fixed; bottom: 28px; right: 24px; z-index: 998; }
+
+    .wa-float-btn {
+      width: 58px; height: 58px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: white;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.52);
+      transition: all 0.3s; text-decoration: none; position: relative;
+    }
+    .wa-float-btn::before {
+      content: ''; position: absolute; inset: -5px;
+      border-radius: 50%; border: 2px solid #25D366;
+      animation: wa-ring 2.5s ease-out infinite;
+    }
+    @keyframes wa-ring {
+      0% { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.6); }
+    }
+    .wa-float-btn:hover { background: #1ebe5d; transform: scale(1.1); color: white; }
+
+    .wa-tip {
+      position: absolute; right: 68px; bottom: 14px;
+      background: #07111f; color: white;
+      padding: 8px 14px; border-radius: 8px;
+      font-size: 0.76rem; font-weight: 600;
+      white-space: nowrap; opacity: 0;
+      pointer-events: none; transition: opacity 0.3s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+    .wa-tip::after {
+      content: ''; position: absolute; right: -6px; top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right: none; border-left-color: #07111f;
+    }
+    .wa-float:hover .wa-tip { opacity: 1; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 991px) {
+      .strip .row > div { border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .strip .row > div:last-child { border-bottom: none; }
+      .strip-tab { border-right: none; }
+      .step-line { display: none; }
+      .wa-cta-box { padding: 38px 24px; }
+    }
+
+    @media (max-width: 767px) {
+      section { padding: 64px 0; }
+      .hero { padding: 110px 0 64px; }
+      .stats-card { margin-top: 36px; }
+      .sec-sub { max-width: 100%; }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-ctas { flex-direction: column; }
+      .btn-hero-gold, .btn-hero-outline { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    💊 WhatsApp prescription refills now available — message us before you arrive &nbsp;·&nbsp;
+    <a href="https://wa.me/17584570000?text=I'd+like+to+refill+my+prescription+at+HealthPlus" target="_blank">Start here →</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <div class="brand-icon"><i class="bi bi-capsule-pill"></i></div>
+        <div>
+          <span class="brand-name">HealthPlus Pharmacy</span>
+          <span class="brand-tagline">Your Community Health Partner</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list" style="font-size:1.5rem; color:var(--text);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+          <button class="theme-btn" id="themeBtn" title="Toggle theme">
+            <i class="bi bi-moon-stars-fill" id="themeIco"></i>
+          </button>
+          <a href="https://wa.me/17584570000?text=Hello+HealthPlus!+I+need+assistance." target="_blank" class="nav-link btn-wa-nav">
+            <i class="bi bi-whatsapp"></i> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-deco"></div>
+    <div class="container position-relative" style="z-index:1;">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <span class="pulse-dot" id="statusDot" style="background:#4CAF50;"></span>
+            <span id="statusText">Open Today · Mon–Sat 8AM–8PM</span>
+          </div>
+
+          <h1>Your Health, Our <em>Priority</em> — Every Single Day</h1>
+
+          <p class="hero-sub">
+            From generic and branded medications to personal care, wellness supplements, and fragrances — everything you need, stocked and ready. Serving our community with genuine care.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/17584570000?text=I'd+like+to+refill+my+prescription+at+HealthPlus+Pharmacy" target="_blank" class="btn-hero-gold">
+              <i class="bi bi-arrow-repeat"></i> Refill Prescription
+            </a>
+            <a href="#products" class="btn-hero-outline">
+              <i class="bi bi-grid-3x3-gap-fill"></i> Browse Products
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-pill"><i class="bi bi-patch-check-fill"></i> Licensed Pharmacists</div>
+            <div class="trust-pill"><i class="bi bi-geo-alt-fill"></i> 3 Locations</div>
+            <div class="trust-pill"><i class="bi bi-whatsapp"></i> WhatsApp Ordering</div>
+            <div class="trust-pill"><i class="bi bi-shield-fill-check"></i> Verified Medications</div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="stats-card">
+            <div class="stat-row">
+              <div class="stat-item">
+                <span class="stat-num">15+</span>
+                <span class="stat-lbl">Years in the<br>Community</span>
+              </div>
+              <div class="vd"></div>
+              <div class="stat-item">
+                <span class="stat-num">3</span>
+                <span class="stat-lbl">Convenient<br>Locations</span>
+              </div>
+              <div class="vd"></div>
+              <div class="stat-item">
+                <span class="stat-num">5K+</span>
+                <span class="stat-lbl">Customers<br>Served</span>
+              </div>
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.14);margin-top:18px;padding-top:18px;">
+              <div class="stars-row">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span>4.8 · Trusted by thousands</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/17584570000?text=Hi!+I+have+a+medication+question+for+your+pharmacist." target="_blank" class="wa-card-btn">
+              <i class="bi bi-whatsapp" style="font-size:1.1rem;"></i> Chat With a Pharmacist Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES STRIP -->
+  <div class="strip" id="services">
+    <div class="container-fluid px-0">
+      <div class="row g-0">
+        <div class="col-lg-3 col-sm-6">
+          <div class="strip-tab">
+            <div class="strip-icon"><i class="bi bi-capsule-pill"></i></div>
+            <div class="strip-info">
+              <h6>Prescription Medications</h6>
+              <p>Generic &amp; branded — quickly filled</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="strip-tab">
+            <div class="strip-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="strip-info">
+              <h6>Health &amp; Wellness</h6>
+              <p>Vitamins, supplements &amp; monitors</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="strip-tab">
+            <div class="strip-icon"><i class="bi bi-droplet-fill"></i></div>
+            <div class="strip-info">
+              <h6>Personal Care</h6>
+              <p>Skincare, haircare &amp; grooming</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="strip-tab">
+            <div class="strip-icon"><i class="bi bi-stars"></i></div>
+            <div class="strip-info">
+              <h6>Fragrances &amp; Gifts</h6>
+              <p>Colognes, perfumes &amp; gift sets</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-bg" id="products">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-7">
+          <span class="sec-label">Our Range</span>
+          <h2 class="sec-title">Everything Your Health Needs, <em>Under One Roof</em></h2>
+          <p class="sec-sub">From prescription medications to personal care and lifestyle products — we carry the brands you trust and the generics that save you money.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+          <a href="https://wa.me/17584570000?text=Hi!+I'd+like+to+check+product+availability." target="_blank" class="btn-wa-lg" style="font-size:0.88rem;padding:13px 22px;display:inline-flex;">
+            <i class="bi bi-whatsapp"></i> Check Availability on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80');">
+              <span class="cat-tag">Rx Available</span>
+            </div>
+            <div class="cat-body">
+              <h5>Prescription Medications</h5>
+              <p>Wide range of generic and branded prescriptions filled quickly and accurately by our licensed pharmacists.</p>
+              <a href="https://wa.me/17584570000?text=I+need+to+fill+a+prescription" class="cat-link" target="_blank">
+                Inquire via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80');">
+              <span class="cat-tag">Vitamins &amp; Supplements</span>
+            </div>
+            <div class="cat-body">
+              <h5>Health &amp; Wellness</h5>
+              <p>Vitamins, minerals, supplements, blood pressure monitors, diabetic care supplies, and more.</p>
+              <a href="https://wa.me/17584570000?text=I'm+looking+for+health+and+wellness+products" class="cat-link" target="_blank">
+                Shop via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80');">
+              <span class="cat-tag">Top Brands</span>
+            </div>
+            <div class="cat-body">
+              <h5>Personal Care &amp; Skincare</h5>
+              <p>Dove, Head &amp; Shoulders, Neutrogena, Vaseline, and dozens more trusted brands in stock.</p>
+              <a href="https://wa.me/17584570000?text=I'm+looking+for+personal+care+products" class="cat-link" target="_blank">
+                Browse via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1541643600914-78b084683702?w=600&q=80');">
+              <span class="cat-tag">Men &amp; Women</span>
+            </div>
+            <div class="cat-body">
+              <h5>Fragrances &amp; Cologne</h5>
+              <p>Brut, Jovan, Black Intense and other popular fragrances for men and women at unbeatable prices.</p>
+              <a href="https://wa.me/17584570000?text=I'm+looking+for+fragrances" class="cat-link" target="_blank">
+                Explore via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=600&q=80');">
+              <span class="cat-tag">Baby &amp; Family</span>
+            </div>
+            <div class="cat-body">
+              <h5>Baby &amp; Family Care</h5>
+              <p>Everything your little ones need — diapers, formula, baby skin essentials, and infant health products.</p>
+              <a href="https://wa.me/17584570000?text=I'm+looking+for+baby+and+family+care+products" class="cat-link" target="_blank">
+                Ask via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d3">
+          <div class="cat-card">
+            <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80');">
+              <span class="cat-tag">OTC Range</span>
+            </div>
+            <div class="cat-body">
+              <h5>Cold, Flu &amp; Pain Relief</h5>
+              <p>Buckley's, Tylenol, Halo and everything you need when sickness strikes — stocked and ready.</p>
+              <a href="https://wa.me/17584570000?text=I+need+cold+flu+or+pain+relief+products" class="cat-link" target="_blank">
+                Get it fast via WhatsApp <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-bg" id="about">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="sec-label">Why HealthPlus</span>
+        <h2 class="sec-title">Built on Trust. Driven by Care.</h2>
+        <p class="sec-sub mx-auto text-center" style="max-width:580px;">We are more than a pharmacy — we are your community health partner, here every step of the way.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="why-card">
+            <div class="why-icon ic-teal"><i class="bi bi-person-check-fill"></i></div>
+            <h5>Licensed Pharmacists</h5>
+            <p>Our qualified team is trained to advise on medications, dosage, interactions, and the best path for your individual health needs.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d1">
+          <div class="why-card">
+            <div class="why-icon ic-gold"><i class="bi bi-currency-dollar"></i></div>
+            <h5>Competitive Pricing</h5>
+            <p>Both generic and branded options available so you can choose quality care at a price that works — no compromise on either end.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d2">
+          <div class="why-card">
+            <div class="why-icon ic-green"><i class="bi bi-whatsapp"></i></div>
+            <h5>WhatsApp Ordering</h5>
+            <p>Message your needs, refill requests, or product questions directly. We respond fast and prepare your order before you arrive.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d3">
+          <div class="why-card">
+            <div class="why-icon ic-blue"><i class="bi bi-geo-alt-fill"></i></div>
+            <h5>Multiple Branches</h5>
+            <p>Three locations across the city — same quality, same prices, same genuine care at every single branch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-bg">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="sec-label">Order via WhatsApp</span>
+        <h2 class="sec-title">3 Simple Steps to Get Your Medication</h2>
+        <p class="sec-sub mx-auto text-center" style="max-width:560px;">Skip the wait. Message us before you leave home — your order is ready when you walk in.</p>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="step-wrap reveal">
+            <div class="step-num">1</div>
+            <div class="step-line"></div>
+            <h5>Message Us on WhatsApp</h5>
+            <p>Send your prescription photo, medication name, or product request. A pharmacist reviews it right away.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-wrap reveal d1">
+            <div class="step-num">2</div>
+            <div class="step-line"></div>
+            <h5>We Confirm &amp; Prepare</h5>
+            <p>We confirm availability, check for interactions, and prepare your order at your chosen branch location.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-wrap reveal d2">
+            <div class="step-num">3</div>
+            <h5>Walk In &amp; Collect</h5>
+            <p>Come in to collect your ready order — or ask us about delivery. Fast, simple, and completely hassle-free.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-cta-box reveal">
+        <div style="position:relative;z-index:1;">
+          <h3>Ready to Place Your Order?</h3>
+          <p>Our pharmacists are standing by. No forms, no waiting — just a WhatsApp message.</p>
+          <a href="https://wa.me/17584570000?text=Hello!+I'd+like+to+place+an+order+or+refill+my+prescription." target="_blank" class="btn-wa-lg">
+            <i class="bi bi-whatsapp" style="font-size:1.3rem;"></i> Start Your WhatsApp Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="loc-bg" id="locations">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="sec-label">Find Us</span>
+        <h2 class="sec-title">We're Close to Where You Are</h2>
+        <p class="sec-sub mx-auto text-center" style="max-width:560px;">Three branches across the city, each fully stocked and staffed with qualified pharmacists ready to serve you.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="loc-card">
+            <span class="loc-badge">
+              <span style="width:7px;height:7px;background:#4CAF50;border-radius:50%;display:inline-block;"></span>
+              Flagship Branch
+            </span>
+            <h5>Orange Grove Branch</h5>
+            <div class="loc-row"><i class="bi bi-geo-alt-fill"></i><span>Orange Grove Plaza, Castries</span></div>
+            <div class="loc-row"><i class="bi bi-clock-fill"></i><span>Mon–Sat: 8:00 AM – 8:00 PM<br>Sun: 9:00 AM – 5:00 PM</span></div>
+            <div class="loc-row"><i class="bi bi-telephone-fill"></i><span>+1 (758) 457-0000</span></div>
+            <div class="loc-row"><i class="bi bi-whatsapp"></i><span>WhatsApp ordering available 24/7</span></div>
+            <div class="loc-btns">
+              <a href="https://wa.me/17584570000?text=I'm+contacting+the+Orange+Grove+branch" target="_blank" class="btn-loc-wa">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+              <a href="tel:+17584570000" class="btn-loc-call">
+                <i class="bi bi-telephone"></i> Call
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="loc-card">
+            <span class="loc-badge">
+              <span style="width:7px;height:7px;background:#4CAF50;border-radius:50%;display:inline-block;"></span>
+              City Centre Branch
+            </span>
+            <h5>VE Medical Branch</h5>
+            <div class="loc-row"><i class="bi bi-geo-alt-fill"></i><span>Inside VE Medical Plaza, Castries</span></div>
+            <div class="loc-row"><i class="bi bi-clock-fill"></i><span>Mon–Sat: 8:00 AM – 7:30 PM<br>Sun: Closed</span></div>
+            <div class="loc-row"><i class="bi bi-telephone-fill"></i><span>+1 (758) 457-7440</span></div>
+            <div class="loc-row"><i class="bi bi-whatsapp"></i><span>WhatsApp ordering available 24/7</span></div>
+            <div class="loc-btns">
+              <a href="https://wa.me/17584577440?text=I'm+contacting+the+VE+Medical+branch" target="_blank" class="btn-loc-wa">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+              <a href="tel:+17584577440" class="btn-loc-call">
+                <i class="bi bi-telephone"></i> Call
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="loc-card">
+            <span class="loc-badge">
+              <span style="width:7px;height:7px;background:#4CAF50;border-radius:50%;display:inline-block;"></span>
+              South Branch
+            </span>
+            <h5>Gleenwoods Mall Branch</h5>
+            <div class="loc-row"><i class="bi bi-geo-alt-fill"></i><span>Gleenwoods Mall, Vieux Fort</span></div>
+            <div class="loc-row"><i class="bi bi-clock-fill"></i><span>Mon–Sat: 9:00 AM – 7:00 PM<br>Sun: 10:00 AM – 4:00 PM</span></div>
+            <div class="loc-row"><i class="bi bi-telephone-fill"></i><span>+1 (758) 457-7416</span></div>
+            <div class="loc-row"><i class="bi bi-whatsapp"></i><span>WhatsApp ordering available 24/7</span></div>
+            <div class="loc-btns">
+              <a href="https://wa.me/17584577416?text=I'm+contacting+the+Gleenwoods+Mall+branch" target="_blank" class="btn-loc-wa">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+              </a>
+              <a href="tel:+17584577416" class="btn-loc-call">
+                <i class="bi bi-telephone"></i> Call
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-bg">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="sec-label">What Customers Say</span>
+        <h2 class="sec-title">Trusted by Thousands in Our Community</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testi-text">"I WhatsApp'd before leaving home and my prescription was ready when I arrived. This is how every pharmacy should work. Fast, professional, and genuinely caring staff."</p>
+            <div class="testi-author">
+              <div class="author-av">MJ</div>
+              <div>
+                <span class="author-name">Marie Joseph</span>
+                <span class="author-loc">Castries, Saint Lucia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testi-text">"The pharmacist explained my medication properly — what to avoid, when to take it, and what to watch for. I've never received that level of guidance anywhere else."</p>
+            <div class="testi-author">
+              <div class="author-av">DR</div>
+              <div>
+                <span class="author-name">Derek Renwick</span>
+                <span class="author-loc">Vieux Fort, Saint Lucia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+            </div>
+            <p class="testi-text">"Best prices on fragrances and personal care in Castries. I always check here first. Great stock, knowledgeable team, and the WhatsApp service is a real game changer."</p>
+            <div class="testi-author">
+              <div class="author-av">AC</div>
+              <div>
+                <span class="author-name">Alicia Charlemagne</span>
+                <span class="author-loc">Gros Islet, Saint Lucia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALTH TIPS -->
+  <section class="tips-bg">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="sec-title" style="color:white;">Our Pharmacist's Health Tips</h2>
+        <p style="color:rgba(255,255,255,0.72);font-size:0.97rem;margin:0 auto;max-width:500px;">Simple, practical advice that makes a real difference to your everyday health.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="tip-card">
+            <span class="tip-icon"><i class="bi bi-droplet-fill"></i></span>
+            <h6>Stay Hydrated</h6>
+            <p>Drink at least 8 glasses of water daily. Dehydration worsens many health conditions and can affect how medications work.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d1">
+          <div class="tip-card">
+            <span class="tip-icon"><i class="bi bi-alarm-fill"></i></span>
+            <h6>Take Meds on Schedule</h6>
+            <p>Set a daily alarm. Consistency matters — skipping doses or irregular timing can reduce how well your medication works.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d2">
+          <div class="tip-card">
+            <span class="tip-icon"><i class="bi bi-sun-fill"></i></span>
+            <h6>Use Sunscreen Daily</h6>
+            <p>UV rays in the Caribbean are intense year-round. SPF 30+ every day protects your skin from long-term damage.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal d3">
+          <div class="tip-card">
+            <span class="tip-icon"><i class="bi bi-clipboard2-pulse-fill"></i></span>
+            <h6>Check Expiry Dates</h6>
+            <p>Always check expiry dates before taking any medication. Bring expired meds to us — we'll dispose of them safely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-4">
+          <div class="footer-logo">
+            <div class="brand-icon"><i class="bi bi-capsule-pill"></i></div>
+            <h4>HealthPlus Pharmacy</h4>
+          </div>
+          <p class="footer-desc">Your trusted community pharmacy — providing genuine medications, wellness products, and personal care since 2009. Multiple locations, one unwavering standard of care.</p>
+          <div class="footer-socials">
+            <a href="#" class="soc-btn"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="soc-btn"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/17584570000" target="_blank" class="soc-btn"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <p class="footer-head">Navigate</p>
+          <a href="#products" class="f-link">Products</a>
+          <a href="#services" class="f-link">Services</a>
+          <a href="#locations" class="f-link">Locations</a>
+          <a href="#about" class="f-link">About Us</a>
+          <a href="https://wa.me/17584570000" target="_blank" class="f-link">WhatsApp Us</a>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <p class="footer-head">Products</p>
+          <a href="#" class="f-link">Prescription Meds</a>
+          <a href="#" class="f-link">OTC Medications</a>
+          <a href="#" class="f-link">Health &amp; Wellness</a>
+          <a href="#" class="f-link">Personal Care</a>
+          <a href="#" class="f-link">Fragrances</a>
+          <a href="#" class="f-link">Baby &amp; Family</a>
+        </div>
+
+        <div class="col-lg-4">
+          <p class="footer-head">Opening Hours</p>
+          <div class="f-hours"><span class="f-day">Monday – Friday</span><span class="f-time">8:00 AM – 8:00 PM</span></div>
+          <div class="f-hours"><span class="f-day">Saturday</span><span class="f-time">8:00 AM – 6:00 PM</span></div>
+          <div class="f-hours"><span class="f-day">Sunday</span><span class="f-time">9:00 AM – 5:00 PM</span></div>
+          <div class="f-hours"><span class="f-day">Public Holidays</span><span class="f-time">10:00 AM – 3:00 PM</span></div>
+          <a href="https://wa.me/17584570000?text=Hello+HealthPlus!+I+need+assistance." target="_blank" class="btn-wa-lg" style="font-size:0.82rem;padding:12px 20px;border-radius:9px;margin-top:20px;display:inline-flex;">
+            <i class="bi bi-whatsapp"></i> Message Us Now
+          </a>
+        </div>
+
+      </div>
+
+      <hr class="footer-hr">
+
+      <div class="f-bottom">
+        <p class="f-copy">© 2025 HealthPlus Pharmacy. All rights reserved. · Registered Pharmacy</p>
+        <p class="f-credit">Designed &amp; built by <a href="https://jamalinks.com" target="_blank">JAMALINKS</a> · Caribbean Digital Solutions</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <div class="wa-float">
+    <span class="wa-tip">Chat on WhatsApp</span>
+    <a href="https://wa.me/17584570000?text=Hello+HealthPlus+Pharmacy!+I+need+some+help." target="_blank" class="wa-float-btn">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== THEME SYSTEM =====
+    const getAutoTheme = () => {
+      const h = new Date().getHours();
+      return (h >= 6 && h < 18) ? 'light' : 'dark';
+    };
+
+    const applyTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      const ico = document.getElementById('themeIco');
+      if (ico) ico.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+      localStorage.setItem('hp_theme', theme);
+    };
+
+    applyTheme(localStorage.getItem('hp_theme') || getAutoTheme());
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+
+    // ===== SCROLL REVEAL =====
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ===== NAVBAR SHADOW ON SCROLL =====
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').style.boxShadow =
+        window.scrollY > 50 ? '0 4px 32px rgba(0,0,0,0.18)' : '';
+    }, { passive: true });
+
+    // ===== SMOOTH ANCHOR SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const nc = document.querySelector('.navbar-collapse');
+          if (nc.classList.contains('show')) bootstrap.Collapse.getInstance(nc)?.hide();
+        }
+      });
+    });
+
+    // ===== LIVE OPEN/CLOSED STATUS =====
+    const updateStatus = () => {
+      const now = new Date();
+      const day = now.getDay();
+      const h = now.getHours();
+      let open = false;
+      if (day >= 1 && day <= 5) open = h >= 8 && h < 20;
+      else if (day === 6) open = h >= 8 && h < 18;
+      else if (day === 0) open = h >= 9 && h < 17;
+
+      const dot = document.getElementById('statusDot');
+      const txt = document.getElementById('statusText');
+      if (dot) dot.style.background = open ? '#4CAF50' : '#ef5350';
+      if (txt) txt.textContent = open
+        ? 'Open Now · WhatsApp orders active'
+        : 'Currently Closed · WhatsApp us anytime';
+    };
+
+    updateStatus();
+    setInterval(updateStatus, 60000);
+  </script>
+
+</body>
+</html>
