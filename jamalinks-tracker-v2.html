@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JamaLinks — Prospect Tracker v2</title>
+<meta name="description" content="JamaLinks internal prospect warm-up, DM outreach, and pipeline tracker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060b12;--surface:#0c1624;--surface2:#101e30;--surface3:#0a1520;
+  --border:#192d44;--border2:#233f60;
+  --gold:#d4a843;--gold-dim:#8a6c26;--gold-soft:#f0d89a;
+  --blue:#4a8fd4;--blue-dim:#162a42;
+  --green:#3dbf7a;--green-dim:#0a2018;--green-bright:#4dda8a;
+  --red:#d44a4a;--red-dim:#2a0e0e;
+  --purple:#9b6dff;--purple-dim:#1a0a2e;
+  --orange:#e8834a;--teal:#3dbfbf;
+  --text:#e4edf5;--text-dim:#8aafc8;--text-mute:#3a566e;
+  --radius:10px;
+  /* Brand colors */
+  --brand-jama:#d4a843;
+  --brand-akra:#4a8fd4;
+}
+
+/* ── BRAND MODE ─── */
+body{background:var(--bg);background-image:radial-gradient(ellipse at 12% 0%,#0b1e3a 0%,transparent 52%),radial-gradient(ellipse at 88% 100%,#07121e 0%,transparent 52%);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;padding-bottom:80px;font-size:15px}
+body.brand-akra{background-image:radial-gradient(ellipse at 12% 0%,#0b1f3a 0%,transparent 52%),radial-gradient(ellipse at 88% 100%,#071224 0%,transparent 52%)}
+
+/* ── HEADER ─── */
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;gap:10px;flex-wrap:wrap}
+.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.06em;line-height:1;display:flex;align-items:center;gap:8px}
+.logo .jama,.logo .inks{color:var(--blue)}
+.logo .l{color:var(--gold)}
+.logo-sep{color:var(--text-mute);font-weight:400;font-size:.78rem;font-family:'Outfit',sans-serif;letter-spacing:0}
+.header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.header-tag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.14em;background:var(--surface2);border:1px solid var(--border);padding:3px 8px;border-radius:20px}
+
+/* Brand Toggle */
+.brand-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden;flex-shrink:0}
+.brand-btn{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border:none;cursor:pointer;background:transparent;color:var(--text-mute);transition:all .2s;white-space:nowrap}
+.brand-btn.active-jama{background:var(--gold);color:#060910;font-weight:600}
+.brand-btn.active-akra{background:var(--blue);color:#fff;font-weight:600}
+
+/* ── SEARCH BAR ─── */
+.search-bar-wrap{padding:12px 20px 0;max-width:960px;margin:0 auto}
+.search-bar{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.88rem;padding:9px 14px 9px 38px;outline:none;transition:border-color .2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%233a566e' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.742 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:12px center}
+.search-bar:focus{border-color:var(--gold)}
+.search-bar::placeholder{color:var(--text-mute)}
+
+/* ── MAIN ─── */
+main{max-width:960px;margin:0 auto;padding:16px 20px}
+
+/* ── RULE STRIP ─── */
+.rule-strip{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius);padding:14px 18px;margin-bottom:18px}
+.rule-strip-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:8px}
+.rule-strip h3{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.rule-toggle-icon{font-size:.65rem;color:var(--gold);transition:transform .2s}
+.rule-toggle-icon.open{transform:rotate(180deg)}
+.rules-body{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.rules-body.open{max-height:600px}
+.rules{display:flex;flex-direction:column;gap:6px;padding-top:12px}
+.rule{display:flex;gap:10px;font-size:.78rem;color:var(--text-dim);line-height:1.55}
+.rule-icon{color:var(--gold);flex-shrink:0;font-size:.65rem;padding-top:3px}
+.rule strong{color:var(--text)}
+
+/* ── ADD FORM ─── */
+.add-card{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.add-card-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:0}
+.add-card-header.open{margin-bottom:14px}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.add-toggle-icon{font-size:.65rem;color:var(--gold);transition:transform .2s}
+.add-toggle-icon.open{transform:rotate(180deg)}
+.add-form-body{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.add-form-body.open{max-height:700px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;padding-top:4px}
+.form-grid input,.form-grid select,.form-grid textarea{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.83rem;padding:9px 12px;outline:none;transition:border-color .2s;width:100%}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:var(--gold)}
+.form-grid input::placeholder,.form-grid textarea::placeholder{color:var(--text-mute)}
+.form-grid select option{background:#0c1624}
+.form-full{grid-column:1/-1}
+.form-brand-row{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.form-brand-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-mute)}
+.brand-pill{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1px solid var(--border);color:var(--text-mute);cursor:pointer;background:transparent;transition:all .2s}
+.brand-pill.sel-jama{background:var(--gold);color:#060910;border-color:var(--gold)}
+.brand-pill.sel-akra{background:var(--blue);color:#fff;border-color:var(--blue)}
+.strategy-preview{margin-top:10px;background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--blue);border-radius:6px;padding:9px 13px;font-size:.75rem;color:var(--text-dim);line-height:1.55;display:none}
+.strategy-preview.visible{display:block}
+.strategy-preview strong{color:var(--blue)}
+.strategy-preview a{color:var(--gold);text-decoration:none}
+.strategy-preview a:hover{text-decoration:underline}
+.priority-select{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.83rem;padding:9px 12px;outline:none;cursor:pointer;width:100%}
+.btn-add{background:var(--gold);color:#060910;border:none;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;padding:9px 22px;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .1s;width:100%;margin-top:8px}
+.btn-add:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ── TOOLBAR ─── */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.toolbar-btn{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text-mute);cursor:pointer;transition:all .18s;white-space:nowrap}
+.toolbar-btn:hover{border-color:var(--gold);color:var(--gold)}
+.toolbar-btn.danger:hover{border-color:var(--red);color:var(--red)}
+.toolbar-sep{flex:1}
+.sort-select{background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:.58rem;padding:5px 10px;outline:none;cursor:pointer;letter-spacing:.04em}
+.sort-select option{background:#0c1624}
+
+/* ── FILTER BAR ─── */
+.filter-bar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.filter-chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.04em;text-transform:uppercase;color:var(--text-mute);cursor:pointer;white-space:nowrap;transition:all .18s}
+.filter-chip:hover{border-color:var(--gold);color:var(--gold)}
+.filter-chip.active{background:var(--gold);color:#060910;border-color:var(--gold)}
+.filter-chip.overdue-chip{border-color:var(--red);color:var(--red)}
+.filter-chip.overdue-chip.active{background:var(--red);color:#fff}
+
+/* ── STATS BAR ─── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:7px;margin-bottom:18px}
+.stat-chip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.72rem;color:var(--text-dim);text-align:center;position:relative;overflow:hidden}
+.stat-chip strong{color:var(--gold);font-size:1.15rem;font-family:'Syne',sans-serif;font-weight:700;display:block;line-height:1.2;margin-bottom:2px}
+.stat-chip.danger strong{color:var(--red)}
+.stat-chip.success strong{color:var(--green)}
+.stat-chip-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);transition:width .4s ease}
+.stat-chip.danger .stat-chip-bar{background:var(--red)}
+.stat-chip.success .stat-chip-bar{background:var(--green)}
+
+/* ── PROSPECT CARD ─── */
+.prospect-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:border-color .25s,box-shadow .25s;position:relative}
+.prospect-card:hover{border-color:var(--border2);box-shadow:0 4px 24px rgba(74,143,212,.06)}
+.prospect-card.priority-high{border-left:3px solid var(--red)}
+.prospect-card.priority-medium{border-left:3px solid var(--gold)}
+.prospect-card.priority-low{border-left:3px solid var(--text-mute)}
+.prospect-card.overdue{box-shadow:0 0 0 1px var(--red)}
+.brand-indicator{position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 28px 28px 0}
+.brand-indicator.jama{border-color:transparent var(--gold) transparent transparent}
+.brand-indicator.akra{border-color:transparent var(--blue) transparent transparent}
+
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;gap:10px;flex-wrap:wrap}
+.card-header-left{display:flex;align-items:center;gap:11px}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.82rem;color:#fff;flex-shrink:0;border:2px solid var(--border2)}
+.business-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:var(--text);line-height:1.3}
+.card-meta{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--text-mute);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.type-tag{background:var(--blue-dim);border:1px solid #1e3f60;border-radius:10px;padding:1px 7px;font-size:.54rem;color:var(--blue);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.overdue-badge{background:var(--red-dim);border:1px solid #4a1a1a;border-radius:10px;padding:1px 7px;font-size:.54rem;color:var(--red);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.priority-badge{border-radius:10px;padding:1px 7px;font-size:.54rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.priority-badge.high{background:#2a0a0a;color:var(--red);border:1px solid #4a1a1a}
+.priority-badge.medium{background:#1a1a0a;color:var(--gold);border:1px solid #3a3a1a}
+.priority-badge.low{background:var(--surface2);color:var(--text-mute);border:1px solid var(--border)}
+.card-header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.progress-ring{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text-mute);flex-shrink:0}
+.progress-ring span{color:var(--gold);font-weight:500}
+.due-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--text-mute)}
+.due-label.overdue{color:var(--red)}
+.due-label.today{color:var(--orange)}
+.due-label.soon{color:var(--gold)}
+
+/* ── STAGE BADGES ─── */
+.stage-badge{font-family:'IBM Plex Mono',monospace;font-size:.54rem;letter-spacing:.06em;padding:4px 9px;border-radius:20px;text-transform:uppercase;flex-shrink:0}
+.stage-scout{background:#120a2a;color:#b06dff;border:1px solid #2a1a4a}
+.stage-warmup{background:#1a2a0a;color:#8fd44a;border:1px solid #2e4a10}
+.stage-dm{background:#0a1a2e;color:var(--blue);border:1px solid #1a3a5a}
+.stage-replied{background:#0a2a1a;color:var(--green);border:1px solid #1a4a2e}
+.stage-pitched{background:#1a0a2e;color:var(--purple);border:1px solid #2e1a4a}
+.stage-negotiating{background:#1a1a0a;color:var(--gold);border:1px solid #3a3a1a}
+.stage-closed{background:var(--green-dim);color:var(--green);border:1px solid #1a4a2e}
+.stage-parked{background:#0a1020;color:var(--text-mute);border:1px solid var(--border)}
+.stage-dead{background:#2a0a0a;color:var(--red);border:1px solid #4a1a1a}
+
+/* ── CARD BODY ─── */
+.card-body{display:none;padding:0 16px 16px}
+.card-body.open{display:block}
+.divider{height:1px;background:var(--border);margin:0 0 16px}
+
+/* Tabs */
+.card-tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:0}
+.card-tab{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border:none;background:transparent;color:var(--text-mute);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s}
+.card-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.card-tab-pane{display:none}
+.card-tab-pane.active{display:block}
+
+/* ── DAY GRID ─── */
+.day-grid{display:flex;flex-direction:column;gap:6px}
+.day-row{display:grid;grid-template-columns:82px 1fr auto;align-items:start;gap:10px;background:var(--surface2);border-radius:8px;padding:10px 12px;border:1px solid var(--border);transition:border-color .2s,background .2s}
+.day-row.done{border-color:#1a4a2e;background:#071610}
+.day-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--gold);font-weight:500;padding-top:2px;line-height:1.5}
+.day-action{font-size:.78rem;line-height:1.55;color:var(--text-dim)}
+.day-action strong{color:var(--text)}
+.day-action em{color:var(--gold);font-style:normal}
+.comment-guide{margin-top:8px;background:#060d18;border-left:2px solid var(--gold);border-radius:0 4px 4px 0;padding:7px 10px;font-size:.73rem;color:#7a9ab8;line-height:1.52}
+.comment-guide strong{color:var(--gold);display:block;margin-bottom:4px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace}
+.comment-example{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--gold-soft);margin-top:5px;display:block;line-height:1.45}
+.day-check{width:18px;height:18px;accent-color:var(--green);cursor:pointer;flex-shrink:0;margin-top:3px}
+
+/* ── DM SECTION ─── */
+.dm-section{margin-top:16px}
+.dm-section-title{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:9px}
+.dm-block{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:6px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;transition:border-color .2s}
+.dm-block.done{border-color:#1a4a2e;background:#071610}
+.dm-title{font-family:'Syne',sans-serif;font-weight:600;font-size:.78rem;margin-bottom:2px;color:var(--text)}
+.dm-when{font-family:'IBM Plex Mono',monospace;font-size:.57rem;color:var(--text-mute);margin-bottom:7px}
+.dm-text{font-size:.74rem;color:var(--text-dim);line-height:1.7;background:#040810;border-radius:6px;padding:9px 12px;border:1px solid #0d1a28;font-family:'IBM Plex Mono',monospace;white-space:pre-wrap;position:relative}
+.copy-btn{position:absolute;top:6px;right:6px;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:.54rem;padding:2px 7px;cursor:pointer;transition:all .18s;letter-spacing:.04em}
+.copy-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── LOG TAB ─── */
+.log-area{display:flex;flex-direction:column;gap:10px}
+.log-input-row{display:flex;gap:8px;align-items:flex-end}
+.log-textarea{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.83rem;padding:9px 12px;resize:vertical;min-height:60px;outline:none;transition:border-color .2s}
+.log-textarea:focus{border-color:var(--gold)}
+.log-textarea::placeholder{color:var(--text-mute)}
+.btn-log{background:var(--gold);color:#060910;border:none;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;padding:8px 15px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:opacity .2s}
+.btn-log:hover{opacity:.85}
+.log-entries{display:flex;flex-direction:column;gap:7px;max-height:320px;overflow-y:auto;padding-right:4px}
+.log-entry{background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:10px 13px;position:relative}
+.log-entry-meta{font-family:'IBM Plex Mono',monospace;font-size:.57rem;color:var(--text-mute);margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.log-entry-type{border-radius:10px;padding:1px 7px;font-size:.54rem}
+.log-entry-type.note{background:#0a1a2e;color:var(--blue);border:1px solid #1a3a5a}
+.log-entry-type.call{background:#1a2a0a;color:#8fd44a;border:1px solid #2e4a10}
+.log-entry-type.reply{background:#0a2a1a;color:var(--green);border:1px solid #1a4a2e}
+.log-entry-type.objection{background:#2a0a0a;color:var(--red);border:1px solid #4a1a1a}
+.log-entry-type.milestone{background:#1a1a0a;color:var(--gold);border:1px solid #3a3a1a}
+.log-entry-text{font-size:.8rem;color:var(--text-dim);line-height:1.55}
+.log-delete-btn{position:absolute;top:7px;right:9px;background:none;border:none;color:var(--text-mute);font-size:.7rem;cursor:pointer;transition:color .18s;padding:2px 4px}
+.log-delete-btn:hover{color:var(--red)}
+.log-type-select{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.8rem;padding:7px 10px;outline:none;cursor:pointer;flex-shrink:0}
+
+/* ── DETAILS TAB ─── */
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.detail-field{display:flex;flex-direction:column;gap:5px}
+.detail-label{font-family:'IBM Plex Mono',monospace;font-size:.57rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-mute)}
+.detail-input{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.82rem;padding:8px 11px;outline:none;transition:border-color .2s;width:100%}
+.detail-input:focus{border-color:var(--gold)}
+.detail-input::placeholder{color:var(--text-mute)}
+.detail-full{grid-column:1/-1}
+.next-action-field{background:#0a1020;border:1px solid var(--gold);border-radius:6px;padding:10px 12px;grid-column:1/-1}
+.next-action-label{font-family:'IBM Plex Mono',monospace;font-size:.57rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.next-action-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.next-action-input{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.82rem;padding:8px 11px;outline:none;flex:1;min-width:160px}
+.next-action-date{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:.78rem;padding:8px 11px;outline:none;width:160px}
+.next-action-input:focus,.next-action-date:focus{border-color:var(--gold)}
+
+/* ── STAGE ROW ─── */
+.stage-row{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border)}
+.stage-label-sm{font-size:.63rem;color:var(--text-mute);font-family:'IBM Plex Mono',monospace}
+.stage-select{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Outfit',sans-serif;font-size:.8rem;padding:6px 11px;outline:none;cursor:pointer}
+.btn-save{background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;cursor:pointer;transition:background .2s,color .2s}
+.btn-save:hover{background:var(--gold);color:#060910}
+.btn-delete{background:transparent;border:1px solid #2a0e0e;color:var(--red);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:.61rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;cursor:pointer;transition:background .2s;margin-left:auto}
+.btn-delete:hover{background:var(--red-dim)}
+
+/* ── EMPTY STATE ─── */
+.empty-state{text-align:center;padding:52px 20px;color:var(--text-mute);font-size:.86rem;border:1px dashed var(--border);border-radius:var(--radius)}
+.empty-state strong{display:block;font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;color:var(--text-dim)}
+
+/* ── TOAST ─── */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--gold);color:#060910;font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.05em;padding:8px 20px;border-radius:20px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:999}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast.success-toast{background:var(--green);color:#060910}
+#toast.error-toast{background:var(--red);color:#fff}
+
+/* ── CONFIRM MODAL ─── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;display:none;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;max-width:340px;width:90%;text-align:center}
+.modal-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px}
+.modal-body{font-size:.85rem;color:var(--text-dim);margin-bottom:20px;line-height:1.55}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.modal-btn{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 20px;border-radius:6px;cursor:pointer;transition:all .2s;border:1px solid var(--border)}
+.modal-btn.confirm{background:var(--red);color:#fff;border-color:var(--red)}
+.modal-btn.cancel{background:transparent;color:var(--text-mute)}
+
+/* ── PROGRESS BAR ─── */
+.warmup-progress{height:3px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.warmup-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:2px;transition:width .4s ease}
+
+/* ── AKRA BADGE ─── */
+.akra-tag{background:#0a1a2e;border:1px solid #1a3a5a;border-radius:10px;padding:1px 7px;font-size:.54rem;color:var(--blue);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.jama-tag{background:#1a1a0a;border:1px solid #3a3a1a;border-radius:10px;padding:1px 7px;font-size:.54rem;color:var(--gold);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── RESPONSIVE ─── */
+@media(max-width:580px){
+  .day-row{grid-template-columns:68px 1fr auto;gap:7px}
+  .form-grid{grid-template-columns:1fr}
+  .card-header{flex-direction:column;align-items:flex-start}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .details-grid{grid-template-columns:1fr}
+  .detail-full{grid-column:1}
+  .next-action-row{flex-direction:column;align-items:stretch}
+  .next-action-date{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-title">Are you sure?</div>
+    <div class="modal-body" id="modal-body">This action cannot be undone.</div>
+    <div class="modal-btns">
+      <button class="modal-btn cancel" onclick="closeModal()" aria-label="Cancel">Cancel</button>
+      <button class="modal-btn confirm" id="modal-confirm-btn" aria-label="Confirm action">Delete</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="logo">
+    <span><span class="jama">Jama</span><span class="l">L</span><span class="inks">inks</span></span>
+    <span class="logo-sep">/ Prospect Tracker</span>
+  </div>
+  <div class="header-right">
+    <div class="brand-toggle" role="group" aria-label="Select brand">
+      <button class="brand-btn" id="btn-brand-all" onclick="setBrand('all')" aria-pressed="true">All</button>
+      <button class="brand-btn" id="btn-brand-jama" onclick="setBrand('jamalinks')" aria-pressed="false">JamaLinks</button>
+      <button class="brand-btn" id="btn-brand-akra" onclick="setBrand('akralink')" aria-pressed="false">AkraLink</button>
+    </div>
+    <div class="header-tag">⚡ Internal Only</div>
+  </div>
+</header>
+
+<div class="search-bar-wrap">
+  <input type="search" class="search-bar" id="search-input" placeholder="Search prospects by name, handle, or location…" aria-label="Search prospects" oninput="render()">
+</div>
+
+<main role="main">
+
+  <!-- RULES -->
+  <div class="rule-strip" role="note">
+    <div class="rule-strip-header" onclick="toggleRules()" aria-expanded="false" aria-controls="rules-body">
+      <h3>⚡ Outreach Rules — Read Before Every Campaign</h3>
+      <span class="rule-toggle-icon" id="rule-icon">▼</span>
+    </div>
+    <div class="rules-body" id="rules-body">
+      <div class="rules">
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Scout first. Always.</strong> Complete a full profile audit before any follow, like, or DM. Never approach blind.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Never cold-DM.</strong> Complete the full 7-day warm-up first. Minimum 5 days of engagement before DM 1. No exceptions.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Max 4 likes per session.</strong> Spaced across the day. Never mass-like a grid — it signals automation and destroys trust.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Comments must be post-specific.</strong> Reference the actual product, design, or detail. "Love this!" is noise. Noise does not build trust.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Never pitch in comments.</strong> Comments are trust deposits only. The DM is where business is done. Mixing the two destroys both.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Wait 3 full days before DM 2.</strong> One follow-up. One. Patience signals confidence. Desperation closes doors permanently.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Have a live demo ready before DM 3.</strong> Never pitch without proof. Walk in with it ready — not in progress.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>5–7 days silence after DM = move-on trigger.</strong> Park them. Set a re-engage date. Never double-message after a follow-up.</span></div>
+        <div class="rule"><span class="rule-icon">▸</span><span><strong>Non-followers = message requests.</strong> DMs likely unread. Pivot to email or their listed contact channel instead.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD FORM -->
+  <div class="add-card">
+    <div class="add-card-header" id="add-header" onclick="toggleAddForm()" aria-expanded="false" aria-controls="add-form-body" role="button" tabindex="0" onkeydown="if(event.key==='Enter')toggleAddForm()">
+      <div class="section-label">+ Add New Prospect</div>
+      <span class="add-toggle-icon" id="add-icon">▼</span>
+    </div>
+    <div class="add-form-body" id="add-form-body">
+      <div class="form-grid">
+        <input type="text" id="inp-name" placeholder="Business Name *" aria-label="Business name" required>
+        <select id="inp-type" aria-label="Business type" onchange="updateStrategyPreview()" required>
+          <option value="">— Select Business Type * —</option>
+          <optgroup label="Food & Beverage">
+            <option value="restaurant">🍽️  Restaurant / Eatery</option>
+            <option value="bakery">🎂  Bakery / Cake Artist</option>
+            <option value="coffee">☕  Coffee Shop / Café</option>
+            <option value="catering">🍱  Catering Service</option>
+            <option value="juice">🥤  Juice Bar / Wellness Drinks</option>
+            <option value="foodtruck">🚚  Food Truck / Street Food</option>
+            <option value="bartender">🍸  Bar / Cocktail Bar</option>
+          </optgroup>
+          <optgroup label="Retail & Fashion">
+            <option value="boutique">👗  Fashion / Clothing Boutique</option>
+            <option value="sneaker">👟  Sneaker / Footwear Retail</option>
+            <option value="accessories">💍  Accessories / Jewellery</option>
+            <option value="thrift">🏷️  Thrift / Vintage Shop</option>
+          </optgroup>
+          <optgroup label="Beauty & Wellness">
+            <option value="beauty">💅  Beauty / Salon / Spa</option>
+            <option value="skincare">✨  Skincare / Cosmetics Brand</option>
+            <option value="fitness">💪  Fitness / Gym / Trainer</option>
+            <option value="barbershop">✂️  Barbershop / Men's Grooming</option>
+            <option value="wellness">🧘  Wellness / Holistic Health</option>
+          </optgroup>
+          <optgroup label="Creative & Media">
+            <option value="photography">📷  Photography / Videography</option>
+            <option value="artist">🎨  Visual Artist / Illustrator</option>
+            <option value="music">🎵  Musician / DJ / Artist</option>
+            <option value="contentcreator">📱  Content Creator / Influencer</option>
+            <option value="events">🎉  Events Planner / Decorator</option>
+          </optgroup>
+          <optgroup label="Sports & Personal Brand">
+            <option value="sports">⚽  Athlete / Sports Personality</option>
+            <option value="personalbrand">🎓  Coach / Therapist / Consultant</option>
+          </optgroup>
+          <optgroup label="Trade & Services">
+            <option value="construction">🏗️  Construction / Contracting</option>
+            <option value="auto">🚗  Auto Services / Car Detailing</option>
+            <option value="cleaning">🧹  Cleaning Service</option>
+            <option value="security">🔒  Security Services</option>
+            <option value="plumbing">🔧  Plumbing / Electrical / HVAC</option>
+            <option value="landscaping">🌿  Landscaping / Gardening</option>
+            <option value="printing">🖨️  Printing / Signage</option>
+            <option value="logistics">📦  Logistics / Delivery Service</option>
+          </optgroup>
+          <optgroup label="Hospitality & Tourism">
+            <option value="hotel">🏨  Hotel / Guesthouse / Airbnb</option>
+            <option value="tour">🌴  Tour Operator / Experience</option>
+            <option value="rentals">🚤  Equipment / Vehicle Rentals</option>
+          </optgroup>
+          <optgroup label="Professional Services">
+            <option value="realestate">🏠  Real Estate Agent / Developer</option>
+            <option value="legal">⚖️  Legal / Notary Services</option>
+            <option value="financial">💰  Financial Services / Insurance</option>
+            <option value="tech">💻  Tech / Software / IT Services</option>
+            <option value="education">📚  Tutoring / Education</option>
+            <option value="medical">🏥  Medical / Dental / Clinic</option>
+          </optgroup>
+          <optgroup label="Energy & Industrial">
+            <option value="energy">⚡  Energy / Solar / Hardware</option>
+            <option value="agriculture">🌾  Agriculture / Farming</option>
+            <option value="manufacturing">🏭  Manufacturing / Distribution</option>
+          </optgroup>
+        </select>
+        <input type="text" id="inp-handle" placeholder="Instagram Handle" aria-label="Instagram handle">
+        <input type="text" id="inp-location" placeholder="Location (e.g. Castries, SLU)" aria-label="Location">
+        <input type="text" id="inp-email" placeholder="Email (if known)" aria-label="Email address">
+        <input type="text" id="inp-contact" placeholder="Owner / Contact Name" aria-label="Owner or contact name">
+        <input type="date" id="inp-startdate" aria-label="Start date">
+        <select class="priority-select" id="inp-priority" aria-label="Priority level">
+          <option value="medium">⚡ Priority: Medium</option>
+          <option value="high">🔴 Priority: High</option>
+          <option value="low">⬇ Priority: Low</option>
+        </select>
+        <div class="form-brand-row">
+          <span class="form-brand-label">Assign to Brand:</span>
+          <button type="button" class="brand-pill sel-jama" id="pill-jama" onclick="selectBrandPill('jamalinks')" aria-pressed="true">JamaLinks</button>
+          <button type="button" class="brand-pill" id="pill-akra" onclick="selectBrandPill('akralink')" aria-pressed="false">AkraLink</button>
+        </div>
+        <div class="strategy-preview form-full" id="strategy-preview"></div>
+        <button class="btn-add form-full" onclick="addProspect()" aria-label="Add prospect">Add Prospect →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <button class="toolbar-btn" onclick="exportData()" aria-label="Export all data to JSON">⬇ Export JSON</button>
+    <button class="toolbar-btn" onclick="document.getElementById('import-file').click()" aria-label="Import data from JSON">⬆ Import JSON</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
+    <button class="toolbar-btn" onclick="exportCSV()" aria-label="Export data to CSV">⬇ Export CSV</button>
+    <div class="toolbar-sep"></div>
+    <label for="sort-select" class="sr-only">Sort prospects</label>
+    <select class="sort-select" id="sort-select" onchange="render()" aria-label="Sort prospects">
+      <option value="recent">Sort: Recently Added</option>
+      <option value="priority">Sort: Priority (High First)</option>
+      <option value="stage">Sort: Stage</option>
+      <option value="overdue">Sort: Overdue First</option>
+      <option value="alpha">Sort: A–Z</option>
+    </select>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter prospects"></div>
+
+  <!-- STATS -->
+  <div class="stats-grid" id="stats-bar" role="status" aria-live="polite"></div>
+
+  <!-- PROSPECT LIST -->
+  <div id="prospect-list"></div>
+
+</main>
+
+<div id="toast" role="alert" aria-live="assertive"></div>
+
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+<script>
+const STORAGE_KEY = 'jamalinks_tracker_v2';
+let currentFilter = 'all';
+let currentBrand  = 'all';
+let pendingBrandPill = 'jamalinks';
+
+/* ══════════════════════════════════════════════════════════
+   BUSINESS TYPE CONFIG
+══════════════════════════════════════════════════════════ */
+const BT = {
+  restaurant:{
+    label:'Restaurant / Eatery', emoji:'🍽️', grad:['#c84a2a','#e8834a'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/island-bites.html', demoName:'Island Bites',
+    painPoint:'No ordering link — customers who are ready to buy have no clear path to place an order.',
+    day3Guide:'Comment on the food itself — plating, portion size, a specific dish, or the styling. Show you actually looked at the content.',
+    day3Ex:['"That jerk chicken platter is carrying — the colour on the rice alone tells you the seasoning is right 🔥"','"The presentation on this dish is genuinely restaurant quality — whoever is styling these shots understands the assignment"','"That weekly special looks hearty — love that you show the portion size, most food pages never do"'],
+    day5Guide:'Comment on something operational — their ordering setup, highlights structure, delivery info. Shows you see them as a business.',
+    day5Ex:['"The delivery area info in your highlights is a smart move — most food pages skip it and lose customers"','"Pinning your menu post at the top saves customers the scroll and probably saves you unnecessary DMs"','"The seasonal specials format keeps the feed feeling intentional without overcomplicating the content"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, love what you're putting out over in [Location].\n\nOne honest question — do you have a link where customers can see your full menu and place an order directly? I went looking and couldn't find one in the bio.\n\nAsking because a lot of food businesses lose orders at exactly that moment — right when someone is hungry and ready to buy.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back on this in case it got buried 👆\n\nNo pressure at all — just spotted something specific on your profile that I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest — NEVER before',text:`So here's what I noticed —\n\nYou've got strong content, real food, and people clearly love what you're doing. But there's no ordering link in your bio. Every customer who finds your page and wants to order has to DM you, find a number, or just give up. A lot of them give up.\n\nI build clean, mobile-first ordering pages for food businesses — customers browse your menu, choose items, and send their order straight to your WhatsApp. No app. No complicated system.\n\nLive demo built for a food business:\n👉 https://jamalinks758.github.io/jamalinks/island-bites.html\n\nMobile-ready. WhatsApp-native. Built for the way Caribbean food customers actually order.\n\nWould something like that work for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Good question — here's the honest breakdown.\n\nEntry level starts at $250 USD — full menu layout, WhatsApp ordering flow, mobile-first design. Most food businesses go with the mid tier around $350–$400, which adds a pickup vs delivery toggle, featured items section, and full branding match.\n\nBut first — how are customers currently placing orders with you? DMs? Phone? Walk-in only? That answer tells me exactly which setup fits your operation best.`}
+    ]
+  },
+  bakery:{
+    label:'Bakery / Cake Artist', emoji:'🎂', grad:['#a84c6b','#d4874a'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/sweet-layers.html', demoName:'Sweet Layers',
+    painPoint:'No custom order link — customers wanting a custom cake have no clear path and many just leave.',
+    day3Guide:'Be specific — a piping technique, colour gradient, texture, occasion detail. Show you actually looked.',
+    day3Ex:['"That ombre drip work on the birthday tier is clean 🎂 — the colour gradient is exactly what you want to see"','"The floral design on this wedding cake is stunning — the precision at that scale is genuinely impressive"','"That packaging is elite — the ribbon detail alone makes it look premium before they open the box"'],
+    day5Guide:'Acknowledge something smart they do as a business — highlights, pinned order post, custom flavour menu.',
+    day5Ex:['"The custom flavour catalogue in your highlights is really smart — easy for new customers to browse without DMing first"','"Pinning the order form makes it so easy to find — most bakeries don\'t think to do that"','"The seasonal specials announcement keeps the feed feeling alive and intentional"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a while now, love what you're building over in [Location].\n\nQuick honest question — do you have a link where customers can see your full menu, pricing, and place a custom order directly? I couldn't find one in the bio.\n\nAsking because it might be quietly costing you orders you don't even know you're losing.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back on this in case it got buried 👆\n\nNo pressure at all — just spotted something specific on your profile that I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest — NEVER before',text:`So here's what I noticed —\n\nYou've got beautiful work on your page, great content, real engagement. But there's no ordering link in your bio. Every customer who lands on your page and wants to place a custom cake order has to DM you, call, or figure it out themselves. A lot of them just leave.\n\nI build clean, mobile-first ordering pages for bakeries — customers see your flavours, sizing options, and send a custom order straight to your WhatsApp. No app. No complicated system.\n\nLive demo built for a cake business:\n👉 https://jamalinks758.github.io/jamalinks/sweet-layers.html\n\nFully mobile-ready. Built for the way cake customers actually order.\n\nWould something like that be useful for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Fair question — here's the honest breakdown.\n\nEntry tier starts around $250 USD — menu, WhatsApp ordering flow, basic mobile layout. Most bakery owners go with the mid-tier at $350–$400, which adds a custom cake builder, gallery section, and full branding match.\n\nBefore we get into numbers — how are customers currently placing custom cake orders with you? DMs? Phone calls? That usually tells me exactly which setup makes the most sense.`}
+    ]
+  },
+  coffee:{
+    label:'Coffee Shop / Café', emoji:'☕', grad:['#7a5a2a','#c09a4a'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/velour-cafe.html', demoName:'Velour Café',
+    painPoint:'No pre-order or menu link — morning regulars have no quick path to order ahead, and many go elsewhere.',
+    day3Guide:'Comment on the drink craft — latte art, colour, presentation, seasonal ingredients.',
+    day3Ex:['"That latte art is genuinely professional level — the rosette pour is clean ☕"','"The colour layering on that cold brew is perfect — you can tell the ratio and temperature are exactly right"','"That seasonal drink looks special — the garnish detail elevates it from just a drink to something worth photographing"'],
+    day5Guide:'Comment on how they run the business — hours posted, menu layout, ordering process.',
+    day5Ex:['"The menu breakdown in your highlights makes it easy to see what\'s seasonal vs always available — helpful"','"Posting your hours and location clearly in the bio saves customers the back and forth — smart"','"The weekly specials format keeps regulars checking back without much extra effort"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] ☕ — been following along for a bit, love what you're building in [Location].\n\nQuick honest question — do you have a link where customers can see your full menu and pre-order ahead of pickup? I didn't find one in the bio.\n\nAsking because it's one of those small gaps that quietly costs coffee businesses a lot of repeat orders — especially morning regulars.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just circling back on this in case it got lost 👆\n\nNo pressure — just noticed something specific on your profile I think is worth 2 minutes of your time.\n\nWorth a look when you get a chance?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest — NEVER before',text:`Here's what I noticed —\n\nYour content is great, the drinks look elite, and you've clearly built a following. But there's no ordering link in your bio. Every customer who wants to pre-order their morning coffee has to DM you, call, or just show up and hope. Most won't bother — they'll go somewhere with a click-to-order setup.\n\nI build clean, mobile-first menu and ordering pages for coffee businesses — customers browse your drinks, pick their order, and send it straight to your WhatsApp. No third-party app. No commission cut.\n\nLive demo:\n👉 https://jamalinks758.github.io/jamalinks/velour-cafe.html\n\nWould a setup like that work for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $250 USD — full drink menu, WhatsApp ordering flow, mobile-first design. Most café owners go with the mid tier at $350–$400, which adds a pre-order scheduling feature, a regulars section, and full branding match.\n\nQuick question first — how are customers currently ordering with you? Showing up in person? DMing their order? That tells me exactly which setup fits how your customers already behave.`}
+    ]
+  },
+  catering:{
+    label:'Catering Service', emoji:'🍱', grad:['#2a6a4a','#4ab882'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/calabash-catering.html', demoName:'Calabash Catering Co.',
+    painPoint:'No booking or inquiry page — corporate and event clients can\'t find pricing, packages, or a clear way to enquire.',
+    day3Guide:'Comment on the setup, food presentation, or event quality. Show you see the professional side.',
+    day3Ex:['"The spread on that corporate setup is impressive — the presentation at that scale is hard to pull off consistently"','"The way you\'ve plated this buffet makes it look high-end without being complicated — real skill"','"That event setup is immaculate — the attention to detail from the food to the table arrangement is evident"'],
+    day5Guide:'Comment on something about how they present their service packages or client results.',
+    day5Ex:['"The portfolio highlights are well organised — easy to understand the range of events you handle"','"Clear service tiers like that save clients a lot of back-and-forth before booking — smart structure"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a while, love the setups you're doing in [Location].\n\nHonest question — do you have a page anywhere where potential clients can see your packages, event types you cover, and submit a catering enquiry directly? I couldn't find one in the bio.\n\nAsking because a lot of high-value clients research before they reach out — and if there's nowhere to send them, they move on.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back on this in case it got buried 👆\n\nNo pressure at all — spotted something specific on your profile that I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe quality of your work is evident — great presentation, professional setups, consistent content. But there's no page where a potential corporate client or event planner can go to understand your packages, see your capacity, and submit an enquiry directly. That's a gap.\n\nI build professional booking and inquiry pages for catering businesses — package listings, gallery, WhatsApp or form-based enquiry flow. No complicated system.\n\nLive demo:\n👉 https://jamalinks758.github.io/jamalinks/calabash-catering.html\n\nWould something like that work for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the straight breakdown.\n\nEntry level is $250–$300 USD — services page, package listings, WhatsApp enquiry flow. Most catering businesses go with $350–$450, which adds a full gallery, client testimonials, event type filtering, and a proper contact form.\n\nBefore we settle on numbers — what types of events are you booking most right now, and how are clients currently reaching you to enquire? That shapes exactly what the page needs to do.`}
+    ]
+  },
+  juice:{
+    label:'Juice Bar / Wellness Drinks', emoji:'🥤', grad:['#2a8a4a','#6ad44a'],
+    demoLink:'', demoName:'',
+    painPoint:'No menu or pre-order link — health-conscious customers who find the page can\'t see what\'s available or order conveniently.',
+    day3Guide:'Comment on the drink itself — ingredients, colour, health angle, or the visual presentation.',
+    day3Ex:['"That sea moss blend looks exactly right — the consistency and colour are spot on 🥤"','"Love that you actually list the ingredients — transparent labelling builds trust fast with wellness customers"','"That cold press colour is stunning — clear you\'re sourcing quality produce"'],
+    day5Guide:'Comment on how they communicate their health value proposition or customer benefits.',
+    day5Ex:['"The breakdown of benefits under each drink is smart — customers want to know what they\'re getting, not just the name"','"The detox programme highlight is well organised — easy to follow without being overwhelming"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🥤 — been following the page for a bit, love what you're building in [Location].\n\nQuick question — do you have a link anywhere where customers can see your full menu and order directly? I couldn't find one in the bio.\n\nAsking because wellness customers especially are research-first buyers — if they can't find your menu quickly, most won't DM to ask.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back on this in case it got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nYour content is clean, the products look premium, and you've got a clear brand. But there's no menu page — no place where a customer can browse your full range, see the benefits, and place an order or enquiry directly. That's where you're losing people.\n\nI build clean, mobile-first menu pages for wellness and juice businesses — WhatsApp-native ordering, ingredient highlights, health benefit breakdowns. No app, no commission.\n\nI don't have a demo specific to juice bars live yet — but I can show you exactly what one would look like for [Business Name]. Would that be worth your time?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — full menu page, WhatsApp ordering flow, mobile-first design. Most wellness businesses go with $350–$400 which adds a benefits/ingredients breakdown section, a subscription or loyalty angle, and full branding match.\n\nQuick question first — are most of your orders walk-in, Instagram DM, or phone? That tells me exactly how the ordering flow needs to work for your customers.`}
+    ]
+  },
+  foodtruck:{
+    label:'Food Truck / Street Food', emoji:'🚚', grad:['#c84a2a','#c8a42a'],
+    demoLink:'', demoName:'',
+    painPoint:'No location schedule or pre-order page — customers don\'t know where to find them or how to order in advance.',
+    day3Guide:'Comment on the food itself — the dish, the presentation, the serving speed, or the energy of the setup.',
+    day3Ex:['"That food truck setup looks locked in — the hustle and the quality at the same time is impressive 🚚"','"That serving line moves — you can tell the operation is tight from how the setup is laid out"','"The dish presentation for a truck setting is impressive — that level of care stands out"'],
+    day5Guide:'Comment on their location updates, schedule posts, or how they communicate with followers about where to find them.',
+    day5Ex:['"The location update system you\'ve built in stories is smart — makes it easy for regulars to track you"','"Posting the weekly schedule as a pinned story is exactly what mobile businesses should be doing"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page, love what you're doing out in [Location].\n\nOne honest question — do you have a page anywhere where customers can see your schedule, location updates, and pre-order before they come find you? I couldn't find a centralised spot for it.\n\nAsking because mobile food businesses lose a lot of repeat customers at exactly that gap — people want to plan before they travel.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nYour following is real, the food speaks for itself, but there's no central page — no place where someone can check your weekly schedule, see today\'s menu, and pre-order so they know their food is ready when they arrive. That\'s the gap.\n\nI build mobile-first location and ordering pages for food trucks — live schedule, WhatsApp pre-order flow, menu. No app.\n\nI can put together a demo specifically for [Business Name]'s setup — would that be worth your time?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $250 USD — schedule page, menu, WhatsApp pre-order. Mid-tier at $350–$400 adds a location map embed, real-time update section, and loyalty or repeat-customer feature.\n\nQuick question first — how many days per week are you operating, and are customers mostly finding you through Instagram or word of mouth? That shapes exactly what the page needs to do.`}
+    ]
+  },
+  bartender:{
+    label:'Bar / Cocktail Bar', emoji:'🍸', grad:['#2a1a4a','#6a2a8a'],
+    demoLink:'', demoName:'',
+    painPoint:'No events or table-booking page — customers wanting to host events or reserve tables have no streamlined path.',
+    day3Guide:'Comment on the cocktail craft, presentation, or the venue atmosphere.',
+    day3Ex:['"That cocktail presentation is genuinely bar-quality — the garnish work on that one is precise 🍸"','"The colour layering in that cocktail is textbook — you can tell the pours are measured and deliberate"','"The ambience in that venue shot is exactly what people look for when planning a night out — warm, not overdone"'],
+    day5Guide:'Comment on how they communicate events, specials, or the booking experience.',
+    day5Ex:['"The event night promotions are clearly laid out — easy to see what\'s on and when without hunting through the feed"','"Clear price points on the cocktail menu make a huge difference for new customers deciding before they arrive"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🍸 — been following the page, love the energy you've built in [Location].\n\nHonest question — do you have a page anywhere where people can see your events calendar, book a table, or enquire about private events directly? I couldn't find a clear path for that in the bio.\n\nAsking because a lot of bars lose private bookings at exactly that point — people look, can't find a booking path, and go elsewhere.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just spotted something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe vibe is right, the content is consistent, and you've clearly built a following. But there's no booking page — no place where someone planning a birthday or corporate event can go to understand your packages and reserve directly. That's revenue leaving on the table.\n\nI build mobile-first event and booking pages for bars and venues — event calendar, table reservation flow, private hire enquiry. WhatsApp-native. No third-party booking app fees.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300 USD — events page, WhatsApp reservation flow, cocktail menu. Mid-tier at $400–$500 adds a private hire package layout, gallery, testimonials, and full branding match.\n\nBefore we settle on numbers — what percentage of your revenue right now comes from private events vs walk-in traffic? That tells me exactly how the page should be weighted.`}
+    ]
+  },
+  boutique:{
+    label:'Fashion / Clothing Boutique', emoji:'👗', grad:['#8a2a6a','#d44ab8'],
+    demoLink:'', demoName:'',
+    painPoint:'No shop link — followers who want to buy have no catalogue or purchase path and many don\'t bother DMing.',
+    day3Guide:'Comment on the outfit, styling, or the visual quality of the post. Be specific about what you see.',
+    day3Ex:['"The colour coordination on this look is clean — the accessories match without being too matchy 👗"','"The styling on this set is effortless — whoever is putting these looks together has a real eye for proportion"','"The fabric quality reads clearly in the photo — that\'s a hard thing to capture and you\'ve done it well"'],
+    day5Guide:'Comment on how they run the business side — their drop announcements, restocking updates, or how they handle sizing.',
+    day5Ex:['"The new arrival announcement format is clean — followers know exactly what\'s dropping and when without hunting"','"Posting the size availability upfront saves a lot of back-and-forth for customers ready to buy"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, love what you're curating in [Location].\n\nHonest question — do you have a catalogue or shop page anywhere where customers can browse your full range and place an order directly? I couldn't find one in the bio.\n\nAsking because fashion followers have short attention spans — if there's no clear path to buy, a lot of them just move on.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just spotted something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe aesthetic is strong, the content is consistent, and you've built a real following. But there's no shop or catalogue page — every customer who wants to buy has to DM you, ask about availability, and wait. A lot of them won't wait.\n\nI build clean, mobile-first catalogue and ordering pages for boutiques — product listings, size guides, WhatsApp order flow. No third-party platform fees.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — product catalogue, WhatsApp order flow, mobile-first design. Mid-tier at $350–$450 adds a lookbook section, size chart, featured collections, and full branding match.\n\nQuick question first — how are most of your orders coming in right now? DMs? Story replies? Word of mouth? That tells me exactly how the page needs to convert for your specific customer.`}
+    ]
+  },
+  sneaker:{
+    label:'Sneaker / Footwear Retail', emoji:'👟', grad:['#1a2a3a','#e8834a'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/sole-slu.html', demoName:'SOLE•SLU',
+    painPoint:'No product catalogue — sneaker buyers want to browse full inventory before committing to a DM, and most won\'t.',
+    day3Guide:'Comment on the kicks themselves — colourway, condition, exclusivity, or the photography.',
+    day3Ex:['"That colourway is genuinely rare — the condition on those is immaculate 👟"','"The photography on these pairs is clean — the lighting makes the details pop in a way that matters for buyers"','"Those heat-to-retail ratio on that pair is real — you actually carry the stuff people are looking for"'],
+    day5Guide:'Comment on how they handle drops, restocking, or how they communicate availability.',
+    day5Ex:['"The drop announcement format is right — clear date, clear pair, no information buried"','"The grail section in your highlights is a smart move — makes it easy for serious buyers to see your best inventory at a glance"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👟 — been following the page for a bit, love the inventory you're moving in [Location].\n\nHonest question — do you have a catalogue page anywhere where buyers can browse your full available stock and enquire directly? I couldn't find one in the bio.\n\nAsking because serious sneaker buyers want to browse before they commit to a DM — if there's no catalogue, a lot of them just move on to the next page.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just spotted something specific on your profile I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe inventory is real, the photography is clean, and the following is there. But there's no catalogue page — no place where a serious buyer can browse your available pairs, check sizes, and send an order straight to your WhatsApp. That gap is costing you sales.\n\nI build clean, mobile-first sneaker catalogue pages — product listings, size availability, WhatsApp enquiry flow. No marketplace fees.\n\nLive demo built for a sneaker shop:\n👉 https://jamalinks758.github.io/jamalinks/sole-slu.html\n\nWould a setup like that work for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $250–$300 USD — full catalogue, WhatsApp enquiry flow, size availability display. Mid-tier at $350–$450 adds a grail/featured section, authentication badge display, and full branding match.\n\nBefore we go further — roughly how many pairs are you carrying at any given time? And are most buyers local or are you shipping? That shapes exactly how the catalogue needs to work.`}
+    ]
+  },
+  beauty:{
+    label:'Beauty / Salon / Spa', emoji:'💅', grad:['#8a2a4a','#d44a8a'],
+    demoLink:'', demoName:'',
+    painPoint:'No booking link — customers ready to book have no direct path and often go to whoever makes it easiest.',
+    day3Guide:'Comment on the service quality — the finish of a set, the precision of a cut, the detail of a treatment.',
+    day3Ex:['"That nail set is genuinely immaculate — the precision at the tip is exactly what separates professional from amateur 💅"','"The finish on that cut is clean — you can tell the technique is practiced, not guessed"','"The skin on that facial result is glowing — the before/after tells the whole story without needing words"'],
+    day5Guide:'Comment on how they manage bookings, communicate availability, or handle clients.',
+    day5Ex:['"The booking reminder story is professional — sets expectations without being pushy"','"The availability calendar post is exactly what busy clients need — no back-and-forth to find a slot"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, love the work you're doing in [Location].\n\nHonest question — do you have a booking page anywhere where clients can see your services, pricing, and book directly? I couldn't find one in the bio.\n\nAsking because a lot of beauty clients book the first place that makes it easy — if there's no clear booking path, they move on quickly.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe quality of your work is evident — strong content, real results, consistent posting. But there's no booking page. Every client who finds you and wants to book has to DM, ask for pricing, and wait for availability. A lot of them book someone else in that gap.\n\nI build clean, mobile-first booking and service pages for beauty professionals — service menu, pricing, gallery, WhatsApp booking flow or form integration.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — services list, pricing, WhatsApp booking flow. Mid-tier at $350–$450 adds a gallery of your work, testimonials section, and booking calendar integration.\n\nBefore we settle on numbers — how are most clients currently booking with you right now? Story DMs? Phone? Walk-in? That tells me exactly what the page needs to replace.`}
+    ]
+  },
+  skincare:{
+    label:'Skincare / Cosmetics Brand', emoji:'✨', grad:['#2a1a0a','#c09a6a'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/choiselle.html', demoName:'Choiselle',
+    painPoint:'No product page — potential buyers can\'t browse the full range, understand ingredients, or purchase easily.',
+    day3Guide:'Comment on the product itself — packaging, texture, skin results, ingredient transparency.',
+    day3Ex:['"The packaging on that product is genuinely premium — the branding reads luxury without being loud ✨"','"The ingredient transparency in that post is smart — conscious skincare buyers look for exactly this"','"The skin results in that post are convincing — the lighting is honest which makes the transformation more credible"'],
+    day5Guide:'Comment on how they educate their audience about ingredients or skincare routines.',
+    day5Ex:['"The skincare routine breakdown is genuinely helpful — positions you as an authority, not just a seller"','"The ingredient explainer posts build real trust — buyers want to know what they\'re putting on their skin"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] ✨ — been following the page for a bit, love the brand you're building in [Location].\n\nHonest question — do you have a product page anywhere where customers can browse your full range and order directly? I couldn't find one in the bio.\n\nAsking because skincare buyers research before they buy — if there's no product page with ingredients and pricing, a lot of them keep scrolling.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe brand is polished, the content is intentional, and the products look premium. But there's no product page — no place where a buyer can see your full range, read the ingredients, understand the benefits, and place an order. That's the gap between a brand that looks great and one that converts.\n\nI build clean, mobile-first product and shop pages for skincare brands — product listings, ingredient transparency, WhatsApp or form-based ordering.\n\nLive demo built for a Caribbean skincare brand:\n👉 https://jamalinks758.github.io/jamalinks/choiselle.html\n\nWould something like that work for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300 USD — product listings, ingredient details, WhatsApp order flow. Mid-tier at $400–$500 adds a skincare routine builder, before/after gallery, testimonials, and full branding match.\n\nBefore we go further — is your main market local, diaspora, or are you trying to reach international buyers? That shapes exactly how the page needs to be structured.`}
+    ]
+  },
+  fitness:{
+    label:'Fitness / Gym / Trainer', emoji:'💪', grad:['#1a3a2a','#3dbf7a'],
+    demoLink:'', demoName:'',
+    painPoint:'No programme or booking page — potential clients can\'t see packages, pricing, or book a session without DMing.',
+    day3Guide:'Comment on the workout content, transformation, technique, or training style.',
+    day3Ex:['"The form on that lift is textbook — that kind of precision under load is rare 💪"','"That transformation is real — you can see the consistency of work it took to get there, not just the result"','"The programming breakdown in that post is actually educational — you\'re teaching, not just flexing, which builds a different kind of trust"'],
+    day5Guide:'Comment on how they structure their offers or communicate their coaching approach.',
+    day5Ex:['"The programme breakdown is clear — potential clients can understand exactly what they\'re committing to before they reach out"','"The FAQ highlight is smart — answers the questions new clients always have without them needing to DM first"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 💪 — been following the page for a bit, love the content you're putting out in [Location].\n\nHonest question — do you have a page anywhere where potential clients can see your programmes, pricing, and book a session directly? I couldn't find one in the bio.\n\nAsking because fitness clients often research 2–3 trainers before committing — whoever makes it easiest to understand and book usually wins.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe results you're producing are real, the content is strong, and clearly people trust your coaching. But there's no page — no professional destination where a potential client can see your packages, understand what working with you looks like, and book. That gap is costing you clients who would have committed.\n\nI build clean, conversion-focused pages for fitness professionals — programme listings, testimonials, transformation gallery, WhatsApp booking flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $250–$300 USD — programme listings, pricing, WhatsApp booking. Mid-tier at $350–$450 adds a transformation gallery, client testimonials, results tracking section, and full branding.\n\nBefore we go further — are you running in-person sessions, online coaching, or both? And what\'s your main client demographic right now? That shapes exactly how the page should be positioned.`}
+    ]
+  },
+  photography:{
+    label:'Photography / Videography', emoji:'📷', grad:['#1a1a2a','#4a4ab8'],
+    demoLink:'', demoName:'',
+    painPoint:'No portfolio or booking page — potential clients can\'t see full work samples or enquire for packages easily.',
+    day3Guide:'Comment on the specific photo — lighting, composition, subject, or the story it tells.',
+    day3Ex:['"The lighting in this shot is genuinely cinematic — that golden hour catch is not luck, that\'s skill 📷"','"The composition on this portrait is precise — the subject placement and background separation is intentional, not accidental"','"That action shot is sharp — the timing on something moving that fast is hard to nail consistently"'],
+    day5Guide:'Comment on how they present their work or communicate their booking process.',
+    day5Ex:['"The portfolio reel tells a clear story across styles — potential clients can see your range immediately without hunting"','"The package breakdown in the highlight saves clients the back-and-forth and shows you value their time"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 📷 — been following the page for a bit, love the work you're putting out in [Location].\n\nHonest question — do you have a portfolio or booking page anywhere where potential clients can see your full work and enquire about a package directly? I couldn't find one in the bio.\n\nAsking because photography clients usually look at 3–5 portfolios before booking — whoever has the cleanest, most accessible presentation usually gets the call.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work is strong — consistent quality, clear style, real portfolio depth. But there's no dedicated page. A client who finds you on Instagram has no way to see your full range of work, understand your packages, or enquire without hunting through your feed and then DMing cold. That friction loses bookings.\n\nI build clean, mobile-first portfolio and booking pages for photographers and videographers — gallery, package listings, client testimonials, WhatsApp enquiry flow.\n\nWould it make sense to show you what one would look like for your work?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — portfolio gallery, packages, WhatsApp enquiry. Mid-tier at $350–$450 adds a categorised portfolio (weddings, portraits, commercial), client testimonials, and a booking form with package selection.\n\nBefore we settle on numbers — what percentage of your bookings are weddings vs commercial vs personal shoots? That tells me how the portfolio needs to be structured to attract the right enquiries.`}
+    ]
+  },
+  artist:{
+    label:'Visual Artist / Illustrator', emoji:'🎨', grad:['#2a0a3a','#9b3dbf'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/elara-voss.html', demoName:'Elara Voss',
+    painPoint:'No gallery or commission page — collectors and buyers can\'t browse work or enquire about commissions professionally.',
+    day3Guide:'Comment on the artwork itself — technique, colour, concept, or the emotion it communicates.',
+    day3Ex:['"The colour palette on this piece is considered — the contrast does the storytelling before the eye reaches the detail 🎨"','"The texture work in this piece is genuinely unique — you can see the material decision was deliberate"','"This composition leads the eye exactly where you want it — that kind of visual control is practiced"'],
+    day5Guide:'Comment on how they communicate their work or process, or their commissions approach.',
+    day5Ex:['"The process video is valuable — collectors want to understand how a piece is made, not just see the result"','"The commission enquiry breakdown is clear — potential buyers know exactly what to expect before they reach out"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🎨 — been following the page for a while, the work is genuinely striking.\n\nHonest question — do you have a portfolio or commission page anywhere where collectors and buyers can browse your full catalogue and enquire directly? I couldn't find one in the bio.\n\nAsking because a lot of serious art buyers will only go as far as the link in the bio before deciding whether to reach out.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your page worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work has real depth — you've built a body of work and a style that's clearly yours. But there's no professional gallery page. A serious collector or buyer who finds you on Instagram has no curated place to browse, no commission process to follow, and no professional contact path. That gap keeps the work undervalued.\n\nI build clean, gallery-quality portfolio pages for visual artists — curated gallery, artist statement, commission enquiry flow.\n\nLive demo built for an abstract artist:\n👉 https://jamalinks758.github.io/jamalinks/elara-voss.html\n\nWould something like that work for you?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — gallery, artist statement, commission enquiry flow. Mid-tier at $350–$450 adds a categorised collection, limited edition or print shop section, and full art-direction of the page to match your aesthetic.\n\nBefore we settle on numbers — do you mostly sell originals, prints, or take commissions? And what's your main buyer geography right now — local, Caribbean, or international? That shapes the whole structure.`}
+    ]
+  },
+  sports:{
+    label:'Athlete / Sports Personality', emoji:'⚽', grad:['#0a1a2e','#d4a843'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/zael-emmanuel.html', demoName:'Zael Emmanuel',
+    painPoint:'No professional profile page — sponsors, brands, and media have no professional destination to assess and contact them.',
+    day3Guide:'Comment on the performance, training content, or the athletic achievement specifically.',
+    day3Ex:['"That speed in the clip is real — the drive phase mechanics are textbook"','"The training consistency you\'re showing is elite level — this is not for show"','"That performance speaks for itself — the composure under pressure is what separates athletes at your level"'],
+    day5Guide:'Comment on how they represent themselves professionally or how they communicate their brand.',
+    day5Ex:['"The way you carry the personal brand is professional — sponsors and brands notice that consistency"','"The achievement highlight reel is well structured — easy for anyone who finds the page to immediately understand your level"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following your journey, the work you're putting in is evident.\n\nOne honest question — do you have a professional profile page anywhere that consolidates your stats, achievements, and a clear contact path for sponsorship or media enquiries? I couldn't find a centralised destination for that.\n\nAsking because at your level of performance, that gap can be the difference between opportunities coming in and going past you.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific that I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nYour performance is documented, your following is real, and the brand is clearly there. But there's no professional profile page — no place where a brand manager, sponsor, or media outlet can go to see your full story, your stats, your achievements, and contact you professionally. That's the gap.\n\nI build clean, professional athlete and personal brand pages — bio, achievements, stats, press/media section, sponsorship enquiry flow.\n\nLive demo built for a Caribbean sprinter:\n👉 https://jamalinks758.github.io/jamalinks/zael-emmanuel.html\n\nWould something like that work for your brand?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300–$350 USD — professional bio, achievements, stats, contact flow. Mid-tier at $400–$500 adds a media kit section, press gallery, sponsor logos, and a fully branded prestige design.\n\nBefore we go further — are you primarily targeting local sponsors, regional brands, or international partnerships? And do you have management or is this something you're handling directly? That shapes the tone and structure of the whole page.`}
+    ]
+  },
+  personalbrand:{
+    label:'Coach / Therapist / Consultant', emoji:'🎓', grad:['#0a2a1a','#4ab882'],
+    demoLink:'', demoName:'',
+    painPoint:'No professional services page — potential clients can\'t see credentials, service offerings, or book a session without effort.',
+    day3Guide:'Comment on the insight, advice quality, or the value they deliver in the content itself.',
+    day3Ex:['"That insight is practical — immediately actionable, not just motivational noise"','"The way you framed that concept makes it accessible to people who would normally tune it out — that\'s real teaching"','"That post is one of the more honest takes I\'ve seen on this subject — it respects the audience\'s intelligence"'],
+    day5Guide:'Comment on how they position their expertise or structure their client communication.',
+    day5Ex:['"The credentials laid out in the bio are clear and don\'t over-claim — that kind of honesty builds faster trust"','"The testimonial highlight is well selected — it shows real transformation, not just happy-sounding words"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the content for a while, the quality of what you're sharing is genuinely useful.\n\nHonest question — do you have a professional page anywhere where potential clients can see your services, your credentials, and book a session or consultation directly? I couldn't find one in the bio.\n\nAsking because a lot of potential clients will research a practitioner thoroughly before reaching out — if there's no professional destination, many of them don't take the next step.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe expertise is real, the content builds trust, and you're clearly doing quality work. But there's no professional page. A potential client who finds you through Instagram has no place to go to understand your services, see your credentials, read client outcomes, and book. That gap is costing you clients who would have converted.\n\nI build clean, professional service pages for coaches, therapists, and consultants — services list, credentials, testimonials, booking or enquiry flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $300 USD — services, credentials, WhatsApp booking flow. Mid-tier at $400–$500 adds a blog or resources section for your content, client testimonials, and full SEO setup so you appear in local searches for your specialty.\n\nOne question first — what's your primary focus right now, and are most clients coming through referrals, social media, or both? That tells me exactly how the page needs to be positioned to bring in the right enquiries.`}
+    ]
+  },
+  construction:{
+    label:'Construction / Contracting', emoji:'🏗️', grad:['#2a1a0a','#c8844a'],
+    demoLink:'', demoName:'',
+    painPoint:'No services or project portfolio page — potential clients can\'t see past work, get a quote idea, or trust the quality of the business before calling.',
+    day3Guide:'Comment on the quality of work shown — finishing, precision, scale, or the craftsmanship visible in the content.',
+    day3Ex:['"The finish on that tile work is clean — grout lines that straight at that scale don\'t happen by accident 🏗️"','"The structural work in that progress post is well documented — it shows you understand what quality means at every stage, not just the final reveal"','"The roofing on that project is immaculate — the ridge line is exact"'],
+    day5Guide:'Comment on how they document their work, manage timelines, or communicate professionally.',
+    day5Ex:['"The project timeline updates are professional — clients want to see that kind of organised communication before they commit"','"The before/after format is the right move for this industry — it removes doubt faster than any sales pitch"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, the quality of work you're showing in [Location] is evident.\n\nHonest question — do you have a services or portfolio page anywhere where potential clients can see your past projects, understand what you offer, and reach out for a quote directly? I couldn't find one in the bio.\n\nAsking because construction clients do a lot of research before they call — if there's nowhere professional to send them, a lot of them end up calling someone else.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — noticed something specific I think is worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work quality is clear from the content — but there's no professional page. A homeowner or developer who finds you on Instagram has no place to go to see your full project portfolio, understand your service range, and reach out for a quote in a structured way. In construction, that lack of a professional web presence is often what makes a client choose the other quote.\n\nI build clean, professional services and portfolio pages for contractors and builders — project gallery, services listed, WhatsApp or form-based quote enquiry.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300 USD — services, project gallery, quote enquiry flow. Mid-tier at $400–$500 adds a categorised project portfolio (residential, commercial, renovation), testimonials, and full trust-signal design.\n\nBefore we settle on numbers — what's your primary work type right now, and are most of your enquiries coming through referrals or social media? That shapes how the page needs to be positioned.`}
+    ]
+  },
+  auto:{
+    label:'Auto Services / Car Detailing', emoji:'🚗', grad:['#1a1a1a','#d4a843'],
+    demoLink:'', demoName:'',
+    painPoint:'No services or booking page — car owners ready to book have no pricing clarity or easy appointment path.',
+    day3Guide:'Comment on the detailing quality, transformation, or the before/after standard.',
+    day3Ex:['"That paint correction result is immaculate — the depth of colour after the cut is completely different 🚗"','"The interior detail on this one is thorough — the leather treatment looks professional grade"','"That before/after speaks without any caption needed — the result is clear"'],
+    day5Guide:'Comment on how they communicate their packages or manage their booking flow.',
+    day5Ex:['"The package comparison post is smart — customers know what they\'re getting at each price point before they book"','"The appointment reminder story keeps regulars coming back — small detail, real impact on retention"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🚗 — been following the page for a bit, the results you're producing in [Location] speak for themselves.\n\nHonest question — do you have a booking or services page anywhere where customers can see your packages, pricing, and book directly? I couldn't find one in the bio.\n\nAsking because most car owners want to know what they're paying before they call — if that information isn't easy to find, a lot of them just go elsewhere.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just spotted something specific worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work quality is clear, the following is real, and you're obviously good at what you do. But there's no booking page. Every customer who finds you and wants to book has to DM, ask for pricing, and wait. A lot of them book whoever gets back fastest. A clean page would handle all of that automatically.\n\nI build mobile-first booking and services pages for auto businesses — package listings, pricing, gallery, WhatsApp booking flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the breakdown.\n\nEntry level is $250 USD — service packages, pricing, WhatsApp booking. Mid-tier at $350–$400 adds a transformation gallery, fleet or specialty pricing, and loyalty customer angle.\n\nQuick question first — what are your top 3 services by volume? And are most customers booking for personal vehicles or are you getting commercial fleet work too? That shapes the whole structure.`}
+    ]
+  },
+  hotel:{
+    label:'Hotel / Guesthouse / Airbnb', emoji:'🏨', grad:['#0a2a3a','#4ab8bf'],
+    demoLink:'', demoName:'',
+    painPoint:'No direct booking or rooms page — travellers comparing options will book the property that makes it easiest to understand and reserve.',
+    day3Guide:'Comment on the property, room quality, amenities, or the experience the content conveys.',
+    day3Ex:['"That room setup is genuinely inviting — the natural light and the linen quality reads clearly in the photo 🏨"','"The property grounds look well maintained — that level of care in the image builds confidence before a guest arrives"','"The view from that room is a selling point on its own — the way it\'s framed in the photo does the marketing work"'],
+    day5Guide:'Comment on how they communicate the guest experience or manage the booking process.',
+    day5Ex:['"The guest testimonial highlight is exactly what potential visitors need to see before they book — social proof from real people matters"','"The amenities breakdown post is smart — answers the pre-booking questions without making the guest ask"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, love what you're offering in [Location].\n\nHonest question — do you have a property page anywhere where potential guests can see your rooms, rates, and book directly? I couldn't find one in the bio.\n\nAsking because travellers comparing accommodation options book whoever makes it easiest to understand the property and reserve a room — if there's no clear page, they move to the next option.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe property looks great, the content is attractive, and clearly guests have good experiences. But there's no direct property page — no place where a traveller can see your room types, check your rates, understand your amenities, and enquire or book directly. In hospitality, that missing page is where the decision gets made.\n\nI build clean, mobile-first property pages for hotels and guesthouses — room showcase, rates, amenities, WhatsApp or form-based booking enquiry.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300–$350 USD — rooms showcase, rates, amenities list, WhatsApp booking enquiry. Mid-tier at $450–$550 adds a full gallery, Google Maps embed, guest testimonials, and SEO setup so you appear in searches for accommodation in your area.\n\nBefore we settle on numbers — are most of your bookings coming through Instagram, word of mouth, or platforms like Booking.com or Airbnb? That tells me exactly what role the page needs to play in your booking flow.`}
+    ]
+  },
+  energy:{
+    label:'Energy / Solar / Hardware', emoji:'⚡', grad:['#0a1a2e','#d4a843'],
+    demoLink:'', demoName:'',
+    painPoint:'No services or product page — commercial and residential buyers can\'t understand the offering or request a quote without significant friction.',
+    day3Guide:'Comment on the installation quality, product specification, or the scale of work shown.',
+    day3Ex:['"The panel array layout on that installation is clean — the mounting precision matters for both performance and longevity ⚡"','"The commercial install on that roof is substantial — the wiring management alone tells you the team knows what they\'re doing"','"The product range you\'re showcasing covers both residential and commercial — smart to show the breadth"'],
+    day5Guide:'Comment on how they educate their audience about energy solutions or communicate their expertise.',
+    day5Ex:['"The savings breakdown in that post is exactly what a homeowner needs before they call — takes a complex topic and makes it concrete"','"The installation timeline post sets realistic expectations — that kind of transparency builds trust before the quote conversation"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] ⚡ — been following the page for a bit, solid work you're doing in [Location].\n\nHonest question — do you have a services or product page anywhere where commercial or residential clients can see your offerings, understand the process, and request a quote directly? I couldn't find one in the bio.\n\nAsking because high-ticket service buyers — especially in energy — do significant research before they call. If there's no professional page to send them to, a lot of that research ends at a competitor.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work quality is evident, the projects are real, and clearly you're operating at a serious level. But there's no professional page — no place where a business owner or homeowner considering a major energy investment can go to understand your capabilities, see your past projects, and submit a quote request in a structured way. That's the gap.\n\nI build professional services and portfolio pages for energy and technical businesses — service breakdown, project gallery, ROI/savings explainer, quote request flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $350–$400 USD — services, project gallery, quote enquiry form. Mid-tier at $500–$650 adds a full ROI calculator embed, certifications and compliance section, case studies, and full trust-signal architecture.\n\nBefore we settle on numbers — is your primary market residential clients, commercial, or government contracts? And are most enquiries coming through referrals right now? That shapes how the page needs to be positioned to bring in the right conversations.`}
+    ]
+  },
+  realestate:{
+    label:'Real Estate Agent / Developer', emoji:'🏠', grad:['#0a2a1a','#3dbf7a'],
+    demoLink:'', demoName:'',
+    painPoint:'No listings or agent profile page — buyers and renters searching online have no professional destination to view properties or reach the agent directly.',
+    day3Guide:'Comment on the property itself — the design, location, finish quality, or the value it represents.',
+    day3Ex:['"That property finish is high quality — the kitchen layout and natural light combination is exactly what buyers respond to 🏠"','"The development location is strategic — close to the infrastructure improvements in that corridor"','"The interior on that one has real character — the design choices show the developer understood who they were building for"'],
+    day5Guide:'Comment on how they communicate market knowledge or handle the client education side of real estate.',
+    day5Ex:['"The market update post is exactly what informed buyers need — real data, not just enthusiasm"','"The neighbourhood guide content positions you as someone who actually knows the area, not just a listing pusher"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, love the properties you're showcasing in [Location].\n\nHonest question — do you have a listings or agent profile page anywhere where buyers and renters can browse available properties and reach out directly? I couldn't find one in the bio.\n\nAsking because serious property buyers research extensively before they call — if there's no clean page to send them to, a lot of that research ends at another agent.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe inventory is strong, the content is professional, and clearly you know your market. But there's no professional page — no place where a buyer or renter can browse available properties, understand your approach, and reach you directly without hunting through Instagram posts. That gap is where listings go unnoticed.\n\nI build clean, professional property listing and agent profile pages — property showcase, contact flow, area guides, testimonials.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $350 USD — agent profile, property listings, WhatsApp or form contact. Mid-tier at $500–$650 adds a full listings grid with filters, market data section, neighbourhood guides, and SEO setup for local property searches.\n\nBefore we settle on numbers — are you primarily selling, renting, or both? And is your focus residential, commercial, or development land? That determines exactly how the listings architecture needs to work.`}
+    ]
+  },
+  contentcreator:{
+    label:'Content Creator / Influencer', emoji:'📱', grad:['#1a0a2e','#9b6dff'],
+    demoLink:'https://jamalinks758.github.io/jamalinks/krishna-henry.html', demoName:'Krishna Henry',
+    painPoint:'No media kit or brand page — brands and sponsors wanting to collaborate have no professional destination to assess reach, niche, and terms.',
+    day3Guide:'Comment on the content quality, storytelling, or the production value of what they post.',
+    day3Ex:['"The production quality on this one is genuinely strong — the colour grading is consistent across the whole feed 📱"','"The storytelling format in this Reel holds attention from the first second — that\'s harder than it looks"','"The niche is clear and consistent — brands looking at the feed immediately understand what they\'re working with"'],
+    day5Guide:'Comment on how they position themselves professionally or communicate their brand deals.',
+    day5Ex:['"The brand partnership disclosure is clean — professional and transparent without interrupting the content flow"','"The media kit mention in your bio sets the right tone — signals you take collaboration seriously"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the content for a while, the quality and consistency is evident.\n\nHonest question — do you have a media kit or personal brand page anywhere where brands and sponsors can see your stats, niche, audience, and reach out to collaborate? I couldn't find one in the bio.\n\nAsking because a lot of brands ready to partner will only reach out if there's a professional path to do so — if there's no media kit or brand page, many of them move on.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe content is strong, the following is real, and the niche is clear. But there's no professional brand page — no place where a brand manager can go to understand your audience demographics, your content style, your rates, and reach you with a collaboration enquiry in a structured way. That's the gap between being found and being hired.\n\nI build clean, professional creator and media kit pages — audience overview, content categories, collaboration packages, press/brand enquiry flow.\n\nLive demo built for a Caribbean creator:\n👉 https://jamalinks758.github.io/jamalinks/krishna-henry.html\n\nWould something like that work for you?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — personal brand page, content overview, collaboration enquiry flow. Mid-tier at $350–$450 adds audience stats section, brand partnership showcase, media kit download link, and full personal branding.\n\nBefore we settle on numbers — what's your primary content platform, what's your current following size, and are most of your brand deals inbound or do you pitch them? That tells me exactly how the page needs to be positioned.`}
+    ]
+  },
+  events:{
+    label:'Events Planner / Decorator', emoji:'🎉', grad:['#2a0a3a','#bf3dbf'],
+    demoLink:'', demoName:'',
+    painPoint:'No portfolio or enquiry page — clients planning events can\'t see past work, understand packages, or enquire professionally.',
+    day3Guide:'Comment on the event design, theme execution, or the quality of the decoration and setup.',
+    day3Ex:['"That balloon arch execution is professional level — the size and colour gradient is consistent throughout 🎉"','"The theme coherence on this event is impressive — every detail connects to the concept without anything feeling out of place"','"That tablescape is elegant — the layering of textures and heights gives it depth that photographs beautifully"'],
+    day5Guide:'Comment on how they communicate their process or portfolio to potential clients.',
+    day5Ex:['"The event portfolio breakdown by theme makes it easy for clients to immediately see if your style matches what they\'re imagining"','"The testimonial from that wedding client tells the whole story — social proof that specific is more convincing than anything else"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🎉 — been following the page for a bit, the work you're doing in [Location] is genuinely impressive.\n\nHonest question — do you have a portfolio or enquiry page anywhere where clients planning an event can see your full range of work and reach out directly? I couldn't find one in the bio.\n\nAsking because event clients usually research multiple planners before committing — whoever has the most professional and accessible presentation usually gets the call.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe work quality is evident — beautiful setups, consistent execution, real portfolio depth. But there's no professional portfolio page. A client planning a wedding or corporate event who finds you on Instagram has no curated place to see your full range, understand your packages, and submit an enquiry. That gap costs you bookings.\n\nI build clean, professional portfolio and enquiry pages for events planners — event gallery by type, packages, testimonials, WhatsApp or form-based enquiry.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $250–$300 USD — event gallery, packages, enquiry flow. Mid-tier at $400–$500 adds a categorised portfolio (weddings, corporate, private parties), vendor partners section, testimonials, and full branding.\n\nBefore we settle on numbers — what's your most in-demand event type right now, and how far in advance are clients typically booking? That shapes the whole structure of the page.`}
+    ]
+  },
+  security:{
+    label:'Security Services', emoji:'🔒', grad:['#0a0a1a','#4a4ab8'],
+    demoLink:'', demoName:'',
+    painPoint:'No services or credibility page — businesses and property owners need professional trust signals before they hire a security company.',
+    day3Guide:'Comment on the professionalism, equipment quality, or the operational standard visible in the content.',
+    day3Ex:['"The team deployment on that event looks professional and organised — the positioning is deliberate, not casual 🔒"','"The equipment quality in that post is clearly commercial grade — shows the operation is properly invested"','"The uniforming and presentation at that event is immaculate — that level of professional presentation matters in this industry"'],
+    day5Guide:'Comment on how they communicate their services, certifications, or client success.',
+    day5Ex:['"The client case study post builds real confidence — specific results from real deployments are more convincing than any promise"','"The certification post is important to highlight — clients in this space need to know they\'re working with a licensed operation"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 👋 — been following the page for a bit, the level of professionalism you're showing in [Location] is evident.\n\nHonest question — do you have a services or company profile page anywhere where businesses and property owners can understand your service range, see your credentials, and request a quote directly? I couldn't find one in the bio.\n\nAsking because security clients need to trust who they're hiring before they make contact — if there's no professional page to send them to, a lot of that trust has to be built entirely from scratch in a cold call.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe operation is clearly professional — trained team, right equipment, real track record. But there's no services page. A business owner or event manager considering hiring a security company needs to see credentials, service types, past clients, and a clear way to request a quote before they'll make contact. Without that page, you're relying on the prospect to do extra work to trust you.\n\nI build professional services and credibility pages for security companies — service breakdown, certifications, client logos, quote request flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300–$350 USD — services, credentials, WhatsApp quote request. Mid-tier at $450–$600 adds a full credibility section with certifications, client logos, testimonials, case studies, and full trust-signal architecture.\n\nBefore we settle on numbers — what percentage of your business is event security vs commercial vs residential? And are most clients coming through referrals or are you winning contracts through competitive tender? That shapes the whole tone and structure.`}
+    ]
+  },
+  music:{
+    label:'Musician / DJ / Artist', emoji:'🎵', grad:['#0a0a2a','#6a2abf'],
+    demoLink:'', demoName:'',
+    painPoint:'No booking or press page — event promoters and booking agents have no professional destination to assess and hire.',
+    day3Guide:'Comment on the music, performance energy, production quality, or the specific track or set.',
+    day3Ex:['"The production on that track is polished — the mix is clean and the low end sits right 🎵"','"The energy in that performance clip is real — the crowd reaction tells the story"','"The layering in that beat is considered — nothing is fighting for space, everything has its place"'],
+    day5Guide:'Comment on how they manage their brand or communicate their availability and achievements.',
+    day5Ex:['"The streaming milestone post is well shared — it gives context to new followers about the level they\'re at"','"The upcoming event announcement is clear — date, venue, ticket link — exactly how it should be communicated"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hey [Business Name] 🎵 — been following the page for a bit, the music and the brand you're building in [Location] are both evident.\n\nHonest question — do you have a booking or press page anywhere where promoters and event managers can see your performance history, listen to your music, and send a booking enquiry directly? I couldn't find one in the bio.\n\nAsking because booking decisions in music are often made by people who need a professional package to justify the hire to their team — if there's no page to link them to, a lot of opportunities pass you by.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`Just looping back in case this got buried 👆\n\nNo pressure — just noticed something specific on your profile worth 2 minutes of your time.\n\nWorth a look when you get a moment?`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe music is real, the following is genuine, and the brand is clearly there. But there's no booking page — no professional destination where a promoter can go to hear the music, see your performance history, understand your booking terms, and send an enquiry. That gap is where bookings are lost.\n\nI build clean, professional booking and artist pages — EPK-style layout, music player, performance history, booking enquiry flow.\n\nWould it make sense to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the honest breakdown.\n\nEntry level is $300 USD — artist bio, music samples, booking enquiry flow. Mid-tier at $400–$500 adds a full EPK layout, performance gallery, press quotes, streaming links, and full personal branding.\n\nBefore we settle on numbers — are you primarily booking live shows, DJ sets, or studio sessions? And what's your target market — local events, regional tours, or international bookings? That shapes the whole presentation.`}
+    ]
+  },
+  medical:{
+    label:'Medical / Dental / Clinic', emoji:'🏥', grad:['#0a1a2a','#3dbfbf'],
+    demoLink:'', demoName:'',
+    painPoint:'No services or appointment page — patients researching healthcare options have no professional, accessible destination to understand services and book.',
+    day3Guide:'Comment on health education content, patient outcomes, or the quality of the clinical communication.',
+    day3Ex:['"The patient education post is clear and accessible — complex medical information made understandable without being condescending 🏥"','"The clinic environment looks professional and clean — that kind of presentation builds patient confidence before they arrive"','"The outcome photos (with appropriate consent visible) are compelling — real results matter more than any marketing copy"'],
+    day5Guide:'Comment on how they communicate patient care, service range, or appointment management.',
+    day5Ex:['"The appointment reminder system you\'ve built into stories is professional — patients appreciate that level of organisation"','"The FAQ post about the procedure is exactly what anxious patients need to see before they book"'],
+    dm:[
+      {id:'dm1',title:'DM 1 — The Opener',when:'Day 7 only — after warm-up is complete',text:`Hello [Business Name] 👋 — I've been following your page for a while and appreciate the patient education content you share in [Location].\n\nI have an honest question — do you have a professional services page anywhere where patients can understand your treatments, see your credentials, and book an appointment or consultation directly? I wasn't able to find one in your bio.\n\nI ask because patients researching healthcare options online make decisions quickly — a professional, accessible page can be the difference between someone choosing your practice or moving on to the next result.`},
+      {id:'dm2',title:'DM 2 — The Follow-Up',when:'Only if no reply after 3 full days from DM 1',text:`I'm just following up in case my earlier message was missed 👆\n\nNo pressure at all — I noticed something specific about your profile that I believe would be worth a few minutes of your time.\n\nFeel free to reach out when it's convenient.`},
+      {id:'dm3',title:'DM 3 — The Pitch',when:'Only after they reply and show genuine interest',text:`Here's what I noticed —\n\nThe clinical quality of your content is evident, and you're clearly building genuine trust with your audience. But there's no professional services page. A patient researching your practice online has no place to understand your full service range, review your credentials, read patient testimonials, and book a consultation — all of which are steps they take before they call.\n\nI build professional, WCAG-compliant healthcare services pages — treatment listings, credentials, patient testimonials, secure appointment request flow.\n\nWould it make sense for me to show you what one would look like for [Business Name]?`},
+      {id:'dm4',title:'DM 4 — Handle Objections / Price',when:'When they ask "how much?" or express serious interest',text:`Here's the transparent breakdown.\n\nEntry level is $350–$400 USD — services, credentials, appointment request form. Mid-tier at $500–$650 adds a full treatment guide, patient FAQ, testimonials, insurance/payment information section, and full WCAG 2.1 AA accessibility compliance.\n\nBefore we discuss further — what are your most in-demand treatments currently, and how are patients primarily finding you right now — referrals, social media, or Google searches? That shapes how the page should be structured to capture the right enquiries.`}
+    ]
+  }
+};
+
+/* ══════════════════════════════════════════════════════════
+   DAY PLAN
+══════════════════════════════════════════════════════════ */
+function getDayPlan(type) {
+  const t = BT[type] || BT.restaurant;
+  return [
+    {label:'Day 1',title:'3–4 Likes Only',detail:'Like <strong>3–4 of their best recent posts</strong>. Prioritise high-performing, pinned, or strong visual content. Space them out across the day. <em>No comments. No DMs. Silent presence only.</em>',hasComment:false},
+    {label:'Day 2',title:'2–3 More Likes',detail:'Continue liking posts you haven\'t engaged with yet — behind-the-scenes, announcements, or high-engagement content. <em>Still no comment. You\'re becoming a recognisable face in their notifications.</em>',hasComment:false},
+    {label:'Day 3',title:'First Comment',detail:'Leave <strong>one genuine, specific comment</strong> on their best post. One sentence. Reference something real and visible in the post. <em>No selling. No pitching. Nothing vague.</em>',hasComment:true,commentGuide:t.day3Guide,examples:t.day3Ex},
+    {label:'Day 4',title:'1–2 Likes — Silent',detail:'One or two quiet likes on their latest content. <em>No comment today.</em> Let Day 3\'s comment sit and breathe. Build pattern recognition, not pressure.',hasComment:false},
+    {label:'Day 5',title:'Second Comment — Business-Aware',detail:'Leave a second comment on a <strong>business-relevant post</strong> — menu, pricing, highlights, or how they operate. This signals you see them as a business, not just content.',hasComment:true,commentGuide:t.day5Guide,examples:t.day5Ex},
+    {label:'Day 6',title:'One Like — Final Signal',detail:'One quiet like. By now you\'ve appeared in their notifications multiple times across the week. You\'re a recognisable presence. <em>DM launches tomorrow.</em>',hasComment:false},
+    {label:'Day 7',title:'🚀 Launch DM 1',detail:'Warm-up complete. Send <strong>DM 1</strong> from the sequence below. Copy it. Do not improvise. Do not add a pitch. Send and wait.',hasComment:false,isDMDay:true}
+  ];
+}
+
+/* ══════════════════════════════════════════════════════════
+   BRAND TOGGLE
+══════════════════════════════════════════════════════════ */
+function setBrand(b) {
+  currentBrand = b;
+  document.getElementById('btn-brand-all').className  = 'brand-btn' + (b==='all'?' active-jama':'');
+  document.getElementById('btn-brand-jama').className = 'brand-btn' + (b==='jamalinks'?' active-jama':'');
+  document.getElementById('btn-brand-akra').className = 'brand-btn' + (b==='akralink'?' active-akra':'');
+  document.getElementById('btn-brand-all').setAttribute('aria-pressed', b==='all');
+  document.getElementById('btn-brand-jama').setAttribute('aria-pressed', b==='jamalinks');
+  document.getElementById('btn-brand-akra').setAttribute('aria-pressed', b==='akralink');
+  render();
+}
+
+/* ══════════════════════════════════════════════════════════
+   FORM BRAND PILL
+══════════════════════════════════════════════════════════ */
+function selectBrandPill(b) {
+  pendingBrandPill = b;
+  const pj = document.getElementById('pill-jama');
+  const pa = document.getElementById('pill-akra');
+  pj.className = 'brand-pill' + (b==='jamalinks'?' sel-jama':'');
+  pa.className = 'brand-pill' + (b==='akralink'?' sel-akra':'');
+  pj.setAttribute('aria-pressed', b==='jamalinks');
+  pa.setAttribute('aria-pressed', b==='akralink');
+}
+
+/* ══════════════════════════════════════════════════════════
+   RULES / ADD FORM TOGGLES
+══════════════════════════════════════════════════════════ */
+function toggleRules() {
+  const b = document.getElementById('rules-body');
+  const i = document.getElementById('rule-icon');
+  const h = document.querySelector('.rule-strip-header');
+  const open = b.classList.toggle('open');
+  i.classList.toggle('open', open);
+  h.setAttribute('aria-expanded', open);
+}
+function toggleAddForm() {
+  const b  = document.getElementById('add-form-body');
+  const ic = document.getElementById('add-icon');
+  const h  = document.getElementById('add-header');
+  const open = b.classList.toggle('open');
+  ic.classList.toggle('open', open);
+  h.setAttribute('aria-expanded', open);
+  h.classList.toggle('open', open);
+}
+
+/* ══════════════════════════════════════════════════════════
+   STRATEGY PREVIEW
+══════════════════════════════════════════════════════════ */
+function updateStrategyPreview() {
+  const type = document.getElementById('inp-type').value;
+  const el   = document.getElementById('strategy-preview');
+  if (!type || !BT[type]) { el.classList.remove('visible'); return; }
+  const t = BT[type];
+  const demoHtml = t.demoLink
+    ? `<strong>Demo:</strong> <a href="${t.demoLink}" target="_blank" rel="noopener noreferrer">${t.demoName}</a> &nbsp;|&nbsp; `
+    : '<strong style="color:var(--text-mute)">⚠ No demo yet</strong> — build one before DM 3. &nbsp;|&nbsp; ';
+  el.innerHTML = demoHtml + `<strong>Core pain point:</strong> ${t.painPoint}`;
+  el.classList.add('visible');
+}
+
+/* ══════════════════════════════════════════════════════════
+   STORAGE
+══════════════════════════════════════════════════════════ */
+function load() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; } }
+function save(d) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); } catch(e) { toast('Storage full — export your data now!','error'); } }
+
+/* ══════════════════════════════════════════════════════════
+   EXPORT / IMPORT
+══════════════════════════════════════════════════════════ */
+function exportData() {
+  const data = load();
+  if (!data.length) { toast('No prospects to export','error'); return; }
+  const blob = new Blob([JSON.stringify({version:2, exported: new Date().toISOString(), prospects: data}, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'jamalinks-tracker-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('Exported ✓ — save this file safely');
+}
+function importData(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      const incoming = parsed.prospects || parsed;
+      if (!Array.isArray(incoming)) throw new Error('Invalid format');
+      const existing = load();
+      const existingIds = new Set(existing.map(p=>p.id));
+      const merged = [...existing, ...incoming.filter(p=>!existingIds.has(p.id))];
+      save(merged);
+      render();
+      toast(`Imported ${incoming.length} records ✓`);
+    } catch { toast('Import failed — invalid file','error'); }
+    e.target.value = '';
+  };
+  reader.readAsText(file);
+}
+function exportCSV() {
+  const data = load();
+  if (!data.length) { toast('No prospects to export','error'); return; }
+  const headers = ['Name','Brand','Type','Handle','Location','Email','Contact','StartDate','Stage','Priority','NextAction','NextActionDate','Days Done','Notes'];
+  const rows = data.map(p => {
+    const plan = getDayPlan(p.type);
+    const done = plan.filter((_,i)=>p.checks['day'+i]).length;
+    return [
+      p.name, p.brand||'jamalinks', p.type, p.handle||'', p.location||'',
+      p.email||'', p.contact||'', p.startDate||'', p.stage, p.priority||'medium',
+      p.nextAction||'', p.nextActionDate||'',
+      `${done}/${plan.length}`, (p.notes||'').replace(/\n/g,' ')
+    ].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',');
+  });
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'jamalinks-tracker-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('CSV exported ✓');
+}
+
+/* ══════════════════════════════════════════════════════════
+   MODAL
+══════════════════════════════════════════════════════════ */
+let modalCallback = null;
+function showModal(title, body, confirmLabel, cb) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-body').textContent  = body;
+  document.getElementById('modal-confirm-btn').textContent = confirmLabel || 'Confirm';
+  modalCallback = cb;
+  document.getElementById('confirm-modal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('confirm-modal').classList.remove('open');
+  modalCallback = null;
+}
+document.getElementById('modal-confirm-btn').addEventListener('click', () => {
+  if (modalCallback) modalCallback();
+  closeModal();
+});
+
+/* ══════════════════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════════════════ */
+function getInitials(n) { return (n||'?').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+function stageClass(s) {
+  return ({scout:'stage-scout',warmup:'stage-warmup',dm:'stage-dm',replied:'stage-replied',pitched:'stage-pitched',negotiating:'stage-negotiating',closed:'stage-closed',parked:'stage-parked',dead:'stage-dead'})[s]||'stage-warmup';
+}
+function stageLabel(s) {
+  return ({scout:'Scouted',warmup:'Warm-Up',dm:'DM Sent',replied:'Replied',pitched:'Pitched',negotiating:'Negotiating',closed:'✓ Closed',parked:'⏸ Parked',dead:'Dead'})[s]||'Warm-Up';
+}
+function formatDate(d) {
+  if (!d) return '';
+  return new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function getDueStatus(p) {
+  if (!p.nextActionDate) return null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const due   = new Date(p.nextActionDate+'T00:00:00');
+  const diff  = Math.round((due-today)/(1000*60*60*24));
+  if (diff < 0)  return {label:`Overdue ${Math.abs(diff)}d`, cls:'overdue'};
+  if (diff === 0) return {label:'Due Today', cls:'today'};
+  if (diff <= 3) return {label:`Due in ${diff}d`, cls:'soon'};
+  return null;
+}
+function isOverdue(p) {
+  if (!p.nextActionDate) return false;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const due   = new Date(p.nextActionDate+'T00:00:00');
+  return due < today;
+}
+function toast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = type==='error' ? 'error-toast' : type==='success' ? 'success-toast' : '';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(()=>toast('Copied ✓')).catch(()=>{
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    toast('Copied ✓');
+  });
+}
+function priorityOrder(p) { return ({high:0,medium:1,low:2})[p.priority||'medium'] ?? 1; }
+function stageOrder(s)    { return ({scout:0,warmup:1,dm:2,replied:3,pitched:4,negotiating:5,closed:6,parked:7,dead:8})[s] ?? 9; }
+
+/* ══════════════════════════════════════════════════════════
+   ADD PROSPECT
+══════════════════════════════════════════════════════════ */
+function addProspect() {
+  const name  = document.getElementById('inp-name').value.trim();
+  const type  = document.getElementById('inp-type').value;
+  if (!name)  { toast('Please enter a business name','error'); return; }
+  if (!type)  { toast('Please select a business type','error'); return; }
+  const handle   = document.getElementById('inp-handle').value.trim();
+  const loc      = document.getElementById('inp-location').value.trim();
+  const email    = document.getElementById('inp-email').value.trim();
+  const contact  = document.getElementById('inp-contact').value.trim();
+  const start    = document.getElementById('inp-startdate').value;
+  const priority = document.getElementById('inp-priority').value;
+  const plan  = getDayPlan(type);
+  const dmList = BT[type].dm;
+  const checks = {};
+  plan.forEach((_,i)=>{ checks['day'+i]=false; });
+  dmList.forEach(d=>{ checks[d.id]=false; });
+  const data = load();
+  data.unshift({
+    id:Date.now(), name, type, brand:pendingBrandPill,
+    handle, location:loc, email, contact,
+    startDate:start||new Date().toISOString().slice(0,10),
+    stage:'warmup', priority, checks, notes:'', log:[],
+    nextAction:'', nextActionDate:'',
+    createdAt: new Date().toISOString()
+  });
+  save(data);
+  render();
+  toast('Prospect added ✓','success');
+  ['inp-name','inp-handle','inp-location','inp-email','inp-contact','inp-startdate'].forEach(id=>{ document.getElementById(id).value=''; });
+  document.getElementById('inp-type').value='';
+  document.getElementById('inp-priority').value='medium';
+  document.getElementById('strategy-preview').classList.remove('visible');
+}
+
+/* ══════════════════════════════════════════════════════════
+   LOG ENTRY
+══════════════════════════════════════════════════════════ */
+function addLog(id) {
+  const ta  = document.getElementById('log-ta-'+id);
+  const sel = document.getElementById('log-type-'+id);
+  const txt = ta ? ta.value.trim() : '';
+  if (!txt) { toast('Enter a note first','error'); return; }
+  const data = load();
+  const p = data.find(x=>x.id===id);
+  if (!p) return;
+  if (!p.log) p.log = [];
+  p.log.unshift({ ts: new Date().toISOString(), type: sel?sel.value:'note', text: txt });
+  save(data);
+  if (ta) ta.value = '';
+  renderLogEntries(id, p.log);
+  toast('Note added ✓');
+}
+function deleteLog(prospectId, logIndex) {
+  const data = load();
+  const p = data.find(x=>x.id===prospectId);
+  if (!p || !p.log) return;
+  p.log.splice(logIndex, 1);
+  save(data);
+  renderLogEntries(prospectId, p.log);
+  toast('Note removed');
+}
+function renderLogEntries(id, log) {
+  const container = document.getElementById('log-entries-'+id);
+  if (!container) return;
+  if (!log || !log.length) {
+    container.innerHTML = '<div style="font-size:.75rem;color:var(--text-mute);padding:8px 0">No notes yet. Start logging your observations, replies, and key moments.</div>';
+    return;
+  }
+  container.innerHTML = log.map((e,i) => {
+    const d = new Date(e.ts);
+    const dateStr = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) + ' · ' + d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+    return `<div class="log-entry">
+      <div class="log-entry-meta">
+        <span class="log-entry-type ${e.type}">${e.type.charAt(0).toUpperCase()+e.type.slice(1)}</span>
+        <span>${dateStr}</span>
+      </div>
+      <div class="log-entry-text">${e.text.replace(/\n/g,'<br>')}</div>
+      <button class="log-delete-btn" onclick="deleteLog(${id},${i})" aria-label="Delete this log entry">✕</button>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOGGLE CARD / TAB
+══════════════════════════════════════════════════════════ */
+function toggleCard(id) {
+  const b = document.getElementById('body-'+id);
+  if (!b) return;
+  const open = b.classList.toggle('open');
+  const h = document.getElementById('cheader-'+id);
+  if (h) h.setAttribute('aria-expanded', open);
+  if (open) {
+    const p = load().find(x=>x.id===id);
+    if (p) renderLogEntries(id, p.log||[]);
+  }
+}
+function switchTab(id, tab) {
+  ['warmup','dm','log','details'].forEach(t=>{
+    const pane = document.getElementById('tab-'+t+'-'+id);
+    const btn  = document.getElementById('tabBtn-'+t+'-'+id);
+    if (pane) pane.classList.toggle('active', t===tab);
+    if (btn)  btn.classList.toggle('active', t===tab);
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   CHECK
+══════════════════════════════════════════════════════════ */
+function setCheck(id, key, val) {
+  const data = load();
+  const p = data.find(x=>x.id===id);
+  if (!p) return;
+  p.checks[key] = val;
+  save(data);
+  const plan = getDayPlan(p.type);
+  const done = plan.filter((_,i)=>p.checks['day'+i]).length;
+  const el = document.getElementById('prog-'+id);
+  if (el) {
+    el.innerHTML = `<span>${done}</span>/${plan.length} days`;
+  }
+  const bar = document.getElementById('wbar-'+id);
+  if (bar) bar.style.width = `${Math.round(done/plan.length*100)}%`;
+  const row = document.getElementById('row-'+id+'-'+key);
+  if (row) row.classList.toggle('done', val);
+  const dmRow = document.getElementById('dmrow-'+id+'-'+key);
+  if (dmRow) dmRow.classList.toggle('done', val);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SAVE CARD
+══════════════════════════════════════════════════════════ */
+function saveCard(id) {
+  const data = load();
+  const p = data.find(x=>x.id===id);
+  if (!p) return;
+  const stageEl  = document.getElementById('stage-'+id);
+  const naEl     = document.getElementById('na-text-'+id);
+  const naDateEl = document.getElementById('na-date-'+id);
+  const emailEl  = document.getElementById('det-email-'+id);
+  const contactEl= document.getElementById('det-contact-'+id);
+  const handleEl = document.getElementById('det-handle-'+id);
+  const locEl    = document.getElementById('det-loc-'+id);
+  const prioEl   = document.getElementById('det-prio-'+id);
+  const brandEl  = document.getElementById('det-brand-'+id);
+  if (stageEl)   p.stage          = stageEl.value;
+  if (naEl)      p.nextAction     = naEl.value;
+  if (naDateEl)  p.nextActionDate = naDateEl.value;
+  if (emailEl)   p.email          = emailEl.value;
+  if (contactEl) p.contact        = contactEl.value;
+  if (handleEl)  p.handle         = handleEl.value;
+  if (locEl)     p.location       = locEl.value;
+  if (prioEl)    p.priority       = prioEl.value;
+  if (brandEl)   p.brand          = brandEl.value;
+  save(data);
+  render();
+  toast('Saved ✓','success');
+}
+
+/* ══════════════════════════════════════════════════════════
+   DELETE
+══════════════════════════════════════════════════════════ */
+function deleteProspect(id, name) {
+  showModal('Remove Prospect', `Remove "${name}" permanently? This cannot be undone.`, 'Remove', () => {
+    save(load().filter(x=>x.id!==id));
+    render();
+    toast('Prospect removed');
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   FILTER
+══════════════════════════════════════════════════════════ */
+function setFilter(f) { currentFilter = f; render(); }
+
+/* ══════════════════════════════════════════════════════════
+   RENDER FILTERS
+══════════════════════════════════════════════════════════ */
+function renderFilters(data) {
+  const el = document.getElementById('filter-bar');
+  let html = `<button class="filter-chip ${currentFilter==='all'?'active':''}" onclick="setFilter('all')">All (${data.length})</button>`;
+  const overdueCount = data.filter(p=>isOverdue(p)&&!['closed','dead','parked'].includes(p.stage)).length;
+  if (overdueCount>0) html += `<button class="filter-chip overdue-chip ${currentFilter==='overdue'?'active':''}" onclick="setFilter('overdue')">⚠ Overdue (${overdueCount})</button>`;
+  ['warmup','dm','replied','pitched','negotiating','closed','parked','dead'].forEach(stage=>{
+    const count = data.filter(p=>p.stage===stage).length;
+    if (count>0) html += `<button class="filter-chip ${currentFilter===stage?'active':''}" onclick="setFilter('${stage}')">${stageLabel(stage)} (${count})</button>`;
+  });
+  const typesUsed = [...new Set(data.map(p=>p.type))].filter(Boolean);
+  typesUsed.forEach(type=>{
+    const t = BT[type]; if (!t) return;
+    const count = data.filter(p=>p.type===type).length;
+    html += `<button class="filter-chip ${currentFilter===type?'active':''}" onclick="setFilter('${type}')">${t.emoji} ${t.label} (${count})</button>`;
+  });
+  el.innerHTML = html;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RENDER STATS
+══════════════════════════════════════════════════════════ */
+function renderStats(data) {
+  const total    = data.length;
+  const warmup   = data.filter(x=>x.stage==='warmup').length;
+  const active   = data.filter(x=>['dm','replied','pitched','negotiating'].includes(x.stage)).length;
+  const closed   = data.filter(x=>x.stage==='closed').length;
+  const dead     = data.filter(x=>x.stage==='dead').length;
+  const overdue  = data.filter(p=>isOverdue(p)&&!['closed','dead','parked'].includes(p.stage)).length;
+  const conv     = total > 0 ? Math.round(closed/total*100) : 0;
+  const el       = document.getElementById('stats-bar');
+  el.innerHTML = `
+    <div class="stat-chip"><strong>${total}</strong>Total<div class="stat-chip-bar" style="width:100%"></div></div>
+    <div class="stat-chip"><strong>${warmup}</strong>Warming Up<div class="stat-chip-bar" style="width:${total?warmup/total*100:0}%"></div></div>
+    <div class="stat-chip"><strong>${active}</strong>In Pipeline<div class="stat-chip-bar" style="width:${total?active/total*100:0}%"></div></div>
+    <div class="stat-chip success"><strong>${closed}</strong>Closed<div class="stat-chip-bar" style="width:${total?closed/total*100:0}%"></div></div>
+    <div class="stat-chip ${overdue>0?'danger':''}"><strong>${overdue}</strong>Overdue<div class="stat-chip-bar" style="width:${total?overdue/total*100:0}%"></div></div>
+    <div class="stat-chip"><strong>${conv}%</strong>Conv. Rate<div class="stat-chip-bar" style="width:${conv}%"></div></div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RENDER
+══════════════════════════════════════════════════════════ */
+function render() {
+  const allData = load();
+  const search  = document.getElementById('search-input').value.toLowerCase().trim();
+  const sort    = document.getElementById('sort-select').value;
+
+  // Brand filter
+  let data = currentBrand === 'all' ? allData : allData.filter(p=>(p.brand||'jamalinks')===currentBrand);
+
+  renderFilters(data);
+  renderStats(data);
+
+  // Stage / type filter
+  if (currentFilter === 'overdue') {
+    data = data.filter(p=>isOverdue(p)&&!['closed','dead','parked'].includes(p.stage));
+  } else if (currentFilter !== 'all') {
+    data = data.filter(p=>p.type===currentFilter||p.stage===currentFilter);
+  }
+
+  // Search
+  if (search) {
+    data = data.filter(p=>
+      (p.name||'').toLowerCase().includes(search) ||
+      (p.handle||'').toLowerCase().includes(search) ||
+      (p.location||'').toLowerCase().includes(search) ||
+      (p.contact||'').toLowerCase().includes(search)
+    );
+  }
+
+  // Sort
+  if (sort==='priority') data = [...data].sort((a,b)=>priorityOrder(a)-priorityOrder(b));
+  else if (sort==='stage') data = [...data].sort((a,b)=>stageOrder(a.stage)-stageOrder(b.stage));
+  else if (sort==='overdue') data = [...data].sort((a,b)=>(isOverdue(b)?1:0)-(isOverdue(a)?1:0));
+  else if (sort==='alpha') data = [...data].sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+
+  const list = document.getElementById('prospect-list');
+  if (data.length===0) {
+    list.innerHTML = allData.length===0
+      ? `<div class="empty-state"><strong>No prospects yet</strong>Open the "Add New Prospect" form above to add your first prospect and begin the outreach sequence.</div>`
+      : `<div class="empty-state"><strong>No prospects match</strong>Try adjusting your filter, brand, or search above.</div>`;
+    return;
+  }
+
+  list.innerHTML = data.map(p => {
+    const type     = BT[p.type] || BT.restaurant;
+    const plan     = getDayPlan(p.type);
+    const dmList   = type.dm;
+    const done     = plan.filter((_,i)=>p.checks['day'+i]).length;
+    const pct      = Math.round(done/plan.length*100);
+    const avatarGrad = `linear-gradient(135deg,${type.grad[0]},${type.grad[1]})`;
+    const brand    = p.brand || 'jamalinks';
+    const dueStatus = getDueStatus(p);
+    const overdueCls = isOverdue(p) && !['closed','dead','parked'].includes(p.stage) ? ' overdue' : '';
+    const priorityCls = p.priority ? ` priority-${p.priority}` : '';
+
+    const dayRows = plan.map((d,i)=>{
+      const key  = 'day'+i;
+      const chkd = p.checks[key]?'checked':'';
+      const doneC= p.checks[key]?'done':'';
+      const exHTML = d.examples ? d.examples.map(e=>`<span class="comment-example">→ ${e}</span>`).join('') : '';
+      const guideHTML = d.hasComment ? `<div class="comment-guide"><strong>💬 Comment Guide</strong>${d.commentGuide}${exHTML}</div>` : '';
+      const dmNote = d.isDMDay ? `<div class="comment-guide" style="border-color:var(--blue);background:#060d18"><strong style="color:var(--blue)">📨 DM Launch Day</strong>Warm-up complete. Go to the DM Sequence tab and send DM 1 now.</div>` : '';
+      return `<div class="day-row ${doneC}" id="row-${p.id}-${key}">
+        <div class="day-label">${d.label}<br><span style="color:var(--text-mute);font-size:.56rem;text-transform:uppercase;letter-spacing:.04em">${d.title}</span></div>
+        <div class="day-action">${d.detail}${guideHTML}${dmNote}</div>
+        <input type="checkbox" class="day-check" ${chkd} aria-label="Mark ${d.label} complete for ${p.name}" onchange="setCheck(${p.id},'${key}',this.checked)">
+      </div>`;
+    }).join('');
+
+    const dmRows = dmList.map(dm=>{
+      const chkd  = p.checks[dm.id]?'checked':'';
+      const doneC = p.checks[dm.id]?'done':'';
+      const msgFilled = dm.text
+        .replace(/\[Business Name\]/g, p.name||'[Business Name]')
+        .replace(/\[Location\]/g, p.location||'[Location]');
+      const escapedMsg = msgFilled.replace(/`/g,'\\`').replace(/\$/g,'\\$');
+      return `<div class="dm-block ${doneC}" id="dmrow-${p.id}-${dm.id}">
+        <div>
+          <div class="dm-title">${dm.title}</div>
+          <div class="dm-when">⏱ ${dm.when}</div>
+          <div class="dm-text" style="position:relative">${msgFilled}<button class="copy-btn" onclick="copyText(\`${escapedMsg}\`)" aria-label="Copy DM to clipboard">Copy</button></div>
+        </div>
+        <input type="checkbox" class="day-check" ${chkd} aria-label="Mark ${dm.title} sent for ${p.name}" onchange="setCheck(${p.id},'${dm.id}',this.checked)">
+      </div>`;
+    }).join('');
+
+    return `
+    <article class="prospect-card${overdueCls}${priorityCls}" aria-label="Prospect: ${p.name}">
+      <div class="brand-indicator ${brand}" aria-label="${brand==='akralink'?'AkraLink':'JamaLinks'} prospect"></div>
+      <div class="card-header" id="cheader-${p.id}" onclick="toggleCard(${p.id})" role="button" aria-expanded="false" aria-controls="body-${p.id}" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(${p.id})}">
+        <div class="card-header-left">
+          <div class="avatar" style="background:${avatarGrad}" aria-hidden="true">${getInitials(p.name)}</div>
+          <div>
+            <div class="business-name">${p.name}</div>
+            <div class="card-meta">
+              <span class="type-tag">${type.emoji} ${type.label}</span>
+              ${brand==='akralink'?'<span class="akra-tag">AkraLink</span>':'<span class="jama-tag">JamaLinks</span>'}
+              ${p.priority==='high'?'<span class="priority-badge high">🔴 High</span>':p.priority==='low'?'<span class="priority-badge low">Low</span>':''}
+              ${p.handle ? `<span>@${p.handle}</span>` : ''}
+              ${p.location ? `<span>· ${p.location}</span>` : ''}
+              ${isOverdue(p)&&!['closed','dead','parked'].includes(p.stage)?'<span class="overdue-badge">⚠ Overdue</span>':''}
+            </div>
+          </div>
+        </div>
+        <div class="card-header-right">
+          ${dueStatus ? `<div class="due-label ${dueStatus.cls}">${dueStatus.label}</div>` : ''}
+          <div class="progress-ring" id="prog-${p.id}"><span>${done}</span>/${plan.length} days</div>
+          <div class="stage-badge ${stageClass(p.stage)}">${stageLabel(p.stage)}</div>
+        </div>
+      </div>
+      <div class="warmup-progress"><div class="warmup-progress-fill" id="wbar-${p.id}" style="width:${pct}%"></div></div>
+      <div class="card-body" id="body-${p.id}">
+        <div class="divider"></div>
+        <div class="card-tabs" role="tablist">
+          <button class="card-tab active" id="tabBtn-warmup-${p.id}" role="tab" aria-selected="true" aria-controls="tab-warmup-${p.id}" onclick="switchTab(${p.id},'warmup')">Warm-Up</button>
+          <button class="card-tab" id="tabBtn-dm-${p.id}" role="tab" aria-selected="false" aria-controls="tab-dm-${p.id}" onclick="switchTab(${p.id},'dm')">DM Sequence</button>
+          <button class="card-tab" id="tabBtn-log-${p.id}" role="tab" aria-selected="false" aria-controls="tab-log-${p.id}" onclick="switchTab(${p.id},'log')">Log</button>
+          <button class="card-tab" id="tabBtn-details-${p.id}" role="tab" aria-selected="false" aria-controls="tab-details-${p.id}" onclick="switchTab(${p.id},'details')">Details</button>
+        </div>
+
+        <!-- WARM-UP TAB -->
+        <div class="card-tab-pane active" id="tab-warmup-${p.id}" role="tabpanel">
+          <div class="day-grid">${dayRows}</div>
+        </div>
+
+        <!-- DM TAB -->
+        <div class="card-tab-pane" id="tab-dm-${p.id}" role="tabpanel">
+          ${dmRows}
+        </div>
+
+        <!-- LOG TAB -->
+        <div class="card-tab-pane" id="tab-log-${p.id}" role="tabpanel">
+          <div class="log-area">
+            <div class="log-input-row">
+              <select class="log-type-select" id="log-type-${p.id}" aria-label="Log entry type">
+                <option value="note">📝 Note</option>
+                <option value="reply">💬 Reply Received</option>
+                <option value="call">📞 Call / Voice</option>
+                <option value="objection">🚧 Objection</option>
+                <option value="milestone">⭐ Milestone</option>
+              </select>
+              <textarea class="log-textarea" id="log-ta-${p.id}" placeholder="What happened? Record their reply, an objection, a key observation, or any milestone…" aria-label="Log entry text" rows="2"></textarea>
+              <button class="btn-log" onclick="addLog(${p.id})" aria-label="Add log entry">+ Add</button>
+            </div>
+            <div class="log-entries" id="log-entries-${p.id}">
+              <div style="font-size:.75rem;color:var(--text-mute);padding:8px 0">No notes yet. Start logging your observations, replies, and key moments.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAILS TAB -->
+        <div class="card-tab-pane" id="tab-details-${p.id}" role="tabpanel">
+          <div class="details-grid">
+            <div class="detail-field">
+              <label class="detail-label" for="det-handle-${p.id}">Instagram Handle</label>
+              <input class="detail-input" id="det-handle-${p.id}" type="text" value="${p.handle||''}" placeholder="@handle" aria-label="Instagram handle">
+            </div>
+            <div class="detail-field">
+              <label class="detail-label" for="det-loc-${p.id}">Location</label>
+              <input class="detail-input" id="det-loc-${p.id}" type="text" value="${p.location||''}" placeholder="Castries, SLU" aria-label="Location">
+            </div>
+            <div class="detail-field">
+              <label class="detail-label" for="det-email-${p.id}">Email</label>
+              <input class="detail-input" id="det-email-${p.id}" type="email" value="${p.email||''}" placeholder="email@business.com" aria-label="Email">
+            </div>
+            <div class="detail-field">
+              <label class="detail-label" for="det-contact-${p.id}">Owner / Contact</label>
+              <input class="detail-input" id="det-contact-${p.id}" type="text" value="${p.contact||''}" placeholder="Contact name" aria-label="Contact name">
+            </div>
+            <div class="detail-field">
+              <label class="detail-label" for="det-prio-${p.id}">Priority</label>
+              <select class="detail-input" id="det-prio-${p.id}" aria-label="Priority">
+                <option value="high" ${(p.priority||'medium')==='high'?'selected':''}>🔴 High</option>
+                <option value="medium" ${(p.priority||'medium')==='medium'?'selected':''}>⚡ Medium</option>
+                <option value="low" ${(p.priority||'medium')==='low'?'selected':''}>⬇ Low</option>
+              </select>
+            </div>
+            <div class="detail-field">
+              <label class="detail-label" for="det-brand-${p.id}">Brand</label>
+              <select class="detail-input" id="det-brand-${p.id}" aria-label="Brand">
+                <option value="jamalinks" ${(p.brand||'jamalinks')==='jamalinks'?'selected':''}>JamaLinks</option>
+                <option value="akralink" ${(p.brand||'jamalinks')==='akralink'?'selected':''}>AkraLink</option>
+              </select>
+            </div>
+            <div class="next-action-field detail-full">
+              <div class="next-action-label">📌 Next Action</div>
+              <div class="next-action-row">
+                <input class="next-action-input" id="na-text-${p.id}" type="text" value="${p.nextAction||''}" placeholder="e.g. Send DM 2, Follow up on proposal, Re-engage after Mother's Day…" aria-label="Next action description">
+                <input class="next-action-date" id="na-date-${p.id}" type="date" value="${p.nextActionDate||''}" aria-label="Next action due date">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE ROW -->
+        <div class="stage-row">
+          <span class="stage-label-sm">Stage:</span>
+          <select class="stage-select" id="stage-${p.id}" aria-label="Update stage for ${p.name}">
+            <option value="scout"       ${p.stage==='scout'?'selected':''}>Scouted</option>
+            <option value="warmup"      ${p.stage==='warmup'?'selected':''}>Warm-Up</option>
+            <option value="dm"          ${p.stage==='dm'?'selected':''}>DM Sent</option>
+            <option value="replied"     ${p.stage==='replied'?'selected':''}>Replied</option>
+            <option value="pitched"     ${p.stage==='pitched'?'selected':''}>Pitched</option>
+            <option value="negotiating" ${p.stage==='negotiating'?'selected':''}>Negotiating</option>
+            <option value="closed"      ${p.stage==='closed'?'selected':''}>✓ Closed</option>
+            <option value="parked"      ${p.stage==='parked'?'selected':''}>⏸ Parked</option>
+            <option value="dead"        ${p.stage==='dead'?'selected':''}>Dead</option>
+          </select>
+          <button class="btn-save" onclick="saveCard(${p.id})" aria-label="Save changes for ${p.name}">Save</button>
+          <button class="btn-delete" onclick="deleteProspect(${p.id},'${p.name.replace(/'/g,"\\'")}')" aria-label="Delete ${p.name}">Delete</button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+render();
+</script>
+</body>
+</html>
