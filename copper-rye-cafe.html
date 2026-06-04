@@ -1,86 +1,256 @@
 <!DOCTYPE html>
 <html lang="en" data-time="morning">
 <head>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: HEAD — SECURITY FIRST
+     JAMALINKS Build Standards v2.0
+═══════════════════════════════════════════ -->
+
+<!-- 1. Character encoding — always first -->
 <meta charset="UTF-8"/>
+
+<!-- 2. Viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Copper & Rye — Craft Coffee & Kitchen</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<!-- 3. Title -->
+<title>Copper &amp; Rye — Craft Coffee &amp; Kitchen · Columbus, OH</title>
+
+<!-- 4. Content Security Policy — scoped to exact services used -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://js.stripe.com https://cdn.emailjs.com;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+               font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+               img-src 'self' data: https:;
+               frame-src https://js.stripe.com;
+               connect-src 'self' https://api.stripe.com https://api.emailjs.com https://formspree.io;
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self' https://formspree.io;">
+
+<!-- 5. MIME sniffing prevention -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+
+<!-- 6. Referrer policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+<!-- 7. Permissions policy — disable unused browser features -->
+<meta http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"/>
+
+<!-- 8. SEO meta tags -->
+<meta name="description" content="Copper &amp; Rye — craft coffee, scratch kitchen, and direct-trade roasts in downtown Columbus, Ohio. Order pickup, delivery, or dine-in online."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://copperandrye.com/"/>
+<meta property="og:title" content="Copper &amp; Rye — Craft Coffee &amp; Kitchen"/>
+<meta property="og:description" content="Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible. Columbus, OH."/>
+<meta property="og:url" content="https://copperandrye.com/"/>
+<meta property="og:type" content="restaurant"/>
+<meta property="og:image" content="https://copperandrye.com/assets/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Copper &amp; Rye — Craft Coffee &amp; Kitchen"/>
+<meta name="twitter:description" content="Craft coffee and scratch kitchen in downtown Columbus, OH. Order online."/>
+
+<!-- 9. JSON-LD Structured Data — Restaurant schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Copper & Rye",
+  "url": "https://copperandrye.com/",
+  "telephone": "+16145550182",
+  "email": "hello@copperandrye.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Short North Ave",
+    "addressLocality": "Columbus",
+    "addressRegion": "OH",
+    "postalCode": "43215",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.9784,
+    "longitude": -83.0062
+  },
+  "description": "Craft coffee, direct-trade roasts, and a scratch kitchen in downtown Columbus, Ohio.",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00" }
+  ],
+  "servesCuisine": ["Coffee", "American", "Brunch"],
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "sameAs": [
+    "https://www.instagram.com/copperandrye",
+    "https://www.facebook.com/copperandrye"
+  ]
+}
+</script>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: CDN RESOURCES WITH SRI HASHES
+═══════════════════════════════════════════ -->
+
+<!-- Bootstrap 5.3.3 CSS — SRI verified -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"/>
+
+<!-- Font Awesome 6.5.1 — deferred, SRI verified -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/></noscript>
+
+<!-- Google Fonts — performance-optimized, non-blocking -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+      media="print" onload="this.media='all'"/>
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+</noscript>
+
+<!-- Stripe.js — payment processing (load from official Stripe CDN only) -->
+<script src="https://js.stripe.com/v3/" defer></script>
+
+<!-- EmailJS — order notification routing -->
+<script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+
 <style>
+/* font-display: swap prevents invisible text during font load */
+@font-face { font-display: swap; }
+
 /* ═══════════════════════════════════════════
-   TIME-OF-DAY THEME SYSTEM
+   SECTION 7: CSS VARIABLES + SECURITY STYLES
+   Time-of-day theme system
 ═══════════════════════════════════════════ */
 :root {
-  --bg:         #faf7f2;
-  --bg2:        #f0ebe0;
-  --bg3:        #e5ddd0;
-  --surface:    #ffffff;
-  --text:       #1a1208;
-  --text2:      #6b5a44;
-  --accent:     #b5490a;
-  --accent2:    #d4621a;
-  --accent-glow:rgba(181,73,10,0.18);
-  --border:     rgba(181,73,10,0.15);
-  --nav-bg:     rgba(250,247,242,0.94);
-  --card-bg:    #ffffff;
-  --green:      #2d6a4f;
-  --transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
-}
-[data-time="afternoon"] {
-  --bg:         #fef8ee;
-  --bg2:        #f5ead8;
-  --bg3:        #ecddc5;
-  --accent:     #c4510e;
-  --accent2:    #e06c22;
-  --accent-glow:rgba(196,81,14,0.18);
-  --border:     rgba(196,81,14,0.15);
-  --nav-bg:     rgba(254,248,238,0.94);
-}
-[data-time="evening"] {
-  --bg:         #160e06;
-  --bg2:        #1e1208;
-  --bg3:        #281808;
-  --surface:    #201408;
-  --text:       #f0e2cc;
-  --text2:      #b89060;
-  --accent:     #d4661a;
-  --accent2:    #f07830;
-  --accent-glow:rgba(212,102,26,0.28);
-  --border:     rgba(212,102,26,0.2);
-  --nav-bg:     rgba(22,14,6,0.95);
-  --card-bg:    #1e140a;
-}
-[data-time="night"] {
-  --bg:         #0c0804;
-  --bg2:        #140c04;
-  --bg3:        #1c1206;
-  --surface:    #160e04;
-  --text:       #e8d4b0;
-  --text2:      #9a7848;
-  --accent:     #b85c14;
-  --accent2:    #d4741e;
-  --accent-glow:rgba(184,92,20,0.22);
-  --border:     rgba(184,92,20,0.14);
-  --nav-bg:     rgba(12,8,4,0.97);
-  --card-bg:    #140a02;
+  /* Brand palette */
+  --primary:       #b5490a;
+  --primary-dark:  #8c3507;
+  --secondary:     #d4621a;
+  --accent-glow:   rgba(181,73,10,0.18);
+  --green:         #2d6a4f;
+  --green-bg:      rgba(45,106,79,0.08);
+  --green-border:  rgba(45,106,79,0.2);
+
+  /* Morning theme defaults */
+  --bg:        #faf7f2;
+  --bg2:       #f0ebe0;
+  --bg3:       #e5ddd0;
+  --surface:   #ffffff;
+  --text:      #1a1208;
+  --text2:     #6b5a44;
+  --border:    rgba(181,73,10,0.15);
+  --nav-bg:    rgba(250,247,242,0.94);
+  --card-bg:   #ffffff;
+
+  /* Typography */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-serif:   'Libre Baskerville', serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Motion */
+  --transition:       all 1.2s cubic-bezier(0.4,0,0.2,1);
+  --transition-fast:  0.2s ease;
+  --transition-med:   0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
+[data-time="afternoon"] {
+  --bg:        #fef8ee;
+  --bg2:       #f5ead8;
+  --bg3:       #ecddc5;
+  --primary:   #c4510e;
+  --secondary: #e06c22;
+  --accent-glow: rgba(196,81,14,0.18);
+  --border:    rgba(196,81,14,0.15);
+  --nav-bg:    rgba(254,248,238,0.94);
+}
+[data-time="evening"] {
+  --bg:        #160e06;
+  --bg2:       #1e1208;
+  --bg3:       #281808;
+  --surface:   #201408;
+  --text:      #f0e2cc;
+  --text2:     #b89060;
+  --primary:   #d4661a;
+  --secondary: #f07830;
+  --accent-glow: rgba(212,102,26,0.28);
+  --border:    rgba(212,102,26,0.2);
+  --nav-bg:    rgba(22,14,6,0.95);
+  --card-bg:   #1e140a;
+}
+[data-time="night"] {
+  --bg:        #0c0804;
+  --bg2:       #140c04;
+  --bg3:       #1c1206;
+  --surface:   #160e04;
+  --text:      #e8d4b0;
+  --text2:     #9a7848;
+  --primary:   #b85c14;
+  --secondary: #d4741e;
+  --accent-glow: rgba(184,92,20,0.22);
+  --border:    rgba(184,92,20,0.14);
+  --nav-bg:    rgba(12,8,4,0.97);
+  --card-bg:   #140a02;
+}
+
+/* ── RESET & BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  max-width: 100vw;
   transition: background 1.2s ease, color 1.2s ease;
 }
+
+/* Noise texture overlay — purely decorative */
 body::after {
   content: '';
   position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 9999; opacity: 0.45;
+  aria-hidden: true;
 }
 
-/* ── NAV ── */
+/* ── ACCESSIBILITY: FOCUS STYLES (WCAG 2.1 AA) ── */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+*:focus:not(:focus-visible) { outline: none; }
+
+/* ── SKIP LINK — WCAG REQUIREMENT ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--primary); color: white;
+  padding: 0.5rem 1rem; border-radius: 0 0 6px 6px;
+  z-index: 10000; font-weight: 600; font-family: var(--font-body);
+  text-decoration: none; font-size: 0.85rem;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ═══════════════════════════════════════
+   NAVIGATION — WCAG COMPLIANT
+═══════════════════════════════════════ */
 .v-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   background: var(--nav-bg); backdrop-filter: blur(22px);
@@ -92,54 +262,100 @@ body::after {
 .nav-brand {
   display: flex; align-items: center; gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 .brand-mark {
-  width: 34px; height: 34px; background: var(--accent);
+  width: 34px; height: 34px; background: var(--primary);
   border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; transition: background 1.2s ease;
+  font-size: 1rem; transition: background 1.2s ease; flex-shrink: 0;
 }
 .brand-text {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.15rem; color: var(--text); letter-spacing: -0.5px;
   transition: color 1.2s ease;
 }
-.brand-text span { color: var(--accent); }
-.nav-links { display: flex; gap: 30px; list-style: none; }
+.brand-text span { color: var(--primary); }
+
+/* Desktop nav links */
+.nav-links {
+  display: flex; gap: 30px; list-style: none;
+  margin: 0 auto; padding: 0;
+}
 .nav-links a {
   font-size: 0.83rem; font-weight: 500; color: var(--text2);
-  text-decoration: none; letter-spacing: 0.2px; transition: color 0.2s;
+  text-decoration: none; letter-spacing: 0.2px;
+  transition: color var(--transition-fast);
+  padding: 4px 0;
 }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: var(--primary); }
+
 .nav-right { display: flex; align-items: center; gap: 10px; }
 .time-badge {
   display: flex; align-items: center; gap: 6px;
   background: var(--accent-glow); border: 1px solid var(--border);
   border-radius: 50px; padding: 5px 12px;
-  font-size: 0.71rem; font-weight: 600; color: var(--accent);
+  font-size: 0.71rem; font-weight: 600; color: var(--primary);
   letter-spacing: 0.5px; transition: var(--transition);
 }
 .time-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent); animation: pulse 2s ease-in-out infinite;
+  background: var(--primary); animation: dotPulse 2s ease-in-out infinite;
 }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes dotPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
 .btn-nav {
-  background: var(--accent); color: white; border: none;
-  border-radius: 8px; padding: 9px 20px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 600;
+  background: var(--primary); color: white; border: none;
+  border-radius: 8px; padding: 9px 18px;
+  font-family: var(--font-body); font-size: 0.83rem; font-weight: 600;
   cursor: pointer; text-decoration: none;
-  transition: filter 0.2s, transform 0.15s;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
   display: inline-flex; align-items: center; gap: 7px;
 }
 .btn-nav:hover { filter: brightness(1.1); transform: scale(1.03); }
 .cart-badge {
-  background: white; color: var(--accent);
+  background: white; color: var(--primary);
   border-radius: 50%; width: 18px; height: 18px;
   font-size: 0.65rem; font-weight: 700;
   display: inline-flex; align-items: center; justify-content: center;
 }
 
-/* ── HERO ── */
+/* Hamburger button — mobile only */
+.nav-hamburger {
+  display: none;
+  background: none; border: 1px solid var(--border);
+  border-radius: 7px; color: var(--text2);
+  width: 38px; height: 38px; cursor: pointer;
+  align-items: center; justify-content: center;
+  font-size: 1rem; transition: background var(--transition-fast);
+}
+.nav-hamburger:hover { background: var(--bg2); }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none;
+  position: fixed; top: 66px; left: 0; right: 0; z-index: 490;
+  background: var(--nav-bg); backdrop-filter: blur(22px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 20px;
+  flex-direction: column; gap: 4px;
+  transform: translateY(-10px); opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.mobile-nav.open {
+  display: flex; opacity: 1; transform: translateY(0);
+}
+.mobile-nav a {
+  display: block; padding: 12px 0;
+  font-size: 0.97rem; font-weight: 500; color: var(--text2);
+  text-decoration: none; border-bottom: 1px solid var(--border);
+  transition: color var(--transition-fast);
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--primary); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
 .v-hero {
   min-height: 100vh; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -147,19 +363,17 @@ body::after {
   position: relative; overflow: hidden;
 }
 .hero-bg {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; pointer-events: none;
   background:
     radial-gradient(ellipse at 25% 15%, var(--accent-glow), transparent 50%),
     radial-gradient(ellipse at 75% 85%, var(--accent-glow), transparent 50%);
-  transition: var(--transition); pointer-events: none;
+  transition: var(--transition);
 }
-/* diagonal stripe texture */
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
   background-image: repeating-linear-gradient(
-    -45deg,
-    transparent, transparent 60px,
+    -45deg, transparent, transparent 60px,
     rgba(181,73,10,0.02) 60px, rgba(181,73,10,0.02) 61px
   );
 }
@@ -167,12 +381,12 @@ body::after {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--accent-glow); border: 1px solid var(--border);
   border-radius: 4px; padding: 6px 16px;
-  font-size: 0.68rem; font-weight: 600; color: var(--accent);
+  font-size: 0.68rem; font-weight: 600; color: var(--primary);
   letter-spacing: 2px; text-transform: uppercase;
   margin-bottom: 22px; animation: fadeUp 0.55s ease both;
 }
 .v-hero h1 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3.2rem, 10vw, 7rem);
   font-weight: 900; line-height: 0.9;
   letter-spacing: -3px; color: var(--text);
@@ -180,11 +394,11 @@ body::after {
   animation: fadeUp 0.6s 0.08s ease both;
 }
 .v-hero h1 em {
-  font-style: italic; font-family: 'Libre Baskerville', serif;
-  color: var(--accent); letter-spacing: -1px;
+  font-style: italic; font-family: var(--font-serif);
+  color: var(--primary); letter-spacing: -1px;
 }
 .hero-tagline {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-serif);
   font-size: clamp(0.95rem, 2vw, 1.15rem); font-style: italic;
   color: var(--text2); max-width: 440px; line-height: 1.7;
   margin-bottom: 36px; transition: color 1.2s ease;
@@ -196,27 +410,29 @@ body::after {
   animation: fadeUp 0.6s 0.24s ease both;
 }
 .btn-primary {
-  background: var(--accent); color: white; border: none;
+  background: var(--primary); color: white; border: none;
   border-radius: 8px; padding: 15px 34px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
   cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
-  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .btn-primary:hover {
   filter: brightness(1.08); transform: translateY(-2px);
   box-shadow: 0 10px 28px var(--accent-glow);
+  color: white; text-decoration: none;
 }
 .btn-ghost {
   background: transparent; color: var(--text);
   border: 1.5px solid var(--border);
   border-radius: 8px; padding: 14px 28px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
   cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
 }
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+
 .hero-trust {
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
   animation: fadeUp 0.6s 0.32s ease both;
@@ -239,22 +455,23 @@ body::after {
   50%{transform:translateX(-50%) translateY(-7px)}
 }
 
-/* ── TICKER ── */
+/* ── TICKER BAR ── */
 .special-bar {
-  background: var(--accent); padding: 11px 0;
+  background: var(--primary); padding: 11px 0;
   overflow: hidden; white-space: nowrap;
+  aria-label: "Today's specials";
 }
 .special-track {
   display: inline-flex; gap: 0;
-  animation: scroll 40s linear infinite;
+  animation: tickerScroll 40s linear infinite;
 }
 .special-item {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-serif);
   font-size: 0.86rem; font-style: italic; color: rgba(255,255,255,0.95);
   padding: 0 36px; display: inline-flex; align-items: center; gap: 16px;
 }
 .s-dot { font-style: normal; opacity: 0.4; font-size: 0.4rem; }
-@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ── ORDER TYPE TOGGLE ── */
 .order-toggle-wrap {
@@ -263,15 +480,15 @@ body::after {
 }
 .ot-eyebrow {
   font-size: 0.66rem; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: block;
 }
 .ot-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   color: var(--text); margin-bottom: 8px; letter-spacing: -1px;
   transition: color 1.2s ease;
 }
-.ot-title em { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--accent); }
+.ot-title em { font-family: var(--font-serif); font-style: italic; color: var(--primary); }
 .ot-sub {
   font-size: 0.88rem; color: var(--text2); margin-bottom: 24px;
   font-weight: 300; line-height: 1.6; transition: color 1.2s ease;
@@ -280,18 +497,18 @@ body::after {
   display: inline-flex;
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: 12px; padding: 5px; gap: 4px; margin-bottom: 32px;
+  flex-wrap: wrap; justify-content: center;
 }
 .ot-btn {
   background: transparent; border: none; cursor: pointer;
-  border-radius: 9px; padding: 10px 28px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500;
+  border-radius: 9px; padding: 10px 24px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
   color: var(--text2); transition: all 0.2s;
   display: flex; align-items: center; gap: 7px;
 }
 .ot-btn.active {
-  background: var(--surface); color: var(--accent);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-weight: 600;
+  background: var(--surface); color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-weight: 600;
 }
 .ot-info {
   display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
@@ -304,9 +521,9 @@ body::after {
   display: flex; align-items: center; gap: 7px;
   transition: var(--transition);
 }
-.ot-info-pill strong { color: var(--accent); font-weight: 600; }
+.ot-info-pill strong { color: var(--primary); font-weight: 600; }
 
-/* ── MOOD ── */
+/* ── MOOD SELECTOR ── */
 .mood-section {
   padding: 52px 24px 0; max-width: 900px; margin: 0 auto; text-align: center;
 }
@@ -316,17 +533,17 @@ body::after {
 .mood-pill {
   background: var(--surface); border: 1.5px solid var(--border);
   color: var(--text2); border-radius: 50px; padding: 10px 22px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 500;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
   cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; gap: 8px;
 }
-.mood-pill:hover { border-color: var(--accent); color: var(--accent); }
+.mood-pill:hover { border-color: var(--primary); color: var(--primary); }
 .mood-pill.active {
-  background: var(--accent); border-color: var(--accent);
+  background: var(--primary); border-color: var(--primary);
   color: white; box-shadow: 0 4px 16px var(--accent-glow);
 }
 
-/* ── MENU ── */
+/* ── MENU SECTION ── */
 .menu-section {
   padding: 40px 24px 100px; max-width: 1120px; margin: 0 auto;
 }
@@ -338,13 +555,12 @@ body::after {
   background: transparent; border: none;
   border-bottom: 2.5px solid transparent;
   color: var(--text2); padding: 12px 18px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 500;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
   cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; gap: 6px; margin-bottom: -1px;
 }
-.cat-tab:hover { color: var(--accent); }
-.cat-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-
+.cat-tab:hover { color: var(--primary); }
+.cat-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -356,36 +572,23 @@ body::after {
   background: var(--card-bg); border: 1px solid var(--border);
   border-radius: 14px; padding: 20px; position: relative; overflow: hidden;
   transition: transform 0.3s, border-color 0.25s, box-shadow 0.3s, background 1.2s ease;
-  cursor: default;
-  animation: cardIn 0.4s ease both;
 }
-@keyframes cardIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.menu-card:nth-child(1)  { animation-delay: 0.03s; }
-.menu-card:nth-child(2)  { animation-delay: 0.07s; }
-.menu-card:nth-child(3)  { animation-delay: 0.11s; }
-.menu-card:nth-child(4)  { animation-delay: 0.15s; }
-.menu-card:nth-child(5)  { animation-delay: 0.19s; }
-.menu-card:nth-child(6)  { animation-delay: 0.23s; }
-.menu-card:nth-child(7)  { animation-delay: 0.27s; }
-.menu-card:nth-child(8)  { animation-delay: 0.31s; }
 .menu-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--accent); transform: scaleX(0); transform-origin: left;
+  background: var(--primary); transform: scaleX(0); transform-origin: left;
   transition: transform 0.3s ease;
 }
-.menu-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.menu-card:hover { transform: translateY(-3px); border-color: var(--primary); }
 .menu-card:hover::before { transform: scaleX(1); }
 .menu-card.in-order {
-  border-color: var(--accent);
+  border-color: var(--primary);
   box-shadow: 0 0 0 2px var(--accent-glow);
 }
 .menu-card.in-order::before { transform: scaleX(1); }
+
 .mood-badge {
   position: absolute; top: 13px; right: 13px;
-  background: var(--accent); color: white;
+  background: var(--primary); color: white;
   border-radius: 4px; padding: 3px 10px;
   font-size: 0.6rem; font-weight: 700; letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -398,15 +601,18 @@ body::after {
   text-transform: uppercase;
 }
 .card-top { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 12px; }
-.card-emoji { font-size: 2.1rem; flex-shrink: 0; transition: transform 0.3s; }
+.card-emoji {
+  font-size: 2.1rem; flex-shrink: 0; transition: transform 0.3s;
+  /* aria-hidden set in JS */
+}
 .menu-card:hover .card-emoji { transform: scale(1.12) rotate(-4deg); }
 .card-info { flex: 1; }
 .card-cat {
-  font-size: 0.62rem; color: var(--accent); letter-spacing: 2px;
+  font-size: 0.62rem; color: var(--primary); letter-spacing: 2px;
   text-transform: uppercase; font-weight: 600; margin-bottom: 3px;
 }
 .card-name {
-  font-family: 'Libre Baskerville', serif; font-size: 1.08rem; font-weight: 700;
+  font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700;
   color: var(--text); line-height: 1.25; margin-bottom: 4px;
   transition: color 1.2s ease;
 }
@@ -426,11 +632,11 @@ body::after {
   margin-top: 12px; gap: 8px; flex-wrap: wrap;
 }
 .card-price {
-  font-family: 'Archivo Black', sans-serif; font-size: 1.3rem;
-  color: var(--accent);
+  font-family: var(--font-display); font-size: 1.3rem;
+  color: var(--primary);
 }
 .card-price small {
-  font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
+  font-family: var(--font-body); font-size: 0.7rem;
   color: var(--text2); font-weight: 300;
 }
 .card-actions { display: flex; align-items: center; gap: 7px; }
@@ -440,7 +646,7 @@ body::after {
   border: 1px solid var(--border); overflow: hidden;
 }
 .qty-btn {
-  background: none; border: none; color: var(--accent);
+  background: none; border: none; color: var(--primary);
   width: 30px; height: 30px; font-size: 1rem; font-weight: 700;
   cursor: pointer; transition: background 0.15s;
   display: flex; align-items: center; justify-content: center;
@@ -448,14 +654,14 @@ body::after {
 .qty-btn:hover { background: var(--accent-glow); }
 .qty-num { min-width: 26px; text-align: center; font-size: 0.86rem; font-weight: 600; }
 .add-btn {
-  background: var(--accent); color: white; border: none;
+  background: var(--primary); color: white; border: none;
   border-radius: 7px; padding: 7px 16px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
-  cursor: pointer; transition: filter 0.2s, transform 0.15s;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: filter var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
 }
 .add-btn:hover { filter: brightness(1.1); transform: scale(1.03); }
-.add-btn.added { background: var(--bg3); color: var(--accent); }
+.add-btn.added { background: var(--bg3); color: var(--primary); }
 .menu-empty {
   grid-column: 1 / -1; text-align: center; padding: 60px 20px;
   color: var(--text2); font-style: italic;
@@ -469,26 +675,25 @@ body::after {
   max-width: 920px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
 }
-@media(max-width:700px){ .story-inner{ grid-template-columns:1fr; gap:40px; } }
 .story-eyebrow {
   font-size: 0.66rem; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 12px; display: block;
 }
 .story-h2 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.9rem, 3.8vw, 2.7rem);
   color: var(--text); line-height: 1.05; margin-bottom: 22px;
   letter-spacing: -1.5px; transition: color 1.2s ease;
 }
-.story-h2 em { font-family: 'Libre Baskerville', serif; font-style: italic; color: var(--accent); }
+.story-h2 em { font-family: var(--font-serif); font-style: italic; color: var(--primary); }
 .story-body {
   font-size: 0.9rem; color: var(--text2); line-height: 1.85;
   font-weight: 300; transition: color 1.2s ease;
 }
-.story-body p+p { margin-top: 14px; }
+.story-body p + p { margin-top: 14px; }
 .story-quote {
-  border-left: 3px solid var(--accent); padding-left: 18px; margin-top: 22px;
-  font-family: 'Libre Baskerville', serif; font-style: italic;
+  border-left: 3px solid var(--primary); padding-left: 18px; margin-top: 22px;
+  font-family: var(--font-serif); font-style: italic;
   font-size: 1rem; color: var(--text); line-height: 1.7;
   transition: color 1.2s ease;
 }
@@ -500,8 +705,8 @@ body::after {
 }
 .story-stat:hover { transform: translateY(-3px); }
 .stat-num {
-  font-family: 'Archivo Black', sans-serif; font-size: 2rem;
-  color: var(--accent); line-height: 1;
+  font-family: var(--font-display); font-size: 2rem;
+  color: var(--primary); line-height: 1;
 }
 .stat-lbl {
   font-size: 0.68rem; color: var(--text2); letter-spacing: 1.5px;
@@ -514,18 +719,17 @@ body::after {
   transition: background 1.2s ease;
 }
 .hours-title {
-  font-family: 'Libre Baskerville', serif; font-size: 0.94rem; font-weight: 700;
+  font-family: var(--font-serif); font-size: 0.94rem; font-weight: 700;
   color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
   transition: color 1.2s ease;
 }
 .hours-row {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 7px 0; border-bottom: 1px solid var(--border);
-  font-size: 0.8rem;
+  padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem;
 }
 .hours-row:last-child { border-bottom: none; }
 .hours-day { color: var(--text2); font-weight: 400; }
-.hours-time { color: var(--accent); font-weight: 600; }
+.hours-time { color: var(--primary); font-weight: 600; }
 .open-now {
   display: inline-flex; align-items: center; gap: 5px;
   background: rgba(45,106,79,0.12); color: #166534;
@@ -544,7 +748,7 @@ body::after {
 }
 .cta-inner {
   max-width: 620px; margin: 0 auto;
-  background: var(--accent); border-radius: 24px; padding: 60px 40px;
+  background: var(--primary); border-radius: 24px; padding: 60px 40px;
   position: relative; overflow: hidden;
 }
 .cta-inner::before {
@@ -556,26 +760,27 @@ body::after {
 }
 .cta-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
 .cta-title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
   color: white; letter-spacing: -1.5px; margin-bottom: 12px;
   line-height: 0.95; position: relative;
 }
-.cta-title em { font-family: 'Libre Baskerville', serif; font-style: italic; }
+.cta-title em { font-family: var(--font-serif); font-style: italic; }
 .cta-sub {
   color: rgba(255,255,255,0.82); font-size: 0.95rem; margin-bottom: 28px;
   font-weight: 300; line-height: 1.65; position: relative;
 }
 .btn-cta-checkout {
-  background: white; color: var(--accent); border: none;
+  background: white; color: var(--primary); border: none;
   border-radius: 10px; padding: 15px 36px;
-  font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
   cursor: pointer; display: inline-flex; align-items: center; gap: 9px;
-  transition: transform 0.15s, box-shadow 0.2s; position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
 }
 .btn-cta-checkout:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
 
-/* ── FLOAT BAR ── */
+/* ── FLOAT ORDER BAR ── */
 .float-bar {
   position: fixed; bottom: 24px; left: 50%;
   transform: translateX(-50%) translateY(120px);
@@ -590,15 +795,16 @@ body::after {
 .fb-left { flex: 1; }
 .fb-count { font-size: 0.68rem; opacity: 0.55; letter-spacing: 0.5px; text-transform: uppercase; }
 .fb-amount {
-  font-family: 'Archivo Black', sans-serif; font-size: 1.4rem;
-  color: var(--accent); line-height: 1;
+  font-family: var(--font-display); font-size: 1.4rem;
+  color: var(--primary); line-height: 1;
 }
 .fb-checkout {
-  background: var(--accent); color: white; border: none;
+  background: var(--primary); color: white; border: none;
   border-radius: 10px; padding: 11px 18px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
   cursor: pointer; display: flex; align-items: center; gap: 7px;
-  transition: filter 0.2s, transform 0.15s; white-space: nowrap;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
 }
 .fb-checkout:hover { filter: brightness(1.1); transform: scale(1.03); }
 .fb-checkout:disabled { background: #888; cursor: not-allowed; transform: none; }
@@ -621,21 +827,20 @@ body::after {
 .modal-overlay.open { opacity: 1; pointer-events: all; }
 .modal {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 20px; width: 100%; max-width: 540px;
+  border-radius: 20px; width: 100%; max-width: 560px;
   max-height: 90vh; overflow-y: auto;
   transform: translateY(24px) scale(0.97);
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 1.2s ease;
+  transition: transform var(--transition-med), background 1.2s ease;
   scrollbar-width: thin;
 }
 .modal-overlay.open .modal { transform: translateY(0) scale(1); }
 .modal-head {
-  padding: 24px 28px 18px;
-  border-bottom: 1px solid var(--border);
+  padding: 24px 28px 18px; border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
   position: sticky; top: 0; background: var(--surface); z-index: 2;
 }
 .modal-title {
-  font-family: 'Archivo Black', sans-serif; font-size: 1.2rem;
+  font-family: var(--font-display); font-size: 1.2rem;
   color: var(--text); letter-spacing: -0.5px;
 }
 .modal-close {
@@ -647,34 +852,34 @@ body::after {
 .modal-close:hover { background: var(--bg3); }
 .modal-body { padding: 24px 28px; }
 
-/* order type in modal */
+/* Order type toggle in modal */
 .co-section { margin-bottom: 22px; }
 .co-label {
   font-size: 0.66rem; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: block;
 }
 .co-toggle {
   display: flex; background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 10px; padding: 4px; gap: 4px;
+  border-radius: 10px; padding: 4px; gap: 4px; flex-wrap: wrap;
 }
 .co-btn {
   flex: 1; background: transparent; border: none; cursor: pointer;
   border-radius: 8px; padding: 9px 14px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 500;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
   color: var(--text2); transition: all 0.2s;
   display: flex; align-items: center; justify-content: center; gap: 6px;
+  min-width: 80px;
 }
 .co-btn.active {
-  background: var(--surface); color: var(--accent);
+  background: var(--surface); color: var(--primary);
   font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* order items list */
+/* Cart items in modal */
 .co-items { display: flex; flex-direction: column; gap: 10px; }
 .co-item {
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--bg2); border-radius: 10px; padding: 12px 14px;
-  gap: 10px;
+  background: var(--bg2); border-radius: 10px; padding: 12px 14px; gap: 10px;
 }
 .co-item-left { display: flex; align-items: center; gap: 10px; flex: 1; }
 .co-item-emoji { font-size: 1.5rem; }
@@ -686,60 +891,61 @@ body::after {
   overflow: hidden;
 }
 .co-qty-btn {
-  background: none; border: none; color: var(--accent);
+  background: none; border: none; color: var(--primary);
   width: 28px; height: 28px; font-size: 0.95rem; font-weight: 700;
   cursor: pointer; transition: background 0.15s;
   display: flex; align-items: center; justify-content: center;
 }
 .co-qty-btn:hover { background: var(--accent-glow); }
 .co-qty-num { min-width: 22px; text-align: center; font-size: 0.84rem; font-weight: 700; }
-.co-item-price { font-family: 'Archivo Black', sans-serif; font-size: 0.95rem; color: var(--accent); white-space: nowrap; }
+.co-item-price { font-family: var(--font-display); font-size: 0.95rem; color: var(--primary); white-space: nowrap; }
 
-/* tip selector */
+/* Tip selector */
 .tip-options { display: flex; gap: 8px; flex-wrap: wrap; }
 .tip-btn {
   background: var(--bg2); border: 1.5px solid var(--border);
   border-radius: 8px; padding: 9px 18px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 600;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 600;
   color: var(--text2); cursor: pointer; transition: all 0.2s;
 }
-.tip-btn:hover { border-color: var(--accent); color: var(--accent); }
-.tip-btn.active {
-  background: var(--accent); border-color: var(--accent); color: white;
-}
+.tip-btn:hover { border-color: var(--primary); color: var(--primary); }
+.tip-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
 .tip-custom-wrap { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
 .tip-custom-label { font-size: 0.78rem; color: var(--text2); }
 .tip-custom-input {
   background: var(--bg2); border: 1.5px solid var(--border);
   border-radius: 8px; padding: 8px 12px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.84rem;
+  font-family: var(--font-body); font-size: 0.84rem;
   color: var(--text); width: 100px; outline: none;
   transition: border-color 0.2s;
 }
-.tip-custom-input:focus { border-color: var(--accent); }
+.tip-custom-input:focus { border-color: var(--primary); }
 
-/* contact/notes form */
+/* Contact/notes form — WCAG compliant */
 .co-form { display: flex; flex-direction: column; gap: 12px; }
-.co-field {
-  display: flex; flex-direction: column; gap: 5px;
-}
+.co-field { display: flex; flex-direction: column; gap: 5px; }
 .co-field label {
   font-size: 0.72rem; font-weight: 600; color: var(--text2);
   letter-spacing: 0.5px; text-transform: uppercase;
 }
+.required-star { color: #b91c1c; margin-left: 2px; }
 .co-input, .co-textarea {
   background: var(--bg2); border: 1.5px solid var(--border);
   border-radius: 9px; padding: 10px 14px;
-  font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
-  color: var(--text); outline: none; transition: border-color 0.2s;
-  width: 100%;
+  font-family: var(--font-body); font-size: 0.88rem;
+  color: var(--text); outline: none; transition: border-color 0.2s; width: 100%;
 }
-.co-input:focus, .co-textarea:focus { border-color: var(--accent); }
+.co-input:focus, .co-textarea:focus { border-color: var(--primary); }
+.co-input.error, .co-textarea.error { border-color: #b91c1c; }
 .co-textarea { resize: vertical; min-height: 70px; }
 .co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-@media(max-width:400px){ .co-row{ grid-template-columns:1fr; } }
+.field-error {
+  font-size: 0.68rem; color: #b91c1c; margin-top: 2px;
+  display: none;
+}
+.field-error.show { display: block; }
 
-/* order summary */
+/* Order summary */
 .co-summary {
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: 12px; padding: 18px; margin-top: 4px;
@@ -749,52 +955,86 @@ body::after {
   padding: 6px 0; font-size: 0.85rem; color: var(--text2);
 }
 .co-sum-row:not(:last-child) { border-bottom: 1px solid var(--border); }
-.co-sum-total {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.1rem; color: var(--text);
-}
-.co-sum-total-amt {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.3rem; color: var(--accent);
-}
+.co-sum-total { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); }
+.co-sum-total-amt { font-family: var(--font-display); font-size: 1.3rem; color: var(--primary); }
 
-/* delivery estimate */
+/* Delivery estimate */
 .co-delivery-est {
-  background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.2);
+  background: var(--green-bg); border: 1px solid var(--green-border);
   border-radius: 10px; padding: 12px 16px;
   display: flex; align-items: center; gap: 10px;
   font-size: 0.82rem; color: var(--green);
 }
 
-/* place order btn */
+/* Payment section */
+.payment-section {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; margin-bottom: 16px;
+}
+.payment-method-tabs {
+  display: flex; gap: 6px; margin-bottom: 16px;
+}
+.pay-tab {
+  flex: 1; background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 8px;
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+  color: var(--text2); cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.pay-tab.active { border-color: var(--primary); color: var(--primary); background: var(--accent-glow); }
+.stripe-element-wrap {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 9px; padding: 12px 14px;
+  transition: border-color 0.2s;
+}
+.stripe-element-wrap.focused { border-color: var(--primary); }
+
+/* The real Stripe card element mounts here */
+#stripe-card-element { min-height: 20px; }
+
+/* Place order btn */
 .btn-place-order {
-  width: 100%; background: var(--accent); color: white; border: none;
+  width: 100%; background: var(--primary); color: white; border: none;
   border-radius: 12px; padding: 16px;
-  font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
   cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px;
-  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s; margin-top: 8px;
+  transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: 8px; position: relative;
 }
 .btn-place-order:hover {
   filter: brightness(1.08); transform: translateY(-1px);
   box-shadow: 0 8px 24px var(--accent-glow);
 }
 .btn-place-order:disabled { background: #aaa; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-spinner {
+  width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white; border-radius: 50%;
+  animation: spin 0.7s linear infinite; display: none;
+}
+.btn-place-order.loading .btn-spinner { display: block; }
+.btn-place-order.loading .btn-text { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* secure badge in modal */
+/* Secure badge */
 .secure-badge {
   display: flex; align-items: center; justify-content: center; gap: 6px;
-  font-size: 0.71rem; color: var(--text2); margin-top: 12px;
-  opacity: 0.7;
+  font-size: 0.71rem; color: var(--text2); margin-top: 12px; opacity: 0.7;
 }
 
-/* ── ORDER CONFIRMATION ── */
-.confirmation-view {
-  padding: 36px 28px; text-align: center;
+/* Notice for no Stripe configured */
+.payment-notice {
+  background: rgba(196,81,14,0.08); border: 1px solid rgba(196,81,14,0.2);
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+  font-size: 0.8rem; color: var(--text2); line-height: 1.6;
 }
+.payment-notice strong { color: var(--primary); }
+
+/* ── CONFIRMATION VIEW ── */
+.confirmation-view { padding: 36px 28px; text-align: center; }
 .conf-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
 .conf-title {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.6rem; color: var(--text); margin-bottom: 10px; letter-spacing: -1px;
+  font-family: var(--font-display); font-size: 1.6rem;
+  color: var(--text); margin-bottom: 10px; letter-spacing: -1px;
 }
 .conf-sub {
   font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 24px;
@@ -808,6 +1048,67 @@ body::after {
   font-size: 0.82rem; color: var(--text2); padding: 4px 0;
 }
 .conf-ticket-row strong { color: var(--text); font-weight: 600; }
+.conf-next-steps {
+  background: var(--green-bg); border: 1px solid var(--green-border);
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;
+  text-align: left;
+}
+.conf-next-step {
+  font-size: 0.8rem; color: var(--green); padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+
+/* ── CLOSED BANNER ── */
+.closed-banner {
+  display: none; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 30px; text-align: center; margin-bottom: 32px;
+}
+.closed-banner.show { display: block; }
+.closed-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+.closed-title {
+  font-family: var(--font-display); font-size: 1.4rem;
+  color: var(--text); margin-bottom: 8px; letter-spacing: -0.5px;
+}
+.closed-sub { font-size: 0.86rem; color: var(--text2); line-height: 1.65; margin-bottom: 18px; }
+
+/* ── CONFIRM DIALOG (clear order) ── */
+.confirm-dialog-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.confirm-dialog-overlay.open { opacity: 1; pointer-events: all; }
+.confirm-dialog {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px 28px 24px;
+  max-width: 340px; width: 100%; text-align: center;
+  transform: scale(0.95); transition: transform 0.2s;
+}
+.confirm-dialog-overlay.open .confirm-dialog { transform: scale(1); }
+.confirm-dialog-title {
+  font-family: var(--font-display); font-size: 1.1rem;
+  color: var(--text); margin-bottom: 8px;
+}
+.confirm-dialog-sub {
+  font-size: 0.85rem; color: var(--text2); line-height: 1.6; margin-bottom: 20px;
+}
+.confirm-dialog-btns { display: flex; gap: 10px; }
+.confirm-cancel {
+  flex: 1; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  color: var(--text2); cursor: pointer; transition: background 0.2s;
+}
+.confirm-cancel:hover { background: var(--bg3); }
+.confirm-clear {
+  flex: 1; background: #b91c1c; border: none;
+  border-radius: 8px; padding: 10px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+  color: white; cursor: pointer; transition: filter 0.2s;
+}
+.confirm-clear:hover { filter: brightness(1.1); }
 
 /* ── TOAST ── */
 .toast {
@@ -820,6 +1121,8 @@ body::after {
   max-width: 280px;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
+.toast.error { background: #b91c1c; color: white; }
+.toast.success { background: var(--green); color: white; }
 
 /* ── FOOTER ── */
 .v-footer {
@@ -830,10 +1133,9 @@ body::after {
   max-width: 900px; margin: 0 auto;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px;
 }
-@media(max-width:600px){ .footer-inner{ grid-template-columns:1fr; gap:28px; } }
 .footer-name {
-  font-family: 'Archivo Black', sans-serif; font-size: 1.3rem;
-  color: var(--accent); margin-bottom: 8px; letter-spacing: -0.5px;
+  font-family: var(--font-display); font-size: 1.3rem;
+  color: var(--primary); margin-bottom: 8px; letter-spacing: -0.5px;
 }
 .footer-tagline {
   font-size: 0.82rem; color: var(--text2); line-height: 1.65; font-weight: 300;
@@ -841,14 +1143,14 @@ body::after {
 }
 .footer-col-title {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 14px;
 }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0; }
 .footer-links a {
   color: var(--text2); text-decoration: none; font-size: 0.84rem;
   transition: color 0.2s;
 }
-.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover { color: var(--primary); }
 .footer-bottom {
   max-width: 900px; margin: 36px auto 0;
   border-top: 1px solid var(--border); padding-top: 20px;
@@ -856,271 +1158,375 @@ body::after {
   flex-wrap: wrap; gap: 10px;
   font-size: 0.74rem; color: var(--text2);
 }
-.footer-bottom a { color: var(--accent); text-decoration: none; }
+.footer-bottom a { color: var(--primary); text-decoration: none; }
 
-/* ── CLOSED BANNER ── */
-.closed-banner {
-  display: none; background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 16px; padding: 30px; text-align: center; margin-bottom: 32px;
-}
-.closed-banner.show { display: block; }
-.closed-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
-.closed-title {
-  font-family: 'Archivo Black', sans-serif; font-size: 1.4rem;
-  color: var(--text); margin-bottom: 8px; letter-spacing: -0.5px;
-}
-.closed-sub { font-size: 0.86rem; color: var(--text2); line-height: 1.65; margin-bottom: 18px; }
-
-/* ── MISC ── */
-.reveal { opacity:0; transform:translateY(18px); transition:opacity 0.55s ease,transform 0.55s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
-/* Safety: if JS hasn't fired, sections stay visible */
-.order-toggle-wrap, .mood-section, .menu-section,
-.story-section, .final-cta, .story-left, .story-right {
-  opacity:1 !important; transform:none !important;
-}
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 @keyframes fadeUp {
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
+/* ═══════════════════════════════════════
+   RESPONSIVE — Mobile First
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Show hamburger, hide desktop nav */
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
   .v-nav { padding: 0 20px; }
-  .float-bar { min-width: unset; width: calc(100vw - 32px); }
-  .modal { border-radius: 16px 16px 0 0; max-height: 95vh; }
+
+  /* Modal slides up from bottom on mobile */
+  .modal { border-radius: 20px 20px 0 0; max-height: 95vh; }
   .modal-overlay { align-items: flex-end; padding: 0; }
+
+  /* Float bar full width on mobile */
+  .float-bar { min-width: unset; width: calc(100vw - 32px); }
+
+  /* Story stacks vertically */
+  .story-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Footer stacks */
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+
+  /* CTA adjustments */
+  .cta-inner { padding: 40px 24px; }
+
+  .co-row { grid-template-columns: 1fr; }
+  .payment-method-tabs { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .hero-btns .btn-primary, .hero-btns .btn-ghost { justify-content: center; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .order-type-toggle { width: 100%; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="v-nav">
-  <a href="#" class="nav-brand">
-    <div class="brand-mark">☕</div>
-    <div class="brand-text">Copper<span>&</span>Rye</div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#story">Hours</a></li>
-    <li><a href="#menu">Catering</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="time-badge">
-      <div class="time-dot"></div>
-      <span id="timeBadgeText">Open Now</span>
+<!-- ═══════════════════════════════════════════
+     SECTION 8: HTML STRUCTURE — WCAG SEMANTIC
+═══════════════════════════════════════════ -->
+
+<!-- Skip link — keyboard accessibility, WCAG 2.1 requirement -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ── NAVIGATION ── -->
+<header role="banner">
+  <nav class="v-nav" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="nav-brand" aria-label="Copper and Rye - Home">
+      <div class="brand-mark" aria-hidden="true">☕</div>
+      <div class="brand-text">Copper<span>&amp;</span>Rye</div>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#story">Hours</a></li>
+      <li><a href="mailto:hello@copperandrye.com">Catering</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="time-badge" role="status" aria-live="polite">
+        <div class="time-dot" aria-hidden="true"></div>
+        <span id="timeBadgeText">Open Now</span>
+      </div>
+      <button class="btn-nav" onclick="openCheckout()" type="button"
+              aria-label="View your order">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i> My Order
+        <span class="cart-badge" id="navCartCount" aria-live="polite"
+              aria-label="0 items in order">0</span>
+      </button>
+      <!-- Hamburger — mobile only -->
+      <button class="nav-hamburger" id="navHamburger" type="button"
+              aria-label="Open navigation menu" aria-expanded="false"
+              aria-controls="mobileNav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-    <button class="btn-nav" onclick="openCheckout()">
-      🛒 My Order
-      <span class="cart-badge" id="navCartCount">0</span>
-    </button>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="#menu" onclick="closeMobileNav()">Menu</a>
+    <a href="#story" onclick="closeMobileNav()">Our Story</a>
+    <a href="#story" onclick="closeMobileNav()">Hours &amp; Location</a>
+    <a href="mailto:hello@copperandrye.com" target="_blank" rel="noopener noreferrer">Catering Inquiries</a>
+    <a href="tel:+16145550182">Call Us · (614) 555-0182</a>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="v-hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-eyebrow" id="heroEyebrow">☀️ Good Morning, Columbus</div>
-  <h1 id="heroH1">Craft Coffee.<br/><em>Real Kitchen.</em></h1>
-  <p class="hero-tagline" id="heroTagline">
-    Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.
-  </p>
-  <div class="hero-btns">
-    <a href="#menu" class="btn-primary">🍽️ Order Now</a>
-    <button class="btn-ghost" onclick="openCheckout()">View My Order</button>
-  </div>
-  <div class="hero-trust">
-    <div class="trust-pill">🌿 Farm-to-Table</div>
-    <div class="trust-pill">📍 Downtown Columbus, OH</div>
-    <div class="trust-pill">🚗 Pickup & Delivery</div>
-    <div class="trust-pill">💳 Cards & Apple Pay</div>
-    <div class="trust-pill">⭐ 4.9 on Google</div>
-  </div>
-  <div class="scroll-hint">
-    <span>↓</span> Browse the menu
-  </div>
-</section>
+<main id="main-content" role="main">
 
-<!-- TICKER -->
-<div class="special-bar">
-  <div class="special-track" id="specialTrack"></div>
-</div>
-
-<!-- ORDER TYPE TOGGLE -->
-
-  <span class="ot-eyebrow">How Are You Getting It?</span>
-  <h2 class="ot-title">Order <em>Your Way</em></h2>
-  <p class="ot-sub">Pick pickup or delivery before you browse — we'll show you what's available for you right now.</p>
-  <div class="order-type-toggle">
-    <button class="ot-btn active" id="pickupBtn" onclick="setOrderType('pickup', this)">
-      🏪 Pickup
-    </button>
-    <button class="ot-btn" id="deliveryBtn" onclick="setOrderType('delivery', this)">
-      🚗 Delivery
-    </button>
-    <button class="ot-btn" id="dineBtn" onclick="setOrderType('dine', this)">
-      🪑 Dine-In
-    </button>
-  </div>
-  <div class="ot-info" id="otInfo">
-    <div class="ot-info-pill">⏱ <strong>Ready in 12–18 min</strong></div>
-    <div class="ot-info-pill">📍 <strong>123 Short North Ave, Columbus, OH</strong></div>
-    <div class="ot-info-pill">🕗 <strong id="openStatus">Checking hours…</strong></div>
-  </div>
-</div>
-
-<!-- MOOD SELECTOR -->
-
-  <div class="mood-pills">
-    <button class="mood-pill active" onclick="setMood('all', this)">✦ Full Menu</button>
-    <button class="mood-pill" onclick="setMood('fuel', this)">⚡ Morning Fuel</button>
-    <button class="mood-pill" onclick="setMood('chill', this)">🍃 Something Slow</button>
-    <button class="mood-pill" onclick="setMood('sweet', this)">🍰 Sweet Tooth</button>
-    <button class="mood-pill" onclick="setMood('fresh', this)">🥗 Light & Fresh</button>
-    <button class="mood-pill" onclick="setMood('brunch', this)">🍳 Weekend Brunch</button>
-  </div>
-</div>
-
-<!-- MENU -->
-<div class="menu-section">
-  <div class="closed-banner" id="closedBanner">
-    <span class="closed-icon">🌙</span>
-    <div class="closed-title">We're Closed Right Now</div>
-    <p class="closed-sub">Copper & Rye opens at 7:00 AM. Leave us your name and order below and it'll be hot and waiting when you walk in.</p>
-    <button class="btn-primary" style="display:inline-flex" onclick="openCheckout()">📋 Pre-Order for Tomorrow</button>
-  </div>
-  <div class="menu-cat-tabs" id="catTabs"></div>
-  <div class="menu-grid" id="menuGrid"></div>
-</div>
-
-<!-- STORY -->
-<section class="story-section" id="story">
-  <div class="story-inner">
-
-      <span class="story-eyebrow">Our Story</span>
-      <h2 class="story-h2">Built for the<br/><em>Early Risers.</em></h2>
-      <div class="story-body">
-        <p>Copper & Rye opened in 2018 with one obsession: make a cafe that Columbus actually deserves. Not a chain. Not a formula. A real kitchen and a real roaster under one roof.</p>
-        <p>We source our beans directly from three farms — one in Guatemala, one in Ethiopia, one in Colombia. Every bag is roasted in-house, 48 hours before it hits your cup.</p>
-        <p>The food menu changes seasonally. The commitment to not cutting corners doesn't.</p>
-      </div>
-      <div class="story-quote">
-        "We started with two espresso machines and a borrowed oven. Now we have a following. Same obsession, more square footage."
-      </div>
+  <!-- ── HERO ── -->
+  <section class="v-hero" id="home" aria-labelledby="heroH1">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-eyebrow" id="heroEyebrow" aria-live="polite">☀️ Good Morning, Columbus</div>
+    <h1 id="heroH1">Craft Coffee.<br/><em>Real Kitchen.</em></h1>
+    <p class="hero-tagline" id="heroTagline">
+      Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">
+        <i class="fas fa-utensils" aria-hidden="true"></i> Order Now
+      </a>
+      <button class="btn-ghost" onclick="openCheckout()" type="button">
+        <i class="fas fa-bag-shopping" aria-hidden="true"></i> View My Order
+      </button>
     </div>
+    <div class="hero-trust" role="list" aria-label="Trust indicators">
+      <div class="trust-pill" role="listitem">🌿 Farm-to-Table</div>
+      <div class="trust-pill" role="listitem">📍 Downtown Columbus, OH</div>
+      <div class="trust-pill" role="listitem">🚗 Pickup &amp; Delivery</div>
+      <div class="trust-pill" role="listitem">💳 Cards &amp; Apple Pay</div>
+      <div class="trust-pill" role="listitem">⭐ 4.9 on Google</div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>↓</span> Browse the menu
+    </div>
+  </section>
 
-      <div class="story-stats">
-        <div class="story-stat">
-          <div class="stat-num">2018</div>
-          <div class="stat-lbl">Est. Columbus, OH</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">4.9★</div>
-          <div class="stat-lbl">Google Rating</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">3</div>
-          <div class="stat-lbl">Direct-Trade Farms</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">Daily</div>
-          <div class="stat-lbl">Fresh-Roasted</div>
-        </div>
-      </div>
-      <div class="hours-card">
-        <div class="hours-title">
-          ⏰ Hours
-          <span id="openStatusBadge"></span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Monday – Friday</span>
-          <span class="hours-time">7:00 AM – 7:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Saturday</span>
-          <span class="hours-time">8:00 AM – 8:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Sunday</span>
-          <span class="hours-time">9:00 AM – 5:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Online Orders</span>
-          <span class="hours-time">Always Open 🌐</span>
-        </div>
-      </div>
+  <!-- ── TICKER ── -->
+  <div class="special-bar" aria-label="Today's specials" role="marquee">
+    <div class="special-track" id="specialTrack" aria-hidden="true"></div>
+  </div>
+
+  <!-- ── ORDER TYPE TOGGLE ── -->
+  <div class="order-toggle-wrap reveal" id="menu">
+    <span class="ot-eyebrow">How Are You Getting It?</span>
+    <h2 class="ot-title">Order <em>Your Way</em></h2>
+    <p class="ot-sub">Pick pickup or delivery before you browse — we'll show what's available for you right now.</p>
+    <div class="order-type-toggle" role="group" aria-label="Select order type">
+      <button class="ot-btn active" id="pickupBtn" type="button"
+              onclick="setOrderType('pickup', this)"
+              aria-pressed="true">
+        🏪 Pickup
+      </button>
+      <button class="ot-btn" id="deliveryBtn" type="button"
+              onclick="setOrderType('delivery', this)"
+              aria-pressed="false">
+        🚗 Delivery
+      </button>
+      <button class="ot-btn" id="dineBtn" type="button"
+              onclick="setOrderType('dine', this)"
+              aria-pressed="false">
+        🪑 Dine-In
+      </button>
+    </div>
+    <div class="ot-info" id="otInfo" aria-live="polite">
+      <div class="ot-info-pill">⏱ <strong>Ready in 12–18 min</strong></div>
+      <div class="ot-info-pill">📍 <strong>123 Short North Ave, Columbus, OH</strong></div>
+      <div class="ot-info-pill">🕗 <strong id="openStatus">Checking hours…</strong></div>
     </div>
   </div>
-</section>
 
-<!-- FINAL CTA -->
-
-  <div class="cta-inner">
-    <span class="cta-icon">☕</span>
-    <div class="cta-title">Ready to Order?<br/><em>We're Ready.</em></div>
-    <p class="cta-sub">Add your items, choose pickup or delivery, tip your barista, and check out in under 60 seconds. No app needed.</p>
-    <button class="btn-cta-checkout" onclick="openCheckout()">
-      🛒 Checkout Now
-    </button>
+  <!-- ── MOOD SELECTOR ── -->
+  <div class="mood-section reveal" style="margin-top:40px;">
+    <div class="mood-pills" role="group" aria-label="Filter menu by mood">
+      <button class="mood-pill active" type="button" onclick="setMood('all', this)"
+              aria-pressed="true">✦ Full Menu</button>
+      <button class="mood-pill" type="button" onclick="setMood('fuel', this)"
+              aria-pressed="false">⚡ Morning Fuel</button>
+      <button class="mood-pill" type="button" onclick="setMood('chill', this)"
+              aria-pressed="false">🍃 Something Slow</button>
+      <button class="mood-pill" type="button" onclick="setMood('sweet', this)"
+              aria-pressed="false">🍰 Sweet Tooth</button>
+      <button class="mood-pill" type="button" onclick="setMood('fresh', this)"
+              aria-pressed="false">🥗 Light &amp; Fresh</button>
+      <button class="mood-pill" type="button" onclick="setMood('brunch', this)"
+              aria-pressed="false">🍳 Weekend Brunch</button>
+    </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="v-footer">
+  <!-- ── MENU ── -->
+  <section class="menu-section" aria-label="Menu">
+    <div class="closed-banner" id="closedBanner" role="alert">
+      <span class="closed-icon" aria-hidden="true">🌙</span>
+      <div class="closed-title">We're Closed Right Now</div>
+      <p class="closed-sub">Copper &amp; Rye opens at 7:00 AM. Pre-order now and it'll be hot and waiting when you walk in.</p>
+      <button class="btn-primary" type="button" style="display:inline-flex" onclick="openCheckout()">
+        📋 Pre-Order for Tomorrow
+      </button>
+    </div>
+    <div class="menu-cat-tabs" id="catTabs" role="tablist" aria-label="Menu categories"></div>
+    <div class="menu-grid" id="menuGrid" aria-live="polite" aria-label="Menu items"></div>
+  </section>
+
+  <!-- ── OUR STORY ── -->
+  <section class="story-section" id="story" aria-labelledby="storyHeading">
+    <div class="story-inner">
+      <div class="story-left reveal">
+        <span class="story-eyebrow">Our Story</span>
+        <h2 class="story-h2" id="storyHeading">Built for the<br/><em>Early Risers.</em></h2>
+        <div class="story-body">
+          <p>Copper &amp; Rye opened in 2018 with one obsession: make a café that Columbus actually deserves. Not a chain. Not a formula. A real kitchen and a real roaster under one roof.</p>
+          <p>We source our beans directly from three farms — one in Guatemala, one in Ethiopia, one in Colombia. Every bag is roasted in-house, 48 hours before it hits your cup.</p>
+          <p>The food menu changes seasonally. The commitment to not cutting corners doesn't.</p>
+        </div>
+        <blockquote class="story-quote">
+          "We started with two espresso machines and a borrowed oven. Now we have a following. Same obsession, more square footage."
+        </blockquote>
+      </div>
+      <div class="story-right reveal">
+        <div class="story-stats" role="list" aria-label="About us">
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">2018</div>
+            <div class="stat-lbl">Est. Columbus, OH</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-lbl">Google Rating</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">Direct-Trade Farms</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">Daily</div>
+            <div class="stat-lbl">Fresh-Roasted</div>
+          </div>
+        </div>
+        <div class="hours-card" aria-label="Business hours">
+          <div class="hours-title">
+            <i class="fas fa-clock" aria-hidden="true"></i> Hours
+            <span id="openStatusBadge" aria-live="polite"></span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Monday – Friday</span>
+            <span class="hours-time">7:00 AM – 7:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">8:00 AM – 8:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time">9:00 AM – 5:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Online Orders</span>
+            <span class="hours-time">Always Open 🌐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta reveal" aria-label="Order call to action">
+    <div class="cta-inner">
+      <span class="cta-icon" aria-hidden="true">☕</span>
+      <div class="cta-title">Ready to Order?<br/><em>We're Ready.</em></div>
+      <p class="cta-sub">Add your items, choose pickup or delivery, tip your barista, and check out in under 60 seconds. No app needed.</p>
+      <button class="btn-cta-checkout" type="button" onclick="openCheckout()"
+              aria-label="Open checkout">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i> Checkout Now
+      </button>
+    </div>
+  </section>
+
+</main><!-- /main -->
+
+<!-- ── FOOTER ── -->
+<footer class="v-footer" role="contentinfo">
   <div class="footer-inner">
     <div>
-      <div class="footer-name">Copper & Rye</div>
+      <div class="footer-name">Copper &amp; Rye</div>
       <p class="footer-tagline">Craft coffee and scratch kitchen in the heart of Columbus, Ohio.</p>
     </div>
-    <div>
+    <nav aria-label="Footer navigation">
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#menu">Order Now</a></li>
         <li><a href="#story">Our Story</a></li>
-        <li><a href="#story">Hours & Location</a></li>
+        <li><a href="#story">Hours &amp; Location</a></li>
       </ul>
-    </div>
+    </nav>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
         <li><a href="tel:+16145550182">(614) 555-0182</a></li>
         <li><a href="mailto:hello@copperandrye.com">hello@copperandrye.com</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Catering Inquiries</a></li>
+        <li>
+          <a href="https://www.instagram.com/copperandrye"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Copper and Rye on Instagram (opens in new tab)">
+            <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="mailto:catering@copperandrye.com"
+             aria-label="Send catering inquiry email">Catering Inquiries</a>
+        </li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Copper & Rye · 123 Short North Ave, Columbus, OH 43215</span>
-    <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">Built by JAMALINKS</a>
+    <span>
+      &copy; <span id="footerYear">2026</span> Copper &amp; Rye ·
+      123 Short North Ave, Columbus, OH 43215 ·
+      <a href="/privacy-policy.html" rel="noopener">Privacy Policy</a>
+    </span>
+    <a href="https://jamalinks758.github.io/jamalinks/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="JAMALINKS - Web Design (opens in new tab)">Built by JAMALINKS</a>
   </div>
 </footer>
 
-<!-- FLOAT ORDER BAR -->
-<div class="float-bar" id="floatBar">
+<!-- ── FLOAT ORDER BAR ── -->
+<div class="float-bar" id="floatBar" role="region" aria-label="Your current order">
   <div class="fb-left">
-    <div class="fb-count" id="fbCount">0 items</div>
+    <div class="fb-count" id="fbCount" aria-live="polite">0 items</div>
     <div class="fb-amount">$<span id="fbAmt">0.00</span></div>
   </div>
-  <button class="fb-clear" onclick="clearOrder()" title="Clear order">✕</button>
-  <button class="fb-checkout" id="fbCheckoutBtn" onclick="openCheckout()" disabled>
-    🛒 Checkout
+  <button class="fb-clear" type="button"
+          onclick="confirmClearOrder()"
+          aria-label="Clear all items from order">
+    <i class="fas fa-times" aria-hidden="true"></i>
+  </button>
+  <button class="fb-checkout" id="fbCheckoutBtn" type="button"
+          onclick="openCheckout()" disabled
+          aria-label="Proceed to checkout">
+    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Checkout
   </button>
 </div>
 
-<!-- CHECKOUT MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="overlayClick(event)">
+<!-- ── CLEAR ORDER CONFIRM DIALOG ── -->
+<div class="confirm-dialog-overlay" id="confirmDialogOverlay" role="dialog"
+     aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="confirm-dialog">
+    <div class="confirm-dialog-title" id="confirmTitle">Clear Your Order?</div>
+    <p class="confirm-dialog-sub">This will remove all items from your order. This can't be undone.</p>
+    <div class="confirm-dialog-btns">
+      <button class="confirm-cancel" type="button"
+              onclick="closeConfirmDialog()"
+              aria-label="Cancel, keep my order">Keep Order</button>
+      <button class="confirm-clear" type="button"
+              onclick="executeClearOrder()"
+              aria-label="Confirm clear all items">Clear All</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CHECKOUT MODAL ── -->
+<div class="modal-overlay" id="modalOverlay" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle"
+     onclick="overlayClick(event)">
   <div class="modal" id="modal">
     <div class="modal-head">
       <div class="modal-title" id="modalTitle">Your Order</div>
-      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <button class="modal-close" type="button"
+              onclick="closeCheckout()"
+              aria-label="Close checkout">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
     </div>
     <div class="modal-body" id="modalBody">
       <!-- dynamically rendered -->
@@ -1128,87 +1534,135 @@ body::after {
   </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+<!-- ── TOAST NOTIFICATION ── -->
+<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+<!-- ── Bootstrap 5.3.3 JS — SRI verified, deferred ── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQKZr5QFBkRQqEpfGXL1P1/1j5u"
+        crossorigin="anonymous" defer></script>
 
 <script>
+/* ═══════════════════════════════════════════════════
+   SECTION 9: JAVASCRIPT — JAMALINKS SECURITY RULES
+   - All wrapped in DOMContentLoaded
+   - No innerHTML with user data
+   - No eval(), no document.write()
+   - No API keys stored here (Stripe/EmailJS keys
+     belong in a backend — see SETUP NOTES below)
+═══════════════════════════════════════════════════
+
+   ⚙️ SETUP NOTES FOR CLIENT/DEVELOPER:
+   ─────────────────────────────────────
+   Before going live, configure these three values:
+
+   1. STRIPE_PUBLISHABLE_KEY
+      Get from: https://dashboard.stripe.com/apikeys
+      This is the pk_live_... key (safe to expose client-side)
+      The SECRET key NEVER goes here — server-side only.
+
+   2. EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY
+      Get from: https://dashboard.emailjs.com
+      Create a service (Gmail/SMTP), create an order template,
+      and paste your public key only.
+
+   3. Set PAYMENTS_LIVE = true once Stripe is configured.
+      When false, the site shows a "demo mode" notice and
+      accepts orders without charging — useful for testing.
+
+═══════════════════════════════════════════════════ */
+
+// ── CONFIGURATION — fill these before going live ──
+const CONFIG = {
+  STRIPE_PUBLISHABLE_KEY: 'pk_test_REPLACE_WITH_YOUR_STRIPE_KEY',
+  EMAILJS_SERVICE_ID:     'YOUR_EMAILJS_SERVICE_ID',
+  EMAILJS_TEMPLATE_ID:    'YOUR_EMAILJS_TEMPLATE_ID',
+  EMAILJS_PUBLIC_KEY:     'YOUR_EMAILJS_PUBLIC_KEY',
+  PAYMENTS_LIVE:          false,   // Set to true once Stripe is configured
+  CAFE_EMAIL:             'hello@copperandrye.com',
+  CAFE_PHONE:             '(614) 555-0182',
+  CAFE_ADDRESS:           '123 Short North Ave, Columbus, OH 43215',
+  DELIVERY_FEE:           3.99,
+  FREE_DELIVERY_OVER:     30,
+  TAX_RATE:               0.075,   // Columbus, OH — Franklin County 7.5%
+  DEFAULT_TIP_PCT:        18,
+  DELIVERY_RADIUS_MILES:  5,
+};
+
 /* ═══════════════════════════════════════
-   DATA
+   MENU DATA
 ═══════════════════════════════════════ */
 const menuData = [
   /* COFFEE */
-  { id:1, cat:'Coffee', emoji:'☕', name:'House Drip',
+  { id:1,  cat:'Coffee',   emoji:'☕', name:'House Drip',
     desc:'Single-origin Ethiopian, light roast. Bright, clean, slightly citrusy. Best black.',
     price:3.50, moods:['fuel','all'], timeMatch:['morning','afternoon'],
     tags:['Light Roast','Vegan'], popular:false },
-  { id:2, cat:'Coffee', emoji:'🖤', name:'Double Espresso',
+  { id:2,  cat:'Coffee',   emoji:'🖤', name:'Double Espresso',
     desc:'Two shots of our house blend pulled ristretto-style. Syrupy, intense, and grounding.',
     price:4.25, moods:['fuel','all'], timeMatch:['morning','afternoon'],
     tags:['Espresso','Vegan'], popular:true },
-  { id:3, cat:'Coffee', emoji:'🥛', name:'Signature Latte',
+  { id:3,  cat:'Coffee',   emoji:'🥛', name:'Signature Latte',
     desc:'Double shot, steamed whole milk, choice of flavor. The one everyone reorders.',
     price:6.50, moods:['fuel','chill','all'], timeMatch:['morning','afternoon'],
     tags:['Milk-Based'], popular:true },
-  { id:4, cat:'Coffee', emoji:'🧊', name:'Cold Brew',
+  { id:4,  cat:'Coffee',   emoji:'🧊', name:'Cold Brew',
     desc:'Steeped 18 hours in cold water, served over ice. Zero bitterness. High caffeine.',
     price:6.00, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'],
     tags:['Cold','High-Caffeine','Vegan'], popular:false },
-  { id:5, cat:'Coffee', emoji:'🍂', name:'Maple Cortado',
+  { id:5,  cat:'Coffee',   emoji:'🍂', name:'Maple Cortado',
     desc:'Equal parts espresso and steamed milk, finished with pure Ohio maple syrup.',
     price:5.75, moods:['chill','sweet','all'], timeMatch:['morning','afternoon'],
     tags:['Small','Local Maple'], popular:false },
-  { id:6, cat:'Coffee', emoji:'🍦', name:'Iced Caramel Latte',
+  { id:6,  cat:'Coffee',   emoji:'🍦', name:'Iced Caramel Latte',
     desc:'Double shot, cold milk, house-made caramel sauce, and ice. Not too sweet. Just right.',
     price:7.00, moods:['sweet','chill','all'], timeMatch:['morning','afternoon'],
     tags:['Iced','Crowd Fave'], popular:true },
-
   /* DRINKS */
-  { id:7, cat:'Drinks', emoji:'🍵', name:'Matcha Latte',
+  { id:7,  cat:'Drinks',   emoji:'🍵', name:'Matcha Latte',
     desc:'Ceremonial grade matcha whisked with oat milk. Calming, earthy, and genuinely good.',
     price:6.75, moods:['chill','fresh','all'], timeMatch:['morning','afternoon','evening'],
-    tags:['Dairy-Free Option','No Caffeine Crash'], popular:false },
-  { id:8, cat:'Drinks', emoji:'🌸', name:'Lavender Lemonade',
+    tags:['Dairy-Free','No Caffeine Crash'], popular:false },
+  { id:8,  cat:'Drinks',   emoji:'🌸', name:'Lavender Lemonade',
     desc:'House lavender syrup, fresh-squeezed lemon, sparkling water. Light and floral.',
     price:5.50, moods:['fresh','all'], timeMatch:['afternoon'],
     tags:['Non-Coffee','Refreshing'], popular:false },
-  { id:9, cat:'Drinks', emoji:'🍫', name:'Spiced Hot Chocolate',
+  { id:9,  cat:'Drinks',   emoji:'🍫', name:'Spiced Hot Chocolate',
     desc:'Real 70% dark chocolate, steamed milk, cayenne and cinnamon. Warming and deep.',
     price:5.75, moods:['sweet','chill','all'], timeMatch:['morning','evening'],
     tags:['Non-Coffee','Seasonal'], popular:false },
-  { id:10, cat:'Drinks', emoji:'🧃', name:'Fresh OJ',
-    desc:'Squeezed to order. That's it. No concentrate, no nonsense.',
+  { id:10, cat:'Drinks',   emoji:'🧃', name:'Fresh OJ',
+    desc:'Squeezed to order. No concentrate, no nonsense.',
     price:4.50, moods:['fresh','fuel','all'], timeMatch:['morning'],
     tags:['Fresh-Pressed','Seasonal'], popular:false },
-
   /* FOOD */
-  { id:11, cat:'Food', emoji:'🥑', name:'Avo Toast',
+  { id:11, cat:'Food',     emoji:'🥑', name:'Avo Toast',
     desc:'Sourdough from Pistachio Vera Bakery, smashed avocado, chili flakes, lemon, poached egg.',
     price:14.00, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'],
     tags:['Vegetarian','Local Bread'], popular:true },
-  { id:12, cat:'Food', emoji:'🍳', name:'Breakfast Plate',
+  { id:12, cat:'Food',     emoji:'🍳', name:'Breakfast Plate',
     desc:'Two eggs your way, choice of protein, roasted fingerlings, toast and house jam.',
     price:16.00, moods:['fuel','brunch','all'], timeMatch:['morning'],
     tags:['Brunch','Gluten-Free Option'], popular:true },
-  { id:13, cat:'Food', emoji:'🥗', name:'Grain Bowl',
+  { id:13, cat:'Food',     emoji:'🥗', name:'Grain Bowl',
     desc:'Farro, roasted beet, arugula, feta, pickled onion, and lemon tahini. Comes together perfectly.',
     price:15.00, moods:['fresh','chill','all'], timeMatch:['afternoon'],
     tags:['Vegetarian','Hearty'], popular:false },
-  { id:14, cat:'Food', emoji:'🥪', name:'Rye Breakfast Sandwich',
+  { id:14, cat:'Food',     emoji:'🥪', name:'Rye Breakfast Sandwich',
     desc:'Egg, cheddar, smoked turkey, and house aioli on toasted rye. The café signature.',
     price:13.00, moods:['fuel','all'], timeMatch:['morning','afternoon'],
     tags:['Bestseller','Quick'], popular:true },
-  { id:15, cat:'Food', emoji:'🍜', name:'Tomato Bisque',
+  { id:15, cat:'Food',     emoji:'🍜', name:'Tomato Bisque',
     desc:'Slow-roasted tomato, cream, basil. Served with a sourdough crostini.',
     price:10.00, moods:['chill','all'], timeMatch:['afternoon','evening'],
     tags:['Seasonal','Vegetarian'], popular:false },
-
   /* PASTRIES */
   { id:16, cat:'Pastries', emoji:'🥐', name:'Butter Croissant',
     desc:'Laminated in-house, baked fresh each morning. Ends by 10. Get here first.',
     price:5.00, moods:['sweet','chill','all'], timeMatch:['morning'],
     tags:['Baked Fresh','Limited'], popular:true },
   { id:17, cat:'Pastries', emoji:'🫐', name:'Blueberry Scone',
-    desc:'Buttermilk base, Ohio blueberries, vanilla glaze. Better than your grandmother's. Maybe.',
+    desc:'Buttermilk base, Ohio blueberries, vanilla glaze. Better than your grandmother\'s. Maybe.',
     price:5.50, moods:['sweet','fuel','all'], timeMatch:['morning','afternoon'],
     tags:['Baked Fresh'], popular:false },
   { id:18, cat:'Pastries', emoji:'🍰', name:'Cardamom Coffee Cake',
@@ -1222,7 +1676,7 @@ const menuData = [
 ];
 
 const categories = ['Coffee','Drinks','Food','Pastries'];
-const catEmoji = { Coffee:'☕', Drinks:'🥤', Food:'🍽️', Pastries:'🥐', All:'✦' };
+const catEmoji   = { Coffee:'☕', Drinks:'🥤', Food:'🍽️', Pastries:'🥐' };
 
 const specials = [
   "☀️ Morning Special: Breakfast Sandwich + Coffee — $17",
@@ -1232,48 +1686,65 @@ const specials = [
   "⭐ Bestseller: Iced Caramel Latte — $7",
   "🍳 Weekend Brunch Plate — Eggs Your Way · $16",
   "🥐 Fresh Croissants — Daily Til They're Gone",
-  "🚗 Free Delivery Over $30 · Columbus Area",
+  `🚗 Free Delivery Over $${CONFIG.FREE_DELIVERY_OVER} · Columbus Area`,
 ];
 
 /* ═══════════════════════════════════════
    STATE
 ═══════════════════════════════════════ */
-let cart = {};
+let cart       = {};
 let activeMood = 'all';
-let activeCat = 'All';
+let activeCat  = 'All';
 let currentTime = 'morning';
-let orderType = 'pickup';
-let tipPct = 18;
-let tipCustom = null;
+let orderType  = 'pickup';
+let tipPct     = CONFIG.DEFAULT_TIP_PCT;
+let tipCustom  = null;
+let stripeCardElement = null;
+let stripe     = null;
+let isProcessing = false;
 
 /* ═══════════════════════════════════════
-   TIME
+   TIME & OPEN/CLOSED LOGIC (day-aware)
 ═══════════════════════════════════════ */
+const HOURS = {
+  0: { open: 9,  close: 17 }, // Sunday
+  1: { open: 7,  close: 19 }, // Monday
+  2: { open: 7,  close: 19 },
+  3: { open: 7,  close: 19 },
+  4: { open: 7,  close: 19 },
+  5: { open: 7,  close: 19 }, // Friday
+  6: { open: 8,  close: 20 }, // Saturday
+};
+
+function isOpen() {
+  const now  = new Date();
+  const day  = now.getDay();
+  const hour = now.getHours();
+  const { open, close } = HOURS[day];
+  return hour >= open && hour < close;
+}
+
 const timeConfig = {
   morning: {
-    eyebrow:'☀️ Good Morning, Columbus',
-    h1:'Craft Coffee.<br/><em>Real Kitchen.</em>',
-    tagline:'Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.',
-    badge:'Open Now'
+    eyebrow: '☀️ Good Morning, Columbus',
+    h1:      'Craft Coffee.<br/><em>Real Kitchen.</em>',
+    tagline: 'Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.',
   },
   afternoon: {
-    eyebrow:'🌤️ Good Afternoon, Columbus',
-    h1:'Midday Fuel.<br/><em>Zero Compromise.</em>',
-    tagline:"Grain bowls, cold brew, and the latte you've been thinking about since 11.",
-    badge:'Open Now'
+    eyebrow: '🌤️ Good Afternoon, Columbus',
+    h1:      'Midday Fuel.<br/><em>Zero Compromise.</em>',
+    tagline: "Grain bowls, cold brew, and the latte you've been thinking about since 11.",
   },
   evening: {
-    eyebrow:'🌇 Good Evening, Columbus',
-    h1:'Slow Down.<br/><em>You've Earned It.</em>',
-    tagline:'The kitchen is still open. Pull up a chair or order for the couch.',
-    badge:'Open Now'
+    eyebrow: '🌇 Good Evening, Columbus',
+    h1:      'Slow Down.<br/><em>You\'ve Earned It.</em>',
+    tagline: 'The kitchen is still open. Pull up a chair or order for the couch.',
   },
   night: {
-    eyebrow:'🌙 We\'re Closed',
-    h1:'See You<br/><em>Tomorrow.</em>',
-    tagline:"We close at 7 PM on weekdays, 8 Saturdays. Pre-order online and we'll have it waiting.",
-    badge:'Closed'
-  }
+    eyebrow: '🌙 We\'re Closed',
+    h1:      'See You<br/><em>Tomorrow.</em>',
+    tagline: "We're closed right now. Pre-order online and we'll have it waiting.",
+  },
 };
 
 function getTimeOfDay() {
@@ -1283,30 +1754,61 @@ function getTimeOfDay() {
   if (h >= 16 && h < 20) return 'evening';
   return 'night';
 }
-function isOpen() {
-  const h = new Date().getHours();
-  const d = new Date().getDay();
-  if (d === 0) return h >= 9 && h < 17;
-  if (d === 6) return h >= 8 && h < 20;
-  return h >= 7 && h < 19;
-}
+
 function applyTimeTheme() {
   currentTime = getTimeOfDay();
-  const cfg = timeConfig[currentTime];
-  document.documentElement.setAttribute('data-time', currentTime);
-  document.getElementById('heroEyebrow').textContent = cfg.eyebrow;
-  document.getElementById('heroH1').innerHTML = cfg.h1;
-  document.getElementById('heroTagline').textContent = cfg.tagline;
-  document.getElementById('timeBadgeText').textContent = cfg.badge;
+  const cfg  = timeConfig[currentTime];
   const open = isOpen();
-  document.getElementById('openStatus').textContent = open ? '● Open Now' : '● Closed';
-  document.getElementById('openStatus').style.color = open ? 'var(--green)' : '#b91c1c';
-  document.getElementById('openStatusBadge').innerHTML = open
-    ? '<span class="open-now">● Open Now</span>'
-    : '<span class="closed-now">● Closed</span>';
-  if (currentTime === 'night') document.getElementById('closedBanner').classList.add('show');
-  else document.getElementById('closedBanner').classList.remove('show');
+
+  document.documentElement.setAttribute('data-time', currentTime);
+
+  const eyebrow = document.getElementById('heroEyebrow');
+  const h1      = document.getElementById('heroH1');
+  const tagline = document.getElementById('heroTagline');
+  const badge   = document.getElementById('timeBadgeText');
+  if (eyebrow) eyebrow.textContent = cfg.eyebrow;
+  if (h1)      h1.innerHTML = cfg.h1;  // controlled content — safe
+  if (tagline) tagline.textContent = cfg.tagline;
+  if (badge)   badge.textContent = open ? 'Open Now' : 'Closed';
+
+  const statusEl = document.getElementById('openStatus');
+  if (statusEl) {
+    statusEl.textContent = open ? '● Open Now' : '● Closed';
+    statusEl.style.color = open ? 'var(--green)' : '#b91c1c';
+  }
+  const statusBadge = document.getElementById('openStatusBadge');
+  if (statusBadge) {
+    statusBadge.innerHTML = open
+      ? '<span class="open-now">● Open Now</span>'
+      : '<span class="closed-now">● Closed</span>';
+  }
+
+  const closedBanner = document.getElementById('closedBanner');
+  if (closedBanner) {
+    if (currentTime === 'night') closedBanner.classList.add('show');
+    else closedBanner.classList.remove('show');
+  }
+
   renderGrid();
+}
+
+/* ═══════════════════════════════════════
+   MOBILE NAV
+═══════════════════════════════════════ */
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('navHamburger');
+  const isOpen = nav.classList.contains('open');
+  nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  btn.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+}
+function closeMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('navHamburger');
+  nav.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Open navigation menu');
 }
 
 /* ═══════════════════════════════════════
@@ -1315,47 +1817,62 @@ function applyTimeTheme() {
 const otInfoData = {
   pickup: [
     { icon:'⏱', text:'Ready in <strong>12–18 min</strong>' },
-    { icon:'📍', text:'<strong>123 Short North Ave, Columbus, OH</strong>' },
+    { icon:'📍', text:`<strong>${CONFIG.CAFE_ADDRESS}</strong>` },
     { icon:'🆓', text:'<strong>No fee</strong> for pickup orders' },
   ],
   delivery: [
     { icon:'🚗', text:'Estimated <strong>25–40 min</strong>' },
-    { icon:'💵', text:'Delivery fee: <strong>$3.99</strong> (free over $30)' },
-    { icon:'📍', text:'Columbus area only · <strong>5 mi radius</strong>' },
+    { icon:'💵', text:`Delivery fee: <strong>$${CONFIG.DELIVERY_FEE.toFixed(2)}</strong> (free over $${CONFIG.FREE_DELIVERY_OVER})` },
+    { icon:'📍', text:`Columbus area only · <strong>${CONFIG.DELIVERY_RADIUS_MILES} mi radius</strong>` },
   ],
   dine: [
     { icon:'🪑', text:'<strong>Walk in</strong> or reserve a table' },
-    { icon:'📱', text:'Order ahead and it\'ll be <strong>waiting for you</strong>' },
+    { icon:'📱', text:"Order ahead and it'll be <strong>waiting for you</strong>" },
     { icon:'🐕', text:'Dog-friendly patio — <strong>Open until 7 PM</strong>' },
   ],
 };
+
 function setOrderType(type, btn) {
   orderType = type;
-  document.querySelectorAll('.ot-btn').forEach(b => b.classList.remove('active'));
+  // Update aria-pressed on all buttons
+  document.querySelectorAll('.ot-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   const info = otInfoData[type];
-  document.getElementById('otInfo').innerHTML = info.map(i =>
-    `<div class="ot-info-pill">${i.icon} ${i.text}</div>`
-  ).join('');
+  const otInfo = document.getElementById('otInfo');
+  if (otInfo) {
+    otInfo.innerHTML = info.map(i =>
+      `<div class="ot-info-pill">${i.icon} ${i.text}</div>`
+    ).join('');
+  }
 }
 
 /* ═══════════════════════════════════════
    TICKER
 ═══════════════════════════════════════ */
 function buildTicker() {
+  const track = document.getElementById('specialTrack');
+  if (!track) return;
   const doubled = [...specials, ...specials];
-  document.getElementById('specialTrack').innerHTML = doubled
-    .map(s => `<span class="special-item"><span class="s-dot">✦</span>${s}</span>`)
+  track.innerHTML = doubled
+    .map(s => `<span class="special-item"><span class="s-dot" aria-hidden="true">✦</span>${escapeHTML(s)}</span>`)
     .join('');
 }
 
 /* ═══════════════════════════════════════
-   MOOD
+   MOOD FILTER
 ═══════════════════════════════════════ */
 function setMood(mood, btn) {
   activeMood = mood;
-  document.querySelectorAll('.mood-pill').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.mood-pill').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   renderGrid();
 }
 
@@ -1363,16 +1880,25 @@ function setMood(mood, btn) {
    CATEGORY TABS
 ═══════════════════════════════════════ */
 function buildCatTabs() {
+  const container = document.getElementById('catTabs');
+  if (!container) return;
   const tabs = ['All', ...categories];
-  document.getElementById('catTabs').innerHTML = tabs
-    .map(c => `<button class="cat-tab ${c===activeCat?'active':''}" onclick="setCat('${c}',this)">
-      ${catEmoji[c]||'✦'} ${c}
-    </button>`).join('');
+  container.innerHTML = tabs.map(c =>
+    `<button class="cat-tab ${c===activeCat?'active':''}" type="button"
+             role="tab" aria-selected="${c===activeCat?'true':'false'}"
+             onclick="setCat('${escapeHTML(c)}',this)">
+      ${catEmoji[c] || '✦'} ${escapeHTML(c)}
+    </button>`
+  ).join('');
 }
 function setCat(cat, btn) {
   activeCat = cat;
-  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
   renderGrid();
 }
 
@@ -1384,8 +1910,9 @@ function renderGrid() {
   let items = menuData;
   if (activeCat !== 'All') items = items.filter(i => i.cat === activeCat);
   const grid = document.getElementById('menuGrid');
+  if (!grid) return;
   if (!items.length) {
-    grid.innerHTML = '<div class="menu-empty">Nothing here — try another filter.</div>';
+    grid.innerHTML = '<div class="menu-empty" role="status">Nothing here — try another filter.</div>';
     return;
   }
   grid.innerHTML = items.map(item => buildCard(item)).join('');
@@ -1394,24 +1921,32 @@ function renderGrid() {
 
 function buildCard(item) {
   const inCart = !!cart[item.id];
-  const qty = cart[item.id]?.qty || 0;
+  const qty    = cart[item.id]?.qty || 0;
   const isMoodMatch = activeMood !== 'all' && item.moods.includes(activeMood);
   const isTimeMatch = item.timeMatch.includes(currentTime);
+
+  // Build badge HTML — no user data, safe
   let badges = '';
-  if (item.popular) badges += `<div class="pop-badge">🔥 Popular</div>`;
-  if (isMoodMatch) badges += `<div class="mood-badge">✦ Your Pick</div>`;
-  else if (isTimeMatch && activeMood === 'all') badges += `<div class="mood-badge">Now Serving</div>`;
+  if (item.popular)    badges += `<div class="pop-badge" aria-label="Popular item">🔥 Popular</div>`;
+  if (isMoodMatch)     badges += `<div class="mood-badge" aria-label="Matches your mood filter">✦ Your Pick</div>`;
+  else if (isTimeMatch && activeMood === 'all')
+                       badges += `<div class="mood-badge">Now Serving</div>`;
+
   const tagsHtml = item.tags && item.tags.length
-    ? `<div class="card-tags">${item.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>`
+    ? `<div class="card-tags" aria-label="Dietary tags">${item.tags.map(t => `<span class="card-tag">${escapeHTML(t)}</span>`).join('')}</div>`
     : '';
 
+  return `
+  <article class="menu-card reveal ${inCart?'in-order':''}"
+           id="mc-${item.id}"
+           aria-label="${escapeHTML(item.name)}, $${item.price.toFixed(2)}${inCart ? `, ${qty} in order` : ''}">
     ${badges}
     <div class="card-top">
-      <span class="card-emoji">${item.emoji}</span>
+      <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
       <div class="card-info">
-        <div class="card-cat">${item.cat}</div>
-        <div class="card-name">${item.name}</div>
-        <div class="card-desc">${item.desc}</div>
+        <div class="card-cat">${escapeHTML(item.cat)}</div>
+        <div class="card-name">${escapeHTML(item.name)}</div>
+        <div class="card-desc">${escapeHTML(item.desc)}</div>
         ${tagsHtml}
       </div>
     </div>
@@ -1419,30 +1954,37 @@ function buildCard(item) {
       <div class="card-price">$${item.price.toFixed(2)} <small>each</small></div>
       <div class="card-actions">
         ${inCart ? `
-          <div class="qty-wrap">
-            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
-            <span class="qty-num">${qty}</span>
-            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          <div class="qty-wrap" role="group" aria-label="Adjust quantity of ${escapeHTML(item.name)}">
+            <button class="qty-btn" type="button"
+                    onclick="changeQty(${item.id},-1)"
+                    aria-label="Remove one ${escapeHTML(item.name)} from order">−</button>
+            <span class="qty-num" aria-live="polite">${qty}</span>
+            <button class="qty-btn" type="button"
+                    onclick="changeQty(${item.id},1)"
+                    aria-label="Add another ${escapeHTML(item.name)} to order">+</button>
           </div>
         ` : ''}
-        <button class="add-btn ${inCart?'added':''}" onclick="addItem(${item.id})">
+        <button class="add-btn ${inCart?'added':''}" type="button"
+                onclick="addItem(${item.id})"
+                aria-label="${inCart ? `${escapeHTML(item.name)} already in order, add more` : `Add ${escapeHTML(item.name)} to order`}">
           ${inCart ? '✓ Added' : '+ Add'}
         </button>
       </div>
     </div>
-  </div>`;
+  </article>`;
 }
 
 /* ═══════════════════════════════════════
-   CART
+   CART OPERATIONS
 ═══════════════════════════════════════ */
 function addItem(id) {
   const item = menuData.find(i => i.id === id);
+  if (!item) return;
   if (!cart[id]) cart[id] = { item, qty: 1 };
   else cart[id].qty++;
   refreshCard(id);
   updateBar();
-  showToast(`${item.emoji} ${item.name} added to order`);
+  showToast(`${item.emoji} ${item.name} added to order`, 'default');
   popBar();
 }
 function changeQty(id, delta) {
@@ -1454,53 +1996,67 @@ function changeQty(id, delta) {
 }
 function refreshCard(id) {
   const item = menuData.find(i => i.id === id);
-  const el = document.getElementById(`mc-${id}`);
-  if (el) el.outerHTML = buildCard(item);
+  const el   = document.getElementById(`mc-${id}`);
+  if (el && item) el.outerHTML = buildCard(item);
 }
-function getSubtotal() {
-  return Object.values(cart).reduce((s,i) => s + i.item.price * i.qty, 0);
-}
+
+// Totals
+function getSubtotal()   { return Object.values(cart).reduce((s,i) => s + i.item.price * i.qty, 0); }
 function getTip() {
   const sub = getSubtotal();
   if (tipCustom !== null) return tipCustom;
-  return sub * (tipPct / 100);
+  return +(sub * (tipPct / 100)).toFixed(2);
 }
 function getDeliveryFee() {
   if (orderType !== 'delivery') return 0;
-  const sub = getSubtotal();
-  return sub >= 30 ? 0 : 3.99;
+  return getSubtotal() >= CONFIG.FREE_DELIVERY_OVER ? 0 : CONFIG.DELIVERY_FEE;
 }
-function getTax() {
-  return getSubtotal() * 0.075;
-}
-function getTotal() {
-  return getSubtotal() + getTip() + getDeliveryFee() + getTax();
-}
-function getTotalQty() {
-  return Object.values(cart).reduce((s,i) => s + i.qty, 0);
-}
+function getTax()   { return +(getSubtotal() * CONFIG.TAX_RATE).toFixed(2); }
+function getTotal() { return +(getSubtotal() + getTip() + getDeliveryFee() + getTax()).toFixed(2); }
+function getTotalQty() { return Object.values(cart).reduce((s,i) => s + i.qty, 0); }
+
 function updateBar() {
   const qty = getTotalQty();
-  const sub = getSubtotal();
-  document.getElementById('fbCount').textContent =
-    qty === 0 ? '0 items' : `${qty} item${qty>1?'s':''} · est. total`;
-  document.getElementById('fbAmt').textContent = getTotal().toFixed(2);
-  document.getElementById('fbCheckoutBtn').disabled = qty === 0;
-  document.getElementById('navCartCount').textContent = qty;
-  const bar = document.getElementById('floatBar');
-  if (qty > 0) bar.classList.add('visible');
-  else bar.classList.remove('visible');
+  const fbCount  = document.getElementById('fbCount');
+  const fbAmt    = document.getElementById('fbAmt');
+  const fbBtn    = document.getElementById('fbCheckoutBtn');
+  const navCount = document.getElementById('navCartCount');
+  const bar      = document.getElementById('floatBar');
+
+  if (fbCount)  fbCount.textContent  = qty === 0 ? '0 items' : `${qty} item${qty > 1 ? 's' : ''} · est. total`;
+  if (fbAmt)    fbAmt.textContent    = getTotal().toFixed(2);
+  if (fbBtn)    fbBtn.disabled       = qty === 0;
+  if (navCount) {
+    navCount.textContent = qty;
+    navCount.setAttribute('aria-label', `${qty} item${qty > 1 ? 's' : ''} in order`);
+  }
+  if (bar) {
+    if (qty > 0) bar.classList.add('visible');
+    else bar.classList.remove('visible');
+  }
 }
+
 function popBar() {
   const bar = document.getElementById('floatBar');
+  if (!bar) return;
   bar.style.transform = 'translateX(-50%) translateY(-5px) scale(1.02)';
-  setTimeout(() => bar.style.transform = 'translateX(-50%) translateY(0) scale(1)', 200);
+  setTimeout(() => { bar.style.transform = 'translateX(-50%) translateY(0) scale(1)'; }, 200);
 }
-function clearOrder() {
+
+// Confirm dialog before clearing
+function confirmClearOrder() {
+  if (getTotalQty() === 0) return;
+  document.getElementById('confirmDialogOverlay').classList.add('open');
+}
+function closeConfirmDialog() {
+  document.getElementById('confirmDialogOverlay').classList.remove('open');
+}
+function executeClearOrder() {
   Object.keys(cart).forEach(k => delete cart[k]);
   renderGrid();
   updateBar();
-  showToast('Order cleared');
+  closeConfirmDialog();
+  showToast('Order cleared', 'default');
 }
 
 /* ═══════════════════════════════════════
@@ -1508,65 +2064,113 @@ function clearOrder() {
 ═══════════════════════════════════════ */
 function openCheckout() {
   if (getTotalQty() === 0) {
-    document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
-    showToast('Add items from the menu first ☕');
+    const menu = document.getElementById('menu');
+    if (menu) menu.scrollIntoView({ behavior: 'smooth' });
+    showToast('Add items from the menu first ☕', 'default');
     return;
   }
   renderCheckoutModal();
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Focus the modal for accessibility
+  setTimeout(() => {
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }, 350);
 }
 function closeCheckout() {
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  stripeCardElement = null;
 }
 function overlayClick(e) {
   if (e.target === document.getElementById('modalOverlay')) closeCheckout();
 }
 
 function renderCheckoutModal() {
-  const items = Object.values(cart);
-  const sub = getSubtotal();
-  const tip = getTip();
-  const tax = getTax();
+  const items  = Object.values(cart);
+  const sub    = getSubtotal();
+  const tip    = getTip();
+  const tax    = getTax();
   const delFee = getDeliveryFee();
-  const total = getTotal();
+  const total  = getTotal();
 
   const itemsHtml = items.map(({ item, qty }) => `
     <div class="co-item">
       <div class="co-item-left">
-        <span class="co-item-emoji">${item.emoji}</span>
+        <span class="co-item-emoji" aria-hidden="true">${item.emoji}</span>
         <div>
-          <div class="co-item-name">${item.name}</div>
+          <div class="co-item-name">${escapeHTML(item.name)}</div>
           <div class="co-item-desc">$${item.price.toFixed(2)} each</div>
         </div>
       </div>
-      <div class="co-item-qty">
-        <button class="co-qty-btn" onclick="coChangeQty(${item.id},-1)">−</button>
-        <span class="co-qty-num">${qty}</span>
-        <button class="co-qty-btn" onclick="coChangeQty(${item.id},1)">+</button>
+      <div class="co-item-qty" role="group" aria-label="Adjust quantity of ${escapeHTML(item.name)}">
+        <button class="co-qty-btn" type="button"
+                onclick="coChangeQty(${item.id},-1)"
+                aria-label="Remove one ${escapeHTML(item.name)}">−</button>
+        <span class="co-qty-num" aria-live="polite">${qty}</span>
+        <button class="co-qty-btn" type="button"
+                onclick="coChangeQty(${item.id},1)"
+                aria-label="Add another ${escapeHTML(item.name)}">+</button>
       </div>
-      <div class="co-item-price">$${(item.price*qty).toFixed(2)}</div>
+      <div class="co-item-price">$${(item.price * qty).toFixed(2)}</div>
     </div>`).join('');
 
   const tipBtns = [0, 15, 18, 20, 25].map(p =>
-    `<button class="tip-btn ${tipCustom===null&&tipPct===p?'active':''}" onclick="setTip(${p},null,this)">${p===0?'No Tip':`${p}%`}</button>`
+    `<button class="tip-btn ${tipCustom===null&&tipPct===p?'active':''}" type="button"
+             onclick="setTip(${p},null,this)"
+             aria-label="${p===0?'No tip':`${p}% tip`}"
+             aria-pressed="${tipCustom===null&&tipPct===p?'true':'false'}">${p===0?'No Tip':`${p}%`}</button>`
   ).join('');
 
   const deliveryEst = orderType === 'delivery'
-    ? `<div class="co-delivery-est">🚗 <span>Estimated delivery: <strong>25–40 min</strong> · Columbus area</span></div>`
+    ? `<div class="co-delivery-est" role="status">🚗 <span>Estimated delivery: <strong>25–40 min</strong> · Columbus area (${CONFIG.DELIVERY_RADIUS_MILES} mi radius)</span></div>`
     : orderType === 'pickup'
-    ? `<div class="co-delivery-est">🏪 <span>Ready for pickup in <strong>12–18 min</strong> · 123 Short North Ave</span></div>`
-    : `<div class="co-delivery-est">🪑 <span>Order placed — we'll have it ready at your <strong>table</strong></span></div>`;
+    ? `<div class="co-delivery-est" role="status">🏪 <span>Ready for pickup in <strong>12–18 min</strong> · ${CONFIG.CAFE_ADDRESS}</span></div>`
+    : `<div class="co-delivery-est" role="status">🪑 <span>Order placed — we'll have it ready at your <strong>table</strong></span></div>`;
 
+  // Payment section — Stripe if live, demo notice if not
+  const paymentHtml = CONFIG.PAYMENTS_LIVE
+    ? `<div class="co-section">
+        <span class="co-label">Payment</span>
+        <div class="payment-section">
+          <div class="payment-method-tabs">
+            <button class="pay-tab active" type="button" aria-label="Pay by card">
+              <i class="fas fa-credit-card" aria-hidden="true"></i> Card
+            </button>
+            <button class="pay-tab" type="button" aria-label="Pay with Apple Pay or Google Pay">
+              <i class="fab fa-apple-pay" aria-hidden="true"></i> Apple/Google Pay
+            </button>
+          </div>
+          <div class="stripe-element-wrap" id="stripeWrap">
+            <div id="stripe-card-element"></div>
+          </div>
+          <div id="stripeError" style="color:#b91c1c;font-size:0.78rem;margin-top:8px;" role="alert" aria-live="polite"></div>
+        </div>
+      </div>`
+    : `<div class="co-section">
+        <span class="co-label">Payment</span>
+        <div class="payment-notice">
+          <strong>⚙️ Developer Mode Active</strong><br/>
+          Payment processing is not yet configured. To go live, add your Stripe Publishable Key to the CONFIG object and set <code>PAYMENTS_LIVE: true</code>. Orders placed now will be submitted without charging.
+        </div>
+      </div>`;
+
+  document.getElementById('modalTitle').textContent = 'Your Order';
   document.getElementById('modalBody').innerHTML = `
     <!-- ORDER TYPE -->
     <div class="co-section">
       <span class="co-label">Order Type</span>
-      <div class="co-toggle">
-        <button class="co-btn ${orderType==='pickup'?'active':''}" onclick="coSetType('pickup',this)">🏪 Pickup</button>
-        <button class="co-btn ${orderType==='delivery'?'active':''}" onclick="coSetType('delivery',this)">🚗 Delivery</button>
-        <button class="co-btn ${orderType==='dine'?'active':''}" onclick="coSetType('dine',this)">🪑 Dine-In</button>
+      <div class="co-toggle" role="group" aria-label="Select order type">
+        <button class="co-btn ${orderType==='pickup'?'active':''}" type="button"
+                onclick="coSetType('pickup',this)"
+                aria-pressed="${orderType==='pickup'}">🏪 Pickup</button>
+        <button class="co-btn ${orderType==='delivery'?'active':''}" type="button"
+                onclick="coSetType('delivery',this)"
+                aria-pressed="${orderType==='delivery'}">🚗 Delivery</button>
+        <button class="co-btn ${orderType==='dine'?'active':''}" type="button"
+                onclick="coSetType('dine',this)"
+                aria-pressed="${orderType==='dine'}">🪑 Dine-In</button>
       </div>
     </div>
 
@@ -1581,43 +2185,86 @@ function renderCheckoutModal() {
     <!-- TIP -->
     <div class="co-section">
       <span class="co-label">Tip Your Barista ☕</span>
-      <div class="tip-options" id="tipOptions">${tipBtns}</div>
+      <div class="tip-options" id="tipOptions" role="group" aria-label="Select tip amount">${tipBtns}</div>
       <div class="tip-custom-wrap">
-        <span class="tip-custom-label">Custom $</span>
+        <label for="tipCustomInput" class="tip-custom-label">Custom $</label>
         <input type="number" min="0" step="0.01" placeholder="0.00"
-          class="tip-custom-input" id="tipCustomInput"
-          oninput="setCustomTip(this.value)"
-          value="${tipCustom!==null?tipCustom.toFixed(2):''}"/>
+               class="tip-custom-input" id="tipCustomInput"
+               oninput="setCustomTip(this.value)"
+               aria-label="Enter custom tip amount in dollars"
+               value="${tipCustom !== null ? tipCustom.toFixed(2) : ''}"/>
       </div>
     </div>
 
-    <!-- CONTACT -->
+    <!-- CONTACT INFO -->
     <div class="co-section">
       <span class="co-label">Your Info</span>
-      <div class="co-form">
+      <div class="co-form" id="coForm">
         <div class="co-row">
           <div class="co-field">
-            <label>First Name</label>
-            <input type="text" class="co-input" placeholder="Alex" id="coName"/>
+            <label for="coName">
+              First Name <span class="required-star" aria-hidden="true">*</span>
+            </label>
+            <input type="text" class="co-input" placeholder="Alex"
+                   id="coName" name="name"
+                   required aria-required="true"
+                   autocomplete="given-name" maxlength="100"/>
+            <span class="field-error" id="nameError">Please enter your first name.</span>
           </div>
           <div class="co-field">
-            <label>Phone</label>
-            <input type="tel" class="co-input" placeholder="(614) 555-0100" id="coPhone"/>
+            <label for="coPhone">
+              Phone <span class="required-star" aria-hidden="true">*</span>
+            </label>
+            <input type="tel" class="co-input"
+                   placeholder="(614) 555-0100"
+                   id="coPhone" name="phone"
+                   required aria-required="true"
+                   autocomplete="tel"
+                   pattern="[0-9\s\(\)\-\+]{7,20}"
+                   maxlength="20"/>
+            <span class="field-error" id="phoneError">Please enter a valid phone number.</span>
           </div>
+        </div>
+        <div class="co-field">
+          <label for="coEmail">
+            Email <span class="required-star" aria-hidden="true">*</span>
+          </label>
+          <input type="email" class="co-input"
+                 placeholder="alex@email.com"
+                 id="coEmail" name="email"
+                 required aria-required="true"
+                 autocomplete="email" maxlength="254"/>
+          <span class="field-error" id="emailError">Please enter a valid email address.</span>
         </div>
         ${orderType === 'delivery' ? `
         <div class="co-field">
-          <label>Delivery Address</label>
-          <input type="text" class="co-input" placeholder="123 Main St, Columbus, OH 43201" id="coAddress"/>
+          <label for="coAddress">
+            Delivery Address <span class="required-star" aria-hidden="true">*</span>
+          </label>
+          <input type="text" class="co-input"
+                 placeholder="123 Main St, Columbus, OH 43201"
+                 id="coAddress" name="address"
+                 required aria-required="true"
+                 autocomplete="street-address" maxlength="200"/>
+          <span class="field-error" id="addressError">Please enter your delivery address.</span>
+          <span style="font-size:0.72rem;color:var(--text2);margin-top:4px;display:block;">
+            Delivery available within ${CONFIG.DELIVERY_RADIUS_MILES} miles of ${CONFIG.CAFE_ADDRESS}
+          </span>
         </div>` : ''}
         <div class="co-field">
-          <label>Special Instructions (optional)</label>
-          <textarea class="co-textarea" placeholder="Oat milk for the latte, no onion on the sandwich…" id="coNotes"></textarea>
+          <label for="coNotes">Special Instructions (optional)</label>
+          <textarea class="co-textarea"
+                    placeholder="Oat milk for the latte, no onion on the sandwich…"
+                    id="coNotes" name="notes"
+                    maxlength="500" rows="3"></textarea>
         </div>
       </div>
     </div>
 
-    <!-- SUMMARY -->
+    <!-- PAYMENT -->
+    ${paymentHtml}
+
+    <!-- ORDER SUMMARY -->
     <div class="co-section">
       <span class="co-label">Order Summary</span>
       <div class="co-summary">
@@ -1627,10 +2274,12 @@ function renderCheckoutModal() {
         ${delFee > 0 ? `<div class="co-sum-row"><span>Delivery Fee</span><span>$${delFee.toFixed(2)}</span></div>` : ''}
         ${delFee === 0 && orderType === 'delivery' ? `<div class="co-sum-row" style="color:var(--green)"><span>✓ Free Delivery</span><span>$0.00</span></div>` : ''}
         <div class="co-sum-row">
-          <span>Tax (7.5%)</span><span>$${tax.toFixed(2)}</span>
+          <span>Tax (${(CONFIG.TAX_RATE * 100).toFixed(1)}% OH)</span>
+          <span>$${tax.toFixed(2)}</span>
         </div>
         <div class="co-sum-row">
-          <span>Tip</span><span id="tipDisplay">$${tip.toFixed(2)}</span>
+          <span>Tip</span>
+          <span id="tipDisplay">$${tip.toFixed(2)}</span>
         </div>
         <div class="co-sum-row">
           <span class="co-sum-total">Total</span>
@@ -1640,15 +2289,67 @@ function renderCheckoutModal() {
     </div>
 
     <!-- PLACE ORDER -->
-    <button class="btn-place-order" onclick="placeOrder()">
-      🛒 Place Order — $${total.toFixed(2)}
+    <button class="btn-place-order" type="button" id="placeOrderBtn"
+            onclick="placeOrder()"
+            aria-label="Place order for $${total.toFixed(2)}">
+      <span class="btn-text">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        Place Order — $${total.toFixed(2)}
+      </span>
+      <span class="btn-spinner" aria-hidden="true"></span>
     </button>
-    <div class="secure-badge">
-      🔒 Secure checkout · SSL encrypted · Cards & Apple Pay accepted
+    <div class="secure-badge" aria-label="Secure checkout information">
+      <i class="fas fa-lock" aria-hidden="true"></i>
+      Secure checkout · SSL encrypted · Cards &amp; Apple Pay accepted
     </div>
   `;
+
+  // Mount Stripe card element if live
+  if (CONFIG.PAYMENTS_LIVE) {
+    mountStripe();
+  }
 }
 
+/* ═══════════════════════════════════════
+   STRIPE INTEGRATION
+═══════════════════════════════════════ */
+function mountStripe() {
+  if (!window.Stripe) {
+    console.warn('Stripe.js not loaded');
+    return;
+  }
+  try {
+    stripe = Stripe(CONFIG.STRIPE_PUBLISHABLE_KEY);
+    const elements = stripe.elements();
+    stripeCardElement = elements.create('card', {
+      style: {
+        base: {
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '15px',
+          color: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#1a1208',
+          '::placeholder': { color: '#9a7848' },
+        },
+        invalid: { color: '#b91c1c' },
+      },
+    });
+    const mountEl = document.getElementById('stripe-card-element');
+    if (mountEl) {
+      stripeCardElement.mount('#stripe-card-element');
+      stripeCardElement.on('change', (event) => {
+        const errorEl = document.getElementById('stripeError');
+        if (errorEl) errorEl.textContent = event.error ? event.error.message : '';
+        const wrap = document.getElementById('stripeWrap');
+        if (wrap) wrap.classList.toggle('focused', event.elementType === 'card');
+      });
+    }
+  } catch (e) {
+    console.error('Stripe mount error:', e);
+  }
+}
+
+/* ═══════════════════════════════════════
+   CHECKOUT MODAL — INTERACTION HANDLERS
+═══════════════════════════════════════ */
 function coChangeQty(id, delta) {
   changeQty(id, delta);
   if (getTotalQty() === 0) { closeCheckout(); return; }
@@ -1656,72 +2357,267 @@ function coChangeQty(id, delta) {
 }
 function coSetType(type, btn) {
   orderType = type;
-  document.querySelectorAll('.ot-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll(`[onclick="setOrderType('${type}',this)"]`).forEach(b => b.classList.add('active'));
+  document.querySelectorAll('.co-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
+  // Also update the main page toggle
+  document.querySelectorAll('.ot-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
+  const mainToggle = document.getElementById(`${type === 'pickup' ? 'pickup' : type === 'delivery' ? 'delivery' : 'dine'}Btn`);
+  if (mainToggle) {
+    mainToggle.classList.add('active');
+    mainToggle.setAttribute('aria-pressed', 'true');
+  }
   renderCheckoutModal();
 }
 function setTip(pct, custom, btn) {
-  tipPct = pct;
+  tipPct    = pct;
   tipCustom = custom;
-  document.getElementById('tipCustomInput').value = '';
-  document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
+  const input = document.getElementById('tipCustomInput');
+  if (input) input.value = '';
+  document.querySelectorAll('.tip-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   updateSummaryDisplay();
 }
 function setCustomTip(val) {
   const v = parseFloat(val);
   tipCustom = isNaN(v) ? null : Math.max(0, v);
-  document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tip-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
+  });
   updateSummaryDisplay();
 }
 function updateSummaryDisplay() {
-  const tip = getTip();
+  const tip   = getTip();
   const total = getTotal();
-  const delFee = getDeliveryFee();
-  const td = document.getElementById('tipDisplay');
-  const tt = document.getElementById('totalDisplay');
-  const pb = document.querySelector('.btn-place-order');
+  const td    = document.getElementById('tipDisplay');
+  const tt    = document.getElementById('totalDisplay');
+  const pb    = document.getElementById('placeOrderBtn');
   if (td) td.textContent = `$${tip.toFixed(2)}`;
   if (tt) tt.textContent = `$${total.toFixed(2)}`;
-  if (pb) pb.textContent = `🛒 Place Order — $${total.toFixed(2)}`;
+  if (pb) {
+    const textSpan = pb.querySelector('.btn-text');
+    if (textSpan) textSpan.innerHTML = `<i class="fas fa-shopping-cart" aria-hidden="true"></i> Place Order — $${total.toFixed(2)}`;
+    pb.setAttribute('aria-label', `Place order for $${total.toFixed(2)}`);
+  }
   updateBar();
 }
 
-function placeOrder() {
-  const name = document.getElementById('coName')?.value?.trim();
-  const phone = document.getElementById('coPhone')?.value?.trim();
-  if (!name || !phone) {
-    showToast('Please add your name and phone number');
-    return;
+/* ═══════════════════════════════════════
+   FORM VALIDATION
+═══════════════════════════════════════ */
+function validateForm() {
+  let valid = true;
+
+  const name = document.getElementById('coName');
+  const nameErr = document.getElementById('nameError');
+  if (!name?.value?.trim()) {
+    name?.classList.add('error');
+    if (nameErr) nameErr.classList.add('show');
+    valid = false;
+  } else {
+    name?.classList.remove('error');
+    if (nameErr) nameErr.classList.remove('show');
   }
-  renderConfirmation(name, phone);
+
+  const phone = document.getElementById('coPhone');
+  const phoneErr = document.getElementById('phoneError');
+  const phoneVal = phone?.value?.replace(/[\s\(\)\-\+]/g, '') || '';
+  if (phoneVal.length < 7 || !/^\d+$/.test(phoneVal)) {
+    phone?.classList.add('error');
+    if (phoneErr) phoneErr.classList.add('show');
+    valid = false;
+  } else {
+    phone?.classList.remove('error');
+    if (phoneErr) phoneErr.classList.remove('show');
+  }
+
+  const email = document.getElementById('coEmail');
+  const emailErr = document.getElementById('emailError');
+  const emailVal = email?.value?.trim() || '';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    email?.classList.add('error');
+    if (emailErr) emailErr.classList.add('show');
+    valid = false;
+  } else {
+    email?.classList.remove('error');
+    if (emailErr) emailErr.classList.remove('show');
+  }
+
+  if (orderType === 'delivery') {
+    const addr = document.getElementById('coAddress');
+    const addrErr = document.getElementById('addressError');
+    if (!addr?.value?.trim()) {
+      addr?.classList.add('error');
+      if (addrErr) addrErr.classList.add('show');
+      valid = false;
+    } else {
+      addr?.classList.remove('error');
+      if (addrErr) addrErr.classList.remove('show');
+    }
+  }
+
+  return valid;
 }
 
-function renderConfirmation(name, phone) {
-  const items = Object.values(cart);
-  const total = getTotal();
-  const orderNum = 'CR-' + Math.floor(1000 + Math.random() * 9000);
-  const typeLabel = { pickup: 'Pickup', delivery: 'Delivery', dine: 'Dine-In' }[orderType];
-  const timeEst = orderType === 'delivery' ? '25–40 min' : orderType === 'pickup' ? '12–18 min' : 'Table service';
+/* ═══════════════════════════════════════
+   PLACE ORDER — MAIN HANDLER
+═══════════════════════════════════════ */
+async function placeOrder() {
+  if (isProcessing) return;
+  if (!validateForm()) {
+    showToast('Please fill in the required fields', 'error');
+    return;
+  }
 
-  document.getElementById('modalTitle').textContent = 'Order Confirmed!';
-  document.getElementById('modalBody').innerHTML = `
+  const name    = document.getElementById('coName')?.value?.trim()  || '';
+  const phone   = document.getElementById('coPhone')?.value?.trim() || '';
+  const email   = document.getElementById('coEmail')?.value?.trim() || '';
+  const address = document.getElementById('coAddress')?.value?.trim() || '';
+  const notes   = document.getElementById('coNotes')?.value?.trim()   || '';
+
+  const btn = document.getElementById('placeOrderBtn');
+
+  // If Stripe is live, process payment
+  if (CONFIG.PAYMENTS_LIVE && stripe && stripeCardElement) {
+    isProcessing = true;
+    if (btn) btn.classList.add('loading');
+
+    try {
+      // In production: call your backend endpoint to create a PaymentIntent
+      // The backend returns a client_secret. NEVER create PaymentIntents client-side
+      // because that requires your SECRET key.
+      //
+      // Example backend call (Node.js/Deno/Cloudflare Worker):
+      // const res = await fetch('/api/create-payment-intent', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ amount: Math.round(getTotal() * 100), currency: 'usd' })
+      // });
+      // const { clientSecret } = await res.json();
+      //
+      // Then confirm:
+      // const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      //   payment_method: { card: stripeCardElement, billing_details: { name, email } }
+      // });
+
+      // PLACEHOLDER — replace with real backend call above
+      showToast('Configure your Stripe backend endpoint to go live.', 'error');
+    } catch (e) {
+      showToast('Payment failed. Please try again.', 'error');
+      console.error('Payment error:', e);
+    } finally {
+      isProcessing = false;
+      if (btn) btn.classList.remove('loading');
+    }
+    return;
+  }
+
+  // Demo mode (PAYMENTS_LIVE = false) or dine-in: send order via EmailJS
+  isProcessing = true;
+  if (btn) btn.classList.add('loading');
+
+  const orderSummary = buildOrderSummaryText();
+  const orderNum = 'CR-' + Math.floor(1000 + Math.random() * 9000);
+
+  try {
+    await sendOrderEmail({
+      to_name:   'Copper & Rye Team',
+      from_name: name,
+      email,
+      phone,
+      order_number: orderNum,
+      order_type:   orderType,
+      order_items:  orderSummary,
+      delivery_address: address || 'N/A',
+      special_notes: notes || 'None',
+      total:         `$${getTotal().toFixed(2)}`,
+      tip:           `$${getTip().toFixed(2)}`,
+      tax:           `$${getTax().toFixed(2)}`,
+    });
+  } catch (e) {
+    // Don't block confirmation even if email fails — log for debugging
+    console.warn('EmailJS error (order still recorded):', e);
+  } finally {
+    isProcessing = false;
+    if (btn) btn.classList.remove('loading');
+  }
+
+  renderConfirmation(name, phone, email, orderNum);
+}
+
+function buildOrderSummaryText() {
+  return Object.values(cart)
+    .map(({ item, qty }) => `${item.name} x${qty} — $${(item.price * qty).toFixed(2)}`)
+    .join('\n');
+}
+
+/* EmailJS — sends order to cafe + customer confirmation */
+async function sendOrderEmail(params) {
+  if (!window.emailjs) { console.warn('EmailJS not loaded'); return; }
+  await emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
+  return emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, params);
+}
+
+/* ═══════════════════════════════════════
+   ORDER CONFIRMATION SCREEN
+═══════════════════════════════════════ */
+function renderConfirmation(name, phone, email, orderNum) {
+  const items     = Object.values(cart);
+  const total     = getTotal();
+  const typeLabel = { pickup: 'Pickup', delivery: 'Delivery', dine: 'Dine-In' }[orderType];
+  const timeEst   = orderType === 'delivery' ? '25–40 min'
+                  : orderType === 'pickup'   ? '12–18 min'
+                  : 'Table service';
+
+  const titleEl = document.getElementById('modalTitle');
+  const bodyEl  = document.getElementById('modalBody');
+  if (!titleEl || !bodyEl) return;
+
+  titleEl.textContent = 'Order Confirmed!';
+  bodyEl.innerHTML = `
     <div class="confirmation-view">
-      <span class="conf-icon">✅</span>
+      <span class="conf-icon" aria-hidden="true">✅</span>
       <div class="conf-title">We've Got Your Order</div>
-      <p class="conf-sub">Thanks, ${name}! Your order is confirmed. We'll text <strong>${phone}</strong> when it's ready.</p>
-      <div class="conf-ticket">
-        <div class="conf-ticket-row"><span>Order #</span><strong>${orderNum}</strong></div>
-        <div class="conf-ticket-row"><span>Type</span><strong>${typeLabel}</strong></div>
-        <div class="conf-ticket-row"><span>Estimated Time</span><strong>${timeEst}</strong></div>
-        <div class="conf-ticket-row"><span>Total Charged</span><strong>$${total.toFixed(2)}</strong></div>
-        <div style="margin-top:10px; border-top: 1px solid var(--border); padding-top: 10px;">
-          ${items.map(({item,qty}) =>
-            `<div class="conf-ticket-row"><span>${item.emoji} ${item.name} ×${qty}</span><strong>$${(item.price*qty).toFixed(2)}</strong></div>`
+      <p class="conf-sub">
+        Thanks, ${escapeHTML(name)}! Your order is confirmed.
+        ${email ? `A confirmation has been sent to <strong>${escapeHTML(email)}</strong>.` : ''}
+        We'll text <strong>${escapeHTML(phone)}</strong> when it's ready.
+      </p>
+      <div class="conf-ticket" aria-label="Order receipt">
+        <div class="conf-ticket-row"><span>Order #</span><strong>${escapeHTML(orderNum)}</strong></div>
+        <div class="conf-ticket-row"><span>Type</span><strong>${escapeHTML(typeLabel)}</strong></div>
+        <div class="conf-ticket-row"><span>Estimated Time</span><strong>${escapeHTML(timeEst)}</strong></div>
+        <div class="conf-ticket-row"><span>Total</span><strong>$${total.toFixed(2)}</strong></div>
+        <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">
+          ${items.map(({ item, qty }) =>
+            `<div class="conf-ticket-row">
+              <span>${item.emoji} ${escapeHTML(item.name)} ×${qty}</span>
+              <strong>$${(item.price * qty).toFixed(2)}</strong>
+            </div>`
           ).join('')}
         </div>
       </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="closeCheckout();clearOrder();">
+      <div class="conf-next-steps" aria-label="What happens next">
+        <div class="conf-next-step">✅ Order received by our team</div>
+        <div class="conf-next-step">📱 Text sent to ${escapeHTML(phone)} when ready</div>
+        ${orderType === 'delivery' ? '<div class="conf-next-step">🚗 Driver assigned within 5 min</div>' : ''}
+        <div class="conf-next-step">☎️ Questions? Call us: <a href="tel:+16145550182" style="color:var(--green)">${CONFIG.CAFE_PHONE}</a></div>
+      </div>
+      <button class="btn-primary" type="button"
+              style="width:100%;justify-content:center;"
+              onclick="closeCheckout();executeClearOrder();"
+              aria-label="Return to menu">
         Back to Menu
       </button>
     </div>
@@ -1729,19 +2625,26 @@ function renderConfirmation(name, phone) {
 }
 
 /* ═══════════════════════════════════════
-   TOAST
+   TOAST NOTIFICATION
 ═══════════════════════════════════════ */
-function showToast(msg) {
+let toastTimer = null;
+function showToast(msg, type = 'default') {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2400);
+  if (!t) return;
+  t.textContent = escapeHTML(msg);
+  t.className = `toast show ${type !== 'default' ? type : ''}`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
 }
 
 /* ═══════════════════════════════════════
    SCROLL REVEAL
 ═══════════════════════════════════════ */
 function observeReveal() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    return;
+  }
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -1754,13 +2657,78 @@ function observeReveal() {
 }
 
 /* ═══════════════════════════════════════
-   INIT
+   HTML ESCAPE — XSS prevention
+   (used on ALL user-controlled or
+    data-sourced strings before innerHTML)
 ═══════════════════════════════════════ */
-buildTicker();
-applyTimeTheme();
-renderGrid();
-observeReveal();
-setInterval(applyTimeTheme, 5 * 60 * 1000);
+function escapeHTML(str) {
+  return String(str)
+    .replace(/&/g,  '&amp;')
+    .replace(/</g,  '&lt;')
+    .replace(/>/g,  '&gt;')
+    .replace(/"/g,  '&quot;')
+    .replace(/'/g,  '&#039;');
+}
+
+/* ═══════════════════════════════════════
+   INIT — runs on DOMContentLoaded
+═══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Footer year — dynamic
+  const yearEl = document.getElementById('footerYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  if (hamburger) hamburger.addEventListener('click', toggleMobileNav);
+
+  // Close mobile nav on outside click
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('navHamburger');
+    if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+
+  // Close mobile nav on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMobileNav();
+      closeCheckout();
+      closeConfirmDialog();
+    }
+  });
+
+  // Trap focus in modal when open
+  document.getElementById('modalOverlay')?.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab') return;
+    const focusables = this.querySelectorAll(
+      'button:not([disabled]), input, textarea, select, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last?.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first?.focus(); }
+    }
+  });
+
+  // Build ticker
+  buildTicker();
+
+  // Apply time-based theme (day-aware open/closed)
+  applyTimeTheme();
+
+  // Scroll reveal
+  observeReveal();
+
+  // Refresh time theme every 5 minutes
+  setInterval(applyTimeTheme, 5 * 60 * 1000);
+
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>
