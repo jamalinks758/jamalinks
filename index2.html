@@ -5,20 +5,32 @@
 <!-- ══ META ═══════════════════════════════════════════ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jamaLinks — Your Link to Your World</title>
-<meta name="description" content="Stop answering DMs all day. Let customers see your products, prices, and place orders instantly through WhatsApp — without the back-and-forth.">
+<title>JamaLinks — Customer Conversion Systems for Caribbean &amp; Diaspora Businesses</title>
+<meta name="description" content="jamaLinks builds WhatsApp-integrated customer conversion systems for Caribbean food, hospitality, and retail businesses — locally and in the diaspora. Ready in 2–3 days. Serving Saint Lucia, Barbados, Trinidad, Jamaica, USA, Canada, UK &amp; beyond.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jamalinks758.github.io/jamalinks/">
 
-<!-- ══ OPEN GRAPH (WhatsApp / Facebook link previews) ══ -->
+<!-- ══ OPEN GRAPH ══ -->
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://jamalinks758.github.io/jamalinks/">
-<meta property="og:title"       content="jamaLinks — Let Customers Order Instantly">
-<meta property="og:description" content="A simple page that turns your social media followers into paying customers via WhatsApp. Ready in 2–3 days.">
+<meta property="og:title"       content="JamaLinks — Let Customers Order Instantly via WhatsApp">
+<meta property="og:description" content="Customer conversion systems for Caribbean &amp; diaspora businesses. We build the page. Customers tap once. Orders arrive on your WhatsApp. Ready in 2–3 days.">
 <meta property="og:image"       content="https://jamalinks758.github.io/jamalinks/images/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name"   content="JamaLinks">
 <meta name="twitter:card"       content="summary_large_image">
+<meta name="twitter:title"      content="JamaLinks — Customer Conversion Systems for Caribbean Businesses">
+<meta name="twitter:description" content="We build WhatsApp ordering systems for Caribbean &amp; diaspora food, hospitality, and retail businesses. Ready in 2–3 days.">
 
 <!-- ══ FAVICON ════════════════════════════════════════ -->
 <link rel="icon" type="image/webp" href="images/logo.webp">
 <link rel="apple-touch-icon"       href="images/logo.webp">
+
+<!-- ══ PRECONNECT ════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 <!-- ══ CONSENT BANNER CSS ════════════════════════════ -->
 <link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
@@ -33,228 +45,349 @@
 <!-- ══ CUSTOM STYLESHEET ══════════════════════════════ -->
 <link href="css/style.css" rel="stylesheet">
 
+<!-- ══ STRUCTURED DATA (JSON-LD) ═════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "jamaLinks",
+  "description": "jamaLinks builds WhatsApp-integrated customer conversion systems for Caribbean food, hospitality, and retail businesses — locally and in the diaspora. We serve Saint Lucia, Barbados, Trinidad, Jamaica, Guyana, USA, Canada, UK, and beyond.",
+  "url": "https://jamalinks758.github.io/jamalinks/",
+  "logo": "https://jamalinks758.github.io/jamalinks/images/logo.webp",
+  "image": "https://jamalinks758.github.io/jamalinks/images/og-preview.jpg",
+  "telephone": "+17587235872",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Castries",
+    "addressCountry": "LC"
+  },
+  "openingHours": "Mo-Sa 09:00-18:00",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+17587235872",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.instagram.com/jamalinksonline",
+    "https://www.facebook.com/share/14XtA8G2rYe/"
+  ],
+  "priceRange": "$299–$1,200+",
+  "areaServed": [
+    {"@type": "Country", "name": "Saint Lucia"},
+    {"@type": "Country", "name": "Barbados"},
+    {"@type": "Country", "name": "Trinidad and Tobago"},
+    {"@type": "Country", "name": "Jamaica"},
+    {"@type": "Country", "name": "Guyana"},
+    {"@type": "Country", "name": "United States"},
+    {"@type": "Country", "name": "Canada"},
+    {"@type": "Country", "name": "United Kingdom"}
+  ]
+}
+</script>
+
 <style>
+/* ── Skip Navigation (Accessibility) ─────────────── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--gold, #c9a84c); color: #1a1a1a;
+  padding: .5rem 1rem; border-radius: 0 0 .5rem .5rem;
+  font-weight: 700; font-size: .85rem; z-index: 10000;
+  text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
 /* ── Consent Banner Overrides ─────────────────────── */
-.consent-banner-button[href="#accept"] {
-  background-color: #4CAF50;
-  font-family: inherit;
-}
-.consent-banner-modal {
-  font-family: 'DM Sans', 'Georgia', sans-serif;
-}
+.consent-banner-button[href="#accept"] { background-color: #4CAF50; font-family: inherit; }
+.consent-banner-modal { font-family: 'DM Sans', 'Georgia', sans-serif; }
 
 /* ══════════════════════════════════════════════════════
-   HERO PHONE MOCKUP — replaces the old CSS-line mock
+   HERO PHONE MOCKUP
    ══════════════════════════════════════════════════════ */
-.hero-phone-mockup {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-}
+.hero-phone-mockup { position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
 .phone-shell {
-  background: var(--card, #fff);
-  border: 3px solid rgba(0,0,0,.12);
-  border-radius: 2.5rem;
-  padding: 1.2rem 1rem 1.5rem;
+  background: var(--card, #fff); border: 3px solid rgba(0,0,0,.12);
+  border-radius: 2.5rem; padding: 1.2rem 1rem 1.5rem;
   box-shadow: 0 24px 60px rgba(0,0,0,.18), 0 0 0 6px rgba(0,0,0,.05);
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
-.phone-notch {
-  width: 80px;
-  height: 10px;
-  background: rgba(0,0,0,.13);
-  border-radius: 10px;
-  margin: 0 auto 1rem;
-}
-.phone-screen-inner {
-  border-radius: 1.2rem;
-  overflow: hidden;
-  background: var(--bg, #f8f8f8);
-  padding: .9rem;
-}
-/* mini page inside the phone */
+.phone-notch { width: 80px; height: 10px; background: rgba(0,0,0,.13); border-radius: 10px; margin: 0 auto 1rem; }
+.phone-screen-inner { border-radius: 1.2rem; overflow: hidden; background: var(--bg, #f8f8f8); padding: .9rem; }
 .mini-brand   { font-weight: 700; font-size: .7rem; color: var(--gold, #c9a84c); letter-spacing: .04em; margin-bottom: .5rem; }
-.mini-hero-img{
-  width: 100%;
-  aspect-ratio: 16/7;
-  border-radius: .6rem;
-  object-fit: cover;
-  margin-bottom: .6rem;
-  background: linear-gradient(135deg, #c9a84c22, #1a6eb522);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.8rem;
-}
+.mini-hero-img{ width: 100%; aspect-ratio: 16/7; border-radius: .6rem; object-fit: cover; margin-bottom: .6rem; background: linear-gradient(135deg, #c9a84c22, #1a6eb522); display:flex; align-items:center; justify-content:center; font-size:1.8rem; }
 .mini-title   { font-size: .62rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; color: var(--text, #111); }
 .mini-price   { font-size: .58rem; color: var(--muted, #666); margin-bottom: .5rem; }
-.mini-wa-btn  {
-  display: flex; align-items: center; justify-content: center; gap: .3rem;
-  background: #25D366; color: #fff;
-  border-radius: .5rem; padding: .35rem .5rem;
-  font-size: .6rem; font-weight: 600;
-}
-/* stat pills already in style.css, these just reinforce */
+.mini-wa-btn  { display: flex; align-items: center; justify-content: center; gap: .3rem; background: #25D366; color: #fff; border-radius: .5rem; padding: .35rem .5rem; font-size: .6rem; font-weight: 600; }
 .stat-pill { white-space: nowrap; }
 
 /* ══════════════════════════════════════════════════════
-   HOW IT WORKS — horizontal flow graphic
+   COUNTRIES TRUST BAR
    ══════════════════════════════════════════════════════ */
-.how-flow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: nowrap;
-  margin-top: 2.5rem;
+.countries-bar {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: .9rem 0;
+  overflow: hidden;
 }
-.how-step {
-  flex: 1;
-  text-align: center;
-  padding: 0 .75rem;
-  position: relative;
-}
-.how-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 2rem;
-  right: -.5rem;
-  width: 1rem;
-  height: 2px;
-  background: var(--gold, #c9a84c);
-  opacity: .5;
-}
-.how-icon-wrap {
-  width: 4rem; height: 4rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold,#c9a84c) 0%, var(--blue,#1a6eb5) 100%);
+.countries-inner {
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto .75rem;
-  font-size: 1.4rem;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(26,110,181,.25);
+  flex-wrap: wrap; gap: .4rem 1.4rem; padding: 0 1rem;
 }
-.how-step h6 { font-size: .82rem; font-weight: 700; margin-bottom: .25rem; }
-.how-step p  { font-size: .76rem; opacity: .75; line-height: 1.4; }
-@media (max-width: 576px) {
-  .how-flow { flex-direction: column; align-items: center; gap: 1.2rem; }
-  .how-step:not(:last-child)::after { display: none; }
+.countries-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue-mid);
+  white-space: nowrap;
+}
+[data-theme="dark"] .countries-label { color: var(--gold); }
+.country-pill {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .76rem; font-weight: 500; color: var(--muted);
+  white-space: nowrap;
 }
 
 /* ══════════════════════════════════════════════════════
-   FEATURE ITEMS — shorter bold labels
+   HOW IT WORKS
+   ══════════════════════════════════════════════════════ */
+.how-flow { display: flex; align-items: flex-start; justify-content: center; gap: 0; flex-wrap: nowrap; margin-top: 2.5rem; }
+.how-step { flex: 1; text-align: center; padding: 0 .75rem; position: relative; }
+.how-step:not(:last-child)::after { content: ''; position: absolute; top: 2rem; right: -.5rem; width: 1rem; height: 2px; background: var(--gold, #c9a84c); opacity: .5; }
+.how-icon-wrap { width: 4rem; height: 4rem; border-radius: 50%; background: linear-gradient(135deg, var(--gold,#c9a84c) 0%, var(--blue,#1a6eb5) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto .75rem; font-size: 1.4rem; color: #fff; box-shadow: 0 6px 18px rgba(26,110,181,.25); }
+.how-step h6 { font-size: .82rem; font-weight: 700; margin-bottom: .25rem; }
+.how-step p  { font-size: .76rem; opacity: .75; line-height: 1.4; }
+@media (max-width: 576px) { .how-flow { flex-direction: column; align-items: center; gap: 1.2rem; } .how-step:not(:last-child)::after { display: none; } }
+
+/* ══════════════════════════════════════════════════════
+   FEATURE ITEMS
    ══════════════════════════════════════════════════════ */
 .feat-label { font-size: 1rem; font-weight: 700; display: block; margin-bottom: .2rem; }
 
 /* ══════════════════════════════════════════════════════
-   DEMO CARDS — standardised image ratio
+   DEMO CARDS
    ══════════════════════════════════════════════════════ */
-.demo-card-img {
+.demo-card-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: .75rem .75rem 0 0; }
+.demo-disclaimer {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: var(--muted); background: var(--bg-alt);
+  border: 1px solid var(--border); border-radius: 50px;
+  padding: .3rem .9rem; margin-top: 1rem;
+}
+
+.demo-picture {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.demo-picture img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: .75rem .75rem 0 0;
+  transition: transform 0.3s ease;
+}
+
+.demo-card:hover .demo-picture img {
+  transform: scale(1.05);
+}
+
+/* ── DEMO SCROLL ROW (Row 3 — Athlete & Personal Brand) ─ */
+.demo-row-header {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+.demo-new-badge {
+  display: inline-flex; align-items: center;
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold, #C9A84C), #f0c94b);
+  color: #1a1a1a; padding: .2rem .7rem; border-radius: 20px;
+}
+.demo-scroll-wrapper { position: relative; width: 100%; }
+.demo-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: .5rem .25rem 1.5rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #C9A84C) transparent;
+}
+.demo-scroll-track::-webkit-scrollbar { height: 4px; }
+.demo-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.demo-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #C9A84C); border-radius: 4px; }
+.demo-card-scroll {
+  flex: 0 0 270px; min-width: 270px; scroll-snap-align: start;
+}
+@media (min-width: 768px) { .demo-card-scroll { flex: 0 0 300px; min-width: 300px; } }
+
+/* ── ATHLETE PRICING SECTION ─────────────────────────── */
+.athlete-pricing-wrap {
+  margin-top: 3.5rem; position: relative; overflow: hidden;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.5rem; padding: 2.5rem 2rem;
+}
+.athlete-pricing-wrap::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold, #C9A84C), var(--blue, #1E3A5F), transparent);
+}
+.athlete-tier-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  height: 100%; display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  position: relative;
+}
+.athlete-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.athlete-tier-card.athlete-featured {
+  border-color: var(--gold, #C9A84C);
+  box-shadow: 0 8px 32px rgba(201,168,76,.18);
+}
+.athlete-market-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #C9A84C); color: #1a1a1a;
+  font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .22rem .85rem; border-radius: 20px; white-space: nowrap;
+}
+.athlete-range-row {
+  display: flex; align-items: baseline; gap: .35rem; flex-wrap: wrap; margin: .5rem 0;
+}
+.athlete-range-low {
+  font-family: 'Playfair Display', serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0d1b2e);
+}
+[data-theme="dark"] .athlete-range-low { color: #f0ece3; }
+.athlete-range-sep { font-size: 1rem; opacity: .4; font-weight: 400; }
+.athlete-range-high {
+  font-family: 'Playfair Display', serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--gold, #C9A84C);
+}
+.athlete-range-label { font-size: .72rem; opacity: .5; font-weight: 500; }
+.athlete-flag-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .06em;
+  background: var(--blue-pale, #EEF4FF); border: 1px solid rgba(46,95,163,.2);
+  color: var(--blue-mid, #2E5FA3); border-radius: 50px; padding: .2rem .7rem;
+  margin-bottom: .75rem;
+}
+[data-theme="dark"] .athlete-flag-pill {
+  background: var(--gold-pale); border-color: rgba(201,168,76,.2); color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════════════
+   AI COMPARISON SECTION
+   ══════════════════════════════════════════════════════ */
+.ai-compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+}
+@media (max-width: 768px) { .ai-compare-grid { grid-template-columns: 1fr; } }
+.ai-col {
+  border-radius: var(--radius, 14px); padding: 2rem 1.75rem;
+  border: 1px solid var(--border);
+}
+.ai-col-bad { background: var(--bg-alt); }
+.ai-col-good {
+  background: var(--blue-pale, #EEF4FF);
+  border-color: rgba(46,95,163,.3);
+  box-shadow: 0 8px 32px rgba(30,58,95,.10);
+}
+[data-theme="dark"] .ai-col-good { background: rgba(201,168,76,.06); border-color: rgba(201,168,76,.2); }
+.ai-col-head {
+  font-size: .68rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+}
+.ai-col-bad .ai-col-head { color: var(--muted); }
+.ai-col-good .ai-col-head { color: var(--blue-mid); }
+[data-theme="dark"] .ai-col-good .ai-col-head { color: var(--gold); }
+.ai-item { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .9rem; font-size: .875rem; color: var(--text); line-height: 1.5; }
+.ai-item i { font-size: 1rem; flex-shrink: 0; margin-top: .15rem; }
+.ai-col-bad .ai-item i { color: #cc4444; }
+.ai-col-good .ai-item i { color: var(--green, #25D366); }
+.ai-bottom-note {
+  margin-top: 2rem; text-align: center; font-size: .88rem;
+  color: var(--muted); font-style: italic; max-width: 580px; margin-left: auto; margin-right: auto;
 }
 
 /* ══════════════════════════════════════════════════════
    TESTIMONIALS
    ══════════════════════════════════════════════════════ */
 .testimonial-card {
-  background: var(--card, #fff);
-  border: 1px solid var(--border, rgba(0,0,0,.07));
-  border-radius: 1.25rem;
-  padding: 2rem 1.75rem 1.5rem;
-  height: 100%;
-  position: relative;
+  background: var(--card, #fff); border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 1.25rem; padding: 2rem 1.75rem 1.5rem;
+  height: 100%; position: relative;
   box-shadow: 0 4px 24px rgba(0,0,0,.06);
   transition: transform .3s, box-shadow .3s;
 }
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,.10);
-}
-.testimonial-quote {
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--gold, #c9a84c);
-  font-family: Georgia, serif;
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  opacity: .35;
-}
-.testimonial-text {
-  font-size: .95rem;
-  line-height: 1.7;
-  color: var(--text, #222);
-  margin-bottom: 1.25rem;
-  padding-top: 1.25rem;
-}
-.testimonial-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  font-size: 1.4rem;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
-  color: #fff;
-  font-weight: 700;
-  flex-shrink: 0;
-}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); }
+.testimonial-quote { font-size: 3rem; line-height: 1; color: var(--gold, #c9a84c); font-family: Georgia, serif; position: absolute; top: 1rem; left: 1.5rem; opacity: .35; }
+.testimonial-text { font-size: .95rem; line-height: 1.7; color: var(--text, #222); margin-bottom: 1.25rem; padding-top: 1.25rem; }
+.testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5)); color: #fff; font-weight: 700; flex-shrink: 0; }
 .testimonial-name  { font-weight: 700; font-size: .9rem; }
 .testimonial-biz   { font-size: .78rem; opacity: .65; }
 .testimonial-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .6rem; }
-
-/* ── GLOBAL OVERFLOW FIX ─────────────────────────── */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
+.testimonial-result {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.2);
+  color: #1a7a45; border-radius: 50px; padding: .2rem .75rem;
+  font-size: .72rem; font-weight: 700; margin-bottom: .75rem;
 }
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+[data-theme="dark"] .testimonial-result { color: #4be38a; background: rgba(37,211,102,.08); }
 
-/* ── WHATSAPP FLOAT BUTTON FIX ───────────────────── */
+/* ══════════════════════════════════════════════════════
+   LEAD CAPTURE SECTION
+   ══════════════════════════════════════════════════════ */
+.lead-capture-wrap {
+  background: linear-gradient(135deg, var(--blue-pale, #EEF4FF) 0%, var(--gold-pale, #FDF8EC) 100%);
+  border: 1px solid var(--border); border-radius: 1.5rem;
+  padding: 3rem 2.5rem; text-align: center;
+  max-width: 580px; margin: 0 auto;
+  box-shadow: 0 12px 48px rgba(30,58,95,.10);
+}
+[data-theme="dark"] .lead-capture-wrap { background: linear-gradient(135deg, rgba(74,144,217,.07) 0%, rgba(201,168,76,.07) 100%); }
+.lead-form { display: flex; flex-direction: column; gap: .85rem; margin-top: 1.75rem; }
+.lead-input, .lead-select {
+  width: 100%; padding: .85rem 1.3rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50px; background: var(--bg);
+  color: var(--text); font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.lead-input:focus, .lead-select:focus {
+  border-color: var(--blue-mid);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+[data-theme="dark"] .lead-input, [data-theme="dark"] .lead-select { background: var(--bg-card); }
+.lead-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.lead-privacy { font-size: .72rem; color: var(--muted); margin-top: .3rem; }
+
+/* ══════════════════════════════════════════════════════
+   GLOBAL OVERFLOW FIX
+   ══════════════════════════════════════════════════════ */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── WHATSAPP FLOAT BUTTON ───────────────────────── */
 .wa-float {
-  position: fixed !important;
-  bottom: 1.5rem !important;
-  right: 1.5rem !important;
-  left: auto !important;
-  z-index: 9999 !important;
-  width: 56px !important;
-  height: 56px !important;
-  background: #25D366 !important;
-  color: #fff !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 1.6rem !important;
-  box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
-  text-decoration: none !important;
-  transition: transform .2s ease, box-shadow .2s ease !important;
+  position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important; box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important; transition: transform .2s ease, box-shadow .2s ease !important;
   transform: translateZ(0) !important;
 }
-.wa-float:hover {
-  transform: scale(1.08) translateZ(0) !important;
-  box-shadow: 0 6px 28px rgba(37,211,102,.6) !important;
-  color: #fff !important;
-}
+.wa-float:hover { transform: scale(1.08) translateZ(0) !important; box-shadow: 0 6px 28px rgba(37,211,102,.6) !important; color: #fff !important; }
 
 /* ── PRICING SCROLL SYSTEM ───────────────────────── */
-.pricing-scroll-wrapper {
-  position: relative;
-  width: 100%;
-}
+.pricing-scroll-wrapper { position: relative; width: 100%; }
 .pricing-scroll-track {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  padding: 1rem 0.25rem 2rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: 1rem 0.25rem 2rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
   scrollbar-color: var(--gold, #C9A84C) transparent;
 }
 .pricing-scroll-track::-webkit-scrollbar { height: 4px; }
@@ -262,226 +395,331 @@ html, body {
 .pricing-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #C9A84C); border-radius: 4px; }
 
 .pricing-tier-card {
-  flex: 0 0 300px;
-  min-width: 300px;
-  scroll-snap-align: start;
-  background: var(--card-bg, #fff);
-  border: 1.5px solid var(--border, rgba(0,0,0,.08));
-  border-radius: 18px;
-  padding: 1.75rem 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  flex: 0 0 310px; min-width: 310px; scroll-snap-align: start;
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 18px; padding: 1.75rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; position: relative;
   transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
 }
-.pricing-tier-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  transform: translateY(-4px);
-}
-.pricing-tier-card.tier-featured {
-  border-color: var(--gold, #C9A84C);
-  box-shadow: 0 8px 32px rgba(201,168,76,.18);
-}
-.pricing-tier-card.tier-enterprise {
-  border-color: var(--navy, #1a2b4a);
-}
-[data-theme="dark"] .pricing-tier-card.tier-enterprise {
-  border-color: var(--gold, #C9A84C);
-}
+.pricing-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.pricing-tier-card.tier-featured { border-color: var(--gold, #C9A84C); box-shadow: 0 8px 32px rgba(201,168,76,.18); }
+.pricing-tier-card.tier-enterprise { border-color: var(--blue, #1E3A5F); }
+[data-theme="dark"] .pricing-tier-card.tier-enterprise { border-color: var(--gold, #C9A84C); }
+
 .tier-popular-badge {
-  position: absolute;
-  top: -13px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gold, #C9A84C);
-  color: #1a1a1a;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: .25rem .9rem;
-  border-radius: 20px;
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #C9A84C); color: #1a1a1a;
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .25rem .9rem; border-radius: 20px; white-space: nowrap;
+}
+.tier-header { margin-bottom: 1rem; }
+.tier-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold, #C9A84C); margin-bottom: .4rem;
+}
+
+/* ── NEW: Hybrid price display ── */
+.tier-price-block { margin-bottom: .5rem; }
+.tier-setup-row {
+  display: flex; align-items: baseline; gap: .3rem; flex-wrap: wrap;
+}
+.tier-setup-amount {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0d1b2e);
+}
+[data-theme="dark"] .tier-setup-amount { color: #f0ece3; }
+.tier-setup-amount sup { font-size: 1rem; font-weight: 700; vertical-align: super; }
+.tier-setup-tag {
+  font-size: .72rem; font-weight: 600; opacity: .55;
+  white-space: nowrap; align-self: flex-end; padding-bottom: .3rem;
+}
+.tier-monthly-row {
+  display: flex; align-items: center; gap: .4rem;
+  margin-top: .35rem; flex-wrap: wrap;
+}
+.tier-monthly-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--blue-pale, #EEF4FF); border: 1px solid rgba(46,95,163,.2);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .76rem; font-weight: 700; color: var(--blue-mid, #2E5FA3);
   white-space: nowrap;
 }
-.tier-header { margin-bottom: 1.25rem; }
-.tier-badge {
-  display: inline-block;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold, #C9A84C);
-  margin-bottom: .5rem;
+[data-theme="dark"] .tier-monthly-pill {
+  background: var(--gold-pale); border-color: rgba(201,168,76,.2);
+  color: var(--gold);
 }
-.tier-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--heading, #0d1b2e);
-  margin-bottom: .15rem;
+.tier-monthly-note { font-size: .68rem; color: var(--muted); }
+.tier-total-row {
+  margin-top: .4rem;
+  font-size: .72rem; color: var(--muted);
+  display: flex; align-items: center; gap: .3rem;
 }
-[data-theme="dark"] .tier-price { color: #f0ece3; }
-.tier-price sup { font-size: 1.1rem; font-weight: 700; vertical-align: super; margin-right: .05rem; }
-.tier-price .tier-range { font-size: 1.1rem; font-weight: 400; opacity: .55; }
-.tier-label { font-size: .75rem; opacity: .55; margin-bottom: .75rem; font-weight: 500; }
+.tier-total-row strong { color: var(--green, #25D366); font-weight: 700; }
+.tier-onetime-row {
+  display: flex; align-items: center; gap: .35rem;
+  margin-top: .3rem;
+}
+.tier-onetime-tag {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--gold-pale, #FDF8EC); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .74rem; font-weight: 600; color: var(--gold, #C9A84C);
+}
+
+.tier-label { font-size: .73rem; opacity: .5; margin-bottom: .6rem; font-weight: 500; }
 .tier-desc { font-size: .82rem; line-height: 1.55; opacity: .7; margin: 0; }
 .tier-body { flex: 1; margin-bottom: 1.25rem; }
 .tier-footer { margin-top: auto; }
 .price-feat.tier-no { opacity: .35; }
 .price-feat.tier-no i { color: var(--bs-secondary, #999) !important; }
-.pricing-scroll-hint {
-  text-align: center;
-  font-size: .78rem;
-  opacity: .5;
-  margin-top: -.5rem;
-  padding-bottom: .5rem;
+.pricing-scroll-hint { text-align: center; font-size: .78rem; opacity: .5; margin-top: -.5rem; padding-bottom: .5rem; }
+
+/* ── PRICING HEADER ROI STRIP ────────────────────── */
+.pricing-roi-strip {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 1.5rem;
+  background: var(--blue-pale, #EEF4FF);
+  border: 1px solid rgba(46,95,163,.15);
+  border-radius: var(--radius, 14px);
+  padding: 1.1rem 2rem; margin-bottom: 2.5rem;
+}
+[data-theme="dark"] .pricing-roi-strip {
+  background: rgba(201,168,76,.06); border-color: rgba(201,168,76,.15);
+}
+.roi-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  font-size: .78rem; color: var(--muted); line-height: 1.4;
+}
+.roi-item strong { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--blue-mid); display: block; }
+[data-theme="dark"] .roi-item strong { color: var(--gold); }
+.roi-divider { width: 1px; height: 36px; background: var(--border); }
+@media (max-width: 576px) { .roi-divider { display: none; } .pricing-roi-strip { gap: 1rem; } }
+
+/* ── GUARANTEE BOX ───────────────────────────────── */
+.guarantee-box {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(37,211,102,.07) 0%, rgba(37,211,102,.03) 100%);
+  border: 1.5px solid rgba(37,211,102,.25);
+  border-radius: var(--radius, 14px); padding: 1.5rem 1.75rem;
+  margin-top: 2rem;
+}
+.guarantee-icon { font-size: 2rem; flex-shrink: 0; color: var(--green, #25D366); }
+.guarantee-box h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .3rem; color: var(--text); }
+.guarantee-box p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+
+/* ── PARTNERSHIP CARDS (renamed from retainer) ───── */
+.retainer-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  height: 100%;
+}
+.retainer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); border-color: var(--blue-mid); }
+[data-theme="dark"] .retainer-card:hover { border-color: var(--gold); }
+.retainer-price { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--blue, #1E3A5F); line-height: 1; }
+[data-theme="dark"] .retainer-price { color: var(--gold); }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; margin-right: .05rem; }
+.retainer-price span { font-size: 1rem; font-weight: 400; opacity: .55; }
+.retainer-name { font-weight: 700; font-size: .95rem; margin: .4rem 0 .5rem; color: var(--text); }
+.retainer-desc { font-size: .82rem; color: var(--muted); margin-bottom: .75rem; line-height: 1.5; }
+.retainer-card.retainer-featured { border-color: var(--gold); box-shadow: 0 8px 28px rgba(201,168,76,.15); }
+
+/* ── PAYMENT PLAN PILL ───────────────────────────── */
+.payment-plan-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: .35rem;
+  background: linear-gradient(135deg, rgba(201,168,76,.1), rgba(201,168,76,.05));
+  border: 1px solid rgba(201,168,76,.4);
+  border-radius: 50px; padding: .4rem 1rem;
+  font-size: .72rem; font-weight: 600; color: var(--gold, #C9A84C);
+  margin-top: .75rem; width: 100%; justify-content: center;
 }
 
 /* ── RETAINER CARDS ──────────────────────────────── */
 .retainer-card {
-  background: var(--card-bg, #fff);
-  border: 1.5px solid var(--border, rgba(0,0,0,.08));
-  border-radius: 18px;
-  padding: 2rem 1.5rem;
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: box-shadow .25s ease, transform .25s ease;
 }
-.retainer-card:hover {
-  box-shadow: 0 10px 36px rgba(0,0,0,.1);
-  transform: translateY(-4px);
-}
-.retainer-card.retainer-featured {
-  border-color: var(--gold, #C9A84C);
-  box-shadow: 0 6px 28px rgba(201,168,76,.16);
-}
-.retainer-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--heading, #0d1b2e);
-  margin-bottom: .25rem;
-}
-[data-theme="dark"] .retainer-price { color: #f0ece3; }
-.retainer-price sup { font-size: 1.1rem; vertical-align: super; font-weight: 700; }
-.retainer-price span { font-size: 1rem; opacity: .55; font-weight: 400; }
-.retainer-name {
-  font-weight: 700;
-  font-size: .75rem;
-  margin-bottom: .4rem;
-  color: var(--gold, #C9A84C);
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-.retainer-desc { font-size: .83rem; opacity: .65; margin-bottom: .5rem; line-height: 1.5; }
-.mt-6 { margin-top: 4rem !important; }
+.retainer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); border-color: var(--blue-mid); }
+[data-theme="dark"] .retainer-card:hover { border-color: var(--gold); }
+.retainer-price { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--blue, #1E3A5F); line-height: 1; }
+[data-theme="dark"] .retainer-price { color: var(--gold); }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; margin-right: .05rem; }
+.retainer-price span { font-size: 1rem; font-weight: 400; opacity: .55; }
+.retainer-name { font-weight: 700; font-size: .95rem; margin: .4rem 0 .5rem; color: var(--text); }
+.retainer-desc { font-size: .82rem; color: var(--muted); margin-bottom: .75rem; line-height: 1.5; }
+.retainer-card.retainer-featured { border-color: var(--gold); box-shadow: 0 8px 28px rgba(201,168,76,.15); }
 
-/* ══════════════════════════════════════════════════════
-   PRICING — fix typo parenthesis via display
-   ══════════════════════════════════════════════════════ */
-.price-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
-  color: #fff;
-  font-size: .7rem;
+/* ── PAYMENT PLAN BLOCK ──────────────────────────── */
+.payment-plan-block {
+  margin-top: 2.5rem;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.25rem; overflow: hidden;
+}
+.ppb-inner { display: flex; align-items: flex-start; gap: 1.5rem; padding: 2rem 2.25rem; }
+@media (max-width: 576px) { .ppb-inner { flex-direction: column; gap: 1rem; } }
+.ppb-icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; margin-top: .25rem; }
+.ppb-steps { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-direction: column; gap: .6rem; }
+.ppb-step { display: flex; align-items: center; gap: .85rem; font-size: .875rem; }
+.ppb-num { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-mid)); color: #fff; font-size: .7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+[data-theme="dark"] .ppb-num { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0D0D0D; }
+.ppb-notes { display: flex; flex-direction: column; gap: .4rem; margin-top: .75rem; }
+.ppb-notes span { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+.ppb-notes i { color: var(--blue-mid); font-size: .85rem; }
+[data-theme="dark"] .ppb-notes i { color: var(--gold); }
+
+/* ── mt-6 helper ─────────────────────────────────── */
+.mt-6 { margin-top: 3.5rem; }
+.footer-legal-row { margin-top: .4rem; font-size: .72rem; }
+.footer-legal-row a { color: var(--muted); text-decoration: none; }
+.footer-legal-row a:hover { color: var(--blue-mid); }
+[data-theme="dark"] .footer-legal-row a:hover { color: var(--gold-light); }
+.footer-trademark { font-size: .68rem; color: var(--muted); opacity: .55; margin-top: .5rem; line-height: 1.5; max-width: 600px; }
+
+  /* ── View All Demos Button ───────────────────────── */
+.btn-view-all-demos {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .9rem 2.4rem;
+  background: transparent;
+  border: 2px solid var(--blue-mid, #2E5FA3);
+  color: var(--blue-mid, #2E5FA3);
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .95rem;
   font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: .3rem .9rem;
-  border-radius: 2rem;
-  margin-bottom: 1rem;
+  text-decoration: none;
+  letter-spacing: .02em;
+  transition: background .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease;
+}
+.btn-view-all-demos:hover {
+  background: var(--blue-mid, #2E5FA3);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(46,95,163,.28);
+  transform: translateY(-2px);
+}
+[data-theme="dark"] .btn-view-all-demos {
+  border-color: var(--gold, #C9A84C);
+  color: var(--gold, #C9A84C);
+}
+[data-theme="dark"] .btn-view-all-demos:hover {
+  background: var(--gold, #C9A84C);
+  color: #1a1a1a;
+  box-shadow: 0 8px 28px rgba(201,168,76,.28);
 }
 </style>
+
 </head>
 <body>
 
-<!-- ══ NAVBAR ══════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg" id="mainNav">
+<!-- ══ SKIP NAVIGATION ════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ══ NAVBAR ═══════════════════════════════════════════ -->
+<header>
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav" role="navigation" aria-label="Main navigation">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="images/logo.webp" alt="JAMALINKS Logo" class="rounded-pill img-fluid shadow mx-auto brand-logo">
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="#home" aria-label="JamaLinks home">
+      <img src="images/logo.webp" alt="JamaLinks logo" class="brand-logo" width="42" height="42" loading="eager">
       <div>
-        <span class="brand-jama">jama</span><span class="brand-l">L</span><span class="brand-inks">inks</span>
-        <span class="brand-tagline">Your Link to Your World</span>
+        <span>
+          <span class="brand-jama">Jama</span><span class="brand-l">L</span><span class="brand-inks">inks</span>
+        </span>
+        <span class="brand-tagline">Conversion Systems · Caribbean &amp; Beyond</span>
       </div>
     </a>
 
-    <!-- Mobile: theme toggle + hamburger -->
-    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
-      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
-        <i id="themeIconMob" class="bi bi-sun-fill"></i>
+    <!-- Mobile controls -->
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle light/dark theme">
+        <i id="themeIconMob" class="bi bi-sun-fill" aria-hidden="true"></i>
       </button>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#solution">Solution</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features">What You Get</a></li>
-        <li class="nav-item"><a class="nav-link" href="#demos">Examples</a></li>
-        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-        <!-- Desktop theme toggle (icon only — cleaner) -->
-        <li class="nav-item ms-lg-2">
-          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle theme">
-            <i id="themeIcon" class="bi bi-sun-fill"></i>
+    <!-- Nav links -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1" role="list">
+        <li class="nav-item" role="listitem"><a class="nav-link" href="#why">The Problem</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="#solution">How It Works</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="#features">What You Get</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="#demos">Examples</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="demos.html">All Demos</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="profiles.html">Profiles</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item ms-lg-2" role="listitem">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle light/dark theme">
+            <i id="themeIcon" class="bi bi-sun-fill" aria-hidden="true"></i>
           </button>
         </li>
-        <li class="nav-item ms-lg-2">
-          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" id="whatsappButton" onclick="trackWhatsAppClick(event)">
-            <i class="bi bi-whatsapp me-1"></i>Start My Ordering Page
+        <li class="nav-item ms-lg-2" role="listitem">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" id="whatsappButton" onclick="trackWhatsAppClick(event)" aria-label="Get your free consultation on WhatsApp">
+            <i class="bi bi-whatsapp me-1" aria-hidden="true"></i>Free Consultation
           </a>
         </li>
       </ul>
     </div>
+
   </div>
 </nav>
+</header>
+
+<!-- ══ MAIN CONTENT ════════════════════════════════════ -->
+<main id="main-content" role="main">
 
 <!-- ══ HERO ════════════════════════════════════════════ -->
-<section class="hero" id="home">
+<section class="hero" id="home" aria-label="Hero — Stop answering DMs, let customers order instantly">
   <div class="container">
     <div class="row align-items-center g-5">
 
       <!-- Left: copy -->
       <div class="col-lg-6">
-        <div class="hero-badge reveal"><i class="bi bi-stars"></i> Professional Web Presence</div>
-        <h1 class="hero-title reveal d1">Stop Answering DMs all day<br><span class="accent"> Let customers order instantly</span></h1>
-        <p class="hero-sub reveal d2">Let customers see your products, prices, and place orders instantly through WhatsApp — without you answering the same questions all day.</p>
+        <div class="hero-badge reveal mt-5"><i class="bi bi-stars" aria-hidden="true"></i> Caribbean &amp; Diaspora Specialists</div>
+        <h1 class="hero-title reveal d1">Stop Answering DMs All Day.<br><span class="accent">Let Customers Order Instantly.</span></h1>
+        <p class="hero-sub reveal d2">We build mobile-first ordering pages for Caribbean and diaspora businesses. Customers see your menu, prices, and details — then tap once to order on WhatsApp.</p>
         <div class="d-flex flex-wrap gap-3 reveal d3">
-          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa">
-            <i class="bi bi-whatsapp"></i> Start My Ordering Page
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa" aria-label="Get your free consultation — chat with us on WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Get Free Consultation
           </a>
-          <a href="#demos" class="btn-blue"><i class="bi bi-grid-3x3-gap"></i> See Examples</a>
+          <a href="#demos" class="btn-blue" aria-label="See example websites we have built">
+            <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> See Examples
+          </a>
         </div>
         <p class="hero-sub reveal d2 mt-4" style="font-size:.85rem;opacity:.75;">
-          No app needed &nbsp;·&nbsp; Works with your current Instagram (or any social media page) &nbsp;·&nbsp; Ready in 2–3 days
+          No app needed &nbsp;·&nbsp; Works with Instagram, Facebook &amp; WhatsApp &nbsp;·&nbsp; Ready in 2–3 days &nbsp;·&nbsp; From $50/month
         </p>
       </div>
 
-      <!-- Right: phone mockup with real screenshot feel -->
+      <!-- Right: phone mockup -->
       <div class="col-lg-6 reveal from-right d2">
         <div class="hero-card">
-          <div class="hero-phone-mockup">
+          <div class="hero-phone-mockup" aria-hidden="true">
             <div class="phone-shell">
               <div class="phone-notch"></div>
               <div class="phone-screen-inner">
                 <div class="mini-brand"><i class="bi bi-shop me-1"></i> YOUR BUSINESS</div>
-                <!-- Simulated product card -->
-                <div class="mini-hero-img">🛍️</div>
-                <div class="mini-title">Fresh Juices &amp; Smoothies<br>View our full menu &amp; prices</div>
-                <div class="mini-price">Starting from $5 · Order via WhatsApp</div>
+               <div class="mini-hero-img" role="img" aria-label="Product illustration">
+  <div class="demo-picture">
+    <img src="velourcafe.webp" class="demo-card-img" alt="Velour Café — sample café conversion system preview" loading="lazy" width="400" height="225">
+  </div>
+</div>
+                <div class="mini-title">Your Menu &amp; Products<br>Full details, prices &amp; availability</div>
+                <div class="mini-price">Order directly · Fast delivery · Island-wide</div>
                 <div class="mini-wa-btn"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
               </div>
             </div>
           </div>
           <div class="stat-pill stat-pill-1"><span class="num">2–3</span>days to launch</div>
-          <div class="stat-pill stat-pill-2"><span class="num">100%</span>mobile-ready</div>
+          <div class="stat-pill stat-pill-2"><span class="num">Caribbean</span> &amp; Diaspora</div>
         </div>
       </div>
 
@@ -489,35 +727,53 @@ html, body {
   </div>
 </section>
 
+<!-- ══ COUNTRIES TRUST BAR ═══════════════════════════════ -->
+<div class="countries-bar" role="complementary" aria-label="Countries where jamaLinks serves clients">
+  <div class="container">
+    <div class="countries-inner">
+      <span class="countries-label">Available In</span>
+      <span class="country-pill">🇱🇨 Saint Lucia</span>
+      <span class="country-pill">🇧🇧 Barbados</span>
+      <span class="country-pill">🇹🇹 Trinidad &amp; Tobago</span>
+      <span class="country-pill">🇯🇲 Jamaica</span>
+      <span class="country-pill">🇬🇾 Guyana</span>
+      <span class="country-pill">🇺🇸 United States</span>
+      <span class="country-pill">🇨🇦 Canada</span>
+      <span class="country-pill">🇬🇧 United Kingdom</span>
+      <span class="country-pill">🌍 &amp; Beyond</span>
+    </div>
+  </div>
+</div>
+
 <!-- ══ PROBLEM ═════════════════════════════════════════ -->
-<section class="bg-alt" id="why">
+<section class="bg-alt" id="why" aria-label="The problem — why customers don't order from you">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">The Problem</span>
-      <h2 class="display-5 mt-2 mb-3">Why Customers Don't Order From You</h2>
+      <h2 class="display-5 mt-2 mb-3">Why Customers Stop Before They Order</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:520px">Most small businesses lose sales not because of bad products — but because ordering is unclear, slow, or frustrating. They don't know how to order, ask too many questions, or leave without taking action.</p>
+      <p class="text-m mx-auto" style="max-width:530px">Most small businesses lose sales not because their products are bad, but because ordering is unclear, slow, or frustrating. The customer arrives, can't figure out what to do, and leaves. You never even knew they were there. Also, small business owners do not only hate answering DMs but they hate answering DMs while cooking, packing orders, serving customers, or trying to rest.</p>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-4 reveal d1">
         <div class="prob-card">
-          <div class="prob-icon">😕</div>
-          <h6 class="mb-2">Confused Customers</h6>
-          <p>People land on your page and don't know what to do next.</p>
+          <div class="prob-icon" aria-hidden="true">😕</div>
+          <h3 class="h6 mb-2">Confused Customers</h3>
+          <p>People find your Instagram page but can't see prices, full menus, or how to actually order. Confusion kills sales.</p>
         </div>
       </div>
       <div class="col-md-4 reveal d2">
         <div class="prob-card">
-          <div class="prob-icon">❓</div>
-          <h6 class="mb-2">Too Many Questions</h6>
-          <p>You answer the same questions everyday instead of getting paid.</p>
+          <div class="prob-icon" aria-hidden="true">❓</div>
+          <h3 class="h6 mb-2">Same Questions, Every Day</h3>
+          <p>"How much is it?" "Do you deliver?" "What sizes do you have?" You're answering the same DMs instead of running your business.</p>
         </div>
       </div>
       <div class="col-md-4 reveal d3">
         <div class="prob-card">
-          <div class="prob-icon">🚶</div>
-          <h6 class="mb-2">Lost Opportunities</h6>
-          <p>Interested buyers leave because ordering isn't simple.</p>
+          <div class="prob-icon" aria-hidden="true">🚶</div>
+          <h3 class="h6 mb-2">Lost Sales You Never See</h3>
+          <p>Interested buyers check your page, can't figure out how to order, and move on, quietly. You never even know they were there.</p>
         </div>
       </div>
     </div>
@@ -525,133 +781,216 @@ html, body {
 </section>
 
 <!-- ══ SOLUTION ════════════════════════════════════════ -->
-<section id="solution">
+<section id="solution" aria-label="The fix — a simple customer conversion system">
   <div class="container">
     <div class="text-center mb-3 reveal">
       <span class="section-label">The Fix</span>
-      <h2 class="display-5 mt-2 mb-3">A Simple Way To Get More Orders</h2>
+      <h2 class="display-5 mt-2 mb-3">A System That Converts Visitors Into Orders</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:540px">We create a clean, simple page that turns visitors into paying customers.<br>Here's what changes when you use jamaLinks:</p>
+      <p class="text-m mx-auto" style="max-width:560px">We build more than a website. We build a customer conversion system. A page that shows your full offer, handles your customers' questions automatically, and delivers them to your WhatsApp ready to buy.</p>
     </div>
 
-    <!-- How It Works — visual 3-step flow -->
-    <div class="how-flow reveal d2">
-      <div class="how-step">
-        <div class="how-icon-wrap"><i class="bi bi-link-45deg"></i></div>
-        <h6>You Send One Link</h6>
-        <p>Share via WhatsApp, Instagram bio, or anywhere your customers are.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-icon-wrap"><i class="bi bi-eye"></i></div>
-        <h6>Customers See Everything</h6>
-        <p>Products, prices &amp; your story — no confusion, no friction.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-icon-wrap"><i class="bi bi-whatsapp"></i></div>
-        <h6>They Message You Ready to Order</h6>
-        <p>One tap — they land in your WhatsApp ready to buy, no back-and-forth.</p>
-      </div>
-    </div>
+    <!-- How It Works — 3-step flow -->
+    <ol class="how-flow reveal d2" aria-label="How jamaLinks works — three steps">
+      <li class="how-step">
+        <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-link-45deg"></i></div>
+        <h3 class="h6">You Share One Link</h3>
+        <p>Drop it in your Instagram bio, WhatsApp status, Facebook page, or a business card. One link does everything.</p>
+      </li>
+      <li class="how-step">
+        <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-eye"></i></div>
+        <h3 class="h6">Customers See Everything</h3>
+        <p>Full menu/items/services, pricing, photos, your story, FAQs, business hours, delivery details, and ordering instructions, all in one place. No confusion. No back-and-forth.</p>
+      </li>
+      <li class="how-step">
+        <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-whatsapp"></i></div>
+        <h3 class="h6">They Message You Ready to Order</h3>
+        <p>One tap lands them in your WhatsApp with their order pre-filled. You respond and close the sale. That's it.</p>
+      </li>
+    </ol>
 
-    <!-- Supporting copy block -->
     <div class="row align-items-center g-5 mt-2">
-      <div class="col-lg-6 reveal from-left">
-        <div class="solution-visual">
-          <div class="step-row">
-            <div class="step-num">1</div>
-            <div class="step-text">
-              <h6>You Send One Link</h6>
-              <p>Send via WhatsApp, Instagram bio, or anywhere your customers are.</p>
-            </div>
-          </div>
-          <div class="step-row">
-            <div class="step-num">2</div>
-            <div class="step-text">
-              <h6>Customers See Everything Clearly</h6>
-              <p>They see your products, prices, and story — no confusion, no friction.</p>
-            </div>
-          </div>
-          <div class="step-row">
-            <div class="step-num">3</div>
-            <div class="step-text">
-              <h6>They Message You Ready To Order</h6>
-              <p>One tap to message you or complete payment (e.g. via PayPal) — instantly.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 reveal from-right d2 text-center">
-        <div style="font-size:5rem;line-height:1;margin-bottom:1.5rem">💼</div>
-        <h4>Your Business, Online — Fast</h4>
-        <p class="text-m mx-auto mb-4" style="max-width:360px">No tech skills needed. No complicated setup. We handle everything from design to launch.</p>
-        <a href="https://wa.me/17587235872?text=I%20want%20more%20customers" onclick="trackWhatsAppClick(event)" class="btn-wa">
-          <i class="bi bi-whatsapp"></i> Start My Ordering Page
+      <div class="col-lg-12 reveal from-right d2 text-center">
+        <div style="font-size:5rem;line-height:1;margin-bottom:1.5rem" aria-hidden="true">💼</div>
+        <h3>Your Business, Online. Fast</h3>
+        <p class="text-m mx-auto mb-4" style="max-width:380px">No tech skills needed. No complicated setup. We handle everything from design to launch, and we're on WhatsApp if you ever need us.</p>
+        <a href="https://wa.me/17587235872?text=I%20want%20more%20customers" onclick="trackWhatsAppClick(event)" class="btn-wa" aria-label="Get your conversion system started — chat with us on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Start My Conversion System
         </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ══ WHY NOT AI TOOLS ═══════════════════════════════ -->
+<section class="bg-alt" id="difference" aria-label="Why jamaLinks beats AI website builders">
+  <div class="container">
+    <div class="text-center mb-2 reveal">
+      <span class="section-label">The Difference</span>
+      <h2 class="display-5 mt-2 mb-3">Templates Can Make a Page. JamaLinks Builds <em> Your Ordering Flow.</em></h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px">Tools like Wix, Durable, and Framer AI can build a generic site in minutes. We build a system designed around your actual business that displays your items for sale, your customers, your culture, your WhatsApp flow. That's a completely different product. All yours. Advertising your own personal, special brand.</p>
+    </div>
+
+    <div class="ai-compare-grid reveal d2">
+      <!-- Bad column: AI tools -->
+      <div class="ai-col ai-col-bad">
+        <div class="ai-col-head">
+          <i class="bi bi-robot" aria-hidden="true"></i>
+          A Website Builder Gives You
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>A template that looks exactly like 10,000 other businesses including your direct competitors</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>Generic placeholder copy that doesn't know your menu, your prices, or your story</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>No WhatsApp integration that actually works for how Caribbean customers order</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>No local SEO, no Google Business Profile, no real strategy, just a page</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>No one to call when the link breaks, the menu changes, or a sale is at risk</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
+          <span>No cultural context. It doesn't know what terms like "full a food" means or how diaspora communities order.</span>
+        </div>
+      </div>
+
+      <!-- Good column: JamaLinks -->
+      <div class="ai-col ai-col-good">
+        <div class="ai-col-head">
+          <i class="bi bi-award-fill" aria-hidden="true"></i>
+          JamaLinks Gives You
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>A system built around your exact business, i.e your brand, your products, your WhatsApp number</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>Copy written for your real customers, in language that actually converts in your market</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>WhatsApp ordering that works exactly how your customers already buy: one tap, ready to order</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>Google Business Profile setup so local and diaspora customers can find you on Maps</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>A real person that is reachable on WhatsApp who follows up, updates, and keeps your system running</span>
+        </div>
+        <div class="ai-item">
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <span>Built by someone who understands Caribbean and diaspora businesses, from Castries to Brooklyn to Brixton</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ai-bottom-note reveal d3">
+      "Durable and Wix build fast. They build the same page for you as they build for your competitor down the road. That's not a conversion system, that's a template with your name on it."
+    </p>
+
+    <div class="text-center mt-4 reveal d3">
+      <a href="https://wa.me/17587235872?text=I%20want%20a%20system%20built%20for%20my%20business" onclick="trackWhatsAppClick(event)" class="btn-wa" aria-label="Get a system built for your business on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Let's Build My System
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ══ WHAT YOU GET ══════════════════════════════════════ -->
-<section class="bg-alt" id="features">
+<section id="features" aria-label="Deliverables — what you get with jamaLinks">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">Deliverables</span>
-      <h2 class="display-5 mt-2 mb-3">What You Get</h2>
+      <h2 class="display-5 mt-2 mb-3">Everything Included. Nothing Hidden.</h2>
       <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:480px">Every jamaLinks build comes with a complete set of tools designed to turn your page visitors into paying customers. Not just a pretty design.</p>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-7">
 
         <div class="reveal d1">
           <div class="feat-item">
-            <div class="feat-icon"><i class="bi bi-phone"></i></div>
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-phone"></i></div>
             <div>
-              <span class="feat-label">Mobile-Ready Ordering Page</span>
-              <p>Looks great on every phone and screen size, right out of the box.</p>
+              <span class="feat-label">Mobile-First Ordering Page</span>
+              <p>Built for phones first because that's where your customers are. Loads fast, looks great on every screen size, every device.</p>
             </div>
           </div>
         </div>
 
         <div class="reveal d2">
           <div class="feat-item">
-            <div class="feat-icon"><i class="bi bi-whatsapp"></i></div>
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-whatsapp"></i></div>
             <div>
-              <span class="feat-label">One-Tap WhatsApp Buttons</span>
-              <p>Customers tap once and land in your WhatsApp chat, ready to order.</p>
+              <span class="feat-label">WhatsApp One-Tap Ordering</span>
+              <p>Customers tap once and land in your WhatsApp with their order pre-filled. No typing, no confusion. Just orders arriving ready to close.</p>
+            </div>
+          </div>
+        </div>
+
+            <div class="reveal d1">
+          <div class="feat-item">
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-layout-text-window-reverse"></i></div>
+            <div>
+              <span class="feat-label">Conversion-Optimised Layout</span>
+              <p>Professionally designed to keep visitors focused and moving toward ordering. Every section has a purpose. No filler. No fluff.</p>
+            </div>
+          </div>
+        </div>
+
+         <div class="reveal d2">
+          <div class="feat-item">
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-rocket-takeoff"></i></div>
+            <div>
+              <span class="feat-label">Live in 2–3 Business Days</span>
+              <p>We move fast because every day without a proper page is a day of lost sales. Most builds are live within 72 hours of your first payment, ready for customers to find you.</p>
             </div>
           </div>
         </div>
 
         <div class="reveal d3">
           <div class="feat-item">
-            <div class="feat-icon"><i class="bi bi-paypal"></i></div>
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></div>
             <div>
-              <span class="feat-label">Online Payment Setup</span>
-              <p>Accept secure online payments from customers anywhere in the world.</p>
+              <span class="feat-label">Google Business Profile Setup</span>
+              <p>We set up and optimize your Google Business Profile so your business appears on Google Maps. This helps local customers AND diaspora clients find you when they search.</p>
             </div>
           </div>
         </div>
 
         <div class="reveal d4">
           <div class="feat-item">
-            <div class="feat-icon"><i class="bi bi-layout-text-window-reverse"></i></div>
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-paypal"></i></div>
             <div>
-              <span class="feat-label">High-Converting Layout</span>
-              <p>Professionally designed to keep visitors focused and ready to buy.</p>
+              <span class="feat-label">Online Payment Integration</span>
+              <p>Accept secure payments from customers anywhere in the world. PayPal integration available on Professional tier and above. This is perfect for diaspora clients ordering from abroad.</p>
             </div>
           </div>
         </div>
 
         <div class="reveal d5">
           <div class="feat-item">
-            <div class="feat-icon"><i class="bi bi-rocket-takeoff"></i></div>
+            <div class="feat-icon" aria-hidden="true"><i class="bi bi-bar-chart-line"></i></div>
             <div>
-              <span class="feat-label">Ready in 2–3 Days</span>
-              <p>Fast turnaround so you start getting customers without delay.</p>
+              <span class="feat-label">Monthly Analytics Report</span>
+              <p>On Growth and Premium plans, you receive a simple one-page monthly report showing how many people visited, where they came from, and what they clicked in plain language, not tech jargon.</p>
             </div>
           </div>
-        </div>
+        </div>    
 
       </div>
     </div>
@@ -659,511 +998,1052 @@ html, body {
 </section>
 
 <!-- ══ PORTFOLIO / DEMOS ════════════════════════════════ -->
-<section id="demos">
+<section class="bg-alt" id="demos" aria-label="Portfolio — sample conversion systems we have built">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Portfolio</span>
-      <h2 class="display-5 mt-2 mb-3">See How Your Page Could Look</h2>
+    <div class="text-center mb-4 reveal">
+      <span class="section-label">Sample Work</span>
+      <h2 class="display-5 mt-2 mb-3">Conversion Systems We've Built</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:480px">
-        Below are sample layouts for businesses like yours.<br>
-        These are real examples of pages built to turn visitors into customers.
+      <p class="text-m mx-auto" style="max-width:520px">
+        Below are fully-functional sample systems built to show what's possible for your type of business. Each one has a real menu, real WhatsApp ordering flow, and real conversion design.
       </p>
-    </div>
-
-    <!-- Row 1 -->
-    <div class="row g-4 mb-4">
-      <div class="col-sm-6 col-lg-3 reveal d1">
-        <div class="demo-card">
-          <img src="freshflowjuices.png" class="demo-card-img" alt="Fresh Flow Juices preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Food &amp; Drink</span>
-            <h5>Fresh Flow Juices</h5>
-            <p>Clean juice bar page with menu, pricing, and instant WhatsApp ordering.</p>
-            <a href="freshflowjuicesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+      <div class="demo-disclaimer" aria-label="Portfolio note">
+        <i class="bi bi-info-circle" aria-hidden="true"></i>
+        These are sample systems built to show what's possible for your type of business. Client references available on request.
       </div>
-      <div class="col-sm-6 col-lg-3 reveal d2">
-        <div class="demo-card">
-          <img src="islandbites.webp" class="demo-card-img" alt="Island Bites preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Restaurant</span>
-            <h5>Island Bites</h5>
-            <p>Vibrant food business page showcasing dishes, specials, and easy checkout.</p>
-            <a href="islandbitesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3 reveal d3">
-        <div class="demo-card">
-          <img src="isleescapes.webp" class="demo-card-img" alt="Isle Escapes preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Tourism</span>
-            <h5>Isle Escapes</h5>
-            <p>Tour guide webpage with services provided and quick WhatsApp messaging.</p>
-            <a href="isle-escapes.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3 reveal d4">
-        <div class="demo-card">
-          <img src="boutiquecorner.webp" class="demo-card-img" alt="Boutique Corner preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Retail</span>
-            <h5>Boutique Corner</h5>
-            <p>Stylish retail storefront with featured products and direct WhatsApp orders.</p>
-            <a href="boutique-corner.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+      <div class="demo-disclaimer mt-2" aria-label="Social proof note" style="background:rgba(37,211,102,.07);border-color:rgba(37,211,102,.2);color:var(--text);">
+        <i class="bi bi-chat-quote-fill" style="color:#25D366;" aria-hidden="true"></i>
+        Already a client? <a href="https://wa.me/17587235872?text=I'd%20like%20to%20share%20my%20experience%20with%20jamaLinks" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;">Share your experience</a> — we'd love to feature it here.
       </div>
     </div>
 
-    <!-- Row 2 -->
-    <div class="row g-4 mb-4">
-      <div class="col-sm-6 col-lg-3 reveal d1">
-        <div class="demo-card">
-          <img src="velourcafe.webp" class="demo-card-img" alt="Velour Café preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Café</span>
-            <h5>Velour Café</h5>
-            <p>Café webpage with the café's menu and quick WhatsApp order messaging.</p>
-            <a href="velour-cafe.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+  <!-- Row 1 -->
+<div class="row g-4 mb-4">
+  <div class="col-sm-6 col-lg-3 reveal d1">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery — sample conversion system preview" loading="lazy" width="400" height="225">
       </div>
-      <div class="col-sm-6 col-lg-3 reveal d2">
-        <div class="demo-card">
-          <img src="fit-life.webp" class="demo-card-img" alt="FitLife Training preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Fitness</span>
-            <h5>FitLife Training</h5>
-            <p>Personal trainer page with session packages, testimonials, and booking CTA.</p>
-            <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+      <div class="demo-body">
+        <span class="demo-tag">Bakery</span>
+        <h3 class="h5">Sweet Layers Bakery</h3>
+        <p>Custom cake shop with full flavour menu, pricing tiers, and WhatsApp order builder.</p>
+        <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Sweet Layers Bakery sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
       </div>
-      <div class="col-sm-6 col-lg-3 reveal d3">
-        <div class="demo-card">
-          <img src="sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Bakery</span>
-            <h5>Sweet Layers Bakery</h5>
-            <p>Mouthwatering cake shop page with flavors, pricing, and custom order form.</p>
-            <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d2">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="islandbites.webp" class="demo-card-img" alt="Island Bites — sample restaurant conversion system preview" loading="lazy" width="400" height="225">
       </div>
-      <div class="col-sm-6 col-lg-3 reveal d4">
-        <div class="demo-card">
-          <img src="quick-wash.webp" class="demo-card-img" alt="QuickWash Auto preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Services</span>
-            <h5>QuickWash Auto</h5>
-            <p>Auto detailing page with service tiers, before/after showcase, and booking.</p>
-            <a href="quickwash.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
+      <div class="demo-body">
+        <span class="demo-tag">Restaurant</span>
+        <h3 class="h5">Island Bites</h3>
+        <p>Vibrant food business page with full menu, daily specials, pickup/delivery toggle, and WhatsApp checkout.</p>
+        <a href="islandbitesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Island Bites sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
       </div>
-    </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d3">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="freshflowjuices.webp" class="demo-card-img" alt="Fresh Flow Juices — sample juice bar conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Food &amp; Drink</span>
+        <h3 class="h5">Fresh Flow Juices</h3>
+        <p>Clean juice bar page with filterable menu, instant WhatsApp ordering, and loyalty offer section.</p>
+        <a href="freshflowjuicesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Fresh Flow Juices sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d4">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="velourcafe.webp" class="demo-card-img" alt="Velour Café — sample café conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Café</span>
+        <h3 class="h5">Velour Café</h3>
+        <p>Elegant café system with full drink menu, atmosphere gallery, and one-tap WhatsApp ordering.</p>
+        <a href="velour-cafe.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Velour Café sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+</div>
 
-    <!-- Row 3 -->
-    <div class="row g-4 mb-5">
-      <div class="col-sm-6 col-lg-3 reveal d1">
-        <div class="demo-card">
-          <img src="lens-light.webp" class="demo-card-img" alt="Lens &amp; Light Studio preview" loading="lazy">
-          <div class="demo-body">
-            <span class="demo-tag">Creative</span>
-            <h5>Lens &amp; Light Studio</h5>
-            <p>Photography portfolio page with packages, gallery preview, and contact CTA.</p>
-            <a href="lens-light.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
-              <i class="bi bi-box-arrow-up-right"></i> View Website
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Add more demo cards here as your portfolio grows -->
-    </div>
+    <!-- ── View All Demos CTA ── -->
+<div class="text-center mt-4 mb-2 reveal d2">
+  <a href="demos.html" class="btn-view-all-demos" aria-label="View all 20 demo systems in the full portfolio">
+    <i class="bi bi-grid-3x3-gap-fill me-2" aria-hidden="true"></i>
+    View All Demo Systems
+    <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+  </a>
+  <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;opacity:.7;">
+    9 industries covered &nbsp;·&nbsp; Food, retail, wellness, hospitality &amp; more
+  </p>
+</div>
 
-    <div class="text-center reveal d3">
-      <p class="text-m mb-3">Don't see your industry? We build for any business.</p>
-      <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo" onclick="trackWhatsAppClick(event)" class="btn-wa">
-        <i class="bi bi-whatsapp"></i> Request Your Version
-      </a>
+
+
+   <!-- Row 2
+<div class="row g-4 mb-4">
+  <div class="col-sm-6 col-lg-3 reveal d1">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="boutiquecorner.webp" class="demo-card-img" alt="Boutique Corner — sample retail conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Retail</span>
+        <h3 class="h5">Boutique Corner</h3>
+        <p>Stylish retail storefront with featured product grid, sizing guide, and direct WhatsApp orders.</p>
+        <a href="boutique-corner.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Boutique Corner sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d2">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="lavish-event.webp" class="demo-card-img" alt="Lavish Event Designer — sample catering conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Catering</span>
+        <h3 class="h5">Lavish Event Designer</h3>
+        <p>Event catering system with service packages, gallery, and WhatsApp booking flow.</p>
+        <a href="lavish-event-designer.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Lavish Event Designer sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d3">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="lens-light.webp" class="demo-card-img" alt="Lens and Light Studio — sample photography conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Photography</span>
+        <h3 class="h5">Lens &amp; Light Studio</h3>
+        <p>Photography studio with service tiers, portfolio gallery, and booking via WhatsApp.</p>
+        <a href="lens-light.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Lens and Light Studio sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+  <div class="col-sm-6 col-lg-3 reveal d4">
+    <article class="demo-card">
+      <div class="demo-picture">
+        <img src="fit-life.webp" class="demo-card-img" alt="FitLife Training — sample fitness conversion system preview" loading="lazy" width="400" height="225">
+      </div>
+      <div class="demo-body">
+        <span class="demo-tag">Fitness</span>
+        <h3 class="h5">FitLife Training</h3>
+        <p>Personal training system with programme packages, trainer bio, and WhatsApp booking.</p>
+        <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View FitLife Training sample system">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+        </a>
+      </div>
+    </article>
+  </div>
+</div>
+-->
+    
+  <!-- ── Row 3 — Athlete & Personal Brand Profiles (Scrollable) ── 
+  <div class="mt-4 mb-2 reveal">
+    <div class="demo-row-header">
+      <span class="section-label" style="margin:0;">Athlete &amp; Personal Brand Profiles</span>
+      <span class="demo-new-badge" aria-label="New service offering">New</span>
+    </div>
+    <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
+      Professional digital identity systems for athletes, coaches, and personal brands — built to attract sponsors, scouts, and media opportunities. Scroll to explore.
+    </p>
+  </div>
+
+  <div class="demo-scroll-wrapper reveal d1" aria-label="Athlete and personal brand profile examples">
+    <div class="demo-scroll-track" role="list">
+-->
+      <!-- ── CARD 1: Zael Emmanuel — Active ── 
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Zael Emmanuel — Saint Lucian Sprint Athlete profile example">
+        <div class="demo-picture">
+          <img src="images/zael-emmanuel-hero.webp" class="demo-card-img img-fluid mx-auto object-fit-cover" alt="Zael Emmanuel sprint athlete profile sprinter on track" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Athlete Profile</span>
+          <h3 class="h5">Zael Emmanuel &mdash; &ldquo;The Saint&rdquo;</h3>
+          <p>Elite sprinter profile with career timeline, performance stats, brand analytics, sponsorship inquiry system, and media kit CTA. Built for LA 2028.</p>
+          <a href="zael-emmanuel.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Zael Emmanuel athlete brand profile example">
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View Profile
+          </a>
+        </div>
+      </article>-->
+
+      <!--
+      ══════════════════════════════════════════════════════════════
+      COMMENTED-OUT CARDS — Uncomment when builds are ready
+      ══════════════════════════════════════════════════════════════
+
+      ── CARD 2: Personal Coach / Life Coach Brand Profile ──
+      Idea: A Caribbean certified life/wellness coach targeting Caribbean + diaspora clients.
+      Features: About, certifications, coaching packages, testimonials, WhatsApp booking CTA.
+      Tag: Personal Brand | Coach
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Life Coach personal brand profile example">
+        <div class="demo-picture">
+          <img src="coach-profile.webp" class="demo-card-img" alt="Life Coach personal brand profile example" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Personal Brand</span>
+          <h3 class="h5">Clarity with Coach Nadine</h3>
+          <p>Certified life and wellness coach profile with service packages, testimonials, session booking, and WhatsApp consultation CTA.</p>
+          <a href="coach-nadine.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ── CARD 3: Musician / Recording Artist Profile ──
+      Idea: An emerging Caribbean artist (soca, reggae, dancehall) targeting streaming + bookings.
+      Features: Bio, music player embed, event bookings, social links, press kit request, WhatsApp booking.
+      Tag: Artist Profile | Music
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Music artist digital profile example">
+        <div class="demo-picture">
+          <img src="artist-profile.webp" class="demo-card-img" alt="Caribbean music artist digital profile" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Artist Profile</span>
+          <h3 class="h5">Kiel D. — Artist & Performer</h3>
+          <p>Emerging Caribbean artist profile with discography, Spotify embeds, upcoming events, booking inquiry form, and press kit download.</p>
+          <a href="kiel-d-artist.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ── CARD 4: Real Estate Agent Personal Brand ──
+      Idea: A Caribbean or diaspora real estate agent building trust + listings visibility.
+      Features: Agent bio, credentials, listings grid, testimonials, WhatsApp contact CTA.
+      Tag: Personal Brand | Real Estate
+
+      <article class="demo-card demo-card-scroll" role="listitem" aria-label="Real estate agent personal brand profile example">
+        <div class="demo-picture">
+          <img src="agent-profile.webp" class="demo-card-img" alt="Real estate agent personal brand profile" loading="lazy" width="300" height="169">
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag">Personal Brand</span>
+          <h3 class="h5">Denise Charles — Agent & Consultant</h3>
+          <p>Personal brand profile for a Caribbean real estate agent. Listings, credentials, testimonials, and a WhatsApp inquiry system that converts trust into leads.</p>
+          <a href="denise-charles-agent.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto">
+            <i class="bi bi-box-arrow-up-right"></i> View Profile
+          </a>
+        </div>
+      </article>
+
+      ══════════════════════════════════════════════════════════════
+      END COMMENTED-OUT CARDS
+      ══════════════════════════════════════════════════════════════
+      -->
+
+    </div>
+    <!--<div class="pricing-scroll-hint" aria-hidden="true">
+      <i class="bi bi-arrow-left-right me-1"></i> Swipe to see more profiles
+    </div>-->
+  </div>
+
+    <div class="text-center mt-2 reveal d3">
+      <p class="text-m" style="font-size:.85rem;">
+        <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+        Don't see your industry? <a href="https://wa.me/17587235872?text=I%20want%20to%20see%20a%20demo%20for%20my%20industry" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;" aria-label="Ask for a demo for your specific industry on WhatsApp">Ask us for a demo built for your type of business.</a>
+      </p>
     </div>
 
   </div>
 </section>
 
-<!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
-<section class="bg-alt" id="testimonials">
+<!-- ══ TESTIMONIALS ═══════════════════════════════════
+<section id="testimonials" aria-label="Client testimonials">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <span class="section-label">What Clients Say</span>
-      <h2 class="display-5 mt-2 mb-3">Real Results. Real Businesses.</h2>
+      <span class="section-label">What Clients Say Client Results?</span>
+      <h2 class="display-5 mt-2 mb-3">Real Results From Real Businesses The Results We Aim For</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:480px">Small businesses across the Caribbean are saving time and getting more orders with their jamaLinks page.</p>
     </div>
-    <div class="row g-4">
+
+    <div class="row g-4 justify-content-center">
 
       <div class="col-md-6 col-lg-4 reveal d1">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        <article class="testimonial-card" aria-label="Testimonial from T., Island Bites, Saint Lucia">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">
+            <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
           </div>
-          <p class="testimonial-text">Before jamaLinks I was spending hours answering DMs. Now customers click my link, see the menu and prices, and message me already knowing exactly what they want. Orders went up in the first week.</p>
+          <div class="testimonial-result"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i> Orders can be through page within first week</div>
+          <p class="testimonial-text">Are you answering the same questions on Instagram every single day? Questions like, "what's the price, what do you have, do you deliver?" No need to do that any longer. Your page can do all of that for you. Customers come in already knowing what they want. JamaLinks builts in 2-3 days and no need to look back.</p>
           <div class="d-flex align-items-center gap-3">
-            <div class="testimonial-avatar">T</div>
+            <div class="testimonial-avatar" aria-hidden="true"></div>
             <div>
-              <div class="testimonial-name">Tamara J.</div>
-              <div class="testimonial-biz">Fresh Flow Juices · St. Lucia</div>
+              <div class="testimonial-name">Tamara R.</div>
+              <div class="testimonial-biz">Food Business Owner · Saint Lucia</div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="col-md-6 col-lg-4 reveal d2">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        <article class="testimonial-card" aria-label="Testimonial from Marcus R., Barbados">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">
+            <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
           </div>
-          <p class="testimonial-text">The page was ready in 2 days, looked better than I imagined, and the first customer messaged me through it within 24 hours. Worth every dollar. My clients say it looks so professional now.</p>
+          <div class="testimonial-result"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i> Customers can arrive on your page ready to book.</div>
+          <p class="testimonial-text">Have you tried building something on Wix first? You can end up spending two weeks on it and still not happy. JamaLinks takes your brand, understands what you need, and delivers a page that actually looks professional. Your clients <em>will</em> notice the difference. It gives you credibility you didn't have before.</p>
           <div class="d-flex align-items-center gap-3">
-            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-avatar" aria-hidden="true">M</div>
             <div>
               <div class="testimonial-name">Marcus R.</div>
-              <div class="testimonial-biz">QuickWash Auto · Barbados</div>
+              <div class="testimonial-biz">Service Business Owner · Barbados</div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="col-md-6 col-lg-4 reveal d3">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-stars">
-            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        <article class="testimonial-card" aria-label="Testimonial from Shevonne A., Trinidad">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">
+            <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
           </div>
-          <p class="testimonial-text">I used to lose so many customers because they couldn't figure out how to order from me. Now my page does the talking for me. Setup was seamless and they handled everything — I didn't have to do a thing.</p>
+          <div class="testimonial-result"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i> Zero tech knowledge needed JamaLinks handles everything</div>
+          <p class="testimonial-text">Are you losing customers because they can't figure out how to order from you? It desn't have to be this way. Make your page handle the whole conversation before they even message you. Setup is seamless. JamaLinks handles everything, and when you need a change, it is fixed the same day. That kind of support is rare.</p>
           <div class="d-flex align-items-center gap-3">
-            <div class="testimonial-avatar">S</div>
+            <div class="testimonial-avatar" aria-hidden="true">S</div>
             <div>
               <div class="testimonial-name">Shevonne A.</div>
-              <div class="testimonial-biz">Sweet Layers Bakery · Trinidad</div>
+              <div class="testimonial-biz">Bakery Owner · Trinidad &amp; Tobago</div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
+    </div>
+
+    Invite real testimonial CTA
+    <div class="text-center mt-5 reveal d2">
+      <p class="text-m" style="font-size:.85rem;max-width:460px;margin:0 auto;">
+        Already a JamaLinks client? <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20share%20my%20experience%20with%20jamaLinks" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;" aria-label="Share your experience on WhatsApp">Share your experience with us on WhatsApp</a>. We'd love to feature your story.
+      </p>
+    </div>
+
+  </div>
+</section>-->
+
+<!-- ══ PROFILES TEASER ═══════════════════════════════ -->
+<section aria-label="Athlete and personal brand profiles vertical">
+  <div class="container">
+    <div class="text-center reveal">
+      <div style="background:linear-gradient(135deg,var(--bg-alt) 0%,var(--blue-pale,#EEF4FF) 100%);border:1.5px solid var(--border);border-radius:1.25rem;padding:2.5rem 2rem;max-width:680px;margin:0 auto;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold,#C9A84C),var(--blue,#1E3A5F),transparent);border-radius:1.25rem 1.25rem 0 0;"></div>
+        <span class="demo-new-badge mb-3 d-inline-flex" aria-label="New service vertical">New Vertical</span>
+        <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;margin-bottom:.75rem;color:var(--text);">
+          Athlete &amp; Personal Brand Profiles
+        </h2>
+        <p class="text-m" style="font-size:.88rem;max-width:480px;margin:0 auto 1.5rem;opacity:.8;">
+          Digital brand platforms for athletes, coaches, artists, and personal brands — built to attract sponsors, scouts, and media attention.
+        </p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" aria-hidden="true" style="font-size:.75rem;opacity:.6;">
+          <span><i class="bi bi-trophy me-1"></i>Athletes</span>
+          <span>·</span>
+          <span><i class="bi bi-person-check me-1"></i>Coaches</span>
+          <span>·</span>
+          <span><i class="bi bi-mic me-1"></i>Artists</span>
+          <span>·</span>
+          <span><i class="bi bi-briefcase me-1"></i>Personal Brands</span>
+        </div>
+        <a href="profiles.html" class="btn-blue" style="font-size:.9rem;padding:.75rem 2rem;" aria-label="Explore athlete and personal brand profile systems">
+          <i class="bi bi-person-badge-fill me-2" aria-hidden="true"></i> Explore Profile Systems
+          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LEAD CAPTURE — SEE A DEMO ══════════════════════ -->
+<section class="bg-alt" id="see-demo" aria-label="Request a personalised demo for your industry">
+  <div class="container">
+    <div class="lead-capture-wrap reveal">
+      <span class="section-label">Before You Decide</span>
+      <h2 class="h3 mt-3 mb-2">See What We'd Build for <em>Your</em> Business</h2>
+      <p class="text-m" style="font-size:.9rem;">Tell us your industry and we'll send you a relevant sample — built for a business like yours. No pitch. No pressure. Just proof.</p>
+      
+      <!-- Form: submit goes to Formspree — replace YOUR_FORM_ID with your actual Formspree endpoint -->
+      <form class="lead-form" action="https://formspree.io/f/xjgldgjd" method="POST" aria-label="Request a personalised demo">
+        <input type="hidden" name="_subject" value="jamaLinks Demo Request">
+        <select class="lead-select" name="industry" required aria-label="Select your industry">
+          <option value="" disabled selected>Select your industry…</option>
+          <option value="Restaurant / Food Business">🍽️ Restaurant / Food Business</option>
+          <option value="Bakery / Sweets">🎂 Bakery / Sweets</option>
+          <option value="Juice Bar / Café">☕ Juice Bar / Café</option>
+          <option value="Catering / Events">🎉 Catering / Events</option>
+          <option value="Retail / Boutique">👗 Retail / Boutique</option>
+          <option value="Beauty / Hair / Nails">💅 Beauty / Hair / Nails</option>
+          <option value="Photography / Creative">📸 Photography / Creative</option>
+          <option value="Fitness / Wellness">🏋️ Fitness / Wellness</option>
+          <option value="Services / Trades">🔧 Services / Trades</option>
+          <option value="Other">🌍 Other</option>
+        </select>
+        <input type="email" class="lead-input" name="email" placeholder="Your email address" required aria-label="Your email address" autocomplete="email">
+        <input type="text" class="lead-input" name="business" placeholder="Your business name (optional)" aria-label="Your business name (optional)">
+        <button type="submit" class="btn-wa justify-content-center" aria-label="Send me a relevant demo example">
+          <i class="bi bi-send" aria-hidden="true"></i> Send Me a Demo Example
+        </button>
+        <p class="lead-privacy">
+          <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+          We never share your information. No spam, just one example relevant to your business.
+        </p>
+      </form>
+
+      <div class="mt-3">
+        <p class="text-m" style="font-size:.8rem;">Prefer WhatsApp?
+          <a href="https://wa.me/17587235872?text=Show%20me%20a%20demo%20for%20my%20type%20of%20business" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;" aria-label="Request a demo via WhatsApp">
+            Message us directly →
+          </a>
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ PRICING ══════════════════════════════════════════ -->
-<section id="pricing">
+<section id="pricing" aria-label="Pricing — setup packages and monthly partnership plans">
   <div class="container">
-    <div class="text-center mb-5 reveal">
+    <div class="text-center mb-4 reveal">
       <span class="section-label">Investment</span>
-      <h2 class="display-5 mt-2 mb-3">Simple, Clear Pricing</h2>
+      <h2 class="display-5 mt-2 mb-3">Pricing Built Around Your Cash Flow</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:520px">Every tier is a business tool that generates revenue. Pick the level that matches where your business is today — and grow into the next.</p>
+      <p class="text-m mx-auto" style="max-width:560px">Every tier is a revenue-generating system, not just a website. The Professional plan and above use a low setup fee + monthly partnership model, a smaller upfront ask that keeps us invested in your results long after launch day.</p>
+    </div>
+
+    <!-- ROI Anchor Strip -->
+    <div class="pricing-roi-strip reveal d1" role="complementary" aria-label="Return on investment context">
+      <div class="roi-item">
+        <strong>2–3 days</strong>
+        From payment to live system
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>1 client</strong>
+        Can cover your setup fee
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>From $50</strong>
+        Per month to stay live
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>Caribbean &amp; Diaspora</strong>
+        Built for your market
+      </div>
     </div>
 
     <!-- Horizontal Scroll Cards -->
     <div class="pricing-scroll-wrapper reveal">
-      <div class="pricing-scroll-track">
+      <div class="pricing-scroll-track" role="list" aria-label="Website setup pricing tiers">
 
-        <!-- TIER 1: Starter -->
-        <div class="pricing-tier-card">
-          <div class="tier-header">
-            <span class="tier-badge">Starter</span>
-            <div class="tier-price"><sup>$</sup>150<span class="tier-range">–$200</span></div>
-            <div class="tier-label">One-time setup · USD</div>
-            <p class="tier-desc">For businesses with zero web presence who need to exist online — clean, fast, and functional.</p>
-          </div>
-          <div class="tier-body">
-            <p class="price-sec-h">What's Included</p>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Single-page website (5 sections)</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Mobile responsive design</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp CTA button</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Business hours &amp; contact info</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GitHub Pages deployment</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 1 round of revisions</div>
-            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Custom domain</div>
-            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Analytics</div>
-            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill"></i> Animations</div>
-          </div>
-          <div class="tier-footer">
-            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Starter%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
-          </div>
-        </div>
+      <!-- TIER 1: Starter (setup + monthly — month-to-month, no lock-in) -->
+<div class="pricing-tier-card" role="listitem" aria-label="Starter package — $99 setup plus $50 per month">
+  <div class="tier-header">
+    <span class="tier-badge">Starter</span>
+    <div class="tier-price-block">
+      <div class="tier-setup-row">
+        <div class="tier-setup-amount"><sup>$</sup>99</div>
+        <div class="tier-setup-tag">setup fee · USD</div>
+      </div>
+      <!--
+      <div class="tier-monthly-row">
+        <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $50/mo</span>
+        <span class="tier-monthly-note">3-month minimum</span>
+      </div>
+      -->
+       <div class="tier-monthly-row">
+                <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $50/mo</span>
+                <span class="tier-monthly-note">3-month minimum</span>
+              </div>
+       <div class="tier-total-row">
+                <i class="bi bi-calculator" aria-hidden="true"></i>
+                3-month total: <strong>$249</strong>
+              </div>
+      <!--
+      <div class="tier-onetime-row">
+        <span class="tier-onetime-tag"><i class="bi bi-calendar-check" aria-hidden="true"></i> Cancel anytime with 30 days' notice</span>
+      </div>
+      -->
+    </div>
+    <div class="tier-label mt-2">Perfect for starting out or testing the waters</div>
+    <p class="tier-desc">For businesses with no web presence yet who need a professional home online — without a big commitment. Month-to-month flexibility, real results.</p>
+  </div>
+  <div class="tier-body">
+    <p class="price-sec-h">What's Included</p>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Single-page system (5 sections)</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Mobile-first responsive design</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp CTA button (basic pre-filled message)</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Business hours &amp; contact info</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Fast, secure hosting included</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 3 months basic analytics report</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 1 round of revisions</div>
+  </div>
+  <div class="tier-footer">
+    <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Starter%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Get started with the Starter package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started</a>
+    <div class="payment-plan-pill" aria-label="Flexible month-to-month — no long-term lock-in">
+      <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> Month-to-month after 3 months. You stay because it works.
+    </div>
+    <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:.6rem;">
+      Want a one-time build with no retainer? <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20one-time%20website%20build" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;">Ask us about our one-time option →</a>
+    </p>
+  </div>
+</div>
 
-        <!-- TIER 2: Professional -->
-        <div class="pricing-tier-card tier-featured">
-          <div class="tier-popular-badge">Most Popular</div>
+        <!-- TIER 2: Professional (setup + monthly) -->
+        <div class="pricing-tier-card tier-featured" role="listitem" aria-label="Professional package — $199 setup plus $99 per month">
+          <div class="tier-popular-badge" aria-label="Most popular package">Most Popular</div>
           <div class="tier-header">
             <span class="tier-badge">Professional</span>
-            <div class="tier-price"><sup>$</sup>250<span class="tier-range">–$300</span></div>
-            <div class="tier-label">One-time setup · USD</div>
-            <p class="tier-desc">For small restaurants, boutiques, and service providers ready to start converting visitors into orders.</p>
+            <div class="tier-price-block">
+              <div class="tier-setup-row">
+                <div class="tier-setup-amount"><sup>$</sup>199</div>
+                <div class="tier-setup-tag">setup fee · USD</div>
+              </div>
+              <div class="tier-monthly-row">
+                <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $99/mo</span>
+                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+              </div>
+              <div class="tier-total-row">
+                <i class="bi bi-calculator" aria-hidden="true"></i>
+                3-month total: <strong>$496</strong>
+              </div>
+            </div>
+            <div class="tier-label mt-2">The most complete starting point</div>
+            <p class="tier-desc">For food businesses, boutiques, and service providers ready to turn visitors into paying customers. Low entry, full system, ongoing partnership.</p>
           </div>
           <div class="tier-body">
             <p class="price-sec-h">Everything in Starter, plus:</p>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Light / Dark mode toggle</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Scroll animations (AOS)</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-filled order flow</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom domain setup</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> PayPal payment button</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Google Analytics 4 setup</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Basic on-page SEO</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 2 rounds of revisions</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Light / Dark mode toggle</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> More polished brand presentation &amp; reveal effects</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp pre-filled order flow</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> PayPal payment button</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> See what visitors click and where orders come from</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> On-page SEO optimisation</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly content updates included</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 2 rounds of revisions</div>
           </div>
           <div class="tier-footer">
-            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Professional%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Professional%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Get started with the Professional package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started</a>
+            <div class="payment-plan-pill" aria-label="First month free — included with setup">
+              <i class="bi bi-gift" aria-hidden="true"></i> First month free — bundled with setup
+            </div>
           </div>
         </div>
 
-        <!-- TIER 3: Business -->
-        <div class="pricing-tier-card">
+        <!-- TIER 3: Business (setup + monthly) -->
+        <div class="pricing-tier-card" role="listitem" aria-label="Business package — $299 setup plus $139 per month">
           <div class="tier-header">
             <span class="tier-badge">Business</span>
-            <div class="tier-price"><sup>$</sup>350<span class="tier-range">–$400</span></div>
-            <div class="tier-label">One-time setup · USD</div>
-            <p class="tier-desc">For established businesses with real customers who need a site that works as a full marketing funnel.</p>
+            <div class="tier-price-block">
+              <div class="tier-setup-row">
+                <div class="tier-setup-amount"><sup>$</sup>299</div>
+                <div class="tier-setup-tag">setup fee · USD</div>
+              </div>
+              <div class="tier-monthly-row">
+                <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $139/mo</span>
+                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+              </div>
+              <div class="tier-total-row">
+                <i class="bi bi-calculator" aria-hidden="true"></i>
+                3-month total: <strong>$716</strong>
+              </div>
+            </div>
+            <div class="tier-label mt-2">Full marketing and ordering funnel</div>
+            <p class="tier-desc">For established businesses with real customers who need a system that works as a full marketing and conversion funnel — not just a page.</p>
           </div>
           <div class="tier-body">
             <p class="price-sec-h">Everything in Professional, plus:</p>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom brand color palette</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Premium typography pairing</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Filterable product / menu grid</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Image carousel or gallery</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp multi-product order builder</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 conversion tracking</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 3 rounds of revisions</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom brand colour palette</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Premium typography pairing</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Filterable product / menu grid</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Image carousel or gallery</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media links integration</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp multi-product order builder</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GA4 conversion event tracking</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly analytics report (plain language)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 3 rounds of revisions</div>
           </div>
           <div class="tier-footer">
-            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Business%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Business%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Get started with the Business package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started</a>
+            <div class="payment-plan-pill" aria-label="First month free — included with setup">
+              <i class="bi bi-gift" aria-hidden="true"></i> First month free — bundled with setup
+            </div>
           </div>
         </div>
 
-        <!-- TIER 4: Premium -->
-        <div class="pricing-tier-card">
+        <!-- TIER 4: Premium (setup + monthly) -->
+        <div class="pricing-tier-card" role="listitem" aria-label="Premium package — $499 setup plus $179 per month">
           <div class="tier-header">
             <span class="tier-badge">Premium</span>
-            <div class="tier-price"><sup>$</sup>450<span class="tier-range">–$500</span></div>
-            <div class="tier-label">One-time setup · USD</div>
-            <p class="tier-desc">For businesses ready to treat their website as a serious revenue asset with full order flows and payment.</p>
+            <div class="tier-price-block">
+              <div class="tier-setup-row">
+                <div class="tier-setup-amount"><sup>$</sup>499</div>
+                <div class="tier-setup-tag">setup fee · USD</div>
+              </div>
+              <div class="tier-monthly-row">
+                <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $179/mo</span>
+                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+              </div>
+              <div class="tier-total-row">
+                <i class="bi bi-calculator" aria-hidden="true"></i>
+                3-month total: <strong>$1,036</strong>
+              </div>
+            </div>
+            <div class="tier-label mt-2">Serious revenue asset with full tracking</div>
+            <p class="tier-desc">For businesses ready to treat their digital presence as a serious revenue asset with full order flows, payment integration, and ongoing performance management.</p>
           </div>
           <div class="tier-body">
             <p class="price-sec-h">Everything in Business, plus:</p>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Interactive order form with live summary</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full PayPal checkout integration</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom SVG / AI hero graphic</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Testimonials section</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> FAQ accordion section</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Facebook Pixel setup</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Full GA4 conversion funnel tracking</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Page speed audit &amp; compression</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Interactive order form with live summary</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full PayPal checkout integration</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom SVG / AI hero graphic</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Testimonials &amp; FAQ accordion section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Facebook Pixel setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full GA4 conversion funnel tracking</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Page speed audit &amp; compression</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority 48-hour support response</div>
           </div>
           <div class="tier-footer">
-            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Get started with the Premium package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started</a>
+            <div class="payment-plan-pill" aria-label="First month free — included with setup">
+              <i class="bi bi-gift" aria-hidden="true"></i> First month free — bundled with setup
+            </div>
           </div>
         </div>
 
-        <!-- TIER 5: Enterprise -->
-        <div class="pricing-tier-card tier-enterprise">
+        <!-- TIER 5: Enterprise (custom)
+        <div class="pricing-tier-card tier-enterprise" role="listitem" aria-label="Enterprise package — custom quote">
           <div class="tier-header">
             <span class="tier-badge">Enterprise</span>
-            <div class="tier-price"><sup>$</sup>500<span class="tier-range">+</span></div>
-            <div class="tier-label">Custom quote · USD</div>
-            <p class="tier-desc">For tourism operators, multi-location businesses, and brands targeting international clients. A full digital system.</p>
+            <div class="tier-price-block">
+              <div class="tier-setup-row">
+                <div class="tier-setup-amount" style="font-size:2rem;">Custom</div>
+              </div>
+              <div class="tier-monthly-row">
+                <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> Custom/mo</span>
+                <span class="tier-monthly-note">Tailored to scope</span>
+              </div>
+            </div>
+            <div class="tier-label mt-2">Multi-location &amp; international brands</div>
+            <p class="tier-desc">For tourism operators, multi-location businesses, and diaspora brands targeting international markets. A complete digital system scoped to your exact needs.</p>
           </div>
           <div class="tier-body">
             <p class="price-sec-h">Everything in Premium, plus:</p>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Multi-section long-form landing page</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Booking / appointment flow</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Custom JavaScript functionality</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Brand style guide document (PDF)</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Google Search Console + sitemap</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> GA4 + Search Console linked</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly analytics report included</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill"></i> 1 month post-launch support</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Multi-section long-form landing page</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Booking / appointment flow</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom JavaScript functionality</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Brand style guide document (PDF)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Search Console + sitemap</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GA4 + Search Console linked</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly analytics report — 3 months</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 1 month priority post-launch support</div>
           </div>
           <div class="tier-footer">
-            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20custom%20Enterprise%20build" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Request Quote</a>
+            <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20custom%20Enterprise%20build" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Request a custom Enterprise quote on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Request Quote</a>
+            <div class="payment-plan-pill" aria-label="Custom payment schedule — ask for details">
+              <i class="bi bi-calendar-check" aria-hidden="true"></i> Custom payment schedule — ask us
+            </div>
           </div>
-        </div>
+        </div>-->
 
       </div>
-      <div class="pricing-scroll-hint d-md-none">
+      <div class="pricing-scroll-hint d-md-none" aria-hidden="true">
         <i class="bi bi-arrow-left-right me-1"></i> Swipe to see all packages
       </div>
     </div>
 
-    <!-- ── MONTHLY RETAINER ──────────────────────── -->
+    <!-- Pricing Disclaimer -->
+    <div class="text-center mt-2 reveal">
+      <small class="text-m" style="opacity:.65;">All prices in USD. All plans require a 3-month minimum commitment, then continue month-to-month — cancel anytime with 30 days' notice. This gives your system enough time to build traction and generate real results. Domain registration (~$15/yr) billed separately if applicable. 50% of setup fee required to begin work.</small>
+    </div>
+
+    <!-- Why 6 Months explanation -->
+    <div class="payment-plan-block reveal">
+      <div class="ppb-inner">
+        <div class="ppb-icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></div>
+        <div>
+          <h3 class="h5">Why a 3-Month Minimum?</h3>
+          <p>Your conversion system needs a little runway to work. Search engines take 60–90 days to index new pages. Customers need to find the link and build ordering habits. The 3-month minimum just gives your system the time it needs to prove itself — after that, it's fully month-to-month.</p>
+          <ol class="ppb-steps" aria-label="How the partnership works">
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">1</span><span><strong>Setup fee paid</strong> — Build begins, system live in 2–3 days</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>Month 1</strong> — Launch, share your link, first inquiries start coming in</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>Months 2–3</strong> — Google indexes the page, traffic builds, order flow refined</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Month 3+</strong> — Continue month-to-month, or cancel with 30 days' notice</span></li>
+          </ol>
+          <div class="ppb-notes" aria-label="Partnership plan notes">
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> After 3 months, all plans continue month-to-month — cancel anytime with 30 days' notice</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> First month is free and bundled with Professional, Business, and Premium builds</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Starter tier is month-to-month from day one — no minimum beyond 3 months</span>
+          </div>
+          <a href="https://wa.me/17587235872?text=I%20have%20a%20question%20about%20the%20monthly%20partnership%20model" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-inline-flex align-items-center gap-2" aria-label="Ask a question about the monthly partnership model on WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Questions? Ask Us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Guarantee -->
+    <div class="guarantee-box reveal d2" role="complementary" aria-label="30-day results guarantee">
+      <div class="guarantee-icon" aria-hidden="true"><i class="bi bi-shield-fill-check"></i></div>
+      <div>
+        <h4>30-Day Review Offer</h4>
+        <p>If the page gets traffic but produces no genuine inquiry within 30 days, we’ll review the page, CTA, offer, and WhatsApp flow and make one round of conversion improvements at no cost.</p>
+      </div>
+    </div>
+
+    <!-- ══ ATHLETE BRAND PROFILES — Pricing ══════════════════
+         A separate product vertical for athletes, coaches &
+         personal brands. Distinct from the business web systems above.
+    ══════════════════════════════════════════════════════════ 
+    <div class="athlete-pricing-wrap reveal" aria-label="Athlete and personal brand profile pricing">
+
+       Section header 
+      <div class="text-center mb-4">
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label" style="margin:0">Athlete &amp; Personal Brand Profiles</span>
+          <span class="demo-new-badge">New Vertical</span>
+        </div>
+        <h3 class="mt-1 mb-2">Sponsorship-Ready Digital Profiles for Athletes</h3>
+        <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
+          This is not a regular website. It's a professional brand platform built to help athletes attract sponsors, get noticed by scouts and recruiters, and establish credibility online before the next opportunity passes them by.
+        </p>
+        <p class="text-m mx-auto mt-2" style="max-width:480px;font-size:.82rem;opacity:.7;">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+          Pricing reflects two distinct markets. Caribbean builds and US / diaspora builds are priced separately based on market positioning and purchasing power.
+        </p>
+      </div>
+
+       Two-column pricing cards 
+      <div class="row g-4 justify-content-center">
+
+         Caribbean Athletes 
+        <div class="col-md-6 col-lg-5 reveal d1">
+          <div class="athlete-tier-card" aria-label="Caribbean Athlete Profile pricing">
+            <div class="athlete-flag-pill"><span>🌴</span> Caribbean Market · Saint Lucia, Barbados, Trinidad, Jamaica &amp; Region</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">Caribbean Athlete Profile</span>
+            <p class="tier-desc mb-3">For regional athletes, CARIFTA competitors, national champions, and rising Caribbean talent ready to be seen by brands and scouts beyond their island.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $350 to $700 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">350</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$700</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $40 – $65/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$590</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full athlete bio &amp; personal story</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Career &amp; achievements timeline</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Personal best stats &amp; ranking display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Highlight video embed</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship &amp; brand inquiry form</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media &amp; audience analytics section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Photo gallery with swap points</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Media kit request CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp management contact</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full SEO with name, sport, country, event</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> JSON-LD structured data for Google</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup option (+$15/yr)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly stat &amp; content updates</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20an%20Athlete%20Profile%20for%20a%20Caribbean%20athlete" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a Caribbean athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Payment plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Payment plan available — ask us
+              </div>
+            </div>
+          </div>
+        </div>
+
+         USA / Diaspora Athletes 
+        <div class="col-md-6 col-lg-5 reveal d2">
+          <div class="athlete-tier-card athlete-featured" aria-label="USA and diaspora athlete profile pricing">
+            <div class="athlete-market-badge" aria-label="Higher market value tier">USA &amp; Diaspora Market</div>
+            <div class="athlete-flag-pill" style="margin-top:.6rem"><span>🇺🇸</span> USA · Canada · UK · Diaspora Athletes &amp; NIL Candidates</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">USA &amp; Diaspora Athlete Profile</span>
+            <p class="tier-desc mb-3">For Caribbean-heritage athletes in US colleges, NIL-eligible athletes, semi-pro competitors, and diaspora athletes building their brand for the US sponsorship market.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $700 to $1,200 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">700</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$1,200</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $65 – $100/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$1,090</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">Everything in Caribbean, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> NIL-ready brand positioning copy</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship tier menu (Bronze / Silver / Gold)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Downloadable PDF media kit coordination</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Audience demographic analytics display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Geographic reach breakdown (US, Caribbean, UK)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Brand partnership type grid (6 categories)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Coach &amp; federation testimonials section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> LA 2028 / Olympic positioning section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Annual plan option ($699 – $999/yr) available</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority build turnaround (2–4 days)</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20USA%20or%20diaspora%20Athlete%20Profile%20build" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a USA or diaspora athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Annual plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Annual plan available — ask for details
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>--><!-- /row -->
+
+      <!-- Athlete pricing note 
+      <div class="text-center mt-3">
+        <small class="text-m" style="opacity:.65;font-size:.76rem;">
+          Athlete profile pricing covers setup and ongoing monthly content management. Custom domain registration (~$15/yr) billed separately. 50% of setup fee required to begin. One sponsorship deal typically covers the full build cost many times over.
+        </small>
+      </div>
+
+    </div>--><!-- /athlete-pricing-wrap -->
+
+    <!-- Monthly Partnership Plans header -->
     <div class="text-center mt-6 mb-4 reveal">
-      <span class="section-label">Monthly Plans</span>
-      <h3 class="mt-2 mb-2">Keep Your Site Working Every Month</h3>
-      <p class="text-m mx-auto" style="max-width:520px">Your site is a living business tool. These plans ensure it stays accurate, fast, and growing — without you lifting a finger.</p>
+      <span class="section-label">What Your Monthly Fee Covers</span>
+      <h3 class="mt-2 mb-2">This Is What Keeps Your System Working Every Month</h3>
+      <p class="text-m mx-auto" style="max-width:560px">The monthly fee is <strong>already included</strong> in whichever tier you pick — it's not added on top. Here's exactly what you get each month depending on your plan.</p>
     </div>
 
     <div class="row g-4 justify-content-center">
 
       <div class="col-md-4 reveal d1">
-        <div class="retainer-card">
-          <div class="retainer-price"><sup>$</sup>50<span>/mo</span></div>
-          <div class="retainer-name">Basic Maintenance</div>
-          <p class="retainer-desc">Keep the lights on. Your site stays live, accurate, and updated.</p>
+        <div class="retainer-card" aria-label="Essential Partnership — included with Professional at $99 per month">
+          <div class="retainer-price"><sup>$</sup>99<span>/mo</span></div>
+          <div class="retainer-name">Essential Partnership</div>
+          <p class="retainer-desc">Included with Professional. Your system stays live, accurate, and converting every month.</p>
           <hr class="price-div">
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Hosting management</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Up to 3 content updates/month</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Price &amp; menu changes</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp link updates</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Uptime monitoring</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Cancel anytime</div>
-          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Basic%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Hosting management</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Up to 4 content updates/month</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Price &amp; menu changes</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp flow updates</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Uptime monitoring</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile updates</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Professional%20package" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2" aria-label="Get Professional package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Professional</a>
         </div>
       </div>
 
       <div class="col-md-4 reveal d2">
-        <div class="retainer-card retainer-featured">
-          <div class="tier-popular-badge">Best Value</div>
-          <div class="retainer-price"><sup>$</sup>75<span>/mo</span></div>
-          <div class="retainer-name">Growth Maintenance</div>
-          <p class="retainer-desc">Data + updates. Know who's visiting and keep your site converting.</p>
+        <div class="retainer-card retainer-featured" aria-label="Growth Partnership — included with Business at $139 per month">
+          <div class="retainer-price"><sup>$</sup>139<span>/mo</span></div>
+          <div class="retainer-name">Growth Partnership</div>
+          <p class="retainer-desc">Included with Business. Active management, real data, and monthly reporting in plain language.</p>
           <hr class="price-div">
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Everything in Basic</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Up to 5 content updates/month</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly GA4 analytics report</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Seasonal promo / banner updates</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Social media link sync</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Quarterly minor design refresh</div>
-          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Growth%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-wa mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Everything in Essential</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Up to 7 content updates/month</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly analytics report (plain language)</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Seasonal promo section updates</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 48-hour turnaround on all requests</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Conversion improvement suggestions</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Business%20package" onclick="trackWhatsAppClick(event)" class="btn-wa mt-3 d-flex align-items-center justify-content-center gap-2" aria-label="Get Business package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Business</a>
         </div>
       </div>
 
       <div class="col-md-4 reveal d3">
-        <div class="retainer-card">
-          <div class="retainer-price"><sup>$</sup>100<span>/mo</span></div>
-          <div class="retainer-name">Premium Partnership</div>
-          <p class="retainer-desc">Your full digital team. Priority support, full data, and continuous improvement.</p>
+        <div class="retainer-card" aria-label="Full Partnership — included with Premium at $179 per month">
+          <div class="retainer-price"><sup>$</sup>179<span>/mo</span></div>
+          <div class="retainer-name">Full Partnership</div>
+          <p class="retainer-desc">Included with Premium. Your complete digital team with priority support, full tracking, and continuous system improvement.</p>
           <hr class="price-div">
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Everything in Growth</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Priority 24hr response time</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp order flow updates</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Monthly promo section update</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Facebook Pixel data review</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> SEO monitoring via Search Console</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill"></i> Quarterly full design review</div>
-          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20monthly%20plan" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-whatsapp"></i> Get This Plan</a>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Everything in Growth</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority 24-hour response time</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp order flow optimisation</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly promo section redesign</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Facebook Pixel data review</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> SEO monitoring via Search Console</div>
+          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Quarterly full design review</div>
+          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Premium%20package" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2" aria-label="Get Premium package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Premium</a>
         </div>
       </div>
 
     </div>
 
     <div class="text-center mt-4 reveal">
-      <small class="text-m" style="opacity:.7">All prices in USD. No contracts. Cancel anytime. Domain registration (~$15/yr) billed separately. 50% deposit required to begin all builds.</small>
+      <small class="text-m" style="opacity:.65;">Monthly partnership fees are included in your chosen tier and are not added on top. All prices in USD. No lock-in beyond the initial 3 months. Cancel anytime after with 30 days' notice.</small>
     </div>
 
     <div class="text-center mt-4 reveal d2">
-      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5">
-        <i class="bi bi-whatsapp"></i> Start Getting Orders
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started" onclick="trackWhatsAppClick(event)" class="btn-wa px-5" aria-label="Start getting orders — message us on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Start Getting Orders
       </a>
     </div>
 
+  </div>
+</section>
+
+<!-- ══ SOCIAL PROOF PLACEHOLDER ════════════════════════ -->
+<section style="padding:3rem 0 0;" aria-label="Client testimonials">
+  <div class="container">
+    <div class="text-center reveal mb-4">
+      <span class="section-label">What Clients Say</span>
+      <h2 class="mt-2 mb-3">Real Businesses, Real Results</h2>
+    </div>
+    <!-- TESTIMONIAL PLACEHOLDER: Replace this block with a real WhatsApp screenshot or written quote from a client -->
+    <div class="row g-4 justify-content-center reveal d2">
+      <div class="col-md-8">
+        <div style="background:var(--bg-alt);border:1.5px dashed var(--border);border-radius:1rem;padding:2rem;text-align:center;color:var(--muted);font-size:.88rem;">
+          <i class="bi bi-chat-quote-fill" style="font-size:1.5rem;margin-bottom:.75rem;display:block;opacity:.4;"></i>
+          <p style="margin-bottom:.75rem;font-style:italic;opacity:.7;">Your first client testimonial will go here — even a short WhatsApp message screenshot builds more trust than any demo.</p>
+          <a href="https://wa.me/17587235872?text=I'd%20like%20to%20share%20my%20experience%20with%20JamaLinks" onclick="trackWhatsAppClick(event)" class="btn-blue" style="font-size:.82rem;padding:.5rem 1.25rem;">
+            <i class="bi bi-whatsapp me-2"></i> Are you a client? Share your experience
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ══ FINAL CTA ════════════════════════════════════════ -->
-<section class="cta-section">
+<section class="cta-section" aria-label="Call to action — get started with jamaLinks">
   <div class="container text-center">
     <div class="reveal">
-      <span class="section-label">Let's Go</span>
-      <h2 class="display-4 mt-2 mb-3">Start Getting Orders Without The Back-and-Forth</h2>
+      <span class="section-label">Ready? Let's Go</span>
+      <h2 class="display-4 mt-2 mb-3">Your Competitors Are Already Online.<br>Let's Make Sure You're Better.</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto mb-2" style="max-width:420px">Built for small businesses that sell through WhatsApp, Instagram, or DMs.</p>
-      <p class="text-m mx-auto mb-2" style="max-width:420px">We'll build you a simple system that helps customers order faster and easier.</p>
-      <p class="text-m mx-auto mb-5" style="max-width:420px">We work with a small number of clients at a time to give each business our full attention and support. This means your page gets built right — and fast.</p>
-      <a href="https://wa.me/17587235872?text=I%20would%20like%20a%20website%20for%20my%20business" onclick="trackWhatsAppClick(event)" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem">
-        <i class="bi bi-whatsapp"></i> Message Now on WhatsApp
+      <p class="text-m mx-auto mb-2" style="max-width:460px">Built specifically for Caribbean and diaspora food, hospitality, and retail businesses wherever in the world you're operating from.</p>
+      <p class="text-m mx-auto mb-2" style="max-width:460px">We build your conversion system, connect it to your WhatsApp, and have you live in 2–3 days. You focus on your business. We handle the rest.</p>
+      <p class="text-m mx-auto mb-5" style="max-width:460px;font-weight:600;color:var(--text);">Each client gets proper attention. Message us today and we’ll confirm if we can launch your system this week.</p>
+      <a href="https://wa.me/17587235872?text=I%20would%20like%20a%20conversion%20system%20for%20my%20business" onclick="trackWhatsAppClick(event)" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem" aria-label="Message us now on WhatsApp to get your conversion system started">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Message Now on WhatsApp
       </a>
+      <p class="mt-3 text-m" style="font-size:.8rem;opacity:.65;">Free consultation · No obligation · Response within a few hours</p>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- ══ FOOTER ═══════════════════════════════════════════ -->
-<footer>
+<footer role="contentinfo">
   <div class="container">
     <div class="row g-5 mb-3">
       <div class="col-lg-5">
         <div class="footer-brand-wrap">
-          <img src="images/logo.webp" alt="jamaLinks logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy">
+          <img src="images/logo.webp" alt="JamaLinks logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy" width="48" height="48">
           <div class="footer-brand">
-            <span class="fb-jama">jama</span><span class="fb-l">L</span><span class="fb-inks">inks</span>
+            <span class="fb-jama">Jama</span><span class="fb-l">L</span><span class="fb-inks">inks</span>
           </div>
         </div>
-        <p class="footer-about">jamaLinks helps businesses turn social media traffic into real orders using simple high-converting pages connected to WhatsApp.</p>
+        <p class="footer-about">JamaLinks builds WhatsApp-first ordering pages for Caribbean and diaspora businesses that need customers to see, choose, and order without endless DMs.</p>
+        <p class="footer-about" style="font-size:.78rem;margin-top:.5rem;">
+          🇱🇨 Saint Lucia &nbsp;·&nbsp; 🇧🇧 Barbados &nbsp;·&nbsp; 🇹🇹 Trinidad &nbsp;·&nbsp; 🇯🇲 Jamaica &nbsp;·&nbsp; 🇺🇸 USA &nbsp;·&nbsp; 🇨🇦 Canada &nbsp;·&nbsp; 🇬🇧 UK &nbsp;&amp; Beyond
+        </p>
         <div class="d-flex gap-2 mt-3">
-          <a href="https://wa.me/17587235872" class="soc-btn wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="https://www.instagram.com/jamalinksonline?igsh=MTlsaDBtdDgyMWkzZw==" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/share/14XtA8G2rYe/" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://wa.me/17587235872" class="soc-btn wa" aria-label="Chat with JamaLinks on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/jamalinksonline?igsh=MTlsaDBtdDgyMWkzZw==" class="soc-btn ig" aria-label="Follow jamaLinks on Instagram" rel="noopener noreferrer" target="_blank"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/14XtA8G2rYe/" class="soc-btn fb" aria-label="Follow jamaLinks on Facebook" rel="noopener noreferrer" target="_blank"><i class="bi bi-facebook" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="col-6 col-lg-2">
         <p class="footer-head">Quick Links</p>
-        <a href="#why"         class="footer-lnk">Why Us</a>
-        <a href="#solution"    class="footer-lnk">Solution</a>
-        <a href="#features"    class="footer-lnk">What You Get</a>
-        <a href="#demos"       class="footer-lnk">Examples</a>
-        <a href="#pricing"     class="footer-lnk">Pricing</a>
-        <a href="legal.html"   class="footer-lnk">Terms of Service &amp; Privacy Policy</a>
+        <nav aria-label="Footer navigation">
+          <a href="#why"         class="footer-lnk">The Problem</a>
+          <a href="#solution"    class="footer-lnk">How It Works</a>
+          <a href="#difference"  class="footer-lnk">Why jamaLinks</a>
+          <a href="#features"    class="footer-lnk">What You Get</a>
+          <a href="#demos"       class="footer-lnk">Examples</a>
+          <a href="#pricing"     class="footer-lnk">Pricing</a>
+          <a href="legal.html"   class="footer-lnk">Privacy &amp; Terms</a>
+        </nav>
       </div>
       <div class="col-6 col-lg-3">
         <p class="footer-head">Contact Us</p>
-        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2">
-          <i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2" aria-label="Call or message jamaLinks on WhatsApp: +1 7587235872">
+          <i class="bi bi-whatsapp text-success" aria-hidden="true"></i> +17587235872
         </a>
         <p class="footer-lnk" style="cursor:default">
-          <i class="bi bi-clock me-2" style="color:var(--gold)"></i> Mon–Sat, 9 AM – 6 PM
+          <i class="bi bi-clock me-2" style="color:var(--gold)" aria-hidden="true"></i> Mon–Sat, 9 AM – 6 PM (AST)
         </p>
-        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)">
-          <i class="bi bi-whatsapp"></i> Chat Now
+        <p class="footer-lnk" style="cursor:default;font-size:.78rem;">
+          <i class="bi bi-globe me-2" style="color:var(--gold)" aria-hidden="true"></i> Serving clients worldwide
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)" aria-label="Chat with us now on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Chat Now
         </a>
       </div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span id="footer-year">© 2026 jamaLinks. All rights reserved.</span>
-      <span style="opacity:.45">Built with care for small businesses.</span>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-start gap-2">
+      <div>
+        <span id="footer-year">© 2026 JamaLinks. All rights reserved.</span>
+        <div class="footer-legal-row">
+          <a href="legal.html#do-not-sell">Do Not Sell or Share My Personal Information</a>
+          &nbsp;·&nbsp;
+          <a href="legal.html">Privacy Policy &amp; Terms</a>
+        </div>
+        <p class="footer-trademark">
+          JamaLinks is a web design and digital services business <!--registered and--> operated from Saint Lucia (758). All website designs, systems, copy, and intellectual property produced by JamaLinks remain the exclusive property of JamaLinks until full payment is received by the client. Sample and demo sites shown on this page are original concept builds created to illustrate service capabilities: business names, logos, and content within demo sites are fictitious and used for demonstration purposes only. JamaLinks does not represent these as active client work unless explicitly stated. Unauthorised reproduction of any JamaLinks design, system, or content is prohibited.
+        </p>
+      </div>
+      <span style="opacity:.45;font-size:.78rem;">Built from Saint Lucia 🇱🇨 with care for small businesses.</span>
     </div>
   </div>
 </footer>
 
 <!-- ══ WHATSAPP FLOAT BUTTON ════════════════════════════ -->
-<a href="https://wa.me/17587235872?text=Hi%20I%20would%20like%20a%20webpage%20system" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-  <i class="bi bi-whatsapp"></i>
+<a href="https://wa.me/17587235872?text=Hi%20I%20would%20like%20a%20webpage%20system" class="wa-float" aria-label="Chat with jamaLinks on WhatsApp">
+  <i class="bi bi-whatsapp" aria-hidden="true"></i>
 </a>
 
 <!-- ══ SCRIPTS ══════════════════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
 <script>
 /* ════════════════════════════════════════════════════════
@@ -1175,7 +2055,6 @@ const STORE = 'jama-theme';
 function getInitialTheme() {
   const saved = localStorage.getItem(STORE);
   if (saved) return saved;
-  // Auto by time-of-day: dark 7 pm – 6 am
   const h = new Date().getHours();
   return (h >= 19 || h < 6) ? 'dark' : 'light';
 }
@@ -1241,12 +2120,35 @@ document.getElementById('footer-year').textContent =
 
 
 /* ════════════════════════════════════════════════════════
+   LEAD CAPTURE FORM — Formspree fallback
+   If Formspree is not set up yet, redirect to WhatsApp with industry pre-filled
+   ════════════════════════════════════════════════════════ */
+const leadForm = document.querySelector('.lead-form');
+if (leadForm) {
+  leadForm.addEventListener('submit', function(e) {
+    const action = this.getAttribute('action');
+    // If Formspree ID is not configured yet, redirect to WhatsApp
+    if (action.includes('YOUR_FORM_ID')) {
+      e.preventDefault();
+      const industry = this.querySelector('[name="industry"]').value || 'my business type';
+      const email    = this.querySelector('[name="email"]').value || '';
+      const bizName  = this.querySelector('[name="business"]').value || '';
+      const msg = encodeURIComponent(
+        `Hi jamaLinks! I'd like to see a demo for: ${industry}.${bizName ? ' Business: ' + bizName + '.' : ''} My email: ${email}`
+      );
+      window.open(`https://wa.me/17587235872?text=${msg}`, '_blank');
+    }
+  });
+}
+
+
+/* ════════════════════════════════════════════════════════
    COOKIE-FREE WHATSAPP TRACKING
    ════════════════════════════════════════════════════════ */
 const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec';
 
 function trackWhatsAppClick(event) {
-  const isMobile  = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isMobile   = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const deviceType = isMobile ? 'mobile' : 'desktop';
   const buttonId   = event.currentTarget.id;
   const location   = buttonId === 'whatsappButton' ? 'hero' : 'other';
@@ -1272,12 +2174,8 @@ function trackWhatsAppClick(event) {
    CONSENT BANNER + GOOGLE ANALYTICS (consent-gated)
    ════════════════════════════════════════════════════ -->
 <script>
-/* Configuration for the consent banner */
 const consentConfig = {
-  display: {
-    mode: 'bar',   // 'bar' at bottom  |  'modal' in centre
-    wall: false    // true = dim the page background
-  },
+  display: { mode: 'bar', wall: false },
   consent_types: [
     {
       name:        'analytics_storage',
@@ -1299,43 +2197,37 @@ const consentConfig = {
   }
 };
 
-/* Load saved consent state */
 function loadConsentState() {
   const saved = localStorage.getItem('cookie_consent');
   return saved ? JSON.parse(saved) : {};
 }
 
-/* Save consent and conditionally load GA */
 function saveConsentState(consentState) {
   localStorage.setItem('cookie_consent', JSON.stringify(consentState));
   if (consentState.analytics_storage === 'granted') loadGoogleAnalytics();
 }
 
-/* Load Google Analytics only after consent */
 function loadGoogleAnalytics() {
   const script = document.createElement('script');
   script.src   = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
   script.async = true;
   document.head.appendChild(script);
-
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-D5H0JCYXE3');
 }
 
-/* Initialise banner on DOM ready */
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof cookiesBannerJs !== 'undefined') {
     cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
   }
-  /* Also load GA immediately if consent was already given previously */
   const saved = loadConsentState();
   if (saved.analytics_storage === 'granted') loadGoogleAnalytics();
 });
 </script>
 
-<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js"></script>
+<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js" defer></script>
 
 </body>
 </html>
