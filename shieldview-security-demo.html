@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShieldView CCTV & Security — Professional CCTV installation, alarm systems, and access control for homes and businesses. Get a free security assessment and WhatsApp quote.">
+  <meta property="og:title" content="ShieldView CCTV & Security | Protect What Matters">
+  <meta property="og:description" content="Professional CCTV, alarm systems and access control. Free security assessment. WhatsApp quote in minutes.">
+  <meta property="og:type" content="website">
+  <title>ShieldView | CCTV & Security Systems</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+      --void:      #080C14;
+      --navy:      #0B1628;
+      --navy-2:    #0F1F38;
+      --navy-3:    #1A2740;
+      --navy-4:    #243348;
+      --red:       #FF3B3B;
+      --red-dim:   rgba(255,59,59,0.15);
+      --red-glow:  rgba(255,59,59,0.25);
+      --blue:      #3D8BFF;
+      --blue-dim:  rgba(61,139,255,0.12);
+      --blue-glow: rgba(61,139,255,0.2);
+      --slate:     #C8D4E8;
+      --muted:     #6B80A0;
+      --muted-2:   #8A9CC0;
+      --border:    rgba(255,255,255,0.06);
+      --border-r:  rgba(255,59,59,0.2);
+      --border-b:  rgba(61,139,255,0.2);
+      --white:     #FFFFFF;
+      --wa:        #25D366;
+      --wa-dark:   #128C7E;
+
+      /* Light mode */
+      --bg:        #F2F5FB;
+      --bg-2:      #E6EAF5;
+      --text:      #080C14;
+      --text-m:    #4A5878;
+      --card-l:    #FFFFFF;
+      --bdr-l:     rgba(8,12,20,0.08);
+
+      --font-d: 'Syne', system-ui, sans-serif;
+      --font-b: 'Inter', system-ui, sans-serif;
+      --r-sm: 8px; --r-md: 14px; --r-lg: 22px;
+    }
+
+    [data-theme="dark"] {
+      --bg:    var(--void);
+      --bg-2:  var(--navy);
+      --text:  var(--slate);
+      --text-m:var(--muted-2);
+      --card-l:var(--navy-2);
+      --bdr-l: var(--border);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .3s, color .3s;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WA
+    ============================================= */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--navy); color: #fff;
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-b);
+    }
+    .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
+    .wa-btn {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
+    .wa-btn:hover { transform: scale(1.07); }
+    .wa-btn i { font-size: 1.55rem; color: #fff; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
+
+    /* Demo badge */
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--navy-2); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-r);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot { width: 5px; height: 5px; background: var(--red); border-radius: 50%;
+      animation: livePulse 2s ease-in-out infinite; }
+    @keyframes livePulse {
+      0%,100% { opacity: 1; } 50% { opacity: .3; }
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-sv {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(8,12,20,0.96);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: .85rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-brand-icon {
+      width: 38px; height: 38px; background: var(--red);
+      border-radius: 9px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; color: #fff;
+      flex-shrink: 0; position: relative; overflow: hidden;
+    }
+    .nav-brand-icon::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%);
+    }
+    .nav-brand-name {
+      font-family: var(--font-d); font-size: 1.35rem; font-weight: 800;
+      color: #fff; letter-spacing: .02em; line-height: 1;
+    }
+    .nav-brand-name span { color: var(--red); }
+    .nav-brand-sub {
+      font-family: var(--font-b); font-size: .55rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); margin-top: 1px;
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 1.6rem;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.6rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted-2); transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-divider { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,59,59,.08); border: 1px solid var(--border-r);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 400;
+      color: var(--muted-2); transition: border-color .2s, color .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--red); color: var(--red); }
+    .theme-toggle i { font-size: .76rem; }
+    .nav-cta {
+      font-family: var(--font-d); font-size: .72rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .5rem 1.3rem; border-radius: var(--r-sm);
+      background: var(--red); color: #fff !important;
+      transition: background .2s, box-shadow .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .nav-cta:hover {
+      background: #E02020 !important;
+      box-shadow: 0 6px 22px rgba(255,59,59,.5) !important;
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-divider { display: none; }
+      .navbar-sv { padding: .8rem 1.1rem; }
+    }
+
+    /* =============================================
+       SCANNING LINE ANIMATION (ambient)
+    ============================================= */
+    @keyframes scanLine {
+      0%   { transform: translateY(-100%); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero-sv {
+      background: var(--void);
+      position: relative; overflow: hidden;
+      padding: 5rem 0 4rem; min-height: 95vh;
+      display: flex; align-items: center;
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,59,59,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,59,59,.03) 1px, transparent 1px);
+      background-size: 48px 48px; pointer-events: none;
+    }
+    .hero-scan-line {
+      position: absolute; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,59,59,.4), transparent);
+      animation: scanLine 6s linear infinite;
+      pointer-events: none; z-index: 1;
+    }
+    .hero-glow-r {
+      position: absolute; top: -15%; right: -5%;
+      width: 650px; height: 650px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,59,59,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-glow-b {
+      position: absolute; bottom: -20%; left: -5%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(61,139,255,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      color: var(--red); font-family: var(--font-b);
+      font-size: .68rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; padding: .32rem 1rem; border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px; background: var(--red); border-radius: 50%;
+      animation: livePulse 1.8s ease-in-out infinite;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 800; line-height: .97;
+      letter-spacing: -.02em; color: #fff; margin-bottom: 1.4rem;
+    }
+    .hero-h1 .red { color: var(--red); }
+    .hero-h1 .dim { color: rgba(255,255,255,.45); font-weight: 400; }
+
+    .hero-para {
+      font-family: var(--font-b); font-size: .97rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.8; max-width: 440px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    }
+    .btn-wa-main {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      letter-spacing: .04em; padding: .9rem 1.8rem;
+      border-radius: var(--r-sm); border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.3);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa-main:hover {
+      background: var(--wa-dark); color: #fff; transform: translateY(-2px);
+    }
+    .btn-outline-main {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border-r); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400;
+      padding: .9rem 1.6rem; border-radius: var(--r-sm);
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-outline-main:hover { border-color: var(--red); color: var(--red); }
+
+    /* Hero trust badges */
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem;
+    }
+    .h-trust-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      color: var(--muted-2); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500;
+      padding: .3rem .85rem; border-radius: 30px;
+    }
+    .h-trust-badge i { color: var(--red); font-size: .75rem; }
+
+    /* =============================================
+       ★ UNIQUE FEATURE: INTERACTIVE SECURITY ASSESSMENT
+    ============================================= */
+    .assessment-widget {
+      background: var(--navy-2);
+      border: 1px solid var(--border-r);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(255,59,59,.12), 0 0 0 1px rgba(255,59,59,.08);
+    }
+
+    .aw-header {
+      background: linear-gradient(135deg, rgba(255,59,59,.12) 0%, rgba(255,59,59,.04) 100%);
+      border-bottom: 1px solid var(--border-r);
+      padding: 1.2rem 1.6rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .aw-header-icon {
+      width: 38px; height: 38px; background: var(--red);
+      border-radius: 9px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; color: #fff; flex-shrink: 0;
+    }
+    .aw-header-title {
+      font-family: var(--font-d); font-size: .95rem; font-weight: 700;
+      color: #fff; line-height: 1.2;
+    }
+    .aw-header-sub {
+      font-family: var(--font-b); font-size: .65rem; color: var(--muted);
+      margin-top: 1px;
+    }
+    .aw-live-badge {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.25);
+      color: var(--wa); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 20px; flex-shrink: 0;
+    }
+    .aw-live-badge span {
+      width: 5px; height: 5px; background: var(--wa); border-radius: 50%;
+      animation: livePulse 1.8s ease-in-out infinite;
+    }
+
+    .aw-body { padding: 1.6rem; }
+
+    /* Progress bar */
+    .aw-progress-wrap { margin-bottom: 1.6rem; }
+    .aw-progress-label {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: .5rem;
+      display: flex; justify-content: space-between;
+    }
+    .aw-progress-bar-bg {
+      height: 4px; background: rgba(255,255,255,.08);
+      border-radius: 2px; overflow: hidden;
+    }
+    .aw-progress-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--red), #FF8080);
+      border-radius: 2px; transition: width .5s ease;
+    }
+
+    /* Steps */
+    .aw-step { display: none; }
+    .aw-step.active { display: block; }
+
+    .aw-q {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 700;
+      color: #fff; margin-bottom: 1.1rem; line-height: 1.3;
+    }
+
+    .aw-options {
+      display: flex; flex-direction: column; gap: .6rem;
+    }
+
+    .aw-option {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.03); border: 1.5px solid rgba(255,255,255,.07);
+      border-radius: var(--r-md); padding: .85rem 1rem;
+      cursor: pointer; transition: all .2s;
+    }
+    .aw-option:hover {
+      background: var(--red-dim); border-color: var(--border-r);
+    }
+    .aw-option.selected {
+      background: var(--red-dim); border-color: var(--red);
+    }
+    .aw-opt-icon {
+      font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center;
+    }
+    .aw-opt-label {
+      font-family: var(--font-b); font-size: .85rem; font-weight: 500;
+      color: var(--slate);
+    }
+    .aw-opt-check {
+      margin-left: auto; width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all .2s;
+    }
+    .aw-option.selected .aw-opt-check {
+      background: var(--red); border-color: var(--red);
+    }
+    .aw-option.selected .aw-opt-check::after {
+      content: '✓'; font-size: .6rem; color: #fff; font-weight: 700;
+    }
+
+    .aw-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.3rem; gap: 10px;
+    }
+    .aw-btn-back {
+      font-family: var(--font-b); font-size: .78rem; font-weight: 500;
+      color: var(--muted); background: transparent; border: none;
+      cursor: pointer; transition: color .2s; padding: 0;
+    }
+    .aw-btn-back:hover { color: var(--slate); }
+    .aw-btn-next {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--red); color: #fff;
+      font-family: var(--font-d); font-size: .78rem; font-weight: 700;
+      letter-spacing: .04em; padding: .55rem 1.3rem;
+      border-radius: var(--r-sm); border: none; cursor: pointer;
+      transition: background .2s, opacity .2s;
+      opacity: .45; pointer-events: none;
+    }
+    .aw-btn-next.ready { opacity: 1; pointer-events: auto; }
+    .aw-btn-next:hover { background: #E02020; }
+
+    /* Result step */
+    .aw-result { display: none; }
+    .aw-result.active { display: block; }
+
+    .aw-score-ring {
+      width: 110px; height: 110px; border-radius: 50%;
+      border: 4px solid rgba(255,255,255,.08);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      margin: 0 auto 1.4rem; position: relative;
+    }
+    .aw-score-ring::before {
+      content: '';
+      position: absolute; inset: -4px; border-radius: 50%;
+      border: 4px solid transparent;
+      border-top-color: var(--red); border-right-color: var(--red);
+      animation: spinRing .5s ease forwards;
+    }
+    @keyframes spinRing {
+      from { transform: rotate(-90deg); }
+      to   { transform: rotate(calc(-90deg + var(--score-deg, 200deg))); }
+    }
+    .aw-score-num {
+      font-family: var(--font-d); font-size: 2.2rem; font-weight: 800;
+      color: var(--red); line-height: 1;
+    }
+    .aw-score-label {
+      font-family: var(--font-b); font-size: .6rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    .aw-result-title {
+      font-family: var(--font-d); font-size: 1.05rem; font-weight: 700;
+      color: #fff; text-align: center; margin-bottom: .4rem;
+    }
+    .aw-result-pkg {
+      text-align: center; margin-bottom: 1.2rem;
+    }
+    .aw-pkg-pill {
+      display: inline-block; background: var(--red);
+      color: #fff; font-family: var(--font-d);
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: .25rem .85rem; border-radius: 20px;
+    }
+    .aw-result-points {
+      list-style: none; display: flex; flex-direction: column; gap: .55rem;
+      margin-bottom: 1.4rem;
+    }
+    .aw-result-points li {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-b); font-size: .8rem; font-weight: 400;
+      color: var(--muted-2);
+    }
+    .aw-result-points li i { color: var(--red); font-size: .8rem; flex-shrink: 0; }
+    .aw-cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      padding: .85rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; transition: background .2s; letter-spacing: .04em;
+      box-shadow: 0 6px 20px rgba(37,211,102,.25);
+    }
+    .aw-cta-btn:hover { background: var(--wa-dark); }
+    .aw-restart {
+      text-align: center; margin-top: .8rem;
+      font-family: var(--font-b); font-size: .72rem;
+      color: var(--muted); cursor: pointer;
+      transition: color .2s; background: none; border: none; width: 100%;
+    }
+    .aw-restart:hover { color: var(--slate); }
+
+    /* Camera frame corners (decorative) */
+    .camera-frame {
+      position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
+      pointer-events: none; z-index: 0;
+    }
+    .cf-corner {
+      position: absolute; width: 16px; height: 16px;
+      border-color: rgba(255,59,59,.3); border-style: solid;
+    }
+    .cf-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .cf-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+    .cf-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+    .cf-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    .trust-bar {
+      background: var(--navy-2); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 1.4rem 0;
+    }
+    [data-theme="light"] .trust-bar { background: var(--bg-2); border-color: var(--bdr-l); }
+    .trust-items {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: .5rem 2.5rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 9px;
+      font-family: var(--font-b); font-size: .83rem; font-weight: 500;
+      color: var(--text); white-space: nowrap;
+    }
+    .ti-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; color: var(--red); flex-shrink: 0;
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 5.5rem 0; }
+    .sec-sm { padding: 3.5rem 0; }
+    .sec-tag {
+      font-family: var(--font-b); font-size: .63rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--red);
+      margin-bottom: .7rem; display: flex; align-items: center; gap: 9px;
+    }
+    .sec-tag::before { content: ''; width: 18px; height: 2px; background: var(--red); display: block; }
+    .sec-h2 {
+      font-family: var(--font-d); font-size: clamp(1.75rem, 3.5vw, 2.7rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: .75rem;
+    }
+    .sec-h2 em { font-style: normal; color: var(--red); }
+    .sec-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.8; max-width: 500px;
+    }
+    .dash {
+      width: 32px; height: 3px;
+      background: linear-gradient(90deg, var(--red), rgba(255,59,59,.3));
+      border-radius: 2px; margin: 1rem 0 1.5rem;
+    }
+
+    /* =============================================
+       SERVICE PACKAGES
+    ============================================= */
+    .pkg-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l);
+      transition: box-shadow .3s, transform .2s, border-color .2s;
+      height: 100%; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .pkg-card { border-color: var(--border); }
+    .pkg-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--red), rgba(255,59,59,.3));
+      opacity: 0; transition: opacity .2s;
+    }
+    .pkg-card:hover {
+      box-shadow: 0 12px 40px rgba(255,59,59,.1);
+      transform: translateY(-4px); border-color: var(--border-r);
+    }
+    .pkg-card:hover::before { opacity: 1; }
+    .pkg-card.featured { border-color: var(--red); box-shadow: 0 0 0 2px var(--red-dim); }
+    .pkg-card.featured::before { opacity: 1; }
+
+    .pkg-top {
+      height: 180px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pkg-v1 { background: linear-gradient(145deg, #0F1F38, #1A2740); }
+    .pkg-v2 { background: linear-gradient(145deg, #1A1020, #2A1530); }
+    .pkg-v3 { background: linear-gradient(145deg, #0A1820, #152530); }
+    .pkg-v4 { background: linear-gradient(145deg, #1A2010, #252E15); }
+    .pkg-icon { font-size: 4rem; opacity: .65; }
+    .pkg-featured-tag {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--red); color: #fff;
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .22rem .65rem; border-radius: 20px;
+    }
+
+    .pkg-body { padding: 1.5rem 1.6rem 1.8rem; }
+    .pkg-category {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--red);
+      margin-bottom: 4px;
+    }
+    .pkg-name {
+      font-family: var(--font-d); font-size: 1.18rem; font-weight: 700;
+      color: var(--text); line-height: 1.2; margin-bottom: .5rem;
+    }
+    .pkg-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: 1rem;
+    }
+    .pkg-includes {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 5px; margin-bottom: 1.2rem;
+    }
+    .pkg-includes li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.45;
+    }
+    .pkg-includes li i { color: var(--red); font-size: .72rem; flex-shrink: 0; margin-top: 3px; }
+    .pkg-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding-top: 1rem; border-top: 1px solid var(--bdr-l);
+    }
+    [data-theme="dark"] .pkg-footer { border-color: var(--border); }
+    .pkg-price {
+      font-family: var(--font-d); font-size: 1.25rem; font-weight: 800; color: var(--text);
+    }
+    .pkg-price-note {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 300;
+      color: var(--text-m); display: block;
+    }
+    .btn-quote-sm {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .72rem; font-weight: 600;
+      padding: .48rem 1rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      transition: background .2s, transform .15s; white-space: nowrap;
+    }
+    .btn-quote-sm:hover { background: var(--wa-dark); color: #fff; transform: scale(1.03); }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem 1.4rem;
+      text-align: center; transition: border-color .2s, box-shadow .2s;
+    }
+    [data-theme="dark"] .how-step { border-color: var(--border); }
+    .how-step:hover {
+      border-color: var(--border-r); box-shadow: 0 8px 28px rgba(255,59,59,.1);
+    }
+    .how-icon-wrap {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.3rem; color: var(--red);
+    }
+    .how-num {
+      font-family: var(--font-d); font-size: 2.4rem; font-weight: 800;
+      line-height: 1; color: var(--red); opacity: .2; margin-bottom: .7rem;
+    }
+    .how-title {
+      font-family: var(--font-d); font-size: .98rem; font-weight: 700;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .how-desc {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65;
+    }
+
+    /* =============================================
+       INSTALLATIONS GALLERY
+    ============================================= */
+    .install-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+    @media (max-width: 768px) { .install-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .install-grid { grid-template-columns: 1fr; } }
+    .install-tall { grid-row: span 2; }
+
+    .install-card {
+      border-radius: var(--r-md); overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .ic-img {
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .install-card:not(.install-tall) .ic-img { height: 200px; }
+    .install-tall .ic-img { height: 420px; }
+    @media (max-width: 768px) {
+      .install-tall .ic-img { height: 260px; }
+      .install-tall { grid-row: span 1; }
+    }
+
+    /* Dark gradient backgrounds for illustrated cards */
+    .ic-v1 { background: linear-gradient(145deg, #0A1520, #152235); }
+    .ic-v2 { background: linear-gradient(145deg, #1A0A0A, #2A1010); }
+    .ic-v3 { background: linear-gradient(145deg, #0A1A10, #102818); }
+    .ic-v4 { background: linear-gradient(145deg, #150A20, #221030); }
+    .ic-v5 { background: linear-gradient(145deg, #0F1520, #1A2030); }
+    .ic-v6 { background: linear-gradient(145deg, #1A1005, #2A1A08); }
+
+    .ic-illustration {
+      font-size: 4rem; opacity: .5;
+      transition: transform .5s;
+    }
+    .install-card:hover .ic-illustration { transform: scale(1.06); }
+
+    /* Scan line effect on hover */
+    .ic-scan-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 0%,
+        rgba(255,59,59,.04) 50%, transparent 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .install-card:hover .ic-scan-overlay { opacity: 1; }
+
+    /* Corner camera frame */
+    .ic-corners {
+      position: absolute; inset: 8px; pointer-events: none;
+    }
+    .ic-c { position: absolute; width: 12px; height: 12px; border-color: rgba(255,59,59,.35); border-style: solid; }
+    .ic-c-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .ic-c-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+    .ic-c-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+    .ic-c-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+    .ic-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(8,12,20,.85) 100%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 1rem;
+      opacity: 0; transition: opacity .3s;
+    }
+    .install-card:hover .ic-overlay { opacity: 1; }
+    .ic-title {
+      font-family: var(--font-d); font-size: .95rem; font-weight: 700;
+      color: #fff; margin-bottom: 2px;
+    }
+    .ic-type {
+      font-family: var(--font-b); font-size: .68rem; color: var(--muted-2);
+    }
+    .ic-wa-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      padding: .35rem .8rem; border-radius: var(--r-sm);
+      margin-top: .5rem; border: none; cursor: pointer;
+      transition: background .2s; width: fit-content;
+    }
+    .ic-wa-btn:hover { background: var(--wa-dark); color: #fff; }
+
+    .ic-info-bar {
+      background: var(--card-l); border: 1px solid var(--bdr-l);
+      border-top: none; border-radius: 0 0 var(--r-md) var(--r-md);
+      padding: .7rem .9rem;
+    }
+    [data-theme="dark"] .ic-info-bar { border-color: var(--border); }
+    .ic-info-name {
+      font-family: var(--font-d); font-size: .9rem; font-weight: 700; color: var(--text);
+    }
+    .ic-info-tag {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--red);
+    }
+
+    /* =============================================
+       ALERT BANNER
+    ============================================= */
+    .alert-banner {
+      background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-3) 100%);
+      border: 1px solid var(--border-r); border-radius: var(--r-lg);
+      padding: 2.5rem 3rem;
+      display: flex; align-items: center; flex-wrap: wrap; gap: 2rem;
+      position: relative; overflow: hidden;
+    }
+    .alert-banner::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 4px; bottom: 0;
+      background: var(--red);
+    }
+    .alert-banner::after {
+      content: ''; position: absolute; top: -50%; right: -5%;
+      width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,59,59,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ab-icon { font-size: 3rem; flex-shrink: 0; z-index: 1; }
+    .ab-content { flex: 1; min-width: 220px; z-index: 1; }
+    .ab-title {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 800;
+      color: #fff; margin-bottom: .4rem; letter-spacing: -.01em;
+    }
+    .ab-title span { color: var(--red); }
+    .ab-desc {
+      font-family: var(--font-b); font-size: .87rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.7;
+    }
+    .ab-cta { z-index: 1; flex-shrink: 0; }
+    @media (max-width: 576px) { .alert-banner { padding: 2rem 1.5rem 2rem 2rem; } }
+
+    /* =============================================
+       PREMIUM BLUR SECTIONS
+    ============================================= */
+    .premium-wrap {
+      position: relative; border-radius: var(--r-lg); overflow: hidden;
+    }
+    .blur-layer {
+      filter: blur(6px); user-select: none; pointer-events: none; opacity: .5;
+    }
+    .unlock-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(242,245,251,.8); backdrop-filter: blur(2px); z-index: 10;
+    }
+    [data-theme="dark"] .unlock-overlay { background: rgba(8,12,20,.82); }
+    .unlock-box {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l);
+      box-shadow: 0 20px 60px rgba(255,59,59,.12);
+      padding: 2rem 2.5rem; text-align: center; max-width: 340px; width: 90%;
+    }
+    [data-theme="dark"] .unlock-box { border-color: var(--border-r); }
+    .unlock-icon-wrap {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.1rem; color: var(--red);
+    }
+    .unlock-plan-pill {
+      display: inline-block; border: 1px solid var(--border-r); color: var(--red);
+      font-family: var(--font-b); font-size: .6rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: .22rem .75rem; border-radius: 20px; margin-bottom: 1rem;
+    }
+    .unlock-box h5 {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
+      color: var(--text); margin-bottom: .45rem;
+    }
+    .unlock-box p {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: 1.3rem;
+    }
+
+    /* Testimonial cards */
+    .review-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem; height: 100%;
+    }
+    [data-theme="dark"] .review-card { border-color: var(--border); }
+    .rv-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      color: var(--red); font-family: var(--font-b);
+      font-size: .6rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: .2rem .6rem; border-radius: 20px; margin-bottom: .6rem;
+    }
+    .rv-stars { color: #F59E0B; font-size: .8rem; margin-bottom: .6rem; letter-spacing: 1px; }
+    .rv-text {
+      font-family: var(--font-b); font-size: .87rem; font-weight: 400;
+      color: var(--text); line-height: 1.7; margin-bottom: 1rem;
+    }
+    .rv-name { font-family: var(--font-d); font-size: .88rem; font-weight: 700; color: var(--text); }
+    .rv-loc { font-family: var(--font-b); font-size: .7rem; color: var(--text-m); }
+
+    /* =============================================
+       ABOUT / TRUST PILLARS
+    ============================================= */
+    .pillar-card {
+      background: var(--navy-2); border-radius: var(--r-md);
+      border: 1px solid var(--border); padding: 2rem 1.8rem;
+      transition: border-color .2s;
+    }
+    .pillar-card:hover { border-color: var(--border-r); }
+    .pillar-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .pillar-title {
+      font-family: var(--font-d); font-size: 1.05rem; font-weight: 700;
+      color: #fff; margin-bottom: .4rem;
+    }
+    .pillar-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.7;
+    }
+
+    /* =============================================
+       COVERAGE STRIP
+    ============================================= */
+    .coverage-strip {
+      background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-3) 100%);
+      border: 1px solid var(--border-r); border-radius: var(--r-lg);
+      padding: 3rem; display: flex; align-items: center;
+      flex-wrap: wrap; gap: 2rem; justify-content: space-between;
+    }
+    @media (max-width: 768px) { .coverage-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; } }
+    .coverage-left h3 {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 800;
+      color: #fff; margin-bottom: .3rem;
+    }
+    .coverage-left p { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: var(--muted-2); }
+    .area-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--red-dim); border: 1px solid var(--border-r);
+      color: rgba(255,255,255,.7); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500;
+      padding: .3rem .8rem; border-radius: 20px;
+    }
+    .area-chip i { font-size: .7rem; color: var(--red); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-sv {
+      background: linear-gradient(135deg, var(--void) 0%, var(--navy-3) 60%, var(--navy-2) 100%);
+      border: 1px solid var(--border-r); border-radius: var(--r-lg);
+      padding: 5rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-sv::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 30%, rgba(255,59,59,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 30% 70%, rgba(61,139,255,.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    /* Scan line in CTA */
+    .cta-sv::after {
+      content: ''; position: absolute; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(255,59,59,.3), transparent);
+      animation: scanLine 8s linear infinite;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-tag {
+      font-family: var(--font-b); font-size: .63rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem;
+    }
+    .cta-h2 {
+      font-family: var(--font-d); font-size: clamp(2rem, 5.5vw, 4.5rem);
+      font-weight: 800; line-height: .97; letter-spacing: -.02em;
+      color: #fff; margin-bottom: 1rem;
+    }
+    .cta-h2 .red { color: var(--red); }
+    .cta-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--muted-2); max-width: 420px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .btn-cta-wa {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .95rem; font-weight: 700;
+      letter-spacing: .04em; padding: 1rem 2.4rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer; box-shadow: 0 6px 24px rgba(37,211,102,.3);
+      transition: background .2s, transform .15s;
+    }
+    .btn-cta-wa:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+    .cta-note {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 300;
+      color: rgba(255,255,255,.25); margin-top: 1.2rem; letter-spacing: .06em;
+    }
+
+    /* =============================================
+       FOOTER — always dark
+    ============================================= */
+    .footer-sv {
+      background: #080C14; padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(255,59,59,.12);
+    }
+    .footer-sv .fl-name {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 800;
+      color: #fff; letter-spacing: .02em; line-height: 1;
+    }
+    .footer-sv .fl-name span { color: var(--red); }
+    .footer-sv .fl-sub {
+      font-family: var(--font-b); font-size: .56rem; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(255,255,255,.28); margin-top: 3px;
+    }
+    .footer-sv .fl-about {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(255,255,255,.42); line-height: 1.8; max-width: 280px; margin-top: 1rem;
+    }
+    .footer-sv .fl-h {
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem;
+    }
+    .footer-sv .fl-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-sv .fl-links a {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(255,255,255,.42); transition: color .2s;
+    }
+    .footer-sv .fl-links a:hover { color: var(--red); }
+    .footer-sv .fl-wa-box {
+      background: rgba(37,211,102,.06); border: 1px solid rgba(37,211,102,.18);
+      border-radius: var(--r-md); padding: 1.3rem;
+    }
+    .footer-sv .fl-wa-box p {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: rgba(255,255,255,.42); margin-bottom: .9rem; line-height: 1.6;
+    }
+    .footer-sv .fl-wa-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .78rem; font-weight: 600;
+      padding: .52rem 1.1rem; border-radius: var(--r-sm); transition: background .2s;
+    }
+    .footer-sv .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-sv .fl-bottom {
+      border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.8rem;
+      padding-top: 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-sv .fl-bottom p { font-family: var(--font-b); font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.22); }
+    .footer-sv .fl-bottom a { font-family: var(--font-b); font-size: .72rem; font-weight: 600; color: var(--red); transition: color .2s; }
+    .footer-sv .fl-bottom a:hover { color: #FF8080; }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-sv { padding: 3rem 1.5rem; }
+      .coverage-strip { padding: 1.8rem 1.2rem 1.8rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20security%20assessment%20and%20quote."
+     class="wa-float" aria-label="Get a free security quote on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-pill">Free Security Quote</span>
+    <button class="wa-btn" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="AkraLink demo">
+    <span class="demo-dot" aria-hidden="true"></span>AkraLink Demo
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-sv" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <div class="nav-brand-icon" aria-hidden="true">
+        <i class="bi bi-camera-video-fill" aria-hidden="true"></i>
+      </div>
+      <div>
+        <div class="nav-brand-name">Shield<span>View</span></div>
+        <div class="nav-brand-sub">CCTV &amp; Security Systems</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links" role="list">
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#gallery">Installations</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20security%20quote."
+         class="nav-cta" aria-label="Get a free quote"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-shield-check" aria-hidden="true"></i> Free Quote
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-sv" role="banner" aria-label="ShieldView hero section">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-scan-line" aria-hidden="true"></div>
+    <div class="hero-glow-r" aria-hidden="true"></div>
+    <div class="hero-glow-b" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- LEFT -->
+        <div class="col-lg-6">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Professional Security Installation · St. Lucia
+          </div>
+          <h1 class="hero-h1">
+            <span class="dim">Your Property.</span><br>
+            Our Eyes.<br>
+            <span class="red">Always On.</span>
+          </h1>
+          <p class="hero-para">
+            Professional CCTV systems, alarm installation, and access control 
+            for homes and businesses. Get a free security assessment and WhatsApp 
+            quote — we respond the same day.
+          </p>
+          <div class="hero-cta-row">
+            <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20security%20assessment%20and%20quote%20for%20my%20property."
+               class="btn-wa-main" aria-label="Get a free security assessment on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Get Your Free Assessment
+            </a>
+            <a href="#packages" class="btn-outline-main" aria-label="View security packages">
+              <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>
+              View Packages
+            </a>
+          </div>
+          <div class="hero-trust" role="list" aria-label="Key guarantees">
+            <span class="h-trust-badge" role="listitem">
+              <i class="bi bi-shield-fill-check" aria-hidden="true"></i> Licensed &amp; Insured
+            </span>
+            <span class="h-trust-badge" role="listitem">
+              <i class="bi bi-clock-fill" aria-hidden="true"></i> Same-Day Response
+            </span>
+            <span class="h-trust-badge" role="listitem">
+              <i class="bi bi-tools" aria-hidden="true"></i> 1-Year Warranty
+            </span>
+            <span class="h-trust-badge" role="listitem">
+              <i class="bi bi-house-fill" aria-hidden="true"></i> Residential &amp; Commercial
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT — INTERACTIVE SECURITY ASSESSMENT WIDGET -->
+        <div class="col-lg-6">
+          <div class="assessment-widget" role="region" aria-label="Free security vulnerability assessment">
+
+            <!-- Camera frame corners (decorative) -->
+            <div class="camera-frame" aria-hidden="true">
+              <div class="cf-corner cf-tl"></div>
+              <div class="cf-corner cf-tr"></div>
+              <div class="cf-corner cf-bl"></div>
+              <div class="cf-corner cf-br"></div>
+            </div>
+
+            <!-- Widget header -->
+            <div class="aw-header">
+              <div class="aw-header-icon" aria-hidden="true">
+                <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="aw-header-title">Free Security Assessment</div>
+                <div class="aw-header-sub">3 questions · Instant result · No commitment</div>
+              </div>
+              <div class="aw-live-badge" aria-label="Live tool">
+                <span aria-hidden="true"></span> Live
+              </div>
+            </div>
+
+            <div class="aw-body">
+
+              <!-- Progress bar -->
+              <div class="aw-progress-wrap">
+                <div class="aw-progress-label">
+                  <span id="awProgressText">Question 1 of 3</span>
+                  <span id="awProgressPct">0%</span>
+                </div>
+                <div class="aw-progress-bar-bg">
+                  <div class="aw-progress-bar-fill" id="awProgressBar" style="width:0%"></div>
+                </div>
+              </div>
+
+              <!-- Step 1 -->
+              <div class="aw-step active" id="awStep1" role="group" aria-labelledby="awQ1">
+                <div class="aw-q" id="awQ1">What type of property do you want to protect?</div>
+                <div class="aw-options" role="radiogroup" aria-label="Property type">
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="1" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🏠</span>
+                    <span class="aw-opt-label">Home / Residential</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="1" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🏢</span>
+                    <span class="aw-opt-label">Business / Commercial</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="1" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🏗️</span>
+                    <span class="aw-opt-label">Construction Site / Vacant Property</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="aw-nav">
+                  <span></span>
+                  <button class="aw-btn-next" id="awNext1" aria-label="Next question" onclick="nextStep(2)">
+                    Next <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="aw-step" id="awStep2" role="group" aria-labelledby="awQ2">
+                <div class="aw-q" id="awQ2">What security do you currently have in place?</div>
+                <div class="aw-options" role="radiogroup" aria-label="Current security">
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="2" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">❌</span>
+                    <span class="aw-opt-label">Nothing — completely unprotected</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="2" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🔒</span>
+                    <span class="aw-opt-label">Basic locks only</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="2" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">📹</span>
+                    <span class="aw-opt-label">Old / low-quality cameras</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="2" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🔔</span>
+                    <span class="aw-opt-label">Alarm system (no cameras)</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="aw-nav">
+                  <button class="aw-btn-back" onclick="prevStep(1)" aria-label="Previous question">← Back</button>
+                  <button class="aw-btn-next" id="awNext2" aria-label="Next question" onclick="nextStep(3)">
+                    Next <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="aw-step" id="awStep3" role="group" aria-labelledby="awQ3">
+                <div class="aw-q" id="awQ3">What's your biggest security concern?</div>
+                <div class="aw-options" role="radiogroup" aria-label="Main security concern">
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="3" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🚨</span>
+                    <span class="aw-opt-label">Break-ins and theft</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="3" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">👀</span>
+                    <span class="aw-opt-label">Monitoring who enters my property</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="3" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">🏙️</span>
+                    <span class="aw-opt-label">Remote viewing when I'm away</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="aw-option" role="radio" aria-checked="false" tabindex="0" data-step="3" onclick="selectOption(this)">
+                    <span class="aw-opt-icon" aria-hidden="true">💼</span>
+                    <span class="aw-opt-label">Staff oversight &amp; liability coverage</span>
+                    <span class="aw-opt-check" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="aw-nav">
+                  <button class="aw-btn-back" onclick="prevStep(2)" aria-label="Previous question">← Back</button>
+                  <button class="aw-btn-next" id="awNext3" aria-label="Get my security score" onclick="showResult()">
+                    Get My Score <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- RESULT -->
+              <div class="aw-result" id="awResult" role="region" aria-label="Your security assessment result">
+                <div class="aw-score-ring" id="awScoreRing" style="--score-deg:200deg;" aria-label="Security score">
+                  <div class="aw-score-num" id="awScoreNum">42</div>
+                  <div class="aw-score-label">/100</div>
+                </div>
+                <div class="aw-result-title" id="awResultTitle">Your property is at risk.</div>
+                <div class="aw-result-pkg">
+                  <span class="aw-pkg-pill" id="awPkgPill">Essential Protection Package</span>
+                </div>
+                <ul class="aw-result-points" id="awResultPoints">
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> HD CCTV cameras installed</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Motion detection &amp; alerts</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Remote mobile viewing</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 1-year warranty &amp; support</li>
+                </ul>
+                <a id="awResultCta"
+                   href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%20just%20completed%20your%20security%20assessment%20and%20I%27d%20like%20a%20free%20quote."
+                   class="aw-cta-btn"
+                   aria-label="Get your free quote on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Get My Free Quote on WhatsApp
+                </a>
+                <button class="aw-restart" onclick="restartAssessment()" aria-label="Retake the assessment">
+                  ↩ Retake Assessment
+                </button>
+              </div>
+
+            </div><!-- /aw-body -->
+          </div><!-- /assessment-widget -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Key credentials">
+    <div class="container">
+      <div class="trust-items" role="list">
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-shield-fill-check" aria-hidden="true"></i></div>
+          Licensed &amp; Fully Insured
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-phone-fill" aria-hidden="true"></i></div>
+          Remote Mobile Viewing Included
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-clock-fill" aria-hidden="true"></i></div>
+          Same-Day Site Assessment
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-wrench-adjustable" aria-hidden="true"></i></div>
+          1-Year Parts &amp; Labour Warranty
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          WhatsApp Quote in Minutes
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <section class="sec" id="packages" style="background:var(--bg);" aria-label="Security packages">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">Security Packages</div>
+          <h2 class="sec-h2">Protection Built for <em>Every Property</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            From a single camera at the front door to a full multi-site commercial system — 
+            every package is installed, configured, and tested by our certified technicians.
+            All include remote mobile viewing and a 1-year warranty.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Package 1 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="pkg-card">
+            <div class="pkg-top pkg-v1">
+              <span class="pkg-icon" aria-hidden="true">🏠</span>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-category">Residential</div>
+              <h3 class="pkg-name">Home Essentials</h3>
+              <p class="pkg-desc">Protect your home with a clean, reliable HD camera setup and instant mobile alerts.</p>
+              <ul class="pkg-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 4 x HD 1080p cameras</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> DVR with 1TB storage</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Night vision on all cameras</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Mobile viewing app setup</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Professional installation</li>
+              </ul>
+              <div class="pkg-footer">
+                <div>
+                  <span class="pkg-price">From $650</span>
+                  <span class="pkg-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27m%20interested%20in%20the%20Home%20Essentials%20CCTV%20package.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Home Essentials package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 — Featured -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d1">
+          <div class="pkg-card featured">
+            <div class="pkg-top pkg-v2">
+              <span class="pkg-icon" aria-hidden="true">🏡</span>
+              <span class="pkg-featured-tag">Most Popular</span>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-category">Residential+</div>
+              <h3 class="pkg-name">Home Shield Pro</h3>
+              <p class="pkg-desc">Full perimeter coverage with alarm integration and 24/7 motion alerts to your phone.</p>
+              <ul class="pkg-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 8 x Full-HD 2MP cameras</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> NVR with 2TB storage</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Alarm system with siren</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Motion &amp; tamper alerts</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Remote live view &amp; playback</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 1 year warranty &amp; support</li>
+              </ul>
+              <div class="pkg-footer">
+                <div>
+                  <span class="pkg-price">From $1,100</span>
+                  <span class="pkg-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27m%20interested%20in%20the%20Home%20Shield%20Pro%20package.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Home Shield Pro package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d2">
+          <div class="pkg-card">
+            <div class="pkg-top pkg-v3">
+              <span class="pkg-icon" aria-hidden="true">🏢</span>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-category">Commercial</div>
+              <h3 class="pkg-name">Business Guard</h3>
+              <p class="pkg-desc">Built for shops, offices, and small commercial properties with staff access control.</p>
+              <ul class="pkg-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 8–16 x HD IP cameras</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> NVR with 4TB storage</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Access control (1 entry point)</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Staff activity monitoring</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Remote multi-user access</li>
+              </ul>
+              <div class="pkg-footer">
+                <div>
+                  <span class="pkg-price">From $1,800</span>
+                  <span class="pkg-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27m%20interested%20in%20the%20Business%20Guard%20package.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Business Guard package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d3">
+          <div class="pkg-card">
+            <div class="pkg-top pkg-v4">
+              <span class="pkg-icon" aria-hidden="true">🏭</span>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-category">Enterprise</div>
+              <h3 class="pkg-name">Total Site Surveillance</h3>
+              <p class="pkg-desc">Multi-building, multi-site enterprise security with full access control and audit trails.</p>
+              <ul class="pkg-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Custom camera count</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Enterprise NVR server</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Full access control system</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Dedicated monitoring setup</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Ongoing maintenance plan</li>
+              </ul>
+              <div class="pkg-footer">
+                <div>
+                  <span class="pkg-price">Custom</span>
+                  <span class="pkg-price-note">scoped per site</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27m%20interested%20in%20a%20Total%20Site%20Surveillance%20quote%20for%20my%20property."
+                   class="btn-quote-sm" aria-label="Quote for Total Site Surveillance"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERT BANNER -->
+  <section class="sec-sm" style="background:var(--bg-2);" aria-label="Security alert">
+    <div class="container">
+      <div class="alert-banner reveal">
+        <div class="ab-icon" aria-hidden="true">⚠️</div>
+        <div class="ab-content">
+          <h3 class="ab-title">Most Break-Ins Target <span>Unprotected Properties First.</span></h3>
+          <p class="ab-desc">
+            Visible cameras reduce break-in risk by over 60%. 
+            The cost of one burglary far exceeds the cost of a full security system. 
+            Don't wait for an incident to protect what you've built.
+          </p>
+        </div>
+        <div class="ab-cta">
+          <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20site%20assessment%20and%20security%20quote."
+             class="btn-wa-main" style="font-size:.82rem;padding:.78rem 1.5rem;"
+             aria-label="Get a free site assessment on WhatsApp"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Free Site Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATIONS GALLERY -->
+  <section class="sec" id="gallery" style="background:var(--bg);" aria-label="Completed installations gallery">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">Our Work</div>
+          <h2 class="sec-h2">Installations That <em>Actually Work</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every job photographed after completion and signed off by the client. 
+            See a setup you want for your property? Tap to get a similar quote on WhatsApp.
+          </p>
+        </div>
+      </div>
+      <div class="install-grid reveal">
+
+        <!-- Tall item -->
+        <div class="install-card install-tall" role="article" aria-label="Residential perimeter installation">
+          <div class="ic-img ic-v1">
+            <span class="ic-illustration" aria-hidden="true">🏠</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Hillcrest Residence</div>
+              <div class="ic-type">8-Camera Full Perimeter</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Hillcrest%20Residence%20installation%20and%20I%27d%20like%20a%20similar%20quote."
+                 class="ic-wa-btn" aria-label="Quote like Hillcrest installation"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Hillcrest Residence</div>
+            <div class="ic-info-tag">8-Camera Perimeter · Residential</div>
+          </div>
+        </div>
+
+        <!-- Row 1 right -->
+        <div class="install-card" role="article" aria-label="Retail shop installation">
+          <div class="ic-img ic-v2">
+            <span class="ic-illustration" aria-hidden="true">🏪</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Castries Retail Unit</div>
+              <div class="ic-type">12-Camera + Access Control</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20commercial%20CCTV%20and%20access%20control%20quote."
+                 class="ic-wa-btn" aria-label="Quote for retail security"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Castries Retail Unit</div>
+            <div class="ic-info-tag">Commercial · 12 Cameras + Access Control</div>
+          </div>
+        </div>
+
+        <div class="install-card" role="article" aria-label="Villa installation">
+          <div class="ic-img ic-v3">
+            <span class="ic-illustration" aria-hidden="true">🏖️</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Rodney Bay Villa</div>
+              <div class="ic-type">4-Camera + Alarm + Mobile View</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20villa%2Fholiday%20home%20CCTV%20quote."
+                 class="ic-wa-btn" aria-label="Quote for villa security"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Rodney Bay Villa</div>
+            <div class="ic-info-tag">Residential+ · 4-Camera &amp; Alarm</div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="install-card" role="article" aria-label="Office installation">
+          <div class="ic-img ic-v4">
+            <span class="ic-illustration" aria-hidden="true">💼</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Gros Islet Office Block</div>
+              <div class="ic-type">16-Camera Enterprise</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20an%20enterprise%20CCTV%20quote%20for%20an%20office%20building."
+                 class="ic-wa-btn" aria-label="Quote for office security"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Gros Islet Office Block</div>
+            <div class="ic-info-tag">Enterprise · 16 Cameras</div>
+          </div>
+        </div>
+
+        <div class="install-card" role="article" aria-label="Apartment complex installation">
+          <div class="ic-img ic-v5">
+            <span class="ic-illustration" aria-hidden="true">🏗️</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Vieux-Fort Apartments</div>
+              <div class="ic-type">Common Area Surveillance</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20CCTV%20quote%20for%20an%20apartment%20complex."
+                 class="ic-wa-btn" aria-label="Quote for apartment security"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Vieux-Fort Apartments</div>
+            <div class="ic-info-tag">Multi-Unit · Common Area</div>
+          </div>
+        </div>
+
+        <div class="install-card" role="article" aria-label="Warehouse installation">
+          <div class="ic-img ic-v6">
+            <span class="ic-illustration" aria-hidden="true">📦</span>
+            <div class="ic-scan-overlay" aria-hidden="true"></div>
+            <div class="ic-corners" aria-hidden="true">
+              <div class="ic-c ic-c-tl"></div><div class="ic-c ic-c-tr"></div>
+              <div class="ic-c ic-c-bl"></div><div class="ic-c ic-c-br"></div>
+            </div>
+            <div class="ic-overlay">
+              <div class="ic-title">Marchand Warehouse</div>
+              <div class="ic-type">Perimeter + Interior Grid</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20warehouse%20CCTV%20and%20security%20quote."
+                 class="ic-wa-btn" aria-label="Quote for warehouse security"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="ic-info-bar">
+            <div class="ic-info-name">Marchand Warehouse</div>
+            <div class="ic-info-tag">Industrial · Full Site Grid</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" id="how" style="background:var(--bg-2);" aria-label="How the installation process works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag" style="justify-content:center;">The Process</div>
+          <h2 class="sec-h2" style="text-align:center;">
+            From WhatsApp<br>to <em>Fully Protected</em>
+          </h2>
+          <div class="dash" style="margin:1rem auto 1.5rem;" aria-hidden="true"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center;">
+            No complicated forms. No waiting weeks for a quote. 
+            Four steps from first contact to a secured property.
+          </p>
+        </div>
+      </div>
+      <div class="how-grid reveal">
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">01</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          <h3 class="how-title">Message Us</h3>
+          <p class="how-desc">Tell us your property type on WhatsApp. A photo helps but isn't required. We respond the same day.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">02</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
+          <h3 class="how-title">Free Site Assessment</h3>
+          <p class="how-desc">We visit your property at no charge, identify vulnerabilities, and recommend the right coverage. No obligation.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">03</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-receipt" aria-hidden="true"></i></div>
+          <h3 class="how-title">Receive Your Quote</h3>
+          <p class="how-desc">Clear itemised quote delivered on WhatsApp. Approved package, camera count, pricing — everything in writing.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">04</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-camera-video-fill" aria-hidden="true"></i></div>
+          <h3 class="how-title">Installation Day</h3>
+          <p class="how-desc">Our team installs, configures, and tests every camera and device. We set up your mobile app before we leave.</p>
+        </div>
+      </div>
+      <div class="text-center mt-5 pt-2 reveal">
+        <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20to%20start%20with%20a%20free%20site%20assessment."
+           class="btn-wa-main" aria-label="Book a free site assessment on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Book Your Free Site Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — BLURRED (MANAGED) -->
+  <section class="sec" style="background:var(--bg);" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5">
+          <div class="sec-tag">Reviews</div>
+          <h2 class="sec-h2">Clients Who Trust <em>ShieldView</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="premium-wrap" aria-label="Client reviews — requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rv-tag"><i class="bi bi-house-fill" aria-hidden="true"></i> Home Shield Pro</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"ShieldView installed 8 cameras around our house in under a day. Setup was flawless and the mobile app means I can check the property from anywhere. Absolute peace of mind."</p>
+                <div class="rv-name">Claudette R.</div>
+                <div class="rv-loc">Castries, St. Lucia</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rv-tag"><i class="bi bi-building" aria-hidden="true"></i> Business Guard</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"Had two break-ins before ShieldView. Not one incident since. The cameras paid for themselves within the first month in deterrence alone. Worth every dollar."</p>
+                <div class="rv-name">Marcus J.</div>
+                <div class="rv-loc">Gros Islet, St. Lucia</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rv-tag"><i class="bi bi-camera-video" aria-hidden="true"></i> Total Site</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"Professional team, clean cabling, and they explained everything clearly. The WhatsApp quote process was faster than calling any other company. Highly recommend."</p>
+                <div class="rv-name">Denise P.</div>
+                <div class="rv-loc">Vieux-Fort, St. Lucia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+            <h5>Client Testimonials</h5>
+            <p>For a security business, verified reviews are the most powerful trust signal that converts a hesitant prospect. Included in the Managed plan.</p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20testimonials."
+               class="btn-quote-sm" style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / TRUST PILLARS -->
+  <section class="sec" id="about" style="background:var(--bg-2);" aria-label="About ShieldView">
+    <div class="container">
+      <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-5 reveal">
+          <div style="background:linear-gradient(145deg,var(--navy-2),var(--navy-3));border-radius:var(--r-lg);height:380px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-r);position:relative;overflow:hidden;" aria-label="ShieldView security operations illustration">
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,59,59,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,59,59,.03) 1px,transparent 1px);background-size:32px 32px;" aria-hidden="true"></div>
+            <span style="font-size:10rem;opacity:.45;position:relative;z-index:1;" aria-hidden="true">📹</span>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="sec-tag">Who We Are</div>
+          <h2 class="sec-h2">Security Isn't a Product.<br><em>It's a Commitment.</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:1rem;">
+            ShieldView was built because the Caribbean deserves the same standard of 
+            security protection available anywhere in the world. We install professional, 
+            commercial-grade systems — not the consumer-grade cameras from the electronics store.
+          </p>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:2rem;">
+            Every installation is backed by a 1-year parts and labour warranty. 
+            Every technician is certified. Every client gets a WhatsApp line 
+            for direct support — not a call centre queue.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--red);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Certified technicians</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--red);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Commercial-grade equipment</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--red);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">1-year warranty on all installs</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--red);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Direct WhatsApp support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 reveal">
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">🔒</span>
+            <div class="pillar-title">Licensed &amp; Fully Insured</div>
+            <p class="pillar-desc">Every installation is carried out by licensed, insured professionals. You're covered from the moment we arrive.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">📱</span>
+            <div class="pillar-title">Mobile Access — Always Included</div>
+            <p class="pillar-desc">Every system includes remote mobile viewing setup. Watch your property live from anywhere in the world.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">🛠️</span>
+            <div class="pillar-title">1-Year Warranty — No Excuses</div>
+            <p class="pillar-desc">Parts fail, cameras get knocked. We fix it within the warranty period — at no additional charge, no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE + GBP (BLURRED — MANAGED) -->
+  <section class="sec" style="background:var(--bg);" aria-label="Coverage area and Google visibility">
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-6">
+          <div class="coverage-strip reveal">
+            <div class="coverage-left">
+              <h3>Service Coverage</h3>
+              <p>Residential &amp; commercial across these areas</p>
+            </div>
+            <div class="area-chips" role="list" aria-label="Service areas">
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Castries</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Gros Islet</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Rodney Bay</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Vieux-Fort</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Soufrière</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Micoud</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="sec-tag">Get Found Online</div>
+          <h2 class="sec-h2" style="font-size:1.8rem;">Show Up When Customers Search <em>"CCTV Near Me"</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+
+          <div class="premium-wrap" aria-label="Google visibility - requires Managed plan">
+            <div class="blur-layer">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:9px;background:#4285F4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;font-family:var(--font-b);margin-bottom:.9rem;" aria-hidden="true">G</div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;">Google Business</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:.5rem;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>Google Maps visibility</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>Verified business badge</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>Collect Google reviews</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:9px;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;margin-bottom:.9rem;" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;">Local SEO</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:.5rem;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>"CCTV near me" ranking</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>Meta &amp; schema setup</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0;display:inline-block;"></span>Monthly reporting</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="unlock-overlay">
+              <div class="unlock-box">
+                <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-search" aria-hidden="true"></i></div>
+                <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+                <h5>Google Visibility</h5>
+                <p>When someone searches "CCTV installer near me" they're already ready to spend. Get in front of them first. Included in the Managed plan.</p>
+                <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20Google%20SEO."
+                   class="btn-quote-sm" style="margin:0 auto;display:inline-flex;"
+                   aria-label="Upgrade to Managed plan" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Get your free quote">
+    <div class="container">
+      <div class="cta-sv reveal">
+        <div class="cta-inner">
+          <div class="cta-tag">Your Property Is Waiting</div>
+          <h2 class="cta-h2">
+            Stop Hoping.<br>
+            Start <span class="red">Protecting.</span>
+          </h2>
+          <p class="cta-para">
+            Take the free security assessment above or message us directly on WhatsApp. 
+            We'll assess your property, recommend the right package, 
+            and have you protected faster than you think.
+          </p>
+          <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20security%20assessment%20and%20quote%20for%20my%20property."
+             class="btn-cta-wa" aria-label="Get your free assessment on WhatsApp"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Get Your Free Assessment Now
+          </a>
+          <p class="cta-note">
+            <i class="bi bi-shield-fill-check me-1" aria-hidden="true"></i>
+            Free site visit &nbsp;·&nbsp; No obligation quote &nbsp;·&nbsp; Same-day response
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-sv" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">Shield<span>View</span></div>
+          <div class="fl-sub">CCTV &amp; Security Systems · St. Lucia</div>
+          <p class="fl-about">Professional CCTV installation, alarm systems, and access control for homes and businesses. Licensed, insured, and warranted.</p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Packages</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#packages">Home Essentials</a></li>
+            <li><a href="#packages">Home Shield Pro</a></li>
+            <li><a href="#packages">Business Guard</a></li>
+            <li><a href="#packages">Total Site</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Company</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Installations</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Free Security Quote</div>
+          <div class="fl-wa-box">
+            <p>Message us your property details on WhatsApp. We'll respond the same day with a free assessment and quote.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20ShieldView%21%20I%27d%20like%20a%20free%20security%20quote."
+               class="fl-wa-btn" aria-label="Get a free security quote on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Free Security Quote
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 ShieldView CCTV &amp; Security. All rights reserved.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+
+    function applyTheme(dark) {
+      if (dark) {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'bi bi-sun-fill';
+        themeLabel.textContent = 'Light';
+      } else {
+        html.setAttribute('data-theme', 'light');
+        themeIcon.className = 'bi bi-moon-fill';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
+
+    // ===== ASSESSMENT WIDGET =====
+    const selections = { 1: null, 2: null, 3: null };
+
+    // Step tracking
+    const progressMap = { 1: { text: 'Question 1 of 3', pct: '0%', width: '0%' },
+                          2: { text: 'Question 2 of 3', pct: '33%', width: '33%' },
+                          3: { text: 'Question 3 of 3', pct: '66%', width: '66%' } };
+
+    function updateProgress(step) {
+      const p = progressMap[step];
+      document.getElementById('awProgressText').textContent = p.text;
+      document.getElementById('awProgressPct').textContent = p.pct;
+      document.getElementById('awProgressBar').style.width = p.width;
+    }
+
+    function selectOption(el) {
+      const step = parseInt(el.dataset.step);
+      // Deselect siblings
+      el.closest('.aw-options').querySelectorAll('.aw-option').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+      el.classList.add('selected');
+      el.setAttribute('aria-checked', 'true');
+      selections[step] = el.querySelector('.aw-opt-label').textContent;
+
+      // Enable next btn
+      const nextBtn = document.getElementById('awNext' + step);
+      if (nextBtn) nextBtn.classList.add('ready');
+    }
+
+    function nextStep(toStep) {
+      document.querySelectorAll('.aw-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('awStep' + toStep).classList.add('active');
+      updateProgress(toStep);
+    }
+
+    function prevStep(toStep) {
+      document.querySelectorAll('.aw-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('awStep' + toStep).classList.add('active');
+      updateProgress(toStep);
+    }
+
+    function showResult() {
+      // Compute score based on selections
+      let score = 100;
+      const s2 = selections[2] || '';
+      if (s2.includes('Nothing'))   score -= 55;
+      else if (s2.includes('Basic locks')) score -= 40;
+      else if (s2.includes('Old'))  score -= 25;
+      else if (s2.includes('Alarm')) score -= 15;
+
+      // Package recommendation
+      const s1 = selections[1] || '';
+      let pkg = 'Home Essentials Package';
+      let points = [
+        '4 x HD cameras installed professionally',
+        'Night vision coverage at all entry points',
+        'Remote mobile live viewing',
+        '1-year full warranty & support'
+      ];
+
+      if (s1.includes('Business')) {
+        pkg = 'Business Guard Package';
+        points = [
+          '8–16 x HD IP cameras with NVR',
+          'Access control at main entry',
+          'Staff activity monitoring',
+          'Multi-user remote access',
+          '1-year warranty & ongoing support'
+        ];
+      } else if (s1.includes('Construction')) {
+        pkg = 'Site Surveillance Package';
+        points = [
+          'Weatherproof outdoor cameras',
+          'Solar / portable power options',
+          'Motion alerts & perimeter detection',
+          'Remote monitoring from any device'
+        ];
+      } else if (score > 55) {
+        pkg = 'Home Shield Pro';
+        points = [
+          '8 x Full-HD cameras + alarm system',
+          'Motion detection & instant alerts',
+          'Full perimeter coverage',
+          'Remote live view & 30-day playback'
+        ];
+      }
+
+      // Update UI
+      document.getElementById('awScoreNum').textContent = score;
+      document.getElementById('awScoreRing').style.setProperty('--score-deg', Math.round((score/100)*360) + 'deg');
+      document.getElementById('awPkgPill').textContent = pkg;
+      document.getElementById('awResultTitle').textContent =
+        score <= 35 ? 'High risk — immediate action recommended.' :
+        score <= 55 ? 'Your property has significant gaps.' :
+        score <= 75 ? 'Some vulnerabilities to address.' :
+                      'Partial protection — room to improve.';
+
+      const ptList = document.getElementById('awResultPoints');
+      ptList.innerHTML = points.map(p => `<li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> ${p}</li>`).join('');
+
+      // Update WA link with context
+      const waMsg = encodeURIComponent(`Hi ShieldView! I completed your security assessment. Property: ${selections[1]}. Current security: ${selections[2]}. Biggest concern: ${selections[3]}. Recommended package: ${pkg}. Please send me a free quote.`);
+      document.getElementById('awResultCta').href = `https://wa.me/17587235872?text=${waMsg}`;
+
+      // Show result
+      document.querySelectorAll('.aw-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('awProgressText').textContent = 'Assessment Complete';
+      document.getElementById('awProgressPct').textContent = '100%';
+      document.getElementById('awProgressBar').style.width = '100%';
+      document.getElementById('awResult').classList.add('active');
+    }
+
+    function restartAssessment() {
+      selections[1] = null; selections[2] = null; selections[3] = null;
+      document.querySelectorAll('.aw-option').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+      document.querySelectorAll('.aw-btn-next').forEach(b => b.classList.remove('ready'));
+      document.getElementById('awResult').classList.remove('active');
+      document.querySelectorAll('.aw-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('awStep1').classList.add('active');
+      updateProgress(1);
+    }
+
+    // Keyboard support for options
+    document.querySelectorAll('.aw-option').forEach(opt => {
+      opt.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectOption(opt); }
+      });
+    });
+
+    // ===== SCROLL REVEAL =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
