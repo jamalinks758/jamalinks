@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="André St. Hill — Licensed Civil and Structural Engineer based in Saint Lucia. Residential foundations, commercial structures, site development, and structural assessments. WhatsApp consultation available.">
+  <meta property="og:title" content="André St. Hill | Civil & Structural Engineer — Saint Lucia">
+  <meta property="og:description" content="Licensed structural engineer with 14 years of experience across residential, commercial, and infrastructure projects in the Eastern Caribbean.">
+  <meta property="og:type" content="profile">
+  <title>André St. Hill | Civil & Structural Engineer</title>
+
+  <!-- Structured Data — LocalBusiness + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "ProfessionalService"],
+    "name": "André St. Hill",
+    "jobTitle": "Civil & Structural Engineer",
+    "description": "Licensed Civil and Structural Engineer based in Saint Lucia with 14 years of experience in residential foundations, commercial steel structures, site development, and post-hurricane structural assessments.",
+    "url": "https://jamalinks758.github.io/jamalinks/andre-st-hill.html",
+    "telephone": "+17587235872",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Castries",
+      "addressCountry": "LC"
+    },
+    "areaServed": ["Saint Lucia", "Barbados", "Trinidad and Tobago", "Eastern Caribbean"],
+    "knowsAbout": ["Structural Engineering", "Civil Engineering", "Foundation Design", "BIM", "AutoCAD", "Post-Hurricane Assessment", "Commercial Construction"],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of the West Indies"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+      --concrete:   #1A1C20;
+      --concrete-2: #22252B;
+      --concrete-3: #2C3038;
+      --steel:      #2D5F8A;
+      --steel-2:    #1E4A70;
+      --steel-pale: #C8DDF0;
+      --amber:      #D4820A;
+      --amber-pale: #F5D49A;
+      --green:      #2A6B4A;
+      --green-pale: #C8E8D8;
+      --off-white:  #F5F2ED;
+      --parchment:  #EDE8E0;
+      --muted:      #7A808C;
+      --muted-2:    #9AA0AC;
+      --border:     rgba(255,255,255,0.07);
+      --border-s:   rgba(45,95,138,0.2);
+      --white:      #FFFFFF;
+      --wa:         #25D366;
+      --wa-dark:    #128C7E;
+
+      /* Light mode */
+      --bg:         #F5F2ED;
+      --bg-2:       #EDE8E0;
+      --text:       #1A1C20;
+      --text-m:     #4A5060;
+      --card-l:     #FFFFFF;
+      --bdr-l:      rgba(26,28,32,0.09);
+
+      --font-d: 'Barlow Condensed', system-ui, sans-serif;
+      --font-b: 'Barlow', system-ui, sans-serif;
+      --r-sm: 4px; --r-md: 10px; --r-lg: 18px;
+    }
+
+    [data-theme="dark"] {
+      --bg:    var(--concrete);
+      --bg-2:  var(--concrete-2);
+      --text:  var(--off-white);
+      --text-m:var(--muted-2);
+      --card-l:var(--concrete-2);
+      --bdr-l: var(--border);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-display: swap; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .3s, color .3s;
+    }
+    img { max-width: 100%; display: block; font-display: swap; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WA
+    ============================================= */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--concrete); color: var(--off-white);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-s);
+    }
+    .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
+    .wa-btn-float {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
+    .wa-btn-float:hover { transform: scale(1.07); }
+    .wa-btn-float i { font-size: 1.55rem; color: #fff; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
+
+    /* Demo badge */
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--concrete-2); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-s);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot { width: 5px; height: 5px; background: var(--amber); border-radius: 50%; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-ash {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(26,28,32,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: .8rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-brand-monogram {
+      width: 40px; height: 40px;
+      border: 2px solid var(--amber);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 800;
+      color: var(--amber); letter-spacing: -.02em; flex-shrink: 0;
+    }
+    .nav-brand-name {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 700;
+      color: var(--off-white); letter-spacing: .02em; line-height: 1;
+    }
+    .nav-brand-sub {
+      font-family: var(--font-b); font-size: .55rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); margin-top: 1px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.5rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted-2); transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-div { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 400;
+      color: var(--muted-2); transition: border-color .2s, color .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--amber); color: var(--amber); }
+    .theme-toggle i { font-size: .76rem; }
+    .nav-cta {
+      font-family: var(--font-d); font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .5rem 1.3rem; border-radius: var(--r-sm);
+      background: var(--amber); color: var(--concrete) !important;
+      transition: background .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { background: #B86D08 !important; color: #fff !important; }
+    @media (max-width: 768px) {
+      .nav-links, .nav-div { display: none; }
+      .navbar-ash { padding: .8rem 1.1rem; }
+    }
+
+    /* =============================================
+       BLUEPRINT HERO
+    ============================================= */
+    .hero-ash {
+      background: var(--concrete);
+      position: relative; overflow: hidden;
+      min-height: 96vh; display: flex; align-items: center;
+      padding: 5rem 0 4rem;
+    }
+
+    /* Blueprint grid overlay */
+    .hero-blueprint {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(45,95,138,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,95,138,.08) 1px, transparent 1px),
+        linear-gradient(rgba(45,95,138,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,95,138,.04) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+      pointer-events: none;
+    }
+
+    /* Corner crosshairs */
+    .hero-crosshair {
+      position: absolute; width: 40px; height: 40px;
+      pointer-events: none;
+    }
+    .hero-crosshair::before, .hero-crosshair::after {
+      content: ''; position: absolute;
+      background: rgba(45,95,138,.4);
+    }
+    .hero-crosshair::before { width: 1px; height: 100%; left: 50%; }
+    .hero-crosshair::after  { height: 1px; width: 100%; top: 50%; }
+    .hc-tl { top: 40px; left: 40px; }
+    .hc-tr { top: 40px; right: 40px; }
+    .hc-bl { bottom: 40px; left: 40px; }
+    .hc-br { bottom: 40px; right: 40px; }
+
+    .hero-glow {
+      position: absolute; top: -20%; right: 10%;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,95,138,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Blueprint ref tag (decorative) */
+    .hero-ref-tag {
+      font-family: var(--font-d); font-size: .62rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(45,95,138,.55); display: flex; align-items: center; gap: 6px;
+      margin-bottom: 2rem;
+    }
+    .hero-ref-tag::before {
+      content: '';
+      width: 24px; height: 1px; background: rgba(45,95,138,.55);
+    }
+
+    .hero-name {
+      font-family: var(--font-d);
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 800; line-height: .93;
+      letter-spacing: -.01em; color: var(--off-white);
+      margin-bottom: 1rem;
+    }
+
+    .hero-designation {
+      font-family: var(--font-d);
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 400; letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amber); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-designation::after {
+      content: ''; flex: 1; max-width: 60px;
+      height: 1px; background: var(--amber); opacity: .5;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-b); font-size: .95rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.8; max-width: 460px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-credentials {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.2rem;
+    }
+    .cred-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45,95,138,.12); border: 1px solid var(--border-s);
+      color: var(--steel-pale); font-family: var(--font-b);
+      font-size: .68rem; font-weight: 500; letter-spacing: .06em;
+      padding: .28rem .8rem; border-radius: 2px;
+    }
+    .cred-chip i { font-size: .7rem; color: var(--amber); }
+
+    .hero-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    }
+    .btn-amber {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--amber); color: var(--concrete);
+      font-family: var(--font-d); font-size: .88rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .85rem 1.8rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(212,130,10,.3);
+      transition: background .2s, transform .15s;
+    }
+    .btn-amber:hover { background: #B86D08; color: #fff; transform: translateY(-2px); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      letter-spacing: .04em; padding: .85rem 1.6rem;
+      border-radius: var(--r-sm); border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.28);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+    .btn-outline-ash {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border-s); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400;
+      padding: .85rem 1.5rem; border-radius: var(--r-sm);
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-outline-ash:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* Hero right — stat cards */
+    .hero-stat-stack {
+      display: flex; flex-direction: column; gap: .9rem;
+    }
+    @media (max-width: 991px) { .hero-stat-stack { display: none; } }
+
+    .hero-stat-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.1rem 1.3rem;
+      display: flex; align-items: center; gap: 14px;
+      transition: border-color .2s;
+    }
+    .hero-stat-card:hover { border-color: var(--border-s); }
+
+    .hsc-icon {
+      width: 42px; height: 42px; border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .hsc-steel  { background: rgba(45,95,138,.2); color: var(--steel-pale); }
+    .hsc-amber  { background: rgba(212,130,10,.18); color: var(--amber-pale); }
+    .hsc-green  { background: rgba(42,107,74,.2); color: var(--green-pale); }
+
+    .hsc-label  {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      color: var(--off-white); line-height: 1.3;
+    }
+    .hsc-sub { font-family: var(--font-b); font-size: .68rem; color: var(--muted); margin-top: 1px; }
+    .hsc-val {
+      margin-left: auto;
+      font-family: var(--font-d); font-size: .9rem; font-weight: 700;
+      color: var(--amber); white-space: nowrap;
+    }
+
+    /* Blueprint dimension annotation (decorative) */
+    .hero-annotation {
+      margin-top: 2rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(45,95,138,.2);
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .ha-item {
+      display: flex; flex-direction: column;
+    }
+    .ha-num {
+      font-family: var(--font-d); font-size: 2rem; font-weight: 800;
+      color: var(--off-white); line-height: 1;
+    }
+    .ha-label {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 3px;
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 5.5rem 0; }
+    .sec-sm { padding: 3.5rem 0; }
+
+    .sec-eyebrow {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--steel);
+      margin-bottom: .6rem; display: flex; align-items: center; gap: 9px;
+    }
+    .sec-eyebrow::before { content: ''; width: 18px; height: 2px; background: var(--steel); display: block; }
+    [data-theme="dark"] .sec-eyebrow { color: var(--amber); }
+    [data-theme="dark"] .sec-eyebrow::before { background: var(--amber); }
+
+    .sec-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: .01em;
+      color: var(--text); margin-bottom: .75rem; text-transform: uppercase;
+    }
+    .sec-h2 em { font-style: normal; color: var(--amber); }
+
+    .sec-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.8; max-width: 500px;
+    }
+    .rule {
+      width: 36px; height: 3px; background: var(--amber);
+      border-radius: 1px; margin: 1rem 0 1.5rem;
+    }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    .trust-bar {
+      background: var(--concrete-2);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.4rem 0;
+    }
+    [data-theme="light"] .trust-bar { background: var(--parchment); border-color: var(--bdr-l); }
+    .trust-items {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: .5rem 2.5rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 9px;
+      font-family: var(--font-b); font-size: .83rem; font-weight: 500;
+      color: var(--text); white-space: nowrap;
+    }
+    .ti-icon {
+      width: 32px; height: 32px; border-radius: var(--r-sm);
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; color: var(--steel); flex-shrink: 0;
+    }
+    [data-theme="dark"] .ti-icon { color: var(--amber); }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-frame {
+      background: linear-gradient(145deg, var(--concrete-2), var(--concrete-3));
+      border: 1px solid var(--border-s);
+      border-radius: var(--r-md);
+      aspect-ratio: 3/4;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem; opacity: .5; position: relative; overflow: hidden;
+    }
+
+    /* Blueprint lines on photo frame */
+    .about-photo-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(45,95,138,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,95,138,.06) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .about-photo-img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: var(--r-md); position: absolute; inset: 0;
+    }
+
+    .about-cert-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--amber); border-radius: var(--r-md);
+      padding: 1rem 1.2rem; text-align: center;
+      box-shadow: 0 8px 28px rgba(212,130,10,.3);
+    }
+    .acb-num {
+      font-family: var(--font-d); font-size: 1.8rem; font-weight: 800;
+      color: var(--concrete); line-height: 1;
+    }
+    .acb-label {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--concrete); opacity: .8;
+    }
+
+    .about-right {}
+
+    .about-bio {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.85; margin-bottom: 1.2rem;
+    }
+
+    /* Credential list */
+    .cred-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.8rem; }
+    .cred-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400; color: var(--text-m);
+    }
+    .cred-item i { color: var(--amber); flex-shrink: 0; margin-top: 2px; font-size: .85rem; }
+
+    /* Software skills strip */
+    .skills-strip {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.8rem;
+    }
+    .skill-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg-2); border: 1px solid var(--bdr-l);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      color: var(--text-m); padding: .28rem .75rem; border-radius: 2px;
+    }
+
+    /* =============================================
+       SERVICES GRID
+    ============================================= */
+    .service-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.8rem;
+      transition: box-shadow .3s, transform .2s, border-color .2s;
+      height: 100%; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .service-card { border-color: var(--border); }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0;
+      width: 3px; background: var(--amber); opacity: 0; transition: opacity .2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(45,95,138,.1);
+      transform: translateY(-4px); border-color: var(--border-s);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .sc-icon {
+      width: 52px; height: 52px; border-radius: var(--r-sm);
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--steel); margin-bottom: 1.1rem;
+    }
+    [data-theme="dark"] .sc-icon { color: var(--amber); }
+
+    .sc-number {
+      font-family: var(--font-d); font-size: 3rem; font-weight: 800;
+      color: var(--amber); opacity: .1; line-height: 1;
+      position: absolute; top: 1rem; right: 1.2rem;
+    }
+    .sc-name {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
+      color: var(--text); text-transform: uppercase; letter-spacing: .03em;
+      margin-bottom: .4rem;
+    }
+    .sc-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: 1rem;
+    }
+    .sc-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .sc-tag {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      background: var(--bg-2); border: 1px solid var(--bdr-l);
+      color: var(--text-m); padding: .18rem .6rem; border-radius: 2px;
+    }
+
+    /* =============================================
+       ★ UNIQUE FEATURE: PROJECT SCOPE CALCULATOR
+    ============================================= */
+    .scope-calc {
+      background: var(--concrete-2);
+      border: 1px solid var(--border-s);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(45,95,138,.12);
+    }
+    [data-theme="light"] .scope-calc {
+      background: var(--card-l); border-color: var(--bdr-l);
+      box-shadow: 0 24px 70px rgba(26,28,32,.08);
+    }
+
+    .sc-header {
+      background: linear-gradient(135deg, rgba(45,95,138,.15) 0%, rgba(212,130,10,.06) 100%);
+      border-bottom: 1px solid var(--border-s);
+      padding: 1.3rem 1.8rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sc-header-icon {
+      width: 42px; height: 42px; border-radius: var(--r-sm);
+      background: var(--steel); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #fff; flex-shrink: 0;
+    }
+    .sc-header-title {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 700;
+      color: var(--off-white); text-transform: uppercase; letter-spacing: .04em;
+    }
+    .sc-header-sub { font-family: var(--font-b); font-size: .65rem; color: var(--muted); margin-top: 1px; }
+    .sc-live-tag {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(212,130,10,.12); border: 1px solid rgba(212,130,10,.25);
+      color: var(--amber); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .2rem .65rem; border-radius: 20px; flex-shrink: 0;
+    }
+
+    .sc-body { padding: 1.6rem 1.8rem; }
+    .sc-label-row {
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: .7rem; display: block;
+    }
+
+    /* Option buttons */
+    .sc-options {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem;
+      margin-bottom: 1.3rem;
+    }
+    .sc-opt {
+      background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.07);
+      border-radius: var(--r-sm); padding: .8rem .9rem;
+      cursor: pointer; transition: all .2s; text-align: left;
+    }
+    [data-theme="light"] .sc-opt {
+      background: var(--bg-2); border-color: var(--bdr-l);
+    }
+    .sc-opt:hover { border-color: var(--border-s); background: rgba(45,95,138,.08); }
+    .sc-opt.selected { border-color: var(--amber); background: rgba(212,130,10,.1); }
+    .sc-opt-icon { font-size: 1.3rem; display: block; margin-bottom: .3rem; }
+    .sc-opt-label {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 500;
+      color: var(--off-white);
+    }
+    [data-theme="light"] .sc-opt-label { color: var(--text); }
+    .sc-opt-note { font-family: var(--font-b); font-size: .68rem; color: var(--muted); margin-top: 1px; }
+
+    /* Scope slider */
+    .sc-scope-wrap { margin-bottom: 1.3rem; }
+    .sc-scope-display {
+      display: flex; align-items: baseline; gap: .4rem; margin-bottom: .6rem;
+    }
+    .sc-scope-val {
+      font-family: var(--font-d); font-size: 2.2rem; font-weight: 800; color: var(--off-white); line-height: 1;
+    }
+    [data-theme="light"] .sc-scope-val { color: var(--text); }
+    .sc-scope-unit { font-family: var(--font-b); font-size: .8rem; color: var(--muted); }
+
+    input[type="range"].sc-slider {
+      -webkit-appearance: none; width: 100%; height: 4px;
+      background: rgba(255,255,255,.1); border-radius: 2px;
+      cursor: pointer; outline: none;
+    }
+    [data-theme="light"] input[type="range"].sc-slider { background: var(--bdr-l); }
+    input[type="range"].sc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--amber); border: 3px solid var(--concrete);
+      cursor: pointer; box-shadow: 0 2px 8px rgba(212,130,10,.4);
+    }
+
+    /* Result cards */
+    .sc-results {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem;
+      margin-bottom: 1.1rem;
+    }
+    .sc-result-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--r-sm); padding: .9rem;
+    }
+    [data-theme="light"] .sc-result-card { background: var(--bg-2); border-color: var(--bdr-l); }
+    .sc-result-card.hl { background: rgba(212,130,10,.1); border-color: rgba(212,130,10,.25); }
+    .sc-result-card.hl-g { background: rgba(42,107,74,.1); border-color: rgba(42,107,74,.25); }
+    .src-label { font-family: var(--font-b); font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+    .src-value { font-family: var(--font-d); font-size: 1.35rem; font-weight: 800; color: var(--off-white); line-height: 1; }
+    [data-theme="light"] .src-value { color: var(--text); }
+    .sc-result-card.hl .src-value { color: var(--amber); }
+    .sc-result-card.hl-g .src-value { color: var(--green-pale); }
+    .src-sub { font-family: var(--font-b); font-size: .65rem; color: var(--muted); margin-top: 2px; }
+
+    .sc-next-step {
+      background: rgba(45,95,138,.08); border: 1px solid var(--border-s);
+      border-radius: var(--r-sm); padding: .8rem 1rem;
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      color: var(--steel-pale); line-height: 1.5; margin-bottom: 1.1rem;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    [data-theme="light"] .sc-next-step { color: var(--steel-2); }
+    .sc-next-step i { flex-shrink: 0; color: var(--amber); margin-top: 2px; }
+
+    .sc-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .88rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      padding: .85rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+      transition: background .2s;
+    }
+    .sc-wa-btn:hover { background: var(--wa-dark); }
+    .sc-disclaimer {
+      font-family: var(--font-b); font-size: .63rem; color: var(--muted);
+      line-height: 1.5; margin-top: .85rem; font-style: italic; text-align: center;
+    }
+
+    /* =============================================
+       PROJECT PORTFOLIO
+    ============================================= */
+    .proj-filter {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem;
+    }
+    .pf-tab {
+      font-family: var(--font-b); font-size: .73rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .4rem 1.1rem; border-radius: 2px;
+      border: 1.5px solid var(--bdr-l); color: var(--text-m);
+      cursor: pointer; transition: all .2s; background: transparent;
+    }
+    [data-theme="dark"] .pf-tab { border-color: var(--border); }
+    .pf-tab:hover, .pf-tab.active {
+      background: var(--steel); border-color: var(--steel); color: #fff;
+    }
+
+    .proj-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    @media (max-width: 768px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .proj-grid { grid-template-columns: 1fr; } }
+    .proj-tall { grid-row: span 2; }
+
+    .proj-card {
+      border-radius: var(--r-md); overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .pc-visual {
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .proj-card:not(.proj-tall) .pc-visual { height: 210px; }
+    .proj-tall .pc-visual { height: 440px; }
+    @media (max-width: 768px) {
+      .proj-tall .pc-visual { height: 260px; }
+      .proj-tall { grid-row: span 1; }
+    }
+
+    /* Blueprint-tinted project card backgrounds */
+    .pc-v1 { background: linear-gradient(145deg, #0D1520, #152235); }
+    .pc-v2 { background: linear-gradient(145deg, #15200D, #1E3012); }
+    .pc-v3 { background: linear-gradient(145deg, #1A1508, #2A2010); }
+    .pc-v4 { background: linear-gradient(145deg, #100D20, #18152E); }
+    .pc-v5 { background: linear-gradient(145deg, #0A1520, #102030); }
+    .pc-v6 { background: linear-gradient(145deg, #1A0D0D, #281510); }
+
+    .pc-illus { font-size: 4rem; opacity: .5; transition: transform .5s; }
+    .proj-card:hover .pc-illus { transform: scale(1.06); }
+
+    .pc-blueprint-overlay {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(45,95,138,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,95,138,.06) 1px, transparent 1px);
+      background-size: 25px 25px; pointer-events: none;
+      opacity: 0; transition: opacity .3s;
+    }
+    .proj-card:hover .pc-blueprint-overlay { opacity: 1; }
+
+    .pc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(26,28,32,.88) 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.1rem; opacity: 0; transition: opacity .3s;
+    }
+    .proj-card:hover .pc-overlay { opacity: 1; }
+    .pc-name {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: #fff; margin-bottom: 2px;
+    }
+    .pc-type { font-family: var(--font-b); font-size: .68rem; color: var(--muted-2); }
+    .pc-wa {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      padding: .35rem .8rem; border-radius: var(--r-sm);
+      margin-top: .5rem; border: none; cursor: pointer;
+      transition: background .2s; width: fit-content;
+    }
+    .pc-wa:hover { background: var(--wa-dark); color: #fff; }
+
+    .pc-info {
+      background: var(--card-l); border: 1px solid var(--bdr-l);
+      border-top: none; border-radius: 0 0 var(--r-md) var(--r-md);
+      padding: .7rem .9rem;
+    }
+    [data-theme="dark"] .pc-info { border-color: var(--border); }
+    .pc-info-name {
+      font-family: var(--font-d); font-size: .9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .03em; color: var(--text);
+    }
+    .pc-info-tag {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--steel);
+    }
+    [data-theme="dark"] .pc-info-tag { color: var(--amber); }
+
+    /* =============================================
+       ASSESSMENTS PROCESS
+    ============================================= */
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      position: relative;
+    }
+    @media (max-width: 768px) { .process-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
+
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 12.5%; right: 12.5%;
+      height: 1px; background: var(--bdr-l); z-index: 0;
+    }
+    @media (max-width: 768px) { .process-steps::before { display: none; } }
+
+    .ps-step {
+      text-align: center; position: relative; z-index: 1;
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.5rem 1.2rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    [data-theme="dark"] .ps-step { border-color: var(--border); }
+    .ps-step:hover {
+      border-color: var(--border-s); box-shadow: 0 8px 28px rgba(45,95,138,.1);
+    }
+    .ps-num {
+      font-family: var(--font-d); font-size: 2.5rem; font-weight: 800;
+      color: var(--amber); opacity: .2; line-height: 1; margin-bottom: .6rem;
+    }
+    .ps-icon-wrap {
+      width: 50px; height: 50px; border-radius: var(--r-sm);
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.3rem; color: var(--steel);
+    }
+    [data-theme="dark"] .ps-icon-wrap { color: var(--amber); }
+    .ps-title {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .03em;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .ps-desc {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65;
+    }
+
+    /* =============================================
+       TESTIMONIALS — PREMIUM BLUR
+    ============================================= */
+    .premium-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+    .blur-layer { filter: blur(6px); user-select: none; pointer-events: none; opacity: .5; }
+    .unlock-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(245,242,237,.82); backdrop-filter: blur(2px); z-index: 10;
+    }
+    [data-theme="dark"] .unlock-overlay { background: rgba(26,28,32,.84); }
+    .unlock-box {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l);
+      box-shadow: 0 20px 60px rgba(45,95,138,.1);
+      padding: 2rem 2.5rem; text-align: center; max-width: 340px; width: 90%;
+    }
+    [data-theme="dark"] .unlock-box { border-color: var(--border-s); }
+    .unlock-icon-wrap {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.1rem; color: var(--steel);
+    }
+    .unlock-plan-pill {
+      display: inline-block; border: 1px solid var(--border-s); color: var(--steel);
+      font-family: var(--font-b); font-size: .6rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: .22rem .75rem; border-radius: 20px; margin-bottom: 1rem;
+    }
+    [data-theme="light"] .unlock-plan-pill { color: var(--steel-2); }
+    .unlock-box h5 {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
+      text-transform: uppercase; color: var(--text); margin-bottom: .45rem;
+    }
+    .unlock-box p {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: 1.3rem;
+    }
+
+    /* Review card (inside blur) */
+    .rv-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem; height: 100%;
+    }
+    [data-theme="dark"] .rv-card { border-color: var(--border); }
+    .rv-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      color: var(--steel); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 2px; margin-bottom: .6rem;
+    }
+    [data-theme="dark"] .rv-tag { color: var(--amber); }
+    .rv-stars { color: #F59E0B; font-size: .8rem; margin-bottom: .6rem; letter-spacing: 1px; }
+    .rv-text {
+      font-family: var(--font-b); font-size: .87rem; font-weight: 400;
+      color: var(--text); line-height: 1.7; margin-bottom: 1rem;
+    }
+    .rv-name { font-family: var(--font-d); font-size: .9rem; font-weight: 700; color: var(--text); }
+    .rv-loc { font-family: var(--font-b); font-size: .7rem; color: var(--text-m); }
+
+    /* =============================================
+       ABOUT DETAIL / TIMELINE
+    ============================================= */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+    .tl-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+    }
+    .tl-dot-col {
+      display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--amber); flex-shrink: 0; margin-top: 4px;
+    }
+    .tl-line {
+      width: 1px; flex: 1; background: var(--bdr-l); margin-top: 4px;
+      min-height: 30px;
+    }
+    [data-theme="dark"] .tl-line { background: var(--border); }
+    .tl-year {
+      font-family: var(--font-d); font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; color: var(--amber); white-space: nowrap;
+      margin-top: 2px; min-width: 40px;
+    }
+    .tl-content {}
+    .tl-title {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .03em; color: var(--text);
+      margin-bottom: 2px;
+    }
+    .tl-org {
+      font-family: var(--font-b); font-size: .78rem; font-weight: 500;
+      color: var(--steel); margin-bottom: 3px;
+    }
+    [data-theme="dark"] .tl-org { color: var(--amber); }
+    .tl-desc {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.6;
+    }
+
+    /* =============================================
+       COVERAGE + GBP BLUR
+    ============================================= */
+    .coverage-strip {
+      background: linear-gradient(135deg, var(--concrete-2) 0%, var(--concrete-3) 100%);
+      border: 1px solid var(--border-s); border-radius: var(--r-lg);
+      padding: 2.5rem; display: flex; align-items: center;
+      flex-wrap: wrap; gap: 2rem; justify-content: space-between;
+    }
+    [data-theme="light"] .coverage-strip {
+      background: linear-gradient(135deg, var(--parchment) 0%, var(--bg-2) 100%);
+      border-color: var(--bdr-l);
+    }
+    @media (max-width: 768px) { .coverage-strip { flex-direction: column; align-items: flex-start; padding: 1.8rem; } }
+    .coverage-left h3 {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--off-white); margin-bottom: .3rem;
+    }
+    [data-theme="light"] .coverage-left h3 { color: var(--text); }
+    .coverage-left p { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: var(--muted-2); }
+    .area-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45,95,138,.12); border: 1px solid var(--border-s);
+      color: var(--steel-pale); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500; padding: .3rem .8rem; border-radius: 2px;
+    }
+    [data-theme="light"] .area-chip { color: var(--steel-2); background: rgba(45,95,138,.08); }
+    .area-chip i { font-size: .7rem; color: var(--amber); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-ash {
+      background: var(--concrete);
+      border: 1px solid var(--border-s);
+      border-radius: var(--r-lg);
+      padding: 5rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-ash::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(45,95,138,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45,95,138,.07) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+    .cta-ash::after {
+      content: ''; position: absolute;
+      top: -30%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,95,138,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-eyebrow {
+      font-family: var(--font-b); font-size: .63rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem;
+    }
+    .cta-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 800; line-height: .97;
+      letter-spacing: -.01em; text-transform: uppercase;
+      color: var(--off-white); margin-bottom: 1rem;
+    }
+    .cta-h2 .amber { color: var(--amber); }
+    .cta-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--muted-2); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .cta-btn-group {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    }
+    .cta-note {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 300;
+      color: rgba(245,242,237,.25); margin-top: 1.2rem; letter-spacing: .06em;
+    }
+
+    /* =============================================
+       MEDIA KIT DOWNLOAD (BLURRED — PREMIUM)
+    ============================================= */
+    .mediakit-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 2rem;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    [data-theme="dark"] .mediakit-card { border-color: var(--border); }
+    .mk-icon {
+      width: 64px; height: 64px; border-radius: var(--r-md);
+      background: rgba(45,95,138,.1); border: 1px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; color: var(--steel); flex-shrink: 0;
+    }
+    [data-theme="dark"] .mk-icon { color: var(--amber); }
+    .mk-title {
+      font-family: var(--font-d); font-size: 1.2rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em; color: var(--text); margin-bottom: .3rem;
+    }
+    .mk-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.6; max-width: 360px;
+    }
+    .mk-btn {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--steel); color: #fff;
+      font-family: var(--font-d); font-size: .78rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .65rem 1.4rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer; transition: background .2s;
+    }
+    .mk-btn:hover { background: var(--steel-2); }
+
+    /* =============================================
+       FOOTER — always dark, hardcoded
+    ============================================= */
+    .footer-ash {
+      background: #0F1114; padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(45,95,138,.15);
+    }
+    .footer-ash .fl-name {
+      font-family: var(--font-d); font-size: 1.6rem; font-weight: 800;
+      color: var(--off-white); letter-spacing: .03em; line-height: 1;
+      text-transform: uppercase;
+    }
+    .footer-ash .fl-sub {
+      font-family: var(--font-b); font-size: .56rem; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(245,242,237,.28); margin-top: 3px;
+    }
+    .footer-ash .fl-about {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(245,242,237,.42); line-height: 1.8; max-width: 280px; margin-top: 1rem;
+    }
+    .footer-ash .fl-h {
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem;
+    }
+    .footer-ash .fl-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-ash .fl-links a {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(245,242,237,.42); transition: color .2s;
+    }
+    .footer-ash .fl-links a:hover { color: var(--amber); }
+    .footer-ash .fl-wa-box {
+      background: rgba(37,211,102,.06); border: 1px solid rgba(37,211,102,.18);
+      border-radius: var(--r-md); padding: 1.3rem;
+    }
+    .footer-ash .fl-wa-box p {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: rgba(245,242,237,.42); margin-bottom: .9rem; line-height: 1.6;
+    }
+    .footer-ash .fl-wa-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .78rem; font-weight: 600;
+      padding: .52rem 1.1rem; border-radius: var(--r-sm); transition: background .2s;
+    }
+    .footer-ash .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-ash .fl-bottom {
+      border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.8rem;
+      padding-top: 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-ash .fl-bottom p { font-family: var(--font-b); font-size: .72rem; font-weight: 300; color: rgba(245,242,237,.22); }
+    .footer-ash .fl-bottom a { font-family: var(--font-b); font-size: .72rem; font-weight: 600; color: var(--amber); transition: color .2s; }
+    .footer-ash .fl-bottom a:hover { color: var(--amber-pale); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-ash { padding: 3.5rem 1.5rem; }
+      .coverage-strip { padding: 1.8rem 1.2rem; }
+      .hero-annotation { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20to%20discuss%20an%20engineering%20project%20with%20you."
+     class="wa-float" aria-label="Contact André on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-pill">Request Consultation</span>
+    <button class="wa-btn-float" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="JamaLinks demo profile">
+    <span class="demo-dot" aria-hidden="true"></span>Demo Profile
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-ash" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <div class="nav-brand-monogram" aria-hidden="true">AS</div>
+      <div>
+        <div class="nav-brand-name">André St. Hill</div>
+        <div class="nav-brand-sub">Civil &amp; Structural Engineer · St. Lucia</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-div" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20a%20consultation%20about%20an%20engineering%20project."
+         class="nav-cta" aria-label="Request a consultation on WhatsApp"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-briefcase-fill" aria-hidden="true"></i> Consult
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-ash" role="banner" aria-label="André St. Hill engineer profile hero">
+    <div class="hero-blueprint" aria-hidden="true"></div>
+    <div class="hero-crosshair hc-tl" aria-hidden="true"></div>
+    <div class="hero-crosshair hc-tr" aria-hidden="true"></div>
+    <div class="hero-crosshair hc-bl" aria-hidden="true"></div>
+    <div class="hero-crosshair hc-br" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- LEFT -->
+        <div class="col-lg-6">
+          <div class="hero-ref-tag" aria-hidden="true">REF: ASH/CE/ST.LUCIA/2010</div>
+          <h1 class="hero-name">André<br>St. Hill</h1>
+          <div class="hero-designation">B.Eng · MSc · MICE · Eur Ing</div>
+          <p class="hero-tagline">
+            Civil and Structural Engineer with 14 years of experience across 
+            residential foundations, commercial steel-frame structures, 
+            site development, and post-hurricane structural assessments 
+            throughout the Eastern Caribbean.
+          </p>
+          <div class="hero-credentials" role="list" aria-label="Professional credentials">
+            <span class="cred-chip" role="listitem"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Licensed — Saint Lucia</span>
+            <span class="cred-chip" role="listitem"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> MICE Member</span>
+            <span class="cred-chip" role="listitem"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> BIM Certified</span>
+            <span class="cred-chip" role="listitem"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Hurricane Resilience Specialist</span>
+          </div>
+          <div class="hero-cta-row">
+            <a href="#calculator" class="btn-amber" aria-label="Estimate your project scope">
+              <i class="bi bi-calculator-fill" aria-hidden="true"></i>
+              Estimate Project Scope
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20to%20discuss%20an%20engineering%20project."
+               class="btn-wa" aria-label="Message André on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              WhatsApp Consultation
+            </a>
+          </div>
+          <div class="hero-annotation" role="list" aria-label="Career statistics">
+            <div class="ha-item" role="listitem">
+              <span class="ha-num">14</span>
+              <span class="ha-label">Years Licensed</span>
+            </div>
+            <div class="ha-item" role="listitem">
+              <span class="ha-num">80+</span>
+              <span class="ha-label">Projects Completed</span>
+            </div>
+            <div class="ha-item" role="listitem">
+              <span class="ha-num">6</span>
+              <span class="ha-label">Islands Served</span>
+            </div>
+            <div class="ha-item" role="listitem">
+              <span class="ha-num">EC$40M+</span>
+              <span class="ha-label">Construction Value</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — stat cards -->
+        <div class="col-lg-6">
+          <div class="hero-stat-stack" role="complementary" aria-label="Active engagements and specialisms">
+            <div class="hero-stat-card">
+              <div class="hsc-icon hsc-steel" aria-hidden="true"><i class="bi bi-building-fill-gear" aria-hidden="true"></i></div>
+              <div>
+                <div class="hsc-label">Structural Analysis &amp; Design</div>
+                <div class="hsc-sub">Steel, reinforced concrete, timber</div>
+              </div>
+              <div class="hsc-val">Lead Service</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hsc-icon hsc-amber" aria-hidden="true"><i class="bi bi-house-fill" aria-hidden="true"></i></div>
+              <div>
+                <div class="hsc-label">Residential Foundation Design</div>
+                <div class="hsc-sub">Strip, pad, raft, and pile foundations</div>
+              </div>
+              <div class="hsc-val">80+ Homes</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hsc-icon hsc-green" aria-hidden="true"><i class="bi bi-wind" aria-hidden="true"></i></div>
+              <div>
+                <div class="hsc-label">Hurricane Resilience Assessment</div>
+                <div class="hsc-sub">Post-storm structural evaluation</div>
+              </div>
+              <div class="hsc-val">Cat 4 Rated</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hsc-icon hsc-steel" aria-hidden="true"><i class="bi bi-layers-fill" aria-hidden="true"></i></div>
+              <div>
+                <div class="hsc-label">BIM &amp; AutoCAD Drawing Production</div>
+                <div class="hsc-sub">Full drawing packages for permits</div>
+              </div>
+              <div class="hsc-val">Revit · CAD</div>
+            </div>
+
+            <!-- Mini stat row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;"
+                 role="list" aria-label="Accreditation highlights">
+              <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r-md);padding:.9rem;text-align:center;" role="listitem">
+                <div style="font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--off-white);line-height:1;">MICE</div>
+                <div style="font-family:var(--font-b);font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;">ICE Member</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r-md);padding:.9rem;text-align:center;" role="listitem">
+                <div style="font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--amber);line-height:1;">BIM</div>
+                <div style="font-family:var(--font-b);font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;">Certified</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r-md);padding:.9rem;text-align:center;" role="listitem">
+                <div style="font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--off-white);line-height:1;">Eur Ing</div>
+                <div style="font-family:var(--font-b);font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;">European Eng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Key credentials and capabilities">
+    <div class="container">
+      <div class="trust-items" role="list">
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-patch-check-fill" aria-hidden="true"></i></div>
+          Licensed &amp; Insured — Saint Lucia
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-building-gear" aria-hidden="true"></i></div>
+          Residential &amp; Commercial
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-file-earmark-text-fill" aria-hidden="true"></i></div>
+          Full Permit Drawing Packages
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="bi bi-wind" aria-hidden="true"></i></div>
+          Hurricane Resilience Specialist
+        </div>
+        <div class="trust-item" role="listitem">
+          <div class="ti-icon" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          WhatsApp Consultation Available
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about" style="background:var(--bg);" aria-label="About André St. Hill">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Photo column -->
+        <div class="reveal">
+          <div class="about-photo-wrap">
+            <div class="about-photo-frame" aria-label="André St. Hill professional photo">
+              <span aria-hidden="true">👷</span>
+            </div>
+            <img
+              src="../images/andre-st-hill.webp"
+              alt="André St. Hill — Civil and Structural Engineer, Saint Lucia"
+              class="about-photo-img"
+              width="400" height="533"
+              loading="lazy"
+              onerror="this.style.display='none'">
+            <div class="about-cert-badge" aria-label="14 years licensed">
+              <div class="acb-num">14</div>
+              <div class="acb-label">Years Licensed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio column -->
+        <div class="reveal">
+          <div class="sec-eyebrow">Background</div>
+          <h2 class="sec-h2">Built on the Ground. <em>Proven in the Field.</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="about-bio">
+            André St. Hill graduated from the University of the West Indies with a BEng in Civil Engineering 
+            before completing his MSc in Structural Engineering at the University of Manchester. 
+            Returning to Saint Lucia in 2010, he has since led structural design and site engineering 
+            on over 80 projects across 6 Eastern Caribbean islands.
+          </p>
+          <p class="about-bio">
+            His work spans residential foundations for private homes, multi-storey commercial 
+            steel-frame structures, infrastructure rehabilitation, and post-hurricane damage 
+            assessments — including Category 4 storm events in Dominica and Saint Martin. 
+            André works privately alongside his consultancy practice and accepts a selective 
+            number of new projects each quarter.
+          </p>
+
+          <ul class="cred-list" aria-label="Qualifications and memberships">
+            <li class="cred-item"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> BEng Civil Engineering — University of the West Indies, St. Augustine</li>
+            <li class="cred-item"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> MSc Structural Engineering — University of Manchester, UK</li>
+            <li class="cred-item"><i class="bi bi-award-fill" aria-hidden="true"></i> Member of the Institution of Civil Engineers (MICE)</li>
+            <li class="cred-item"><i class="bi bi-award-fill" aria-hidden="true"></i> Eur Ing — European Engineering Designation (FEANI)</li>
+            <li class="cred-item"><i class="bi bi-award-fill" aria-hidden="true"></i> Registered Engineer — Saint Lucia Board of Engineers</li>
+            <li class="cred-item"><i class="bi bi-cpu-fill" aria-hidden="true"></i> BIM Level 2 Certified — Autodesk &amp; BSI</li>
+          </ul>
+
+          <div class="sec-eyebrow" style="margin-top:1.5rem;margin-bottom:.8rem;">Technical Software</div>
+          <div class="skills-strip" role="list" aria-label="Software skills">
+            <span class="skill-chip" role="listitem">AutoCAD</span>
+            <span class="skill-chip" role="listitem">Revit (BIM)</span>
+            <span class="skill-chip" role="listitem">ETABS</span>
+            <span class="skill-chip" role="listitem">SAP2000</span>
+            <span class="skill-chip" role="listitem">SAFE</span>
+            <span class="skill-chip" role="listitem">Prokon</span>
+            <span class="skill-chip" role="listitem">Tekla Structures</span>
+            <span class="skill-chip" role="listitem">Civil 3D</span>
+            <span class="skill-chip" role="listitem">StaadPro</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="services" style="background:var(--bg-2);" aria-label="Engineering services">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-eyebrow">Services</div>
+          <h2 class="sec-h2">Engineering Services <em>Available</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every engagement begins with a consultation. André accepts a limited number of 
+            new private commissions each quarter to maintain the standard of attention each project deserves.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">01</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-house-fill" aria-hidden="true"></i></div>
+            <h3 class="sc-name">Residential Structural Design</h3>
+            <p class="sc-desc">Foundation design, structural frame analysis, and full drawing packages for residential construction — from single-storey homes to multi-level concrete and steel structures.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">Foundation</span>
+              <span class="sc-tag">Frame Design</span>
+              <span class="sc-tag">Permit Drawings</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">02</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-building-fill-gear" aria-hidden="true"></i></div>
+            <h3 class="sc-name">Commercial &amp; Industrial Structures</h3>
+            <p class="sc-desc">Structural engineering for retail units, offices, warehouses, and light industrial buildings. Steel frame, pre-cast concrete, and hybrid construction systems.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">Steel Frame</span>
+              <span class="sc-tag">Pre-cast</span>
+              <span class="sc-tag">Warehouse</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">03</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-wind" aria-hidden="true"></i></div>
+            <h3 class="sc-name">Hurricane &amp; Structural Assessment</h3>
+            <p class="sc-desc">Post-storm structural condition surveys, damage reports, and remediation recommendations for insurance, legal, and reconstruction purposes. Cat 1–5 experience.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">Condition Survey</span>
+              <span class="sc-tag">Damage Report</span>
+              <span class="sc-tag">Insurance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">04</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-file-earmark-ruled-fill" aria-hidden="true"></i></div>
+            <h3 class="sc-name">BIM Drawing Production</h3>
+            <p class="sc-desc">Full-package engineering drawings in AutoCAD and Revit for planning, building permits, and construction. Including structural details, sections, and reinforcement schedules.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">AutoCAD</span>
+              <span class="sc-tag">Revit BIM</span>
+              <span class="sc-tag">Permit Packages</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">05</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+            <h3 class="sc-name">Site Development &amp; Civil Works</h3>
+            <p class="sc-desc">Grading, drainage design, road access, retaining walls, and site infrastructure for residential estates and commercial developments. Drainage modelling included.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">Drainage</span>
+              <span class="sc-tag">Grading</span>
+              <span class="sc-tag">Retaining Walls</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="service-card">
+            <div class="sc-number" aria-hidden="true">06</div>
+            <div class="sc-icon" aria-hidden="true"><i class="bi bi-clipboard2-check-fill" aria-hidden="true"></i></div>
+            <h3 class="sc-name">Structural Peer Review &amp; Certification</h3>
+            <p class="sc-desc">Independent structural review and professional certification of drawings and calculations produced by others. Required by lenders, insurers, and planning authorities.</p>
+            <div class="sc-tags" aria-label="Service types">
+              <span class="sc-tag">Peer Review</span>
+              <span class="sc-tag">Certification</span>
+              <span class="sc-tag">Compliance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ UNIQUE: PROJECT SCOPE CALCULATOR -->
+  <section class="sec" style="background:var(--bg);" id="calculator" aria-label="Project scope estimator">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Left copy -->
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow">Scope Estimator</div>
+          <h2 class="sec-h2">Understand Your<br><em>Project Requirements</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every project is different. This estimator gives you a realistic 
+            indication of the engineering timeline, deliverable scope, and 
+            the right consultation entry point — before you pick up the phone.
+          </p>
+          <p class="sec-para" style="margin-top:.9rem;">
+            Run the estimate. Then WhatsApp André directly — he responds to 
+            all project enquiries within one business day.
+          </p>
+          <div style="margin-top:1.8rem;">
+            <div style="display:flex;flex-direction:column;gap:.7rem;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Private commissions accepted quarterly</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Consultation reply within 1 business day</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Fee proposal issued after site assessment</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Serving Saint Lucia, Barbados &amp; region</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Calculator widget -->
+        <div class="col-lg-7 reveal">
+          <div class="scope-calc" role="region" aria-label="Project scope calculator">
+
+            <div class="sc-header">
+              <div class="sc-header-icon" aria-hidden="true">
+                <i class="bi bi-building-gear" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="sc-header-title">Project Scope Estimator</div>
+                <div class="sc-header-sub">Select project type &amp; size — get a timeline and scope guide</div>
+              </div>
+              <div class="sc-live-tag" aria-label="Interactive estimator">
+                <i class="bi bi-calculator" aria-hidden="true"></i> Live
+              </div>
+            </div>
+
+            <div class="sc-body">
+
+              <!-- Step 1: Project Type -->
+              <span class="sc-label-row">Step 1 — What type of project?</span>
+              <div class="sc-options" role="radiogroup" aria-label="Select project type">
+                <div class="sc-opt selected" role="radio" aria-checked="true" tabindex="0"
+                     data-type="residential" onclick="selectType(this)">
+                  <span class="sc-opt-icon" aria-hidden="true">🏠</span>
+                  <span class="sc-opt-label">Residential</span>
+                  <span class="sc-opt-note">Home, villa, apartment</span>
+                </div>
+                <div class="sc-opt" role="radio" aria-checked="false" tabindex="0"
+                     data-type="commercial" onclick="selectType(this)">
+                  <span class="sc-opt-icon" aria-hidden="true">🏢</span>
+                  <span class="sc-opt-label">Commercial</span>
+                  <span class="sc-opt-note">Office, retail, hotel</span>
+                </div>
+                <div class="sc-opt" role="radio" aria-checked="false" tabindex="0"
+                     data-type="assessment" onclick="selectType(this)">
+                  <span class="sc-opt-icon" aria-hidden="true">🔍</span>
+                  <span class="sc-opt-label">Assessment</span>
+                  <span class="sc-opt-note">Survey, damage report</span>
+                </div>
+                <div class="sc-opt" role="radio" aria-checked="false" tabindex="0"
+                     data-type="infrastructure" onclick="selectType(this)">
+                  <span class="sc-opt-icon" aria-hidden="true">🛣️</span>
+                  <span class="sc-opt-label">Infrastructure</span>
+                  <span class="sc-opt-note">Roads, drainage, civil</span>
+                </div>
+              </div>
+
+              <!-- Step 2: Size -->
+              <span class="sc-label-row">Step 2 — Approximate floor area / scope</span>
+              <div class="sc-scope-wrap">
+                <div class="sc-scope-display">
+                  <span class="sc-scope-val" id="scopeVal">150</span>
+                  <span class="sc-scope-unit" id="scopeUnit">m²</span>
+                </div>
+                <input type="range" class="sc-slider" id="scopeSlider"
+                  min="50" max="2000" step="50" value="150"
+                  aria-label="Adjust project size in square metres"
+                  oninput="updateCalc()">
+                <div style="display:flex;justify-content:space-between;font-family:var(--font-b);font-size:.65rem;color:var(--muted);margin-top:.4rem;">
+                  <span>50 m²</span>
+                  <span>2,000 m²+</span>
+                </div>
+              </div>
+
+              <!-- Results -->
+              <div class="sc-results" role="region" aria-live="polite" aria-label="Estimated scope results">
+                <div class="sc-result-card hl">
+                  <div class="src-label">Est. Timeline</div>
+                  <div class="src-value" id="resultTimeline">4–6 wks</div>
+                  <div class="src-sub">design to drawings</div>
+                </div>
+                <div class="sc-result-card">
+                  <div class="src-label">Site Visits</div>
+                  <div class="src-value" id="resultVisits">2–3</div>
+                  <div class="src-sub">estimated visits</div>
+                </div>
+                <div class="sc-result-card">
+                  <div class="src-label">Deliverables</div>
+                  <div class="src-value" id="resultDelivs">8–12</div>
+                  <div class="src-sub">drawing sheets</div>
+                </div>
+                <div class="sc-result-card hl-g">
+                  <div class="src-label">Complexity</div>
+                  <div class="src-value" id="resultComplexity">Standard</div>
+                  <div class="src-sub" id="resultComplexSub">typical residential</div>
+                </div>
+              </div>
+
+              <div class="sc-next-step">
+                <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                <span id="nextStepText">
+                  For a residential project of this scope, a site assessment is the recommended first step. 
+                  André will visit, assess soil conditions and site constraints, and issue a fee proposal.
+                </span>
+              </div>
+
+              <p class="sc-disclaimer">
+                * Estimates are indicative only. Actual scope, timeline, and fees are confirmed 
+                after site visit and technical assessment. No obligation at consultation stage.
+              </p>
+
+              <a id="calcWaBtn"
+                 href="https://wa.me/17587235872?text=Hi%20André%21%20I%20used%20the%20scope%20estimator.%20I%20have%20a%20residential%20project%20of%20approximately%20150m²%20and%20I%27d%20like%20to%20arrange%20a%20consultation."
+                 class="sc-wa-btn"
+                 aria-label="Request consultation on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Request Consultation on WhatsApp
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT PORTFOLIO -->
+  <section class="sec" id="projects" style="background:var(--bg-2);" aria-label="Project portfolio">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-eyebrow">Portfolio</div>
+          <h2 class="sec-h2">Selected <em>Projects</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Eighty-plus projects completed across six islands. A selection is shown below. 
+            Client confidentiality is observed — identifying details are shown with permission only.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="proj-filter reveal" role="tablist" aria-label="Filter projects by type">
+        <button class="pf-tab active" role="tab" aria-selected="true" onclick="filterProj('all',this)">All</button>
+        <button class="pf-tab" role="tab" aria-selected="false" onclick="filterProj('residential',this)">Residential</button>
+        <button class="pf-tab" role="tab" aria-selected="false" onclick="filterProj('commercial',this)">Commercial</button>
+        <button class="pf-tab" role="tab" aria-selected="false" onclick="filterProj('assessment',this)">Assessment</button>
+        <button class="pf-tab" role="tab" aria-selected="false" onclick="filterProj('civil',this)">Civil Works</button>
+      </div>
+
+      <div class="proj-grid reveal" id="projGrid">
+
+        <!-- Tall -->
+        <div class="proj-card proj-tall" data-type="residential" role="article" aria-label="Hillcrest Villa residential project">
+          <div class="pc-visual pc-v1">
+            <span class="pc-illus" aria-hidden="true">🏠</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Hillcrest Villa, Castries</div>
+              <div class="pc-type">4-bed villa · RC frame · Sloped site · Pile foundations</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Hillcrest%20Villa%20project%20and%20have%20a%20similar%20residential%20project."
+                 class="pc-wa" aria-label="Enquire about similar residential project"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Similar Project?
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Hillcrest Villa</div>
+            <div class="pc-info-tag">Residential · RC Frame · Pile Foundation</div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-type="commercial" role="article" aria-label="Bay Street commercial building project">
+          <div class="pc-visual pc-v2">
+            <span class="pc-illus" aria-hidden="true">🏢</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Bay Street Commercial, Castries</div>
+              <div class="pc-type">4-storey steel frame office block</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Bay%20Street%20Commercial%20project%20and%20have%20a%20similar%20enquiry."
+                 class="pc-wa" aria-label="Enquire about similar commercial project"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Similar Project?
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Bay Street Office Block</div>
+            <div class="pc-info-tag">Commercial · 4-Storey Steel Frame</div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-type="assessment" role="article" aria-label="Post-hurricane structural assessment">
+          <div class="pc-visual pc-v3">
+            <span class="pc-illus" aria-hidden="true">🔍</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Roseau District Assessment</div>
+              <div class="pc-type">Post-hurricane Cat 4 · 18 structures assessed</div>
+              <a href="https://wa.me/17587235872?text=I%20need%20a%20structural%20assessment%20for%20my%20property."
+                 class="pc-wa" aria-label="Enquire about structural assessment"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Request Assessment
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Roseau Hurricane Assessment</div>
+            <div class="pc-info-tag">Post-Storm Assessment · Dominica</div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-type="civil" role="article" aria-label="Borde Morne road drainage project">
+          <div class="pc-visual pc-v4">
+            <span class="pc-illus" aria-hidden="true">🛣️</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Borde Morne Road Works</div>
+              <div class="pc-type">Drainage redesign &amp; road stabilisation</div>
+              <a href="https://wa.me/17587235872?text=I%20have%20a%20civil%20works%20or%20drainage%20project%20I%27d%20like%20to%20discuss."
+                 class="pc-wa" aria-label="Enquire about civil works project"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Similar Project?
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Borde Morne Road Works</div>
+            <div class="pc-info-tag">Civil · Drainage &amp; Stabilisation</div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-type="residential" role="article" aria-label="Cap Estate villa pool deck project">
+          <div class="pc-visual pc-v5">
+            <span class="pc-illus" aria-hidden="true">🌴</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Cap Estate Villa Extension</div>
+              <div class="pc-type">Pool deck, retaining walls &amp; substructure</div>
+              <a href="https://wa.me/17587235872?text=I%20have%20a%20villa%20extension%20or%20pool%20deck%20project%20I%27d%20like%20to%20discuss."
+                 class="pc-wa" aria-label="Enquire about villa extension"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Similar Project?
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Cap Estate Villa Extension</div>
+            <div class="pc-info-tag">Residential · Pool Deck &amp; Retaining</div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-type="commercial" role="article" aria-label="Vieux-Fort warehouse project">
+          <div class="pc-visual pc-v6">
+            <span class="pc-illus" aria-hidden="true">🏭</span>
+            <div class="pc-blueprint-overlay" aria-hidden="true"></div>
+            <div class="pc-overlay">
+              <div class="pc-name">Vieux-Fort Industrial Warehouse</div>
+              <div class="pc-type">Structural steel · 1,800 m² clear span</div>
+              <a href="https://wa.me/17587235872?text=I%20have%20a%20warehouse%20or%20industrial%20building%20project%20I%27d%20like%20to%20discuss."
+                 class="pc-wa" aria-label="Enquire about warehouse project"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Similar Project?
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Vieux-Fort Warehouse</div>
+            <div class="pc-info-tag">Industrial · Clear-Span Steel</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS — ENGAGEMENT PROCESS -->
+  <section class="sec" style="background:var(--bg);" aria-label="Engagement process">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6">
+          <div class="sec-eyebrow" style="justify-content:center;">Engagement Process</div>
+          <h2 class="sec-h2" style="text-align:center;">From Enquiry<br>to <em>Certified Design</em></h2>
+          <div class="rule" aria-hidden="true" style="margin:1rem auto 1.5rem;"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center;">
+            A structured process that protects both client and engineer — and delivers 
+            certifiable, permit-ready engineering documentation on time.
+          </p>
+        </div>
+      </div>
+      <div class="process-steps reveal">
+        <div class="ps-step">
+          <div class="ps-num" aria-hidden="true">01</div>
+          <div class="ps-icon-wrap" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          <h3 class="ps-title">Initial Enquiry</h3>
+          <p class="ps-desc">Send project details on WhatsApp. Include location, building type, approximate size, and any existing drawings. André responds within one business day.</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num" aria-hidden="true">02</div>
+          <div class="ps-icon-wrap" aria-hidden="true"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+          <h3 class="ps-title">Site Assessment</h3>
+          <p class="ps-desc">An on-site visit to assess ground conditions, access, existing structures, and constraints. A formal fee proposal is issued within 5 working days of the visit.</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num" aria-hidden="true">03</div>
+          <div class="ps-icon-wrap" aria-hidden="true"><i class="bi bi-rulers" aria-hidden="true"></i></div>
+          <h3 class="ps-title">Design &amp; Calculations</h3>
+          <p class="ps-desc">Full structural analysis, member sizing, and hand-verified calculations. All work complies with Caribbean Regional Standards and UK Eurocodes where applicable.</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num" aria-hidden="true">04</div>
+          <div class="ps-icon-wrap" aria-hidden="true"><i class="bi bi-patch-check-fill" aria-hidden="true"></i></div>
+          <h3 class="ps-title">Certified Drawings</h3>
+          <p class="ps-desc">Certified, stamped, and signed engineering drawings ready for planning authority submission, building permit applications, and contractor use.</p>
+        </div>
+      </div>
+      <div class="text-center mt-5 pt-2 reveal">
+        <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20to%20start%20a%20project%20enquiry."
+           class="btn-wa" style="font-size:.9rem;padding:.95rem 2rem;"
+           aria-label="Start a project enquiry on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Start Your Project Enquiry
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER TIMELINE -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Career timeline">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow">Career</div>
+          <h2 class="sec-h2">14 Years.<br><em>Across 6 Islands.</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            A career built through direct experience across the Eastern Caribbean — 
+            from residential homes to post-disaster reconstruction to landmark commercial projects.
+          </p>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="timeline" role="list" aria-label="Career timeline">
+
+            <div class="tl-item" role="listitem">
+              <div class="tl-dot-col">
+                <div class="tl-dot" aria-hidden="true"></div>
+                <div class="tl-line" aria-hidden="true"></div>
+              </div>
+              <div class="tl-year">2024–Present</div>
+              <div class="tl-content">
+                <div class="tl-title">Principal Consultant — St. Hill Engineering Associates</div>
+                <div class="tl-org">Private Practice · Castries, Saint Lucia</div>
+                <div class="tl-desc">Independent consultancy accepting residential and commercial commissions across the Eastern Caribbean. Current active projects in Saint Lucia and Barbados.</div>
+              </div>
+            </div>
+
+            <div class="tl-item" role="listitem">
+              <div class="tl-dot-col">
+                <div class="tl-dot" aria-hidden="true"></div>
+                <div class="tl-line" aria-hidden="true"></div>
+              </div>
+              <div class="tl-year">2018–2024</div>
+              <div class="tl-content">
+                <div class="tl-title">Senior Structural Engineer</div>
+                <div class="tl-org">Caribbean Construction Partners Ltd · Bridgetown, Barbados</div>
+                <div class="tl-desc">Led structural design team on multi-island residential estates, hotel infrastructure, and post-hurricane reconstruction projects across Dominica and Saint Martin following Maria and Irma.</div>
+              </div>
+            </div>
+
+            <div class="tl-item" role="listitem">
+              <div class="tl-dot-col">
+                <div class="tl-dot" aria-hidden="true"></div>
+                <div class="tl-line" aria-hidden="true"></div>
+              </div>
+              <div class="tl-year">2014–2018</div>
+              <div class="tl-content">
+                <div class="tl-title">Structural Engineer</div>
+                <div class="tl-org">Atkins Global · London, United Kingdom</div>
+                <div class="tl-desc">Structural analysis and design of commercial buildings and transport infrastructure. Worked within BIM environments and UK Eurocode compliance framework.</div>
+              </div>
+            </div>
+
+            <div class="tl-item" role="listitem">
+              <div class="tl-dot-col">
+                <div class="tl-dot" aria-hidden="true"></div>
+                <div class="tl-line" aria-hidden="true"></div>
+              </div>
+              <div class="tl-year">2010–2014</div>
+              <div class="tl-content">
+                <div class="tl-title">Graduate Engineer → Engineer</div>
+                <div class="tl-org">Ministry of Infrastructure · Castries, Saint Lucia</div>
+                <div class="tl-desc">Public sector structural and civil engineering across road, bridge, and public building programmes. Completed Incorporated Engineer registration during this period.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — PREMIUM BLUR -->
+  <section class="sec" style="background:var(--bg);" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5">
+          <div class="sec-eyebrow">Testimonials</div>
+          <h2 class="sec-h2">What Clients <em>Report</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="sec-para">Verified feedback from private clients, contractors, and institutional partners.</p>
+        </div>
+      </div>
+      <div class="premium-wrap" aria-label="Client testimonials — premium feature">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-house-fill" aria-hidden="true"></i> Residential</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"André delivered our full structural package in 5 weeks — drawings, calculations, the lot. The Planning Authority approved first submission. No corrections, no delays."</p>
+                <div class="rv-name">Michael T.</div>
+                <div class="rv-loc">Cap Estate, Saint Lucia</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-building-fill-gear" aria-hidden="true"></i> Commercial</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"We used three engineers before André. He was the first to actually visit the site before quoting. His calculations were thorough, his drawings were impeccable."</p>
+                <div class="rv-name">Sandra P. — Project Manager</div>
+                <div class="rv-loc">Bridgetown, Barbados</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-wind" aria-hidden="true"></i> Post-Hurricane</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"After Maria, we needed certified damage reports fast for our insurance claim. André's assessments were accepted without challenge. Saved us weeks and significant money."</p>
+                <div class="rv-name">Claudette R.</div>
+                <div class="rv-loc">Roseau, Dominica</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <span class="unlock-plan-pill">USA / Diaspora Professional · $450–$750</span>
+            <h5>Client Testimonials</h5>
+            <p>Verified client testimonials are the single most effective trust signal for a professional engineering practice. Included in the Professional Profile build.</p>
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20professional%20profile%20with%20testimonials."
+               class="btn-wa" style="font-size:.8rem;padding:.55rem 1.1rem;display:inline-flex;align-items:center;gap:6px;"
+               aria-label="Ask about a professional profile build"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA KIT DOWNLOAD — BLURRED (PREMIUM) -->
+  <section class="sec-sm" style="background:var(--bg-2);" aria-label="Media kit download">
+    <div class="container">
+      <div class="premium-wrap" aria-label="Media kit download — premium feature">
+        <div class="blur-layer">
+          <div class="mediakit-card">
+            <div class="mk-icon" aria-hidden="true"><i class="bi bi-file-earmark-arrow-down-fill" aria-hidden="true"></i></div>
+            <div>
+              <div class="mk-title">Professional Media Kit &amp; CV</div>
+              <p class="mk-desc">Download André's full engineering CV, credential certificates, selected project summaries, and professional references — formatted for institutional clients, tender submissions, and procurement teams.</p>
+            </div>
+            <button class="mk-btn" aria-hidden="true">
+              <i class="bi bi-download" aria-hidden="true"></i> Download Kit
+            </button>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-file-earmark-arrow-down-fill" aria-hidden="true"></i></div>
+            <span class="unlock-plan-pill">USA / Diaspora Professional · $450–$750</span>
+            <h5>Downloadable Media Kit</h5>
+            <p>A professionally formatted CV and media kit download — essential for tender submissions, institutional clients, and procurement panels. Included in the USA/Diaspora tier.</p>
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20professional%20profile%20with%20a%20downloadable%20media%20kit."
+               class="btn-wa" style="font-size:.8rem;padding:.55rem 1.1rem;display:inline-flex;align-items:center;gap:6px;"
+               aria-label="Ask about media kit in profile build"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE + GBP BLUR -->
+  <section class="sec" style="background:var(--bg);" aria-label="Coverage area and Google visibility">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <div class="col-lg-6">
+          <div class="coverage-strip reveal">
+            <div class="coverage-left">
+              <h3>Islands Served</h3>
+              <p>Residential &amp; commercial engineering across the Eastern Caribbean</p>
+            </div>
+            <div class="area-chips" role="list" aria-label="Islands served">
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Saint Lucia</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Barbados</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Dominica</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Saint Martin</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Antigua</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Trinidad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="sec-eyebrow">Discoverability</div>
+          <h2 class="sec-h2" style="font-size:1.75rem;">Show Up When Clients Search <em>"Structural Engineer St. Lucia"</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <div class="premium-wrap" aria-label="Google visibility — premium feature">
+            <div class="blur-layer">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:var(--r-sm);background:#4285F4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;font-family:var(--font-b);margin-bottom:.9rem;" aria-hidden="true">G</div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;">Google Business Profile</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Appear in "civil engineer near me"</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Verified business on Google Maps</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Collect Google reviews</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:var(--r-sm);background:var(--steel);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;margin-bottom:.9rem;" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;">Local SEO</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Rank for "structural engineer Saint Lucia"</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>JSON-LD structured data</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Monthly performance reporting</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="unlock-overlay">
+              <div class="unlock-box">
+                <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-search" aria-hidden="true"></i></div>
+                <span class="unlock-plan-pill">Caribbean Professional · $250–$450</span>
+                <h5>Google Visibility</h5>
+                <p>When a client searches "civil engineer Castries" or "structural engineer Saint Lucia," your profile needs to appear. Google Business Profile and SEO are included in the Caribbean Professional tier.</p>
+                <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20professional%20profile%20with%20Google%20SEO."
+                   class="btn-wa" style="font-size:.8rem;padding:.55rem 1.1rem;display:inline-flex;align-items:center;gap:6px;"
+                   aria-label="Inquire about professional profile with Google SEO"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" id="contact" style="background:var(--bg-2);" aria-label="Contact and consultation">
+    <div class="container">
+      <div class="cta-ash reveal">
+        <div class="cta-inner">
+          <div class="cta-eyebrow">Start Your Project</div>
+          <h2 class="cta-h2">
+            Every Structure<br>
+            Starts With a <span class="amber">Conversation.</span>
+          </h2>
+          <p class="cta-para">
+            André accepts a limited number of new private commissions each quarter. 
+            Send your project details on WhatsApp — he responds within one business day.
+          </p>
+          <div class="cta-btn-group">
+            <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20to%20discuss%20a%20%5Bresidential%2Fcommercial%2Fcivil%5D%20engineering%20project%20in%20%5Blocation%5D."
+               class="btn-wa" style="font-size:.92rem;padding:1rem 2.2rem;"
+               aria-label="Message André on WhatsApp to discuss your project"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message André on WhatsApp
+            </a>
+            <a href="#calculator" class="btn-outline-ash" style="color:var(--off-white);border-color:var(--border-s);"
+               aria-label="Use the project scope estimator">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              Estimate Project Scope
+            </a>
+          </div>
+          <p class="cta-note">
+            <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+            Licensed &amp; Insured &nbsp;·&nbsp; Reply within 1 business day &nbsp;·&nbsp; Fee proposal after site visit
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-ash" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">André St. Hill</div>
+          <div class="fl-sub">Civil &amp; Structural Engineer · MICE · Eur Ing · Saint Lucia</div>
+          <p class="fl-about">
+            Licensed civil and structural engineer with 14 years of experience 
+            across residential, commercial, and infrastructure projects in the Eastern Caribbean.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Services</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#services">Residential Design</a></li>
+            <li><a href="#services">Commercial Structures</a></li>
+            <li><a href="#services">Hurricane Assessment</a></li>
+            <li><a href="#services">BIM &amp; Drawings</a></li>
+            <li><a href="#services">Site Development</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Profile</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">Career</a></li>
+            <li><a href="#calculator">Scope Estimator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Project Enquiries</div>
+          <div class="fl-wa-box">
+            <p>Send project details on WhatsApp — location, building type, approximate size. André responds within one business day with next steps.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20André%21%20I%27d%20like%20to%20discuss%20an%20engineering%20project."
+               class="fl-wa-btn"
+               aria-label="Contact André on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message André on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 André St. Hill Engineering Associates. All rights reserved. Demonstration profile — <a href="https://jamalinks758.github.io/jamalinks/profiles.html" target="_blank" rel="noopener noreferrer">built by JAMALINKS</a>.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+    function applyTheme(dark) {
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      themeLabel.textContent = dark ? 'Light' : 'Dark';
+    }
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
+
+    // ===== SCOPE CALCULATOR =====
+    let currentType = 'residential';
+
+    const typeConfig = {
+      residential: {
+        unit: 'm²',
+        timelines: { small: '3–4 wks', medium: '4–6 wks', large: '6–10 wks', xlarge: '10–16 wks' },
+        visits:    { small: '2',       medium: '2–3',     large: '3–4',      xlarge: '4–6' },
+        delivs:    { small: '6–8',     medium: '8–12',    large: '12–18',    xlarge: '18–30' },
+        complexity:{ small: ['Standard','single-storey home'], medium: ['Standard','multi-bed residential'], large: ['Moderate','complex residential'], xlarge: ['Complex','large estate or multi-unit'] },
+        nextStep:  { small: 'For a residential project of this scope, a site assessment visit is the standard first step. André will assess ground conditions and issue a fee proposal within 5 days.',
+                     medium: 'For a residential project of this size, expect a full structural package including foundation design, frame analysis, and a complete drawing set. A site visit is required.',
+                     large: 'A project of this scale will require thorough soil investigation, staged drawing delivery, and multiple site visits. Contact André to discuss programme and phased fee structure.',
+                     xlarge: 'This represents a major residential or multi-unit project. André accepts this scale selectively. Please describe your project in full via WhatsApp to confirm availability.' }
+      },
+      commercial: {
+        unit: 'm²',
+        timelines: { small: '4–6 wks', medium: '6–10 wks', large: '10–16 wks', xlarge: '16–24 wks' },
+        visits:    { small: '2–3',     medium: '3–4',      large: '4–6',       xlarge: '6–10' },
+        delivs:    { small: '10–16',   medium: '16–24',    large: '24–40',     xlarge: '40–80' },
+        complexity:{ small: ['Moderate','light commercial'], medium: ['Moderate','mid-scale commercial'], large: ['Complex','large commercial'], xlarge: ['Major','enterprise scale'] },
+        nextStep:  { small: 'Commercial projects require a thorough site and structural brief. WhatsApp André with your proposed use, storey count, and site location to initiate.',
+                     medium: 'A commercial project of this scale involves full structural system selection, detailed analysis, and a comprehensive drawing package. Expect a phased delivery programme.',
+                     large: 'Large commercial projects are accepted on a selective basis. Please contact André with full project brief, architect drawings if available, and programme requirements.',
+                     xlarge: 'This is an enterprise-scale commission. André will require a full project brief and team introduction before confirming availability. WhatsApp to arrange a preliminary call.' }
+      },
+      assessment: {
+        unit: 'structures',
+        timelines: { small: '3–5 days', medium: '1–2 wks', large: '2–4 wks', xlarge: '4–8 wks' },
+        visits:    { small: '1',        medium: '1–2',     large: '2–4',     xlarge: '4–8' },
+        delivs:    { small: '1 report', medium: '2–4 rpts',large: '4–8 rpts',xlarge: '8–20 rpts' },
+        complexity:{ small: ['Standard','single structure assessment'], medium: ['Moderate','multi-structure survey'], large: ['Complex','district-level assessment'], xlarge: ['Major','post-disaster survey'] },
+        nextStep:  { small: 'A single-structure assessment can typically be completed within one site visit. Contact André with the structure type, location, and reason for assessment.',
+                     medium: 'Multi-structure assessments require a programme. André will scope the visit sequence and turnaround. Useful for insurance claims, lender requirements, or pre-purchase surveys.',
+                     large: 'A survey of this scale — common in post-hurricane contexts — requires a mobilisation plan. André has led district-level assessments and can manage multi-team deployments.',
+                     xlarge: 'Post-disaster assessment at this scale requires immediate mobilisation. André has direct experience in Category 4/5 contexts. Contact him as a priority.' }
+      },
+      infrastructure: {
+        unit: 'linear m',
+        timelines: { small: '4–6 wks', medium: '6–12 wks', large: '12–20 wks', xlarge: '20–36 wks' },
+        visits:    { small: '3–4',     medium: '4–6',       large: '6–10',      xlarge: '10+' },
+        delivs:    { small: '8–14',    medium: '14–24',     large: '24–50',     xlarge: '50–100+' },
+        complexity:{ small: ['Standard','minor civil works'], medium: ['Moderate','medium infrastructure'], large: ['Complex','major civil scheme'], xlarge: ['Major','infrastructure programme'] },
+        nextStep:  { small: 'Civil infrastructure projects begin with a site walk and topographic assessment. Contact André with the works description and any existing survey data.',
+                     medium: 'A project of this scale requires hydrological modelling for drainage design, CAD topographic input, and a full drawing package. André will scope requirements after a site walk.',
+                     large: 'Major civil schemes require a detailed design programme and sub-consultant coordination. André has experience on government and privately funded infrastructure programmes.',
+                     xlarge: 'Infrastructure programmes of this scale are handled through a formal tender or direct appointment process. Contact André to discuss programme leadership and consultant team requirements.' }
+      }
+    };
+
+    function selectType(el) {
+      document.querySelectorAll('.sc-opt').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked','false');
+      });
+      el.classList.add('selected');
+      el.setAttribute('aria-checked','true');
+      currentType = el.dataset.type;
+
+      // Update slider label
+      const cfg = typeConfig[currentType];
+      document.getElementById('scopeUnit').textContent = cfg.unit;
+
+      // Adjust slider max for assessment (structures) and infrastructure (linear m)
+      const slider = document.getElementById('scopeSlider');
+      if (currentType === 'assessment') {
+        slider.max = 50; slider.step = 1;
+        if (parseInt(slider.value) > 50) slider.value = 10;
+      } else if (currentType === 'infrastructure') {
+        slider.max = 5000; slider.step = 100;
+        slider.value = 500;
+      } else {
+        slider.max = 2000; slider.step = 50;
+        slider.value = 150;
+      }
+      updateCalc();
+    }
+
+    function sizeKey(type, val) {
+      if (type === 'assessment') {
+        if (val <= 2) return 'small';
+        if (val <= 8) return 'medium';
+        if (val <= 20) return 'large';
+        return 'xlarge';
+      }
+      if (type === 'infrastructure') {
+        if (val <= 300) return 'small';
+        if (val <= 1000) return 'medium';
+        if (val <= 2500) return 'large';
+        return 'xlarge';
+      }
+      // residential / commercial (m²)
+      if (val <= 120) return 'small';
+      if (val <= 400) return 'medium';
+      if (val <= 900) return 'large';
+      return 'xlarge';
+    }
+
+    function updateCalc() {
+      const slider = document.getElementById('scopeSlider');
+      const val = parseInt(slider.value);
+      document.getElementById('scopeVal').textContent = val.toLocaleString();
+      document.getElementById('scopeUnit').textContent = typeConfig[currentType].unit;
+
+      const key = sizeKey(currentType, val);
+      const cfg = typeConfig[currentType];
+
+      document.getElementById('resultTimeline').textContent  = cfg.timelines[key];
+      document.getElementById('resultVisits').textContent    = cfg.visits[key];
+      document.getElementById('resultDelivs').textContent    = cfg.delivs[key];
+      document.getElementById('resultComplexity').textContent= cfg.complexity[key][0];
+      document.getElementById('resultComplexSub').textContent= cfg.complexity[key][1];
+      document.getElementById('nextStepText').textContent    = cfg.nextStep[key];
+
+      // Update WA link
+      const typeLabel = document.querySelector(`.sc-opt[data-type="${currentType}"] .sc-opt-label`).textContent;
+      const msg = encodeURIComponent(
+        `Hi André! I used the scope estimator on your profile. ` +
+        `I have a ${typeLabel} project — approximately ${val.toLocaleString()} ${cfg.unit}. ` +
+        `The estimator suggests a ${cfg.timelines[key]} timeline. I'd like to arrange a consultation.`
+      );
+      const waBtn = document.getElementById('calcWaBtn');
+      if (waBtn) waBtn.href = `https://wa.me/17587235872?text=${msg}`;
+    }
+
+    // Keyboard support for type options
+    document.querySelectorAll('.sc-opt').forEach(opt => {
+      opt.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectType(opt); }
+      });
+    });
+
+    updateCalc();
+
+    // ===== PROJECT FILTER =====
+    function filterProj(type, btn) {
+      document.querySelectorAll('.pf-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected','false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const t = card.dataset.type || '';
+        card.style.display = (type === 'all' || t === type) ? '' : 'none';
+      });
+    }
+
+    // ===== SCROLL REVEAL =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
