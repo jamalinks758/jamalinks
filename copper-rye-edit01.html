@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en" data-time="morning">
+<head>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: HEAD — SECURITY FIRST
+     JAMALINKS Build Standards v2.0
+═══════════════════════════════════════════ -->
+
+<!-- 1. Character encoding — always first -->
+<meta charset="UTF-8"/>
+
+<!-- 2. Viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- 3. Title -->
+<title>Copper &amp; Rye — Craft Coffee &amp; Kitchen · Columbus, OH</title>
+
+<!-- 4. Content Security Policy — scoped to exact services used -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://js.stripe.com https://cdn.emailjs.com;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+               font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+               img-src 'self' data: https:;
+               frame-src https://js.stripe.com;
+               connect-src 'self' https://api.stripe.com https://api.emailjs.com https://formspree.io;
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self' https://formspree.io;">
+
+<!-- 5. MIME sniffing prevention -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+
+<!-- 6. Referrer policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+<!-- 7. Permissions policy — disable unused browser features -->
+<meta http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"/>
+
+<!-- 8. SEO meta tags -->
+<meta name="description" content="Copper &amp; Rye — craft coffee, scratch kitchen, and direct-trade roasts in downtown Columbus, Ohio. Order pickup, delivery, or dine-in online."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://copperandrye.com/"/>
+<meta property="og:title" content="Copper &amp; Rye — Craft Coffee &amp; Kitchen"/>
+<meta property="og:description" content="Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible. Columbus, OH."/>
+<meta property="og:url" content="https://copperandrye.com/"/>
+<meta property="og:type" content="restaurant"/>
+<meta property="og:image" content="https://copperandrye.com/assets/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Copper &amp; Rye — Craft Coffee &amp; Kitchen"/>
+<meta name="twitter:description" content="Craft coffee and scratch kitchen in downtown Columbus, OH. Order online."/>
+
+<!-- 9. JSON-LD Structured Data — Restaurant schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Copper & Rye",
+  "url": "https://copperandrye.com/",
+  "telephone": "+16145550182",
+  "email": "hello@copperandrye.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Short North Ave",
+    "addressLocality": "Columbus",
+    "addressRegion": "OH",
+    "postalCode": "43215",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.9784,
+    "longitude": -83.0062
+  },
+  "description": "Craft coffee, direct-trade roasts, and a scratch kitchen in downtown Columbus, Ohio.",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00" }
+  ],
+  "servesCuisine": ["Coffee", "American", "Brunch"],
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "sameAs": [
+    "https://www.instagram.com/copperandrye",
+    "https://www.facebook.com/copperandrye"
+  ]
+}
+</script>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: CDN RESOURCES WITH SRI HASHES
+═══════════════════════════════════════════ -->
+
+<!-- Bootstrap 5.3.3 CSS — SRI verified -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"/>
+
+<!-- Font Awesome 6.5.1 — deferred, SRI verified -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/></noscript>
+
+<!-- Google Fonts — performance-optimized, non-blocking -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+      media="print" onload="this.media='all'"/>
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+</noscript>
+
+<!-- Stripe.js — payment processing (load from official Stripe CDN only) -->
+<script src="https://js.stripe.com/v3/" defer></script>
+
+<!-- EmailJS — order notification routing -->
+<script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+
+<style>
+/* font-display: swap prevents invisible text during font load */
+@font-face { font-display: swap; }
+
+/* ═══════════════════════════════════════════
+   SECTION 7: CSS VARIABLES + SECURITY STYLES
+   Time-of-day theme system
+═══════════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --primary:       #b5490a;
+  --primary-dark:  #8c3507;
+  --secondary:     #d4621a;
+  --accent-glow:   rgba(181,73,10,0.18);
+  --green:         #2d6a4f;
+  --green-bg:      rgba(45,106,79,0.08);
+  --green-border:  rgba(45,106,79,0.2);
+
+  /* Morning theme defaults */
+  --bg:        #faf7f2;
+  --bg2:       #f0ebe0;
+  --bg3:       #e5ddd0;
+  --surface:   #ffffff;
+  --text:      #1a1208;
+  --text2:     #6b5a44;
+  --border:    rgba(181,73,10,0.15);
+  --nav-bg:    rgba(250,247,242,0.94);
+  --card-bg:   #ffffff;
+
+  /* Typography */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-serif:   'Libre Baskerville', serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Motion */
+  --transition:       all 1.2s cubic-bezier(0.4,0,0.2,1);
+  --transition-fast:  0.2s ease;
+  --transition-med:   0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-time="afternoon"] {
+  --bg:        #fef8ee;
+  --bg2:       #f5ead8;
+  --bg3:       #ecddc5;
+  --primary:   #c4510e;
+  --secondary: #e06c22;
+  --accent-glow: rgba(196,81,14,0.18);
+  --border:    rgba(196,81,14,0.15);
+  --nav-bg:    rgba(254,248,238,0.94);
+}
+[data-time="evening"] {
+  --bg:        #160e06;
+  --bg2:       #1e1208;
+  --bg3:       #281808;
+  --surface:   #201408;
+  --text:      #f0e2cc;
+  --text2:     #b89060;
+  --primary:   #d4661a;
+  --secondary: #f07830;
+  --accent-glow: rgba(212,102,26,0.28);
+  --border:    rgba(212,102,26,0.2);
+  --nav-bg:    rgba(22,14,6,0.95);
+  --card-bg:   #1e140a;
+}
+[data-time="night"] {
+  --bg:        #0c0804;
+  --bg2:       #140c04;
+  --bg3:       #1c1206;
+  --surface:   #160e04;
+  --text:      #e8d4b0;
+  --text2:     #9a7848;
+  --primary:   #b85c14;
+  --secondary: #d4741e;
+  --accent-glow: rgba(184,92,20,0.22);
+  --border:    rgba(184,92,20,0.14);
+  --nav-bg:    rgba(12,8,4,0.97);
+  --card-bg:   #140a02;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  max-width: 100vw;
+  transition: background 1.2s ease, color 1.2s ease;
+}
+
+/* Noise texture overlay — purely decorative */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.45;
+  aria-hidden: true;
+}
+
+/* ── ACCESSIBILITY: FOCUS STYLES (WCAG 2.1 AA) ── */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+*:focus:not(:focus-visible) { outline: none; }
+
+/* ── SKIP LINK — WCAG REQUIREMENT ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--primary); color: white;
+  padding: 0.5rem 1rem; border-radius: 0 0 6px 6px;
+  z-index: 10000; font-weight: 600; font-family: var(--font-body);
+  text-decoration: none; font-size: 0.85rem;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ═══════════════════════════════════════
+   NAVIGATION — WCAG COMPLIANT
+═══════════════════════════════════════ */
+.v-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: var(--nav-bg); backdrop-filter: blur(22px);
+  border-bottom: 1px solid var(--border);
+  height: 66px; display: flex; align-items: center;
+  padding: 0 36px; justify-content: space-between;
+  transition: var(--transition);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand-mark {
+  width: 34px; height: 34px; background: var(--primary);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; transition: background 1.2s ease; flex-shrink: 0;
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem; color: var(--text); letter-spacing: -0.5px;
+  transition: color 1.2s ease;
+}
+.brand-text span { color: var(--primary); }
+
+/* Desktop nav links */
+.nav-links {
+  display: flex; gap: 30px; list-style: none;
+  margin: 0 auto; padding: 0;
+}
+.nav-links a {
+  font-size: 0.83rem; font-weight: 500; color: var(--text2);
+  text-decoration: none; letter-spacing: 0.2px;
+  transition: color var(--transition-fast);
+  padding: 4px 0;
+}
+.nav-links a:hover { color: var(--primary); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.time-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--accent-glow); border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 12px;
+  font-size: 0.71rem; font-weight: 600; color: var(--primary);
+  letter-spacing: 0.5px; transition: var(--transition);
+}
+.time-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--primary); animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.btn-nav {
+  background: var(--primary); color: white; border: none;
+  border-radius: 8px; padding: 9px 18px;
+  font-family: var(--font-body); font-size: 0.83rem; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-nav:hover { filter: brightness(1.1); transform: scale(1.03); }
+.cart-badge {
+  background: white; color: var(--primary);
+  border-radius: 50%; width: 18px; height: 18px;
+  font-size: 0.65rem; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* Hamburger button — mobile only */
+.nav-hamburger {
+  display: none;
+  background: none; border: 1px solid var(--border);
+  border-radius: 7px; color: var(--text2);
+  width: 38px; height: 38px; cursor: pointer;
+  align-items: center; justify-content: center;
+  font-size: 1rem; transition: background var(--transition-fast);
+}
+.nav-hamburger:hover { background: var(--bg2); }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none;
+  position: fixed; top: 66px; left: 0; right: 0; z-index: 490;
+  background: var(--nav-bg); backdrop-filter: blur(22px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 20px;
+  flex-direction: column; gap: 4px;
+  transform: translateY(-10px); opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.mobile-nav.open {
+  display: flex; opacity: 1; transform: translateY(0);
+}
+.mobile-nav a {
+  display: block; padding: 12px 0;
+  font-size: 0.97rem; font-weight: 500; color: var(--text2);
+  text-decoration: none; border-bottom: 1px solid var(--border);
+  transition: color var(--transition-fast);
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--primary); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.v-hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 90px 24px 60px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 25% 15%, var(--accent-glow), transparent 50%),
+    radial-gradient(ellipse at 75% 85%, var(--accent-glow), transparent 50%);
+  transition: var(--transition);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(181,73,10,0.02) 60px, rgba(181,73,10,0.02) 61px
+  );
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-glow); border: 1px solid var(--border);
+  border-radius: 4px; padding: 6px 16px;
+  font-size: 0.68rem; font-weight: 600; color: var(--primary);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 22px; animation: fadeUp 0.55s ease both;
+}
+.v-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 10vw, 7rem);
+  font-weight: 900; line-height: 0.9;
+  letter-spacing: -3px; color: var(--text);
+  margin-bottom: 22px; transition: color 1.2s ease;
+  animation: fadeUp 0.6s 0.08s ease both;
+}
+.v-hero h1 em {
+  font-style: italic; font-family: var(--font-serif);
+  color: var(--primary); letter-spacing: -1px;
+}
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 2vw, 1.15rem); font-style: italic;
+  color: var(--text2); max-width: 440px; line-height: 1.7;
+  margin-bottom: 36px; transition: color 1.2s ease;
+  animation: fadeUp 0.6s 0.16s ease both;
+}
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 44px;
+  animation: fadeUp 0.6s 0.24s ease both;
+}
+.btn-primary {
+  background: var(--primary); color: white; border: none;
+  border-radius: 8px; padding: 15px 34px;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.btn-primary:hover {
+  filter: brightness(1.08); transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--accent-glow);
+  color: white; text-decoration: none;
+}
+.btn-ghost {
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 14px 28px;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+
+.hero-trust {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.6s 0.32s ease both;
+}
+.trust-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50px; padding: 7px 16px;
+  font-size: 0.74rem; font-weight: 500; color: var(--text2);
+  display: flex; align-items: center; gap: 6px;
+  transition: var(--transition);
+}
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text2); font-size: 0.66rem; letter-spacing: 2.5px;
+  text-transform: uppercase; animation: bounce 2.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-7px)}
+}
+
+/* ── TICKER BAR ── */
+.special-bar {
+  background: var(--primary); padding: 11px 0;
+  overflow: hidden; white-space: nowrap;
+  aria-label: "Today's specials";
+}
+.special-track {
+  display: inline-flex; gap: 0;
+  animation: tickerScroll 40s linear infinite;
+}
+.special-item {
+  font-family: var(--font-serif);
+  font-size: 0.86rem; font-style: italic; color: rgba(255,255,255,0.95);
+  padding: 0 36px; display: inline-flex; align-items: center; gap: 16px;
+}
+.s-dot { font-style: normal; opacity: 0.4; font-size: 0.4rem; }
+@keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── ORDER TYPE TOGGLE ── */
+.order-toggle-wrap {
+  padding: 52px 24px 0;
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.ot-eyebrow {
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: block;
+}
+.ot-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  color: var(--text); margin-bottom: 8px; letter-spacing: -1px;
+  transition: color 1.2s ease;
+}
+.ot-title em { font-family: var(--font-serif); font-style: italic; color: var(--primary); }
+.ot-sub {
+  font-size: 0.88rem; color: var(--text2); margin-bottom: 24px;
+  font-weight: 300; line-height: 1.6; transition: color 1.2s ease;
+}
+.order-type-toggle {
+  display: inline-flex;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 5px; gap: 4px; margin-bottom: 32px;
+  flex-wrap: wrap; justify-content: center;
+}
+.ot-btn {
+  background: transparent; border: none; cursor: pointer;
+  border-radius: 9px; padding: 10px 24px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  color: var(--text2); transition: all 0.2s;
+  display: flex; align-items: center; gap: 7px;
+}
+.ot-btn.active {
+  background: var(--surface); color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-weight: 600;
+}
+.ot-info {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.ot-info-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 18px;
+  font-size: 0.78rem; color: var(--text2);
+  display: flex; align-items: center; gap: 7px;
+  transition: var(--transition);
+}
+.ot-info-pill strong { color: var(--primary); font-weight: 600; }
+
+/* ── MOOD SELECTOR ── */
+.mood-section {
+  padding: 52px 24px 0; max-width: 900px; margin: 0 auto; text-align: center;
+}
+.mood-pills {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.mood-pill {
+  background: var(--surface); border: 1.5px solid var(--border);
+  color: var(--text2); border-radius: 50px; padding: 10px 22px;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.mood-pill:hover { border-color: var(--primary); color: var(--primary); }
+.mood-pill.active {
+  background: var(--primary); border-color: var(--primary);
+  color: white; box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* ── MENU SECTION ── */
+.menu-section {
+  padding: 40px 24px 100px; max-width: 1120px; margin: 0 auto;
+}
+.menu-cat-tabs {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 0;
+}
+.cat-tab {
+  background: transparent; border: none;
+  border-bottom: 2.5px solid transparent;
+  color: var(--text2); padding: 12px 18px;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px; margin-bottom: -1px;
+}
+.cat-tab:hover { color: var(--primary); }
+.cat-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 16px;
+}
+
+/* ── MENU CARD ── */
+.menu-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px; position: relative; overflow: hidden;
+  transition: transform 0.3s, border-color 0.25s, box-shadow 0.3s, background 1.2s ease;
+}
+.menu-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--primary); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.menu-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+.menu-card:hover::before { transform: scaleX(1); }
+.menu-card.in-order {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+.menu-card.in-order::before { transform: scaleX(1); }
+
+.mood-badge {
+  position: absolute; top: 13px; right: 13px;
+  background: var(--primary); color: white;
+  border-radius: 4px; padding: 3px 10px;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.pop-badge {
+  position: absolute; top: 13px; left: 13px;
+  background: var(--green); color: white;
+  border-radius: 4px; padding: 3px 10px;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.card-top { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 12px; }
+.card-emoji {
+  font-size: 2.1rem; flex-shrink: 0; transition: transform 0.3s;
+  /* aria-hidden set in JS */
+}
+.menu-card:hover .card-emoji { transform: scale(1.12) rotate(-4deg); }
+.card-info { flex: 1; }
+.card-cat {
+  font-size: 0.62rem; color: var(--primary); letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 600; margin-bottom: 3px;
+}
+.card-name {
+  font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700;
+  color: var(--text); line-height: 1.25; margin-bottom: 4px;
+  transition: color 1.2s ease;
+}
+.card-desc {
+  font-size: 0.78rem; color: var(--text2); line-height: 1.55;
+  font-weight: 300; transition: color 1.2s ease;
+}
+.card-tags { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+.card-tag {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 50px; padding: 2px 9px;
+  font-size: 0.62rem; color: var(--text2); font-weight: 500;
+  transition: var(--transition);
+}
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 12px; gap: 8px; flex-wrap: wrap;
+}
+.card-price {
+  font-family: var(--font-display); font-size: 1.3rem;
+  color: var(--primary);
+}
+.card-price small {
+  font-family: var(--font-body); font-size: 0.7rem;
+  color: var(--text2); font-weight: 300;
+}
+.card-actions { display: flex; align-items: center; gap: 7px; }
+.qty-wrap {
+  display: flex; align-items: center;
+  background: var(--bg2); border-radius: 8px;
+  border: 1px solid var(--border); overflow: hidden;
+}
+.qty-btn {
+  background: none; border: none; color: var(--primary);
+  width: 30px; height: 30px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.qty-btn:hover { background: var(--accent-glow); }
+.qty-num { min-width: 26px; text-align: center; font-size: 0.86rem; font-weight: 600; }
+.add-btn {
+  background: var(--primary); color: white; border: none;
+  border-radius: 7px; padding: 7px 16px;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: filter var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+.add-btn:hover { filter: brightness(1.1); transform: scale(1.03); }
+.add-btn.added { background: var(--bg3); color: var(--primary); }
+.menu-empty {
+  grid-column: 1 / -1; text-align: center; padding: 60px 20px;
+  color: var(--text2); font-style: italic;
+}
+
+/* ── STORY SECTION ── */
+.story-section {
+  background: var(--bg2); padding: 88px 24px; transition: background 1.2s ease;
+}
+.story-inner {
+  max-width: 920px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.story-eyebrow {
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 12px; display: block;
+}
+.story-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+  color: var(--text); line-height: 1.05; margin-bottom: 22px;
+  letter-spacing: -1.5px; transition: color 1.2s ease;
+}
+.story-h2 em { font-family: var(--font-serif); font-style: italic; color: var(--primary); }
+.story-body {
+  font-size: 0.9rem; color: var(--text2); line-height: 1.85;
+  font-weight: 300; transition: color 1.2s ease;
+}
+.story-body p + p { margin-top: 14px; }
+.story-quote {
+  border-left: 3px solid var(--primary); padding-left: 18px; margin-top: 22px;
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 1rem; color: var(--text); line-height: 1.7;
+  transition: color 1.2s ease;
+}
+.story-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.story-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px 18px; text-align: center;
+  transition: background 1.2s ease, transform 0.25s;
+}
+.story-stat:hover { transform: translateY(-3px); }
+.stat-num {
+  font-family: var(--font-display); font-size: 2rem;
+  color: var(--primary); line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.68rem; color: var(--text2); letter-spacing: 1.5px;
+  text-transform: uppercase; margin-top: 5px;
+  transition: color 1.2s ease;
+}
+.hours-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; margin-top: 14px;
+  transition: background 1.2s ease;
+}
+.hours-title {
+  font-family: var(--font-serif); font-size: 0.94rem; font-weight: 700;
+  color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
+  transition: color 1.2s ease;
+}
+.hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--text2); font-weight: 400; }
+.hours-time { color: var(--primary); font-weight: 600; }
+.open-now {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(45,106,79,0.12); color: #166534;
+  border-radius: 50px; padding: 3px 10px; font-size: 0.67rem; font-weight: 700;
+}
+.closed-now {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(220,38,38,0.1); color: #b91c1c;
+  border-radius: 50px; padding: 3px 10px; font-size: 0.67rem; font-weight: 700;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 88px 24px; text-align: center;
+  background: var(--bg); transition: background 1.2s ease;
+}
+.cta-inner {
+  max-width: 620px; margin: 0 auto;
+  background: var(--primary); border-radius: 24px; padding: 60px 40px;
+  position: relative; overflow: hidden;
+}
+.cta-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(255,255,255,0.1), transparent 50%),
+    radial-gradient(ellipse at 85% 50%, rgba(0,0,0,0.12), transparent 50%);
+  pointer-events: none;
+}
+.cta-icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white; letter-spacing: -1.5px; margin-bottom: 12px;
+  line-height: 0.95; position: relative;
+}
+.cta-title em { font-family: var(--font-serif); font-style: italic; }
+.cta-sub {
+  color: rgba(255,255,255,0.82); font-size: 0.95rem; margin-bottom: 28px;
+  font-weight: 300; line-height: 1.65; position: relative;
+}
+.btn-cta-checkout {
+  background: white; color: var(--primary); border: none;
+  border-radius: 10px; padding: 15px 36px;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 9px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+.btn-cta-checkout:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+
+/* ── FLOAT ORDER BAR ── */
+.float-bar {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 600; background: var(--text); color: var(--bg);
+  border-radius: 16px; padding: 13px 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s, background 1.2s ease;
+  opacity: 0; min-width: 340px; max-width: 92vw;
+}
+.float-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+.fb-left { flex: 1; }
+.fb-count { font-size: 0.68rem; opacity: 0.55; letter-spacing: 0.5px; text-transform: uppercase; }
+.fb-amount {
+  font-family: var(--font-display); font-size: 1.4rem;
+  color: var(--primary); line-height: 1;
+}
+.fb-checkout {
+  background: var(--primary); color: white; border: none;
+  border-radius: 10px; padding: 11px 18px;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; gap: 7px;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+.fb-checkout:hover { filter: brightness(1.1); transform: scale(1.03); }
+.fb-checkout:disabled { background: #888; cursor: not-allowed; transform: none; }
+.fb-clear {
+  background: rgba(255,255,255,0.1); border: none; color: inherit;
+  width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
+  font-size: 0.78rem; transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fb-clear:hover { background: rgba(255,255,255,0.2); }
+
+/* ── CHECKOUT MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; width: 100%; max-width: 560px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(24px) scale(0.97);
+  transition: transform var(--transition-med), background 1.2s ease;
+  scrollbar-width: thin;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+.modal-head {
+  padding: 24px 28px 18px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; background: var(--surface); z-index: 2;
+}
+.modal-title {
+  font-family: var(--font-display); font-size: 1.2rem;
+  color: var(--text); letter-spacing: -0.5px;
+}
+.modal-close {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  width: 34px; height: 34px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text2); font-size: 0.9rem; transition: background 0.2s;
+}
+.modal-close:hover { background: var(--bg3); }
+.modal-body { padding: 24px 28px; }
+
+/* Order type toggle in modal */
+.co-section { margin-bottom: 22px; }
+.co-label {
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: block;
+}
+.co-toggle {
+  display: flex; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 4px; gap: 4px; flex-wrap: wrap;
+}
+.co-btn {
+  flex: 1; background: transparent; border: none; cursor: pointer;
+  border-radius: 8px; padding: 9px 14px;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 500;
+  color: var(--text2); transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  min-width: 80px;
+}
+.co-btn.active {
+  background: var(--surface); color: var(--primary);
+  font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Cart items in modal */
+.co-items { display: flex; flex-direction: column; gap: 10px; }
+.co-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg2); border-radius: 10px; padding: 12px 14px; gap: 10px;
+}
+.co-item-left { display: flex; align-items: center; gap: 10px; flex: 1; }
+.co-item-emoji { font-size: 1.5rem; }
+.co-item-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.co-item-desc { font-size: 0.74rem; color: var(--text2); }
+.co-item-qty {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden;
+}
+.co-qty-btn {
+  background: none; border: none; color: var(--primary);
+  width: 28px; height: 28px; font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.co-qty-btn:hover { background: var(--accent-glow); }
+.co-qty-num { min-width: 22px; text-align: center; font-size: 0.84rem; font-weight: 700; }
+.co-item-price { font-family: var(--font-display); font-size: 0.95rem; color: var(--primary); white-space: nowrap; }
+
+/* Tip selector */
+.tip-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.tip-btn {
+  background: var(--bg2); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 9px 18px;
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 600;
+  color: var(--text2); cursor: pointer; transition: all 0.2s;
+}
+.tip-btn:hover { border-color: var(--primary); color: var(--primary); }
+.tip-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
+.tip-custom-wrap { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.tip-custom-label { font-size: 0.78rem; color: var(--text2); }
+.tip-custom-input {
+  background: var(--bg2); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 8px 12px;
+  font-family: var(--font-body); font-size: 0.84rem;
+  color: var(--text); width: 100px; outline: none;
+  transition: border-color 0.2s;
+}
+.tip-custom-input:focus { border-color: var(--primary); }
+
+/* Contact/notes form — WCAG compliant */
+.co-form { display: flex; flex-direction: column; gap: 12px; }
+.co-field { display: flex; flex-direction: column; gap: 5px; }
+.co-field label {
+  font-size: 0.72rem; font-weight: 600; color: var(--text2);
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.required-star { color: #b91c1c; margin-left: 2px; }
+.co-input, .co-textarea {
+  background: var(--bg2); border: 1.5px solid var(--border);
+  border-radius: 9px; padding: 10px 14px;
+  font-family: var(--font-body); font-size: 0.88rem;
+  color: var(--text); outline: none; transition: border-color 0.2s; width: 100%;
+}
+.co-input:focus, .co-textarea:focus { border-color: var(--primary); }
+.co-input.error, .co-textarea.error { border-color: #b91c1c; }
+.co-textarea { resize: vertical; min-height: 70px; }
+.co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field-error {
+  font-size: 0.68rem; color: #b91c1c; margin-top: 2px;
+  display: none;
+}
+.field-error.show { display: block; }
+
+/* Order summary */
+.co-summary {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; margin-top: 4px;
+}
+.co-sum-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 0; font-size: 0.85rem; color: var(--text2);
+}
+.co-sum-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+.co-sum-total { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); }
+.co-sum-total-amt { font-family: var(--font-display); font-size: 1.3rem; color: var(--primary); }
+
+/* Delivery estimate */
+.co-delivery-est {
+  background: var(--green-bg); border: 1px solid var(--green-border);
+  border-radius: 10px; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.82rem; color: var(--green);
+}
+
+/* Payment section */
+.payment-section {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; margin-bottom: 16px;
+}
+.payment-method-tabs {
+  display: flex; gap: 6px; margin-bottom: 16px;
+}
+.pay-tab {
+  flex: 1; background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 8px;
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+  color: var(--text2); cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.pay-tab.active { border-color: var(--primary); color: var(--primary); background: var(--accent-glow); }
+.stripe-element-wrap {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 9px; padding: 12px 14px;
+  transition: border-color 0.2s;
+}
+.stripe-element-wrap.focused { border-color: var(--primary); }
+
+/* The real Stripe card element mounts here */
+#stripe-card-element { min-height: 20px; }
+
+/* Place order btn */
+.btn-place-order {
+  width: 100%; background: var(--primary); color: white; border: none;
+  border-radius: 12px; padding: 16px;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px;
+  transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: 8px; position: relative;
+}
+.btn-place-order:hover {
+  filter: brightness(1.08); transform: translateY(-1px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+.btn-place-order:disabled { background: #aaa; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-spinner {
+  width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white; border-radius: 50%;
+  animation: spin 0.7s linear infinite; display: none;
+}
+.btn-place-order.loading .btn-spinner { display: block; }
+.btn-place-order.loading .btn-text { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Secure badge */
+.secure-badge {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 0.71rem; color: var(--text2); margin-top: 12px; opacity: 0.7;
+}
+
+/* Notice for no Stripe configured */
+.payment-notice {
+  background: rgba(196,81,14,0.08); border: 1px solid rgba(196,81,14,0.2);
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+  font-size: 0.8rem; color: var(--text2); line-height: 1.6;
+}
+.payment-notice strong { color: var(--primary); }
+
+/* ── CONFIRMATION VIEW ── */
+.confirmation-view { padding: 36px 28px; text-align: center; }
+.conf-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+.conf-title {
+  font-family: var(--font-display); font-size: 1.6rem;
+  color: var(--text); margin-bottom: 10px; letter-spacing: -1px;
+}
+.conf-sub {
+  font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 24px;
+}
+.conf-ticket {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; text-align: left; margin-bottom: 20px;
+}
+.conf-ticket-row {
+  display: flex; justify-content: space-between;
+  font-size: 0.82rem; color: var(--text2); padding: 4px 0;
+}
+.conf-ticket-row strong { color: var(--text); font-weight: 600; }
+.conf-next-steps {
+  background: var(--green-bg); border: 1px solid var(--green-border);
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;
+  text-align: left;
+}
+.conf-next-step {
+  font-size: 0.8rem; color: var(--green); padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+
+/* ── CLOSED BANNER ── */
+.closed-banner {
+  display: none; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 30px; text-align: center; margin-bottom: 32px;
+}
+.closed-banner.show { display: block; }
+.closed-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+.closed-title {
+  font-family: var(--font-display); font-size: 1.4rem;
+  color: var(--text); margin-bottom: 8px; letter-spacing: -0.5px;
+}
+.closed-sub { font-size: 0.86rem; color: var(--text2); line-height: 1.65; margin-bottom: 18px; }
+
+/* ── CONFIRM DIALOG (clear order) ── */
+.confirm-dialog-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.confirm-dialog-overlay.open { opacity: 1; pointer-events: all; }
+.confirm-dialog {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px 28px 24px;
+  max-width: 340px; width: 100%; text-align: center;
+  transform: scale(0.95); transition: transform 0.2s;
+}
+.confirm-dialog-overlay.open .confirm-dialog { transform: scale(1); }
+.confirm-dialog-title {
+  font-family: var(--font-display); font-size: 1.1rem;
+  color: var(--text); margin-bottom: 8px;
+}
+.confirm-dialog-sub {
+  font-size: 0.85rem; color: var(--text2); line-height: 1.6; margin-bottom: 20px;
+}
+.confirm-dialog-btns { display: flex; gap: 10px; }
+.confirm-cancel {
+  flex: 1; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  color: var(--text2); cursor: pointer; transition: background 0.2s;
+}
+.confirm-cancel:hover { background: var(--bg3); }
+.confirm-clear {
+  flex: 1; background: #b91c1c; border: none;
+  border-radius: 8px; padding: 10px;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+  color: white; cursor: pointer; transition: filter 0.2s;
+}
+.confirm-clear:hover { filter: brightness(1.1); }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 100px; right: 24px; z-index: 800;
+  background: var(--text); color: var(--bg);
+  border-radius: 10px; padding: 10px 18px;
+  font-size: 0.82rem; font-weight: 500;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s; pointer-events: none;
+  max-width: 280px;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.error { background: #b91c1c; color: white; }
+.toast.success { background: var(--green); color: white; }
+
+/* ── FOOTER ── */
+.v-footer {
+  background: var(--bg3); border-top: 1px solid var(--border);
+  padding: 52px 24px 28px; transition: background 1.2s ease;
+}
+.footer-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px;
+}
+.footer-name {
+  font-family: var(--font-display); font-size: 1.3rem;
+  color: var(--primary); margin-bottom: 8px; letter-spacing: -0.5px;
+}
+.footer-tagline {
+  font-size: 0.82rem; color: var(--text2); line-height: 1.65; font-weight: 300;
+  max-width: 210px; transition: color 1.2s ease;
+}
+.footer-col-title {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 14px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0; }
+.footer-links a {
+  color: var(--text2); text-decoration: none; font-size: 0.84rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-bottom {
+  max-width: 900px; margin: 36px auto 0;
+  border-top: 1px solid var(--border); padding-top: 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+  font-size: 0.74rem; color: var(--text2);
+}
+.footer-bottom a { color: var(--primary); text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — Mobile First
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Show hamburger, hide desktop nav */
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .v-nav { padding: 0 20px; }
+
+  /* Modal slides up from bottom on mobile */
+  .modal { border-radius: 20px 20px 0 0; max-height: 95vh; }
+  .modal-overlay { align-items: flex-end; padding: 0; }
+
+  /* Float bar full width on mobile */
+  .float-bar { min-width: unset; width: calc(100vw - 32px); }
+
+  /* Story stacks vertically */
+  .story-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Footer stacks */
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+
+  /* CTA adjustments */
+  .cta-inner { padding: 40px 24px; }
+
+  .co-row { grid-template-columns: 1fr; }
+  .payment-method-tabs { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .hero-btns .btn-primary, .hero-btns .btn-ghost { justify-content: center; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .order-type-toggle { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8: HTML STRUCTURE — WCAG SEMANTIC
+═══════════════════════════════════════════ -->
+
+<!-- Skip link — keyboard accessibility, WCAG 2.1 requirement -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ── NAVIGATION ── -->
+<header role="banner">
+  <nav class="v-nav" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="nav-brand" aria-label="Copper and Rye - Home">
+      <div class="brand-mark" aria-hidden="true">☕</div>
+      <div class="brand-text">Copper<span>&amp;</span>Rye</div>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#story">Hours</a></li>
+      <li><a href="mailto:hello@copperandrye.com">Catering</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="time-badge" role="status" aria-live="polite">
+        <div class="time-dot" aria-hidden="true"></div>
+        <span id="timeBadgeText">Open Now</span>
+      </div>
+      <button class="btn-nav" onclick="openCheckout()" type="button"
+              aria-label="View your order">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i> My Order
+        <span class="cart-badge" id="navCartCount" aria-live="polite"
+              aria-label="0 items in order">0</span>
+      </button>
+      <!-- Hamburger — mobile only -->
+      <button class="nav-hamburger" id="navHamburger" type="button"
+              aria-label="Open navigation menu" aria-expanded="false"
+              aria-controls="mobileNav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="#menu" onclick="closeMobileNav()">Menu</a>
+    <a href="#story" onclick="closeMobileNav()">Our Story</a>
+    <a href="#story" onclick="closeMobileNav()">Hours &amp; Location</a>
+    <a href="mailto:hello@copperandrye.com" target="_blank" rel="noopener noreferrer">Catering Inquiries</a>
+    <a href="tel:+16145550182">Call Us · (614) 555-0182</a>
+  </div>
+</header>
+
+<main id="main-content" role="main">
+
+  <!-- ── HERO ── -->
+  <section class="v-hero" id="home" aria-labelledby="heroH1">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-eyebrow" id="heroEyebrow" aria-live="polite">☀️ Good Morning, Columbus</div>
+    <h1 id="heroH1">Craft Coffee.<br/><em>Real Kitchen.</em></h1>
+    <p class="hero-tagline" id="heroTagline">
+      Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">
+        <i class="fas fa-utensils" aria-hidden="true"></i> Order Now
+      </a>
+      <button class="btn-ghost" onclick="openCheckout()" type="button">
+        <i class="fas fa-bag-shopping" aria-hidden="true"></i> View My Order
+      </button>
+    </div>
+    <div class="hero-trust" role="list" aria-label="Trust indicators">
+      <div class="trust-pill" role="listitem">🌿 Farm-to-Table</div>
+      <div class="trust-pill" role="listitem">📍 Downtown Columbus, OH</div>
+      <div class="trust-pill" role="listitem">🚗 Pickup &amp; Delivery</div>
+      <div class="trust-pill" role="listitem">💳 Cards &amp; Apple Pay</div>
+      <div class="trust-pill" role="listitem">⭐ 4.9 on Google</div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>↓</span> Browse the menu
+    </div>
+  </section>
+
+  <!-- ── TICKER ── -->
+  <div class="special-bar" aria-label="Today's specials" role="marquee">
+    <div class="special-track" id="specialTrack" aria-hidden="true"></div>
+  </div>
+
+  <!-- ── ORDER TYPE TOGGLE ── -->
+  <div class="order-toggle-wrap reveal" id="menu">
+    <span class="ot-eyebrow">How Are You Getting It?</span>
+    <h2 class="ot-title">Order <em>Your Way</em></h2>
+    <p class="ot-sub">Pick pickup or delivery before you browse — we'll show what's available for you right now.</p>
+    <div class="order-type-toggle" role="group" aria-label="Select order type">
+      <button class="ot-btn active" id="pickupBtn" type="button"
+              onclick="setOrderType('pickup', this)"
+              aria-pressed="true">
+        🏪 Pickup
+      </button>
+      <button class="ot-btn" id="deliveryBtn" type="button"
+              onclick="setOrderType('delivery', this)"
+              aria-pressed="false">
+        🚗 Delivery
+      </button>
+      <button class="ot-btn" id="dineBtn" type="button"
+              onclick="setOrderType('dine', this)"
+              aria-pressed="false">
+        🪑 Dine-In
+      </button>
+    </div>
+    <div class="ot-info" id="otInfo" aria-live="polite">
+      <div class="ot-info-pill">⏱ <strong>Ready in 12–18 min</strong></div>
+      <div class="ot-info-pill">📍 <strong>123 Short North Ave, Columbus, OH</strong></div>
+      <div class="ot-info-pill">🕗 <strong id="openStatus">Checking hours…</strong></div>
+    </div>
+  </div>
+
+  <!-- ── MOOD SELECTOR ── -->
+  <div class="mood-section reveal" style="margin-top:40px;">
+    <div class="mood-pills" role="group" aria-label="Filter menu by mood">
+      <button class="mood-pill active" type="button" onclick="setMood('all', this)"
+              aria-pressed="true">✦ Full Menu</button>
+      <button class="mood-pill" type="button" onclick="setMood('fuel', this)"
+              aria-pressed="false">⚡ Morning Fuel</button>
+      <button class="mood-pill" type="button" onclick="setMood('chill', this)"
+              aria-pressed="false">🍃 Something Slow</button>
+      <button class="mood-pill" type="button" onclick="setMood('sweet', this)"
+              aria-pressed="false">🍰 Sweet Tooth</button>
+      <button class="mood-pill" type="button" onclick="setMood('fresh', this)"
+              aria-pressed="false">🥗 Light &amp; Fresh</button>
+      <button class="mood-pill" type="button" onclick="setMood('brunch', this)"
+              aria-pressed="false">🍳 Weekend Brunch</button>
+    </div>
+  </div>
+
+  <!-- ── MENU ── -->
+  <section class="menu-section" aria-label="Menu">
+    <div class="closed-banner" id="closedBanner" role="alert">
+      <span class="closed-icon" aria-hidden="true">🌙</span>
+      <div class="closed-title">We're Closed Right Now</div>
+      <p class="closed-sub">Copper &amp; Rye opens at 7:00 AM. Pre-order now and it'll be hot and waiting when you walk in.</p>
+      <button class="btn-primary" type="button" style="display:inline-flex" onclick="openCheckout()">
+        📋 Pre-Order for Tomorrow
+      </button>
+    </div>
+    <div class="menu-cat-tabs" id="catTabs" role="tablist" aria-label="Menu categories"></div>
+    <div class="menu-grid" id="menuGrid" aria-live="polite" aria-label="Menu items"></div>
+  </section>
+
+  <!-- ── OUR STORY ── -->
+  <section class="story-section" id="story" aria-labelledby="storyHeading">
+    <div class="story-inner">
+      <div class="story-left reveal">
+        <span class="story-eyebrow">Our Story</span>
+        <h2 class="story-h2" id="storyHeading">Built for the<br/><em>Early Risers.</em></h2>
+        <div class="story-body">
+          <p>Copper &amp; Rye opened in 2018 with one obsession: make a café that Columbus actually deserves. Not a chain. Not a formula. A real kitchen and a real roaster under one roof.</p>
+          <p>We source our beans directly from three farms — one in Guatemala, one in Ethiopia, one in Colombia. Every bag is roasted in-house, 48 hours before it hits your cup.</p>
+          <p>The food menu changes seasonally. The commitment to not cutting corners doesn't.</p>
+        </div>
+        <blockquote class="story-quote">
+          "We started with two espresso machines and a borrowed oven. Now we have a following. Same obsession, more square footage."
+        </blockquote>
+      </div>
+      <div class="story-right reveal">
+        <div class="story-stats" role="list" aria-label="About us">
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">2018</div>
+            <div class="stat-lbl">Est. Columbus, OH</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-lbl">Google Rating</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">Direct-Trade Farms</div>
+          </div>
+          <div class="story-stat" role="listitem">
+            <div class="stat-num">Daily</div>
+            <div class="stat-lbl">Fresh-Roasted</div>
+          </div>
+        </div>
+        <div class="hours-card" aria-label="Business hours">
+          <div class="hours-title">
+            <i class="fas fa-clock" aria-hidden="true"></i> Hours
+            <span id="openStatusBadge" aria-live="polite"></span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Monday – Friday</span>
+            <span class="hours-time">7:00 AM – 7:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">8:00 AM – 8:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time">9:00 AM – 5:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Online Orders</span>
+            <span class="hours-time">Always Open 🌐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta reveal" aria-label="Order call to action">
+    <div class="cta-inner">
+      <span class="cta-icon" aria-hidden="true">☕</span>
+      <div class="cta-title">Ready to Order?<br/><em>We're Ready.</em></div>
+      <p class="cta-sub">Add your items, choose pickup or delivery, tip your barista, and check out in under 60 seconds. No app needed.</p>
+      <button class="btn-cta-checkout" type="button" onclick="openCheckout()"
+              aria-label="Open checkout">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i> Checkout Now
+      </button>
+    </div>
+  </section>
+
+</main><!-- /main -->
+
+<!-- ── FOOTER ── -->
+<footer class="v-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Copper &amp; Rye</div>
+      <p class="footer-tagline">Craft coffee and scratch kitchen in the heart of Columbus, Ohio.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Order Now</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#story">Hours &amp; Location</a></li>
+      </ul>
+    </nav>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+16145550182">(614) 555-0182</a></li>
+        <li><a href="mailto:hello@copperandrye.com">hello@copperandrye.com</a></li>
+        <li>
+          <a href="https://www.instagram.com/copperandrye"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Copper and Rye on Instagram (opens in new tab)">
+            <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="mailto:catering@copperandrye.com"
+             aria-label="Send catering inquiry email">Catering Inquiries</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>
+      &copy; <span id="footerYear">2026</span> Copper &amp; Rye ·
+      123 Short North Ave, Columbus, OH 43215 ·
+      <a href="/privacy-policy.html" rel="noopener">Privacy Policy</a>
+    </span>
+    <a href="https://jamalinks758.github.io/jamalinks/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="JAMALINKS - Web Design (opens in new tab)">Built by JAMALINKS</a>
+  </div>
+</footer>
+
+<!-- ── FLOAT ORDER BAR ── -->
+<div class="float-bar" id="floatBar" role="region" aria-label="Your current order">
+  <div class="fb-left">
+    <div class="fb-count" id="fbCount" aria-live="polite">0 items</div>
+    <div class="fb-amount">$<span id="fbAmt">0.00</span></div>
+  </div>
+  <button class="fb-clear" type="button"
+          onclick="confirmClearOrder()"
+          aria-label="Clear all items from order">
+    <i class="fas fa-times" aria-hidden="true"></i>
+  </button>
+  <button class="fb-checkout" id="fbCheckoutBtn" type="button"
+          onclick="openCheckout()" disabled
+          aria-label="Proceed to checkout">
+    <i class="fas fa-shopping-cart" aria-hidden="true"></i> Checkout
+  </button>
+</div>
+
+<!-- ── CLEAR ORDER CONFIRM DIALOG ── -->
+<div class="confirm-dialog-overlay" id="confirmDialogOverlay" role="dialog"
+     aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="confirm-dialog">
+    <div class="confirm-dialog-title" id="confirmTitle">Clear Your Order?</div>
+    <p class="confirm-dialog-sub">This will remove all items from your order. This can't be undone.</p>
+    <div class="confirm-dialog-btns">
+      <button class="confirm-cancel" type="button"
+              onclick="closeConfirmDialog()"
+              aria-label="Cancel, keep my order">Keep Order</button>
+      <button class="confirm-clear" type="button"
+              onclick="executeClearOrder()"
+              aria-label="Confirm clear all items">Clear All</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CHECKOUT MODAL ── -->
+<div class="modal-overlay" id="modalOverlay" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle"
+     onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">Your Order</div>
+      <button class="modal-close" type="button"
+              onclick="closeCheckout()"
+              aria-label="Close checkout">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- dynamically rendered -->
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST NOTIFICATION ── -->
+<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+<!-- ── Bootstrap 5.3.3 JS — SRI verified, deferred ── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQKZr5QFBkRQqEpfGXL1P1/1j5u"
+        crossorigin="anonymous" defer></script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   SECTION 9: JAVASCRIPT — FIXED VERSION
+   - Fix: card disappears when + is clicked (NO innerHTML replace on cards)
+   - Fix: proper pre-order review modal
+═══════════════════════════════════════════════════ */
+
+// ── CONFIGURATION (demo mode active, no Stripe keys needed) ──
+const CONFIG = {
+  STRIPE_PUBLISHABLE_KEY: 'pk_test_REPLACE_WITH_YOUR_STRIPE_KEY',
+  EMAILJS_SERVICE_ID:     'YOUR_EMAILJS_SERVICE_ID',
+  EMAILJS_TEMPLATE_ID:    'YOUR_EMAILJS_TEMPLATE_ID',
+  EMAILJS_PUBLIC_KEY:     'YOUR_EMAILJS_PUBLIC_KEY',
+  PAYMENTS_LIVE:          false,
+  CAFE_EMAIL:             'hello@copperandrye.com',
+  CAFE_PHONE:             '(614) 555-0182',
+  CAFE_ADDRESS:           '123 Short North Ave, Columbus, OH 43215',
+  DELIVERY_FEE:           3.99,
+  FREE_DELIVERY_OVER:     30,
+  TAX_RATE:               0.075,
+  DEFAULT_TIP_PCT:        18,
+  DELIVERY_RADIUS_MILES:  5,
+};
+
+/* MENU DATA — same as original */
+const menuData = [
+  { id:1,  cat:'Coffee',   emoji:'☕', name:'House Drip', desc:'Single-origin Ethiopian, light roast. Bright, clean, slightly citrusy. Best black.', price:3.50, moods:['fuel','all'], timeMatch:['morning','afternoon'], tags:['Light Roast','Vegan'], popular:false },
+  { id:2,  cat:'Coffee',   emoji:'🖤', name:'Double Espresso', desc:'Two shots of our house blend pulled ristretto-style. Syrupy, intense, and grounding.', price:4.25, moods:['fuel','all'], timeMatch:['morning','afternoon'], tags:['Espresso','Vegan'], popular:true },
+  { id:3,  cat:'Coffee',   emoji:'🥛', name:'Signature Latte', desc:'Double shot, steamed whole milk, choice of flavor. The one everyone reorders.', price:6.50, moods:['fuel','chill','all'], timeMatch:['morning','afternoon'], tags:['Milk-Based'], popular:true },
+  { id:4,  cat:'Coffee',   emoji:'🧊', name:'Cold Brew', desc:'Steeped 18 hours in cold water, served over ice. Zero bitterness. High caffeine.', price:6.00, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'], tags:['Cold','High-Caffeine','Vegan'], popular:false },
+  { id:5,  cat:'Coffee',   emoji:'🍂', name:'Maple Cortado', desc:'Equal parts espresso and steamed milk, finished with pure Ohio maple syrup.', price:5.75, moods:['chill','sweet','all'], timeMatch:['morning','afternoon'], tags:['Small','Local Maple'], popular:false },
+  { id:6,  cat:'Coffee',   emoji:'🍦', name:'Iced Caramel Latte', desc:'Double shot, cold milk, house-made caramel sauce, and ice. Not too sweet. Just right.', price:7.00, moods:['sweet','chill','all'], timeMatch:['morning','afternoon'], tags:['Iced','Crowd Fave'], popular:true },
+  { id:7,  cat:'Drinks',   emoji:'🍵', name:'Matcha Latte', desc:'Ceremonial grade matcha whisked with oat milk. Calming, earthy, and genuinely good.', price:6.75, moods:['chill','fresh','all'], timeMatch:['morning','afternoon','evening'], tags:['Dairy-Free','No Caffeine Crash'], popular:false },
+  { id:8,  cat:'Drinks',   emoji:'🌸', name:'Lavender Lemonade', desc:'House lavender syrup, fresh-squeezed lemon, sparkling water. Light and floral.', price:5.50, moods:['fresh','all'], timeMatch:['afternoon'], tags:['Non-Coffee','Refreshing'], popular:false },
+  { id:9,  cat:'Drinks',   emoji:'🍫', name:'Spiced Hot Chocolate', desc:'Real 70% dark chocolate, steamed milk, cayenne and cinnamon. Warming and deep.', price:5.75, moods:['sweet','chill','all'], timeMatch:['morning','evening'], tags:['Non-Coffee','Seasonal'], popular:false },
+  { id:10, cat:'Drinks',   emoji:'🧃', name:'Fresh OJ', desc:'Squeezed to order. No concentrate, no nonsense.', price:4.50, moods:['fresh','fuel','all'], timeMatch:['morning'], tags:['Fresh-Pressed','Seasonal'], popular:false },
+  { id:11, cat:'Food',     emoji:'🥑', name:'Avo Toast', desc:'Sourdough from Pistachio Vera Bakery, smashed avocado, chili flakes, lemon, poached egg.', price:14.00, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'], tags:['Vegetarian','Local Bread'], popular:true },
+  { id:12, cat:'Food',     emoji:'🍳', name:'Breakfast Plate', desc:'Two eggs your way, choice of protein, roasted fingerlings, toast and house jam.', price:16.00, moods:['fuel','brunch','all'], timeMatch:['morning'], tags:['Brunch','Gluten-Free Option'], popular:true },
+  { id:13, cat:'Food',     emoji:'🥗', name:'Grain Bowl', desc:'Farro, roasted beet, arugula, feta, pickled onion, and lemon tahini. Comes together perfectly.', price:15.00, moods:['fresh','chill','all'], timeMatch:['afternoon'], tags:['Vegetarian','Hearty'], popular:false },
+  { id:14, cat:'Food',     emoji:'🥪', name:'Rye Breakfast Sandwich', desc:'Egg, cheddar, smoked turkey, and house aioli on toasted rye. The café signature.', price:13.00, moods:['fuel','all'], timeMatch:['morning','afternoon'], tags:['Bestseller','Quick'], popular:true },
+  { id:15, cat:'Food',     emoji:'🍜', name:'Tomato Bisque', desc:'Slow-roasted tomato, cream, basil. Served with a sourdough crostini.', price:10.00, moods:['chill','all'], timeMatch:['afternoon','evening'], tags:['Seasonal','Vegetarian'], popular:false },
+  { id:16, cat:'Pastries', emoji:'🥐', name:'Butter Croissant', desc:'Laminated in-house, baked fresh each morning. Ends by 10. Get here first.', price:5.00, moods:['sweet','chill','all'], timeMatch:['morning'], tags:['Baked Fresh','Limited'], popular:true },
+  { id:17, cat:'Pastries', emoji:'🫐', name:'Blueberry Scone', desc:'Buttermilk base, Ohio blueberries, vanilla glaze. Better than your grandmother\'s. Maybe.', price:5.50, moods:['sweet','fuel','all'], timeMatch:['morning','afternoon'], tags:['Baked Fresh'], popular:false },
+  { id:18, cat:'Pastries', emoji:'🍰', name:'Cardamom Coffee Cake', desc:'Brown butter, cardamom streusel, tahini cream cheese frosting. Deeply good.', price:7.00, moods:['sweet','all'], timeMatch:['morning','afternoon','evening'], tags:['House Made','Fan Fave'], popular:false },
+  { id:19, cat:'Pastries', emoji:'🍫', name:'Dark Chocolate Brownie', desc:'Dense, fudgy, sea-salt topped. Made with Valrhona. Warmed on request.', price:6.00, moods:['sweet','all'], timeMatch:['afternoon','evening'], tags:['Gluten-Free','House Made'], popular:false },
+];
+
+const categories = ['Coffee','Drinks','Food','Pastries'];
+const catEmoji   = { Coffee:'☕', Drinks:'🥤', Food:'🍽️', Pastries:'🥐' };
+
+const specials = [
+  "☀️ Morning Special: Breakfast Sandwich + Coffee — $17",
+  "🆕 New: Cardamom Coffee Cake — $7",
+  "🥗 Grain Bowl — Fresh, Local, $15",
+  "🧊 Cold Brew — Steeped 18 hrs · $6",
+  "⭐ Bestseller: Iced Caramel Latte — $7",
+  "🍳 Weekend Brunch Plate — Eggs Your Way · $16",
+  "🥐 Fresh Croissants — Daily Til They're Gone",
+  `🚗 Free Delivery Over $${CONFIG.FREE_DELIVERY_OVER} · Columbus Area`,
+];
+
+/* STATE */
+let cart = {};
+let activeMood = 'all';
+let activeCat = 'All';
+let currentTime = 'morning';
+let orderType = 'pickup';
+let tipPct = CONFIG.DEFAULT_TIP_PCT;
+let tipCustom = null;
+
+/* Helper functions */
+function escapeHTML(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+function getSubtotal() { return Object.values(cart).reduce((s,i) => s + i.item.price * i.qty, 0); }
+function getTip() {
+  const sub = getSubtotal();
+  if (tipCustom !== null) return tipCustom;
+  return +(sub * (tipPct / 100)).toFixed(2);
+}
+function getDeliveryFee() { return orderType !== 'delivery' ? 0 : (getSubtotal() >= CONFIG.FREE_DELIVERY_OVER ? 0 : CONFIG.DELIVERY_FEE); }
+function getTax() { return +(getSubtotal() * CONFIG.TAX_RATE).toFixed(2); }
+function getTotal() { return +(getSubtotal() + getTip() + getDeliveryFee() + getTax()).toFixed(2); }
+function getTotalQty() { return Object.values(cart).reduce((s,i) => s + i.qty, 0); }
+
+function updateBar() {
+  const qty = getTotalQty();
+  const fbCount = document.getElementById('fbCount');
+  const fbAmt = document.getElementById('fbAmt');
+  const fbBtn = document.getElementById('fbCheckoutBtn');
+  const navCount = document.getElementById('navCartCount');
+  const bar = document.getElementById('floatBar');
+  if (fbCount) fbCount.textContent = qty === 0 ? '0 items' : `${qty} item${qty > 1 ? 's' : ''} · est. total`;
+  if (fbAmt) fbAmt.textContent = getTotal().toFixed(2);
+  if (fbBtn) fbBtn.disabled = qty === 0;
+  if (navCount) { navCount.textContent = qty; navCount.setAttribute('aria-label', `${qty} item${qty > 1 ? 's' : ''} in order`); }
+  if (bar) { if (qty > 0) bar.classList.add('visible'); else bar.classList.remove('visible'); }
+}
+
+/* FIX: Update card in-place without full rerender */
+function updateCardUI(id) {
+  const cardEl = document.getElementById(`mc-${id}`);
+  if (!cardEl) return;
+  const item = menuData.find(i => i.id === id);
+  if (!item) return;
+  const inCart = !!cart[id];
+  const qty = cart[id]?.qty || 0;
+  const footer = cardEl.querySelector('.card-footer');
+  if (footer) {
+    const isMoodMatch = activeMood !== 'all' && item.moods.includes(activeMood);
+    const isTimeMatch = item.timeMatch.includes(currentTime);
+    let badgesHtml = '';
+    if (item.popular) badgesHtml += `<div class="pop-badge" aria-label="Popular item">🔥 Popular</div>`;
+    if (isMoodMatch) badgesHtml += `<div class="mood-badge" aria-label="Matches your mood filter">✦ Your Pick</div>`;
+    else if (isTimeMatch && activeMood === 'all') badgesHtml += `<div class="mood-badge">Now Serving</div>`;
+    const oldBadges = cardEl.querySelectorAll('.pop-badge, .mood-badge');
+    oldBadges.forEach(b => b.remove());
+    if (badgesHtml) cardEl.insertAdjacentHTML('afterbegin', badgesHtml);
+    
+    const tagsHtml = item.tags && item.tags.length ? `<div class="card-tags" aria-label="Dietary tags">${item.tags.map(t => `<span class="card-tag">${escapeHTML(t)}</span>`).join('')}</div>` : '';
+    const infoDiv = cardEl.querySelector('.card-info');
+    if (infoDiv) {
+      const existingTags = infoDiv.querySelector('.card-tags');
+      if (existingTags) existingTags.remove();
+      if (tagsHtml) infoDiv.insertAdjacentHTML('beforeend', tagsHtml);
+    }
+    
+    footer.innerHTML = `
+      <div class="card-price">$${item.price.toFixed(2)} <small>each</small></div>
+      <div class="card-actions">
+        ${inCart ? `
+          <div class="qty-wrap" role="group" aria-label="Adjust quantity of ${escapeHTML(item.name)}">
+            <button class="qty-btn" type="button" onclick="changeQty(${item.id},-1)" aria-label="Remove one">−</button>
+            <span class="qty-num" aria-live="polite">${qty}</span>
+            <button class="qty-btn" type="button" onclick="changeQty(${item.id},1)" aria-label="Add another">+</button>
+          </div>
+        ` : ''}
+        <button class="add-btn ${inCart ? 'added' : ''}" type="button" onclick="addItem(${item.id})" aria-label="${inCart ? 'Add more' : 'Add to order'}">
+          ${inCart ? '✓ Added' : '+ Add'}
+        </button>
+      </div>
+    `;
+  }
+  if (inCart) cardEl.classList.add('in-order');
+  else cardEl.classList.remove('in-order');
+}
+
+function addItem(id) {
+  const item = menuData.find(i => i.id === id);
+  if (!item) return;
+  if (!cart[id]) cart[id] = { item, qty: 1 };
+  else cart[id].qty++;
+  updateCardUI(id);
+  updateBar();
+  showToast(`${item.emoji} ${item.name} added to order`, 'default');
+  const bar = document.getElementById('floatBar');
+  if (bar) { bar.style.transform = 'translateX(-50%) translateY(-5px) scale(1.02)'; setTimeout(() => { bar.style.transform = 'translateX(-50%) translateY(0) scale(1)'; }, 200); }
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty = Math.max(0, cart[id].qty + delta);
+  if (cart[id].qty === 0) delete cart[id];
+  updateCardUI(id);
+  updateBar();
+}
+
+function buildTicker() {
+  const track = document.getElementById('specialTrack');
+  if (!track) return;
+  const doubled = [...specials, ...specials];
+  track.innerHTML = doubled.map(s => `<span class="special-item"><span class="s-dot" aria-hidden="true">✦</span>${escapeHTML(s)}</span>`).join('');
+}
+
+function setMood(mood, btn) {
+  activeMood = mood;
+  document.querySelectorAll('.mood-pill').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+  renderGrid();
+}
+
+function setCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+  renderGrid();
+}
+
+function buildCatTabs() {
+  const container = document.getElementById('catTabs');
+  if (!container) return;
+  const tabs = ['All', ...categories];
+  container.innerHTML = tabs.map(c => `<button class="cat-tab ${c===activeCat?'active':''}" type="button" role="tab" aria-selected="${c===activeCat?'true':'false'}" onclick="setCat('${escapeHTML(c)}',this)">${catEmoji[c] || '✦'} ${escapeHTML(c)}</button>`).join('');
+}
+
+function renderGrid() {
+  buildCatTabs();
+  let items = menuData;
+  if (activeCat !== 'All') items = items.filter(i => i.cat === activeCat);
+  const grid = document.getElementById('menuGrid');
+  if (!grid) return;
+  if (!items.length) { grid.innerHTML = '<div class="menu-empty" role="status">Nothing here — try another filter.</div>'; return; }
+  grid.innerHTML = items.map(item => {
+    const inCart = !!cart[item.id];
+    const qty = cart[item.id]?.qty || 0;
+    const isMoodMatch = activeMood !== 'all' && item.moods.includes(activeMood);
+    const isTimeMatch = item.timeMatch.includes(currentTime);
+    let badges = '';
+    if (item.popular) badges += `<div class="pop-badge" aria-label="Popular item">🔥 Popular</div>`;
+    if (isMoodMatch) badges += `<div class="mood-badge" aria-label="Matches your mood filter">✦ Your Pick</div>`;
+    else if (isTimeMatch && activeMood === 'all') badges += `<div class="mood-badge">Now Serving</div>`;
+    const tagsHtml = item.tags && item.tags.length ? `<div class="card-tags" aria-label="Dietary tags">${item.tags.map(t => `<span class="card-tag">${escapeHTML(t)}</span>`).join('')}</div>` : '';
+    return `
+    <article class="menu-card reveal ${inCart ? 'in-order' : ''}" id="mc-${item.id}" aria-label="${escapeHTML(item.name)}, $${item.price.toFixed(2)}${inCart ? `, ${qty} in order` : ''}">
+      ${badges}
+      <div class="card-top">
+        <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
+        <div class="card-info">
+          <div class="card-cat">${escapeHTML(item.cat)}</div>
+          <div class="card-name">${escapeHTML(item.name)}</div>
+          <div class="card-desc">${escapeHTML(item.desc)}</div>
+          ${tagsHtml}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">$${item.price.toFixed(2)} <small>each</small></div>
+        <div class="card-actions">
+          ${inCart ? `
+            <div class="qty-wrap" role="group" aria-label="Adjust quantity of ${escapeHTML(item.name)}">
+              <button class="qty-btn" type="button" onclick="changeQty(${item.id},-1)" aria-label="Remove one">−</button>
+              <span class="qty-num" aria-live="polite">${qty}</span>
+              <button class="qty-btn" type="button" onclick="changeQty(${item.id},1)" aria-label="Add another">+</button>
+            </div>
+          ` : ''}
+          <button class="add-btn ${inCart ? 'added' : ''}" type="button" onclick="addItem(${item.id})" aria-label="${inCart ? 'Add more' : 'Add to order'}">
+            ${inCart ? '✓ Added' : '+ Add'}
+          </button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+  observeReveal();
+}
+
+function setOrderType(type, btn) {
+  orderType = type;
+  document.querySelectorAll('.ot-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+  const info = {
+    pickup: [{ icon:'⏱', text:'Ready in <strong>12–18 min</strong>' }, { icon:'📍', text:`<strong>${CONFIG.CAFE_ADDRESS}</strong>` }, { icon:'🆓', text:'<strong>No fee</strong> for pickup orders' }],
+    delivery: [{ icon:'🚗', text:'Estimated <strong>25–40 min</strong>' }, { icon:'💵', text:`Delivery fee: <strong>$${CONFIG.DELIVERY_FEE.toFixed(2)}</strong> (free over $${CONFIG.FREE_DELIVERY_OVER})` }, { icon:'📍', text:`Columbus area only · <strong>${CONFIG.DELIVERY_RADIUS_MILES} mi radius</strong>` }],
+    dine: [{ icon:'🪑', text:'<strong>Walk in</strong> or reserve a table' }, { icon:'📱', text:"Order ahead and it'll be <strong>waiting for you</strong>" }, { icon:'🐕', text:'Dog-friendly patio — <strong>Open until 7 PM</strong>' }]
+  }[type];
+  const otInfo = document.getElementById('otInfo');
+  if (otInfo) otInfo.innerHTML = info.map(i => `<div class="ot-info-pill">${i.icon} ${i.text}</div>`).join('');
+}
+
+function openCheckout() {
+  if (getTotalQty() === 0) { const menu = document.getElementById('menu'); if (menu) menu.scrollIntoView({ behavior: 'smooth' }); showToast('Add items from the menu first ☕', 'default'); return; }
+  renderCheckoutModal();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckout() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+function overlayClick(e) { if (e.target === document.getElementById('modalOverlay')) closeCheckout(); }
+
+function renderCheckoutModal() {
+  const items = Object.values(cart);
+  const sub = getSubtotal(), tip = getTip(), tax = getTax(), delFee = getDeliveryFee(), total = getTotal();
+  const itemsHtml = items.map(({ item, qty }) => `<div class="co-item"><div class="co-item-left"><span class="co-item-emoji" aria-hidden="true">${item.emoji}</span><div><div class="co-item-name">${escapeHTML(item.name)}</div><div class="co-item-desc">$${item.price.toFixed(2)} each</div></div></div><div class="co-item-qty"><button class="co-qty-btn" type="button" onclick="coChangeQty(${item.id},-1)">−</button><span class="co-qty-num" aria-live="polite">${qty}</span><button class="co-qty-btn" type="button" onclick="coChangeQty(${item.id},1)">+</button></div><div class="co-item-price">$${(item.price * qty).toFixed(2)}</div></div>`).join('');
+  const tipBtns = [0,15,18,20,25].map(p => `<button class="tip-btn ${tipCustom===null&&tipPct===p?'active':''}" type="button" onclick="setTip(${p},null,this)" aria-pressed="${tipCustom===null&&tipPct===p?'true':'false'}">${p===0?'No Tip':`${p}%`}</button>`).join('');
+  const deliveryEst = orderType === 'delivery' ? `<div class="co-delivery-est">🚗 Estimated delivery: <strong>25–40 min</strong> · ${CONFIG.DELIVERY_RADIUS_MILES} mi radius</div>` : (orderType === 'pickup' ? `<div class="co-delivery-est">🏪 Ready for pickup in <strong>12–18 min</strong> · ${CONFIG.CAFE_ADDRESS}</div>` : `<div class="co-delivery-est">🪑 Order placed — we'll have it ready at your <strong>table</strong></div>`);
+  const modalBody = document.getElementById('modalBody');
+  if (!modalBody) return;
+  modalBody.innerHTML = `
+    <div class="co-section"><span class="co-label">Order Type</span><div class="co-toggle" role="group"><button class="co-btn ${orderType==='pickup'?'active':''}" type="button" onclick="coSetType('pickup',this)">🏪 Pickup</button><button class="co-btn ${orderType==='delivery'?'active':''}" type="button" onclick="coSetType('delivery',this)">🚗 Delivery</button><button class="co-btn ${orderType==='dine'?'active':''}" type="button" onclick="coSetType('dine',this)">🪑 Dine-In</button></div></div>
+    ${deliveryEst}
+    <div class="co-section"><span class="co-label">Your Items</span><div class="co-items">${itemsHtml}</div></div>
+    <div class="co-section"><span class="co-label">Tip Your Barista ☕</span><div class="tip-options">${tipBtns}</div><div class="tip-custom-wrap"><label for="tipCustomInput" class="tip-custom-label">Custom $</label><input type="number" min="0" step="0.01" placeholder="0.00" class="tip-custom-input" id="tipCustomInput" oninput="setCustomTip(this.value)" value="${tipCustom !== null ? tipCustom.toFixed(2) : ''}"/></div></div>
+    <div class="co-section"><span class="co-label">Your Info</span><div class="co-form"><div class="co-row"><div class="co-field"><label>First Name <span class="required-star">*</span></label><input type="text" class="co-input" id="coName" placeholder="Alex" autocomplete="given-name"/><span class="field-error" id="nameError">Please enter your first name.</span></div><div class="co-field"><label>Phone <span class="required-star">*</span></label><input type="tel" class="co-input" id="coPhone" placeholder="(614) 555-0100" autocomplete="tel"/><span class="field-error" id="phoneError">Please enter a valid phone number.</span></div></div><div class="co-field"><label>Email <span class="required-star">*</span></label><input type="email" class="co-input" id="coEmail" placeholder="alex@email.com" autocomplete="email"/><span class="field-error" id="emailError">Please enter a valid email address.</span></div>${orderType === 'delivery' ? `<div class="co-field"><label>Delivery Address <span class="required-star">*</span></label><input type="text" class="co-input" id="coAddress" placeholder="123 Main St, Columbus, OH 43201" autocomplete="street-address"/><span class="field-error" id="addressError">Please enter your delivery address.</span></div>` : ''}<div class="co-field"><label>Special Instructions (optional)</label><textarea class="co-textarea" id="coNotes" placeholder="Oat milk for the latte, no onion on the sandwich…" rows="3"></textarea></div></div></div>
+    <div class="co-section"><span class="co-label">Order Summary</span><div class="co-summary"><div class="co-sum-row"><span>Subtotal</span><span>$${sub.toFixed(2)}</span></div>${delFee > 0 ? `<div class="co-sum-row"><span>Delivery Fee</span><span>$${delFee.toFixed(2)}</span></div>` : ''}${delFee === 0 && orderType === 'delivery' ? `<div class="co-sum-row" style="color:var(--green)"><span>✓ Free Delivery</span><span>$0.00</span></div>` : ''}<div class="co-sum-row"><span>Tax (${(CONFIG.TAX_RATE*100).toFixed(1)}% OH)</span><span>$${tax.toFixed(2)}</span></div><div class="co-sum-row"><span>Tip</span><span id="tipDisplay">$${tip.toFixed(2)}</span></div><div class="co-sum-row"><span class="co-sum-total">Total</span><span class="co-sum-total-amt" id="totalDisplay">$${total.toFixed(2)}</span></div></div></div>
+    <button class="btn-place-order" type="button" id="placeOrderBtn" onclick="placeOrder()"><span class="btn-text"><i class="fas fa-shopping-cart"></i> Place Order — $${total.toFixed(2)}</span><span class="btn-spinner"></span></button>
+    <div class="secure-badge"><i class="fas fa-lock"></i> Secure checkout · SSL encrypted</div>
+  `;
+}
+
+function coChangeQty(id, delta) { changeQty(id, delta); if (getTotalQty() === 0) closeCheckout(); else renderCheckoutModal(); }
+function coSetType(type, btn) {
+  orderType = type;
+  document.querySelectorAll('.co-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+  const mainToggle = document.getElementById(`${type === 'pickup' ? 'pickup' : type === 'delivery' ? 'delivery' : 'dine'}Btn`);
+  if (mainToggle) { mainToggle.classList.add('active'); mainToggle.setAttribute('aria-pressed', 'true'); }
+  renderCheckoutModal();
+}
+function setTip(pct, custom, btn) { tipPct = pct; tipCustom = custom; document.querySelectorAll('.tip-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); }); if (btn) { btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); } updateSummaryDisplay(); }
+function setCustomTip(val) { const v = parseFloat(val); tipCustom = isNaN(v) ? null : Math.max(0, v); document.querySelectorAll('.tip-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); }); updateSummaryDisplay(); }
+function updateSummaryDisplay() { const tip = getTip(), total = getTotal(); const td = document.getElementById('tipDisplay'); const tt = document.getElementById('totalDisplay'); const pb = document.getElementById('placeOrderBtn'); if (td) td.textContent = `$${tip.toFixed(2)}`; if (tt) tt.textContent = `$${total.toFixed(2)}`; if (pb) { const textSpan = pb.querySelector('.btn-text'); if (textSpan) textSpan.innerHTML = `<i class="fas fa-shopping-cart"></i> Place Order — $${total.toFixed(2)}`; pb.setAttribute('aria-label', `Place order for $${total.toFixed(2)}`); } updateBar(); }
+
+function validateForm() {
+  let valid = true;
+  const name = document.getElementById('coName'); const nameErr = document.getElementById('nameError');
+  if (!name?.value?.trim()) { name?.classList.add('error'); if(nameErr) nameErr.classList.add('show'); valid = false; } else { name?.classList.remove('error'); if(nameErr) nameErr.classList.remove('show'); }
+  const phone = document.getElementById('coPhone'); const phoneErr = document.getElementById('phoneError');
+  const phoneVal = phone?.value?.replace(/[\s\(\)\-\+]/g, '') || '';
+  if (phoneVal.length < 7 || !/^\d+$/.test(phoneVal)) { phone?.classList.add('error'); if(phoneErr) phoneErr.classList.add('show'); valid = false; } else { phone?.classList.remove('error'); if(phoneErr) phoneErr.classList.remove('show'); }
+  const email = document.getElementById('coEmail'); const emailErr = document.getElementById('emailError');
+  const emailVal = email?.value?.trim() || '';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { email?.classList.add('error'); if(emailErr) emailErr.classList.add('show'); valid = false; } else { email?.classList.remove('error'); if(emailErr) emailErr.classList.remove('show'); }
+  if (orderType === 'delivery') { const addr = document.getElementById('coAddress'); const addrErr = document.getElementById('addressError'); if (!addr?.value?.trim()) { addr?.classList.add('error'); if(addrErr) addrErr.classList.add('show'); valid = false; } else { addr?.classList.remove('error'); if(addrErr) addrErr.classList.remove('show'); } }
+  return valid;
+}
+
+function placeOrder() {
+  if (!validateForm()) { showToast('Please fill in the required fields', 'error'); return; }
+  const name = document.getElementById('coName')?.value?.trim() || '';
+  const phone = document.getElementById('coPhone')?.value?.trim() || '';
+  const email = document.getElementById('coEmail')?.value?.trim() || '';
+  const address = document.getElementById('coAddress')?.value?.trim() || '';
+  const notes = document.getElementById('coNotes')?.value?.trim() || '';
+  const orderNum = 'CR-' + Math.floor(1000 + Math.random() * 9000);
+  const total = getTotal();
+  const typeLabel = { pickup: 'Pickup', delivery: 'Delivery', dine: 'Dine-In' }[orderType];
+  const timeEst = orderType === 'delivery' ? '25–40 min' : (orderType === 'pickup' ? '12–18 min' : 'Table service');
+  const items = Object.values(cart);
+  
+  const titleEl = document.getElementById('modalTitle');
+  const bodyEl = document.getElementById('modalBody');
+  if (titleEl && bodyEl) {
+    titleEl.textContent = 'Order Confirmed!';
+    bodyEl.innerHTML = `<div class="confirmation-view"><span class="conf-icon" aria-hidden="true">✅</span><div class="conf-title">We've Got Your Order</div><p class="conf-sub">Thanks, ${escapeHTML(name)}! Your order is confirmed. ${email ? `A confirmation has been sent to <strong>${escapeHTML(email)}</strong>.` : ''} We'll text <strong>${escapeHTML(phone)}</strong> when it's ready.</p><div class="conf-ticket"><div class="conf-ticket-row"><span>Order #</span><strong>${escapeHTML(orderNum)}</strong></div><div class="conf-ticket-row"><span>Type</span><strong>${escapeHTML(typeLabel)}</strong></div><div class="conf-ticket-row"><span>Estimated Time</span><strong>${escapeHTML(timeEst)}</strong></div><div class="conf-ticket-row"><span>Total</span><strong>$${total.toFixed(2)}</strong></div><div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px;">${items.map(({ item, qty }) => `<div class="conf-ticket-row"><span>${item.emoji} ${escapeHTML(item.name)} ×${qty}</span><strong>$${(item.price * qty).toFixed(2)}</strong></div>`).join('')}</div></div><div class="conf-next-steps"><div class="conf-next-step">✅ Order received by our team</div><div class="conf-next-step">📱 Text sent to ${escapeHTML(phone)} when ready</div>${orderType === 'delivery' ? '<div class="conf-next-step">🚗 Driver assigned within 5 min</div>' : ''}<div class="conf-next-step">☎️ Questions? Call us: <a href="tel:+16145550182" style="color:var(--green)">${CONFIG.CAFE_PHONE}</a></div></div><button class="btn-primary" type="button" style="width:100%;justify-content:center;" onclick="closeCheckout();executeClearOrder();">Back to Menu</button></div>`;
+  }
+  Object.keys(cart).forEach(k => delete cart[k]);
+  updateBar();
+  showToast('Order placed successfully!', 'success');
+}
+
+function executeClearOrder() { Object.keys(cart).forEach(k => delete cart[k]); renderGrid(); updateBar(); closeConfirmDialog(); showToast('Order cleared', 'default'); }
+function confirmClearOrder() { if (getTotalQty() === 0) return; document.getElementById('confirmDialogOverlay').classList.add('open'); }
+function closeConfirmDialog() { document.getElementById('confirmDialogOverlay').classList.remove('open'); }
+function showToast(msg, type = 'default') { const t = document.getElementById('toast'); if (!t) return; t.textContent = escapeHTML(msg); t.className = `toast show ${type !== 'default' ? type : ''}`; clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => t.classList.remove('show'), 2400); }
+function observeReveal() { if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); return; } const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.08 }); document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el)); }
+
+function applyTimeTheme() {
+  const h = new Date().getHours();
+  currentTime = h >= 6 && h < 12 ? 'morning' : (h >= 12 && h < 16 ? 'afternoon' : (h >= 16 && h < 20 ? 'evening' : 'night'));
+  const timeConfig = { morning: { eyebrow: '☀️ Good Morning, Columbus', h1: 'Craft Coffee.<br/><em>Real Kitchen.</em>', tagline: 'Whole-bean roasts, scratch-made food, and the kind of morning that makes everything feel possible.' }, afternoon: { eyebrow: '🌤️ Good Afternoon, Columbus', h1: 'Midday Fuel.<br/><em>Zero Compromise.</em>', tagline: "Grain bowls, cold brew, and the latte you've been thinking about since 11." }, evening: { eyebrow: '🌇 Good Evening, Columbus', h1: 'Slow Down.<br/><em>You\'ve Earned It.</em>', tagline: 'The kitchen is still open. Pull up a chair or order for the couch.' }, night: { eyebrow: '🌙 We\'re Closed', h1: 'See You<br/><em>Tomorrow.</em>', tagline: "We're closed right now. Pre-order online and we'll have it waiting." } };
+  const cfg = timeConfig[currentTime];
+  document.documentElement.setAttribute('data-time', currentTime);
+  const eyebrow = document.getElementById('heroEyebrow'); if (eyebrow) eyebrow.textContent = cfg.eyebrow;
+  const h1 = document.getElementById('heroH1'); if (h1) h1.innerHTML = cfg.h1;
+  const tagline = document.getElementById('heroTagline'); if (tagline) tagline.textContent = cfg.tagline;
+  renderGrid();
+}
+
+function toggleMobileNav() { const nav = document.getElementById('mobileNav'); const btn = document.getElementById('navHamburger'); const isOpen = nav.classList.contains('open'); nav.classList.toggle('open'); btn.setAttribute('aria-expanded', String(!isOpen)); }
+function closeMobileNav() { const nav = document.getElementById('mobileNav'); nav.classList.remove('open'); document.getElementById('navHamburger')?.setAttribute('aria-expanded', 'false'); }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+  document.getElementById('navHamburger')?.addEventListener('click', toggleMobileNav);
+  document.addEventListener('click', function(e) { const nav = document.getElementById('mobileNav'); const btn = document.getElementById('navHamburger'); if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) closeMobileNav(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeCheckout(); closeConfirmDialog(); } });
+  document.getElementById('modalOverlay')?.addEventListener('keydown', function(e) { if (e.key !== 'Tab') return; const focusables = this.querySelectorAll('button:not([disabled]), input, textarea, select, a[href], [tabindex]:not([tabindex="-1"])'); const first = focusables[0], last = focusables[focusables.length - 1]; if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last?.focus(); } } else { if (document.activeElement === last) { e.preventDefault(); first?.focus(); } } });
+  buildTicker();
+  applyTimeTheme();
+  observeReveal();
+  setInterval(applyTimeTheme, 5 * 60 * 1000);
+});
+</script>
+</body>
+</html>
