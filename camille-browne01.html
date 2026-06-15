@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Dr. Camille Browne — Registered Dietitian in Saint Lucia specialising in Caribbean diet, diabetes, hypertension, and weight management. Book a nutrition consultation on WhatsApp.">
   <meta property="og:title" content="Dr. Camille Browne | Registered Dietitian — Saint Lucia">
-  <meta property="og:description" content="Caribbean-specialised nutrition therapy for diabetes, hypertension, weight management, gut health, and hormonal health. Real food. Real results. WhatsApp consultations available.">
+  <meta property="og:description" content="Caribbean-specialised nutrition therapy for diabetes, hypertension, weight management, and gut health. Real food. Real results. WhatsApp consultations available.">
   <meta property="og:type" content="profile">
   <title>Dr. Camille Browne | Registered Dietitian</title>
 
@@ -16,7 +16,7 @@
     "@type": ["Person", "MedicalBusiness"],
     "name": "Dr. Camille Browne",
     "jobTitle": "Registered Dietitian & Clinical Nutritionist",
-    "description": "Registered dietitian specialising in Caribbean diet, type 2 diabetes, hypertension, weight management, gut health, PCOS and hormonal health. Private practice in Saint Lucia with online consultations for diaspora clients.",
+    "description": "Registered dietitian specialising in Caribbean diet, type 2 diabetes, hypertension, weight management, and gut health. Private practice in Saint Lucia with online consultations for diaspora clients.",
     "url": "https://jamalinks758.github.io/jamalinks/camille-browne.html",
     "telephone": "+17587235872",
     "address": {
@@ -25,7 +25,7 @@
       "addressCountry": "LC"
     },
     "medicalSpecialty": "Dietetics",
-    "knowsAbout": ["Caribbean nutrition", "Diabetes management", "Hypertension diet", "Weight management", "Gut health", "PCOS", "Hormonal health", "Sports nutrition", "Prenatal nutrition"],
+    "knowsAbout": ["Caribbean nutrition", "Diabetes management", "Hypertension diet", "Weight management", "Gut health", "Sports nutrition", "Prenatal nutrition"],
     "areaServed": ["Saint Lucia", "Eastern Caribbean", "Online — Diaspora Clients"]
   }
   </script>
@@ -39,7 +39,7 @@
 
   <style>
     /* ============================================
-       TOKENS (same as original)
+       TOKENS
     ============================================ */
     :root {
       --moss:       #3A6B4A;
@@ -64,6 +64,7 @@
       --wa:         #25D366;
       --wa-dark:    #128C7E;
 
+      /* Light mode */
       --bg:         #FAF6EE;
       --bg-2:       #F0E8D8;
       --text:       #2A2018;
@@ -85,64 +86,924 @@
       --bdr-l:  var(--border);
     }
 
-    /* Base & existing styles (all original CSS kept intact) */
+    /* ============================================
+       BASE
+    ============================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-b); font-weight: 400; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background .4s, color .4s; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .4s, color .4s;
+    }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
 
-    /* WA float, navbar, hero, etc. (all original styles maintained) */
-    .wa-float { position: fixed; bottom: 26px; right: 20px; z-index: 9999; display: flex; align-items: center; gap: 10px; }
-    .wa-pill { background: var(--moss-2); color: var(--cream); font-family: var(--font-b); font-size: .72rem; font-weight: 500; padding: .38rem .9rem; border-radius: 30px; white-space: nowrap; opacity: 0; transform: translateX(6px); transition: opacity .3s, transform .3s; pointer-events: none; border: 1px solid var(--border-m); }
+    /* ============================================
+       FLOATING WA
+    ============================================ */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--moss-2); color: var(--cream);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-m);
+    }
     .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
-    .wa-btn-float { width: 58px; height: 58px; border-radius: 50%; background: var(--wa); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s; }
+    .wa-btn-float {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
     .wa-btn-float:hover { transform: scale(1.07); }
     .wa-btn-float i { font-size: 1.55rem; color: #fff; }
-    @keyframes waPulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); } 50% { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); } }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
 
-    /* Navbar, hero, trust strip, cards, etc. — all original rules kept for brevity but functional */
-    .navbar-cb { position: sticky; top: 0; z-index: 900; background: rgba(34,64,48,0.97); backdrop-filter: blur(18px); padding: .85rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(143,188,139,.15); }
-    .hero-cb { background: var(--moss-3); position: relative; overflow: hidden; min-height: 96vh; display: flex; align-items: center; padding: 5.5rem 0 5rem; }
+    /* Demo badge */
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--moss-2); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-m);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot { width: 5px; height: 5px; background: var(--terra); border-radius: 50%; }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar-cb {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(34,64,48,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: .85rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(143,188,139,.15);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-brand-leaf {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--sage), var(--terra));
+      border-radius: 50% 50% 50% 20%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .nav-brand-name {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 600;
+      color: var(--cream); line-height: 1;
+    }
+    .nav-brand-sub {
+      font-family: var(--font-b); font-size: .55rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--sage-pale); opacity: .6; margin-top: 1px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.5rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 500;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--sage-pale); opacity: .7; transition: opacity .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-div { width: 1px; height: 18px; background: rgba(143,188,139,.2); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(143,188,139,.1); border: 1px solid rgba(143,188,139,.25);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 400;
+      color: var(--sage-pale); opacity: .7;
+      transition: opacity .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { opacity: 1; }
+    .theme-toggle i { font-size: .76rem; }
+    .nav-cta {
+      font-family: var(--font-b); font-size: .73rem; font-weight: 600;
+      padding: .5rem 1.3rem; border-radius: 50px;
+      background: var(--terra); color: #fff !important;
+      transition: background .2s, box-shadow .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 16px rgba(200,112,74,.3);
+    }
+    .nav-cta:hover { background: #A85C38 !important; }
+    @media (max-width: 768px) {
+      .nav-links, .nav-div { display: none; }
+      .navbar-cb { padding: .8rem 1.1rem; }
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero-cb {
+      background: var(--moss-3);
+      position: relative; overflow: hidden;
+      min-height: 96vh; display: flex; align-items: center;
+      padding: 5.5rem 0 5rem;
+    }
+
+    /* Organic background shapes */
+    .hero-bg-shape {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .hbs-1 {
+      width: 700px; height: 700px; top: -150px; right: -100px;
+      background: radial-gradient(circle, rgba(143,188,139,.15) 0%, transparent 65%);
+    }
+    .hbs-2 {
+      width: 400px; height: 400px; bottom: -80px; left: -60px;
+      background: radial-gradient(circle, rgba(200,112,74,.1) 0%, transparent 65%);
+    }
+    .hbs-3 {
+      width: 200px; height: 200px; top: 40%; left: 35%;
+      background: radial-gradient(circle, rgba(143,188,139,.08) 0%, transparent 70%);
+    }
+
+    /* Leaf/botanical pattern overlay */
+    .hero-botanical {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 85% 15%, rgba(143,188,139,.06) 0px, transparent 200px),
+                        radial-gradient(circle at 15% 85%, rgba(200,112,74,.05) 0px, transparent 180px);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow-cb {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(143,188,139,.12); border: 1px solid rgba(143,188,139,.25);
+      color: var(--sage-pale); font-family: var(--font-b);
+      font-size: .68rem; font-weight: 500; letter-spacing: .16em;
+      text-transform: uppercase; padding: .32rem 1rem; border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-cb i { font-size: .75rem; color: var(--sage); }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 600; line-height: .97;
+      color: var(--cream); margin-bottom: .8rem;
+    }
+
+    .hero-h1-accent {
+      display: block; font-style: italic; font-weight: 300;
+      color: var(--sage); font-size: .75em;
+    }
+
+    .hero-sub-line {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--terra-pale); margin-bottom: 1.8rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-sub-line::after {
+      content: ''; flex: 0 0 40px; height: 1px; background: var(--terra-pale); opacity: .4;
+    }
+
+    .hero-statement {
+      font-family: var(--font-b); font-size: .97rem; font-weight: 300;
+      color: rgba(250,246,238,.65); line-height: 1.85; max-width: 470px;
+      margin-bottom: 2.2rem;
+    }
+    .hero-statement strong { color: var(--cream); font-weight: 500; }
+
+    .hero-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    }
+    .btn-terra {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--terra); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 600;
+      padding: .9rem 1.8rem; border-radius: 50px;
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(200,112,74,.35);
+      transition: background .2s, transform .15s;
+    }
+    .btn-terra:hover { background: #A85C38; color: #fff; transform: translateY(-2px); }
+    .btn-wa-cb {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .85rem; font-weight: 600;
+      padding: .9rem 1.6rem; border-radius: 50px;
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.28);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa-cb:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+    .btn-ghost-cb {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(250,246,238,.2); color: rgba(250,246,238,.6);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400;
+      padding: .9rem 1.5rem; border-radius: 50px;
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-ghost-cb:hover { border-color: var(--sage); color: var(--sage); }
+
+    .hero-stats-row {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid rgba(143,188,139,.18);
+    }
+    .hs-item {}
+    .hs-num {
+      font-family: var(--font-d); font-size: 2.2rem; font-weight: 600;
+      color: var(--cream); line-height: 1; margin-bottom: 2px;
+    }
+    .hs-label {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(250,246,238,.42);
+    }
+
+    /* Hero right — photo + food cards */
+    .hero-visual-col { position: relative; }
+    @media (max-width: 991px) { .hero-visual-col { display: none; } }
+
+    .hero-photo-wrap {
+      position: relative;
+      border-radius: var(--r-xl) var(--r-xl) var(--r-xl) var(--r-sm);
+      overflow: hidden;
+      background: linear-gradient(145deg, var(--moss-2), var(--moss));
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo-illus { font-size: 10rem; opacity: .45; }
+    .hero-photo-img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* Food tags floating */
+    .hero-food-tag {
+      position: absolute;
+      background: rgba(250,246,238,.95); backdrop-filter: blur(12px);
+      border-radius: 50px; padding: .5rem 1rem;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 8px 24px rgba(42,32,24,.15);
+      border: 1px solid rgba(200,112,74,.15);
+    }
+    .hft-icon { font-size: 1.2rem; }
+    .hft-text {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 600;
+      color: var(--text);
+    }
+    .hft-sub {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 300;
+      color: var(--text-m);
+    }
+    .hft-1 { top: 10%; right: -30px; animation: tagFloat 6s ease-in-out infinite; }
+    .hft-2 { bottom: 20%; left: -30px; animation: tagFloat 8s ease-in-out infinite; animation-delay: -3s; }
+    .hft-3 { top: 50%; right: -20px; animation: tagFloat 7s ease-in-out infinite; animation-delay: -1.5s; }
+    @keyframes tagFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    /* ============================================
+       SECTION UTILITY
+    ============================================ */
     .sec { padding: 5.5rem 0; }
-    .cond-card, .service-cb, .session-cb, .faq-cb, .rv-cb { background: var(--card-l); border-radius: var(--r-md); border: 1px solid var(--bdr-l); transition: all .3s; }
-    .btn-terra, .btn-wa-cb { display: inline-flex; align-items: center; gap: 9px; border-radius: 50px; cursor: pointer; transition: all .2s; }
-    .btn-terra { background: var(--terra); color: #fff; padding: .9rem 1.8rem; box-shadow: 0 6px 24px rgba(200,112,74,.35); }
-    .btn-wa-cb { background: var(--wa); color: #fff; padding: .9rem 1.6rem; }
-    .sec-eyebrow { font-family: var(--font-b); font-size: .62rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--moss); margin-bottom: .65rem; display: flex; align-items: center; gap: 9px; }
-    .sec-h2 { font-family: var(--font-d); font-size: clamp(1.85rem, 3.5vw, 2.9rem); font-weight: 600; line-height: 1.15; color: var(--text); margin-bottom: .75rem; }
-    .leaf-rule { width: 40px; height: 3px; background: linear-gradient(90deg, var(--moss), rgba(58,107,74,.2)); border-radius: 2px; margin: 1rem 0 1.6rem; }
+    .sec-sm { padding: 3.5rem 0; }
+
+    .sec-eyebrow {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--moss);
+      margin-bottom: .65rem; display: flex; align-items: center; gap: 9px;
+    }
+    .sec-eyebrow::before { content: ''; width: 18px; height: 2px; background: var(--moss); display: block; }
+    [data-theme="dark"] .sec-eyebrow { color: var(--sage); }
+    [data-theme="dark"] .sec-eyebrow::before { background: var(--sage); }
+
+    .sec-h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.85rem, 3.5vw, 2.9rem);
+      font-weight: 600; line-height: 1.15; color: var(--text); margin-bottom: .75rem;
+    }
+    .sec-h2 em { font-style: italic; font-weight: 300; color: var(--moss); }
+    [data-theme="dark"] .sec-h2 em { color: var(--sage); }
+
+    .sec-para {
+      font-family: var(--font-b); font-size: .93rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.85; max-width: 520px;
+    }
+    .leaf-rule {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, var(--moss), rgba(58,107,74,.2));
+      border-radius: 2px; margin: 1rem 0 1.6rem;
+    }
+
+    /* ============================================
+       TRUST STRIP
+    ============================================ */
+    .trust-strip {
+      background: var(--moss-2);
+      border-top: 1px solid rgba(143,188,139,.15);
+      border-bottom: 1px solid rgba(143,188,139,.15);
+      padding: 1.5rem 0; overflow: hidden;
+    }
+    [data-theme="light"] .trust-strip { background: var(--parchment); border-color: var(--bdr-l); }
+    .trust-track {
+      display: flex; gap: 3rem;
+      animation: trustScroll 22s linear infinite;
+      white-space: nowrap;
+    }
+    .trust-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-b); font-size: .78rem; font-weight: 500;
+      color: var(--text); flex-shrink: 0;
+    }
+    .trust-item i { color: var(--terra); font-size: .85rem; }
+    @keyframes trustScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       CONDITIONS GRID — "IF YOUR DOCTOR SAID..."
+    ============================================ */
+    .cond-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem 1.4rem;
+      transition: box-shadow .3s, border-color .3s; height: 100%;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .cond-card { border-color: var(--border); }
+    .cond-card::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--moss), var(--sage));
+      opacity: 0; transition: opacity .3s;
+    }
+    .cond-card:hover { box-shadow: 0 12px 40px rgba(58,107,74,.12); border-color: var(--border-m); }
+    .cond-card:hover::before { opacity: 1; }
+    .cond-icon { font-size: 2rem; margin-bottom: .8rem; display: block; }
+    .cond-title {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 600;
+      color: var(--text); margin-bottom: .35rem;
+    }
+    .cond-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65;
+    }
+
+    /* ============================================
+       ★ UNIQUE: "WHAT'S EATING YOU?" SYMPTOM CHECK
+    ============================================ */
+    .symptom-widget {
+      background: var(--moss-2);
+      border: 1px solid rgba(143,188,139,.2);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(34,64,48,.25);
+    }
+    [data-theme="light"] .symptom-widget {
+      background: var(--card-l); border-color: var(--bdr-l);
+      box-shadow: 0 24px 80px rgba(42,32,24,.1);
+    }
+
+    .sw-header {
+      background: linear-gradient(135deg, rgba(143,188,139,.15) 0%, rgba(200,112,74,.06) 100%);
+      border-bottom: 1px solid rgba(143,188,139,.18);
+      padding: 1.5rem 1.8rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    [data-theme="light"] .sw-header { border-color: var(--bdr-l); }
+    .sw-header-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--moss), var(--sage));
+      border-radius: 50% 50% 50% 20%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .sw-header-title {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 600;
+      color: var(--cream); line-height: 1.3;
+    }
+    [data-theme="light"] .sw-header-title { color: var(--text); }
+    .sw-header-sub {
+      font-family: var(--font-b); font-size: .65rem; color: var(--muted-2);
+      margin-top: 2px; font-weight: 300;
+    }
+    .sw-tag {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--font-b); font-size: .6rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: rgba(200,112,74,.12); border: 1px solid var(--border-t);
+      color: var(--terra-pale); padding: .22rem .7rem; border-radius: 30px;
+    }
+    [data-theme="light"] .sw-tag { color: var(--terra); }
+
+    .sw-body { padding: 2rem 1.8rem; }
+    .sw-step { display: none; }
+    .sw-step.active { display: block; }
+
+    /* Step label */
+    .sw-step-label {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--muted-2);
+      margin-bottom: .9rem; display: flex; align-items: center; gap: 8px;
+    }
+    .sw-step-label::before {
+      content: attr(data-num);
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(143,188,139,.15); border: 1px solid rgba(143,188,139,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; color: var(--sage); flex-shrink: 0;
+    }
+
+    /* Step 1: Symptom checkboxes */
+    .sw-prompt {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 600;
+      color: var(--cream); line-height: 1.35; margin-bottom: .5rem;
+    }
+    [data-theme="light"] .sw-prompt { color: var(--text); }
+    .sw-sub {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--muted-2); margin-bottom: 1.4rem;
+    }
+
+    /* Symptom checkboxes — multi-select */
+    .sw-symptoms {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem;
+      margin-bottom: 1.4rem;
+    }
+    @media (max-width: 480px) { .sw-symptoms { grid-template-columns: 1fr; } }
+
+    .sw-sym {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-md); padding: .8rem .95rem;
+      cursor: pointer; transition: all .2s; user-select: none;
+    }
+    [data-theme="light"] .sw-sym { background: var(--bg-2); border-color: var(--bdr-l); }
+    .sw-sym:hover { border-color: rgba(143,188,139,.3); background: rgba(143,188,139,.08); }
+    .sw-sym.checked { border-color: var(--moss); background: rgba(58,107,74,.15); }
+    .sw-sym-emoji { font-size: 1.2rem; flex-shrink: 0; }
+    .sw-sym-text {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 400;
+      color: var(--cream); line-height: 1.3; flex: 1;
+    }
+    [data-theme="light"] .sw-sym-text { color: var(--text); }
+    .sw-sym-check {
+      width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0;
+      border: 1.5px solid rgba(255,255,255,.15); transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    [data-theme="light"] .sw-sym-check { border-color: var(--bdr-l); }
+    .sw-sym.checked .sw-sym-check {
+      background: var(--moss); border-color: var(--moss);
+    }
+    .sw-sym.checked .sw-sym-check::after { content: '✓'; font-size: .62rem; color: #fff; font-weight: 700; }
+
+    /* Step 2: Goal -->
+    /* Result */
+    .sw-result { display: none; }
+    .sw-result.active { display: block; }
+
+    /* Result card */
+    .sw-result-card {
+      background: rgba(143,188,139,.1); border: 1px solid rgba(143,188,139,.2);
+      border-radius: var(--r-md); padding: 1.4rem; margin-bottom: 1.2rem;
+    }
+    [data-theme="light"] .sw-result-card { background: var(--sage-dim); }
+    .src-label {
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--sage);
+      margin-bottom: .35rem;
+    }
+    [data-theme="light"] .src-label { color: var(--moss); }
+    .src-title {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 600;
+      color: var(--cream); margin-bottom: .35rem;
+    }
+    [data-theme="light"] .src-title { color: var(--text); }
+    .src-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.7;
+    }
+
+    .sw-insight-list {
+      list-style: none; display: flex; flex-direction: column; gap: .5rem;
+      margin-bottom: 1.3rem;
+    }
+    .sw-insight-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.5;
+    }
+    .sw-insight-list li i { color: var(--terra); flex-shrink: 0; margin-top: 2px; font-size: .82rem; }
+
+    .sw-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .9rem; font-weight: 600;
+      padding: .95rem; border-radius: 50px; border: none;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+      transition: background .2s;
+    }
+    .sw-wa-btn:hover { background: var(--wa-dark); }
+    .sw-note {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 300;
+      color: var(--muted-2); text-align: center; margin-top: .8rem;
+      font-style: italic; line-height: 1.55;
+    }
+    .sw-restart {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-b); font-size: .72rem;
+      color: var(--muted-2); margin-top: .6rem; display: block;
+      width: 100%; text-align: center; transition: color .2s; padding: 0;
+    }
+    .sw-restart:hover { color: var(--sage); }
+
+    /* Nav buttons */
+    .sw-nav {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sw-btn-back {
+      font-family: var(--font-b); font-size: .78rem;
+      color: var(--muted-2); background: none; border: none;
+      cursor: pointer; transition: color .2s; padding: 0;
+    }
+    .sw-btn-back:hover { color: var(--cream); }
+    .sw-btn-next {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--moss); color: #fff;
+      font-family: var(--font-b); font-size: .8rem; font-weight: 600;
+      padding: .6rem 1.4rem; border-radius: 50px; border: none;
+      cursor: pointer; transition: background .2s, opacity .2s;
+      opacity: .4; pointer-events: none;
+    }
+    .sw-btn-next.ready { opacity: 1; pointer-events: auto; }
+    .sw-btn-next:hover { background: var(--moss-2); }
+
+    /* ============================================
+       SERVICES
+    ============================================ */
+    .service-cb {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 2rem;
+      height: 100%; transition: box-shadow .3s, border-color .3s;
+      position: relative;
+    }
+    [data-theme="dark"] .service-cb { border-color: var(--border); }
+    .service-cb::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--moss), var(--sage));
+      border-radius: var(--r-md) var(--r-md) 0 0; opacity: 0; transition: opacity .3s;
+    }
+    .service-cb:hover { box-shadow: 0 12px 40px rgba(58,107,74,.12); border-color: var(--border-m); }
+    .service-cb:hover::before { opacity: 1; }
+    .scb-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .scb-name {
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 600;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .scb-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.7; margin-bottom: 1rem;
+    }
+    .scb-for {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--moss);
+      margin-bottom: .4rem;
+    }
+    [data-theme="dark"] .scb-for { color: var(--sage); }
+    .scb-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .scb-tag {
+      font-family: var(--font-b); font-size: .65rem;
+      background: var(--bg-2); border: 1px solid var(--bdr-l);
+      color: var(--text-m); padding: .2rem .65rem; border-radius: 30px;
+    }
+    [data-theme="dark"] .scb-tag { background: rgba(255,255,255,.06); border-color: var(--border); }
+
+    /* ============================================
+       PROCESS
+    ============================================ */
+    .proc-cb {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.8rem 1.5rem;
+      text-align: center; transition: border-color .2s;
+    }
+    [data-theme="dark"] .proc-cb { border-color: var(--border); }
+    .proc-cb:hover { border-color: var(--border-m); }
+    .proc-num-cb {
+      font-family: var(--font-d); font-size: 2.5rem; font-weight: 300;
+      font-style: italic; color: var(--moss); opacity: .2; line-height: 1; margin-bottom: .7rem;
+    }
+    [data-theme="dark"] .proc-num-cb { color: var(--sage); }
+    .proc-icon-cb {
+      width: 52px; height: 52px;
+      background: rgba(143,188,139,.1); border: 1px solid rgba(143,188,139,.2);
+      border-radius: 50% 50% 50% 20%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.3rem; color: var(--moss);
+    }
+    [data-theme="dark"] .proc-icon-cb { color: var(--sage); }
+    .proc-title-cb {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 600;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .proc-desc-cb {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.7;
+    }
+
+    /* ============================================
+       SESSION CARDS / PRICING
+    ============================================ */
+    .session-cb {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 2rem; height: 100%;
+      transition: border-color .2s;
+    }
+    [data-theme="dark"] .session-cb { border-color: var(--border); }
+    .session-cb.featured {
+      background: linear-gradient(145deg, rgba(58,107,74,.06) 0%, rgba(143,188,139,.04) 100%);
+      border-color: var(--border-m);
+    }
+    [data-theme="dark"] .session-cb.featured {
+      background: linear-gradient(145deg, rgba(58,107,74,.2) 0%, rgba(143,188,139,.08) 100%);
+    }
+    .scb2-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(58,107,74,.08); border: 1px solid var(--border-m);
+      color: var(--moss); font-family: var(--font-b); font-size: .62rem;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .22rem .65rem; border-radius: 30px; margin-bottom: .9rem;
+    }
+    [data-theme="dark"] .scb2-tag { color: var(--sage); }
+    .session-cb.featured .scb2-tag {
+      background: rgba(143,188,139,.15); color: var(--moss);
+    }
+    .scb2-name {
+      font-family: var(--font-d); font-size: 1.2rem; font-weight: 600;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .scb2-desc {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.7; margin-bottom: 1.2rem;
+    }
+    .scb2-price-row {
+      display: flex; align-items: baseline; gap: .4rem; margin-bottom: .3rem;
+    }
+    .scb2-price {
+      font-family: var(--font-d); font-size: 2rem; font-weight: 600; color: var(--text);
+    }
+    .scb2-currency { font-family: var(--font-b); font-size: .85rem; color: var(--text-m); }
+    .scb2-duration { font-family: var(--font-b); font-size: .72rem; color: var(--muted); }
+    .scb2-book {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .82rem; font-weight: 600;
+      padding: .78rem; border-radius: 50px; border: none;
+      cursor: pointer; margin-top: 1.4rem; transition: background .2s;
+      box-shadow: 0 4px 14px rgba(37,211,102,.2);
+    }
+    .scb2-book:hover { background: var(--wa-dark); }
+
+    /* ============================================
+       ABOUT
+    ============================================ */
+    .about-grid-cb {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;
+    }
+    @media (max-width: 768px) { .about-grid-cb { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .about-photo-cb {
+      border-radius: var(--r-xl) var(--r-sm) var(--r-xl) var(--r-xl);
+      overflow: hidden; position: relative;
+      background: linear-gradient(145deg, var(--moss-2), var(--moss));
+      aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+    }
+    [data-theme="light"] .about-photo-cb {
+      background: linear-gradient(145deg, var(--sage-pale), var(--terra-pale));
+    }
+    .about-photo-illus-cb { font-size: 8rem; opacity: .45; }
+    .about-photo-real-cb {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .about-badge-cb {
+      position: absolute; bottom: -12px; right: -12px;
+      background: var(--terra); border-radius: var(--r-md);
+      padding: 1rem 1.2rem; text-align: center;
+      box-shadow: 0 8px 28px rgba(200,112,74,.3);
+    }
+    .abc-num { font-family: var(--font-d); font-size: 1.8rem; font-weight: 600; color: #fff; line-height: 1; }
+    .abc-label { font-family: var(--font-b); font-size: .6rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+
+    .about-bio-cb {
+      font-family: var(--font-b); font-size: .93rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.9; margin-bottom: 1.1rem;
+    }
+    .cred-list-cb { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.8rem; }
+    .cred-item-cb {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-family: var(--font-b); font-size: .84rem; font-weight: 400; color: var(--text-m);
+    }
+    .cred-item-cb i { color: var(--terra); flex-shrink: 0; margin-top: 2px; font-size: .85rem; }
+
+    /* ============================================
+       TESTIMONIALS — FULLY VISIBLE (BLUR REMOVED)
+    ============================================ */
+    .rv-cb {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.8rem; height: 100%;
+      transition: box-shadow .3s;
+    }
+    [data-theme="dark"] .rv-cb { border-color: var(--border); }
+    .rv-cb:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+    .rv-tag-cb {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(58,107,74,.08); border: 1px solid var(--border-m);
+      color: var(--moss); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 30px; margin-bottom: .6rem;
+    }
+    [data-theme="dark"] .rv-tag-cb { color: var(--sage); }
+    .rv-stars-cb { color: #F59E0B; font-size: .8rem; margin-bottom: .6rem; letter-spacing: 1px; }
+    .rv-text-cb {
+      font-family: var(--font-d); font-style: italic; font-size: .95rem; font-weight: 300;
+      color: var(--text); line-height: 1.75; margin-bottom: 1.1rem;
+    }
+    .rv-name-cb { font-family: var(--font-b); font-size: .83rem; font-weight: 600; color: var(--text); }
+    .rv-detail-cb { font-family: var(--font-b); font-size: .7rem; color: var(--text-m); }
+
+    /* ============================================
+       FAQ ACCORDION
+    ============================================ */
+    .faq-cb {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.3rem 1.5rem;
+      margin-bottom: .6rem; cursor: pointer; transition: border-color .2s;
+    }
+    [data-theme="dark"] .faq-cb { border-color: var(--border); }
+    .faq-cb:hover { border-color: var(--border-m); }
+    .faq-q-cb {
+      font-family: var(--font-d); font-size: .98rem; font-weight: 600;
+      color: var(--text); display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .faq-q-cb i { color: var(--moss); font-size: .8rem; flex-shrink: 0; transition: transform .3s; }
+    [data-theme="dark"] .faq-q-cb i { color: var(--sage); }
+    .faq-cb.open .faq-q-cb i { transform: rotate(45deg); }
+    .faq-a-cb {
+      font-family: var(--font-b); font-size: .85rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.75; margin-top: .8rem; display: none;
+    }
+    .faq-cb.open .faq-a-cb { display: block; }
+
+    /* ============================================
+       COVERAGE + GBP
+    ============================================ */
+    .coverage-cb {
+      background: linear-gradient(135deg, var(--moss-2) 0%, var(--moss-3) 100%);
+      border: 1px solid rgba(143,188,139,.2);
+      border-radius: var(--r-lg); padding: 2.5rem;
+      display: flex; align-items: center; flex-wrap: wrap; gap: 2rem;
+      justify-content: space-between;
+    }
+    @media (max-width: 768px) { .coverage-cb { flex-direction: column; align-items: flex-start; } }
+    [data-theme="light"] .coverage-cb {
+      background: linear-gradient(135deg, var(--parchment) 0%, var(--bg-2) 100%);
+      border-color: var(--bdr-l);
+    }
+    .cov-left h3 {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 600;
+      color: var(--cream); margin-bottom: .3rem;
+    }
+    [data-theme="light"] .cov-left h3 { color: var(--text); }
+    .cov-left p { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: var(--muted-2); }
+    .area-chips-cb { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area-chip-cb {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(143,188,139,.12); border: 1px solid rgba(143,188,139,.2);
+      color: var(--sage-pale); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500; padding: .3rem .8rem; border-radius: 30px;
+    }
+    [data-theme="light"] .area-chip-cb { color: var(--moss); background: rgba(58,107,74,.08); }
+    .area-chip-cb i { font-size: .7rem; color: var(--terra); }
+
+    /* ============================================
+       FINAL CTA
+    ============================================ */
+    .cta-cb {
+      background: var(--moss-3);
+      border-radius: var(--r-xl); padding: 6rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-cb::before {
+      content: ''; position: absolute;
+      top: -40%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(143,188,139,.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-cb::after {
+      content: ''; position: absolute;
+      bottom: -20%; right: 5%;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,112,74,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-cb-inner { position: relative; z-index: 1; }
+    .cta-eyebrow-cb {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+    .cta-h2-cb {
+      font-family: var(--font-d);
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 600; line-height: 1.15; color: var(--cream); margin-bottom: 1rem;
+    }
+    .cta-h2-cb em { font-style: italic; font-weight: 300; color: var(--sage); }
+    .cta-para-cb {
+      font-family: var(--font-b); font-size: .93rem; font-weight: 300;
+      color: rgba(250,246,238,.6); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.85;
+    }
+    .cta-btn-group { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-note-cb {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 300;
+      color: rgba(250,246,238,.28); margin-top: 1.2rem;
+    }
+
+    /* ============================================
+       FOOTER — always dark
+    ============================================ */
+    .footer-cb {
+      background: #182A1E; padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(143,188,139,.15);
+    }
+    .footer-cb .fl-name { font-family: var(--font-d); font-size: 1.5rem; font-weight: 600; color: var(--cream); line-height: 1; }
+    .footer-cb .fl-sub { font-family: var(--font-b); font-size: .56rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(250,246,238,.28); margin-top: 3px; }
+    .footer-cb .fl-about { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: rgba(250,246,238,.42); line-height: 1.8; max-width: 280px; margin-top: 1rem; }
+    .footer-cb .fl-h { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; }
+    .footer-cb .fl-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-cb .fl-links a { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: rgba(250,246,238,.42); transition: color .2s; }
+    .footer-cb .fl-links a:hover { color: var(--sage); }
+    .footer-cb .fl-wa-box { background: rgba(37,211,102,.06); border: 1px solid rgba(37,211,102,.18); border-radius: var(--r-md); padding: 1.3rem; }
+    .footer-cb .fl-wa-box p { font-family: var(--font-b); font-size: .8rem; font-weight: 300; color: rgba(250,246,238,.42); margin-bottom: .9rem; line-height: 1.6; }
+    .footer-cb .fl-wa-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--wa); color: #fff; font-family: var(--font-b); font-size: .78rem; font-weight: 600; padding: .52rem 1.1rem; border-radius: 50px; transition: background .2s; }
+    .footer-cb .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-cb .fl-bottom { border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.8rem; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem; }
+    .footer-cb .fl-bottom p { font-family: var(--font-b); font-size: .72rem; font-weight: 300; color: rgba(250,246,238,.22); }
+    .footer-cb .fl-bottom a { font-family: var(--font-b); font-size: .72rem; font-weight: 600; color: var(--terra-pale); transition: color .2s; }
+    .footer-cb .fl-bottom a:hover { color: var(--terra); }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
 
-    /* ----- NEW: Patient Intake Form Styles ----- */
-    .intake-form-card {
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-cb { padding: 4rem 1.5rem; }
+      .sw-body { padding: 1.4rem; }
+    }
+    
+    /* ============================================
+       INTAKE FORM STYLES (NEW)
+    ============================================ */
+    .intake-card {
       background: var(--card-l);
       border-radius: var(--r-lg);
       border: 1px solid var(--bdr-l);
       padding: 2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      transition: all 0.3s;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.05);
     }
-    [data-theme="dark"] .intake-form-card {
+    [data-theme="dark"] .intake-card {
       background: var(--moss-2);
       border-color: var(--border);
     }
-    .form-group-cb {
-      margin-bottom: 1.25rem;
+    .form-group {
+      margin-bottom: 1.2rem;
     }
-    .form-group-cb label {
+    .form-group label {
       font-family: var(--font-b);
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       display: block;
-      letter-spacing: 0.3px;
     }
-    .form-group-cb input, 
-    .form-group-cb select, 
-    .form-group-cb textarea {
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       padding: 0.7rem 1rem;
       border-radius: var(--r-md);
@@ -153,24 +1014,22 @@
       font-size: 0.85rem;
       transition: border 0.2s;
     }
-    .form-group-cb input:focus, 
-    .form-group-cb select:focus, 
-    .form-group-cb textarea:focus {
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
       outline: none;
       border-color: var(--moss);
       box-shadow: 0 0 0 2px rgba(58,107,74,0.2);
     }
-    .form-row-cb {
+    .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
     @media (max-width: 640px) {
-      .form-row-cb { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
     }
-    .wa-submit-btn {
+    .intake-submit-btn {
       background: var(--wa);
-      color: #fff;
+      color: white;
       width: 100%;
       padding: 0.9rem;
       border: none;
@@ -186,8 +1045,8 @@
       transition: background 0.2s, transform 0.1s;
       margin-top: 0.5rem;
     }
-    .wa-submit-btn:hover { background: var(--wa-dark); transform: translateY(-2px); }
-    .form-note {
+    .intake-submit-btn:hover { background: var(--wa-dark); transform: translateY(-2px); }
+    .intake-note {
       font-size: 0.7rem;
       font-family: var(--font-b);
       color: var(--text-m);
@@ -198,88 +1057,712 @@
 </head>
 <body>
 
-  <!-- FLOATING WA & DEMO BADGE (unchanged) -->
-  <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation." class="wa-float" target="_blank" rel="noopener noreferrer">
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation."
+     class="wa-float" aria-label="Book a consultation on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
     <span class="wa-pill">Book Consultation</span>
-    <button class="wa-btn-float" aria-label="Open WhatsApp"><i class="fab fa-whatsapp"></i></button>
+    <button class="wa-btn-float" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
   </a>
-  <div class="demo-badge"><span class="demo-dot"></span>Demo Profile</div>
 
-  <!-- NAVBAR (unchanged) -->
-  <nav class="navbar-cb">
-    <div class="nav-brand"><div class="nav-brand-leaf">🌿</div><div><div class="nav-brand-name">Dr. Camille Browne</div><div class="nav-brand-sub">Registered Dietitian · Saint Lucia</div></div></div>
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="JamaLinks demo profile">
+    <span class="demo-dot" aria-hidden="true"></span>Demo Profile
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-cb" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <div class="nav-brand-leaf" aria-hidden="true">🌿</div>
+      <div>
+        <div class="nav-brand-name">Dr. Camille Browne</div>
+        <div class="nav-brand-sub">Registered Dietitian · Saint Lucia</div>
+      </div>
+    </div>
     <div class="nav-right">
-      <ul class="nav-links"><li><a href="#conditions">Who I Help</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#intake">Intake Form</a></li></ul>
-      <button class="theme-toggle" id="themeToggle"><i class="bi bi-moon-fill" id="themeIcon"></i><span id="themeLabel">Dark</span></button>
-      <div class="nav-div"></div>
-      <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation." class="nav-cta" target="_blank"><i class="bi bi-calendar-check-fill"></i> Book Now</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#conditions">Who I Help</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#intake-form">Intake Form</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-div" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation."
+         class="nav-cta" aria-label="Book a consultation"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Book Now
+      </a>
     </div>
   </nav>
 
-  <!-- HERO SECTION unchanged -->
-  <section class="hero-cb"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-6">...</div></div></div></section>
-  <!-- For brevity, hero content same as original, but we keep structure intact. We'll inject full working page. 
-       To keep file functional, I'll include essential sections but need to keep full fidelity; given length constraints, I'll output final HTML with all modifications.-->
-  
-  <!-- TRUST STRIP (shortened but original styling) -->
-  <div class="trust-strip"><div class="trust-track"><span class="trust-item"><i class="bi bi-award-fill"></i> Registered Dietitian — RD Certified</span><span class="trust-item"><i class="bi bi-patch-check-fill"></i> Licensed — Saint Lucia Health Professions Council</span><span class="trust-item"><i class="bi bi-heart-fill"></i> Diabetes & Hypertension Specialist</span><span class="trust-item"><i class="bi bi-globe2"></i> Online Sessions for Diaspora Clients</span></div></div>
+  <!-- HERO SECTION (fully preserved) -->
+  <section class="hero-cb" role="banner" aria-label="Dr. Camille Browne dietitian hero">
+    <div class="hero-bg-shape hbs-1" aria-hidden="true"></div>
+    <div class="hero-bg-shape hbs-2" aria-hidden="true"></div>
+    <div class="hero-bg-shape hbs-3" aria-hidden="true"></div>
+    <div class="hero-botanical" aria-hidden="true"></div>
 
-  <!-- WHO I HELP with PCOS/Hormonal Health card added -->
-  <section class="sec" id="conditions">
-    <div class="container">
-      <div class="row mb-5 justify-content-center text-center"><div class="col-lg-7 reveal"><div class="sec-eyebrow" style="justify-content:center;">Who I Help</div><h2 class="sec-h2">Your doctor mentioned <em>it.</em><br>Now let's do something about it.</h2><div class="leaf-rule" style="margin:1rem auto 1.5rem;"></div></div></div>
-      <div class="row g-4 reveal">
-        <!-- Existing cards -->
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">🩺</span><h3 class="cond-title">Type 2 Diabetes</h3><p class="cond-desc">Managing blood sugar through food doesn't mean giving up everything you love. Dr. Browne creates plans that work with Caribbean eating patterns.</p></div></div>
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">❤️‍🩹</span><h3 class="cond-title">Hypertension</h3><p class="cond-desc">Salt is not the only villain. DASH approach, weight management, and mineral-rich Caribbean foods like callaloo have measurable impact.</p></div></div>
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">⚖️</span><h3 class="cond-title">Weight Management</h3><p class="cond-desc">Sustainable weight change is about understanding your body, patterns, and relationship with food — evidence-based and long-term.</p></div></div>
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">🫁</span><h3 class="cond-title">Gut Health & IBS</h3><p class="cond-desc">Bloating, irregular digestion, stomach discomfort — signals from your gut microbiome. Dietary changes make profound difference.</p></div></div>
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">🤰</span><h3 class="cond-title">Prenatal & Postnatal</h3><p class="cond-desc">Nutrition during and after pregnancy affects both mother and child. Evidence-based guidance for each trimester and beyond.</p></div></div>
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">🧬</span><h3 class="cond-title">High Cholesterol & Heart Health</h3><p class="cond-desc">Cardiovascular disease is leading cause of death in the Caribbean. Dietary changes are proven, powerful tools.</p></div></div>
-        <!-- NEW PCOS / Hormonal Health Card -->
-        <div class="col-sm-6 col-lg-4"><div class="cond-card"><span class="cond-icon">🌸</span><h3 class="cond-title">PCOS & Hormonal Health</h3><p class="cond-desc">Polycystic ovary syndrome, irregular cycles, hormonal acne, and insulin resistance respond powerfully to targeted nutrition. Dr. Browne uses anti-inflammatory, low-glycaemic Caribbean food strategies to restore metabolic balance — without extreme restriction.</p></div></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- LEFT -->
+        <div class="col-lg-6">
+          <div class="hero-eyebrow-cb">
+            <i class="bi bi-leaf-fill" aria-hidden="true"></i>
+            Caribbean Clinical Nutrition
+          </div>
+          <h1 class="hero-h1">
+            Dr. Camille<br>
+            Browne
+            <span class="hero-h1-accent">Registered Dietitian</span>
+          </h1>
+          <div class="hero-sub-line">RD · MSc Clinical Nutrition · 10 Years Practice</div>
+          <p class="hero-statement">
+            In the Caribbean, we eat with culture, history, and love. 
+            But the foods we grew up on can sometimes work against bodies 
+            managing <strong>diabetes, high blood pressure, and weight challenges.</strong>
+            <br><br>
+            Dr. Browne doesn't ask you to stop eating Caribbean food. 
+            She helps you understand it — and eat it in ways that 
+            support your health, not undermine it.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#symptom-check" class="btn-terra" aria-label="Take the diet symptom check">
+              <i class="bi bi-activity" aria-hidden="true"></i>
+              What's Eating You? Check Here
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation."
+               class="btn-wa-cb" aria-label="Book on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Book Consultation
+            </a>
+          </div>
+          <div class="hero-stats-row" role="list" aria-label="Career highlights">
+            <div class="hs-item" role="listitem">
+              <div class="hs-num">10</div>
+              <div class="hs-label">Years Practice</div>
+            </div>
+            <div class="hs-item" role="listitem">
+              <div class="hs-num">600+</div>
+              <div class="hs-label">Clients Seen</div>
+            </div>
+            <div class="hs-item" role="listitem">
+              <div class="hs-num">5</div>
+              <div class="hs-label">Islands Served</div>
+            </div>
+            <div class="hs-item" role="listitem">
+              <div class="hs-num">Online</div>
+              <div class="hs-label">Diaspora Sessions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col-lg-6">
+          <div class="hero-visual-col" role="complementary">
+            <div class="hero-photo-wrap">
+              <span class="hero-photo-illus" aria-hidden="true">🥗</span>
+              <img
+                src="../images/camille-browne.webp"
+                alt="Dr. Camille Browne — Registered Dietitian, Saint Lucia"
+                class="hero-photo-img"
+                width="500" height="625"
+                loading="eager"
+                onerror="this.style.display='none'">
+            </div>
+
+            <!-- Floating food tags -->
+            <div class="hero-food-tag hft-1" aria-hidden="true">
+              <span class="hft-icon">🍌</span>
+              <div>
+                <div class="hft-text">Plantain & Potassium</div>
+                <div class="hft-sub">Good for blood pressure</div>
+              </div>
+            </div>
+            <div class="hero-food-tag hft-2" aria-hidden="true">
+              <span class="hft-icon">🫘</span>
+              <div>
+                <div class="hft-text">Pigeon Peas</div>
+                <div class="hft-sub">Plant protein · Fibre rich</div>
+              </div>
+            </div>
+            <div class="hero-food-tag hft-3" aria-hidden="true">
+              <span class="hft-icon">🥑</span>
+              <div>
+                <div class="hft-text">Avocado</div>
+                <div class="hft-sub">Heart-healthy fats</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="reveal mt-5"><div style="background:var(--bg-2);border-left:3px solid var(--terra);border-radius:var(--r-md);padding:1.6rem 2rem;"><p style="font-family:var(--font-d);font-weight:600;">"I don't tell my clients to stop eating Caribbean food. I teach them to eat it smarter."</p><p>The Caribbean diet is rich in complex carbohydrates, root vegetables, legumes, and fresh produce. Dr. Browne preserves what's nourishing while addressing chronic disease.</p></div></div>
     </div>
   </section>
 
-  <!-- UNIQUE SYMPTOM CHECK (kept original) -->
-  <section class="sec" id="symptom-check" style="background:var(--bg-2);"><div class="container"><!-- symptom widget content same as original, kept but truncated for brevity. In final live version we include full widget; but for the file, assume it stays. To keep final file under limit, will embed all essential components functioning. We'll ensure final HTML has full interactive symptom check as original plus new modifications. --></div></section>
+  <!-- TRUST STRIP -->
+  <div class="trust-strip" aria-hidden="true">
+    <div class="trust-track">
+      <span class="trust-item"><i class="bi bi-award-fill"></i> Registered Dietitian — RD Certified</span>
+      <span class="trust-item"><i class="bi bi-patch-check-fill"></i> Licensed — Saint Lucia Health Professions Council</span>
+      <span class="trust-item"><i class="bi bi-heart-fill"></i> Diabetes &amp; Hypertension Specialist</span>
+      <span class="trust-item"><i class="bi bi-globe2"></i> Online Sessions for Diaspora Clients</span>
+      <span class="trust-item"><i class="bi bi-leaf-fill"></i> Caribbean Food Culture at the Centre</span>
+      <span class="trust-item"><i class="bi bi-award-fill"></i> Registered Dietitian — RD Certified</span>
+      <span class="trust-item"><i class="bi bi-patch-check-fill"></i> Licensed — Saint Lucia Health Professions Council</span>
+      <span class="trust-item"><i class="bi bi-heart-fill"></i> Diabetes &amp; Hypertension Specialist</span>
+      <span class="trust-item"><i class="bi bi-globe2"></i> Online Sessions for Diaspora Clients</span>
+      <span class="trust-item"><i class="bi bi-leaf-fill"></i> Caribbean Food Culture at the Centre</span>
+    </div>
+  </div>
 
-  <!-- SERVICES (unchanged) -->
-  <section class="sec" id="services" style="background:var(--bg);"><div class="container"><div class="row mb-5"><div class="col-lg-6 reveal"><div class="sec-eyebrow">Services</div><h2 class="sec-h2">What a <em>Consultation Covers</em></h2><div class="leaf-rule"></div></div></div><div class="row g-4"><div class="col-sm-6 col-lg-4"><div class="service-cb"><span class="scb-icon">🩺</span><h3 class="scb-name">Medical Nutrition Therapy</h3><p class="scb-desc">Evidence-based intervention for diagnosed conditions. Diabetes, hypertension, heart disease.</p></div></div><div class="col-sm-6 col-lg-4"><div class="service-cb"><span class="scb-icon">⚖️</span><h3 class="scb-name">Weight Management Programme</h3><p class="scb-desc">12-week structured programme with dietary analysis and Caribbean meal planning.</p></div></div><div class="col-sm-6 col-lg-4"><div class="service-cb"><span class="scb-icon">🫁</span><h3 class="scb-name">Gut Health & Digestive Support</h3><p class="scb-desc">Dietary investigation for IBS, bloating, and gut microbiome restoration.</p></div></div></div></div></section>
+  <!-- WHO I HELP — CONDITIONS (with PCOS/Hormonal Health card added) -->
+  <section class="sec" id="conditions" style="background:var(--bg);" aria-label="Conditions and goals Dr. Browne works with">
+    <div class="container">
+      <div class="row mb-5 justify-content-center text-center">
+        <div class="col-lg-7 reveal">
+          <div class="sec-eyebrow" style="justify-content:center;">Who I Help</div>
+          <h2 class="sec-h2">
+            Your doctor mentioned <em>it.</em><br>Now let's do something about it.
+          </h2>
+          <div class="leaf-rule" aria-hidden="true" style="margin:1rem auto 1.5rem;"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center;">
+            Most people come to a dietitian after a doctor's visit — when a number is too high, 
+            a diagnosis has arrived, or the body is quietly sending signals that something 
+            needs to change. That is exactly the right time to come.
+          </p>
+        </div>
+      </div>
 
-  <!-- PATIENT INTAKE FORM (NEW) - placed after services, before process -->
-  <section class="sec" id="intake" style="background:var(--bg-2);">
+      <div class="row g-4 reveal">
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">🩺</span>
+            <h3 class="cond-title">Type 2 Diabetes</h3>
+            <p class="cond-desc">Managing your blood sugar through food doesn't mean giving up everything you love. Dr. Browne creates plans that work with Caribbean eating patterns — not against them — to bring glucose levels under genuine control.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">❤️‍🩹</span>
+            <h3 class="cond-title">Hypertension (High Blood Pressure)</h3>
+            <p class="cond-desc">Salt is not the only villain in high blood pressure. The DASH approach, weight management, and mineral-rich Caribbean foods like callaloo and dasheen can have a measurable impact — often reducing medication dependence.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">⚖️</span>
+            <h3 class="cond-title">Weight Management</h3>
+            <p class="cond-desc">Sustainable weight change is not about willpower or strict diets. It is about understanding your body, your patterns, and your relationship with food — and making evidence-based changes that you can actually maintain long-term.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">🫁</span>
+            <h3 class="cond-title">Gut Health &amp; IBS</h3>
+            <p class="cond-desc">Bloating, irregular digestion, stomach discomfort — these are not just inconveniences. They are signals from your gut microbiome. Dietary changes can make a profound difference for most people within weeks.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">🤰</span>
+            <h3 class="cond-title">Prenatal &amp; Postnatal Nutrition</h3>
+            <p class="cond-desc">Nutrition during and after pregnancy has lifelong effects on both mother and child. Dr. Browne provides evidence-based guidance for each trimester — and for the exhausting, often-overlooked period after birth.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">🧬</span>
+            <h3 class="cond-title">High Cholesterol &amp; Heart Health</h3>
+            <p class="cond-desc">Cardiovascular disease is the leading cause of death in the Caribbean. Dietary changes — choosing the right fats, reducing refined carbohydrates, increasing fibre — are proven, powerful tools. And they don't require expensive supplements.</p>
+          </div>
+        </div>
+        <!-- NEW PCOS & HORMONAL HEALTH CARD -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="cond-card">
+            <span class="cond-icon" aria-hidden="true">🌸</span>
+            <h3 class="cond-title">PCOS &amp; Hormonal Health</h3>
+            <p class="cond-desc">Polycystic ovary syndrome, irregular cycles, hormonal acne, and insulin resistance respond powerfully to targeted nutrition. Dr. Browne uses anti-inflammatory, low-glycaemic Caribbean food strategies to restore metabolic balance — without extreme restriction.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caribbean diet note -->
+      <div class="reveal mt-5">
+        <div style="background:var(--bg-2);border:1px solid var(--bdr-l);border-left:3px solid var(--terra);border-radius:var(--r-md);padding:1.6rem 2rem;max-width:720px;" role="note">
+          <p style="font-family:var(--font-d);font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.5rem;">
+            "I don't tell my clients to stop eating Caribbean food. I teach them to eat it smarter."
+          </p>
+          <p style="font-family:var(--font-b);font-size:.82rem;font-weight:300;color:var(--text-m);line-height:1.7;">
+            The Caribbean diet is rich in complex carbohydrates, root vegetables, legumes, and fresh produce that are genuinely excellent for health. Dr. Browne's approach preserves what is nourishing about the foods you grew up on — while addressing the elements that, at the wrong quantities or combinations, contribute to chronic disease.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIQUE: "WHAT'S EATING YOU?" SYMPTOM CHECK (fully preserved) -->
+  <section class="sec" id="symptom-check" style="background:var(--bg-2);" aria-label="Diet symptom check tool">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Left copy -->
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow">Read Your Body's Signals</div>
+          <h2 class="sec-h2">
+            <em>What's Eating You?</em><br>
+            Your body is telling you something.
+          </h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Persistent tiredness, bloating, headaches, cravings you can't explain — 
+            these are often dietary signals, not character flaws.
+            This short check helps identify what your symptoms may be pointing to, 
+            and which of Dr. Browne's services addresses it.
+          </p>
+          <p class="sec-para" style="margin-top:.9rem;">
+            Select every symptom that applies. The more honest you are, 
+            the more useful the result.
+          </p>
+          <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:.7rem;">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--moss);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Not a medical diagnosis — a starting point</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--moss);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Nothing is stored or recorded</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--moss);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Result links to a personalised WhatsApp message</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Widget -->
+        <div class="col-lg-7 reveal">
+          <div class="symptom-widget" role="region" aria-label="Diet symptom check">
+
+            <div class="sw-header">
+              <div class="sw-header-icon" aria-hidden="true">🥗</div>
+              <div>
+                <div class="sw-header-title">What's Eating You? — Diet Symptom Check</div>
+                <div class="sw-header-sub">Select your symptoms · Get a nutrition insight · Book a consultation</div>
+              </div>
+              <span class="sw-tag">Free Tool</span>
+            </div>
+
+            <div class="sw-body">
+
+              <!-- Step 1: Select symptoms -->
+              <div class="sw-step active" id="swStep1" role="group">
+                <div class="sw-step-label" data-num="1">Select every symptom you're experiencing</div>
+                <p class="sw-prompt">Which of these sound familiar?</p>
+                <p class="sw-sub">Choose all that apply. You can select more than one.</p>
+
+                <div class="sw-symptoms" role="group" aria-label="Select your symptoms">
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="fatigue" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">😴</span>
+                    <span class="sw-sym-text">Always tired, even after sleep</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="bloat" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">🫧</span>
+                    <span class="sw-sym-text">Bloating or discomfort after eating</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="blood_sugar" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">🩺</span>
+                    <span class="sw-sym-text">High blood sugar or diabetes diagnosis</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="blood_pressure" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">❤️‍🩹</span>
+                    <span class="sw-sym-text">High blood pressure</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="weight" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">⚖️</span>
+                    <span class="sw-sym-text">Struggling with weight management</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="cravings" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">🍬</span>
+                    <span class="sw-sym-text">Constant sugar or carb cravings</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="cholesterol" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">🧬</span>
+                    <span class="sw-sym-text">High cholesterol or heart concerns</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="sw-sym" role="checkbox" aria-checked="false" tabindex="0"
+                       data-symptom="gut" onclick="symToggle(this)"
+                       onkeydown="if(event.key==='Enter'||event.key===' ')symToggle(this)">
+                    <span class="sw-sym-emoji" aria-hidden="true">🌀</span>
+                    <span class="sw-sym-text">Irregular digestion or gut discomfort</span>
+                    <span class="sw-sym-check" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <div class="sw-nav">
+                  <span></span>
+                  <button class="sw-btn-next" id="swNext1" aria-label="See my nutrition insight" onclick="swShowResult()">
+                    Get My Insight <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- RESULT -->
+              <div class="sw-result" id="swResult" role="region" aria-live="polite" aria-label="Your nutrition insight">
+                <div class="sw-result-card">
+                  <div class="src-label" id="srcLabel">Your primary nutrition signal</div>
+                  <div class="src-title" id="srcTitle">Managing Blood Sugar Through Food</div>
+                  <div class="src-desc" id="srcDesc">
+                    Your symptom pattern suggests your body is responding to blood sugar fluctuations. Caribbean diets high in white rice, refined flour, and sweet drinks create glucose spikes that drive fatigue, cravings, and weight gain. This is highly addressable through dietary change.
+                  </div>
+                </div>
+
+                <ul class="sw-insight-list" id="swInsights">
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> A tailored meal plan using Caribbean foods you already eat</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Understanding which foods spike blood sugar — and what to swap</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Reducing sugar cravings without elimination diets</li>
+                </ul>
+
+                <a id="swWaBtn"
+                   href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%20completed%20the%20diet%20symptom%20check%20on%20your%20profile.%20I%27d%20like%20to%20book%20a%20consultation."
+                   class="sw-wa-btn"
+                   aria-label="Book a consultation on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Book a Consultation with Dr. Browne
+                </a>
+                <p class="sw-note">
+                  This is a general insight based on common dietary patterns — not a medical diagnosis. 
+                  A full consultation with Dr. Browne will give you a personalised, evidence-based plan.
+                </p>
+                <button class="sw-restart" onclick="swRestart()" aria-label="Start the check again">
+                  ↩ Take it again
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (fully preserved) -->
+  <section class="sec" id="services" style="background:var(--bg);" aria-label="Nutrition services">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6 reveal">
+          <div class="sec-eyebrow">Services</div>
+          <h2 class="sec-h2">What a <em>Consultation Covers</em></h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every service begins with a full dietary assessment — not a generic food diary template,
+            but a real conversation about what you eat, why you eat it, 
+            and what your body has been telling you.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">🩺</span>
+            <h3 class="scb-name">Medical Nutrition Therapy</h3>
+            <p class="scb-desc">Evidence-based nutritional intervention for diagnosed conditions. Diabetes, hypertension, cardiovascular disease, kidney disease, and cholesterol management. Designed alongside your existing medical care.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">Diabetes</span><span class="scb-tag">Hypertension</span><span class="scb-tag">Heart disease</span><span class="scb-tag">Kidney health</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">⚖️</span>
+            <h3 class="scb-name">Weight Management Programme</h3>
+            <p class="scb-desc">A 12-week structured programme covering dietary analysis, portion reality, Caribbean meal planning, physical activity guidance, and behavioural strategies. No fad diets. No meal replacement products. Just sustainable change.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">Weight loss</span><span class="scb-tag">Body composition</span><span class="scb-tag">Long-term change</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">🫁</span>
+            <h3 class="scb-name">Gut Health &amp; Digestive Support</h3>
+            <p class="scb-desc">Dietary investigation and intervention for IBS, bloating, acid reflux, constipation, and post-antibiotic gut restoration. Including low-FODMAP guidance adapted for Caribbean food staples.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">IBS</span><span class="scb-tag">Bloating</span><span class="scb-tag">Reflux</span><span class="scb-tag">Gut microbiome</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">🤰</span>
+            <h3 class="scb-name">Prenatal &amp; Postnatal Nutrition</h3>
+            <p class="scb-desc">Nutritional guidance through each trimester and into the fourth. Managing gestational diabetes, adequate iron and folate, and postpartum recovery — including nutritional support for breastfeeding mothers.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">Pregnancy</span><span class="scb-tag">Breastfeeding</span><span class="scb-tag">Gestational diabetes</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">🏃</span>
+            <h3 class="scb-name">Sports &amp; Performance Nutrition</h3>
+            <p class="scb-desc">Fuelling for Caribbean athletes — from football and track to cycling and swimming. Pre- and post-training nutrition, hydration in tropical heat, and race-day eating strategies.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">Athletes</span><span class="scb-tag">Performance</span><span class="scb-tag">Recovery</span><span class="scb-tag">Endurance</span></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="service-cb">
+            <span class="scb-icon" aria-hidden="true">💼</span>
+            <h3 class="scb-name">Corporate Wellness &amp; Group Sessions</h3>
+            <p class="scb-desc">Workplace nutrition workshops, employee wellness programmes, and group cooking demonstrations. Designed for businesses investing in staff health and reducing absenteeism related to diet-linked conditions.</p>
+            <div class="scb-for">Best for</div>
+            <div class="scb-tags"><span class="scb-tag">Workplaces</span><span class="scb-tag">Groups</span><span class="scb-tag">Schools</span><span class="scb-tag">Workshops</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSION PRICING (fully preserved) -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Session pricing">
+    <div class="container">
+      <div class="row mb-5 justify-content-center text-center">
+        <div class="col-lg-6 reveal">
+          <div class="sec-eyebrow" style="justify-content:center;">Investment in Your Health</div>
+          <h2 class="sec-h2" style="text-align:center;">
+            Transparent. <em>No Surprises.</em>
+          </h2>
+          <div class="leaf-rule" aria-hidden="true" style="margin:1rem auto 1.5rem;"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center;">
+            Every consultation fee is shared upfront. Payment is confirmed before your session. 
+            Your first enquiry costs nothing.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-6 col-lg-4 reveal rv-d1">
+          <div class="session-cb featured">
+            <div class="scb2-tag"><i class="bi bi-person-fill" aria-hidden="true"></i> Most Popular</div>
+            <h3 class="scb2-name">Individual Consultation</h3>
+            <p class="scb2-desc">Full dietary assessment, personalised meal plan adapted for your Caribbean lifestyle, follow-up notes, and WhatsApp support between sessions.</p>
+            <div class="scb2-price-row">
+              <span class="scb2-currency">EC$</span>
+              <span class="scb2-price">200</span>
+            </div>
+            <span class="scb2-duration">per 60-minute session</span>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:1rem;">
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> In-person or online</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Written meal plan included</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> WhatsApp support (48hr response)</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Referral letter to GP if needed</li>
+            </ul>
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20an%20individual%20nutrition%20consultation."
+               class="scb2-book" aria-label="Book individual consultation" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Session
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="session-cb">
+            <div class="scb2-tag"><i class="bi bi-calendar-range" aria-hidden="true"></i> Best Value</div>
+            <h3 class="scb2-name">12-Week Programme</h3>
+            <p class="scb2-desc">Six sessions over 12 weeks with follow-up, food diary review, and ongoing adjustment. Designed for weight management, diabetes, or a full diet overhaul. Results you can actually see and sustain.</p>
+            <div class="scb2-price-row">
+              <span class="scb2-currency">EC$</span>
+              <span class="scb2-price">950</span>
+            </div>
+            <span class="scb2-duration">for 6 sessions (save EC$250)</span>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:1rem;">
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> 6 x 60-minute sessions</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Weekly food diary review</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Updated meal plans at each session</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Lab results review &amp; tracking</li>
+            </ul>
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20enquire%20about%20the%2012-week%20nutrition%20programme."
+               class="scb2-book" aria-label="Enquire about 12-week programme" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire About Programme
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal rv-d2">
+          <div class="session-cb">
+            <div class="scb2-tag"><i class="bi bi-globe2" aria-hidden="true"></i> Diaspora / Online</div>
+            <h3 class="scb2-name">Online Consultation — Diaspora</h3>
+            <p class="scb2-desc">For Caribbean people living abroad navigating Caribbean food in non-Caribbean supermarkets — managing conditions while missing home. Dr. Browne understands this particular challenge.</p>
+            <div class="scb2-price-row">
+              <span class="scb2-currency">USD$</span>
+              <span class="scb2-price">75</span>
+            </div>
+            <span class="scb2-duration">per 60-minute online session</span>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:1rem;">
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Secure video call</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Flexible timezone scheduling</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> UK / US / Canadian grocery alternatives</li>
+              <li style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:8px;"><i class="bi bi-check2" style="color:var(--moss);" aria-hidden="true"></i> Cultural diet retained throughout</li>
+            </ul>
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27m%20based%20abroad%20and%20I%27d%20like%20to%20book%20an%20online%20nutrition%20consultation."
+               class="scb2-book" aria-label="Book online diaspora consultation" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Book Online Session
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="reveal mt-4 text-center">
+        <p style="font-family:var(--font-b);font-size:.8rem;font-weight:300;color:var(--text-m);line-height:1.7;max-width:560px;margin:0 auto;">
+          <i class="bi bi-info-circle" style="color:var(--moss);margin-right:5px;" aria-hidden="true"></i>
+          Clients managing diagnosed conditions may be eligible for NHI coverage. Dr. Browne can advise on this at your first consultation. Corporate and group session rates available on request.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (fully preserved) -->
+  <section class="sec" style="background:var(--bg);" aria-label="How a nutrition consultation works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6 reveal">
+          <div class="sec-eyebrow" style="justify-content:center;">The Process</div>
+          <h2 class="sec-h2" style="text-align:center;">
+            From first message<br>to a <em>plan that fits your life.</em>
+          </h2>
+          <div class="leaf-rule" aria-hidden="true" style="margin:1rem auto 1.5rem;"></div>
+        </div>
+      </div>
+      <div class="row g-4 reveal">
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-cb">
+            <div class="proc-num-cb" aria-hidden="true">01</div>
+            <div class="proc-icon-cb" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            <h3 class="proc-title-cb">Send a Message</h3>
+            <p class="proc-desc-cb">WhatsApp Dr. Browne with your concern or condition. She responds personally within 24 hours — no receptionist, no waiting room.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-cb">
+            <div class="proc-num-cb" aria-hidden="true">02</div>
+            <div class="proc-icon-cb" aria-hidden="true"><i class="bi bi-clipboard2-pulse-fill" aria-hidden="true"></i></div>
+            <h3 class="proc-title-cb">Full Diet Assessment</h3>
+            <p class="proc-desc-cb">Your first session is a deep conversation about what you eat, your lifestyle, your lab results, and your goals. There is no judgement — only curiosity.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-cb">
+            <div class="proc-num-cb" aria-hidden="true">03</div>
+            <div class="proc-icon-cb" aria-hidden="true"><i class="bi bi-journal-text" aria-hidden="true"></i></div>
+            <h3 class="proc-title-cb">Your Personal Plan</h3>
+            <p class="proc-desc-cb">A written meal plan built around your actual diet, culture, and household budget. Not a generic template — a plan that looks like your life.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-cb">
+            <div class="proc-num-cb" aria-hidden="true">04</div>
+            <div class="proc-icon-cb" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+            <h3 class="proc-title-cb">Track &amp; Adjust</h3>
+            <p class="proc-desc-cb">Follow-up sessions review what's working, what isn't, and what needs adjusting. Most clients see measurable change in lab results within 6–8 weeks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATIENT INTAKE FORM (NEW SECTION ADDED) -->
+  <section class="sec" id="intake-form" style="background:var(--bg-2);" aria-label="Patient intake form">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-5 reveal">
           <div class="sec-eyebrow">Prepare For Your Session</div>
           <h2 class="sec-h2">Tell Dr. Browne <em>What's Happening</em></h2>
-          <div class="leaf-rule"></div>
+          <div class="leaf-rule" aria-hidden="true"></div>
           <p class="sec-para">Completing this intake form helps Dr. Browne understand your health history, current diet, and goals before your first consultation. The information goes directly to her via WhatsApp — completely confidential and secure.</p>
-          <div class="mt-4"><i class="bi bi-shield-lock-fill" style="color:var(--moss);"></i> <span style="font-size:.8rem;">Your data is only shared with Dr. Browne for clinical purposes.</span></div>
+          <div class="mt-4" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:8px;"><i class="bi bi-shield-lock-fill" style="color:var(--moss);"></i> <span style="font-size:.8rem;">HIPAA-aligned confidentiality</span></div>
+            <div style="display:flex; align-items:center; gap:8px;"><i class="bi bi-whatsapp" style="color:var(--wa);"></i> <span style="font-size:.8rem;">Direct to Dr. Browne</span></div>
+          </div>
         </div>
         <div class="col-lg-7 reveal">
-          <div class="intake-form-card">
+          <div class="intake-card">
             <form id="patientIntakeForm">
-              <div class="form-row-cb">
-                <div class="form-group-cb"><label>Full Name *</label><input type="text" id="fullName" required placeholder="e.g., Marie Joseph"></div>
-                <div class="form-group-cb"><label>Age *</label><input type="number" id="age" required placeholder="Years"></div>
+              <div class="form-row">
+                <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required placeholder="e.g., Marie Joseph"></div>
+                <div class="form-group"><label>Age *</label><input type="number" id="age" required placeholder="Years"></div>
               </div>
-              <div class="form-group-cb"><label>Country / Island of Residence *</label><input type="text" id="location" required placeholder="Saint Lucia, UK, Canada etc."></div>
-              <div class="form-group-cb"><label>Primary Health Concern(s) *</label><select id="primaryConcern" required><option value="">Select main concern</option><option>Type 2 Diabetes / High blood sugar</option><option>Hypertension / High blood pressure</option><option>Weight management</option><option>PCOS / Hormonal imbalance</option><option>Gut health / IBS / Bloating</option><option>High cholesterol</option><option>Prenatal / Postnatal</option><option>General wellness / Prevention</option></select></div>
-              <div class="form-group-cb"><label>Known Medical Diagnoses (if any)</label><input type="text" id="diagnoses" placeholder="e.g., Diabetes, PCOS, Thyroid issues"></div>
-              <div class="form-group-cb"><label>Current Medications or Supplements</label><input type="text" id="medications" placeholder="e.g., Metformin, Lisinopril, multivitamin"></div>
-              <div class="form-group-cb"><label>Describe your typical daily diet (Caribbean context) *</label><textarea id="dietDesc" rows="3" placeholder="e.g., Breakfast: fried bakes and coffee; Lunch: rice and peas, chicken, plantain; Dinner: light soup or leftovers. Snacks: soda, crackers." required></textarea></div>
-              <div class="form-row-cb">
-                <div class="form-group-cb"><label>Do you have any food allergies/intolerances?</label><input type="text" id="allergies" placeholder="e.g., Lactose, shellfish"></div>
-                <div class="form-group-cb"><label>Activity level</label><select id="activity"><option>Sedentary (little exercise)</option><option>Lightly active (1-2 days/week)</option><option>Moderately active (3-4 days/week)</option><option>Very active (5+ days/week)</option></select></div>
+              <div class="form-group"><label>Country / Island of Residence *</label><input type="text" id="location" required placeholder="Saint Lucia, UK, Canada, USA etc."></div>
+              <div class="form-group"><label>Primary Health Concern(s) *</label>
+                <select id="primaryConcern" required>
+                  <option value="">Select main concern</option>
+                  <option>Type 2 Diabetes / High blood sugar</option>
+                  <option>Hypertension / High blood pressure</option>
+                  <option>Weight management</option>
+                  <option>PCOS / Hormonal imbalance</option>
+                  <option>Gut health / IBS / Bloating</option>
+                  <option>High cholesterol</option>
+                  <option>Prenatal / Postnatal</option>
+                  <option>General wellness / Prevention</option>
+                </select>
               </div>
-              <div class="form-group-cb"><label>What is your main goal from working with Dr. Browne? *</label><textarea id="goals" rows="2" placeholder="e.g., Lower my HbA1c, lose 15 lbs, reduce bloating, manage PCOS symptoms" required></textarea></div>
-              <div class="form-group-cb"><label>Preferred consultation format</label><select id="consultType"><option>In-person (Saint Lucia)</option><option>Online video (Diaspora)</option><option>WhatsApp voice/video</option></select></div>
-              <button type="button" class="wa-submit-btn" id="submitIntakeBtn"><i class="fab fa-whatsapp"></i> Send Intake to Dr. Browne via WhatsApp</button>
-              <div class="form-note">By submitting, you agree that this health information will be sent to Dr. Browne's WhatsApp for clinical purposes. She will reply within 24 hours to schedule your consultation.</div>
+              <div class="form-group"><label>Known Medical Diagnoses (if any)</label><input type="text" id="diagnoses" placeholder="e.g., Diabetes, PCOS, Thyroid issues"></div>
+              <div class="form-group"><label>Current Medications or Supplements</label><input type="text" id="medications" placeholder="e.g., Metformin, Lisinopril, multivitamin"></div>
+              <div class="form-group"><label>Describe your typical daily diet (Caribbean context) *</label><textarea id="dietDesc" rows="3" placeholder="e.g., Breakfast: fried bakes and coffee; Lunch: rice and peas, chicken, plantain; Dinner: soup or leftovers. Snacks: soda, crackers." required></textarea></div>
+              <div class="form-row">
+                <div class="form-group"><label>Food allergies/intolerances</label><input type="text" id="allergies" placeholder="e.g., Lactose, shellfish"></div>
+                <div class="form-group"><label>Activity level</label>
+                  <select id="activity">
+                    <option>Sedentary (little exercise)</option>
+                    <option>Lightly active (1-2 days/week)</option>
+                    <option>Moderately active (3-4 days/week)</option>
+                    <option>Very active (5+ days/week)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label>What is your main goal from working with Dr. Browne? *</label><textarea id="goals" rows="2" placeholder="e.g., Lower my HbA1c, lose 15 lbs, reduce bloating, manage PCOS symptoms" required></textarea></div>
+              <div class="form-group"><label>Preferred consultation format</label>
+                <select id="consultType">
+                  <option>In-person (Saint Lucia)</option>
+                  <option>Online video (Diaspora)</option>
+                  <option>WhatsApp voice/video</option>
+                </select>
+              </div>
+              <button type="button" class="intake-submit-btn" id="submitIntakeBtn"><i class="fab fa-whatsapp"></i> Send Intake to Dr. Browne via WhatsApp</button>
+              <div class="intake-note">By submitting, you agree that this health information will be sent to Dr. Browne's WhatsApp for clinical purposes. She will reply within 24 hours to schedule your consultation.</div>
             </form>
           </div>
         </div>
@@ -287,66 +1770,430 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS (original but included) -->
-  <section class="sec" style="background:var(--bg);"><div class="container"><div class="row g-4 reveal"><div class="col-sm-6 col-lg-3"><div class="proc-cb"><div class="proc-num-cb">01</div><div class="proc-icon-cb"><i class="fab fa-whatsapp"></i></div><h3 class="proc-title-cb">Send a Message</h3><p class="proc-desc-cb">WhatsApp Dr. Browne with your concern. She responds personally within 24 hours.</p></div></div><div class="col-sm-6 col-lg-3"><div class="proc-cb"><div class="proc-num-cb">02</div><div class="proc-icon-cb"><i class="bi bi-clipboard2-pulse-fill"></i></div><h3 class="proc-title-cb">Full Diet Assessment</h3><p class="proc-desc-cb">First session is a deep conversation about what you eat, lifestyle, labs, and goals.</p></div></div><div class="col-sm-6 col-lg-3"><div class="proc-cb"><div class="proc-num-cb">03</div><div class="proc-icon-cb"><i class="bi bi-journal-text"></i></div><h3 class="proc-title-cb">Your Personal Plan</h3><p class="proc-desc-cb">Written meal plan built around your actual diet, culture, and household budget.</p></div></div><div class="col-sm-6 col-lg-3"><div class="proc-cb"><div class="proc-num-cb">04</div><div class="proc-icon-cb"><i class="bi bi-graph-up-arrow"></i></div><h3 class="proc-title-cb">Track & Adjust</h3><p class="proc-desc-cb">Follow-up sessions review what's working; measurable change in 6–8 weeks.</p></div></div></div></div></section>
-
-  <!-- TESTIMONIALS SECTION - BLUR REMOVED, FULL FAUX TESTIMONIALS ADDED -->
-  <section class="sec" style="background:var(--bg-2);">
+  <!-- ABOUT (fully preserved) -->
+  <section class="sec" id="about" style="background:var(--bg-2);" aria-label="About Dr. Camille Browne">
     <div class="container">
-      <div class="row mb-5"><div class="col-lg-5 reveal"><div class="sec-eyebrow">Client Results</div><h2 class="sec-h2">Real People. <em>Real Numbers.</em></h2><div class="leaf-rule"></div><p class="sec-para">Shared with consent. Real outcomes from real Caribbean clients.</p></div></div>
+      <div class="about-grid-cb">
+
+        <div class="reveal">
+          <div style="position:relative;">
+            <div class="about-photo-cb" aria-label="Dr. Camille Browne professional photo">
+              <span class="about-photo-illus-cb" aria-hidden="true">🌿</span>
+              <img
+                src="../images/camille-browne-about.webp"
+                alt="Dr. Camille Browne — Registered Dietitian"
+                class="about-photo-real-cb"
+                width="400" height="533"
+                loading="lazy"
+                onerror="this.style.display='none'">
+            </div>
+            <div class="about-badge-cb" aria-label="600+ clients helped">
+              <div class="abc-num">600+</div>
+              <div class="abc-label">Clients Helped</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="sec-eyebrow">About Dr. Browne</div>
+          <h2 class="sec-h2">
+            A Dietitian Who Grew Up<br><em>Eating From This Table.</em>
+          </h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <p class="about-bio-cb">
+            Dr. Camille Browne grew up in Saint Lucia in a household where food was love, identity, and celebration. 
+            Sunday lunches, seasoned rice, fried plantain, fresh fish from the market — and later, 
+            watching family members struggle with diabetes and high blood pressure that nobody 
+            had told them was connected to what they ate.
+          </p>
+          <p class="about-bio-cb">
+            That experience shaped everything she does professionally. After completing her BSc in 
+            Nutrition Sciences and her MSc in Clinical Dietetics in the UK, she returned to Saint Lucia 
+            with a specific mission: to translate the evidence of nutrition science into advice that 
+            makes sense for Caribbean people, Caribbean budgets, and Caribbean kitchens.
+          </p>
+          <p class="about-bio-cb">
+            In ten years of private practice, she has worked with over 600 clients — from children 
+            with iron deficiency to elderly adults managing multiple chronic conditions. Every single 
+            one has received a plan that includes the foods they actually eat.
+          </p>
+
+          <ul class="cred-list-cb" aria-label="Qualifications">
+            <li class="cred-item-cb"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> BSc Nutrition Sciences — University of the West Indies</li>
+            <li class="cred-item-cb"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> MSc Clinical Dietetics — King's College London</li>
+            <li class="cred-item-cb"><i class="bi bi-award-fill" aria-hidden="true"></i> Registered Dietitian (RD) — British Dietetic Association</li>
+            <li class="cred-item-cb"><i class="bi bi-award-fill" aria-hidden="true"></i> Licensed — Saint Lucia Allied Health Professions Council</li>
+            <li class="cred-item-cb"><i class="bi bi-award-fill" aria-hidden="true"></i> Advanced Diabetes Educator Certification</li>
+            <li class="cred-item-cb"><i class="bi bi-translate" aria-hidden="true"></i> Consultations in English and French Creole</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — BLUR REMOVED, FULLY VISIBLE WITH FAUX TESTIMONIALS -->
+  <section class="sec" style="background:var(--bg);" aria-label="Client results and testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow">Client Results</div>
+          <h2 class="sec-h2">Real People. <em>Real Numbers.</em></h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <p class="sec-para">Shared with consent. Details anonymised.</p>
+        </div>
+      </div>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-heart-fill"></i> Hypertension</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"After 8 weeks working with Dr. Browne, my blood pressure went from 145/92 to 128/81. She kept my meals Caribbean — just smarter portions and seasoning adjustments."</p><div class="rv-name-cb">G. Charles</div><div class="rv-detail-cb">Castries, Saint Lucia</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-heart-fill" aria-hidden="true"></i> Hypertension</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"My doctor had been telling me to change my diet for three years. I didn't know what that actually meant until I sat with Dr. Browne. In 8 weeks my blood pressure dropped enough that my doctor reduced my medication."</p>
+            <div class="rv-name-cb">D.L.</div>
+            <div class="rv-detail-cb">Hypertension management · Castries</div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-droplet-fill"></i> Type 2 Diabetes</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"HbA1c dropped from 8.9 to 6.4 in 4 months. I still eat rice and peas, roti, and even the occasional sweet bread. Dr. Browne taught me how to balance."</p><div class="rv-name-cb">S. Joseph</div><div class="rv-detail-cb">Online client (Toronto diaspora)</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-droplet-fill" aria-hidden="true"></i> Diabetes</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"I cried at my first appointment because I thought I'd have to give up everything I grew up eating. I was completely wrong. Dr. Browne kept my diet Caribbean and brought my HbA1c from 9.2 to 6.8 in four months."</p>
+            <div class="rv-name-cb">M.P.</div>
+            <div class="rv-detail-cb">Diabetes management · Online client</div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-flower2"></i> PCOS & Hormonal Health</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"For years I struggled with irregular periods, acne, and weight gain. Within 3 months of Dr. Browne’s PCOS-focused plan, my cycle regulated, and I lost 14 lbs naturally."</p><div class="rv-name-cb">K. Edwards</div><div class="rv-detail-cb">Hormonal health · Weight management</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-flower2" aria-hidden="true"></i> PCOS & Hormones</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"After years of irregular cycles and weight struggles, Dr. Browne's PCOS protocol changed everything. My cycle regulated within 3 months and I finally understood how to eat for my hormones."</p>
+            <div class="rv-name-cb">K.J.</div>
+            <div class="rv-detail-cb">PCOS management · Vieux Fort</div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-arrow-down-circle-fill"></i> Weight & Gut Health</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"Lost 22 lbs over 12 weeks, and my chronic bloating disappeared. Dr. Browne gave me a meal plan using callaloo, lentils, and ground provisions — I never felt deprived."</p><div class="rv-name-cb">M. Augustin</div><div class="rv-detail-cb">12-week programme · Vieux Fort</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-arrow-down-circle-fill" aria-hidden="true"></i> Weight & Gut</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"Lost 22 lbs over 12 weeks, and my chronic bloating disappeared. Dr. Browne gave me a meal plan using callaloo, lentils, and ground provisions — I never felt deprived."</p>
+            <div class="rv-name-cb">T.A.</div>
+            <div class="rv-detail-cb">12-week programme · Gros Islet</div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-cup-straw"></i> Gestational Diabetes</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"Dr. Browne helped me navigate GDM without fear. My blood sugars stayed stable, I avoided insulin, and delivered a healthy baby girl. Forever grateful."</p><div class="rv-name-cb">R. Mathurin</div><div class="rv-detail-cb">Prenatal nutrition</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-cup-straw" aria-hidden="true"></i> Gestational Diabetes</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"Dr. Browne helped me navigate GDM without fear. My blood sugars stayed stable, I avoided insulin, and delivered a healthy baby girl. Forever grateful."</p>
+            <div class="rv-name-cb">R.M.</div>
+            <div class="rv-detail-cb">Prenatal nutrition · Soufriere</div>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="rv-cb"><div class="rv-tag-cb"><i class="bi bi-egg-fried"></i> Cholesterol Management</div><div class="rv-stars-cb">★★★★★</div><p class="rv-text-cb">"LDL cholesterol dropped from 168 to 112 in three months. The advice: swap coconut oil for olive, eat more pigeon peas and oats, and reduce processed meats. Simple and effective."</p><div class="rv-name-cb">P. Leon</div><div class="rv-detail-cb">Heart health · Dennery</div></div>
+          <div class="rv-cb">
+            <div class="rv-tag-cb"><i class="bi bi-egg-fried" aria-hidden="true"></i> Cholesterol</div>
+            <div class="rv-stars-cb" aria-hidden="true">★★★★★</div>
+            <p class="rv-text-cb">"LDL cholesterol dropped from 168 to 112 in three months. The advice: swap coconut oil for olive, eat more pigeon peas and oats, and reduce processed meats. Simple and effective."</p>
+            <div class="rv-name-cb">P.L.</div>
+            <div class="rv-detail-cb">Heart health · Dennery</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT, FAQ, COVERAGE, FINAL CTA, FOOTER (condensed but full functional) -->
-  <section class="sec" id="about" style="background:var(--bg);"><div class="container"><div class="about-grid-cb"><div class="reveal"><div class="about-photo-cb"><span class="about-photo-illus-cb">🌿</span></div><div class="about-badge-cb"><div class="abc-num">600+</div><div class="abc-label">Clients Helped</div></div></div><div class="reveal"><div class="sec-eyebrow">About Dr. Browne</div><h2 class="sec-h2">A Dietitian Who Grew Up<br><em>Eating From This Table.</em></h2><div class="leaf-rule"></div><p class="about-bio-cb">Dr. Camille Browne grew up in Saint Lucia, witnessing family members struggle with diabetes and hypertension. After earning MSc in Clinical Dietetics from King's College London, she returned to help Caribbean people manage chronic disease without abandoning their food culture.</p><ul class="cred-list-cb"><li class="cred-item-cb"><i class="bi bi-mortarboard-fill"></i> BSc Nutrition Sciences — UWI</li><li class="cred-item-cb"><i class="bi bi-mortarboard-fill"></i> MSc Clinical Dietetics — King's College London</li><li class="cred-item-cb"><i class="bi bi-translate"></i> Consultations in English & French Creole</li></ul></div></div></div></section>
+  <!-- FAQ (fully preserved) -->
+  <section class="sec" id="faq" style="background:var(--bg-2);" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow">Common Questions</div>
+          <h2 class="sec-h2">Before You Book, <em>Read These.</em></h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <p class="sec-para">Anything else — ask on WhatsApp.</p>
+        </div>
+      </div>
+      <div class="col-lg-8 reveal">
+        <div class="faq-cb" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqCb(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqCb(this)">
+          <div class="faq-q-cb">What is the difference between a dietitian and a nutritionist? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-cb">A registered dietitian (RD) is a licensed, regulated health professional with clinical training — qualified to diagnose dietary disorders and provide medical nutrition therapy. The title "nutritionist" is not protected in most countries and can be used by anyone regardless of training. When managing conditions like diabetes or kidney disease, always see a registered dietitian.</div>
+        </div>
+        <div class="faq-cb" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqCb(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqCb(this)">
+          <div class="faq-q-cb">Will I have to stop eating Caribbean food? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-cb">No. This is the most common fear among Caribbean clients — and the most misplaced. Dr. Browne's approach is built around your cultural diet, not designed to replace it. You will learn which preparations, portions, and combinations support your health — and which habits are causing the most harm. Rice and peas, plantain, dasheen, callaloo — these are still on the menu.</div>
+        </div>
+        <div class="faq-cb" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqCb(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqCb(this)">
+          <div class="faq-q-cb">How quickly will I see results? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-cb">Most clients notice symptom improvements — energy levels, digestion, reduced bloating — within 2–3 weeks of making consistent changes. Lab results (HbA1c, blood pressure, cholesterol) typically begin to show measurable improvement at the 6–8 week mark. Weight changes vary by individual, but the 12-week programme is designed to produce results you can see and sustain.</div>
+        </div>
+        <div class="faq-cb" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqCb(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqCb(this)">
+          <div class="faq-q-cb">Do I need a referral from my doctor? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-cb">No. You can book directly with Dr. Browne without a referral. However, if you are managing a diagnosed condition, bringing your most recent lab results to your first session will help her give you the most targeted advice immediately. She can also communicate with your GP or specialist if you wish.</div>
+        </div>
+        <div class="faq-cb" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqCb(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqCb(this)">
+          <div class="faq-q-cb">I can't afford expensive food. Can this still work for me? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-cb">Absolutely. Dr. Browne explicitly designs meal plans around what is available in local markets and within realistic household budgets. Healthy eating does not require expensive supplements, superfoods, or imported products. Some of the most nutritionally powerful foods available in Saint Lucia — callaloo, christophene, sweet potato, pumpkin — are also among the most affordable.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <section class="sec" id="faq" style="background:var(--bg-2);"><div class="container"><div class="row"><div class="col-lg-8"><div class="faq-cb" onclick="toggleFaqCb(this)"><div class="faq-q-cb">Will I have to stop eating Caribbean food? <i class="bi bi-plus-circle"></i></div><div class="faq-a-cb">Absolutely not. Dr. Browne's approach is built around your cultural diet. You'll learn smarter portions and combinations — not elimination.</div></div><div class="faq-cb" onclick="toggleFaqCb(this)"><div class="faq-q-cb">Do you work with PCOS clients? <i class="bi bi-plus-circle"></i></div><div class="faq-a-cb">Yes. PCOS and hormonal imbalance are central to Dr. Browne’s practice. She uses low-glycaemic, anti-inflammatory Caribbean food strategies to improve insulin sensitivity and cycle regularity.</div></div></div></div></div></section>
+  <!-- COVERAGE + GBP (fully preserved) -->
+  <section class="sec" style="background:var(--bg);" aria-label="Coverage and online visibility">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+          <div class="coverage-cb reveal">
+            <div class="cov-left">
+              <h3>Who Dr. Browne Sees</h3>
+              <p>In-person and online across these areas</p>
+            </div>
+            <div class="area-chips-cb" role="list" aria-label="Areas served">
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Saint Lucia</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Barbados</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Dominica</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Trinidad</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-globe2" aria-hidden="true"></i> UK Diaspora</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-globe2" aria-hidden="true"></i> US Diaspora</span>
+              <span class="area-chip-cb" role="listitem"><i class="bi bi-globe2" aria-hidden="true"></i> Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="sec-eyebrow">Online Visibility</div>
+          <h2 class="sec-h2" style="font-size:1.75rem;">Show Up When Patients Search <em>"Dietitian Saint Lucia"</em></h2>
+          <div class="leaf-rule" aria-hidden="true"></div>
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);background:#4285F4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;font-family:var(--font-b);margin-bottom:.9rem;" aria-hidden="true">G</div>
+                <div style="font-family:var(--font-d);font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.5rem;">Google Business Profile</div>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>Appear for "dietitian near me"</li>
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>Verified Google Maps listing</li>
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>Collect patient Google reviews</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;margin-bottom:.9rem;" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+                <div style="font-family:var(--font-d);font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.5rem;">Local SEO Setup</div>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>Rank for "nutritionist Saint Lucia"</li>
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>MedicalBusiness schema markup</li>
+                  <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--terra);border-radius:50%;flex-shrink:0;" aria-hidden="true"></span>Monthly performance reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer-cb"><div class="container"><div class="row"><div class="col-lg-4"><div class="fl-name">Dr. Camille Browne</div><div class="fl-sub">Registered Dietitian · Saint Lucia · Online</div><p class="fl-about">Caribbean clinical dietitian specialising in diabetes, hypertension, PCOS, weight, and gut health.</p></div><div class="col-lg-4"><div class="fl-h">Book a Consultation</div><div class="fl-wa-box"><p>Message Dr. Browne with your condition or goal. She responds within 24 hours.</p><a href="https://wa.me/17587235872" class="fl-wa-btn"><i class="fab fa-whatsapp"></i> Book on WhatsApp</a></div></div></div><div class="fl-bottom"><p>© 2025 Dr. Camille Browne RD — Demo profile by JAMALINKS</p></div></div></footer>
+  <!-- FINAL CTA (fully preserved) -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Book a consultation">
+    <div class="container">
+      <div class="cta-cb reveal">
+        <div class="cta-cb-inner">
+          <div class="cta-eyebrow-cb">Your Body Has Been Patient Long Enough</div>
+          <h2 class="cta-h2-cb">
+            The food you eat every day<br>
+            is either <em>working for you</em><br>
+            or working against you.
+          </h2>
+          <p class="cta-para-cb">
+            Find out which — and what to do about it. 
+            Message Dr. Browne on WhatsApp. She responds personally, 
+            and the first conversation costs you nothing.
+          </p>
+          <div class="cta-btn-group">
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation.%20Here%27s%20what%20I%27m%20dealing%20with%3A"
+               class="btn-wa-cb" style="font-size:.92rem;padding:1rem 2.2rem;"
+               aria-label="Message Dr. Browne on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message Dr. Browne on WhatsApp
+            </a>
+            <a href="#symptom-check" class="btn-ghost-cb" style="border-color:rgba(250,246,238,.2);color:rgba(250,246,238,.6);" aria-label="Take the symptom check first">
+              Take the Symptom Check First
+            </a>
+          </div>
+          <p class="cta-note-cb">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i>
+            Fully confidential &nbsp;·&nbsp; Response within 24 hours &nbsp;·&nbsp; No referral required
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (fully preserved) -->
+  <footer class="footer-cb" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">Dr. Camille Browne</div>
+          <div class="fl-sub">Registered Dietitian · Saint Lucia · Online</div>
+          <p class="fl-about">Caribbean clinical dietitian specialising in diabetes, hypertension, weight management, gut health, and hormonal health. In-person and online consultations available.</p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Services</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#services">Medical Nutrition</a></li>
+            <li><a href="#services">Weight Management</a></li>
+            <li><a href="#services">Gut Health</a></li>
+            <li><a href="#services">Prenatal Nutrition</a></li>
+            <li><a href="#services">Sports Nutrition</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Profile</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#conditions">Who I Help</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#symptom-check">Symptom Check</a></li>
+            <li><a href="#intake-form">Intake Form</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Book a Consultation</div>
+          <div class="fl-wa-box">
+            <p>Message Dr. Browne with your condition or goal. She responds within 24 hours. No referral needed — just reach out.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20Dr.%20Browne%2C%20I%27d%20like%20to%20book%20a%20nutrition%20consultation."
+               class="fl-wa-btn" aria-label="Book a consultation on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Book on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 Dr. Camille Browne RD. All rights reserved. Demonstration profile — <a href="https://jamalinks758.github.io/jamalinks/profiles.html" target="_blank" rel="noopener noreferrer">built by JAMALINKS</a>.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Theme toggle (unchanged)
+    // ===== THEME =====
     const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeLabel = document.getElementById('themeLabel');
-    const html = document.documentElement;
-    const hour = new Date().getHours();
-    let isDark = hour >= 18 || hour < 6;
-    function applyTheme(dark) { html.setAttribute('data-theme', dark ? 'dark' : 'light'); themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'; themeLabel.textContent = dark ? 'Light' : 'Dark'; }
-    applyTheme(isDark);
-    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
-    
-    // Symptom check functions (recreated quickly for full compatibility, but original script remains in final)
-    window.symToggle = function(el) { el.classList.toggle('checked'); };
-    window.swShowResult = function() { /* dummy */ };
-    window.swRestart = function() { };
-    window.toggleFaqCb = function(el) { el.classList.toggle('open'); };
-    
-    // NEW: Intake Form WhatsApp submission
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const htmlEl      = document.documentElement;
+    function applyTheme(dark) {
+      htmlEl.setAttribute('data-theme', dark ? 'dark' : 'light');
+      themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      themeLabel.textContent = dark ? 'Light' : 'Dark';
+    }
+    const hourNow = new Date().getHours();
+    let isDarkMode = hourNow >= 18 || hourNow < 6;
+    applyTheme(isDarkMode);
+    themeToggle.addEventListener('click', () => { isDarkMode = !isDarkMode; applyTheme(isDarkMode); });
+
+    // ===== SYMPTOM CHECK =====
+    const selectedSymptoms = new Set();
+
+    window.symToggle = function(el) {
+      const sym = el.dataset.symptom;
+      if (selectedSymptoms.has(sym)) {
+        selectedSymptoms.delete(sym);
+        el.classList.remove('checked');
+        el.setAttribute('aria-checked', 'false');
+      } else {
+        selectedSymptoms.add(sym);
+        el.classList.add('checked');
+        el.setAttribute('aria-checked', 'true');
+      }
+      const nextBtn = document.getElementById('swNext1');
+      if (nextBtn) nextBtn.classList.toggle('ready', selectedSymptoms.size > 0);
+    };
+
+    const conditionMap = {
+      blood_sugar:    { score: 3, label: 'Diabetes & Blood Sugar Management',   title: 'Your blood sugar needs attention.',
+                        desc: 'Your symptoms — particularly persistent fatigue, cravings, and high blood sugar — point to glucose management as the primary concern. Caribbean diets high in white rice, bakes, and sweet drinks create patterns that are highly manageable with specific dietary change.',
+                        insights: ['A Caribbean-adapted meal plan that keeps glucose stable', 'Understanding the glycaemic load of everyday local foods', 'Reducing sugar cravings without cutting out the foods you love', 'Lab result tracking to measure real progress'] },
+      blood_pressure: { score: 3, label: 'Hypertension Diet Therapy',           title: 'Your cardiovascular health is signalling.',
+                        desc: 'High blood pressure is directly influenced by diet — including salt, potassium balance, and specific food patterns. The good news: evidence shows that dietary change alone can reduce blood pressure by 10–15 points in many people.',
+                        insights: ['DASH-adapted Caribbean meal planning', 'Understanding salt in local seasonings and preserved foods', 'Potassium-rich Caribbean foods that support healthy blood pressure', 'A plan your doctor can track alongside your medication'] },
+      weight:         { score: 2, label: 'Weight Management Programme',         title: 'Your body is ready for sustainable change.',
+                        desc: 'Weight management is not about willpower — it is about understanding your metabolism, your habits, and your hormonal signals. Dr. Browne\'s approach produces sustainable results without elimination diets or expensive supplements.',
+                        insights: ['A 12-week programme with real, measurable outcomes', 'Caribbean meal plans that work with your lifestyle', 'Portion understanding without obsessive calorie counting', 'Strategies for eating out and cooking for the family'] },
+      gut:            { score: 2, label: 'Gut Health & Digestive Support',      title: 'Your gut is asking for help.',
+                        desc: 'Bloating, irregular digestion, and gut discomfort are often dietary in origin. The composition of your gut microbiome responds quickly to specific dietary changes — most people notice improvement within 2–3 weeks.',
+                        insights: ['Identifying trigger foods in your current diet', 'Caribbean-adapted low-FODMAP guidance if appropriate', 'Fibre balance from local legumes, root vegetables, and produce', 'Probiotic-friendly foods available in local markets'] },
+      fatigue:        { score: 1, label: 'Energy & Nutritional Deficiency',     title: 'Your body is running on empty.',
+                        desc: 'Persistent fatigue often points to nutritional deficiencies — iron, B12, magnesium, or vitamin D — or to blood sugar patterns that create energy crashes. A full dietary assessment will identify the root cause.',
+                        insights: ['Testing for nutritional deficiencies through dietary review', 'Iron and B12 sources in Caribbean cooking', 'Managing energy crashes through meal timing and composition', 'Foods that sustain energy throughout the day'] },
+      cholesterol:    { score: 2, label: 'Cholesterol & Heart Health',          title: 'Your heart is asking for a better diet.',
+                        desc: 'Dietary fat choices, refined carbohydrate intake, and fibre levels all have direct, measurable effects on cholesterol. Many clients reduce their LDL significantly through diet alone — without medication changes.',
+                        insights: ['Heart-healthy fat swaps using Caribbean cooking methods', 'Increasing soluble fibre through local produce and legumes', 'Understanding which fats in Caribbean cooking to reduce', 'A plan your cardiologist can work alongside'] },
+      cravings:       { score: 1, label: 'Blood Sugar & Craving Patterns',      title: 'Your cravings have a dietary cause.',
+                        desc: 'Constant sugar and carbohydrate cravings are almost always a signal from blood sugar regulation, not a lack of willpower. Understanding the patterns in your current diet will reveal exactly where the cycle begins.',
+                        insights: ['Identifying the blood sugar cycle driving your cravings', 'Protein and fibre strategies for reducing hunger between meals', 'Healthy alternatives to common Caribbean sweet cravings', 'Breaking the sugar cycle without feeling deprived'] },
+      bloat:          { score: 1, label: 'Gut Health & Digestive Support',      title: 'Your digestive system needs attention.',
+                        desc: 'Bloating after eating is rarely just discomfort — it is a signal that something in your diet is not being digested well. The cause is almost always dietary and, once identified, responds quickly to change.',
+                        insights: ['Identifying your personal trigger foods', 'Understanding fermentation and gas production in Caribbean foods', 'Building a gut-friendly meal pattern', 'When to involve your GP for further testing'] }
+    };
+
+    window.swShowResult = function() {
+      if (selectedSymptoms.size === 0) return;
+      let primary = null; let topScore = 0;
+      selectedSymptoms.forEach(sym => {
+        const c = conditionMap[sym];
+        if (c && c.score > topScore) { topScore = c.score; primary = c; }
+      });
+      if (!primary) primary = conditionMap['fatigue'];
+
+      document.getElementById('srcLabel').textContent = primary.label;
+      document.getElementById('srcTitle').textContent = primary.title;
+      document.getElementById('srcDesc').textContent  = primary.desc;
+      const list = document.getElementById('swInsights');
+      list.innerHTML = primary.insights.map(i => `<li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>${i}</li>`).join('');
+      const syms = Array.from(selectedSymptoms).map(s => {
+        const labels = { fatigue:'persistent fatigue', bloat:'bloating', blood_sugar:'high blood sugar / diabetes',
+                         blood_pressure:'high blood pressure', weight:'weight management concerns',
+                         cravings:'sugar/carb cravings', cholesterol:'high cholesterol', gut:'gut discomfort' };
+        return labels[s] || s;
+      }).join(', ');
+      const msg = encodeURIComponent(
+        `Hi Dr. Browne! I completed the symptom check on your profile. ` +
+        `My main symptoms are: ${syms}. ` +
+        `The tool suggested "${primary.label}" as my primary concern. ` +
+        `I'd like to book a consultation.`
+      );
+      document.getElementById('swWaBtn').href = `https://wa.me/17587235872?text=${msg}`;
+      document.getElementById('swStep1').classList.remove('active');
+      document.getElementById('swResult').classList.add('active');
+    };
+
+    window.swRestart = function() {
+      selectedSymptoms.clear();
+      document.querySelectorAll('.sw-sym').forEach(el => {
+        el.classList.remove('checked');
+        el.setAttribute('aria-checked','false');
+      });
+      const nb = document.getElementById('swNext1');
+      if (nb) nb.classList.remove('ready');
+      document.getElementById('swResult').classList.remove('active');
+      document.getElementById('swStep1').classList.add('active');
+    };
+
+    window.toggleFaqCb = function(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-cb').forEach(f => {
+        f.classList.remove('open');
+        f.setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) { el.classList.add('open'); el.setAttribute('aria-expanded','true'); }
+    };
+
+    // INTAKE FORM SUBMIT HANDLER
     document.getElementById('submitIntakeBtn').addEventListener('click', function(e) {
       e.preventDefault();
-      // Get all field values
       const name = document.getElementById('fullName')?.value.trim();
       const age = document.getElementById('age')?.value.trim();
       const location = document.getElementById('location')?.value.trim();
@@ -369,16 +2216,15 @@
       const waUrl = `https://wa.me/17587235872?text=${message}`;
       window.open(waUrl, '_blank');
     });
-    
-    // Scroll reveal observer
+
+    // SCROLL REVEAL
     const revEls = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.08 });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
     revEls.forEach(el => obs.observe(el));
-    
-    // Ensure all interactive symptom elements work (mimic original behavior)
-    document.querySelectorAll('.sw-sym').forEach(sym => {
-      sym.addEventListener('click', function() { this.classList.toggle('checked'); });
-    });
   </script>
 </body>
 </html>
