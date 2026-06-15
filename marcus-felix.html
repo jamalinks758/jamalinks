@@ -1060,18 +1060,23 @@
         </div>
 
         <!-- RIGHT — Photo -->
-        <div class="col-lg-5">
-          <div class="hero-photo-col" role="complementary">
-            <div class="hero-photo-wrap">
-              <span class="hero-photo-illus" aria-hidden="true">⚽</span>
-              <img
-                src="../images/marcus-felix.webp"
-                alt="Marcus Felix — Professional Striker, Saint Lucia"
-                class="hero-photo-img"
-                width="500" height="667"
-                loading="eager"
-                onerror="this.style.display='none'">
-              <div class="hero-photo-grad" aria-hidden="true"></div>
+   <picture>
+  <source
+    srcset="images/marcus-felix.webp"
+    type="image/webp">
+  <source
+    srcset="images/marcus-felix.jpg"
+    type="image/jpeg">
+  <img
+    src="images/marcus-felix.jpg"
+    alt="Marcus Felix — Professional Striker, Saint Lucia"
+    class="hero-photo-img"
+    width="600"
+    height="800"
+    loading="eager"
+    fetchpriority="high"
+    onerror="this.style.display='none'">
+</picture>
 
               <!-- Live badge -->
               <div class="hero-live-badge" role="status" aria-label="Currently playing status">
