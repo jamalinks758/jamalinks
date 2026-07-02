@@ -187,6 +187,34 @@
   .toggle-group button.active.no{background:var(--loss-bg); color:var(--loss);}
   .form-actions{display:flex; gap:10px; margin-top:24px; padding-top:20px; border-top:1px solid var(--border);}
 
+  /* ---------- Tag Picker ---------- */
+  .tag-picker{display:flex; flex-wrap:wrap; gap:7px; padding:4px 0;}
+  .tag-chip{
+    display:inline-flex; align-items:center; gap:5px;
+    padding:7px 13px; border-radius:20px; font-size:12.5px; font-weight:500;
+    border:1px solid var(--border); background:var(--surface-2); color:var(--muted);
+    transition:all .15s; user-select:none;
+  }
+  .tag-chip:hover{border-color:var(--accent-dim); color:var(--text);}
+  .tag-chip.selected.mistake{background:var(--loss-bg); border-color:var(--loss); color:var(--loss);}
+  .tag-chip.selected.good{background:var(--win-bg); border-color:var(--win); color:var(--win);}
+  .tag-chip .rm{opacity:0.6; font-size:11px;}
+  .tag-add-row{display:flex; gap:8px; margin-top:10px;}
+  .tag-add-row input{flex:1; background:var(--surface-2); border:1px solid var(--border); color:var(--text); padding:8px 11px; border-radius:7px; font-size:12.5px;}
+  .tag-add-row button{padding:8px 14px; border-radius:7px; border:1px solid var(--border); background:var(--surface-2); color:var(--muted); font-size:12.5px; font-weight:600;}
+  .tag-add-row button:hover{color:var(--text); border-color:var(--accent-dim);}
+
+  /* ---------- By-Tag Analytics ---------- */
+  .tag-rank-table{width:100%; border-collapse:collapse; font-size:13px;}
+  .tag-rank-table th{text-align:left; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; padding:8px 12px; border-bottom:1px solid var(--border);}
+  .tag-rank-table td{padding:10px 12px; border-bottom:1px solid var(--border);}
+  .tag-rank-table tr:last-child td{border-bottom:none;}
+  .tag-rank-bar-wrap{display:flex; align-items:center; gap:10px;}
+  .tag-rank-bar-track{flex:1; height:6px; background:var(--surface-2); border-radius:3px; overflow:hidden; min-width:80px;}
+  .tag-rank-bar{height:100%; border-radius:3px;}
+  .tag-name-badge{display:inline-flex; align-items:center; gap:6px; font-weight:500;}
+  .tag-name-badge .swatch{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
+
   /* ---------- Charts ---------- */
   .chart-card{margin-bottom:16px;}
   .chart-svg{width:100%; height:auto; display:block;}
@@ -365,7 +393,22 @@
               </div>
             </div>
             <div class="field"><label>Tags</label><input type="text" id="f-tags" placeholder="comma, separated"></div>
-            <div class="field span-2"><label>Mistakes Made</label><input type="text" id="f-mistakes" placeholder="Entered too early, oversized..."></div>
+            <div class="field span-2">
+              <label>Mistakes Made <span style="color:var(--muted-2); font-weight:400;">— tag every one, this is what the tag analytics runs on</span></label>
+              <div class="tag-picker" id="mistakeTagPicker"></div>
+              <div class="tag-add-row">
+                <input type="text" id="newMistakeTag" placeholder="Add a new mistake tag...">
+                <button type="button" id="addMistakeTagBtn">Add</button>
+              </div>
+            </div>
+            <div class="field span-2">
+              <label>What Went Right <span style="color:var(--muted-2); font-weight:400;">— tag the good habits too, not just the bad ones</span></label>
+              <div class="tag-picker" id="goodTagPicker"></div>
+              <div class="tag-add-row">
+                <input type="text" id="newGoodTag" placeholder="Add a new good-habit tag...">
+                <button type="button" id="addGoodTagBtn">Add</button>
+              </div>
+            </div>
             <div class="field span-2"><label>Lessons Learned</label><input type="text" id="f-lessons"></div>
             <div class="field span-2"><label>Notes</label><textarea id="f-notes" placeholder="Context, screenshots links, anything else"></textarea></div>
           </div>
@@ -406,6 +449,14 @@
         <div class="card chart-card"><div class="panel-title"><h3>Monthly P/L</h3></div><div id="monthlyChart"></div></div>
       </div>
       <div class="card chart-card"><div class="panel-title"><h3>R:R Distribution</h3></div><div id="rrChart"></div></div>
+
+      <div class="card">
+        <div class="panel-title">
+          <h3>Performance by Tag</h3>
+          <span class="meta">Ranked by net P/L impact — this is where your actual bad habits show up in dollars</span>
+        </div>
+        <div id="tagAnalytics"></div>
+      </div>
     </section>
 
     <!-- SETTINGS -->
@@ -476,6 +527,30 @@ const storage = new LocalStorageAdapter('tj_trades_v1');
 let trades = [];
 let sortState = { col: 'date', dir: 'desc' };
 let activeFilters = { search:'', result:'', market:'', strategy:'', from:'', to:'' };
+
+/* ---- Tag system ----
+   Tags are stored per-trade as { mistakeTags: [...], goodTags: [...] }.
+   The tag *vocabulary* (available chips) is stored separately so it grows
+   over time and persists even if you delete the trades that used a tag. */
+const DEFAULT_MISTAKE_TAGS = ['FOMO entry','Moved stop loss','Oversized position','Revenge trade','No stop loss set','Ignored setup criteria','Entered without confirmation','Chased price','Held too long','Exited too early','Overtraded / too many trades','Traded outside plan hours'];
+const DEFAULT_GOOD_TAGS = ['Followed plan exactly','Waited for confirmation','Cut loss quickly','Let winner run','Proper position size','Patient entry','Walked away after loss','Journaled before entry'];
+
+class TagAdapter extends StorageAdapter {
+  constructor(mistakeKey, goodKey){ super(); this.mk = mistakeKey; this.gk = goodKey; }
+  async getVocab(){
+    const m = JSON.parse(localStorage.getItem(this.mk)) || DEFAULT_MISTAKE_TAGS;
+    const g = JSON.parse(localStorage.getItem(this.gk)) || DEFAULT_GOOD_TAGS;
+    return { mistake: m, good: g };
+  }
+  async saveVocab(mistake, good){
+    localStorage.setItem(this.mk, JSON.stringify(mistake));
+    localStorage.setItem(this.gk, JSON.stringify(good));
+  }
+}
+const tagStorage = new TagAdapter('tj_mistake_tags_v1', 'tj_good_tags_v1');
+let tagVocab = { mistake: [...DEFAULT_MISTAKE_TAGS], good: [...DEFAULT_GOOD_TAGS] };
+let selectedMistakeTags = [];
+let selectedGoodTags = [];
 
 /* ============================================================
    UTIL
@@ -570,6 +645,41 @@ function updateCalcPreview(){
   $('#calc-result').style.color = r.result === 'win' ? 'var(--win)' : r.result === 'loss' ? 'var(--loss)' : 'var(--muted)';
 }
 
+function renderTagPicker(containerId, vocabList, selectedList, type){
+  const el = $('#'+containerId);
+  el.innerHTML = vocabList.map(tag => {
+    const isSel = selectedList.includes(tag);
+    return `<button type="button" class="tag-chip ${isSel?'selected '+type:''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}${isSel?' <span class="rm">✕</span>':''}</button>`;
+  }).join('') || '<span style="color:var(--muted); font-size:12.5px;">No tags yet — add one below.</span>';
+
+  $$('.tag-chip', el).forEach(chip => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tag;
+      const list = type === 'mistake' ? selectedMistakeTags : selectedGoodTags;
+      const idx = list.indexOf(tag);
+      if(idx === -1) list.push(tag); else list.splice(idx,1);
+      renderTagPicker(containerId, vocabList, list, type);
+    });
+  });
+}
+function renderMistakeTags(){ renderTagPicker('mistakeTagPicker', tagVocab.mistake, selectedMistakeTags, 'mistake'); }
+function renderGoodTags(){ renderTagPicker('goodTagPicker', tagVocab.good, selectedGoodTags, 'good'); }
+
+async function addNewTag(vocabKey, inputId){
+  const input = $('#'+inputId);
+  const val = input.value.trim();
+  if(!val) return;
+  if(!tagVocab[vocabKey].includes(val)) tagVocab[vocabKey].push(val);
+  input.value = '';
+  await tagStorage.saveVocab(tagVocab.mistake, tagVocab.good);
+  if(vocabKey === 'mistake'){ selectedMistakeTags.push(val); renderMistakeTags(); }
+  else { selectedGoodTags.push(val); renderGoodTags(); }
+}
+$('#addMistakeTagBtn').addEventListener('click', () => addNewTag('mistake','newMistakeTag'));
+$('#addGoodTagBtn').addEventListener('click', () => addNewTag('good','newGoodTag'));
+$('#newMistakeTag').addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); addNewTag('mistake','newMistakeTag'); } });
+$('#newGoodTag').addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); addNewTag('good','newGoodTag'); } });
+
 function resetForm(){
   $('#tradeForm').reset();
   $('#editId').value = '';
@@ -582,6 +692,10 @@ function resetForm(){
   formRules = 'Yes';
   $$('#directionToggle button').forEach(b => b.classList.toggle('active', b.dataset.val === 'Buy'));
   $$('#rulesToggle button').forEach(b => b.classList.toggle('active', b.dataset.val === 'Yes'));
+  selectedMistakeTags = [];
+  selectedGoodTags = [];
+  renderMistakeTags();
+  renderGoodTags();
   updateCalcPreview();
 }
 
@@ -612,7 +726,8 @@ $('#tradeForm').addEventListener('submit', async e => {
     setup: $('#f-setup').value.trim(),
     rulesFollowed: formRules,
     tags: $('#f-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
-    mistakes: $('#f-mistakes').value.trim(),
+    mistakeTags: [...selectedMistakeTags],
+    goodTags: [...selectedGoodTags],
     lessons: $('#f-lessons').value.trim(),
     notes: $('#f-notes').value.trim(),
   };
@@ -653,7 +768,13 @@ function loadTradeIntoForm(t){
   formRules = t.rulesFollowed || 'Yes';
   $$('#rulesToggle button').forEach(b => b.classList.toggle('active', b.dataset.val === formRules));
   $('#f-tags').value = (t.tags||[]).join(', ');
-  $('#f-mistakes').value = t.mistakes || '';
+  selectedMistakeTags = [...(t.mistakeTags || [])];
+  selectedGoodTags = [...(t.goodTags || [])];
+  // if this old trade used tags not yet in the vocab (e.g. legacy data), add them so they render as selected
+  selectedMistakeTags.forEach(tag => { if(!tagVocab.mistake.includes(tag)) tagVocab.mistake.push(tag); });
+  selectedGoodTags.forEach(tag => { if(!tagVocab.good.includes(tag)) tagVocab.good.push(tag); });
+  renderMistakeTags();
+  renderGoodTags();
   $('#f-lessons').value = t.lessons || '';
   $('#f-notes').value = t.notes || '';
   updateCalcPreview();
@@ -940,7 +1061,9 @@ function openTradeModal(id){
           <div class="mi"><label>Strategy</label><div class="v">${escapeHtml(t.strategy)||'—'}</div></div>
           <div class="mi"><label>Rules Followed</label><div class="v">${t.rulesFollowed}</div></div>
         </div>
-        ${t.mistakes ? `<div class="modal-note"><strong>Mistakes</strong>${escapeHtml(t.mistakes)}</div>` : ''}
+        ${(t.mistakeTags && t.mistakeTags.length) ? `<div class="modal-note"><strong>Mistakes</strong>${t.mistakeTags.map(tag=>`<span class="badge badge-loss" style="margin:2px 4px 2px 0;">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
+        ${(t.goodTags && t.goodTags.length) ? `<div class="modal-note"><strong>Went Right</strong>${t.goodTags.map(tag=>`<span class="badge badge-win" style="margin:2px 4px 2px 0;">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
+        ${t.mistakes ? `<div class="modal-note"><strong>Notes (legacy)</strong>${escapeHtml(t.mistakes)}</div>` : ''}
         ${t.lessons ? `<div class="modal-note"><strong>Lessons</strong>${escapeHtml(t.lessons)}</div>` : ''}
         ${t.notes ? `<div class="modal-note"><strong>Notes</strong>${escapeHtml(t.notes)}</div>` : ''}
         <div class="form-actions">
@@ -994,6 +1117,67 @@ function renderAnalytics(){
   });
   const rrItems = Object.entries(buckets).map(([k,v]) => ({ label:k, pl:v }));
   $('#rrChart').innerHTML = drawBarChart(rrItems, 'pl', 'label', () => '#C9A961');
+
+  renderTagAnalytics();
+}
+
+function computeTagStats(field){
+  // field is 'mistakeTags' or 'goodTags'
+  const map = {};
+  trades.forEach(t => {
+    (t[field] || []).forEach(tag => {
+      if(!map[tag]) map[tag] = { count:0, netPL:0, wins:0 };
+      map[tag].count++;
+      map[tag].netPL += t.pl;
+      if(t.result === 'win') map[tag].wins++;
+    });
+  });
+  return Object.entries(map).map(([tag, s]) => ({
+    tag, count: s.count, netPL: s.netPL, avgPL: s.netPL / s.count, winRate: (s.wins / s.count) * 100
+  }));
+}
+
+function renderTagAnalytics(){
+  const mistakeStats = computeTagStats('mistakeTags').sort((a,b) => a.netPL - b.netPL); // worst first
+  const goodStats = computeTagStats('goodTags').sort((a,b) => b.netPL - a.netPL); // best first
+
+  if(mistakeStats.length === 0 && goodStats.length === 0){
+    $('#tagAnalytics').innerHTML = emptyState('No tags logged yet', 'Tag mistakes and good habits on your trades to see which specific behaviors are costing or making you money.');
+    return;
+  }
+
+  const maxAbs = Math.max(1, ...[...mistakeStats, ...goodStats].map(s => Math.abs(s.netPL)));
+
+  function buildTable(stats, color, title, subtitle){
+    if(stats.length === 0) return `<div style="margin-bottom:18px;"><h4 style="font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">${title}</h4><div style="color:var(--muted); font-size:12.5px; padding:8px 0;">No trades tagged yet.</div></div>`;
+    const rows = stats.map(s => `
+      <tr>
+        <td><span class="tag-name-badge"><span class="swatch" style="background:${color};"></span>${escapeHtml(s.tag)}</span></td>
+        <td class="mono">${s.count}</td>
+        <td class="mono">${s.winRate.toFixed(0)}%</td>
+        <td class="mono ${s.netPL>=0?'pos':'neg'}" style="font-weight:600;">${fmtMoney(s.netPL)}</td>
+        <td class="mono" style="color:var(--muted);">${fmtMoney(s.avgPL)}/trade</td>
+        <td>
+          <div class="tag-rank-bar-wrap">
+            <div class="tag-rank-bar-track">
+              <div class="tag-rank-bar" style="width:${(Math.abs(s.netPL)/maxAbs*100).toFixed(0)}%; background:${color};"></div>
+            </div>
+          </div>
+        </td>
+      </tr>`).join('');
+    return `<div style="margin-bottom:22px;">
+      <h4 style="font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px;">${title}</h4>
+      <div style="font-size:11.5px; color:var(--muted-2); margin-bottom:10px;">${subtitle}</div>
+      <div class="table-wrap"><table class="tag-rank-table">
+        <thead><tr><th>Tag</th><th>Count</th><th>Win Rate</th><th>Net P/L</th><th>Avg</th><th>Impact</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+    </div>`;
+  }
+
+  $('#tagAnalytics').innerHTML =
+    buildTable(mistakeStats, '#C2554A', 'Costliest Mistakes', 'Ranked worst to least-bad by total dollar impact — this is your priority-fix list') +
+    buildTable(goodStats, '#4A9B7F', 'Most Valuable Habits', 'Ranked best to worst — do more of what\'s at the top');
 }
 
 /* ============================================================
@@ -1042,6 +1226,7 @@ $('#resetBtn').addEventListener('click', async () => {
    ============================================================ */
 async function init(){
   trades = await storage.getTrades();
+  tagVocab = await tagStorage.getVocab();
   resetForm();
   renderDashboard();
 }
