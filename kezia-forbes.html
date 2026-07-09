@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kezia Forbes — Real Estate Agent specialising in Saint Lucia residential, villa, land, and investment property. Buyers, sellers, and investors served with local expertise and personal care.">
+  <meta property="og:title" content="Kezia Forbes | Real Estate Agent — Saint Lucia">
+  <meta property="og:description" content="Saint Lucia's most trusted real estate guide. Residential homes, luxury villas, land, and investment property. Find yours.">
+  <meta property="og:type" content="profile">
+  <title>Kezia Forbes | Real Estate Agent — Saint Lucia</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "RealEstateAgent"],
+    "name": "Kezia Forbes",
+    "jobTitle": "Licensed Real Estate Agent",
+    "description": "Licensed real estate agent specialising in residential, villa, land and investment property across Saint Lucia. Serving buyers, sellers, investors and international relocators.",
+    "url": "https://jamalinks758.github.io/jamalinks/kezia-forbes.html",
+    "telephone": "+17587235872",
+    "address": { "@type": "PostalAddress", "addressLocality": "Castries", "addressCountry": "LC" },
+    "areaServed": "Saint Lucia",
+    "knowsAbout": ["Residential Property", "Luxury Villas", "Land Sales", "Investment Property", "Caribbean Real Estate", "Property Relocation"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       TOKENS — Caribbean Lifestyle Luxury
+    ============================================= */
+    :root {
+      --charcoal:    #1C1C1E;
+      --charcoal-2:  #2A2A2E;
+      --charcoal-3:  #36363C;
+      --sand:        #E8D5B0;
+      --sand-dim:    rgba(232,213,176,0.14);
+      --sand-glow:   rgba(232,213,176,0.22);
+      --terra:       #C4622D;
+      --terra-dim:   rgba(196,98,45,0.12);
+      --terra-glow:  rgba(196,98,45,0.25);
+      --sage:        #4A6741;
+      --sage-dim:    rgba(74,103,65,0.12);
+      --white:       #FAFAFA;
+      --off-white:   #F5F0E8;
+      --warm-grey:   #E8E0D4;
+      --muted:       #8A8070;
+      --muted-2:     #5C5448;
+      --border:      rgba(28,28,30,0.08);
+      --border-t:    rgba(196,98,45,0.22);
+      --border-s:    rgba(232,213,176,0.2);
+      --wa:          #25D366;
+      --wa-dark:     #128C7E;
+
+      --bg:          #FAFAFA;
+      --bg-2:        #F5F0E8;
+      --text:        #1C1C1E;
+      --text-m:      #4A4038;
+      --card-l:      #FFFFFF;
+      --bdr-l:       rgba(28,28,30,0.08);
+
+      --font-d: 'DM Serif Display', Georgia, serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --r-sm: 4px; --r-md: 12px; --r-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg:    var(--charcoal);
+      --bg-2:  var(--charcoal-2);
+      --text:  var(--white);
+      --text-m:rgba(250,250,250,0.65);
+      --card-l:var(--charcoal-2);
+      --bdr-l: rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .3s, color .3s;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WA
+    ============================================= */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--charcoal); color: var(--white);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-t);
+    }
+    [data-theme="dark"] .wa-pill { background: var(--charcoal-2); }
+    .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
+    .wa-btn-f {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
+    .wa-btn-f:hover { transform: scale(1.07); }
+    .wa-btn-f i { font-size: 1.55rem; color: #fff; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
+
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--charcoal); color: rgba(250,250,250,.6);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-t);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot { width: 5px; height: 5px; background: var(--terra); border-radius: 50%; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-kf {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(250,250,250,0.94);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: 1rem 2.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] .navbar-kf { background: rgba(28,28,30,0.94); }
+    .nav-brand-kf { display: flex; align-items: center; gap: 12px; }
+    .nav-monogram-kf {
+      width: 40px; height: 40px; border-radius: var(--r-sm);
+      background: var(--charcoal); color: var(--sand);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 1rem; flex-shrink: 0;
+    }
+    [data-theme="dark"] .nav-monogram-kf { background: var(--terra); color: #fff; }
+    .nav-name-kf {
+      font-family: var(--font-d); font-size: 1.15rem;
+      color: var(--text); letter-spacing: .01em; line-height: 1;
+    }
+    .nav-sub-kf {
+      font-family: var(--font-b); font-size: .56rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); margin-top: 3px;
+    }
+    .nav-right-kf { display: flex; align-items: center; gap: 1.6rem; }
+    .nav-links-kf { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links-kf a {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted-2); transition: color .2s; white-space: nowrap;
+    }
+    .nav-links-kf a:hover { color: var(--terra); }
+    .nav-div-kf { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 500;
+      color: var(--muted-2); transition: border-color .2s, color .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--terra); color: var(--terra); }
+    .nav-cta-kf {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 700;
+      letter-spacing: .04em; padding: .58rem 1.4rem; border-radius: var(--r-sm);
+      background: var(--terra); color: #fff !important;
+      transition: background .2s, box-shadow .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 7px;
+      box-shadow: 0 4px 16px var(--terra-glow);
+    }
+    .nav-cta-kf:hover { background: #A8521F !important; }
+    @media (max-width: 768px) {
+      .nav-links-kf, .nav-div-kf { display: none; }
+      .navbar-kf { padding: .9rem 1.2rem; }
+    }
+
+    /* =============================================
+       HERO — Lifestyle Cinematic
+    ============================================= */
+    .hero-kf {
+      background: var(--charcoal);
+      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 5rem 0 4rem;
+    }
+    .hero-warm-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-sand-glow {
+      position: absolute; bottom: -20%; left: -5%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,213,176,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Lifestyle overlay text — large background word */
+    .hero-bg-word {
+      position: absolute; bottom: -8%; right: -2%;
+      font-family: var(--font-d); font-size: clamp(14rem, 28vw, 26rem);
+      color: rgba(232,213,176,.03); line-height: 1;
+      pointer-events: none; user-select: none; letter-spacing: -.03em;
+    }
+
+    .hero-eyebrow-kf {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--terra);
+      margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow-kf::before { content: ''; width: 24px; height: 2px; background: var(--terra); display: block; }
+
+    .hero-name-kf {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
+      line-height: 1.02; color: var(--white);
+      margin-bottom: .6rem; letter-spacing: -.01em;
+    }
+    .hero-name-kf em { font-style: italic; color: var(--sand); display: block; }
+
+    .hero-title-kf {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(250,250,250,.55); margin-bottom: 2.2rem;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .hero-title-kf .sep { color: var(--terra); opacity: .7; }
+
+    .hero-statement-kf {
+      font-family: var(--font-d); font-style: italic;
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      color: rgba(250,250,250,.65); line-height: 1.65; max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-statement-kf strong { font-style: normal; color: var(--sand); font-weight: 400; }
+
+    .hero-cta-row-kf { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-terra-kf {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--terra); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 700;
+      padding: .95rem 2rem; border-radius: var(--r-sm); border: none; cursor: pointer;
+      box-shadow: 0 6px 24px var(--terra-glow);
+      transition: background .2s, transform .15s;
+    }
+    .btn-terra-kf:hover { background: #A8521F; color: #fff; transform: translateY(-2px); }
+    .btn-wa-kf {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 700;
+      padding: .95rem 1.8rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.28);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa-kf:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+    .btn-ghost-kf {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(250,250,250,.2); color: rgba(250,250,250,.6);
+      font-family: var(--font-b); font-size: .88rem; font-weight: 500;
+      padding: .95rem 1.7rem; border-radius: var(--r-sm);
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-ghost-kf:hover { border-color: var(--sand); color: var(--sand); }
+
+    .hero-stat-row {
+      display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.6rem;
+    }
+    .hero-stat-kf {}
+    .hsk-num {
+      font-family: var(--font-d); font-size: 2.2rem; color: var(--sand);
+      line-height: 1; margin-bottom: 2px;
+    }
+    .hsk-label {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(250,250,250,.45);
+    }
+    .hsk-div { width: 1px; height: 44px; background: rgba(255,255,255,.1); }
+
+    /* Hero right — property photo collage */
+    @media (max-width: 991px) { .hero-photo-col-kf { display: none; } }
+
+    .hero-collage {
+      position: relative; height: 560px;
+    }
+    .hc-main {
+      position: absolute; top: 0; left: 0; right: 60px; bottom: 80px;
+      border-radius: var(--r-lg); overflow: hidden;
+      background: linear-gradient(135deg, var(--charcoal-2), var(--charcoal-3));
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(232,213,176,.1);
+    }
+    .hc-main-illus { font-size: 7rem; opacity: .35; }
+    .hc-main-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hc-main-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(28,28,30,.7) 100%);
+    }
+
+    /* "Location tag" on main photo */
+    .hc-location {
+      position: absolute; top: 16px; left: 16px;
+      background: rgba(28,28,30,.88); backdrop-filter: blur(10px);
+      border: 1px solid var(--border-t); border-radius: var(--r-sm);
+      padding: .5rem .85rem;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .hc-location i { color: var(--terra); font-size: .78rem; }
+    .hc-location span { font-family: var(--font-b); font-size: .72rem; font-weight: 600; color: var(--white); }
+
+    /* Price badge on main photo */
+    .hc-price {
+      position: absolute; bottom: 16px; left: 16px;
+      background: var(--terra); border-radius: var(--r-sm);
+      padding: .55rem .95rem;
+    }
+    .hcp-label { font-family: var(--font-b); font-size: .58rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+    .hcp-price { font-family: var(--font-d); font-size: 1.2rem; color: #fff; line-height: 1.1; }
+
+    /* Secondary card */
+    .hc-secondary {
+      position: absolute; bottom: 0; right: 0;
+      width: 55%; height: 42%;
+      border-radius: var(--r-md); overflow: hidden;
+      background: linear-gradient(135deg, var(--charcoal-3), var(--charcoal-2));
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(232,213,176,.12);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    .hc-sec-illus { font-size: 3.5rem; opacity: .3; }
+    .hc-sec-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* Agent card floating bottom-left of secondary */
+    .hc-agent-card {
+      position: absolute; bottom: 32px; right: 50%;
+      transform: translateX(50%);
+      background: rgba(250,250,250,.97); backdrop-filter: blur(16px);
+      border-radius: var(--r-md); padding: .9rem 1.1rem;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 12px 36px rgba(0,0,0,.2);
+      white-space: nowrap; width: max-content;
+    }
+    .hcac-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--terra); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: .95rem; flex-shrink: 0;
+    }
+    .hcac-name { font-family: var(--font-b); font-size: .78rem; font-weight: 700; color: var(--charcoal); }
+    .hcac-title { font-family: var(--font-b); font-size: .62rem; font-weight: 400; color: var(--muted-2); }
+    .hcac-stars { color: #F59E0B; font-size: .7rem; letter-spacing: 1px; }
+
+    /* =============================================
+       TRUST STRIP
+    ============================================= */
+    .trust-strip-kf {
+      background: var(--off-white);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    [data-theme="dark"] .trust-strip-kf { background: var(--charcoal-2); border-color: rgba(255,255,255,.06); }
+    .ts-items-kf { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .6rem 3rem; }
+    .ts-item-kf { display: flex; align-items: center; gap: 9px; font-family: var(--font-b); font-size: .82rem; font-weight: 500; color: var(--text); white-space: nowrap; }
+    .ts-icon-kf {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; color: var(--terra); flex-shrink: 0;
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 5.5rem 0; }
+    .sec-sm { padding: 3.5rem 0; }
+    .sec-eyebrow-kf {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--terra);
+      margin-bottom: .8rem; display: flex; align-items: center; gap: 10px;
+    }
+    .sec-eyebrow-kf::before { content: ''; width: 22px; height: 2px; background: var(--terra); display: block; }
+    .sec-h2-kf {
+      font-family: var(--font-d); font-size: clamp(1.9rem, 3.6vw, 3rem);
+      line-height: 1.12; color: var(--text); margin-bottom: .8rem;
+    }
+    .sec-h2-kf em { font-style: italic; color: var(--terra); }
+    .sec-para-kf {
+      font-family: var(--font-b); font-size: .95rem; font-weight: 400;
+      color: var(--text-m); line-height: 1.82; max-width: 510px;
+    }
+    .terra-rule { width: 38px; height: 2px; background: var(--terra); margin: 1.1rem 0 1.7rem; }
+
+    /* =============================================
+       PROPERTY TYPES CARDS
+    ============================================= */
+    .prop-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 2rem;
+      transition: box-shadow .3s, border-color .3s, transform .2s; height: 100%;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .prop-card { border-color: rgba(255,255,255,.07); }
+    .prop-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--terra), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .prop-card:hover {
+      box-shadow: 0 14px 45px rgba(196,98,45,.1);
+      border-color: var(--border-t); transform: translateY(-3px);
+    }
+    .prop-card:hover::before { opacity: 1; }
+    .prop-icon {
+      width: 52px; height: 52px; border-radius: var(--r-md);
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.2rem; color: var(--terra);
+    }
+    .prop-type { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); margin-bottom: .4rem; }
+    .prop-name { font-family: var(--font-d); font-size: 1.2rem; color: var(--text); margin-bottom: .5rem; }
+    .prop-desc { font-family: var(--font-b); font-size: .88rem; font-weight: 400; color: var(--text-m); line-height: 1.72; margin-bottom: 1rem; }
+    .prop-range { font-family: var(--font-b); font-size: .78rem; font-weight: 600; color: var(--terra); }
+
+    /* =============================================
+       ★ UNIQUE: PROPERTY FINDER QUIZ
+    ============================================= */
+    .finder-widget {
+      background: var(--charcoal);
+      border: 1px solid var(--border-t);
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+    }
+    [data-theme="light"] .finder-widget { box-shadow: 0 20px 60px rgba(28,28,30,.12); }
+
+    .fw-header {
+      background: linear-gradient(135deg, rgba(196,98,45,.18) 0%, rgba(196,98,45,.04) 100%);
+      border-bottom: 1px solid var(--border-t);
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .fw-header-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--terra); display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; color: #fff; flex-shrink: 0;
+    }
+    .fw-header-title {
+      font-family: var(--font-d); font-size: 1.05rem;
+      color: var(--white); line-height: 1.3;
+    }
+    .fw-header-sub { font-family: var(--font-b); font-size: .65rem; color: rgba(250,250,250,.55); margin-top: 2px; }
+    .fw-tag {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      color: var(--terra); padding: .24rem .75rem; border-radius: 30px;
+    }
+
+    .fw-body { padding: 1.8rem 2rem; }
+
+    .fw-step { display: none; }
+    .fw-step.active { display: block; }
+
+    .fw-step-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .fw-step-label {
+      font-family: var(--font-b); font-size: .68rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: rgba(250,250,250,.5);
+    }
+    .fw-progress {
+      display: flex; gap: 5px;
+    }
+    .fw-progress-dot {
+      width: 22px; height: 3px; border-radius: 2px;
+      background: rgba(255,255,255,.1); transition: background .3s;
+    }
+    .fw-progress-dot.done { background: var(--terra); }
+
+    .fw-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; margin-bottom: 1.4rem; }
+    @media (max-width: 480px) { .fw-options { grid-template-columns: 1fr; } }
+    .fw-opt {
+      background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-md); padding: 1.1rem; cursor: pointer; transition: all .2s;
+      text-align: center;
+    }
+    .fw-opt:hover { border-color: var(--border-t); background: var(--terra-dim); }
+    .fw-opt.selected { border-color: var(--terra); background: var(--terra-dim); }
+    .fw-opt-emoji { font-size: 1.5rem; display: block; margin-bottom: .4rem; }
+    .fw-opt-label { font-family: var(--font-b); font-size: .82rem; font-weight: 600; color: var(--white); }
+    .fw-opt-sub { font-family: var(--font-b); font-size: .68rem; color: rgba(250,250,250,.5); margin-top: 2px; }
+
+    .fw-btn-row { display: flex; gap: .7rem; }
+    .fw-btn-next {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--terra); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 700;
+      padding: .85rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; transition: background .2s, opacity .2s;
+      opacity: .4; pointer-events: none;
+    }
+    .fw-btn-next.ready { opacity: 1; pointer-events: auto; }
+    .fw-btn-next:hover { background: #A8521F; }
+    .fw-btn-back {
+      background: none; border: 1px solid rgba(255,255,255,.1); color: rgba(250,250,250,.5);
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      padding: .85rem 1.2rem; border-radius: var(--r-sm); cursor: pointer;
+      transition: all .2s;
+    }
+    .fw-btn-back:hover { border-color: rgba(255,255,255,.25); color: var(--white); }
+
+    /* Result */
+    .fw-result { display: none; }
+    .fw-result.active { display: block; }
+    .fw-result-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 1.3rem;
+      padding-bottom: 1.1rem; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .fw-result-icon { font-size: 2rem; }
+    .fw-result-title {
+      font-family: var(--font-d); font-size: 1.25rem; color: var(--white); line-height: 1.25;
+    }
+    .fw-result-sub { font-family: var(--font-b); font-size: .72rem; color: rgba(250,250,250,.5); margin-top: 2px; }
+
+    .fw-result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; margin-bottom: 1.2rem; }
+    .fwr-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--r-md); padding: .9rem; }
+    .fwr-card.terra-c { background: var(--terra-dim); border-color: var(--border-t); }
+    .fwrc-label { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(250,250,250,.45); margin-bottom: .3rem; }
+    .fwrc-val { font-family: var(--font-d); font-size: 1.1rem; color: var(--white); }
+    .fwr-card.terra-c .fwrc-val { color: var(--sand); }
+
+    .fw-result-desc { font-family: var(--font-b); font-size: .88rem; color: rgba(250,250,250,.65); line-height: 1.75; margin-bottom: 1.2rem; }
+    .fw-result-points { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.4rem; }
+    .fw-result-points li { display: flex; align-items: flex-start; gap: 9px; font-family: var(--font-b); font-size: .85rem; color: rgba(250,250,250,.65); line-height: 1.45; }
+    .fw-result-points li i { color: var(--terra); flex-shrink: 0; margin-top: 2px; }
+    .fw-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .92rem; font-weight: 700;
+      padding: .95rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+      transition: background .2s; letter-spacing: .02em;
+    }
+    .fw-wa-btn:hover { background: var(--wa-dark); }
+    .fw-disclaimer { font-family: var(--font-b); font-size: .65rem; color: rgba(250,250,250,.35); line-height: 1.55; margin-top: .8rem; text-align: center; }
+    .fw-restart {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-b); font-size: .72rem; color: rgba(250,250,250,.4);
+      margin-top: .5rem; display: block; width: 100%; text-align: center;
+      transition: color .2s; padding: 0;
+    }
+    .fw-restart:hover { color: var(--sand); }
+
+    @media (max-width: 768px) { .fw-body, .fw-header { padding: 1.2rem; } }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .about-grid-kf { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4.5rem; align-items: start; }
+    @media (max-width: 768px) { .about-grid-kf { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .about-photo-kf {
+      border-radius: var(--r-lg); overflow: hidden; position: relative;
+      background: linear-gradient(155deg, var(--warm-grey), var(--off-white));
+      aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .about-photo-kf { background: linear-gradient(155deg, var(--charcoal-2), var(--charcoal-3)); }
+    .about-photo-illus-kf { font-size: 7rem; opacity: .3; }
+    .about-photo-real-kf { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .about-badge-kf {
+      position: absolute; bottom: -14px; right: -14px;
+      background: var(--terra); border-radius: var(--r-md); padding: 1rem 1.2rem; text-align: center;
+      box-shadow: 0 8px 28px var(--terra-glow);
+    }
+    .abk-num { font-family: var(--font-d); font-size: 1.7rem; color: #fff; line-height: 1; }
+    .abk-label { font-family: var(--font-b); font-size: .58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.82); }
+
+    .about-bio-kf { font-family: var(--font-b); font-size: .95rem; font-weight: 400; color: var(--text-m); line-height: 1.9; margin-bottom: 1.1rem; }
+    .cred-list-kf { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.8rem; }
+    .cred-item-kf { display: flex; align-items: flex-start; gap: 11px; font-family: var(--font-b); font-size: .88rem; font-weight: 400; color: var(--text-m); }
+    .cred-item-kf i { color: var(--terra); flex-shrink: 0; margin-top: 2px; }
+
+    /* Specialisms chips */
+    .spec-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.8rem; }
+    .spec-chip {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 600;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      color: var(--terra); padding: .28rem .8rem; border-radius: 30px;
+    }
+
+    /* =============================================
+       TESTIMONIALS — PREMIUM BLUR
+    ============================================= */
+    .premium-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+    .blur-layer { filter: blur(6px); user-select: none; pointer-events: none; opacity: .5; }
+    .unlock-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(250,250,250,.86);
+      backdrop-filter: blur(2px); z-index: 10;
+    }
+    [data-theme="dark"] .unlock-overlay { background: rgba(28,28,30,.86); }
+    .unlock-box-kf {
+      background: var(--card-l); border-radius: var(--r-md); border: 1px solid var(--bdr-l);
+      box-shadow: 0 20px 60px var(--terra-glow);
+      padding: 2.1rem 2.5rem; text-align: center; max-width: 350px; width: 92%;
+    }
+    [data-theme="dark"] .unlock-box-kf { background: var(--charcoal-2); border-color: var(--border-t); }
+    .unlock-icon-kf {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.1rem; font-size: 1.15rem; color: var(--terra);
+    }
+    .unlock-pill-kf {
+      display: inline-block; border: 1px solid var(--border-t); color: var(--terra);
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .24rem .8rem; border-radius: 30px; margin-bottom: 1.1rem;
+    }
+    .unlock-box-kf h5 { font-family: var(--font-d); font-size: 1.2rem; color: var(--text); margin-bottom: .5rem; }
+    .unlock-box-kf p { font-family: var(--font-b); font-size: .85rem; font-weight: 400; color: var(--text-m); line-height: 1.7; margin-bottom: 1.4rem; }
+
+    .rv-kf { background: var(--card-l); border-radius: var(--r-md); border: 1px solid var(--bdr-l); padding: 1.9rem; height: 100%; }
+    [data-theme="dark"] .rv-kf { background: var(--charcoal-2); border-color: rgba(255,255,255,.07); }
+    .rv-stars-kf { color: #F59E0B; font-size: .82rem; letter-spacing: 2px; margin-bottom: .7rem; }
+    .rv-quote-kf { font-family: var(--font-d); font-style: italic; font-size: .98rem; color: var(--text); line-height: 1.65; margin-bottom: 1.2rem; }
+    .rv-name-kf { font-family: var(--font-b); font-size: .85rem; font-weight: 700; color: var(--text); }
+    .rv-detail-kf { font-family: var(--font-b); font-size: .72rem; color: var(--text-m); }
+
+    /* =============================================
+       WHY KEZIA BAND
+    ============================================= */
+    .why-band {
+      background: var(--charcoal);
+      border-top: 1px solid rgba(196,98,45,.2);
+      border-bottom: 1px solid rgba(196,98,45,.2);
+      padding: 4rem 0;
+    }
+    .why-item { text-align: center; padding: 1.4rem; }
+    .why-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--terra-dim); border: 1px solid var(--border-t);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto .9rem; font-size: 1.3rem; color: var(--terra);
+    }
+    .why-title { font-family: var(--font-d); font-size: 1rem; color: var(--white); margin-bottom: .35rem; }
+    .why-desc { font-family: var(--font-b); font-size: .82rem; color: rgba(250,250,250,.5); line-height: 1.65; }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-kf {
+      background: var(--charcoal); border: 1px solid var(--border-t);
+      border-radius: var(--r-lg); padding: 6.5rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-kf::before {
+      content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,45,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-bg-word-kf {
+      position: absolute; bottom: -8%; right: -1%;
+      font-family: var(--font-d); font-size: 18rem;
+      color: rgba(232,213,176,.03); pointer-events: none; user-select: none;
+      line-height: 1; letter-spacing: -.03em;
+    }
+    .cta-inner-kf { position: relative; z-index: 1; }
+    .cta-tag-kf { font-family: var(--font-b); font-size: .65rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--terra); margin-bottom: 1.2rem; }
+    .cta-h2-kf { font-family: var(--font-d); font-size: clamp(2.2rem, 5.5vw, 4.2rem); line-height: 1.1; color: var(--white); margin-bottom: 1.1rem; }
+    .cta-h2-kf em { font-style: italic; color: var(--sand); }
+    .cta-para-kf { font-family: var(--font-b); font-size: .95rem; font-weight: 400; color: rgba(250,250,250,.6); max-width: 460px; margin: 0 auto 2.6rem; line-height: 1.85; }
+    .cta-btn-group-kf { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-note-kf { font-family: var(--font-b); font-size: .75rem; color: rgba(250,250,250,.3); margin-top: 1.3rem; }
+
+    /* =============================================
+       FOOTER — always dark
+    ============================================= */
+    .footer-kf { background: #111112; padding: 4.2rem 0 2rem; border-top: 1px solid rgba(196,98,45,.18); }
+    .footer-kf .fl-monogram { width: 44px; height: 44px; background: var(--terra); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 1.1rem; color: #fff; margin-bottom: .8rem; }
+    .footer-kf .fl-name { font-family: var(--font-d); font-size: 1.4rem; color: var(--white); line-height: 1; }
+    .footer-kf .fl-name em { font-style: italic; color: var(--sand); }
+    .footer-kf .fl-sub { font-family: var(--font-b); font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(250,250,250,.3); margin-top: 4px; }
+    .footer-kf .fl-about { font-family: var(--font-b); font-size: .86rem; font-weight: 400; color: rgba(250,250,250,.42); line-height: 1.8; max-width: 280px; margin-top: 1.1rem; }
+    .footer-kf .fl-h { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--terra); margin-bottom: 1.3rem; }
+    .footer-kf .fl-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .footer-kf .fl-links a { font-family: var(--font-b); font-size: .86rem; font-weight: 400; color: rgba(250,250,250,.42); transition: color .2s; }
+    .footer-kf .fl-links a:hover { color: var(--terra); }
+    .footer-kf .fl-wa-box { background: rgba(37,211,102,.07); border: 1px solid rgba(37,211,102,.18); border-radius: var(--r-md); padding: 1.35rem; }
+    .footer-kf .fl-wa-box p { font-family: var(--font-b); font-size: .83rem; font-weight: 400; color: rgba(250,250,250,.42); margin-bottom: .95rem; line-height: 1.65; }
+    .footer-kf .fl-wa-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--wa); color: #fff; font-family: var(--font-b); font-size: .81rem; font-weight: 600; padding: .55rem 1.15rem; border-radius: var(--r-sm); transition: background .2s; }
+    .footer-kf .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-kf .fl-bottom { border-top: 1px solid rgba(255,255,255,.07); margin-top: 2.9rem; padding-top: 1.6rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem; }
+    .footer-kf .fl-bottom p { font-family: var(--font-b); font-size: .75rem; font-weight: 400; color: rgba(250,250,250,.22); }
+    .footer-kf .fl-bottom a { font-family: var(--font-b); font-size: .75rem; font-weight: 700; color: var(--terra); transition: color .2s; }
+    .footer-kf .fl-bottom a:hover { color: var(--sand); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+
+    @media (max-width: 576px) {
+      .sec { padding: 4.5rem 0; }
+      .cta-kf { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20discuss%20a%20property%20in%20Saint%20Lucia."
+     class="wa-float" aria-label="Contact Kezia Forbes on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-pill">Property Enquiry</span>
+    <button class="wa-btn-f" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="JamaLinks demo profile">
+    <span class="demo-dot" aria-hidden="true"></span>Demo Profile
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-kf" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand-kf">
+      <div class="nav-monogram-kf" aria-hidden="true">KF</div>
+      <div>
+        <div class="nav-name-kf">Kezia Forbes</div>
+        <div class="nav-sub-kf">Real Estate Agent · Saint Lucia</div>
+      </div>
+    </div>
+    <div class="nav-right-kf">
+      <ul class="nav-links-kf" role="list">
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#finder">Finder</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-div-kf" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20discuss%20a%20property%20in%20Saint%20Lucia."
+         class="nav-cta-kf" aria-label="Enquire about a property on WhatsApp"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-house-fill" aria-hidden="true"></i> Enquire Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-kf" role="banner" aria-label="Kezia Forbes real estate agent hero">
+    <div class="hero-warm-glow" aria-hidden="true"></div>
+    <div class="hero-sand-glow" aria-hidden="true"></div>
+    <div class="hero-bg-word" aria-hidden="true">Home</div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+          <div class="hero-eyebrow-kf">Licensed Real Estate Agent · Saint Lucia</div>
+          <h1 class="hero-name-kf">
+            Kezia
+            <em>Forbes</em>
+          </h1>
+          <div class="hero-title-kf">
+            Residential <span class="sep">·</span> Villas <span class="sep">·</span> Land <span class="sep">·</span> Investment Property
+          </div>
+          <p class="hero-statement-kf">
+            Saint Lucia is one of the Caribbean's most desirable places to own property.
+            <strong>Finding the right one takes someone who actually knows every road,
+            every view, and every neighbourhood.</strong>
+            That is what Kezia Forbes brings to every client.
+          </p>
+          <div class="hero-cta-row-kf">
+            <a href="#finder" class="btn-terra-kf" aria-label="Find your property match">
+              <i class="bi bi-search-heart" aria-hidden="true"></i>
+              Find Your Property
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20start%20a%20property%20search%20in%20Saint%20Lucia.%20Can%20we%20talk?"
+               class="btn-wa-kf" aria-label="Message Kezia on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Message Kezia
+            </a>
+          </div>
+          <div class="hero-stat-row" role="list" aria-label="Key career statistics">
+            <div class="hero-stat-kf" role="listitem">
+              <div class="hsk-num" aria-label="120 plus properties sold">120+</div>
+              <div class="hsk-label">Properties Sold</div>
+            </div>
+            <div class="hsk-div" aria-hidden="true"></div>
+            <div class="hero-stat-kf" role="listitem">
+              <div class="hsk-num" aria-label="9 years experience">9</div>
+              <div class="hsk-label">Years Experience</div>
+            </div>
+            <div class="hsk-div" aria-hidden="true"></div>
+            <div class="hero-stat-kf" role="listitem">
+              <div class="hsk-num" aria-label="4.9 star rating">4.9★</div>
+              <div class="hsk-label">Client Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-photo-col-kf" role="complementary">
+            <div class="hero-collage">
+              <div class="hc-main">
+                <span class="hc-main-illus" aria-hidden="true">🏡</span>
+                <img
+                  src="../images/kezia-forbes-property-main.webp"
+                  alt="Luxury Saint Lucia villa property listing"
+                  class="hc-main-img"
+                  width="580" height="400"
+                  loading="eager"
+                  onerror="this.style.display='none'">
+                <div class="hc-main-grad" aria-hidden="true"></div>
+                <div class="hc-location" aria-label="Location: Rodney Bay, Saint Lucia">
+                  <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                  <span>Rodney Bay, Saint Lucia</span>
+                </div>
+                <div class="hc-price" aria-label="Property from EC$1.2 million">
+                  <div class="hcp-label">Starting From</div>
+                  <div class="hcp-price">EC$1.2M</div>
+                </div>
+              </div>
+              <div class="hc-secondary">
+                <span class="hc-sec-illus" aria-hidden="true">🌴</span>
+                <img
+                  src="../images/kezia-forbes-property-secondary.webp"
+                  alt="Saint Lucia land and ocean view property"
+                  class="hc-sec-img"
+                  width="320" height="190"
+                  loading="eager"
+                  onerror="this.style.display='none'">
+              </div>
+              <div class="hc-agent-card" aria-label="Kezia Forbes agent card">
+                <div class="hcac-avatar" aria-hidden="true">KF</div>
+                <div>
+                  <div class="hcac-name">Kezia Forbes</div>
+                  <div class="hcac-stars" aria-label="5 stars">★★★★★</div>
+                  <div class="hcac-title">Licensed Agent · Saint Lucia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip-kf" aria-label="Trust credentials">
+    <div class="container">
+      <div class="ts-items-kf" role="list">
+        <div class="ts-item-kf" role="listitem"><div class="ts-icon-kf" aria-hidden="true"><i class="bi bi-award-fill" aria-hidden="true"></i></div> Licensed Agent — Saint Lucia</div>
+        <div class="ts-item-kf" role="listitem"><div class="ts-icon-kf" aria-hidden="true"><i class="bi bi-house-fill" aria-hidden="true"></i></div> 120+ Properties Sold</div>
+        <div class="ts-item-kf" role="listitem"><div class="ts-icon-kf" aria-hidden="true"><i class="bi bi-globe2" aria-hidden="true"></i></div> International Buyers Welcome</div>
+        <div class="ts-item-kf" role="listitem"><div class="ts-icon-kf" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div> 4.9★ Client Rating</div>
+        <div class="ts-item-kf" role="listitem"><div class="ts-icon-kf" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div> Direct WhatsApp Access</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPERTY TYPES -->
+  <section class="sec" id="properties" style="background:var(--bg);" aria-label="Property types">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-7 reveal">
+          <div class="sec-eyebrow-kf">What's Available</div>
+          <h2 class="sec-h2-kf">Every Kind of Property,<br><em>One Trusted Agent</em></h2>
+          <div class="terra-rule" aria-hidden="true"></div>
+          <p class="sec-para-kf">
+            From family homes in Castries to hilltop villas above Soufrière, 
+            beachfront land in the north to investment properties across the island — 
+            Kezia Forbes knows the Saint Lucia market at every price point 
+            and in every community.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 reveal">
+        <div class="col-md-6 col-lg-3">
+          <div class="prop-card">
+            <div class="prop-icon" aria-hidden="true"><i class="bi bi-house-fill" aria-hidden="true"></i></div>
+            <div class="prop-type">Residential</div>
+            <h3 class="prop-name">Family Homes</h3>
+            <p class="prop-desc">Townhouses, detached homes, and starter properties across Castries, Gros Islet, Vieux-Fort, and surrounding communities.</p>
+            <div class="prop-range">EC$250K – EC$900K</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="prop-card">
+            <div class="prop-icon" aria-hidden="true"><i class="bi bi-building" aria-hidden="true"></i></div>
+            <div class="prop-type">Luxury</div>
+            <h3 class="prop-name">Villas &amp; Estates</h3>
+            <p class="prop-desc">Ocean-view, hillside, and beachfront luxury properties — from boutique gated communities to fully-staffed private estates.</p>
+            <div class="prop-range">EC$1.2M – EC$8M+</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="prop-card">
+            <div class="prop-icon" aria-hidden="true"><i class="bi bi-map-fill" aria-hidden="true"></i></div>
+            <div class="prop-type">Land</div>
+            <h3 class="prop-name">Land &amp; Lots</h3>
+            <p class="prop-desc">Agricultural, residential, and commercial land across the island — including titled oceanfront and mountain-view lots.</p>
+            <div class="prop-range">EC$80K – EC$2M+</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="prop-card">
+            <div class="prop-icon" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+            <div class="prop-type">Investment</div>
+            <h3 class="prop-name">Investment Property</h3>
+            <p class="prop-desc">Rental income properties, Airbnb-ready villas, commercial buildings, and hotel/resort opportunity acquisitions.</p>
+            <div class="prop-range">EC$300K – EC$5M+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ UNIQUE: PROPERTY FINDER QUIZ -->
+  <section class="sec" id="finder" style="background:var(--bg-2);" aria-label="Property finder quiz">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-kf">Property Finder</div>
+          <h2 class="sec-h2-kf">Tell Me What<br><em>You're Looking For</em></h2>
+          <div class="terra-rule" aria-hidden="true"></div>
+          <p class="sec-para-kf">
+            Every buyer, seller, and investor comes with a different situation. 
+            Answer three quick questions and I'll show you exactly what I can 
+            do for yours — and send a pre-filled message to start our conversation properly.
+          </p>
+          <p class="sec-para-kf" style="margin-top:.9rem;">
+            No obligation. No pressure. Just the right starting point.
+          </p>
+          <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:.72rem;">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--terra);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.88rem;color:var(--text-m);">Three questions. Under a minute.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--terra);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.88rem;color:var(--text-m);">Generates a tailored WhatsApp message</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--terra);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.88rem;color:var(--text-m);">No data stored — private and fast</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 reveal">
+          <div class="finder-widget" role="region" aria-label="Property finder quiz">
+
+            <div class="fw-header">
+              <div class="fw-header-icon" aria-hidden="true"><i class="bi bi-search-heart" aria-hidden="true"></i></div>
+              <div>
+                <div class="fw-header-title">Saint Lucia Property Finder</div>
+                <div class="fw-header-sub">Tell me what you need — I'll tell you what's possible</div>
+              </div>
+              <span class="fw-tag">Interactive</span>
+            </div>
+
+            <div class="fw-body">
+
+              <!-- Step 1: Goal -->
+              <div class="fw-step active" id="fwStep1" role="group" aria-label="What are you looking to do?">
+                <div class="fw-step-header">
+                  <div class="fw-step-label">Step 1 of 3 — What are you looking to do?</div>
+                  <div class="fw-progress" aria-hidden="true">
+                    <div class="fw-progress-dot done" id="pd1"></div>
+                    <div class="fw-progress-dot" id="pd2"></div>
+                    <div class="fw-progress-dot" id="pd3"></div>
+                  </div>
+                </div>
+                <div class="fw-options" role="radiogroup" aria-label="Goal selection">
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="buy" onclick="fwSelect(this,'goal')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'goal')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏡</span>
+                    <div class="fw-opt-label">Buy a Property</div>
+                    <div class="fw-opt-sub">Find my new home or investment</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="sell" onclick="fwSelect(this,'goal')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'goal')">
+                    <span class="fw-opt-emoji" aria-hidden="true">💰</span>
+                    <div class="fw-opt-label">Sell a Property</div>
+                    <div class="fw-opt-sub">Get the best price for mine</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="invest" onclick="fwSelect(this,'goal')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'goal')">
+                    <span class="fw-opt-emoji" aria-hidden="true">📈</span>
+                    <div class="fw-opt-label">Invest</div>
+                    <div class="fw-opt-sub">Rental income or capital growth</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="relocate" onclick="fwSelect(this,'goal')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'goal')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🌴</span>
+                    <div class="fw-opt-label">Relocate to Saint Lucia</div>
+                    <div class="fw-opt-sub">International move or diaspora return</div>
+                  </div>
+                </div>
+                <div class="fw-btn-row">
+                  <button class="fw-btn-next" id="fwNext1" aria-label="Continue to budget" onclick="fwNextStep(1)">
+                    Continue <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Budget -->
+              <div class="fw-step" id="fwStep2" role="group" aria-label="What is your budget?">
+                <div class="fw-step-header">
+                  <div class="fw-step-label">Step 2 of 3 — What is your budget?</div>
+                  <div class="fw-progress" aria-hidden="true">
+                    <div class="fw-progress-dot done"></div>
+                    <div class="fw-progress-dot done"></div>
+                    <div class="fw-progress-dot" id="pd3b"></div>
+                  </div>
+                </div>
+                <div class="fw-options" role="radiogroup" aria-label="Budget selection">
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="under500" onclick="fwSelect(this,'budget')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'budget')">
+                    <span class="fw-opt-emoji" aria-hidden="true">💼</span>
+                    <div class="fw-opt-label">Under EC$500K</div>
+                    <div class="fw-opt-sub">Entry-level &amp; starter homes</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="500to1m" onclick="fwSelect(this,'budget')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'budget')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏠</span>
+                    <div class="fw-opt-label">EC$500K – EC$1M</div>
+                    <div class="fw-opt-sub">Mid-range residential</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="1mto3m" onclick="fwSelect(this,'budget')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'budget')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏡</span>
+                    <div class="fw-opt-label">EC$1M – EC$3M</div>
+                    <div class="fw-opt-sub">Premium &amp; executive homes</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="over3m" onclick="fwSelect(this,'budget')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'budget')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🌟</span>
+                    <div class="fw-opt-label">EC$3M+</div>
+                    <div class="fw-opt-sub">Luxury villas &amp; estates</div>
+                  </div>
+                </div>
+                <div class="fw-btn-row">
+                  <button class="fw-btn-back" onclick="fwGoBack(1)" aria-label="Go back to previous step">← Back</button>
+                  <button class="fw-btn-next" id="fwNext2" aria-label="Continue to property type" onclick="fwNextStep(2)">
+                    Continue <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Property Type -->
+              <div class="fw-step" id="fwStep3" role="group" aria-label="What type of property?">
+                <div class="fw-step-header">
+                  <div class="fw-step-label">Step 3 of 3 — What type of property?</div>
+                  <div class="fw-progress" aria-hidden="true">
+                    <div class="fw-progress-dot done"></div>
+                    <div class="fw-progress-dot done"></div>
+                    <div class="fw-progress-dot done"></div>
+                  </div>
+                </div>
+                <div class="fw-options" role="radiogroup" aria-label="Property type selection">
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="home" onclick="fwSelect(this,'type')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'type')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏠</span>
+                    <div class="fw-opt-label">Family Home</div>
+                    <div class="fw-opt-sub">Residential living</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="villa" onclick="fwSelect(this,'type')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'type')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏖️</span>
+                    <div class="fw-opt-label">Villa / Estate</div>
+                    <div class="fw-opt-sub">Luxury or ocean view</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="land" onclick="fwSelect(this,'type')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'type')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🗺️</span>
+                    <div class="fw-opt-label">Land / Lot</div>
+                    <div class="fw-opt-sub">Build your own</div>
+                  </div>
+                  <div class="fw-opt" role="radio" aria-checked="false" tabindex="0" data-val="commercial" onclick="fwSelect(this,'type')" onkeydown="if(event.key==='Enter'||event.key===' ')fwSelect(this,'type')">
+                    <span class="fw-opt-emoji" aria-hidden="true">🏢</span>
+                    <div class="fw-opt-label">Commercial / Rental</div>
+                    <div class="fw-opt-sub">Income-generating property</div>
+                  </div>
+                </div>
+                <div class="fw-btn-row">
+                  <button class="fw-btn-back" onclick="fwGoBack(2)" aria-label="Go back to budget">← Back</button>
+                  <button class="fw-btn-next" id="fwNext3" aria-label="Show my property match" onclick="fwShowResult()">
+                    Show My Match <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Result -->
+              <div class="fw-result" id="fwResult" role="region" aria-live="polite" aria-label="Your property match">
+                <div class="fw-result-header">
+                  <span class="fw-result-icon" id="fwrIcon" aria-hidden="true">🏡</span>
+                  <div>
+                    <div class="fw-result-title" id="fwrTitle">Buyer — Family Home</div>
+                    <div class="fw-result-sub" id="fwrSub">Based on your selections</div>
+                  </div>
+                </div>
+
+                <div class="fw-result-grid">
+                  <div class="fwr-card terra-c">
+                    <div class="fwrc-label">Your Budget</div>
+                    <div class="fwrc-val" id="fwrBudget">EC$500K – EC$1M</div>
+                  </div>
+                  <div class="fwr-card">
+                    <div class="fwrc-label">Property Type</div>
+                    <div class="fwrc-val" id="fwrType">Family Home</div>
+                  </div>
+                </div>
+
+                <p class="fw-result-desc" id="fwrDesc">
+                  Based on your selection, Kezia has a strong portfolio of options that match your profile.
+                </p>
+
+                <ul class="fw-result-points" id="fwrPoints">
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Curated shortlist of matching properties</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> No-obligation property tour arrangement</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Local area and neighbourhood guidance</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full transaction support from offer to keys</li>
+                </ul>
+
+                <a id="fwWaBtn"
+                   href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27m%20looking%20for%20a%20property%20in%20Saint%20Lucia."
+                   class="fw-wa-btn"
+                   aria-label="Message Kezia on WhatsApp with your preferences"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Message Kezia With My Preferences
+                </a>
+
+                <p class="fw-disclaimer">
+                  Kezia will respond personally with options that match your profile. No pressure — just a conversation about what's possible in Saint Lucia today.
+                </p>
+
+                <button class="fw-restart" onclick="fwRestart()" aria-label="Start the finder again">
+                  ↩ Start again
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT KEZIA -->
+  <section class="sec" id="about" style="background:var(--bg);" aria-label="About Kezia Forbes">
+    <div class="container">
+      <div class="about-grid-kf">
+
+        <div class="reveal">
+          <div style="position:relative;">
+            <div class="about-photo-kf" aria-label="Kezia Forbes professional photo">
+              <span class="about-photo-illus-kf" aria-hidden="true">🏡</span>
+              <img
+                src="../images/kezia-forbes.webp"
+                alt="Kezia Forbes — Real Estate Agent, Saint Lucia"
+                class="about-photo-real-kf"
+                width="400" height="533"
+                loading="lazy"
+                onerror="this.style.display='none'">
+            </div>
+            <div class="about-badge-kf" aria-label="120 plus properties sold">
+              <div class="abk-num">120+</div>
+              <div class="abk-label">Properties Sold</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="sec-eyebrow-kf">About Kezia</div>
+          <h2 class="sec-h2-kf">She Knows Every Road.<br><em>Every View. Every Deal.</em></h2>
+          <div class="terra-rule" aria-hidden="true"></div>
+
+          <p class="about-bio-kf">
+            Kezia Forbes grew up in Gros Islet, in the north of Saint Lucia, in a family 
+            where land ownership was not wealth — it was security. Her father bought his first 
+            lot before he could afford to build on it. That taught her, early, that 
+            property in Saint Lucia is about more than money. It is about roots.
+          </p>
+          <p class="about-bio-kf">
+            After nine years as a licensed agent, Kezia has worked with first-time buyers 
+            who didn't know where to start, diaspora professionals returning home after 
+            decades abroad, international investors attracted by Saint Lucia's stable 
+            legal framework, and families navigating difficult estate transactions. 
+            Each required something different — and each was handled with the 
+            same personal attention.
+          </p>
+          <p class="about-bio-kf">
+            What she does is not complicated to describe: she knows what is available, 
+            what it is worth, what the process involves, and how to make it work for you. 
+            What is harder to teach is the relationship she brings to every transaction 
+            — and that comes from being from here.
+          </p>
+
+          <div class="spec-chips" role="list" aria-label="Areas of specialisation">
+            <span class="spec-chip" role="listitem">Gros Islet</span>
+            <span class="spec-chip" role="listitem">Rodney Bay</span>
+            <span class="spec-chip" role="listitem">Castries</span>
+            <span class="spec-chip" role="listitem">Cap Estate</span>
+            <span class="spec-chip" role="listitem">Soufrière</span>
+            <span class="spec-chip" role="listitem">Vieux-Fort</span>
+            <span class="spec-chip" role="listitem">Marigot Bay</span>
+            <span class="spec-chip" role="listitem">Laborie</span>
+          </div>
+
+          <ul class="cred-list-kf" aria-label="Professional credentials">
+            <li class="cred-item-kf"><i class="bi bi-award-fill" aria-hidden="true"></i> Licensed Real Estate Agent — Saint Lucia Real Estate Association</li>
+            <li class="cred-item-kf"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> Diploma in Real Estate Practice — Caribbean Institute of Real Estate</li>
+            <li class="cred-item-kf"><i class="bi bi-house-fill" aria-hidden="true"></i> 9 years in active practice — residential, commercial, and land</li>
+            <li class="cred-item-kf"><i class="bi bi-globe2" aria-hidden="true"></i> International buyer experience — UK, US, Canada, and European clients</li>
+            <li class="cred-item-kf"><i class="bi bi-translate" aria-hidden="true"></i> Consultations in English and French Creole</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KEZIA BAND -->
+  <div class="why-band" aria-label="Why choose Kezia Forbes">
+    <div class="container">
+      <div class="row g-4 reveal">
+        <div class="col-sm-6 col-lg-3">
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true"><i class="bi bi-person-check-fill" aria-hidden="true"></i></div>
+            <div class="why-title">Personal Attention</div>
+            <div class="why-desc">Kezia handles every client personally — you will always be talking to her, not an assistant.</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+            <div class="why-title">True Local Knowledge</div>
+            <div class="why-desc">Born and raised in Saint Lucia. She knows what the listings don't say — the neighbours, the flooding risks, the best views.</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true"><i class="bi bi-shield-fill-check" aria-hidden="true"></i></div>
+            <div class="why-title">Honest Counsel</div>
+            <div class="why-desc">She will tell you when a property is not right for you, even if that means the deal doesn't close. Clients trust her because of this.</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
+            <div class="why-title">End-to-End Support</div>
+            <div class="why-desc">From first viewing to signed title — legal referrals, inspection guidance, and financing connections all managed through one relationship.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT TESTIMONIALS — PREMIUM BLUR -->
+  <section class="sec" style="background:var(--bg);" id="contact" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-kf">Client Stories</div>
+          <h2 class="sec-h2-kf">What Clients Say<br><em>After the Keys</em></h2>
+          <div class="terra-rule" aria-hidden="true"></div>
+          <p class="sec-para-kf">Verified reviews from buyers, sellers, and investors. Names shared with permission.</p>
+        </div>
+      </div>
+      <div class="premium-wrap" aria-label="Client testimonials — professional profile feature">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="rv-kf">
+                <div class="rv-stars-kf" aria-label="5 stars">★★★★★</div>
+                <p class="rv-quote-kf">"Kezia found us a property we didn't even know we were looking for. We came in with a budget and a checklist. She came back with something that ticked everything we hadn't thought to write down. She just knew."</p>
+                <div class="rv-name-kf">Marcus &amp; Sandra T.</div>
+                <div class="rv-detail-kf">Residential purchase · Rodney Bay</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-kf">
+                <div class="rv-stars-kf" aria-label="5 stars">★★★★★</div>
+                <p class="rv-quote-kf">"I've been living in the UK for 22 years and buying property back home felt complicated and distant. Kezia handled everything via WhatsApp. I signed on a Friday. She sent me photos on my lunch break. I never once felt out of the loop."</p>
+                <div class="rv-name-kf">Diane C.</div>
+                <div class="rv-detail-kf">Diaspora purchase · Vieux-Fort</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-kf">
+                <div class="rv-stars-kf" aria-label="5 stars">★★★★★</div>
+                <p class="rv-quote-kf">"We were investors — we didn't need her to hold our hands. We needed someone who knew values, timelines, and wouldn't waste our time. Kezia was exactly that. Transaction closed in six weeks. Rental occupied in eight."</p>
+                <div class="rv-name-kf">P. Augustin</div>
+                <div class="rv-detail-kf">Investment property · Cap Estate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box-kf">
+            <div class="unlock-icon-kf" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <span class="unlock-pill-kf">Caribbean Professional · $250–$450</span>
+            <h5>Client Testimonials</h5>
+            <p>Verified client stories with names and transaction details are the single most persuasive trust signal a real estate agent's profile can carry. Included in the Caribbean Professional build.</p>
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20real%20estate%20agent%20profile%20build%20with%20client%20testimonials."
+               class="btn-wa-kf" style="font-size:.82rem;padding:.65rem 1.3rem;"
+               aria-label="Enquire about a professional profile build"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Contact Kezia Forbes">
+    <div class="container">
+      <div class="cta-kf reveal">
+        <div class="cta-bg-word-kf" aria-hidden="true">Find</div>
+        <div class="cta-inner-kf">
+          <div class="cta-tag-kf">Your Property. Your Timeline. Your Terms.</div>
+          <h2 class="cta-h2-kf">
+            Saint Lucia Is Waiting.<br>
+            <em>Let's Find Yours.</em>
+          </h2>
+          <p class="cta-para-kf">
+            Whether you're ready to buy this month or just starting to explore what's possible — 
+            Kezia Forbes is the best first conversation you can have about property in Saint Lucia. 
+            No pressure. No jargon. Just real guidance.
+          </p>
+          <div class="cta-btn-group-kf">
+            <a href="#finder" class="btn-terra-kf" style="font-size:.92rem;padding:1rem 2.2rem;" aria-label="Use the property finder">
+              <i class="bi bi-search-heart" aria-hidden="true"></i> Find Your Property
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20start%20a%20conversation%20about%20property%20in%20Saint%20Lucia.%20Can%20we%20talk?"
+               class="btn-wa-kf" style="font-size:.92rem;padding:1rem 2rem;"
+               aria-label="Message Kezia on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Message Kezia
+            </a>
+          </div>
+          <p class="cta-note-kf">
+            <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+            Licensed Agent · Saint Lucia &nbsp;·&nbsp; 9 Years Experience &nbsp;·&nbsp; Response within one business day
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-kf" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-monogram" aria-hidden="true">KF</div>
+          <div class="fl-name">Kezia <em>Forbes</em></div>
+          <div class="fl-sub">Licensed Real Estate Agent · Saint Lucia</div>
+          <p class="fl-about">9 years. 120+ properties sold. Residential, villa, land, and investment property across Saint Lucia. International buyers welcome.</p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Properties</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#properties">Family Homes</a></li>
+            <li><a href="#properties">Villas &amp; Estates</a></li>
+            <li><a href="#properties">Land &amp; Lots</a></li>
+            <li><a href="#properties">Investment Property</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Kezia</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#finder">Property Finder</a></li>
+            <li><a href="#about">About Kezia</a></li>
+            <li><a href="#contact">Client Stories</a></li>
+            <li><a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20discuss%20a%20property%20in%20Saint%20Lucia." target="_blank" rel="noopener noreferrer">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Start a Conversation</div>
+          <div class="fl-wa-box">
+            <p>Whether you're buying, selling, investing, or relocating — message Kezia directly. She responds personally and will give you an honest answer from the first message.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20Kezia%2C%20I%27d%20like%20to%20discuss%20a%20property%20in%20Saint%20Lucia."
+               class="fl-wa-btn" aria-label="Message Kezia Forbes on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Message Kezia
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 Kezia Forbes. All rights reserved. Demonstration profile — <a href="https://jamalinks758.github.io/jamalinks/profiles.html" target="_blank" rel="noopener noreferrer">built by JAMALINKS</a>.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+    function applyTheme(dark) {
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      themeLabel.textContent = dark ? 'Light' : 'Dark';
+    }
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
+
+    // ===== PROPERTY FINDER QUIZ =====
+    let fwGoal = null, fwBudget = null, fwType = null;
+
+    const goalLabels = { buy: 'Buyer', sell: 'Seller', invest: 'Investor', relocate: 'Relocation' };
+    const budgetLabels = { under500: 'Under EC$500K', '500to1m': 'EC$500K – EC$1M', '1mto3m': 'EC$1M – EC$3M', over3m: 'EC$3M+' };
+    const typeLabels = { home: 'Family Home', villa: 'Villa / Estate', land: 'Land / Lot', commercial: 'Commercial / Rental' };
+    const typeIcons = { home: '🏠', villa: '🏖️', land: '🗺️', commercial: '🏢' };
+
+    const resultData = {
+      buy: {
+        home: { desc: "Family homes across Saint Lucia's most desirable residential areas — Gros Islet, Castries, Vieux-Fort, and beyond. Kezia maintains an up-to-date list of properties in your budget range that aren't all on public listing sites yet.", points: ['Curated shortlist of matching properties in your budget', 'Private viewings arranged at your convenience', 'Neighbourhood guide — schools, amenities, travel times', 'Offer strategy and negotiation support', 'Full legal referral and title transfer guidance'] },
+        villa: { desc: "Saint Lucia's luxury villa market is discreet — the best properties rarely reach public listings. Kezia has established relationships with sellers and developers that give her clients first access to ocean-view and hillside estates.", points: ['Off-market and pre-listing villa access', 'Ocean view and beachfront options prioritised', 'Rental income projection if investment-relevant', 'Property inspection and due diligence guidance', 'Trusted legal and financing referral network'] },
+        land: { desc: "Titled land with clear ownership is available across Saint Lucia — from residential lots in established communities to raw agricultural land with development potential. Kezia knows which titles are clean and which to avoid.", points: ['Title verification and legal history check', 'Planning and development potential assessment', 'Agricultural, residential, and commercial lots available', 'Site visits arranged island-wide', 'Building contractor referrals available'] },
+        commercial: { desc: "Rental income properties, Airbnb-ready villas, and commercial buildings represent some of Saint Lucia's most consistent investment opportunities — especially in the north and the growing south.", points: ['Rental yield data and occupancy projections', 'Airbnb-ready and hotel-adjacent properties available', 'Commercial lease and freehold options', 'Property management referral network', 'Exit strategy and resale value guidance'] }
+      },
+      sell: {
+        home: { desc: "Kezia will assess your property honestly, price it correctly for the current Saint Lucia market, and present it to a buyer network that includes both local and international clients — many of whom have already expressed interest before a property is publicly listed.", points: ['Accurate market valuation with comparables', 'Professional presentation guidance', 'Buyer network — local, diaspora, and international', 'Negotiation representation throughout the process', 'Transaction management from offer to completion'] },
+        villa: { desc: "Luxury properties require discreet marketing to the right buyers. Kezia manages villa listings with confidentiality, matching sellers directly with pre-qualified international buyers and diaspora clients.", points: ['Discreet marketing to qualified buyers only', 'International buyer network — UK, US, Canada, Europe', 'Staging and photography guidance', 'Pricing strategy for current luxury market conditions', 'Full transaction management with legal referral'] },
+        land: { desc: "Land in Saint Lucia is frequently undervalued because sellers don't know what comparable plots have achieved. Kezia will value your land accurately and find buyers who recognise its potential.", points: ['Current market valuation with comparable sales', 'Developer and investor buyer network', 'Clean title guidance before listing', 'Negotiation support throughout the sale', 'Transfer and conveyancing referral network'] },
+        commercial: { desc: "Commercial and income property sales require buyers who understand returns and timelines. Kezia connects sellers with investors who have already been briefed on Saint Lucia's investment market.", points: ['Investment buyer network — local and international', 'Income verification and rental history presentation', 'Accurate commercial valuation methodology', 'Lease and lease-back structure guidance', 'Transaction management and legal referral'] }
+      },
+      invest: {
+        home: { desc: "Residential property in Saint Lucia's most established communities has delivered consistent appreciation over the past decade, with strong rental demand from professionals and families across the island.", points: ['Current rental yield data by area and property type', 'Short-term and long-term rental demand analysis', 'Properties with existing tenants available', 'Management company referrals', 'Exit strategy and resale projection'] },
+        villa: { desc: "Saint Lucia's villa rental market is driven by a year-round tourism industry — including high-season occupancy rates that make properly positioned villas some of the highest-yielding investments in the Eastern Caribbean.", points: ['Tourism rental yield projections by location', 'Hotel-adjacent and oceanfront options available', 'Airbnb and luxury rental platform history where available', 'Management and staffing referral network', 'Capital appreciation data for comparable villas'] },
+        land: { desc: "Undeveloped land in high-growth corridors — particularly in the north around Gros Islet and the south near Vieux-Fort International Airport — has consistently outperformed residential property over 5+ year investment horizons.", points: ['Growth corridor identification and analysis', 'Planning permission assessment for development potential', 'Comparable land price appreciation data', 'Development partner referrals if needed', 'Title and survey verification guidance'] },
+        commercial: { desc: "Income-generating commercial property across Saint Lucia — from retail space to multi-unit residential — offers stable returns when properly acquired and managed.", points: ['Income verification and lease review', 'Occupancy rate history and tenant quality assessment', 'Commercial valuation and yield analysis', 'Management referrals for hands-off investment', 'Acquisition financing referral network'] }
+      },
+      relocate: {
+        home: { desc: "Kezia has guided dozens of diaspora professionals and international relocators through the process of finding a permanent home in Saint Lucia — handling the local complexity so the transition is smooth from wherever you're coming from.", points: ['Remote consultation — WhatsApp, video call, or in-person', 'Neighbourhood matching based on lifestyle and priorities', 'Schools, healthcare, and services briefing', 'Rental options while you search if needed', 'Full relocation support network — legal, finance, logistics'] },
+        villa: { desc: "International buyers moving to Saint Lucia often seek lifestyle properties — ocean views, privacy, and proximity to the north's amenities. Kezia maintains a curated selection of relocation-ready villas.", points: ['CARICOM and international buyer process guidance', 'Alien Land Holding Licence (ALHL) process explained', 'Remote property tours via WhatsApp video', 'Trusted legal network for international transactions', 'Community integration and local network support'] },
+        land: { desc: "Building your own home on Saint Lucian land is increasingly popular among returning diaspora and international buyers seeking a personalised living situation. Kezia can guide you from plot selection through to builder referrals.", points: ['ALHL requirement guidance for international buyers', 'Residential lot selection by location and price', 'Planning and building approval process overview', 'Trusted architect and contractor referrals', 'Title survey and legal support network'] },
+        commercial: { desc: "Relocating professionals and entrepreneurs often seek income-generating property alongside their personal residence. Kezia can manage both searches simultaneously, coordinating timelines and transactions.", points: ['Combined residential and commercial search management', 'Business registration and licensing referral', 'Rental income to offset property costs guidance', 'Local business community introduction', 'Full transaction support for both acquisitions'] }
+      }
+    };
+
+    function fwSelect(el, field) {
+      const container = el.parentElement;
+      container.querySelectorAll('.fw-opt').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+      el.classList.add('selected');
+      el.setAttribute('aria-checked', 'true');
+
+      if (field === 'goal')   { fwGoal   = el.dataset.val; document.getElementById('fwNext1').classList.add('ready'); }
+      if (field === 'budget') { fwBudget = el.dataset.val; document.getElementById('fwNext2').classList.add('ready'); }
+      if (field === 'type')   { fwType   = el.dataset.val; document.getElementById('fwNext3').classList.add('ready'); }
+    }
+
+    function fwNextStep(from) {
+      document.getElementById('fwStep' + from).classList.remove('active');
+      document.getElementById('fwStep' + (from + 1)).classList.add('active');
+    }
+
+    function fwGoBack(to) {
+      document.getElementById('fwStep' + (to + 1)).classList.remove('active');
+      document.getElementById('fwStep' + to).classList.add('active');
+    }
+
+    function fwShowResult() {
+      if (!fwGoal || !fwBudget || !fwType) return;
+
+      const data = resultData[fwGoal]?.[fwType];
+      if (!data) return;
+
+      document.getElementById('fwrIcon').textContent = typeIcons[fwType];
+      document.getElementById('fwrTitle').textContent = goalLabels[fwGoal] + ' — ' + typeLabels[fwType];
+      document.getElementById('fwrSub').textContent = 'Budget: ' + budgetLabels[fwBudget];
+      document.getElementById('fwrBudget').textContent = budgetLabels[fwBudget];
+      document.getElementById('fwrType').textContent = typeLabels[fwType];
+      document.getElementById('fwrDesc').textContent = data.desc;
+
+      const points = document.getElementById('fwrPoints');
+      points.innerHTML = data.points.map(p =>
+        `<li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>${p}</li>`
+      ).join('');
+
+      const msg = encodeURIComponent(
+        `Hi Kezia, I used the Property Finder on your profile. ` +
+        `Here are my preferences:\n\n` +
+        `Goal: ${goalLabels[fwGoal]}\n` +
+        `Budget: ${budgetLabels[fwBudget]}\n` +
+        `Property Type: ${typeLabels[fwType]}\n\n` +
+        `I'd love to start a conversation about what's available.`
+      );
+      document.getElementById('fwWaBtn').href = `https://wa.me/17587235872?text=${msg}`;
+
+      ['fwStep1','fwStep2','fwStep3'].forEach(id => document.getElementById(id).classList.remove('active'));
+      document.getElementById('fwResult').classList.add('active');
+    }
+
+    function fwRestart() {
+      fwGoal = null; fwBudget = null; fwType = null;
+      document.querySelectorAll('.fw-opt').forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-checked', 'false');
+      });
+      ['fwNext1','fwNext2','fwNext3'].forEach(id => document.getElementById(id).classList.remove('ready'));
+      document.getElementById('fwResult').classList.remove('active');
+      document.getElementById('fwStep1').classList.add('active');
+    }
+
+    // ===== SCROLL REVEAL =====
+    const revEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
