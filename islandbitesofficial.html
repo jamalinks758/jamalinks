@@ -429,34 +429,33 @@ nav {
   box-shadow: 0 0 0 1px rgba(245,166,35,0.3), 0 12px 40px rgba(0,0,0,0.3);
 }
 
-/* emoji header */
+/* photo header */
 .food-card-top {
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 210px;
   position: relative;
   overflow: hidden;
+  background: var(--dark3);
 }
 
-.food-card-bg {
+.food-card-img {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-  transition: opacity 0.3s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.94) saturate(1.05);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s;
 }
 
-.food-card:hover .food-card-bg { opacity: 0.22; }
+.food-card:hover .food-card-img { transform: scale(1.08); filter: brightness(1) saturate(1.1); }
 
-.food-emoji {
-  font-size: 4rem;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+.food-card-top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,12,9,0) 45%, rgba(15,12,9,0.92) 100%);
+  pointer-events: none;
 }
-
-.food-card:hover .food-emoji { transform: scale(1.18) translateY(-4px); }
 
 .food-badge {
   position: absolute;
@@ -690,7 +689,13 @@ nav {
   animation: fadeUp 0.3s ease both;
 }
 
-.ci-emoji { font-size: 2rem; flex-shrink: 0; }
+.ci-photo {
+  width: 46px; height: 46px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
 
 .ci-info { flex: 1; }
 
@@ -1220,55 +1225,73 @@ const DELIVERY_FEE = 15;
 
 const menu = [
   {
-    id: 1, cat: 'Mains', emoji: '🍗', name: 'Fried Chicken Meal',
+    id: 1, cat: 'Mains', emoji: '🍗',
+    img: 'https://images.unsplash.com/photo-1757715376249-b2a3e943cdf5?auto=format&fit=crop&w=900&q=80',
+    name: 'Fried Chicken Meal',
     desc: 'Crispy golden chicken — seasoned Caribbean-style and fried to perfection.',
     includes: ['Seasoned Fries', 'Coleslaw', 'Dipping Sauce'],
     price: 25, badge: 'Best Seller', badgeClass: '', color: '#e8430a'
   },
   {
-    id: 2, cat: 'Mains', emoji: '🐟', name: 'Grilled Fish Plate',
+    id: 2, cat: 'Mains', emoji: '🐟',
+    img: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=900&q=80',
+    name: 'Grilled Fish Plate',
     desc: 'Freshly caught fish, grilled with local herbs and served with your sides.',
     includes: ['White Rice', 'Garden Salad', 'Lime Wedge'],
     price: 30, badge: 'Fresh Catch', badgeClass: 'gold-badge', color: '#2d9e5f'
   },
   {
-    id: 3, cat: 'Burgers', emoji: '🍔', name: 'Classic Burger Combo',
+    id: 3, cat: 'Burgers', emoji: '🍔',
+    img: 'https://images.unsplash.com/photo-1550949875-181c4577566b?auto=format&fit=crop&w=900&q=80',
+    name: 'Classic Burger Combo',
     desc: 'Hand-pressed beef patty, lettuce, tomato, and our signature island sauce.',
     includes: ['Seasoned Fries', 'Soft Drink', 'Coleslaw'],
     price: 22, badge: '', badgeClass: '', color: '#c0380a'
   },
   {
-    id: 4, cat: 'Mains', emoji: '🍛', name: 'Curry Chicken & Rice',
+    id: 4, cat: 'Mains', emoji: '🍛',
+    img: 'https://images.unsplash.com/photo-1768179669433-bd9d52949c20?auto=format&fit=crop&w=900&q=80',
+    name: 'Curry Chicken & Rice',
     desc: 'Slow-cooked curry chicken in a rich, aromatic sauce. A local staple done right.',
     includes: ['White Rice', 'Roti', 'Chutney'],
     price: 28, badge: 'Local Fave', badgeClass: 'gold-badge', color: '#f5a623'
   },
   {
-    id: 5, cat: 'Sides', emoji: '🍟', name: 'Loaded Fries',
+    id: 5, cat: 'Sides', emoji: '🍟',
+    img: 'https://images.unsplash.com/photo-1639744210631-209fce3e256c?auto=format&fit=crop&w=900&q=80',
+    name: 'Loaded Fries',
     desc: 'Crispy fries piled with cheese sauce, peppers, and seasoned ground beef.',
     includes: ['Cheese Sauce', 'Jalapeños', 'Sour Cream'],
     price: 16, badge: '', badgeClass: '', color: '#d4a800'
   },
   {
-    id: 6, cat: 'Burgers', emoji: '🌶️', name: 'Spicy Jerk Burger',
+    id: 6, cat: 'Burgers', emoji: '🌶️',
+    img: 'https://images.unsplash.com/photo-1707750795395-f9a4cababde9?auto=format&fit=crop&w=900&q=80',
+    name: 'Spicy Jerk Burger',
     desc: 'Jerk-marinated chicken fillet with pepper jack cheese and mango slaw. Heat lovers only.',
     includes: ['Seasoned Fries', 'Mango Slaw', 'Scotch Bonnet Mayo'],
     price: 26, badge: '🌶 Hot', badgeClass: '', color: '#e8430a'
   },
   {
-    id: 7, cat: 'Seafood', emoji: '🦐', name: 'Garlic Shrimp Plate',
+    id: 7, cat: 'Seafood', emoji: '🦐',
+    img: 'https://images.unsplash.com/photo-1599655345131-6eb73b81d8d6?auto=format&fit=crop&w=900&q=80',
+    name: 'Garlic Shrimp Plate',
     desc: 'Plump shrimp sautéed in butter, garlic, and island spices. Rich and unforgettable.',
     includes: ['Coconut Rice', 'Plantain', 'Garlic Bread'],
     price: 35, badge: 'Chef\'s Pick', badgeClass: 'gold-badge', color: '#f97316'
   },
   {
-    id: 8, cat: 'Sides', emoji: '🌿', name: 'Festival & Saltfish',
+    id: 8, cat: 'Sides', emoji: '🌿',
+    img: 'https://images.unsplash.com/photo-1760047550367-3d72fa3053c5?auto=format&fit=crop&w=900&q=80',
+    name: 'Festival & Saltfish',
     desc: 'Sweet fried festival dumplings served with seasoned saltfish. A Saint Lucian classic.',
     includes: ['Fried Festival', 'Salted Cod', 'Hot Sauce'],
     price: 18, badge: 'Local', badgeClass: '', color: '#4cca82'
   },
   {
-    id: 9, cat: 'Drinks', emoji: '🥤', name: 'Island Cooler',
+    id: 9, cat: 'Drinks', emoji: '🥤',
+    img: 'https://images.unsplash.com/photo-1625321643320-5321f48312b2?auto=format&fit=crop&w=900&q=80',
+    name: 'Island Cooler',
     desc: 'Rotating local drink of the day — sorrel, tamarind, or passion fruit. Ask us what\'s on.',
     includes: ['Large Cup', 'Ice', 'Choice of Flavour'],
     price: 8, badge: 'Daily Special', badgeClass: 'gold-badge', color: '#8b5cf6'
@@ -1312,9 +1335,8 @@ function renderGrid() {
     return `
     <div class="food-card ${qty > 0 ? 'in-cart' : ''}" id="card-${item.id}">
       <div class="food-card-top">
-        <div class="food-card-bg" style="background:radial-gradient(circle,${item.color},transparent 70%)"></div>
+        <img class="food-card-img" src="${item.img}" alt="${item.name}" loading="lazy">
         ${item.badge ? `<div class="food-badge ${item.badgeClass}">${item.badge}</div>` : ''}
-        <div class="food-emoji">${item.emoji}</div>
       </div>
       <div class="food-card-body">
         <div class="food-category-tag">${item.cat}</div>
@@ -1416,7 +1438,7 @@ function renderCart() {
   } else {
     document.getElementById('cartBody').innerHTML = items.map(i => `
       <div class="cart-item">
-        <span class="ci-emoji">${i.item.emoji}</span>
+        <img class="ci-photo" src="${i.item.img}" alt="${i.item.name}">
         <div class="ci-info">
           <div class="ci-name">${i.item.name}</div>
           <div class="ci-price">$${i.item.price} each</div>
@@ -1503,4 +1525,3 @@ observeReveal();
 </script>
 </body>
 </html>
-
