@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MassageWave Spa — Luxury Massage &amp; Wellness in Saint Lucia</title>
+<meta name="description" content="Restore balance, renew your body and calm your mind at MassageWave Spa. Swedish, deep tissue, hot stone and aromatherapy massage — book your session on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:title" content="MassageWave Spa — Restore Balance. Renew Your Body. Calm Your Mind.">
+<meta property="og:description" content="Luxury massage and wellness treatments in Saint Lucia. Book your session on WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DaySpa",
+  "name": "MassageWave Spa",
+  "description": "Luxury massage and wellness spa offering Swedish, deep tissue, hot stone and aromatherapy treatments.",
+  "priceRange": "EC$150-EC$650"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#1B5E5A;
+    --teal-deep:#123F3C;
+    --sage:#9DB7A3;
+    --sand:#D8C3A5;
+    --gold:#C8A75A;
+    --bg:#FAF8F5;
+    --bg-alt:#F1ECE4;
+    --ink:#2D2D2D;
+    --ink-soft:#6E6B66;
+    --line:rgba(45,45,45,0.1);
+    --shadow-soft:0 24px 60px -30px rgba(27,94,90,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:0.005em;
+    color:var(--teal-deep);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+  section{position:relative;}
+  ::selection{background:var(--gold);color:#fff;}
+
+  /* ---------- DEMO BANNER ---------- */
+  .demo-banner{
+    background:var(--teal-deep);color:#F1ECE4;text-align:center;font-size:12.5px;
+    letter-spacing:.03em;padding:9px 16px;position:relative;z-index:300;
+  }
+  .demo-banner a{color:var(--gold);border-bottom:1px solid rgba(200,167,90,.5);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:250;background:rgba(250,248,245,0.9);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+    transition:box-shadow .3s ease;
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;max-width:1200px;margin:0 auto;}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--teal-deep);letter-spacing:.01em;display:flex;align-items:center;gap:8px;}
+  .logo svg{flex-shrink:0;}
+  .nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--ink);}
+  .nav-links a{position:relative;padding-bottom:4px;transition:color .2s ease;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease;}
+  .nav-links a:hover{color:var(--teal-deep);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--teal);color:#fff;padding:12px 24px;border-radius:2px;font-size:13px;
+    font-weight:600;letter-spacing:.03em;display:flex;align-items:center;gap:8px;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .nav-cta:hover{background:var(--teal-deep);transform:translateY(-1px);}
+  .burger{display:none;font-size:22px;color:var(--teal-deep);}
+  @media(max-width:900px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,#123F3C 0%,#1B5E5A 55%,#28756F 100%);
+    color:#fff;padding:80px 0 60px;
+  }
+  .hero-bg-img{
+    position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=60') center/cover;
+    opacity:.16;mix-blend-mode:overlay;
+  }
+  .leaf{position:absolute;opacity:.5;animation:drift 18s ease-in-out infinite;}
+  .leaf svg{width:100%;height:100%;}
+  @keyframes drift{
+    0%{transform:translate(0,0) rotate(0deg);}
+    50%{transform:translate(-14px,-24px) rotate(12deg);}
+    100%{transform:translate(0,0) rotate(0deg);}
+  }
+  @media(prefers-reduced-motion:reduce){.leaf{animation:none;}}
+  .wave-line{position:absolute;left:0;right:0;bottom:-1px;line-height:0;}
+  .hero-content{position:relative;z-index:2;max-width:680px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:12px;margin-bottom:26px;font-weight:600;
+  }
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--gold);}
+  .hero h1{font-size:clamp(40px,6vw,72px);color:#fff;margin-bottom:24px;}
+  .hero h1 em{font-style:italic;color:var(--sand);}
+  .hero p.lede{font-size:18px;color:rgba(255,255,255,.82);max-width:480px;margin-bottom:38px;font-weight:400;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold);color:var(--teal-deep);padding:16px 32px;border-radius:2px;
+    font-weight:700;font-size:14px;letter-spacing:.02em;display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 20px 40px -16px rgba(200,167,90,.6);transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 24px 46px -14px rgba(200,167,90,.75);}
+  .btn-outline{
+    border:1px solid rgba(255,255,255,.4);color:#fff;padding:16px 30px;border-radius:2px;
+    font-weight:600;font-size:14px;letter-spacing:.02em;transition:border-color .25s ease, background .25s ease;
+  }
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+
+  /* ---------- MARQUEE / STATS BAND ---------- */
+  .stats-band{background:var(--bg-alt);padding:34px 0;border-bottom:1px solid var(--line);}
+  .stats-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .stat{text-align:center;flex:1;min-width:140px;}
+  .stat b{display:block;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--teal);}
+  .stat span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase;}
+
+  /* ---------- SECTION HEADS ---------- */
+  .sec-head{max-width:600px;margin:0 auto 56px;text-align:center;}
+  .sec-head .eyebrow{color:var(--teal);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--teal);}
+  .sec-head h2{font-size:clamp(32px,4.4vw,48px);}
+  .sec-head p{color:var(--ink-soft);font-size:16px;margin-top:16px;}
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why-sec{padding:110px 0;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:44px 34px;text-align:center;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+  .why-icon{
+    width:60px;height:60px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;
+    justify-content:center;margin:0 auto 22px;color:var(--teal);
+  }
+  .why-card h3{font-size:23px;margin-bottom:12px;}
+  .why-card p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- TREATMENTS ---------- */
+  .treat-sec{padding:110px 0;background:var(--bg-alt);}
+  .treat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:960px){.treat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.treat-grid{grid-template-columns:1fr;}}
+  .treat-card{
+    background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 10px 30px -18px rgba(27,94,90,.25);
+    transition:transform .35s ease, box-shadow .35s ease;display:flex;flex-direction:column;
+  }
+  .treat-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-soft);}
+  .treat-img{height:210px;overflow:hidden;}
+  .treat-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .treat-card:hover .treat-img img{transform:scale(1.09);}
+  .treat-body{padding:28px 26px 26px;flex:1;display:flex;flex-direction:column;}
+  .treat-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .treat-top h3{font-size:24px;}
+  .treat-price{font-family:'Inter',sans-serif;font-weight:700;color:var(--teal);font-size:16px;white-space:nowrap;}
+  .treat-duration{font-size:12px;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
+  .treat-body p.desc{font-size:14px;color:var(--ink-soft);margin-bottom:18px;flex:1;}
+  .treat-book{
+    font-size:13px;font-weight:700;color:var(--teal);border-bottom:1px solid var(--teal);
+    align-self:flex-start;padding-bottom:2px;transition:color .2s ease, border-color .2s ease;
+  }
+  .treat-book:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- PACKAGES ---------- */
+  .pkg-sec{padding:110px 0;}
+  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:960px){.pkg-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.pkg-grid{grid-template-columns:1fr;}}
+  .pkg-card{
+    border:1px solid var(--line);border-radius:8px;padding:34px 26px;background:#fff;position:relative;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);border-color:var(--gold);}
+  .pkg-card.featured{background:var(--teal);color:#fff;}
+  .pkg-card.featured h3, .pkg-card.featured .pkg-price{color:#fff;}
+  .pkg-tag{
+    position:absolute;top:-12px;left:26px;background:var(--gold);color:var(--teal-deep);font-size:10.5px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:20px;
+  }
+  .pkg-card h3{font-size:21px;margin-bottom:6px;margin-top:6px;}
+  .pkg-price{font-family:'Inter',sans-serif;font-weight:800;font-size:26px;color:var(--teal);margin-bottom:4px;}
+  .pkg-save{
+    font-size:11.5px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;margin-bottom:16px;display:block;
+  }
+  .pkg-card.featured .pkg-save{color:var(--sand);}
+  .pkg-list{list-style:none;font-size:13.5px;margin-bottom:22px;}
+  .pkg-card.featured .pkg-list{color:rgba(255,255,255,.85);}
+  .pkg-card:not(.featured) .pkg-list{color:var(--ink-soft);}
+  .pkg-list li{padding:6px 0;padding-left:18px;position:relative;}
+  .pkg-list li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:10px;top:9px;}
+
+  /* ---------- WELLNESS FINDER QUIZ ---------- */
+  .finder-sec{padding:110px 0;background:var(--teal-deep);color:#fff;position:relative;overflow:hidden;}
+  .finder-sec .sec-head .eyebrow{color:var(--gold);}
+  .finder-sec .sec-head .eyebrow::before{background:var(--gold);}
+  .finder-sec .sec-head h2{color:#fff;}
+  .finder-sec .sec-head p{color:rgba(255,255,255,.7);}
+  .finder-box{
+    max-width:640px;margin:0 auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    border-radius:10px;padding:48px 44px;backdrop-filter:blur(6px);
+  }
+  @media(max-width:640px){.finder-box{padding:32px 24px;}}
+  .finder-progress{display:flex;gap:6px;margin-bottom:32px;}
+  .finder-progress span{height:3px;flex:1;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden;position:relative;}
+  .finder-progress span.done::after, .finder-progress span.active::after{
+    content:"";position:absolute;inset:0;background:var(--gold);
+  }
+  .finder-step{display:none;}
+  .finder-step.active{display:block;animation:fadeUp .5s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .finder-step h3{font-size:26px;color:#fff;margin-bottom:24px;font-weight:500;}
+  .finder-options{display:flex;flex-direction:column;gap:12px;}
+  .finder-opt{
+    text-align:left;border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:16px 20px;
+    color:#fff;font-size:15px;font-weight:500;transition:all .2s ease;display:flex;align-items:center;justify-content:space-between;
+  }
+  .finder-opt:hover{border-color:var(--gold);background:rgba(200,167,90,.1);}
+  .finder-opt.selected{border-color:var(--gold);background:rgba(200,167,90,.16);}
+  .finder-opt span.arrow{opacity:0;transition:opacity .2s ease;color:var(--gold);}
+  .finder-opt:hover span.arrow, .finder-opt.selected span.arrow{opacity:1;}
+  .finder-back{
+    margin-top:24px;font-size:13px;color:rgba(255,255,255,.5);display:inline-flex;align-items:center;gap:6px;
+  }
+  .finder-back:hover{color:#fff;}
+  .finder-result{display:none;text-align:center;}
+  .finder-result.active{display:block;animation:fadeUp .6s ease;}
+  .finder-result .result-eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600;}
+  .finder-result h3{font-size:34px;color:#fff;margin-bottom:14px;}
+  .finder-result p.result-desc{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:8px;max-width:440px;margin-left:auto;margin-right:auto;}
+  .finder-result .result-price{font-size:22px;font-weight:700;color:var(--sand);margin:16px 0 26px;}
+  .finder-restart{margin-top:18px;font-size:13px;color:rgba(255,255,255,.5);}
+  .finder-restart:hover{color:#fff;}
+
+  /* ---------- THERAPISTS ---------- */
+  .team-sec{padding:110px 0;background:var(--bg-alt);}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  @media(max-width:860px){.team-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;}}
+  .team-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px -18px rgba(27,94,90,.2);transition:transform .3s ease;}
+  .team-card:hover{transform:translateY(-6px);}
+  .team-avatar{
+    height:180px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;
+    font-size:52px;font-weight:600;color:#fff;
+  }
+  .team-body{padding:26px 24px;}
+  .team-body h3{font-size:22px;margin-bottom:2px;}
+  .team-role{font-size:12.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-bottom:14px;}
+  .team-body p.bio{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .team-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .team-meta span{
+    font-size:11px;background:var(--bg-alt);border:1px solid var(--line);padding:5px 10px;border-radius:20px;
+    color:var(--ink-soft);font-weight:600;
+  }
+  .team-wa{
+    display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--teal);
+  }
+  .team-wa:hover{color:var(--gold);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-sec{padding:110px 0;}
+  .testi-carousel{max-width:680px;margin:0 auto;position:relative;min-height:220px;}
+  .testi-slide{display:none;text-align:center;animation:fadeUp .5s ease;}
+  .testi-slide.active{display:block;}
+  .stars{color:var(--gold);font-size:16px;letter-spacing:3px;margin-bottom:20px;}
+  .testi-slide p.quote{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--teal-deep);margin-bottom:22px;font-weight:500;line-height:1.4;}
+  .testi-who{font-size:13.5px;color:var(--ink-soft);font-weight:600;}
+  .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:30px;}
+  .testi-dots button{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .3s ease, width .3s ease;}
+  .testi-dots button.active{background:var(--gold);width:22px;border-radius:6px;}
+
+  /* ---------- WHATSAPP CTA BAND ---------- */
+  .wa-cta{
+    background:linear-gradient(120deg,var(--teal),var(--teal-deep));color:#fff;padding:100px 0;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .wa-cta h2{color:#fff;font-size:clamp(32px,4.6vw,50px);margin-bottom:18px;}
+  .wa-cta p{color:rgba(255,255,255,.75);max-width:460px;margin:0 auto 34px;font-size:16px;}
+  .btn-wa{
+    background:#25D366;color:#fff;padding:17px 36px;border-radius:40px;font-weight:700;font-size:15px;
+    display:inline-flex;align-items:center;gap:10px;box-shadow:0 20px 40px -14px rgba(37,211,102,.55);
+    transition:transform .25s ease;
+  }
+  .btn-wa:hover{transform:translateY(-2px);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-sec{padding:110px 0;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-list{list-style:none;}
+  .contact-list li{
+    display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start;
+  }
+  .contact-list li .ic{color:var(--teal);flex-shrink:0;margin-top:2px;}
+  .contact-list li b{display:block;font-size:14px;margin-bottom:2px;}
+  .contact-list li span{font-size:13.5px;color:var(--ink-soft);}
+  .map-placeholder{
+    height:100%;min-height:280px;border-radius:8px;background:linear-gradient(135deg,var(--sage),var(--teal));
+    display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;
+  }
+  .map-placeholder::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle at 20% 30%, rgba(255,255,255,.15) 0, transparent 40%),
+                      radial-gradient(circle at 80% 70%, rgba(255,255,255,.12) 0, transparent 40%);
+  }
+  .map-placeholder .pin{position:relative;z-index:1;text-align:center;}
+  .map-placeholder .pin span{display:block;font-size:12.5px;margin-top:8px;color:rgba(255,255,255,.85);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--teal-deep);color:rgba(255,255,255,.65);padding:60px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .foot-col a{display:block;font-size:13.5px;margin-bottom:9px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:12px;margin-top:8px;}
+  .foot-social a{
+    width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;
+    align-items:center;justify-content:center;
+  }
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:24px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--gold);border-bottom:1px solid rgba(200,167,90,.4);}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:58px;height:58px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;
+    box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean spas &amp; wellness centers. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 16c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="#1B5E5A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 10c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="#C8A75A" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/></svg>
+      MassageWave <span style="color:var(--gold);font-style:italic;">Spa</span>
+    </a>
+    <div class="nav-links">
+      <a href="#treatments">Treatments</a>
+      <a href="#packages">Packages</a>
+      <a href="#finder">Wellness Finder</a>
+      <a href="#therapists">Therapists</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener">Book Your Session</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg-img"></div>
+  <div class="leaf" style="top:18%;left:8%;width:60px;height:60px;">
+    <svg viewBox="0 0 60 60" fill="none"><path d="M30 6C42 12 50 26 44 42C36 40 22 32 18 18C22 10 26 6 30 6Z" fill="#9DB7A3" opacity="0.35"/></svg>
+  </div>
+  <div class="leaf" style="top:60%;left:4%;width:44px;height:44px;animation-delay:3s;">
+    <svg viewBox="0 0 60 60" fill="none"><path d="M30 6C42 12 50 26 44 42C36 40 22 32 18 18C22 10 26 6 30 6Z" fill="#C8A75A" opacity="0.3"/></svg>
+  </div>
+  <div class="leaf" style="top:22%;right:9%;width:50px;height:50px;animation-delay:6s;">
+    <svg viewBox="0 0 60 60" fill="none"><path d="M30 6C42 12 50 26 44 42C36 40 22 32 18 18C22 10 26 6 30 6Z" fill="#D8C3A5" opacity="0.35"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Rodney Bay · Saint Lucia</div>
+      <h1>Restore balance.<br>Renew your body.<br><em>Calm your mind.</em></h1>
+      <p class="lede">A quiet room, warm hands, and a treatment chosen for exactly what your body needs today. This is where the Caribbean slows down.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener">Book Your Session</a>
+        <a class="btn-outline" href="#treatments">Explore Treatments</a>
+      </div>
+    </div>
+  </div>
+  <div class="wave-line">
+    <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+      <path d="M0 40C240 80 480 0 720 30C960 60 1200 10 1440 40V90H0V40Z" fill="#FAF8F5"/>
+    </svg>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat"><b class="counter" data-target="12">0</b><span>Years in Wellness</span></div>
+      <div class="stat"><b class="counter" data-target="9">0</b><span>Signature Treatments</span></div>
+      <div class="stat"><b class="counter" data-target="4900" data-suffix="+">0</b><span>Sessions Delivered</span></div>
+      <div class="stat"><b>4.9<span style="font-size:20px;">★</span></b><span>Average Rating</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="why-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Why MassageWave</div>
+      <h2>Three reasons regulars never book anywhere else.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Experienced Therapists</h3>
+        <p>Every hand on this team has years of dedicated training behind it — not a quick certificate, a real practice.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-4 8-10 11z"/></svg></div>
+        <h3>Personalized Treatments</h3>
+        <p>No two sessions are identical. We adjust pressure, oils and pacing to what your body is asking for that day.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M16.3 16.3l2.1 2.1M18 12h3M16.3 7.7l2.1-2.1" stroke-linecap="round"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Peaceful Environment</h3>
+        <p>Low light, warm water features, and a no-rush policy between sessions so your calm never gets cut short.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="treat-sec" id="treatments">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Signature Treatments</div>
+      <h2>Choose your escape.</h2>
+      <p>Every treatment is available as a standalone booking or bundled into a wellness package below.</p>
+    </div>
+    <div class="treat-grid">
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=75" alt="Swedish massage on treatment table"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Swedish Massage</h3><span class="treat-price">EC$180</span></div>
+          <div class="treat-duration">60 minutes</div>
+          <p class="desc">Long, flowing strokes that ease everyday tension and leave your whole body loose — the classic starting point for first-time guests.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20Swedish%20Massage." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=75" alt="Deep tissue massage therapy"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Deep Tissue Therapy</h3><span class="treat-price">EC$210</span></div>
+          <div class="treat-duration">60 minutes</div>
+          <p class="desc">Release built-up tension and restore natural movement with firm, targeted pressure through the deeper muscle layers.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20Deep%20Tissue%20Therapy." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1696841212541-449ca29397cc?auto=format&fit=crop&w=700&q=75" alt="Hot stone massage treatment"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Hot Stone Massage</h3><span class="treat-price">EC$260</span></div>
+          <div class="treat-duration">75 minutes</div>
+          <p class="desc">Warmed volcanic stones melt tension on contact, letting your therapist work deeper with far less discomfort.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20Hot%20Stone%20Massage." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=700&q=75" alt="Aromatherapy oils for massage"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Aromatherapy Massage</h3><span class="treat-price">EC$195</span></div>
+          <div class="treat-duration">60 minutes</div>
+          <p class="desc">A calming blend of essential oils paired with gentle pressure to quiet a busy mind as much as a tired body.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20an%20Aromatherapy%20Massage." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1639162906614-0603b0ae95fd?auto=format&fit=crop&w=700&q=75" alt="Couples massage room setup"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Couples Escape</h3><span class="treat-price">EC$420</span></div>
+          <div class="treat-duration">60 minutes, for two</div>
+          <p class="desc">Side-by-side treatment in our private suite — two therapists, one shared hour of quiet, away from everything else.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Couples%20Escape." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="treat-card reveal">
+        <div class="treat-img"><img loading="lazy" src="https://images.unsplash.com/photo-1741522509438-a120c0bb5e88?auto=format&fit=crop&w=700&q=75" alt="Back massage close up"></div>
+        <div class="treat-body">
+          <div class="treat-top"><h3>Express Neck &amp; Shoulder</h3><span class="treat-price">EC$95</span></div>
+          <div class="treat-duration">30 minutes</div>
+          <p class="desc">A focused reset for desk-bound days — for when a full hour isn't in the schedule but the tension is real.</p>
+          <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Express%20Neck%20%26%20Shoulder." target="_blank" rel="noopener">Book on WhatsApp →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pkg-sec" id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Wellness Packages</div>
+      <h2>Bundled treatments, built-in savings.</h2>
+      <p>Combine what your body needs into one longer visit — priced below what the same treatments cost separately.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card reveal">
+        <h3>Stress Reset</h3>
+        <div class="pkg-price">EC$230</div>
+        <span class="pkg-save">Save EC$35</span>
+        <ul class="pkg-list">
+          <li>Swedish Massage, 60 min</li>
+          <li>Aromatherapy add-on</li>
+          <li>Herbal tea &amp; quiet room, 15 min</li>
+        </ul>
+        <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Stress%20Reset%20Package." target="_blank" rel="noopener">Book on WhatsApp →</a>
+      </div>
+
+      <div class="pkg-card featured reveal">
+        <span class="pkg-tag">Most Booked</span>
+        <h3>Weekend Escape</h3>
+        <div class="pkg-price">EC$310</div>
+        <span class="pkg-save">Save EC$40</span>
+        <ul class="pkg-list">
+          <li>Hot Stone Massage, 75 min</li>
+          <li>Foot &amp; scalp ritual, 15 min</li>
+          <li>Private lounge access</li>
+        </ul>
+        <a class="treat-book" style="color:#fff;border-color:#fff;" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Weekend%20Escape%20Package." target="_blank" rel="noopener">Book on WhatsApp →</a>
+      </div>
+
+      <div class="pkg-card reveal">
+        <h3>Complete Body Renewal</h3>
+        <div class="pkg-price">EC$480</div>
+        <span class="pkg-save">Save EC$90</span>
+        <ul class="pkg-list">
+          <li>Deep Tissue, 60 min</li>
+          <li>Hot Stone Add-on, 30 min</li>
+          <li>Aromatherapy finish</li>
+        </ul>
+        <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Complete%20Body%20Renewal%20Package." target="_blank" rel="noopener">Book on WhatsApp →</a>
+      </div>
+
+      <div class="pkg-card reveal">
+        <h3>Couples Retreat</h3>
+        <div class="pkg-price">EC$650</div>
+        <span class="pkg-save">Save EC$70</span>
+        <ul class="pkg-list">
+          <li>Couples Escape, 90 min</li>
+          <li>Private suite, sparkling juice</li>
+          <li>Take-home aromatherapy oil</li>
+        </ul>
+        <a class="treat-book" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20the%20Couples%20Retreat%20Package." target="_blank" rel="noopener">Book on WhatsApp →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="finder-sec" id="finder">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Interactive Wellness Finder</div>
+      <h2>Not sure what you need? Answer four questions.</h2>
+      <p>We'll match you to the treatment or package that fits — no browsing, no guessing.</p>
+    </div>
+
+    <div class="finder-box">
+      <div class="finder-progress" id="finderProgress">
+        <span class="active" data-step="1"></span>
+        <span data-step="2"></span>
+        <span data-step="3"></span>
+        <span data-step="4"></span>
+      </div>
+
+      <div class="finder-step active" data-step="1">
+        <h3>What's bringing you in today?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="goal" data-v="stress">Stress relief <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="goal" data-v="tension">Muscle tension or soreness <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="goal" data-v="unwind">Just need to unwind <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="goal" data-v="couple">A couple's experience <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="finder-step" data-step="2">
+        <h3>How much time do you have?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="time" data-v="30">About 30 minutes <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="time" data-v="60">Around an hour <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="time" data-v="90plus">90 minutes or more <span class="arrow">→</span></button>
+        </div>
+        <div class="finder-back" data-back="1">← Back</div>
+      </div>
+
+      <div class="finder-step" data-step="3">
+        <h3>What pressure feels right?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="pressure" data-v="light">Light &amp; soothing <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="pressure" data-v="firm">Firm &amp; therapeutic <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="pressure" data-v="unsure">Not sure, guide me <span class="arrow">→</span></button>
+        </div>
+        <div class="finder-back" data-back="2">← Back</div>
+      </div>
+
+      <div class="finder-step" data-step="4">
+        <h3>Solo, or would you like to add someone?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="party" data-v="solo">Just me <span class="arrow">→</span></button>
+          <button class="finder-opt" data-q="party" data-v="partner">With a partner <span class="arrow">→</span></button>
+        </div>
+        <div class="finder-back" data-back="3">← Back</div>
+      </div>
+
+      <div class="finder-result" id="finderResult">
+        <div class="result-eyebrow">Recommended for you</div>
+        <h3 id="resultName">—</h3>
+        <p class="result-desc" id="resultDesc">—</p>
+        <div class="result-price" id="resultPrice">—</div>
+        <a class="btn-primary" id="resultBookBtn" href="#" target="_blank" rel="noopener">Book My Recommended Treatment</a>
+        <div><button class="finder-restart" id="finderRestart">↺ Start over</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-sec" id="therapists">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Meet Our Therapists</div>
+      <h2>The hands behind the calm.</h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1B5E5A,#28756F);">MB</div>
+        <div class="team-body">
+          <h3>Marisol Baptiste</h3>
+          <div class="team-role">Swedish &amp; Deep Tissue</div>
+          <p class="bio">"I trained to feel where tension actually lives, not just where it's pointed to. Eight years in, that's still the part I love most."</p>
+          <div class="team-meta"><span>8 yrs experience</span><span>English</span><span>French Creole</span></div>
+          <a class="team-wa" href="https://wa.me/17587235872?text=Hi%2C%20I'd%20like%20to%20book%20with%20Marisol%20at%20MassageWave%20Spa." target="_blank" rel="noopener">📲 Book with Marisol</a>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#9DB7A3,#1B5E5A);">AJ</div>
+        <div class="team-body">
+          <h3>Andre Joseph</h3>
+          <div class="team-role">Hot Stone &amp; Sports Recovery</div>
+          <p class="bio">"Most of my clients are active — runners, lifters, people on their feet all day. I build sessions around getting them back to that."</p>
+          <div class="team-meta"><span>6 yrs experience</span><span>English</span><span>Spanish</span></div>
+          <a class="team-wa" href="https://wa.me/17587235872?text=Hi%2C%20I'd%20like%20to%20book%20with%20Andre%20at%20MassageWave%20Spa." target="_blank" rel="noopener">📲 Book with Andre</a>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#C8A75A,#9DB7A3);">KF</div>
+        <div class="team-body">
+          <h3>Keisha Frederick</h3>
+          <div class="team-role">Aromatherapy &amp; Prenatal</div>
+          <p class="bio">"There's a version of relaxation that's about the mind as much as the body. That's the session I try to give every client."</p>
+          <div class="team-meta"><span>10 yrs experience</span><span>English</span><span>French</span></div>
+          <a class="team-wa" href="https://wa.me/17587235872?text=Hi%2C%20I'd%20like%20to%20book%20with%20Keisha%20at%20MassageWave%20Spa." target="_blank" rel="noopener">📲 Book with Keisha</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">From Our Guests</div>
+      <h2>What the quiet room does for people.</h2>
+    </div>
+    <div class="testi-carousel">
+      <div class="testi-slide active">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I did their Wellness Finder quiz not expecting much and it put me straight onto the Hot Stone package. Best guess a website has ever made for me."</p>
+        <div class="testi-who">Odalys R. — Weekend Escape Package</div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Booked entirely on WhatsApp, no phone call, no back and forth. Confirmed within minutes and the room was exactly as calm as advertised."</p>
+        <div class="testi-who">Terrence A. — Deep Tissue Therapy</div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"My partner and I did the Couples Retreat for our anniversary. Worth every cent — we've already rebooked for next month."</p>
+        <div class="testi-who">Nadia &amp; Kwame S. — Couples Retreat</div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots">
+      <button class="active" data-i="0"></button>
+      <button data-i="1"></button>
+      <button data-i="2"></button>
+    </div>
+  </div>
+</section>
+
+<section class="wa-cta">
+  <div class="wrap">
+    <h2>Your moment of relaxation starts here.</h2>
+    <p>No forms, no hold music. Message us directly and we'll find a time that works.</p>
+    <a class="btn-wa" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Visit Us</div>
+      <h2>Find your way to the quiet room.</h2>
+    </div>
+    <div class="contact-grid">
+      <ul class="contact-list reveal">
+        <li>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><b>Location</b><span>Reduit Beach Avenue, Rodney Bay, Saint Lucia</span></div>
+        </li>
+        <li>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></span>
+          <div><b>Hours</b><span>Mon – Sat: 9am – 7pm · Sun: 10am – 4pm</span></div>
+        </li>
+        <li>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></span>
+          <div><b>Phone / WhatsApp</b><span>+1 (758) 723-5872</span></div>
+        </li>
+        <li>
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><b>Email</b><span>hello@massagewavespa.demo</span></div>
+        </li>
+      </ul>
+      <div class="map-placeholder reveal">
+        <div class="pin">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5" fill="#1B5E5A"/></svg>
+          <span>Map preview — live map embedded on launch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">MassageWave <span style="color:var(--gold);font-style:italic;">Spa</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Luxury massage and wellness in Rodney Bay, Saint Lucia. Booked entirely over WhatsApp.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#treatments">Treatments</a>
+        <a href="#packages">Packages</a>
+        <a href="#finder">Wellness Finder</a>
+        <a href="#therapists">Therapists</a>
+      </div>
+      <div class="foot-col">
+        <h5>Info</h5>
+        <a href="#contact">Contact &amp; hours</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="foot-col">
+        <h5>Book</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp booking</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This website is a demonstration of what's possible for modern wellness businesses, built by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b>, and would be fully customized for each client. No real business named "MassageWave Spa" is affiliated with this page. Want a site like this for your business? <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 MassageWave Spa (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20MassageWave%20Spa%2C%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+
+<script>
+  /* ---------- Reveal on scroll ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  /* ---------- Counter animation ---------- */
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.target,10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.max(1, Math.round(target/60));
+        const tick = ()=>{
+          cur += step;
+          if(cur >= target){ el.textContent = target.toLocaleString() + suffix; return; }
+          el.textContent = cur.toLocaleString() + suffix;
+          requestAnimationFrame(tick);
+        };
+        tick();
+        counterIO.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c=>counterIO.observe(c));
+
+  /* ---------- Testimonial carousel ---------- */
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('#testiDots button');
+  let testiIndex = 0;
+  function showSlide(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    testiIndex = i;
+  }
+  dots.forEach(d=>d.addEventListener('click', ()=>showSlide(parseInt(d.dataset.i,10))));
+  setInterval(()=>{ showSlide((testiIndex+1) % slides.length); }, 6000);
+
+  /* ---------- Mobile burger fallback ---------- */
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* ---------- Interactive Wellness Finder ---------- */
+  const answers = {};
+  const steps = document.querySelectorAll('.finder-step');
+  const progressSpans = document.querySelectorAll('#finderProgress span');
+  const resultBox = document.getElementById('finderResult');
+  let currentStep = 1;
+
+  function goToStep(n){
+    steps.forEach(s=> s.classList.toggle('active', parseInt(s.dataset.step,10) === n));
+    progressSpans.forEach(p=>{
+      const step = parseInt(p.dataset.step,10);
+      p.classList.toggle('done', step < n);
+      p.classList.toggle('active', step === n);
+    });
+    currentStep = n;
+    resultBox.classList.remove('active');
+  }
+
+  document.querySelectorAll('.finder-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const q = btn.dataset.q;
+      const v = btn.dataset.v;
+      answers[q] = v;
+
+      // visually mark selection within its step
+      btn.closest('.finder-options').querySelectorAll('.finder-opt').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      setTimeout(()=>{
+        if(currentStep < 4){
+          goToStep(currentStep + 1);
+        } else {
+          showResult();
+        }
+      }, 220);
+    });
+  });
+
+  document.querySelectorAll('.finder-back').forEach(b=>{
+    b.addEventListener('click', ()=> goToStep(parseInt(b.dataset.back,10)));
+  });
+
+  document.getElementById('finderRestart').addEventListener('click', ()=>{
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    document.querySelectorAll('.finder-opt.selected').forEach(b=>b.classList.remove('selected'));
+    goToStep(1);
+  });
+
+  function showResult(){
+    let rec = {
+      name: 'Swedish Massage',
+      desc: "A gentle, flowing full-body massage — the right entry point when you're not chasing a specific problem, just calm.",
+      price: 'EC$180 · 60 minutes',
+      msg: "Hi MassageWave Spa, the Wellness Finder recommended the Swedish Massage for me — I'd like to book."
+    };
+
+    const { goal, time, pressure, party } = answers;
+
+    if(party === 'partner' || goal === 'couple'){
+      if(time === '90plus'){
+        rec = { name:'Couples Retreat', desc:'A full private-suite escape for two — treatment, sparkling juice and a take-home oil to keep the calm going.', price:'EC$650 · 90 minutes, for two', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Couples Retreat for me — I'd like to book." };
+      } else {
+        rec = { name:'Couples Escape', desc:'Side-by-side treatment in our private suite — two therapists, one shared hour away from everything else.', price:'EC$420 · 60 minutes, for two', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Couples Escape for me — I'd like to book." };
+      }
+    } else if(goal === 'tension' || pressure === 'firm'){
+      if(time === '90plus'){
+        rec = { name:'Complete Body Renewal', desc:'Deep tissue work, a hot stone add-on and an aromatherapy finish — built for tension that\'s been building for weeks, not days.', price:'EC$480 · 120 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Complete Body Renewal Package for me — I'd like to book." };
+      } else if(time === '30'){
+        rec = { name:'Express Neck & Shoulder', desc:'A focused 30-minute reset targeting exactly where desk-bound tension collects.', price:'EC$95 · 30 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Express Neck & Shoulder for me — I'd like to book." };
+      } else {
+        rec = { name:'Deep Tissue Therapy', desc:'Firm, targeted pressure through the deeper muscle layers to release tension at the source.', price:'EC$210 · 60 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended Deep Tissue Therapy for me — I'd like to book." };
+      }
+    } else if(goal === 'stress'){
+      if(time === '90plus'){
+        rec = { name:'Stress Reset Package', desc:'Swedish massage plus an aromatherapy add-on, followed by 15 quiet minutes with herbal tea. Built specifically to bring your nervous system down a gear.', price:'EC$230 · ~90 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Stress Reset Package for me — I'd like to book." };
+      } else {
+        rec = { name:'Aromatherapy Massage', desc:'A calming essential oil blend paired with gentle pressure to quiet a busy mind as much as a tired body.', price:'EC$195 · 60 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Aromatherapy Massage for me — I'd like to book." };
+      }
+    } else if(goal === 'unwind'){
+      if(time === '90plus'){
+        rec = { name:'Weekend Escape Package', desc:'Hot stone massage, a foot and scalp ritual, and private lounge access — our most-booked full escape.', price:'EC$310 · ~90 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Weekend Escape Package for me — I'd like to book." };
+      } else if(pressure === 'light'){
+        rec = { name:'Swedish Massage', desc:"Long, flowing strokes that ease everyday tension and leave your whole body loose.", price:'EC$180 · 60 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Swedish Massage for me — I'd like to book." };
+      } else {
+        rec = { name:'Hot Stone Massage', desc:'Warmed volcanic stones melt tension on contact, letting your therapist work deeper with far less discomfort.', price:'EC$260 · 75 minutes', msg:"Hi MassageWave Spa, the Wellness Finder recommended the Hot Stone Massage for me — I'd like to book." };
+      }
+    }
+
+    document.getElementById('resultName').textContent = rec.name;
+    document.getElementById('resultDesc').textContent = rec.desc;
+    document.getElementById('resultPrice').textContent = rec.price;
+    document.getElementById('resultBookBtn').href = 'https://wa.me/17587235872?text=' + encodeURIComponent(rec.msg);
+
+    steps.forEach(s=>s.classList.remove('active'));
+    resultBox.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
