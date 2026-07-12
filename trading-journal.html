@@ -216,6 +216,26 @@
   .tag-name-badge{display:inline-flex; align-items:center; gap:6px; font-weight:500;}
   .tag-name-badge .swatch{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
 
+  /* ---------- Calendar ---------- */
+  .cal-grid{display:grid; grid-template-columns:repeat(7,minmax(90px,1fr)) 110px; gap:6px; min-width:760px;}
+  .cal-dow{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; padding:4px 6px; font-weight:600;}
+  .cal-cell{min-height:78px; border-radius:8px; padding:8px; border:1px solid var(--border); position:relative; transition:transform .12s, border-color .12s;}
+  .cal-cell.has-data{cursor:pointer;}
+  .cal-cell.has-data:hover{transform:translateY(-2px); border-color:var(--accent-dim);}
+  .cal-cell.empty{border-color:transparent; background:transparent;}
+  .cal-cell.week-total{background:var(--surface-2); border-style:dashed;}
+  .cal-daynum{font-size:11px; color:var(--muted); margin-bottom:4px;}
+  .cal-pl{font-size:12.5px; font-weight:600;}
+  .cal-count{font-size:10.5px; color:var(--muted); margin-top:2px;}
+
+  .heatmap-wrap{overflow-x:auto; padding:4px 0;}
+  .heatmap-grid{display:flex; gap:3px; width:max-content;}
+  .heatmap-col{display:flex; flex-direction:column; gap:3px;}
+  .heatmap-cell{width:12px; height:12px; border-radius:2px; background:var(--surface-2);}
+  .heatmap-cell.has-data{cursor:pointer;}
+  .heatmap-cell.has-data:hover{outline:1.5px solid var(--accent);}
+  .heatmap-cell.empty{background:transparent;}
+
   /* ---------- Charts ---------- */
   .chart-card{margin-bottom:16px;}
   .chart-svg{width:100%; height:auto; display:block;}
@@ -283,9 +303,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
         Trade History
       </button>
+      <button class="nav-item" data-view="calendar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg>
+        Calendar
+      </button>
       <button class="nav-item" data-view="analytics">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18M7 16l4-6 3 3 5-7"/></svg>
         Analytics
+      </button>
+      <button class="nav-item" data-view="notes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+        Notes
       </button>
       <button class="nav-item" data-view="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
@@ -459,6 +487,19 @@
       </div>
     </section>
 
+    <!-- CALENDAR -->
+    <section class="view" id="view-calendar">
+      <div class="topbar">
+        <div><h1>Calendar</h1><div class="sub" id="calSubtitle"></div></div>
+        <div class="toggle-group" id="calModeToggle">
+          <button type="button" class="active" data-mode="month">Month</button>
+          <button type="button" data-mode="year">Year</button>
+        </div>
+      </div>
+      <div id="calendarNav" style="display:flex; align-items:center; gap:14px; margin-bottom:18px;"></div>
+      <div class="card" id="calendarBody"></div>
+    </section>
+
     <!-- ANALYTICS -->
     <section class="view" id="view-analytics">
       <div class="topbar"><div><h1>Analytics</h1><div class="sub">Pattern recognition across your trading history</div></div></div>
@@ -468,6 +509,14 @@
       </div>
       <div class="card chart-card"><div class="panel-title"><h3>R:R Distribution</h3></div><div id="rrChart"></div></div>
 
+      <div class="card" style="margin-bottom:16px;">
+        <div class="panel-title">
+          <h3>Account Comparison</h3>
+          <span class="meta">Side-by-side performance — spot which account is actually working</span>
+        </div>
+        <div id="accountComparison"></div>
+      </div>
+
       <div class="card">
         <div class="panel-title">
           <h3>Performance by Tag</h3>
@@ -475,6 +524,24 @@
         </div>
         <div id="tagAnalytics"></div>
       </div>
+    </section>
+
+    <!-- NOTES -->
+    <section class="view" id="view-notes">
+      <div class="topbar">
+        <div><h1>Notes</h1><div class="sub" id="notesSubtitle"></div></div>
+      </div>
+      <div class="filter-bar">
+        <input type="text" id="notesSearch" placeholder="Search notes, lessons, tags, instrument...">
+        <select id="notesTypeFilter">
+          <option value="">All Entries</option>
+          <option value="mistake">Has Mistake Tags</option>
+          <option value="good">Has Good-Habit Tags</option>
+          <option value="lessons">Has Lessons</option>
+          <option value="notes">Has Notes</option>
+        </select>
+      </div>
+      <div id="notesList"></div>
     </section>
 
     <!-- SETTINGS -->
@@ -712,7 +779,9 @@ function showView(name){
   $('#sidebar').classList.remove('open');
   if(name === 'dashboard') renderDashboard();
   if(name === 'history') renderHistory();
+  if(name === 'calendar') renderCalendar();
   if(name === 'analytics') renderAnalytics();
+  if(name === 'notes') renderNotes();
   if(name === 'settings') renderSettings();
   if(name === 'add-trade' && !$('#editId').value) resetForm();
 }
@@ -1380,6 +1449,287 @@ function closeModal(){ $('#modalRoot').innerHTML = ''; }
 /* ============================================================
    ANALYTICS
    ============================================================ */
+/* ============================================================
+   CALENDAR (Month grid + Year heatmap)
+   ============================================================ */
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let calState = { mode:'month', year: new Date().getFullYear(), month: new Date().getMonth() };
+
+function pad2(n){ return String(n).padStart(2,'0'); }
+
+function computeDailyStats(){
+  const map = {};
+  trades.forEach(t => {
+    if(!t.date) return;
+    if(!map[t.date]) map[t.date] = { pl:0, count:0, wins:0, losses:0 };
+    map[t.date].pl += t.pl;
+    map[t.date].count++;
+    if(t.result === 'win') map[t.date].wins++;
+    if(t.result === 'loss') map[t.date].losses++;
+  });
+  return map;
+}
+
+function plColor(pl, maxAbs){
+  if(!pl) return 'transparent';
+  const ratio = Math.min(Math.abs(pl)/maxAbs, 1);
+  const alpha = (0.12 + ratio*0.55).toFixed(2);
+  const rgb = pl >= 0 ? '74,155,127' : '194,85,74';
+  return `rgba(${rgb},${alpha})`;
+}
+
+function renderCalendar(){
+  renderCalendarNav();
+  if(calState.mode === 'month') renderMonthCalendar();
+  else renderYearHeatmap();
+}
+
+$('#calModeToggle').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if(!btn) return;
+  calState.mode = btn.dataset.mode;
+  $$('#calModeToggle button').forEach(b => b.classList.toggle('active', b === btn));
+  renderCalendar();
+});
+
+function renderCalendarNav(){
+  const nav = $('#calendarNav');
+  if(calState.mode === 'month'){
+    nav.innerHTML = `
+      <button class="btn btn-ghost btn-sm" id="calPrev">‹ Prev</button>
+      <h3 style="min-width:180px; text-align:center;">${MONTH_NAMES[calState.month]} ${calState.year}</h3>
+      <button class="btn btn-ghost btn-sm" id="calNext">Next ›</button>
+      <button class="btn btn-ghost btn-sm" id="calToday" style="margin-left:auto;">Today</button>
+    `;
+  } else {
+    nav.innerHTML = `
+      <button class="btn btn-ghost btn-sm" id="calPrev">‹ ${calState.year-1}</button>
+      <h3 style="min-width:100px; text-align:center;">${calState.year}</h3>
+      <button class="btn btn-ghost btn-sm" id="calNext">${calState.year+1} ›</button>
+    `;
+  }
+  $('#calPrev').addEventListener('click', () => {
+    if(calState.mode === 'month'){ calState.month--; if(calState.month < 0){ calState.month = 11; calState.year--; } }
+    else calState.year--;
+    renderCalendar();
+  });
+  $('#calNext').addEventListener('click', () => {
+    if(calState.mode === 'month'){ calState.month++; if(calState.month > 11){ calState.month = 0; calState.year++; } }
+    else calState.year++;
+    renderCalendar();
+  });
+  if(calState.mode === 'month'){
+    $('#calToday').addEventListener('click', () => {
+      const now = new Date();
+      calState.year = now.getFullYear(); calState.month = now.getMonth();
+      renderCalendar();
+    });
+  }
+}
+
+function renderMonthCalendar(){
+  const stats = computeDailyStats();
+  const { year, month } = calState;
+  const firstDow = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const maxAbs = Math.max(1, ...Object.values(stats).map(s => Math.abs(s.pl)));
+
+  const cells = [];
+  for(let i=0;i<firstDow;i++) cells.push(null);
+  for(let d=1; d<=daysInMonth; d++) cells.push(d);
+  while(cells.length % 7 !== 0) cells.push(null);
+
+  let monthPL = 0, monthCount = 0;
+  let html = `<div class="table-wrap"><div class="cal-grid">`;
+  html += ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div class="cal-dow">${d}</div>`).join('') + `<div class="cal-dow">Week</div>`;
+
+  for(let w=0; w<cells.length/7; w++){
+    let weekPL = 0, weekCount = 0;
+    let rowHtml = '';
+    for(let i=0;i<7;i++){
+      const d = cells[w*7+i];
+      if(d === null){ rowHtml += `<div class="cal-cell empty"></div>`; continue; }
+      const dateStr = `${year}-${pad2(month+1)}-${pad2(d)}`;
+      const s = stats[dateStr];
+      const bg = s ? plColor(s.pl, maxAbs) : 'transparent';
+      if(s){ weekPL += s.pl; weekCount += s.count; monthPL += s.pl; monthCount += s.count; }
+      rowHtml += `<div class="cal-cell ${s?'has-data':''}" style="background:${bg};" data-date="${dateStr}">
+        <div class="cal-daynum">${d}</div>
+        ${s ? `<div class="cal-pl mono ${s.pl>=0?'pos':'neg'}">${fmtMoney(s.pl)}</div><div class="cal-count">${s.count} trade${s.count===1?'':'s'}</div>` : ''}
+      </div>`;
+    }
+    rowHtml += `<div class="cal-cell week-total">
+      <div class="cal-daynum" style="color:var(--muted);">Week Total</div>
+      ${weekCount ? `<div class="cal-pl mono ${weekPL>=0?'pos':'neg'}">${fmtMoney(weekPL)}</div><div class="cal-count">${weekCount} trade${weekCount===1?'':'s'}</div>` : '<div class="cal-count">—</div>'}
+    </div>`;
+    html += rowHtml;
+  }
+  html += `</div></div>`;
+
+  $('#calSubtitle').textContent = monthCount ? `${monthCount} trades · ${fmtMoney(monthPL)} net` : 'No trades this month';
+  $('#calendarBody').innerHTML = html;
+  $$('.cal-cell.has-data', $('#calendarBody')).forEach(cell => {
+    cell.addEventListener('click', () => openDayModal(cell.dataset.date));
+  });
+}
+
+function renderYearHeatmap(){
+  const stats = computeDailyStats();
+  const year = calState.year;
+  const maxAbs = Math.max(1, ...Object.values(stats).map(s => Math.abs(s.pl)));
+  const start = new Date(year,0,1);
+  const end = new Date(year,11,31);
+  const startDow = start.getDay();
+  const gridStart = new Date(start); gridStart.setDate(start.getDate() - startDow);
+
+  const weeks = [];
+  let cur = new Date(gridStart);
+  while(true){
+    const week = [];
+    for(let i=0;i<7;i++){ week.push(new Date(cur)); cur.setDate(cur.getDate()+1); }
+    weeks.push(week);
+    if(cur > end) break;
+  }
+
+  let yearPL = 0, yearCount = 0;
+  let html = `<div class="heatmap-wrap"><div class="heatmap-grid">`;
+  weeks.forEach(week => {
+    html += `<div class="heatmap-col">`;
+    week.forEach(day => {
+      if(day.getFullYear() !== year){
+        html += `<div class="heatmap-cell empty"></div>`;
+      } else {
+        const dateStr = `${day.getFullYear()}-${pad2(day.getMonth()+1)}-${pad2(day.getDate())}`;
+        const s = stats[dateStr];
+        const bg = s ? plColor(s.pl, maxAbs) : 'var(--surface-2)';
+        if(s){ yearPL += s.pl; yearCount += s.count; }
+        const title = s ? `${dateStr} · ${fmtMoney(s.pl)} · ${s.count} trade${s.count===1?'':'s'}` : `${dateStr} · no trades`;
+        html += `<div class="heatmap-cell ${s?'has-data':''}" style="background:${bg};" data-date="${dateStr}" title="${title}"></div>`;
+      }
+    });
+    html += `</div>`;
+  });
+  html += `</div></div>`;
+
+  $('#calSubtitle').textContent = yearCount ? `${yearCount} trades · ${fmtMoney(yearPL)} net across ${year}` : `No trades in ${year}`;
+  $('#calendarBody').innerHTML = html;
+  $$('.heatmap-cell.has-data', $('#calendarBody')).forEach(cell => {
+    cell.addEventListener('click', () => openDayModal(cell.dataset.date));
+  });
+}
+
+function openDayModal(dateStr){
+  const dayTrades = trades.filter(t => t.date === dateStr).sort((a,b) => (a.time||'') < (b.time||'') ? -1 : 1);
+  if(dayTrades.length === 0) return;
+  const pl = dayTrades.reduce((s,t) => s+t.pl, 0);
+  const wins = dayTrades.filter(t => t.result === 'win').length;
+  const root = $('#modalRoot');
+  root.innerHTML = `
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-head">
+          <div>
+            <h3>${dateStr}</h3>
+            <div class="sub" style="margin-top:4px;">${dayTrades.length} trade${dayTrades.length===1?'':'s'} · ${wins} win${wins===1?'':'s'}</div>
+          </div>
+          <div class="mono ${pl>=0?'pos':'neg'}" style="font-size:20px; font-weight:600;">${fmtMoney(pl)}</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Time</th><th>Instrument</th><th>Dir</th><th>P/L</th><th>Result</th></tr></thead>
+            <tbody>
+              ${dayTrades.map(t => `
+                <tr data-id="${t.id}" style="cursor:pointer;">
+                  <td class="mono">${t.time||'—'}</td>
+                  <td>${escapeHtml(t.instrument)}</td>
+                  <td>${t.direction}</td>
+                  <td class="mono ${t.pl>=0?'pos':'neg'}">${fmtMoney(t.pl)}</td>
+                  <td><span class="badge badge-${t.result}">${t.result==='win'?'Win':t.result==='loss'?'Loss':'BE'}</span></td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-ghost btn-sm" id="modalClose">Close</button>
+        </div>
+      </div>
+    </div>`;
+  $('#modalOverlay').addEventListener('click', e => { if(e.target.id === 'modalOverlay') closeModal(); });
+  $('#modalClose').addEventListener('click', closeModal);
+  $$('#modalRoot tbody tr').forEach(tr => {
+    tr.addEventListener('click', () => { closeModal(); openTradeModal(tr.dataset.id); });
+  });
+}
+
+/* ============================================================
+   NOTES REPOSITORY
+   Aggregates lessons/notes/tags across every trade into one
+   searchable feed, so journal entries don't get buried inside
+   individual trade records you'd otherwise never revisit.
+   ============================================================ */
+let notesFilters = { search:'', type:'' };
+
+function getNoteableTrades(){
+  return trades.filter(t =>
+    (t.notes && t.notes.trim()) ||
+    (t.lessons && t.lessons.trim()) ||
+    (t.mistakeTags && t.mistakeTags.length) ||
+    (t.goodTags && t.goodTags.length)
+  );
+}
+
+function renderNotes(){
+  let list = getNoteableTrades();
+
+  if(notesFilters.type === 'mistake') list = list.filter(t => t.mistakeTags && t.mistakeTags.length);
+  if(notesFilters.type === 'good') list = list.filter(t => t.goodTags && t.goodTags.length);
+  if(notesFilters.type === 'lessons') list = list.filter(t => t.lessons && t.lessons.trim());
+  if(notesFilters.type === 'notes') list = list.filter(t => t.notes && t.notes.trim());
+
+  if(notesFilters.search){
+    const q = notesFilters.search.toLowerCase();
+    list = list.filter(t => [
+      t.instrument, t.strategy, t.notes, t.lessons,
+      (t.mistakeTags||[]).join(' '), (t.goodTags||[]).join(' '), (t.tags||[]).join(' ')
+    ].join(' ').toLowerCase().includes(q));
+  }
+
+  list = [...list].sort((a,b) => (a.date+(a.time||'')) < (b.date+(b.time||'')) ? 1 : -1);
+
+  $('#notesSubtitle').textContent = `${list.length} of ${getNoteableTrades().length} journaled trades`;
+
+  if(getNoteableTrades().length === 0){
+    $('#notesList').innerHTML = emptyState('No notes yet', 'Add lessons, notes, or tags to your trades and they\'ll show up here in one searchable feed.');
+    return;
+  }
+  if(list.length === 0){
+    $('#notesList').innerHTML = emptyState('No matches', 'Try a different search or filter.');
+    return;
+  }
+
+  $('#notesList').innerHTML = list.map(t => `
+    <div class="card" data-id="${t.id}" style="margin-bottom:12px; cursor:pointer;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px;">
+        <div>
+          <strong style="font-size:14px;">${escapeHtml(t.instrument)}</strong>
+          <span style="color:var(--muted); font-size:12px; margin-left:8px;">${t.date} ${t.time||''} · ${escapeHtml(t.strategy)||'No strategy'}</span>
+        </div>
+        <span class="mono ${t.pl>=0?'pos':'neg'}" style="font-weight:600; font-size:13px;">${fmtMoney(t.pl)}</span>
+      </div>
+      ${(t.mistakeTags && t.mistakeTags.length) ? `<div style="margin-bottom:6px;">${t.mistakeTags.map(tag=>`<span class="badge badge-loss" style="margin:2px 4px 2px 0;">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
+      ${(t.goodTags && t.goodTags.length) ? `<div style="margin-bottom:6px;">${t.goodTags.map(tag=>`<span class="badge badge-win" style="margin:2px 4px 2px 0;">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
+      ${t.lessons ? `<div style="font-size:13px; color:var(--text); margin-bottom:4px;"><strong style="color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.04em;">Lesson — </strong>${escapeHtml(t.lessons)}</div>` : ''}
+      ${t.notes ? `<div style="font-size:13px; color:var(--muted);"><strong style="color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:0.04em;">Notes — </strong>${escapeHtml(t.notes)}</div>` : ''}
+    </div>
+  `).join('');
+
+  $$('#notesList [data-id]').forEach(card => {
+    card.addEventListener('click', () => openTradeModal(card.dataset.id));
+  });
+}
+
+$('#notesSearch').addEventListener('input', () => { notesFilters.search = $('#notesSearch').value; renderNotes(); });
+$('#notesTypeFilter').addEventListener('input', () => { notesFilters.type = $('#notesTypeFilter').value; renderNotes(); });
+
 function renderAnalytics(){
   if(trades.length === 0){
     ['strategyChart','monthlyChart','rrChart'].forEach(id => $('#'+id).innerHTML = emptyState('No data yet','Add trades to see analytics.'));
@@ -1417,6 +1767,7 @@ function renderAnalytics(){
   const rrItems = Object.entries(buckets).map(([k,v]) => ({ label:k, pl:v }));
   $('#rrChart').innerHTML = drawBarChart(rrItems, 'pl', 'label', () => '#C9A961');
 
+  renderAccountComparison();
   renderTagAnalytics();
 }
 
@@ -1434,6 +1785,54 @@ function computeTagStats(field){
   return Object.entries(map).map(([tag, s]) => ({
     tag, count: s.count, netPL: s.netPL, avgPL: s.netPL / s.count, winRate: (s.wins / s.count) * 100
   }));
+}
+
+function computeAccountStats(){
+  const map = {};
+  trades.forEach(t => {
+    const key = t.accountId || '__unassigned__';
+    if(!map[key]) map[key] = { count:0, netPL:0, wins:0, losses:0, rrVals:[] };
+    map[key].count++;
+    map[key].netPL += t.pl;
+    if(t.result === 'win') map[key].wins++;
+    if(t.result === 'loss') map[key].losses++;
+    if(t.rr) map[key].rrVals.push(t.rr);
+  });
+  return Object.entries(map).map(([key, s]) => {
+    const acc = accounts.find(a => a.id === key);
+    return {
+      name: acc ? acc.name : 'Unassigned',
+      count: s.count,
+      netPL: s.netPL,
+      avgPL: s.netPL / s.count,
+      winRate: (s.wins / s.count) * 100,
+      avgRR: s.rrVals.length ? s.rrVals.reduce((a,b)=>a+b,0)/s.rrVals.length : null,
+    };
+  }).sort((a,b) => b.netPL - a.netPL);
+}
+
+function renderAccountComparison(){
+  const stats = computeAccountStats();
+  if(stats.length === 0){
+    $('#accountComparison').innerHTML = emptyState('No accounts with trades yet', 'Add trades under different accounts in Settings to compare performance side-by-side.');
+    return;
+  }
+  const rows = stats.map(s => `
+    <tr>
+      <td><strong>${escapeHtml(s.name)}</strong></td>
+      <td class="mono">${s.count}</td>
+      <td class="mono ${s.winRate>=50?'pos':'neg'}">${s.winRate.toFixed(1)}%</td>
+      <td class="mono ${s.netPL>=0?'pos':'neg'}" style="font-weight:600;">${fmtMoney(s.netPL)}</td>
+      <td class="mono" style="color:var(--muted);">${fmtMoney(s.avgPL)}/trade</td>
+      <td class="mono">${s.avgRR ? '1 : '+s.avgRR.toFixed(2) : '—'}</td>
+    </tr>`).join('');
+  $('#accountComparison').innerHTML = `
+    <div class="table-wrap">
+      <table class="tag-rank-table">
+        <thead><tr><th>Account</th><th>Trades</th><th>Win Rate</th><th>Net P/L</th><th>Avg P/L</th><th>Avg R:R</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
 }
 
 function renderTagAnalytics(){
