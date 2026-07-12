@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tropic Tours — Caribbean Adventures, Saint Lucia</title>
+<meta name="description" content="Discover paradise one adventure at a time. Guided Caribbean adventures, snorkeling, waterfalls, sailing excursions and unforgettable memories. Book on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://example.com/tropic-tours">
+<meta property="og:title" content="Tropic Tours — Discover Paradise One Adventure at a Time">
+<meta property="og:description" content="Guided Caribbean adventures, private island experiences, snorkeling, waterfalls and sailing excursions.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Tropic Tours",
+  "description": "Guided Caribbean tours and excursions in Saint Lucia including snorkeling, waterfalls, rainforest and sailing experiences.",
+  "provider": { "@type": "LocalBusiness", "name": "Tropic Tours" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue:#0077B6;
+    --blue-deep:#023E5C;
+    --turquoise:#00B4D8;
+    --gold:#F4B400;
+    --sand:#FFF9F2;
+    --sand-alt:#FDF0DE;
+    --palm:#2E8B57;
+    --ink:#0E2A38;
+    --ink-soft:#5A7182;
+    --line:rgba(14,42,56,0.1);
+    --shadow:0 24px 60px -28px rgba(0,119,182,0.4);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.18;color:var(--blue-deep);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{position:relative;}
+  ::selection{background:var(--gold);color:#fff;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  .demo-banner{background:var(--blue-deep);color:var(--sand);text-align:center;font-size:12.5px;letter-spacing:.03em;padding:9px 16px;position:relative;z-index:300;}
+  .demo-banner a{color:var(--gold);border-bottom:1px solid rgba(244,180,0,.5);}
+
+  header{position:sticky;top:0;z-index:250;background:rgba(255,249,242,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:background .3s ease;}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1240px;margin:0 auto;gap:18px;}
+  .logo{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:var(--blue-deep);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:24px;font-size:13.5px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);border-radius:2px;transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--gold);color:var(--blue-deep);padding:12px 22px;border-radius:30px;font-size:13px;font-weight:800;white-space:nowrap;transition:transform .2s ease, box-shadow .2s ease;box-shadow:0 10px 22px -10px rgba(244,180,0,.6);}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .burger{display:none;font-size:22px;color:var(--blue-deep);}
+  @media(max-width:960px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1745156705689-eef88991849d?auto=format&fit=crop&w=1800&q=70') center/cover;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,62,92,.6) 0%,rgba(0,119,182,.35) 45%,rgba(2,62,92,.88) 100%);}
+  .hero-content{position:relative;z-index:2;max-width:680px;padding:120px 0 90px;}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:22px;font-weight:700;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--gold);border-radius:2px;}
+  .hero h1{font-size:clamp(36px,5.6vw,62px);color:#fff;margin-bottom:20px;}
+  .hero p.lede{font-size:17px;color:rgba(255,255,255,.85);max-width:500px;margin-bottom:28px;}
+  .hero-rating{display:flex;align-items:center;gap:10px;margin-bottom:32px;font-size:14px;color:rgba(255,255,255,.85);}
+  .hero-rating .stars{color:var(--gold);letter-spacing:2px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{background:var(--gold);color:var(--blue-deep);padding:16px 30px;border-radius:30px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 20px 40px -16px rgba(244,180,0,.6);transition:transform .25s ease, box-shadow .25s ease;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 24px 46px -14px rgba(244,180,0,.75);}
+  .btn-outline{border:1px solid rgba(255,255,255,.45);color:#fff;padding:16px 28px;border-radius:30px;font-weight:700;font-size:14px;transition:border-color .25s ease, background .25s ease;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;line-height:0;z-index:2;}
+  .float-leaf{position:absolute;opacity:.55;animation:drift 16s ease-in-out infinite;z-index:1;}
+  @keyframes drift{0%{transform:translate(0,0) rotate(0);}50%{transform:translate(-12px,-18px) rotate(10deg);}100%{transform:translate(0,0) rotate(0);}}
+  @media(prefers-reduced-motion:reduce){.float-leaf{animation:none;}}
+
+  .sec-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .sec-head .eyebrow{color:var(--blue);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--blue);}
+  .sec-head h2{font-size:clamp(30px,4.2vw,44px);}
+  .sec-head p{color:var(--ink-soft);font-size:16px;margin-top:14px;}
+
+  /* PACKAGES */
+  .pkg-sec{padding:100px 0;}
+  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:980px){.pkg-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.pkg-grid{grid-template-columns:1fr;}}
+  .pkg-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px -20px rgba(0,119,182,.3);transition:transform .35s ease, box-shadow .35s ease;display:flex;flex-direction:column;}
+  .pkg-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);}
+  .pkg-img{height:180px;overflow:hidden;position:relative;}
+  .pkg-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .pkg-card:hover .pkg-img img{transform:scale(1.1);}
+  .pkg-duration-tag{position:absolute;top:12px;left:12px;background:rgba(2,62,92,.85);color:#fff;font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;}
+  .pkg-body{padding:22px 20px;flex:1;display:flex;flex-direction:column;}
+  .pkg-body h3{font-size:19px;margin-bottom:6px;}
+  .pkg-price{font-family:'Poppins',sans-serif;font-weight:800;color:var(--blue);font-size:17px;margin-bottom:10px;}
+  .pkg-highlights{list-style:none;font-size:12.5px;color:var(--ink-soft);margin-bottom:16px;flex:1;}
+  .pkg-highlights li{padding:3px 0;padding-left:16px;position:relative;}
+  .pkg-highlights li::before{content:"✓";position:absolute;left:0;color:var(--palm);font-weight:700;}
+  .pkg-book{background:var(--blue);color:#fff;padding:11px;border-radius:30px;font-size:13px;font-weight:700;text-align:center;transition:background .2s ease, transform .2s ease;}
+  .pkg-book:hover{background:var(--blue-deep);transform:translateY(-1px);}
+
+  /* WHY CHOOSE */
+  .why-sec{padding:100px 0;background:var(--sand-alt);}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{background:#fff;border-radius:8px;padding:28px 22px;text-align:center;border:1px solid var(--line);transition:transform .25s ease, box-shadow .25s ease;}
+  .why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .why-icon{width:54px;height:54px;border-radius:50%;background:var(--sand-alt);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--blue);}
+  .why-card h4{font-size:16px;margin-bottom:6px;}
+  .why-card p{font-size:13px;color:var(--ink-soft);}
+
+  /* ITINERARY TIMELINE */
+  .timeline-sec{padding:100px 0;}
+  .timeline{max-width:560px;margin:0 auto;position:relative;}
+  .timeline::before{content:"";position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--blue),var(--turquoise));}
+  .tl-item{position:relative;padding-left:56px;padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;box-shadow:0 8px 18px -6px rgba(0,119,182,.5);}
+  .tl-item h4{font-size:16px;margin-bottom:3px;}
+  .tl-item p{font-size:13px;color:var(--ink-soft);}
+
+  /* TOUR FINDER */
+  .finder-sec{padding:100px 0;background:var(--blue-deep);color:#fff;}
+  .finder-sec .sec-head .eyebrow{color:var(--gold);}
+  .finder-sec .sec-head .eyebrow::before{background:var(--gold);}
+  .finder-sec .sec-head h2{color:#fff;}
+  .finder-sec .sec-head p{color:rgba(255,255,255,.7);}
+  .finder-box{max-width:680px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:44px;backdrop-filter:blur(6px);}
+  @media(max-width:640px){.finder-box{padding:26px;}}
+  .finder-progress{display:flex;gap:6px;margin-bottom:30px;}
+  .finder-progress span{height:3px;flex:1;background:rgba(255,255,255,.18);border-radius:3px;position:relative;overflow:hidden;}
+  .finder-progress span.done::after, .finder-progress span.active::after{content:"";position:absolute;inset:0;background:var(--gold);}
+  .finder-step{display:none;}
+  .finder-step.active{display:block;animation:fadeUp .5s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .finder-step h3{font-size:23px;color:#fff;margin-bottom:22px;}
+  .finder-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:480px){.finder-options{grid-template-columns:1fr;}}
+  .finder-opt{border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:16px 18px;color:#fff;font-size:14.5px;font-weight:600;transition:all .2s ease;text-align:left;}
+  .finder-opt:hover{border-color:var(--gold);background:rgba(244,180,0,.1);}
+  .finder-opt.selected{border-color:var(--gold);background:rgba(244,180,0,.16);}
+  .finder-back{margin-top:22px;font-size:13px;color:rgba(255,255,255,.5);}
+  .finder-back:hover{color:#fff;}
+  .finder-result{display:none;}
+  .finder-result.active{display:block;animation:fadeUp .6s ease;}
+  .finder-result h3{color:#fff;font-size:22px;margin-bottom:18px;text-align:center;}
+  .finder-result .result-eyebrow{text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;}
+  .result-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:480px){.result-cards{grid-template-columns:1fr;}}
+  .result-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:18px;}
+  .result-card h4{color:#fff;font-size:15px;margin-bottom:4px;}
+  .result-card .rc-price{color:var(--gold);font-weight:700;font-size:14px;margin-bottom:8px;}
+  .result-card p{color:rgba(255,255,255,.65);font-size:12.5px;margin-bottom:12px;}
+  .result-card a{font-size:12.5px;font-weight:700;color:var(--gold);}
+  .finder-restart{display:block;margin:22px auto 0;font-size:13px;color:rgba(255,255,255,.5);text-align:center;}
+  .finder-restart:hover{color:#fff;}
+
+  /* GALLERY */
+  .gallery-sec{padding:100px 0;background:var(--sand-alt);}
+  .masonry{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px;}
+  .masonry figure{position:relative;overflow:hidden;border-radius:6px;cursor:pointer;}
+  .masonry figure.tall{grid-row:span 2;}
+  .masonry figure.wide{grid-column:span 2;}
+  .masonry img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .masonry figure:hover img{transform:scale(1.08);}
+  .masonry figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(0deg,rgba(2,62,92,.85),transparent);color:#fff;font-size:12px;font-weight:700;opacity:0;transform:translateY(6px);transition:all .25s ease;}
+  .masonry figure:hover figcaption{opacity:1;transform:translateY(0);}
+  @media(max-width:900px){.masonry{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}}
+
+  /* DESTINATION MAP */
+  .map-sec{padding:100px 0;}
+  .map-wrap{max-width:820px;margin:0 auto;position:relative;background:linear-gradient(160deg,#BEE9E8,#8FD3D9);border-radius:16px;padding:6%;box-shadow:var(--shadow);}
+  .map-svg{width:100%;height:auto;display:block;}
+  .map-pin{position:absolute;transform:translate(-50%,-100%);cursor:pointer;}
+  .map-pin .pin-dot{width:34px;height:34px;border-radius:50% 50% 50% 0;background:var(--blue);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px -4px rgba(2,62,92,.5);border:2px solid #fff;transition:transform .2s ease;}
+  .map-pin .pin-dot svg{transform:rotate(45deg);}
+  .map-pin:hover .pin-dot{transform:rotate(-45deg) scale(1.12);}
+  .map-tooltip{
+    position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(0.9);
+    background:#fff;border-radius:8px;padding:12px 16px;width:170px;box-shadow:0 14px 30px -10px rgba(2,62,92,.4);
+    opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;z-index:10;
+  }
+  .map-pin.open .map-tooltip{opacity:1;transform:translateX(-50%) scale(1);pointer-events:auto;}
+  .map-tooltip h5{font-size:13px;color:var(--blue-deep);margin-bottom:4px;}
+  .map-tooltip p{font-size:11.5px;color:var(--ink-soft);}
+
+  /* CALENDAR (availability preview) */
+  .cal-sec{padding:100px 0;background:var(--sand-alt);}
+  .cal-wrap{max-width:820px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:var(--shadow);padding:36px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;}
+  @media(max-width:780px){.cal-wrap{grid-template-columns:1fr;padding:24px;}}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .cal-head h4{font-size:18px;color:var(--blue-deep);}
+  .cal-nav{display:flex;gap:8px;}
+  .cal-nav button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);color:var(--blue);}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+  .cal-grid .dow{font-size:10.5px;text-align:center;color:var(--ink-soft);font-weight:700;text-transform:uppercase;padding-bottom:4px;}
+  .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:6px;font-weight:600;color:var(--ink);}
+  .cal-day.available{background:rgba(46,139,87,.12);color:var(--palm);cursor:pointer;}
+  .cal-day.limited{background:rgba(244,180,0,.18);color:#8a6200;cursor:pointer;}
+  .cal-day.booked{background:#f1f1ef;color:#b8b8b4;text-decoration:line-through;cursor:not-allowed;}
+  .cal-day.past{color:#dcd8cf;}
+  .cal-day.selected{background:var(--blue);color:#fff;}
+  .cal-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:11.5px;color:var(--ink-soft);}
+  .cal-legend span{display:flex;align-items:center;gap:6px;}
+  .legend-dot{width:9px;height:9px;border-radius:3px;display:inline-block;}
+  .cal-selection{background:var(--sand-alt);border-radius:8px;padding:20px;}
+  .cal-selection h4{font-size:16px;margin-bottom:14px;color:var(--blue-deep);}
+  .sel-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px;}
+
+  /* BOOKING FLOW */
+  .booking-sec{padding:100px 0;}
+  .booking-steps{max-width:900px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:760px){.booking-steps{grid-template-columns:1fr 1fr;}}
+  .bstep{text-align:center;padding:22px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;transition:border-color .2s ease;}
+  .bstep.active{border-color:var(--blue);box-shadow:0 10px 26px -18px rgba(0,119,182,.4);}
+  .bstep .bnum{width:32px;height:32px;border-radius:50%;background:var(--sand-alt);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;margin:0 auto 10px;font-size:13px;}
+  .bstep.active .bnum{background:var(--blue);color:#fff;}
+  .bstep h5{font-size:13.5px;}
+  .booking-box{max-width:600px;margin:0 auto;background:#fff;border-radius:10px;padding:34px;box-shadow:var(--shadow);}
+  .bform-row{margin-bottom:16px;}
+  .bform-row label{display:block;font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em;}
+  .bform-row input, .bform-row select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-family:'Inter',sans-serif;font-size:14px;}
+  .bform-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:480px){.bform-grid{grid-template-columns:1fr;}}
+
+  /* STATS */
+  .stats-sec{padding:70px 0;background:var(--blue);color:#fff;}
+  .stats-row{display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center;}
+  .stat b{display:block;font-family:'Poppins',sans-serif;font-size:38px;font-weight:800;color:var(--gold);}
+  .stat span{font-size:12.5px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.05em;}
+
+  /* FAQ */
+  .faq-sec{padding:100px 0;}
+  .faq-list{max-width:740px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;padding:20px 4px;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;color:var(--blue-deep);}
+  .faq-q .plus{font-size:20px;color:var(--gold);transition:transform .3s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{padding:0 4px 20px;font-size:13.5px;color:var(--ink-soft);}
+
+  /* FINAL CTA */
+  .final-cta{position:relative;padding:100px 0;text-align:center;color:#fff;overflow:hidden;}
+  .final-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1637076567011-fdac46a2c42a?auto=format&fit=crop&w=1600&q=65') center/cover;}
+  .final-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(2,62,92,.9),rgba(0,119,182,.75));}
+  .final-cta .inner{position:relative;z-index:2;}
+  .final-cta h2{color:#fff;font-size:clamp(30px,4.4vw,48px);margin-bottom:14px;}
+  .final-cta p{color:rgba(255,255,255,.8);max-width:440px;margin:0 auto 30px;font-size:15.5px;}
+  .final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:var(--blue-deep);color:rgba(255,255,255,.65);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Poppins',sans-serif;font-size:20px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .foot-col a{display:block;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:10px;margin-top:8px;}
+  .foot-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--gold);border-bottom:1px solid rgba(244,180,0,.4);}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+
+  .lightbox{position:fixed;inset:0;background:rgba(2,62,92,.94);z-index:400;display:none;align-items:center;justify-content:center;padding:40px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:85vh;border-radius:6px;}
+  .lightbox-close{position:absolute;top:26px;right:32px;color:#fff;font-size:28px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.3);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean tour operators. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">tropic <span>tours</span></a>
+    <div class="nav-links">
+      <a href="#experiences">Experiences</a>
+      <a href="#finder">Tour Finder</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20an%20adventure." target="_blank" rel="noopener">Book Now</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="float-leaf" style="top:20%;left:8%;">
+    <svg width="50" height="50" viewBox="0 0 60 60"><path d="M30 6C42 12 50 26 44 42C36 40 22 32 18 18C22 10 26 6 30 6Z" fill="#F4B400" opacity="0.4"/></svg>
+  </div>
+  <div class="float-leaf" style="top:60%;left:5%;animation-delay:4s;">
+    <svg width="40" height="40" viewBox="0 0 60 60"><path d="M30 6C42 12 50 26 44 42C36 40 22 32 18 18C22 10 26 6 30 6Z" fill="#00B4D8" opacity="0.4"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Saint Lucia · Caribbean</div>
+      <h1>Discover paradise,<br>one adventure at a time.</h1>
+      <p class="lede">Guided Caribbean adventures, private island experiences, snorkeling, waterfalls, sailing excursions, and unforgettable memories — all booked in a single WhatsApp message.</p>
+      <div class="hero-rating"><span class="stars">★★★★★</span> Rated 4.9/5 by happy travelers</div>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20an%20adventure." target="_blank" rel="noopener">Book Your Adventure</a>
+        <a class="btn-outline" href="#experiences">Explore Experiences</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;"><path d="M0 40C240 80 480 0 720 30C960 60 1200 10 1440 40V90H0V40Z" fill="#FFF9F2"/></svg>
+  </div>
+</section>
+
+<section class="pkg-sec" id="experiences">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Experience Packages</div><h2>Four ways to fall for the island.</h2></div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card reveal">
+        <div class="pkg-img"><span class="pkg-duration-tag">Full Day</span><img loading="lazy" src="https://images.unsplash.com/photo-1745156705689-eef88991849d?auto=format&fit=crop&w=600&q=75" alt="The Pitons mountains Saint Lucia"></div>
+        <div class="pkg-body">
+          <h3>Piton Adventure</h3>
+          <div class="pkg-price">EC$285 / person</div>
+          <ul class="pkg-highlights"><li>Guided hike, UNESCO site</li><li>Sulphur Springs mud bath</li><li>Lunch included</li></ul>
+          <a class="pkg-book" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20the%20Piton%20Adventure." target="_blank" rel="noopener">Book This Tour</a>
+        </div>
+      </div>
+
+      <div class="pkg-card reveal">
+        <div class="pkg-img"><span class="pkg-duration-tag">Half Day</span><img loading="lazy" src="https://images.unsplash.com/photo-1637076567011-fdac46a2c42a?auto=format&fit=crop&w=600&q=75" alt="Rainforest waterfall Saint Lucia"></div>
+        <div class="pkg-body">
+          <h3>Rainforest Explorer</h3>
+          <div class="pkg-price">EC$195 / person</div>
+          <ul class="pkg-highlights"><li>Canopy zip-line, 8 lines</li><li>Waterfall swim stop</li><li>Local guide included</li></ul>
+          <a class="pkg-book" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20the%20Rainforest%20Explorer." target="_blank" rel="noopener">Book This Tour</a>
+        </div>
+      </div>
+
+      <div class="pkg-card reveal">
+        <div class="pkg-img"><span class="pkg-duration-tag">Half Day</span><img loading="lazy" src="https://images.unsplash.com/photo-1723037706467-18ba6d269666?auto=format&fit=crop&w=600&q=75" alt="Catamaran sailing at sunset"></div>
+        <div class="pkg-body">
+          <h3>Sunset Catamaran Cruise</h3>
+          <div class="pkg-price">EC$225 / person</div>
+          <ul class="pkg-highlights"><li>Open bar &amp; snacks</li><li>Snorkel stop included</li><li>Golden-hour photos</li></ul>
+          <a class="pkg-book" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20the%20Sunset%20Catamaran%20Cruise." target="_blank" rel="noopener">Book This Tour</a>
+        </div>
+      </div>
+
+      <div class="pkg-card reveal">
+        <div class="pkg-img"><span class="pkg-duration-tag">Half Day</span><img loading="lazy" src="https://images.unsplash.com/photo-1575950674322-3a1977724f2e?auto=format&fit=crop&w=600&q=75" alt="Caribbean local food dish"></div>
+        <div class="pkg-body">
+          <h3>Island Food Experience</h3>
+          <div class="pkg-price">EC$165 / person</div>
+          <ul class="pkg-highlights"><li>3 local eateries, walking tour</li><li>Rum tasting included</li><li>Small group, max 8</li></ul>
+          <a class="pkg-book" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20the%20Island%20Food%20Experience." target="_blank" rel="noopener">Book This Tour</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="why-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Why Tropic Tours</div><h2>Six reasons travelers rebook every trip.</h2></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h4>Local Guides</h4><p>Born and raised here — not a script, real knowledge.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div><h4>Hotel Pickup</h4><p>Included on every tour — one less thing to plan.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M2 21c0-3.5 3-6 7-6s7 2.5 7 6M17 15c3 0 5 2.5 5 6"/></svg></div><h4>Small Groups</h4><p>Max 12 per tour, so you're never lost in a crowd.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div><h4>Flexible Booking</h4><p>Reschedule up to 24 hours ahead, no penalty.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div><h4>Safety First</h4><p>Certified guides, full equipment, briefed every trip.</p></div>
+      <div class="why-icon" style="display:none;"></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16M8 16l4-6 3 4 4-7"/></svg></div><h4>Best Value</h4><p>No hidden fees — the price you see is what you pay.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Featured Itinerary</div><h2>A day on the Piton Adventure.</h2></div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-dot">1</div><h4>Hotel Pickup</h4><p>7:00am, right from your lobby.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">2</div><h4>Scenic Drive</h4><p>Coastal route south, photo stops along the way.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">3</div><h4>Boat Cruise</h4><p>Short crossing into Soufrière Bay.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">4</div><h4>Snorkeling</h4><p>Reef stop beneath the Pitons themselves.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">5</div><h4>Lunch</h4><p>Local Creole spread, waterfront restaurant.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">6</div><h4>Waterfall Visit</h4><p>Toraille Falls, swim optional.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">7</div><h4>Beach Relaxation</h4><p>Free time at Sugar Beach before heading back.</p></div>
+      <div class="tl-item reveal"><div class="tl-dot">8</div><h4>Return</h4><p>Drop-off at your hotel by 5:00pm.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="finder-sec" id="finder">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Interactive Tour Finder</div><h2>Not sure which tour fits? Answer three questions.</h2></div>
+    <div class="finder-box">
+      <div class="finder-progress" id="finderProgress">
+        <span class="active" data-step="1"></span>
+        <span data-step="2"></span>
+        <span data-step="3"></span>
+      </div>
+
+      <div class="finder-step active" data-step="1">
+        <h3>What type of experience are you after?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="type" data-v="adventure">🏔️ Adventure</button>
+          <button class="finder-opt" data-q="type" data-v="relaxation">🏖️ Relaxation</button>
+          <button class="finder-opt" data-q="type" data-v="nature">🌿 Nature</button>
+          <button class="finder-opt" data-q="type" data-v="food">🍽️ Food</button>
+          <button class="finder-opt" data-q="type" data-v="romance">💛 Romance</button>
+        </div>
+      </div>
+
+      <div class="finder-step" data-step="2">
+        <h3>How much time do you have?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="duration" data-v="half">Half Day</button>
+          <button class="finder-opt" data-q="duration" data-v="full">Full Day</button>
+          <button class="finder-opt" data-q="duration" data-v="multi">Multi-Day</button>
+        </div>
+        <div class="finder-back" data-back="1">← Back</div>
+      </div>
+
+      <div class="finder-step" data-step="3">
+        <h3>What's your budget per person?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="budget" data-v="value">Under EC$180</button>
+          <button class="finder-opt" data-q="budget" data-v="mid">EC$180 – EC$280</button>
+          <button class="finder-opt" data-q="budget" data-v="premium">EC$280+</button>
+        </div>
+        <div class="finder-back" data-back="2">← Back</div>
+      </div>
+
+      <div class="finder-result" id="finderResult">
+        <div class="result-eyebrow">Recommended for you</div>
+        <h3 id="resultIntro">Here's what fits best:</h3>
+        <div class="result-cards" id="resultCards"></div>
+        <button class="finder-restart" id="finderRestart">↺ Start over</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Photo Gallery</div><h2>What the island actually looks like.</h2></div>
+    <div class="masonry" id="masonryGrid">
+      <figure class="tall"><img loading="lazy" src="https://images.unsplash.com/photo-1745156705689-eef88991849d?auto=format&fit=crop&w=700&q=75" alt="The Pitons Saint Lucia"><figcaption>The Pitons</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.unsplash.com/photo-1723037706467-18ba6d269666?auto=format&fit=crop&w=700&q=75" alt="Catamaran sailing"><figcaption>Sunset sail</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.unsplash.com/photo-1637076567011-fdac46a2c42a?auto=format&fit=crop&w=700&q=75" alt="Tropical waterfall"><figcaption>Toraille Falls</figcaption></figure>
+      <figure class="wide"><img loading="lazy" src="https://images.unsplash.com/photo-1708649290066-5f617003b93f?auto=format&fit=crop&w=900&q=75" alt="Coral reef underwater"><figcaption>Reef snorkeling</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.unsplash.com/photo-1575950674322-3a1977724f2e?auto=format&fit=crop&w=700&q=75" alt="Caribbean local food"><figcaption>Local Creole plate</figcaption></figure>
+      <figure class="tall"><img loading="lazy" src="https://images.unsplash.com/photo-1581271164789-7c97932822d3?auto=format&fit=crop&w=700&q=75" alt="Sailboat at sea"><figcaption>Open water sailing</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.unsplash.com/photo-1582583088753-afb19907963a?auto=format&fit=crop&w=700&q=75" alt="Waterfall in green plants"><figcaption>Hidden waterfall</figcaption></figure>
+      <figure class="wide"><img loading="lazy" src="https://images.unsplash.com/photo-1590218087440-df21ca448c26?auto=format&fit=crop&w=900&q=75" alt="Boat on open sea"><figcaption>Coastal cruising</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="map-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Destination Map</div><h2>Where your adventure happens.</h2><p>Tap a pin to see what's there.</p></div>
+    <div class="map-wrap reveal">
+      <svg class="map-svg" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+        <path d="M200 20 C260 40 300 90 290 160 C320 200 310 260 280 300 C300 340 270 400 220 420 C180 440 130 430 100 390 C60 380 40 330 60 280 C40 240 50 180 90 150 C80 100 130 40 200 20Z" fill="#3FA79B" opacity="0.85"/>
+        <path d="M200 20 C260 40 300 90 290 160 C320 200 310 260 280 300 C300 340 270 400 220 420 C180 440 130 430 100 390 C60 380 40 330 60 280 C40 240 50 180 90 150 C80 100 130 40 200 20Z" fill="none" stroke="#0E5A54" stroke-width="3" opacity="0.4"/>
+      </svg>
+      <div class="map-pin" style="top:14%;left:50%;" data-tip="pitons">
+        <div class="pin-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M3 20l7-14 4 7 3-5 4 12H3z"/></svg></div>
+        <div class="map-tooltip"><h5>The Pitons</h5><p>UNESCO twin peaks, guided hikes daily.</p></div>
+      </div>
+      <div class="map-pin" style="top:34%;left:30%;" data-tip="waterfalls">
+        <div class="pin-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 3v13M9 13l3 3 3-3M6 20h12"/></svg></div>
+        <div class="map-tooltip"><h5>Waterfalls</h5><p>Toraille &amp; Diamond Falls, both under 40 min.</p></div>
+      </div>
+      <div class="map-pin" style="top:52%;left:68%;" data-tip="boat">
+        <div class="pin-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M3 17h18l-2 4H5l-2-4zM6 17V9h12v8M9 9V4h6v5"/></svg></div>
+        <div class="map-tooltip"><h5>Boat Tours</h5><p>Departs from Rodney Bay Marina daily.</p></div>
+      </div>
+      <div class="map-pin" style="top:68%;left:38%;" data-tip="snorkel">
+        <div class="pin-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M4 12c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="7" r="3" fill="white"/></svg></div>
+        <div class="map-tooltip"><h5>Snorkeling</h5><p>Anse Chastanet reef, calm and shallow.</p></div>
+      </div>
+      <div class="map-pin" style="top:82%;left:56%;" data-tip="food">
+        <div class="pin-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2M18 3v18"/></svg></div>
+        <div class="map-tooltip"><h5>Local Food</h5><p>Anse La Raye fish fry, Friday nights.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cal-sec" id="availability">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Live Availability Preview</div><h2>See what's open this month.</h2><p>Demo calendar — no backend. Tap a date to preview your booking panel.</p></div>
+    <div class="cal-wrap reveal">
+      <div>
+        <div class="cal-head">
+          <h4 id="calMonthLabel">—</h4>
+          <div class="cal-nav"><button id="calPrev">←</button><button id="calNext">→</button></div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <span><span class="legend-dot" style="background:rgba(46,139,87,.5);"></span>Available</span>
+          <span><span class="legend-dot" style="background:rgba(244,180,0,.5);"></span>Limited</span>
+          <span><span class="legend-dot" style="background:#e5e5e0;"></span>Fully booked</span>
+        </div>
+      </div>
+      <div class="cal-selection">
+        <h4>Your selection</h4>
+        <div class="sel-row"><span>Date</span><b id="selDate">Not selected</b></div>
+        <div class="sel-row"><span>Status</span><b id="selStatus">—</b></div>
+        <a class="btn-primary" style="margin-top:18px;width:100%;justify-content:center;" id="calWaBtn" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20check%20availability." target="_blank" rel="noopener">Confirm on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-sec" id="booking">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Booking Flow</div><h2>Four steps, done entirely on WhatsApp.</h2></div>
+    <div class="booking-steps">
+      <div class="bstep active" id="bstep1"><div class="bnum">1</div><h5>Choose Tour</h5></div>
+      <div class="bstep" id="bstep2"><div class="bnum">2</div><h5>Pick Date</h5></div>
+      <div class="bstep" id="bstep3"><div class="bnum">3</div><h5>Your Info</h5></div>
+      <div class="bstep" id="bstep4"><div class="bnum">4</div><h5>WhatsApp Request</h5></div>
+    </div>
+    <div class="booking-box reveal">
+      <div class="bform-row">
+        <label>Tour</label>
+        <select id="bkTour">
+          <option value="Piton Adventure">Piton Adventure — EC$285</option>
+          <option value="Rainforest Explorer">Rainforest Explorer — EC$195</option>
+          <option value="Sunset Catamaran Cruise">Sunset Catamaran Cruise — EC$225</option>
+          <option value="Island Food Experience">Island Food Experience — EC$165</option>
+        </select>
+      </div>
+      <div class="bform-grid">
+        <div class="bform-row"><label>Preferred Date</label><input type="date" id="bkDate"></div>
+        <div class="bform-row"><label>Travelers</label><select id="bkTravelers"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+      </div>
+      <div class="bform-grid">
+        <div class="bform-row"><label>Your Name</label><input type="text" id="bkName" placeholder="Full name"></div>
+        <div class="bform-row"><label>Hotel / Villa</label><input type="text" id="bkHotel" placeholder="Where you're staying"></div>
+      </div>
+      <a class="btn-primary" id="bkWaBtn" style="width:100%;justify-content:center;" href="https://wa.me/17587235872" target="_blank" rel="noopener">Send WhatsApp Booking Request</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-sec">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat"><b class="counter" data-target="15" data-suffix="+">0</b><span>Experiences</span></div>
+      <div class="stat"><b class="counter" data-target="12000" data-suffix="+">0</b><span>Happy Guests</span></div>
+      <div class="stat"><b>4.9<span style="font-size:20px;">★</span></b><span>Average Rating</span></div>
+      <div class="stat"><b class="counter" data-target="10">0</b><span>Years Experience</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Common questions, answered.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Is hotel pickup really included?<span class="plus">+</span></button><div class="faq-a"><p>Yes, on every tour, for hotels and villas across the northern and western coasts.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What should I bring?<span class="plus">+</span></button><div class="faq-a"><p>Swimwear, sunscreen, closed shoes for hikes, and a reusable water bottle — we'll confirm specifics per tour.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Are tours suitable for children?<span class="plus">+</span></button><div class="faq-a"><p>Most are — the Piton hike is moderate difficulty, better suited to ages 10+.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What's your cancellation policy?<span class="plus">+</span></button><div class="faq-a"><p>Free rescheduling up to 24 hours before departure. Full refund up to 72 hours before.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Do you accommodate dietary restrictions?<span class="plus">+</span></button><div class="faq-a"><p>Yes, just let us know when booking and we'll flag it with the tour operator.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Is payment required upfront?<span class="plus">+</span></button><div class="faq-a"><p>A deposit secures your spot; balance is settled on the day or via bank transfer beforehand.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="final-bg"></div>
+  <div class="final-overlay"></div>
+  <div class="wrap inner">
+    <h2>Ready for your Caribbean adventure?</h2>
+    <p>Reserve your unforgettable island experience today.</p>
+    <div class="final-ctas">
+      <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20an%20adventure." target="_blank" rel="noopener">Book via WhatsApp</a>
+      <a class="btn-outline" href="#experiences">Browse Experiences</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">tropic <span style="color:var(--gold);">tours</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Guided Caribbean adventures in Saint Lucia, booked entirely over WhatsApp.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <a href="#experiences">Experiences</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQs</a>
+        <a href="#">Privacy</a>
+      </div>
+      <div class="foot-col">
+        <h5>Hours</h5>
+        <a>Mon – Sat: 7am – 6pm</a>
+        <a>Sun: 8am – 2pm</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp booking</a>
+        <a>Rodney Bay, Saint Lucia</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This website is a demonstration of what is possible and would be fully customized for each client's unique tour business. Built by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b>. No real business named "Tropic Tours" is affiliated with this page. <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 Tropic Tours (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20Tropic%20Tours%2C%20I'd%20like%20to%20book%20an%20adventure." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* Counters */
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.target,10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.max(1, Math.round(target/60));
+        const tick = ()=>{
+          cur += step;
+          if(cur >= target){ el.textContent = target.toLocaleString() + suffix; return; }
+          el.textContent = cur.toLocaleString() + suffix;
+          requestAnimationFrame(tick);
+        };
+        tick();
+        counterIO.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c=>counterIO.observe(c));
+
+  /* Lightbox */
+  const figures = document.querySelectorAll('#masonryGrid figure');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  figures.forEach(fig=>{
+    fig.addEventListener('click', ()=>{
+      const img = fig.querySelector('img');
+      lightboxImg.src = img.src.replace('w=700','w=1400').replace('w=900','w=1600');
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* Destination map pins */
+  document.querySelectorAll('.map-pin').forEach(pin=>{
+    pin.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const wasOpen = pin.classList.contains('open');
+      document.querySelectorAll('.map-pin.open').forEach(p=>p.classList.remove('open'));
+      if(!wasOpen) pin.classList.add('open');
+    });
+  });
+  document.addEventListener('click', ()=> document.querySelectorAll('.map-pin.open').forEach(p=>p.classList.remove('open')));
+
+  /* ---------- Tour Finder ---------- */
+  const finderAnswers = {};
+  const finderSteps = document.querySelectorAll('.finder-step');
+  const finderProgress = document.querySelectorAll('#finderProgress span');
+  const finderResultBox = document.getElementById('finderResult');
+  let finderCurrent = 1;
+
+  function finderGoTo(n){
+    finderSteps.forEach(s=> s.classList.toggle('active', parseInt(s.dataset.step,10)===n));
+    finderProgress.forEach(p=>{
+      const step = parseInt(p.dataset.step,10);
+      p.classList.toggle('done', step < n);
+      p.classList.toggle('active', step === n);
+    });
+    finderCurrent = n;
+    finderResultBox.classList.remove('active');
+  }
+
+  document.querySelectorAll('.finder-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      finderAnswers[btn.dataset.q] = btn.dataset.v;
+      btn.closest('.finder-options').querySelectorAll('.finder-opt').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(()=>{
+        if(finderCurrent < 3){ finderGoTo(finderCurrent+1); }
+        else { showFinderResult(); }
+      }, 200);
+    });
+  });
+  document.querySelectorAll('.finder-back').forEach(b=>{
+    b.addEventListener('click', ()=> finderGoTo(parseInt(b.dataset.back,10)));
+  });
+  document.getElementById('finderRestart').addEventListener('click', ()=>{
+    Object.keys(finderAnswers).forEach(k=>delete finderAnswers[k]);
+    document.querySelectorAll('.finder-opt.selected').forEach(b=>b.classList.remove('selected'));
+    finderGoTo(1);
+  });
+
+  const TOURS = {
+    piton: { name:'Piton Adventure', price:'EC$285', desc:'Guided hike + Sulphur Springs + lunch', msg:"Piton Adventure" },
+    rainforest: { name:'Rainforest Explorer', price:'EC$195', desc:'Zip-line + waterfall swim', msg:"Rainforest Explorer" },
+    catamaran: { name:'Sunset Catamaran Cruise', price:'EC$225', desc:'Open bar + snorkel stop', msg:"Sunset Catamaran Cruise" },
+    food: { name:'Island Food Experience', price:'EC$165', desc:'3 eateries + rum tasting', msg:"Island Food Experience" }
+  };
+
+  function showFinderResult(){
+    const { type, duration, budget } = finderAnswers;
+    let picks = [];
+
+    if(type === 'adventure') picks = ['piton','rainforest'];
+    else if(type === 'relaxation') picks = ['catamaran','food'];
+    else if(type === 'nature') picks = ['rainforest','piton'];
+    else if(type === 'food') picks = ['food','catamaran'];
+    else if(type === 'romance') picks = ['catamaran','piton'];
+    else picks = ['piton','catamaran'];
+
+    if(duration === 'half') picks = picks.filter(p=>p!=='piton').length ? picks.filter(p=>p!=='piton') : picks;
+    if(budget === 'value') picks = picks.sort((a,b)=> parseInt(TOURS[a].price.replace(/\D/g,'')) - parseInt(TOURS[b].price.replace(/\D/g,'')));
+    if(budget === 'premium') picks = picks.sort((a,b)=> parseInt(TOURS[b].price.replace(/\D/g,'')) - parseInt(TOURS[a].price.replace(/\D/g,'')));
+
+    picks = [...new Set(picks)].slice(0,2);
+
+    const cardsHtml = picks.map(key=>{
+      const t = TOURS[key];
+      const msg = encodeURIComponent(`Hi Tropic Tours, the Tour Finder recommended the ${t.msg} for me — I'd like to book.`);
+      return `<div class="result-card">
+        <h4>${t.name}</h4>
+        <div class="rc-price">${t.price} / person</div>
+        <p>${t.desc}</p>
+        <a href="https://wa.me/17587235872?text=${msg}" target="_blank" rel="noopener">Book on WhatsApp →</a>
+      </div>`;
+    }).join('');
+
+    document.getElementById('resultCards').innerHTML = cardsHtml;
+    finderSteps.forEach(s=>s.classList.remove('active'));
+    finderResultBox.classList.add('active');
+  }
+
+  /* ---------- Availability Calendar ---------- */
+  const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  let calViewDate = new Date(); calViewDate.setDate(1);
+  const today = new Date(); today.setHours(0,0,0,0);
+  function dateKey(d){ return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate(); }
+  const bookedSet = new Set(); const limitedSet = new Set();
+  [2,3,10,11,17,24].forEach(o=>{ const d=new Date(today); d.setDate(d.getDate()+o); bookedSet.add(dateKey(d)); });
+  [5,6,14,20,27].forEach(o=>{ const d=new Date(today); d.setDate(d.getDate()+o); limitedSet.add(dateKey(d)); });
+  let selectedDate = null;
+
+  function renderCal(){
+    const grid = document.getElementById('calGrid'); grid.innerHTML = '';
+    document.getElementById('calMonthLabel').textContent = MONTH_NAMES[calViewDate.getMonth()] + ' ' + calViewDate.getFullYear();
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d=>{ const el=document.createElement('div'); el.className='dow'; el.textContent=d; grid.appendChild(el); });
+    const firstDay = new Date(calViewDate.getFullYear(), calViewDate.getMonth(), 1);
+    const startOffset = firstDay.getDay();
+    const daysInMonth = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 0).getDate();
+    for(let i=0;i<startOffset;i++){ const e=document.createElement('div'); e.className='cal-day'; grid.appendChild(e); }
+    for(let day=1; day<=daysInMonth; day++){
+      const d = new Date(calViewDate.getFullYear(), calViewDate.getMonth(), day);
+      const key = dateKey(d);
+      const cell = document.createElement('div'); cell.textContent = day; cell.className = 'cal-day';
+      if(d < today){ cell.classList.add('past'); }
+      else if(bookedSet.has(key)){ cell.classList.add('booked'); }
+      else if(limitedSet.has(key)){ cell.classList.add('limited'); cell.addEventListener('click', ()=>selectCalDate(d,'Limited availability')); }
+      else { cell.classList.add('available'); cell.addEventListener('click', ()=>selectCalDate(d,'Available')); }
+      if(selectedDate && dateKey(d)===dateKey(selectedDate)) cell.classList.add('selected');
+      grid.appendChild(cell);
+    }
+  }
+  function selectCalDate(d, status){
+    selectedDate = d;
+    document.getElementById('selDate').textContent = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    document.getElementById('selStatus').textContent = status;
+    const msg = `Hi Tropic Tours, I'd like to check availability for ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}.`;
+    document.getElementById('calWaBtn').href = 'https://wa.me/17587235872?text=' + encodeURIComponent(msg);
+    renderCal();
+  }
+  document.getElementById('calPrev').addEventListener('click', ()=>{ calViewDate.setMonth(calViewDate.getMonth()-1); renderCal(); });
+  document.getElementById('calNext').addEventListener('click', ()=>{ calViewDate.setMonth(calViewDate.getMonth()+1); renderCal(); });
+  renderCal();
+
+  /* ---------- Booking flow ---------- */
+  const bkTour = document.getElementById('bkTour');
+  const bkDate = document.getElementById('bkDate');
+  const bkTravelers = document.getElementById('bkTravelers');
+  const bkName = document.getElementById('bkName');
+  const bkHotel = document.getElementById('bkHotel');
+  const bkWaBtn = document.getElementById('bkWaBtn');
+  const bsteps = [document.getElementById('bstep1'),document.getElementById('bstep2'),document.getElementById('bstep3'),document.getElementById('bstep4')];
+
+  function updateBookingSteps(){
+    let active = 0;
+    if(bkTour.value) active = 1;
+    if(bkDate.value) active = 2;
+    if(bkName.value.trim()) active = 3;
+    bsteps.forEach((s,i)=> s.classList.toggle('active', i<=active));
+  }
+  function updateBookingMsg(){
+    const tour = bkTour.value;
+    const date = bkDate.value || '(date to confirm)';
+    const travelers = bkTravelers.value;
+    const name = bkName.value || '(name)';
+    const hotel = bkHotel.value || '(hotel/villa to confirm)';
+    const msg = `Hi Tropic Tours! I'd like to book:\n\nTour: ${tour}\nDate: ${date}\nTravelers: ${travelers}\nName: ${name}\nStaying at: ${hotel}`;
+    bkWaBtn.href = 'https://wa.me/17587235872?text=' + encodeURIComponent(msg);
+    updateBookingSteps();
+  }
+  [bkTour,bkDate,bkTravelers,bkName,bkHotel].forEach(el=> el.addEventListener('input', updateBookingMsg));
+  updateBookingMsg();
+</script>
+
+</body>
+</html>
