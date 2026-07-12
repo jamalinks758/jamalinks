@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Bay Guesthouse — Authentic Caribbean Hospitality, Saint Lucia</title>
+<meta name="description" content="Relax by the sea at Blue Bay Guesthouse. Authentic Caribbean comfort moments from the beach. Book your stay on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://example.com/blue-bay-guesthouse">
+<meta property="og:title" content="Blue Bay Guesthouse — Relax by the Sea">
+<meta property="og:description" content="Authentic Caribbean comfort just moments from the beach. Perfect for couples, families, solo travelers and business guests.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Blue Bay Guesthouse",
+  "description": "Authentic Caribbean guesthouse moments from the beach, offering six room types with WhatsApp booking.",
+  "priceRange": "EC$140-EC$420"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== DESIGN TOKENS ===== */
+  :root{
+    --blue:#1E5B8C;
+    --navy:#0B2341;
+    --sand:#EAD9C2;
+    --white:#FFFFFF;
+    --coral:#F47C48;
+    --palm:#5F8F65;
+    --bg:#FBF8F4;
+    --ink:#1B2733;
+    --ink-soft:#5C6B78;
+    --line:rgba(11,35,65,0.1);
+    --shadow:0 24px 60px -30px rgba(11,35,65,0.4);
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.16;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{position:relative;}
+  ::selection{background:var(--coral);color:#fff;}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+
+  /* ===== PLACEHOLDER IMAGE SYSTEM (per brief: no stock photos) ===== */
+  .ph{
+    position:relative;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden;
+    background:linear-gradient(135deg,var(--blue),var(--navy));border-radius:var(--radius);
+  }
+  .ph::before{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);
+  }
+  .ph .ph-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:28px;opacity:.5;}
+  .ph .ph-label{
+    position:relative;z-index:1;padding:14px 16px;font-size:12px;font-weight:700;color:#fff;
+    background:linear-gradient(0deg,rgba(11,35,65,.75),transparent);width:100%;letter-spacing:.02em;
+  }
+  .ph.sand{background:linear-gradient(135deg,var(--sand),#D9C2A3);}
+  .ph.sand .ph-label{color:var(--navy);background:linear-gradient(0deg,rgba(234,217,194,.9),transparent);}
+  .ph.coral{background:linear-gradient(135deg,var(--coral),#D9622F);}
+  .ph.palm{background:linear-gradient(135deg,var(--palm),#3F6B44);}
+
+  /* ===== DEMO BANNER ===== */
+  .demo-banner{background:var(--navy);color:var(--sand);text-align:center;font-size:12.5px;letter-spacing:.03em;padding:9px 16px;position:relative;z-index:300;}
+  .demo-banner a{color:var(--coral);border-bottom:1px solid rgba(244,124,72,.5);}
+
+  /* ===== NAV ===== */
+  header{position:sticky;top:0;z-index:250;background:rgba(251,248,244,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:background .3s ease, box-shadow .3s ease;}
+  header.solid{background:rgba(251,248,244,0.98);box-shadow:0 4px 20px -10px rgba(11,35,65,.15);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1240px;margin:0 auto;gap:18px;}
+  .logo{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .logo span{color:var(--coral);font-style:italic;}
+  .nav-links{display:flex;gap:22px;font-size:13.5px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--coral);border-radius:2px;transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--coral);color:#fff;padding:11px 22px;border-radius:30px;font-size:13px;font-weight:700;white-space:nowrap;box-shadow:0 10px 22px -10px rgba(244,124,72,.6);transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .burger{display:none;font-size:22px;color:var(--navy);}
+  @media(max-width:980px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* ===== HERO ===== */
+  .hero{min-height:96vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;background:linear-gradient(160deg,var(--navy) 0%,var(--blue) 60%,#2E7BAD 100%);}
+  .hero-shape{position:absolute;border-radius:50%;opacity:.12;background:var(--coral);animation:float 14s ease-in-out infinite;}
+  .hero-shape.s1{width:380px;height:380px;top:-100px;right:-100px;}
+  .hero-shape.s2{width:240px;height:240px;bottom:-60px;left:-60px;background:var(--sand);animation-delay:3s;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-24px);}}
+  @media(prefers-reduced-motion:reduce){.hero-shape{animation:none;}}
+  .hero-content{position:relative;z-index:2;max-width:680px;padding:110px 0 60px;}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);display:flex;align-items:center;gap:12px;margin-bottom:22px;font-weight:700;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--coral);border-radius:2px;}
+  .hero h1{font-size:clamp(34px,5.2vw,58px);color:#fff;margin-bottom:18px;}
+  .hero p.lede{font-size:16.5px;color:rgba(255,255,255,.85);max-width:500px;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .btn-primary{background:var(--coral);color:#fff;padding:15px 28px;border-radius:30px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:9px;box-shadow:0 18px 36px -14px rgba(244,124,72,.6);transition:transform .25s ease;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{border:1px solid rgba(255,255,255,.4);color:#fff;padding:15px 26px;border-radius:30px;font-weight:600;font-size:14px;transition:border-color .25s ease, background .25s ease;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .btn-ghost-dark{border:1px solid var(--line);color:var(--navy);padding:15px 26px;border-radius:30px;font-weight:600;font-size:14px;}
+  .trust-badges{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.8);}
+  .trust-badges span{display:flex;align-items:center;gap:7px;}
+
+  .sec-head{max-width:640px;margin:0 auto 46px;text-align:center;}
+  .sec-head .eyebrow{color:var(--blue);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--blue);}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);}
+  .sec-head p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;}
+
+  /* ===== BOOKING SEARCH WIDGET ===== */
+  .booking-search{margin-top:-64px;position:relative;z-index:10;padding-bottom:20px;}
+  .search-box{max-width:1000px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:26px 28px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:16px;align-items:end;}
+  @media(max-width:900px){.search-box{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.search-box{grid-template-columns:1fr;}}
+  .sf label{display:block;font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px;}
+  .sf input, .sf select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .search-btn{background:var(--blue);color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;font-size:13.5px;white-space:nowrap;transition:background .2s ease;}
+  .search-btn:hover{background:var(--navy);}
+  .search-results{max-width:1000px;margin:22px auto 0;display:none;}
+  .search-results.show{display:block;}
+  .sr-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-bottom:10px;font-size:13.5px;}
+  .sr-item b{color:var(--navy);}
+  .sr-status{font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;}
+  .sr-status.avail{background:rgba(95,143,101,.15);color:var(--palm);}
+  .sr-status.limited{background:rgba(244,124,72,.15);color:var(--coral);}
+
+  /* ===== WHY CHOOSE ===== */
+  .why-sec{padding:90px 0 100px;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;transition:transform .25s ease, box-shadow .25s ease;}
+  .why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .why-icon{width:52px;height:52px;border-radius:50%;background:rgba(30,91,140,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--blue);}
+  .why-card h4{font-size:15.5px;margin-bottom:6px;}
+  .why-card p{font-size:12.5px;color:var(--ink-soft);}
+
+  /* ===== ROOMS ===== */
+  .rooms-sec{padding:100px 0;background:#fff;}
+  .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:980px){.rooms-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.rooms-grid{grid-template-columns:1fr;}}
+  .room-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;background:#fff;}
+  .room-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .room-card .ph{height:180px;border-radius:0;}
+  .room-body{padding:22px 20px;}
+  .room-body h3{font-size:19px;margin-bottom:8px;}
+  .room-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-soft);margin-bottom:12px;}
+  .room-meta span{display:flex;align-items:center;gap:5px;}
+  .room-amenities{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .room-amenities span{font-size:10.5px;background:var(--bg);border:1px solid var(--line);padding:4px 9px;border-radius:20px;color:var(--ink-soft);font-weight:600;}
+  .room-foot{display:flex;justify-content:space-between;align-items:center;}
+  .room-price{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:var(--blue);}
+  .room-price span{font-size:11px;font-weight:400;color:var(--ink-soft);}
+  .room-reserve{background:var(--navy);color:#fff;padding:9px 16px;border-radius:20px;font-size:12px;font-weight:700;transition:background .2s ease;}
+  .room-reserve:hover{background:var(--blue);}
+
+  /* ===== ROOM GALLERY ===== */
+  .rgallery-sec{padding:100px 0;background:var(--bg);}
+  .rg-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;justify-content:center;}
+  .rg-chip{padding:9px 18px;border-radius:30px;border:1px solid var(--line);background:#fff;font-size:12.5px;font-weight:700;transition:all .2s ease;}
+  .rg-chip.active,.rg-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .rg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:860px){.rg-grid{grid-template-columns:repeat(2,1fr);}}
+  .rg-grid .ph{height:170px;cursor:pointer;}
+  .rg-grid .ph:hover .ph-icon{opacity:.8;}
+
+  /* ===== AMENITIES ===== */
+  .amen-sec{padding:100px 0;background:#fff;}
+  .amen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  @media(max-width:900px){.amen-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:560px){.amen-grid{grid-template-columns:repeat(2,1fr);}}
+  .amen-card{text-align:center;padding:20px 12px;border-radius:8px;border:1px solid var(--line);transition:transform .2s ease, box-shadow .2s ease;}
+  .amen-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .amen-card .ic{color:var(--coral);margin-bottom:10px;}
+  .amen-card span{font-size:12px;font-weight:700;}
+
+  /* ===== STORYTELLING ===== */
+  .story-sec{padding:100px 0;background:linear-gradient(160deg,var(--navy),var(--blue));color:#fff;}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  @media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:30px;}}
+  .story-text .eyebrow{color:var(--coral);}
+  .story-text .eyebrow::before{background:var(--coral);}
+  .story-text h2{color:#fff;font-size:clamp(28px,3.8vw,40px);margin-bottom:18px;}
+  .story-text p{color:rgba(255,255,255,.78);font-size:15.5px;margin-bottom:14px;}
+  .story-sec .ph{height:340px;}
+
+  /* ===== EXPLORE AREA ===== */
+  .explore-sec{padding:100px 0;background:var(--bg);}
+  .explore-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:900px){.explore-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.explore-grid{grid-template-columns:1fr;}}
+  .explore-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:transform .25s ease, box-shadow .25s ease;}
+  .explore-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .explore-card .ph{height:130px;border-radius:0;}
+  .explore-body{padding:16px 16px 18px;}
+  .explore-body h4{font-size:15px;margin-bottom:6px;}
+  .explore-body p{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+  .explore-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--blue);font-weight:700;}
+
+  /* ===== INSIDER GUIDE ===== */
+  .guide-sec{padding:100px 0;background:#fff;}
+  .guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:900px){.guide-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.guide-grid{grid-template-columns:1fr;}}
+  .guide-card{padding:22px 20px;border-radius:var(--radius);background:var(--bg);border:1px solid var(--line);}
+  .guide-card h4{font-size:14.5px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .guide-card p{font-size:12px;color:var(--ink-soft);}
+
+  /* ===== PHOTO GALLERY (masonry) ===== */
+  .pgallery-sec{padding:100px 0;background:var(--bg);}
+  .masonry{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:12px;}
+  .masonry .ph{border-radius:6px;}
+  .masonry .tall{grid-row:span 2;}
+  .masonry .wide{grid-column:span 2;}
+  @media(max-width:860px){.masonry{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}}
+
+  /* ===== SPECIAL OFFERS ===== */
+  .offers-sec{padding:100px 0;background:#fff;}
+  .offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.offers-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.offers-grid{grid-template-columns:1fr;}}
+  .offer-card{border-radius:var(--radius);padding:28px 24px;color:#fff;position:relative;overflow:hidden;transition:transform .25s ease;}
+  .offer-card:hover{transform:translateY(-5px);}
+  .offer-card.o1{background:linear-gradient(135deg,var(--blue),var(--navy));}
+  .offer-card.o2{background:linear-gradient(135deg,var(--coral),#C15329);}
+  .offer-card.o3{background:linear-gradient(135deg,var(--palm),#3F6B44);}
+  .offer-card.o4{background:linear-gradient(135deg,var(--navy),#132A47);}
+  .offer-card.o5{background:linear-gradient(135deg,#7A6BAE,#4E3E82);}
+  .offer-tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.18);display:inline-block;padding:4px 10px;border-radius:20px;margin-bottom:14px;}
+  .offer-card h4{color:#fff;font-size:19px;margin-bottom:8px;}
+  .offer-card p{font-size:13px;color:rgba(255,255,255,.82);margin-bottom:18px;}
+  .offer-card a{font-size:12.5px;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px;}
+
+  /* ===== BOOKING PROCESS ===== */
+  .process-sec{padding:100px 0;background:var(--bg);}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  @media(max-width:760px){.process-grid{grid-template-columns:1fr 1fr;}}
+  .process-card{text-align:center;position:relative;}
+  .process-num{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin:0 auto 16px;}
+  .process-card h4{font-size:15.5px;margin-bottom:6px;}
+  .process-card p{font-size:12.5px;color:var(--ink-soft);}
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-sec{padding:100px 0;background:#fff;}
+  .testi-carousel{max-width:680px;margin:0 auto;text-align:center;min-height:200px;}
+  .testi-slide{display:none;animation:fadeUp .5s ease;}
+  .testi-slide.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .stars{color:var(--coral);font-size:16px;letter-spacing:3px;margin-bottom:18px;}
+  .testi-slide p.quote{font-family:'Playfair Display',serif;font-size:23px;font-style:italic;color:var(--navy);margin-bottom:18px;font-weight:500;}
+  .testi-who{font-size:13px;color:var(--ink-soft);font-weight:600;}
+  .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:26px;}
+  .testi-dots button{width:8px;height:8px;border-radius:50%;background:var(--line);transition:all .3s ease;}
+  .testi-dots button.active{background:var(--coral);width:22px;border-radius:6px;}
+
+  /* ===== FAQ ===== */
+  .faq-sec{padding:100px 0;background:var(--bg);}
+  .faq-list{max-width:740px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;padding:19px 4px;display:flex;justify-content:space-between;align-items:center;font-size:14.5px;font-weight:700;color:var(--navy);}
+  .faq-q .plus{font-size:19px;color:var(--coral);transition:transform .3s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{padding:0 4px 19px;font-size:13px;color:var(--ink-soft);}
+
+  /* ===== TRUST SECTION ===== */
+  .trust-sec{padding:70px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trust-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center;}
+  .trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--navy);}
+  .trust-item .ic{color:var(--palm);}
+  .pay-icons{display:flex;gap:14px;align-items:center;}
+  .pay-icons span{font-size:11px;font-weight:700;color:var(--ink-soft);border:1px solid var(--line);padding:6px 12px;border-radius:6px;}
+
+  /* ===== CONTACT ===== */
+  .contact-sec{padding:100px 0;background:var(--bg);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-list{list-style:none;}
+  .contact-list li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .contact-list li .ic{color:var(--blue);flex-shrink:0;}
+  .contact-list li b{display:block;font-size:14px;margin-bottom:2px;}
+  .contact-list li span{font-size:13px;color:var(--ink-soft);}
+  .map-ph{height:100%;min-height:280px;border-radius:var(--radius);background:linear-gradient(135deg,var(--sand),#D9C2A3);display:flex;align-items:center;justify-content:center;position:relative;}
+  .map-ph .pin{text-align:center;color:var(--navy);}
+  .map-ph span{display:block;font-size:12px;margin-top:8px;font-weight:600;}
+  .directions-btn{margin-top:16px;display:inline-block;background:var(--blue);color:#fff;padding:12px 22px;border-radius:30px;font-size:13px;font-weight:700;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:rgba(255,255,255,.65);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;}
+  .foot-col a{display:block;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:10px;margin-top:8px;}
+  .foot-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--coral);border-bottom:1px solid rgba(244,124,72,.4);}
+
+  /* ===== FLOATING / STICKY ===== */
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+  .sticky-book{position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:#fff;padding:14px 20px;display:none;align-items:center;justify-content:space-between;z-index:270;}
+  .sticky-book.show{display:flex;}
+  .sticky-book span{font-size:13px;font-weight:600;}
+  .sticky-book a{background:var(--coral);color:#fff;padding:10px 20px;border-radius:24px;font-size:12.5px;font-weight:700;}
+
+  .lightbox{position:fixed;inset:0;background:rgba(11,35,65,.94);z-index:400;display:none;align-items:center;justify-content:center;padding:40px;}
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:640px;width:100%;}
+  .lightbox .ph{height:420px;border-radius:8px;}
+  .lightbox-close{position:absolute;top:26px;right:32px;color:#fff;font-size:28px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.3);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ===== DEMO BANNER ===== -->
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean guesthouses. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<!-- ===== NAV ===== -->
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">blue bay <span>guesthouse</span></a>
+    <div class="nav-links">
+      <a href="#rooms">Rooms</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#explore">Explore</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20book%20a%20stay." target="_blank" rel="noopener">Book Now</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-shape s1"></div>
+  <div class="hero-shape s2"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Gros Islet · Saint Lucia</div>
+      <h1>Relax by the sea at<br>Blue Bay Guesthouse.</h1>
+      <p class="lede">Enjoy authentic Caribbean comfort just moments from the beach. Perfect for couples, families, solo travelers and business guests.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#booking">Book Your Stay</a>
+        <a class="btn-outline" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20a%20room." target="_blank" rel="noopener">Reserve via WhatsApp</a>
+        <a class="btn-outline" href="#rooms">Explore Rooms</a>
+      </div>
+      <div class="trust-badges">
+        <span>★★★★★ Guest Rated</span>
+        <span>📶 Free WiFi</span>
+        <span>🍳 Breakfast Included</span>
+        <span>🏖️ Beach Nearby</span>
+        <span>🔒 Secure Parking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING SEARCH WIDGET ===== -->
+<section class="booking-search" id="booking">
+  <div class="wrap">
+    <div class="search-box">
+      <div class="sf"><label>Arrival</label><input type="date" id="searchArrival"></div>
+      <div class="sf"><label>Departure</label><input type="date" id="searchDeparture"></div>
+      <div class="sf"><label>Guests</label>
+        <select id="searchGuests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4+ Guests</option></select>
+      </div>
+      <div class="sf"><label>Room Type</label>
+        <select id="searchRoomType">
+          <option>Any Room</option>
+          <option>Ocean View Deluxe</option>
+          <option>Garden Suite</option>
+          <option>Family Room</option>
+          <option>Romantic Escape</option>
+          <option>Executive Room</option>
+          <option>Budget Comfort</option>
+        </select>
+      </div>
+      <button class="search-btn" id="searchBtn">Search Availability</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Why Blue Bay</div><h2>Six reasons guests keep coming back.</h2></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12h20M12 2c2.5 3 2.5 17 0 20M12 2c-2.5 3-2.5 17 0 20"/></svg></div><h4>Walk to the Beach</h4><p>3 minutes on foot, no car required.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M2 12h2M20 12h2M12 2v2M12 20v2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></div><h4>Ocean Views</h4><p>Most rooms look straight out to the bay.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16a6 6 0 0 1 7 0M2 8.82a16 16 0 0 1 20 0" stroke-linecap="round"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></div><h4>Fast WiFi</h4><p>Fibre throughout, tested for video calls.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16M8 16l4-6 3 4 4-7"/></svg></div><h4>Affordable Luxury</h4><p>Boutique feel without the resort price tag.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h4>Friendly Hosts</h4><p>We live on-site, so help is never far away.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div><h4>Safe Location</h4><p>Gated property, quiet residential street.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED ROOMS ===== -->
+<section class="rooms-sec" id="rooms">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Featured Rooms</div><h2>Six rooms, every kind of stay.</h2></div>
+    <div class="rooms-grid">
+
+      <div class="room-card reveal">
+        <div class="ph"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Ocean View Deluxe — Bedroom</span></div>
+        <div class="room-body">
+          <h3>Ocean View Deluxe</h3>
+          <div class="room-meta"><span>👥 2 guests</span><span>🛏️ King bed</span><span>📐 32m²</span></div>
+          <div class="room-amenities"><span>Ocean View</span><span>AC</span><span>Balcony</span></div>
+          <div class="room-foot"><div class="room-price">EC$420<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20the%20Ocean%20View%20Deluxe." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+      <div class="room-card reveal">
+        <div class="ph sand"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Garden Suite — Bedroom</span></div>
+        <div class="room-body">
+          <h3>Garden Suite</h3>
+          <div class="room-meta"><span>👥 2 guests</span><span>🛏️ Queen bed</span><span>📐 26m²</span></div>
+          <div class="room-amenities"><span>Garden View</span><span>AC</span><span>Kitchenette</span></div>
+          <div class="room-foot"><div class="room-price">EC$310<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20the%20Garden%20Suite." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+      <div class="room-card reveal">
+        <div class="ph coral"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Family Room — Bedroom</span></div>
+        <div class="room-body">
+          <h3>Family Room</h3>
+          <div class="room-meta"><span>👥 4 guests</span><span>🛏️ 2 Queen beds</span><span>📐 40m²</span></div>
+          <div class="room-amenities"><span>AC</span><span>Mini Fridge</span><span>Extra Space</span></div>
+          <div class="room-foot"><div class="room-price">EC$380<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20the%20Family%20Room." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+      <div class="room-card reveal">
+        <div class="ph palm"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Romantic Escape — Bedroom</span></div>
+        <div class="room-body">
+          <h3>Romantic Escape</h3>
+          <div class="room-meta"><span>👥 2 guests</span><span>🛏️ King bed</span><span>📐 30m²</span></div>
+          <div class="room-amenities"><span>Private Balcony</span><span>Ocean View</span><span>AC</span></div>
+          <div class="room-foot"><div class="room-price">EC$395<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20the%20Romantic%20Escape." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+      <div class="room-card reveal">
+        <div class="ph"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Executive Room — Workspace</span></div>
+        <div class="room-body">
+          <h3>Executive Room</h3>
+          <div class="room-meta"><span>👥 2 guests</span><span>🛏️ Queen bed</span><span>📐 28m²</span></div>
+          <div class="room-amenities"><span>Workspace</span><span>Fast WiFi</span><span>AC</span></div>
+          <div class="room-foot"><div class="room-price">EC$340<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20the%20Executive%20Room." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+      <div class="room-card reveal">
+        <div class="ph sand"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Budget Comfort — Bedroom</span></div>
+        <div class="room-body">
+          <h3>Budget Comfort</h3>
+          <div class="room-meta"><span>👥 1-2 guests</span><span>🛏️ Double bed</span><span>📐 18m²</span></div>
+          <div class="room-amenities"><span>AC</span><span>Private Bath</span><span>WiFi</span></div>
+          <div class="room-foot"><div class="room-price">EC$140<span>/night</span></div><a class="room-reserve" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20reserve%20Budget%20Comfort." target="_blank" rel="noopener">Reserve</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTERACTIVE ROOM GALLERY ===== -->
+<section class="rgallery-sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Room Gallery</div><h2>Browse every angle.</h2></div>
+    <div class="rg-filters">
+      <button class="rg-chip active" data-cat="all">All</button>
+      <button class="rg-chip" data-cat="bedroom">Bedroom</button>
+      <button class="rg-chip" data-cat="bathroom">Bathroom</button>
+      <button class="rg-chip" data-cat="balcony">Balcony</button>
+      <button class="rg-chip" data-cat="view">View</button>
+      <button class="rg-chip" data-cat="workspace">Workspace</button>
+      <button class="rg-chip" data-cat="exterior">Exterior</button>
+    </div>
+    <div class="rg-grid" id="rgGrid">
+      <div class="ph" data-cat="bedroom"><span class="ph-icon">🖼️</span><span class="ph-label">Bedroom — Ocean View Deluxe</span></div>
+      <div class="ph sand" data-cat="bathroom"><span class="ph-icon">🖼️</span><span class="ph-label">Bathroom — Garden Suite</span></div>
+      <div class="ph coral" data-cat="balcony"><span class="ph-icon">🖼️</span><span class="ph-label">Balcony — Romantic Escape</span></div>
+      <div class="ph palm" data-cat="view"><span class="ph-icon">🖼️</span><span class="ph-label">View — Ocean View Deluxe</span></div>
+      <div class="ph" data-cat="workspace"><span class="ph-icon">🖼️</span><span class="ph-label">Workspace — Executive Room</span></div>
+      <div class="ph sand" data-cat="exterior"><span class="ph-icon">🖼️</span><span class="ph-label">Exterior — Guesthouse Front</span></div>
+      <div class="ph coral" data-cat="bedroom"><span class="ph-icon">🖼️</span><span class="ph-label">Bedroom — Family Room</span></div>
+      <div class="ph palm" data-cat="bathroom"><span class="ph-icon">🖼️</span><span class="ph-label">Bathroom — Executive Room</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AMENITIES ===== -->
+<section class="amen-sec" id="amenities">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Amenities</div><h2>Everything's already there.</h2></div>
+    <div class="amen-grid">
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16" stroke-linecap="round"/></svg></div><span>Air Conditioning</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16a6 6 0 0 1 7 0M2 8.82a16 16 0 0 1 20 0" stroke-linecap="round"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></div><span>Free WiFi</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1.5 9a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 8zM8 8V6a4 4 0 0 1 8 0v2"/></svg></div><span>Breakfast</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div><span>Parking</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="17" r="1.5"/><path d="M8 3v4h8V3"/></svg></div><span>Laundry</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2M18 3v18"/></svg></div><span>Kitchenette</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l2-7h14l2 7M3 12v7a1 1 0 0 0 1 1h2v-3h12v3h2a1 1 0 0 0 1-1v-7M3 12h18"/></svg></div><span>Airport Pickup</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><span>Smart TV</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 21h6"/></svg></div><span>Private Bathroom</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6"/></svg></div><span>Mini Fridge</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><span>Workspace</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="2"/></svg></div><span>Beach Towels</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div><span>Housekeeping</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 21c0-6 3-9 3-13a3 3 0 0 1 6 0c0 4-3 5-3 9"/></svg></div><span>Hair Dryer</span></div>
+      <div class="amen-card reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="3"/></svg></div><span>Safe</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORYTELLING ===== -->
+<section class="story-sec">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <div class="eyebrow">Why Guests Love Staying Here</div>
+        <h2>It's the mornings people remember.</h2>
+        <p>The ocean breeze reaches the veranda before the coffee does. Breakfast happens outside, in no particular hurry, while the street below slowly wakes up.</p>
+        <p>Our hosts live on-site — not a call center, not a rotating staff, just people who know the neighborhood and will tell you where to actually eat. Quiet by design, walkable by location.</p>
+      </div>
+      <div class="ph reveal"><span class="ph-icon">🖼️</span><span class="ph-label">Photo: Veranda breakfast, ocean breeze</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPLORE THE AREA ===== -->
+<section class="explore-sec" id="explore">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Explore the Area</div><h2>What's within reach.</h2></div>
+    <div class="explore-grid">
+      <div class="explore-card reveal"><div class="ph"><span class="ph-icon">🏖️</span><span class="ph-label">Hidden Beaches</span></div><div class="explore-body"><h4>Hidden Beaches</h4><p>Quiet coves away from the cruise crowds.</p><div class="explore-meta"><span>2.1 km</span><span>8 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph sand"><span class="ph-icon">🤿</span><span class="ph-label">Snorkeling</span></div><div class="explore-body"><h4>Snorkeling</h4><p>Reef access with rental gear on-site.</p><div class="explore-meta"><span>3.4 km</span><span>12 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph coral"><span class="ph-icon">💦</span><span class="ph-label">Waterfalls</span></div><div class="explore-body"><h4>Waterfalls</h4><p>Toraille Falls, easy walk-in access.</p><div class="explore-meta"><span>9.8 km</span><span>22 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph palm"><span class="ph-icon">⛵</span><span class="ph-label">Boat Tours</span></div><div class="explore-body"><h4>Boat Tours</h4><p>Half-day catamaran runs, daily departures.</p><div class="explore-meta"><span>1.5 km</span><span>5 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph"><span class="ph-icon">🍽️</span><span class="ph-label">Local Restaurants</span></div><div class="explore-body"><h4>Local Restaurants</h4><p>Creole kitchens, walkable from the guesthouse.</p><div class="explore-meta"><span>0.8 km</span><span>3 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph sand"><span class="ph-icon">🧺</span><span class="ph-label">Local Markets</span></div><div class="explore-body"><h4>Markets</h4><p>Saturday fruit and craft market downtown.</p><div class="explore-meta"><span>2.9 km</span><span>10 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph coral"><span class="ph-icon">🎣</span><span class="ph-label">Fishing</span></div><div class="explore-body"><h4>Fishing</h4><p>Half-day charters from the marina.</p><div class="explore-meta"><span>1.5 km</span><span>5 min</span></div></div></div>
+      <div class="explore-card reveal"><div class="ph palm"><span class="ph-icon">🌅</span><span class="ph-label">Sunset Spots</span></div><div class="explore-body"><h4>Sunset Spots</h4><p>Pigeon Island lookout, best at golden hour.</p><div class="explore-meta"><span>4.2 km</span><span>14 min</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCAL INSIDER GUIDE ===== -->
+<section class="guide-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Local Insider Guide</div><h2>What we tell every guest.</h2></div>
+    <div class="guide-grid">
+      <div class="guide-card reveal"><h4>🏖️ Best Beaches</h4><p>Reduit Beach for swimming, Anse Chastanet for snorkeling and reef access.</p></div>
+      <div class="guide-card reveal"><h4>🍽️ Best Local Food</h4><p>Friday night fish fry in Anse La Raye — worth planning your week around.</p></div>
+      <div class="guide-card reveal"><h4>🚕 Taxi Tips</h4><p>Agree the fare before getting in; we can call a trusted driver for you.</p></div>
+      <div class="guide-card reveal"><h4>📞 Emergency Contacts</h4><p>Police 999, Ambulance 911, and our front desk is always reachable on WhatsApp.</p></div>
+      <div class="guide-card reveal"><h4>🎁 Souvenirs</h4><p>Castries Market for crafts, skip the resort gift shops.</p></div>
+      <div class="guide-card reveal"><h4>☔ Rainy Day Ideas</h4><p>Diamond Botanical Gardens has covered paths and mineral baths.</p></div>
+      <div class="guide-card reveal"><h4>☕ Coffee Shops</h4><p>Coal Pot Café, a 4-minute walk, does the best local roast in the area.</p></div>
+      <div class="guide-card reveal"><h4>🤝 Island Etiquette</h4><p>A greeting before any request goes a long way here — "good morning" first, question second.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHOTO GALLERY (masonry) ===== -->
+<section class="pgallery-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Photo Gallery</div><h2>A look around the property.</h2></div>
+    <div class="masonry">
+      <div class="ph tall"><span class="ph-icon">🖼️</span><span class="ph-label">Rooms</span></div>
+      <div class="ph sand"><span class="ph-icon">🖼️</span><span class="ph-label">Garden</span></div>
+      <div class="ph coral"><span class="ph-icon">🖼️</span><span class="ph-label">Beach</span></div>
+      <div class="ph wide palm"><span class="ph-icon">🖼️</span><span class="ph-label">Breakfast</span></div>
+      <div class="ph"><span class="ph-icon">🖼️</span><span class="ph-label">Sunset</span></div>
+      <div class="ph tall sand"><span class="ph-icon">🖼️</span><span class="ph-label">Balcony</span></div>
+      <div class="ph coral"><span class="ph-icon">🖼️</span><span class="ph-label">Reception</span></div>
+      <div class="ph wide"><span class="ph-icon">🖼️</span><span class="ph-label">Exterior</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIAL OFFERS ===== -->
+<section class="offers-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Special Offers</div><h2>Ways to save on your stay.</h2></div>
+    <div class="offers-grid">
+      <div class="offer-card o1 reveal"><span class="offer-tag">Weekend</span><h4>Weekend Escape</h4><p>2 nights, any room, 10% off when booked Thursday–Sunday.</p><a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20the%20Weekend%20Escape%20offer." target="_blank" rel="noopener">Claim on WhatsApp →</a></div>
+      <div class="offer-card o2 reveal"><span class="offer-tag">Stay Longer</span><h4>Stay 5, Get Airport Pickup Free</h4><p>Book 5 nights or more and pickup is on us.</p><a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20the%20Stay%205%20offer." target="_blank" rel="noopener">Claim on WhatsApp →</a></div>
+      <div class="offer-card o3 reveal"><span class="offer-tag">Couples</span><h4>Honeymoon Package</h4><p>Romantic Escape room, breakfast in bed, welcome bottle.</p><a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20the%20Honeymoon%20Package." target="_blank" rel="noopener">Claim on WhatsApp →</a></div>
+      <div class="offer-card o4 reveal"><span class="offer-tag">Family</span><h4>Family Vacation Package</h4><p>Family Room + Garden Suite, connecting stay discount.</p><a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20the%20Family%20Vacation%20Package." target="_blank" rel="noopener">Claim on WhatsApp →</a></div>
+      <div class="offer-card o5 reveal"><span class="offer-tag">Extended Stay</span><h4>Long Stay Discount</h4><p>14+ nights gets 20% off the nightly rate, any room.</p><a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20the%20Long%20Stay%20Discount." target="_blank" rel="noopener">Claim on WhatsApp →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING PROCESS ===== -->
+<section class="process-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Booking Process</div><h2>Four steps to your room.</h2></div>
+    <div class="process-grid">
+      <div class="process-card reveal"><div class="process-num">1</div><h4>Choose Room</h4><p>Browse the six room types above.</p></div>
+      <div class="process-card reveal"><div class="process-num">2</div><h4>Reserve via WhatsApp</h4><p>Send your dates, we confirm within minutes.</p></div>
+      <div class="process-card reveal"><div class="process-num">3</div><h4>Receive Confirmation</h4><p>Deposit link and check-in details sent over.</p></div>
+      <div class="process-card reveal"><div class="process-num">4</div><h4>Arrive and Relax</h4><p>Keys in hand, ocean breeze included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Guest Reviews</div><h2>What people say after they leave.</h2></div>
+    <div class="testi-carousel">
+      <div class="testi-slide active"><div class="stars">★★★★★</div><p class="quote">"Booked on WhatsApp, got a reply in ten minutes, and the room matched the photos exactly. Rare these days."</p><div class="testi-who">Alicia M. — USA</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"The hosts live on-site and it shows. Every question we had was answered same-day, no exceptions."</p><div class="testi-who">Devon R. — Trinidad</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Walked to the beach every morning before breakfast. This is exactly what we wanted, not a big resort."</p><div class="testi-who">Els & Bram V. — Netherlands</div></div>
+    </div>
+    <div class="testi-dots"><button class="active" data-i="0"></button><button data-i="1"></button><button data-i="2"></button></div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Before you ask, we probably answered it.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Check-in / check-out times?<span class="plus">+</span></button><div class="faq-a"><p>Check-in from 2pm, check-out by 11am. Early or late requests possible on availability.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Is breakfast really included?<span class="plus">+</span></button><div class="faq-a"><p>Yes, continental breakfast is included in every room rate, served on the veranda.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Do you offer airport transfers?<span class="plus">+</span></button><div class="faq-a"><p>Yes, available on request for a fee — free when you stay 5+ nights.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Is parking included?<span class="plus">+</span></button><div class="faq-a"><p>Yes, free secure parking on-site for all guests.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What's the cancellation policy?<span class="plus">+</span></button><div class="faq-a"><p>Full refund up to 7 days before arrival, 50% up to 48 hours before.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Are children welcome?<span class="plus">+</span></button><div class="faq-a"><p>Yes, all ages. The Family Room is built specifically with families in mind.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Are pets allowed?<span class="plus">+</span></button><div class="faq-a"><p>Not currently — we don't accommodate pets at this time.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What payment methods do you accept?<span class="plus">+</span></button><div class="faq-a"><p>Visa, Mastercard, cash on arrival, or bank transfer for deposits.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Is WiFi available in every room?<span class="plus">+</span></button><div class="faq-a"><p>Yes, free fibre WiFi throughout the property, including outdoor common areas.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Is a deposit required to book?<span class="plus">+</span></button><div class="faq-a"><p>A deposit secures your dates; balance is due on arrival or before, your choice.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST SECTION ===== -->
+<section class="trust-sec">
+  <div class="wrap">
+    <div class="trust-row">
+      <div class="trust-item"><span class="ic">✓</span> Licensed Accommodation</div>
+      <div class="trust-item"><span class="ic">✓</span> Secure Reservations</div>
+      <div class="trust-item"><span class="ic">✓</span> No Hidden Fees</div>
+      <div class="trust-item"><span class="ic">✓</span> Best Value Guarantee</div>
+      <div class="trust-item"><span class="ic">✓</span> Excellent Guest Reviews</div>
+      <div class="pay-icons"><span>VISA</span><span>Mastercard</span><span>Cash</span><span>Bank Transfer</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Visit Us</div><h2>Find your way to Blue Bay.</h2></div>
+    <div class="contact-grid">
+      <ul class="contact-list reveal">
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>Address</b><span>12 Bay View Road, Gros Islet, Saint Lucia</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5z"/></svg></span><div><b>Phone / WhatsApp</b><span>+1 (758) 723-5872</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>Email</b><span>hello@bluebayguesthouse.demo</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></span><div><b>Hours</b><span>Front desk: 7am – 10pm daily</span></div></li>
+        <li><a class="directions-btn" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20could%20I%20get%20directions%3F" target="_blank" rel="noopener">Get Directions on WhatsApp</a></li>
+      </ul>
+      <div class="map-ph reveal">
+        <div class="pin">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B2341" stroke-width="1.6"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Map preview — live map embedded on launch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">blue bay <span style="color:var(--coral);font-style:italic;">guesthouse</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Authentic Caribbean hospitality in Gros Islet, Saint Lucia. Booked entirely over WhatsApp.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#rooms">Rooms</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#explore">Area Guide</a>
+      </div>
+      <div class="foot-col">
+        <h5>Policies</h5>
+        <a href="#faq">FAQs</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp</a>
+        <a>Gros Islet, Saint Lucia</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This website is a demonstration created to showcase modern guesthouse web design and booking experiences. Built by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b>. No real business named "Blue Bay Guesthouse" is affiliated with this page. <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 Blue Bay Guesthouse (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20book%20a%20stay." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+
+<div class="sticky-book" id="stickyBook">
+  <span>Ready to book your stay?</span>
+  <a href="https://wa.me/17587235872?text=Hi%20Blue%20Bay%20Guesthouse%2C%20I'd%20like%20to%20book%20a%20stay." target="_blank" rel="noopener">Book Now</a>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <div class="lightbox-inner">
+    <div class="ph" id="lightboxPh"><span class="ph-icon" style="font-size:40px;">🖼️</span><span class="ph-label" id="lightboxLabel">Photo</span></div>
+  </div>
+</div>
+
+<script>
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  /* Sticky nav solid on scroll + sticky book bar */
+  const header = document.getElementById('siteHeader');
+  const stickyBook = document.getElementById('stickyBook');
+  window.addEventListener('scroll', ()=>{
+    header.classList.toggle('solid', window.scrollY > 40);
+    stickyBook.classList.toggle('show', window.scrollY > 900);
+  });
+
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* Booking search widget */
+  document.getElementById('searchBtn').addEventListener('click', ()=>{
+    const roomType = document.getElementById('searchRoomType').value;
+    const results = document.getElementById('searchResults');
+    const rooms = [
+      {name:'Ocean View Deluxe', price:'EC$420', status:'Available'},
+      {name:'Garden Suite', price:'EC$310', status:'Available'},
+      {name:'Family Room', price:'EC$380', status:'Limited — 1 left'},
+      {name:'Romantic Escape', price:'EC$395', status:'Available'},
+      {name:'Executive Room', price:'EC$340', status:'Available'},
+      {name:'Budget Comfort', price:'EC$140', status:'Limited — 2 left'}
+    ];
+    const filtered = roomType === 'Any Room' ? rooms : rooms.filter(r=>r.name===roomType);
+    results.innerHTML = filtered.map(r=>{
+      const cls = r.status.startsWith('Available') ? 'avail' : 'limited';
+      const msg = encodeURIComponent(`Hi Blue Bay Guesthouse, I'd like to book the ${r.name}.`);
+      return `<div class="sr-item">
+        <span><b>${r.name}</b> — ${r.price}/night</span>
+        <span class="sr-status ${cls}">${r.status}</span>
+        <a class="room-reserve" href="https://wa.me/17587235872?text=${msg}" target="_blank" rel="noopener">Reserve</a>
+      </div>`;
+    }).join('');
+    results.classList.add('show');
+    results.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  /* Room gallery filter */
+  const rgChips = document.querySelectorAll('.rg-chip');
+  const rgItems = document.querySelectorAll('#rgGrid .ph');
+  rgChips.forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      rgChips.forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      const cat = chip.dataset.cat;
+      rgItems.forEach(item=>{
+        item.style.display = (cat==='all' || item.dataset.cat===cat) ? '' : 'none';
+      });
+    });
+  });
+
+  /* Lightbox for placeholders */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxLabel = document.getElementById('lightboxLabel');
+  document.querySelectorAll('.rg-grid .ph, .masonry .ph').forEach(ph=>{
+    ph.addEventListener('click', ()=>{
+      const label = ph.querySelector('.ph-label').textContent;
+      lightboxLabel.textContent = label;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+  /* Testimonial carousel */
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('.testi-dots button');
+  let ti = 0;
+  function showSlide(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active'); dots[i].classList.add('active'); ti = i;
+  }
+  dots.forEach(d=>d.addEventListener('click', ()=>showSlide(parseInt(d.dataset.i,10))));
+  setInterval(()=> showSlide((ti+1)%slides.length), 6000);
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
