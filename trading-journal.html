@@ -6,6 +6,7 @@
 <title>Trading Journal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
   :root{
     --bg:#0E1117;
@@ -293,6 +294,7 @@
     </nav>
     <div class="sidebar-foot">
       <button class="btn btn-primary btn-sm" style="width:100%; justify-content:center" id="sidebarAddTrade">+ New Trade</button>
+      <div id="syncStatus" style="font-size:11px; text-align:center; color:var(--muted); font-family:'JetBrains Mono';">● —</div>
     </div>
   </aside>
 
@@ -550,6 +552,82 @@ class LocalStorageAdapter extends StorageAdapter {
 const storage = new LocalStorageAdapter('tj_trades_v1');
 
 /* ============================================================
+   CLOUD SYNC (Supabase)
+   Local storage stays as the offline cache/fallback — every read on
+   startup pulls the cloud copy first (if reachable) and overwrites
+   local state, and every write pushes the full blob to the cloud
+   right after saving locally. This is what makes computer <-> phone
+   actually sync, unlike the pure-localStorage version.
+   ============================================================ */
+const SUPABASE_URL = 'https://jocrozfirqiowurczzvh.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvY3JvemZpcnFpb3d1cmN6enZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4NzI0MzAsImV4cCI6MjA5OTQ0ODQzMH0.g052K0PQ7Bj3iZtoFD51t6K1xhnCWSSZ31eCLeYZA4c';
+const JOURNAL_ROW_ID = 'main';
+let sb = null;
+try{
+  if(window.supabase && SUPABASE_URL && SUPABASE_ANON_KEY){
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+}catch(e){ console.error('Supabase client init failed', e); }
+
+function setSyncStatus(state){
+  // state: 'synced' | 'syncing' | 'offline' | 'error'
+  const el = document.getElementById('syncStatus');
+  if(!el) return;
+  const map = {
+    synced:  { text: '● Synced',   color: 'var(--win)'  },
+    syncing: { text: '● Syncing…', color: 'var(--accent)' },
+    offline: { text: '● Offline (local only)', color: 'var(--muted)' },
+    error:   { text: '● Sync failed', color: 'var(--loss)' },
+  };
+  const s = map[state] || map.offline;
+  el.textContent = s.text;
+  el.style.color = s.color;
+}
+
+async function pullFromCloud(){
+  if(!sb) { setSyncStatus('offline'); return false; }
+  setSyncStatus('syncing');
+  try{
+    const { data, error } = await sb.from('journal_data').select('data').eq('id', JOURNAL_ROW_ID).maybeSingle();
+    if(error) throw error;
+    if(data && data.data){
+      trades = data.data.trades || [];
+      accounts = data.data.accounts || [];
+      tagVocab = data.data.tagVocab || { mistake:[...DEFAULT_MISTAKE_TAGS], good:[...DEFAULT_GOOD_TAGS] };
+      // keep local cache in sync so the app still works offline after this
+      await storage.saveTrades(trades);
+      await accountStorage.saveAccounts(accounts);
+      await tagStorage.saveVocab(tagVocab.mistake, tagVocab.good);
+    }
+    setSyncStatus('synced');
+    return true;
+  } catch(e){
+    console.error('Cloud pull failed', e);
+    setSyncStatus('error');
+    return false;
+  }
+}
+
+let _pushTimer = null;
+function pushToCloud(){
+  if(!sb) return;
+  clearTimeout(_pushTimer);
+  setSyncStatus('syncing');
+  // debounced so rapid successive saves (e.g. import) don't fire many requests
+  _pushTimer = setTimeout(async () => {
+    try{
+      const payload = { trades, accounts, tagVocab };
+      const { error } = await sb.from('journal_data').upsert({ id: JOURNAL_ROW_ID, data: payload, updated_at: new Date().toISOString() });
+      if(error) throw error;
+      setSyncStatus('synced');
+    } catch(e){
+      console.error('Cloud push failed', e);
+      setSyncStatus('error');
+    }
+  }, 500);
+}
+
+/* ============================================================
    STATE
    ============================================================ */
 let trades = [];
@@ -713,6 +791,7 @@ async function addNewTag(vocabKey, inputId){
   if(!tagVocab[vocabKey].includes(val)) tagVocab[vocabKey].push(val);
   input.value = '';
   await tagStorage.saveVocab(tagVocab.mistake, tagVocab.good);
+  pushToCloud();
   if(vocabKey === 'mistake'){ selectedMistakeTags.push(val); renderMistakeTags(); }
   else { selectedGoodTags.push(val); renderGoodTags(); }
 }
@@ -760,6 +839,7 @@ function renderAccountsList(){
       if(!confirm(msg)) return;
       accounts = accounts.filter(a => a.id !== id);
       await accountStorage.saveAccounts(accounts);
+      pushToCloud();
       renderAccountsList();
       populateAccountDropdown();
       populateFilterOptions();
@@ -774,6 +854,7 @@ $('#addAccountBtn').addEventListener('click', async () => {
   if(!name) return;
   accounts.push({ id: uidAccount(), name });
   await accountStorage.saveAccounts(accounts);
+  pushToCloud();
   input.value = '';
   renderAccountsList();
   populateAccountDropdown();
@@ -937,6 +1018,7 @@ $('#tradeForm').addEventListener('submit', async e => {
     toast('Trade saved');
   }
   await storage.saveTrades(trades);
+  pushToCloud();
   resetForm();
   showView('dashboard');
 });
@@ -1234,6 +1316,7 @@ function renderHistory(){
       if(!confirm('Delete this trade? This cannot be undone.')) return;
       trades = trades.filter(t => t.id !== btn.dataset.del);
       await storage.saveTrades(trades);
+      pushToCloud();
       toast('Trade deleted');
       renderHistory();
     });
@@ -1426,6 +1509,7 @@ $('#importFile').addEventListener('change', e => {
       if(!Array.isArray(data)) throw new Error('Invalid format');
       trades = data;
       await storage.saveTrades(trades);
+      pushToCloud();
       toast('Imported ' + data.length + ' trades');
       renderSettings();
     } catch(err){ alert('Import failed: file is not a valid export.'); }
@@ -1437,6 +1521,7 @@ $('#resetBtn').addEventListener('click', async () => {
   if(!confirm('This will permanently delete all trades. Continue?')) return;
   trades = [];
   await storage.saveTrades(trades);
+  pushToCloud();
   toast('Journal reset');
   renderSettings();
   renderDashboard();
@@ -1449,6 +1534,7 @@ async function init(){
   trades = await storage.getTrades();
   tagVocab = await tagStorage.getVocab();
   accounts = await accountStorage.getAccounts();
+  await pullFromCloud(); // overwrites the above with cloud data if reachable, keeps local as fallback if not
   resetForm();
   renderDashboard();
 }
