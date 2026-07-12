@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nail'd It Studio — Rodney Bay, Saint Lucia | Nail Art &amp; Manicure</title>
+<meta name="description" content="Nail'd It Studio — gel, acrylic, chrome and custom nail art in Rodney Bay, Saint Lucia. Book your appointment on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1C1420;
+    --ink-soft:#6B5D68;
+    --paper:#FBF4EF;
+    --paper-dim:#F2E9E2;
+    --coral:#FF5A72;
+    --coral-deep:#E8425B;
+    --gold:#CE9A4C;
+    --emerald:#2F6E58;
+    --line:rgba(28,20,32,0.12);
+    --line-light:rgba(251,244,239,0.18);
+    --radius:2px;
+    --shadow:0 20px 50px -20px rgba(28,20,32,0.35);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:'Space Mono',monospace;}
+  section{position:relative;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  ::selection{background:var(--coral);color:var(--paper);}
+
+  /* ---------- DEMO BANNER ---------- */
+  .demo-banner{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:center;
+    font-size:12.5px;
+    letter-spacing:.05em;
+    padding:9px 16px;
+    position:relative;
+    z-index:200;
+  }
+  .demo-banner b{color:var(--coral);}
+  .demo-banner a{border-bottom:1px solid var(--gold);color:var(--gold);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:150;
+    background:rgba(251,244,239,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;
+  }
+  .logo span{color:var(--coral);}
+  .nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:3px;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;
+    background:var(--coral);transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--ink);color:var(--paper);padding:11px 22px;
+    border-radius:30px;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{background:var(--coral-deep);transform:translateY(-1px);}
+  .burger{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);color:var(--paper);
+    padding:96px 0 0;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;
+  }
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(40px,5.6vw,68px);color:var(--paper);margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--coral);}
+  .hero p.lede{
+    font-size:17px;color:rgba(251,244,239,0.72);max-width:440px;margin-bottom:34px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .btn-primary{
+    background:var(--coral);color:var(--ink);padding:15px 28px;border-radius:30px;
+    font-weight:800;font-size:14.5px;display:inline-flex;align-items:center;gap:9px;
+    box-shadow:0 14px 30px -12px rgba(255,90,114,0.55);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(255,90,114,0.7);}
+  .btn-ghost{
+    border:1px solid rgba(251,244,239,0.35);color:var(--paper);padding:15px 26px;border-radius:30px;
+    font-weight:700;font-size:14.5px;transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--paper);background:rgba(251,244,239,0.06);}
+  .hero-stats{display:flex;gap:36px;padding-top:26px;border-top:1px solid rgba(251,244,239,0.14);}
+  .hero-stats div b{
+    display:block;font-family:'Fraunces',serif;font-size:26px;color:var(--gold);font-weight:600;
+  }
+  .hero-stats div span{font-size:12px;color:rgba(251,244,239,0.55);letter-spacing:.03em;}
+
+  /* polish shelf signature element */
+  .shelf-wrap{position:relative;display:flex;justify-content:center;padding:20px 0 70px;}
+  .shelf{
+    position:relative;display:flex;align-items:flex-end;gap:14px;
+    padding:0 10px 26px;
+  }
+  .shelf::after{
+    content:"";position:absolute;left:-20px;right:-20px;bottom:14px;height:10px;
+    background:linear-gradient(180deg,#3A2B3E,#241B27);border-radius:3px;
+    box-shadow:0 24px 40px -10px rgba(0,0,0,.5);
+  }
+  .bottle{
+    width:46px;border-radius:5px 5px 3px 3px;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12), 0 10px 22px -8px rgba(0,0,0,.5);
+    animation:bob 5s ease-in-out infinite;
+  }
+  .bottle::before{
+    content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    width:16px;height:16px;background:var(--ink);border-radius:2px 2px 0 0;
+    box-shadow:0 -2px 0 rgba(0,0,0,.2) inset;
+  }
+  .bottle:nth-child(1){height:112px;background:linear-gradient(160deg,#FF7C90,#E8425B);animation-delay:0s;}
+  .bottle:nth-child(2){height:150px;background:linear-gradient(160deg,#E7C67B,#CE9A4C);animation-delay:.4s;}
+  .bottle:nth-child(3){height:96px;background:linear-gradient(160deg,#4C9179,#2F6E58);animation-delay:.8s;}
+  .bottle:nth-child(4){height:134px;background:linear-gradient(160deg,#7A6B84,#43333F);animation-delay:1.2s;}
+  .bottle:nth-child(5){height:118px;background:linear-gradient(160deg,#FFD1AE,#E8967A);animation-delay:1.6s;}
+  .bottle:nth-child(6){height:104px;background:linear-gradient(160deg,#F0E6DA,#C9B79A);animation-delay:2s;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  @media(prefers-reduced-motion:reduce){.bottle{animation:none;}}
+  .shelf-caption{
+    position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+    font-family:'Space Mono',monospace;font-size:11px;color:rgba(251,244,239,0.4);
+    letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+  }
+  @media(max-width:900px){.shelf-wrap{padding-bottom:50px;}}
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{
+    background:var(--gold);color:var(--ink);overflow:hidden;padding:12px 0;
+    border-top:1px solid rgba(28,20,32,.08);border-bottom:1px solid rgba(28,20,32,.08);
+  }
+  .strip-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 26s linear infinite;width:max-content;}
+  .strip-track span{font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:48px;}
+  .strip-track span::after{content:"✦";opacity:.5;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.strip-track{animation:none;}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{max-width:600px;margin-bottom:52px;}
+  .sec-head .eyebrow{color:var(--coral-deep);}
+  .sec-head .eyebrow::before{background:var(--coral-deep);}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);}
+  .sec-head p{color:var(--ink-soft);font-size:16px;margin-top:14px;max-width:480px;}
+  .light-sec .sec-head .eyebrow{color:var(--gold);}
+  .light-sec .sec-head .eyebrow::before{background:var(--gold);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-sec{padding:100px 0;background:var(--paper);}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
+  .filter-chip{
+    display:inline-flex;align-items:center;gap:8px;padding:9px 18px 9px 12px;
+    border-radius:30px;border:1px solid var(--line);background:#fff;
+    font-size:13px;font-weight:700;cursor:pointer;transition:all .2s ease;
+  }
+  .filter-chip .cap{width:14px;height:14px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);}
+  .filter-chip.active, .filter-chip:hover{border-color:var(--ink);background:var(--ink);color:var(--paper);}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px;
+  }
+  .gallery-grid figure{
+    position:relative;overflow:hidden;border-radius:4px;grid-column:span 1;grid-row:span 1;cursor:pointer;
+  }
+  .gallery-grid figure.tall{grid-row:span 2;}
+  .gallery-grid figure.wide{grid-column:span 2;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .gallery-grid figure:hover img{transform:scale(1.08);}
+  .gallery-grid figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+    background:linear-gradient(0deg,rgba(28,20,32,.85),transparent);
+    color:var(--paper);font-size:12.5px;font-weight:700;letter-spacing:.03em;
+    opacity:0;transform:translateY(6px);transition:all .25s ease;
+  }
+  .gallery-grid figure:hover figcaption{opacity:1;transform:translateY(0);}
+  @media(max-width:900px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}
+  }
+
+  /* ---------- SERVICES (ticket stub) ---------- */
+  .services-sec{background:var(--ink);color:var(--paper);padding:100px 0;}
+  .services-sec .sec-head p{color:rgba(251,244,239,.62);}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;}
+  @media(max-width:800px){.menu-cols{grid-template-columns:1fr;}}
+  .menu-group{margin-bottom:38px;}
+  .menu-group h4{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed rgba(251,244,239,.25);
+  }
+  .menu-row{
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    padding:13px 0;border-bottom:1px dotted rgba(251,244,239,.16);
+  }
+  .menu-row .name{font-size:15.5px;font-weight:600;}
+  .menu-row .sub{display:block;font-size:12.5px;color:rgba(251,244,239,.5);font-weight:400;margin-top:2px;}
+  .menu-row .price{font-family:'Space Mono',monospace;font-weight:700;color:var(--coral);white-space:nowrap;}
+  .ticket-note{
+    margin-top:20px;padding:18px 20px;border:1px dashed rgba(251,244,239,.3);border-radius:4px;
+    font-size:13px;color:rgba(251,244,239,.6);position:relative;
+  }
+  .ticket-note b{color:var(--paper);}
+
+  /* ---------- PROCESS ---------- */
+  .process-sec{padding:100px 0;background:var(--paper-dim);}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:800px){.process-grid{grid-template-columns:1fr;}}
+  .process-card{
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:32px 26px;position:relative;
+  }
+  .process-card .num{
+    font-family:'Fraunces',serif;font-size:15px;color:var(--coral-deep);font-weight:700;margin-bottom:18px;
+    display:inline-block;
+  }
+  .process-card h3{font-size:20px;margin-bottom:10px;}
+  .process-card p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-sec{padding:100px 0;background:var(--paper);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{
+    background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px;
+    box-shadow:var(--shadow);
+  }
+  .stars{color:var(--gold);font-size:14px;margin-bottom:14px;letter-spacing:2px;}
+  .testi-card p{font-size:15px;color:var(--ink);margin-bottom:18px;font-style:italic;}
+  .testi-who{display:flex;align-items:center;gap:10px;}
+  .avatar{
+    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;font-size:14px;color:#fff;
+  }
+  .testi-who div b{display:block;font-size:13.5px;}
+  .testi-who div span{font-size:12px;color:var(--ink-soft);}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    background:linear-gradient(135deg,var(--coral-deep),var(--coral));
+    color:var(--ink);padding:90px 0;text-align:center;position:relative;overflow:hidden;
+  }
+  .final-cta h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:16px;color:var(--ink);}
+  .final-cta p{font-size:16px;max-width:460px;margin:0 auto 34px;color:rgba(28,20,32,.75);}
+  .btn-dark{
+    background:var(--ink);color:var(--paper);padding:16px 32px;border-radius:30px;
+    font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:10px;
+    transition:transform .2s ease;
+  }
+  .btn-dark:hover{transform:translateY(-2px);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(251,244,239,.6);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(251,244,239,.1);}
+  .foot-logo{font-family:'Fraunces',serif;font-size:20px;color:var(--paper);margin-bottom:10px;}
+  .foot-logo span{color:var(--coral);}
+  .foot-col h5{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .foot-col a{display:block;font-size:14px;margin-bottom:9px;color:rgba(251,244,239,.65);}
+  .foot-col a:hover{color:var(--paper);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:12.5px;
+  }
+  .foot-demo-note{
+    max-width:640px;font-size:12.5px;color:rgba(251,244,239,.45);line-height:1.7;
+  }
+  .foot-demo-note a{color:var(--gold);border-bottom:1px solid rgba(206,154,76,.4);}
+
+  /* whatsapp float */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(37,211,102,.6);z-index:180;transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  /* lightbox */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(28,20,32,.92);z-index:300;display:none;
+    align-items:center;justify-content:center;padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:85vh;border-radius:6px;}
+  .lightbox-close{
+    position:absolute;top:26px;right:32px;color:#fff;font-size:28px;cursor:pointer;
+    width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;
+    border:1px solid rgba(255,255,255,.3);
+  }
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean nail &amp; beauty studios. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">nail'd it <span>studio</span></a>
+    <div class="nav-links">
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20Nail'd%20It%20Studio!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+      Book on WhatsApp →
+    </a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Rodney Bay, Saint Lucia</div>
+        <h1>Nails that start<br> the <em>conversation.</em></h1>
+        <p class="lede">Gel, acrylic, chrome and hand-painted nail art — done by technicians who treat every set like a portfolio piece. Walk in with an idea, walk out with proof.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20Nail'd%20It%20Studio!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+            📲 Book on WhatsApp
+          </a>
+          <a class="btn-ghost" href="#gallery">View the gallery</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>4.9★</b><span>Client rating</span></div>
+          <div><b>30+</b><span>Design styles</span></div>
+          <div><b>6</b><span>Days a week</span></div>
+        </div>
+      </div>
+      <div class="shelf-wrap">
+        <div class="shelf">
+          <div class="bottle"></div>
+          <div class="bottle"></div>
+          <div class="bottle"></div>
+          <div class="bottle"></div>
+          <div class="bottle"></div>
+          <div class="bottle"></div>
+        </div>
+        <div class="shelf-caption">this season's shade wall</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <span>Gel Manicure <span>Chrome Finish</span><span>Acrylic Sets</span><span>Hand-Painted Art</span><span>Pedicure</span><span>Nail Repair</span></span>
+    <span>Gel Manicure <span>Chrome Finish</span><span>Acrylic Sets</span><span>Hand-Painted Art</span><span>Pedicure</span><span>Nail Repair</span></span>
+  </div>
+</div>
+
+<section class="gallery-sec light-sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The work</div>
+      <h2>Every set is a reference photo.</h2>
+      <p>Filter by finish. Tap any design to see it up close, then send it straight to us on WhatsApp when you book.</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter-chip active" data-filter="all"><span class="cap" style="background:var(--ink)"></span>All work</button>
+      <button class="filter-chip" data-filter="chrome"><span class="cap" style="background:#C9B79A"></span>Chrome</button>
+      <button class="filter-chip" data-filter="ombre"><span class="cap" style="background:#FF7C90"></span>Ombré</button>
+      <button class="filter-chip" data-filter="french"><span class="cap" style="background:#F0E6DA"></span>French</button>
+      <button class="filter-chip" data-filter="art"><span class="cap" style="background:#2F6E58"></span>Nail Art</button>
+      <button class="filter-chip" data-filter="acrylic"><span class="cap" style="background:#CE9A4C"></span>Acrylic</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <figure class="tall" data-cat="art"><img loading="lazy" src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=700&q=75" alt="Pink hand-painted nail art"><figcaption>Hand-painted florals</figcaption></figure>
+      <figure data-cat="chrome"><img loading="lazy" src="https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?auto=format&fit=crop&w=700&q=75" alt="Chrome polish bottles"><figcaption>Chrome finish set</figcaption></figure>
+      <figure data-cat="acrylic"><img loading="lazy" src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=700&q=75" alt="Acrylic set being applied in studio"><figcaption>Acrylic full set</figcaption></figure>
+      <figure class="wide" data-cat="ombre"><img loading="lazy" src="https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?auto=format&fit=crop&w=900&q=75" alt="Ombré manicure"><figcaption>Sunset ombré</figcaption></figure>
+      <figure data-cat="french"><img loading="lazy" src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=700&q=75" alt="French tip manicure"><figcaption>Modern French tip</figcaption></figure>
+      <figure data-cat="art" class="tall"><img loading="lazy" src="https://images.unsplash.com/photo-1736434518489-0eb84070017f?auto=format&fit=crop&w=700&q=75" alt="Nail art with floral detail"><figcaption>Statement accent nail</figcaption></figure>
+      <figure data-cat="chrome"><img loading="lazy" src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?auto=format&fit=crop&w=700&q=75" alt="Black chrome manicure"><figcaption>Onyx chrome</figcaption></figure>
+      <figure data-cat="ombre"><img loading="lazy" src="https://images.unsplash.com/photo-1612887390768-fb02affea7a6?auto=format&fit=crop&w=700&q=75" alt="Soft pink ombré manicure"><figcaption>Blush ombré</figcaption></figure>
+      <figure data-cat="french" class="wide"><img loading="lazy" src="https://images.unsplash.com/photo-1618606679166-7f313aa5b26f?auto=format&fit=crop&w=900&q=75" alt="Silver ring on manicured hand"><figcaption>Classic French, glossy top coat</figcaption></figure>
+      <figure data-cat="acrylic"><img loading="lazy" src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=700&q=75" alt="Hand on pink surface showing acrylic nails"><figcaption>Coffin-shaped acrylics</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="services-sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The menu</div>
+      <h2>Priced like a ticket stub. No surprises at checkout.</h2>
+      <p>Every price below is walk-in ready. Combine services, add design, and settle up — or pay directly through WhatsApp.</p>
+    </div>
+
+    <div class="menu-cols">
+      <div>
+        <div class="menu-group">
+          <h4>Hands</h4>
+          <div class="menu-row"><div><span class="name">Classic Manicure</span><span class="sub">Shape, cuticle care, polish</span></div><div class="price">EC$65</div></div>
+          <div class="menu-row"><div><span class="name">Gel Manicure</span><span class="sub">Chip-free, 2–3 week wear</span></div><div class="price">EC$95</div></div>
+          <div class="menu-row"><div><span class="name">Acrylic Full Set</span><span class="sub">Any length, square or coffin</span></div><div class="price">EC$150</div></div>
+          <div class="menu-row"><div><span class="name">Acrylic Fill</span><span class="sub">2–3 week maintenance</span></div><div class="price">EC$95</div></div>
+        </div>
+        <div class="menu-group">
+          <h4>Feet</h4>
+          <div class="menu-row"><div><span class="name">Classic Pedicure</span><span class="sub">Soak, scrub, polish</span></div><div class="price">EC$85</div></div>
+          <div class="menu-row"><div><span class="name">Gel Pedicure</span><span class="sub">Long-wear finish</span></div><div class="price">EC$115</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="menu-group">
+          <h4>Finish &amp; Add-ons</h4>
+          <div class="menu-row"><div><span class="name">Chrome / Cat-Eye Finish</span><span class="sub">Add to any set</span></div><div class="price">+EC$25</div></div>
+          <div class="menu-row"><div><span class="name">Hand-Painted Nail Art</span><span class="sub">Per nail, design dependent</span></div><div class="price">from EC$10</div></div>
+          <div class="menu-row"><div><span class="name">Ombré Blend</span><span class="sub">2–3 shade gradient</span></div><div class="price">+EC$20</div></div>
+          <div class="menu-row"><div><span class="name">Soak-Off Removal</span><span class="sub">Gel or acrylic, any studio</span></div><div class="price">EC$35</div></div>
+        </div>
+        <div class="ticket-note">
+          <b>Booking policy —</b> A EC$20 deposit secures your slot for sets over 90 minutes. Send us a design reference on WhatsApp and we'll confirm timing before you arrive.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-sec" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">How it works</div>
+      <h2>Three messages to a fresh set.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <span class="num">01</span>
+        <h3>Send your inspiration</h3>
+        <p>Screenshot, Pinterest link, or just describe the vibe — message us on WhatsApp and we'll tell you what it takes to get there.</p>
+      </div>
+      <div class="process-card reveal">
+        <span class="num">02</span>
+        <h3>Pick a slot</h3>
+        <p>We'll confirm a time that fits your day and hold it with a small deposit for longer appointments.</p>
+      </div>
+      <div class="process-card reveal">
+        <span class="num">03</span>
+        <h3>Walk out done</h3>
+        <p>Studio-fresh set, aftercare tips included, and a photo for your own gallery before you leave the chair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">From the chair</div>
+      <h2>What regulars keep coming back for.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Sent one blurry screenshot and they matched it almost exactly. Didn't expect that level of detail from a walk-in booking."</p>
+        <div class="testi-who">
+          <div class="avatar" style="background:var(--coral-deep)">K</div>
+          <div><b>Kimoy A.</b><span>Gel manicure, chrome finish</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Booking on WhatsApp meant I never had to call and explain what I wanted twice. Photos said it all."</p>
+        <div class="testi-who">
+          <div class="avatar" style="background:var(--emerald)">S</div>
+          <div><b>Shanice P.</b><span>Acrylic full set</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The ombré held up two and a half weeks with zero chipping. First place I've found in Rodney Bay that's this consistent."</p>
+        <div class="testi-who">
+          <div class="avatar" style="background:var(--gold)">D</div>
+          <div><b>Delia M.</b><span>Ombré, gel pedicure</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Bring the reference photo.<br>We'll bring the rest.</h2>
+    <p>Message the studio now — real technicians reply, not a bot.</p>
+    <a class="btn-dark" href="https://wa.me/17587235872?text=Hi%20Nail'd%20It%20Studio!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+      📲 Chat on WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">nail'd it <span>studio</span></div>
+        <p style="font-size:13.5px;color:rgba(251,244,239,.55);">Rodney Bay, Saint Lucia. Gel, acrylic, chrome and custom nail art — booked entirely over WhatsApp.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Studio</h5>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services &amp; pricing</a>
+        <a href="#process">How booking works</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div class="foot-col">
+        <h5>Hours</h5>
+        <a>Tue – Sat: 9am – 6pm</a>
+        <a>Sun: 10am – 3pm</a>
+        <a>Mon: Closed</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp booking</a>
+        <a>Rodney Bay, Saint Lucia</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This is a fictional demo business created by <b style="color:rgba(251,244,239,.7)">Jamal Samuel</b> under <b style="color:rgba(251,244,239,.7)">AkraLink</b> to demonstrate a WhatsApp-first conversion website for Caribbean nail &amp; beauty studios. No real business named "Nail'd It Studio" is affiliated with this page. Want a site like this for your business? <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 Nail'd It Studio (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20Nail'd%20It%20Studio!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4zm4.05-5.54c-.22-.11-1.31-.65-1.52-.72-.2-.07-.35-.11-.5.11-.15.22-.58.72-.71.87-.13.15-.26.16-.48.05-.22-.11-.94-.35-1.79-1.1-.66-.59-1.11-1.32-1.24-1.54-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.68-1.65-.18-.43-.36-.37-.5-.38-.13-.01-.28-.01-.43-.01a.83.83 0 0 0-.6.28c-.21.22-.79.77-.79 1.87 0 1.1.81 2.16.92 2.31.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.03.15 1.42.09.43-.06 1.31-.53 1.5-1.05.18-.51.18-.95.13-1.04-.05-.1-.2-.15-.42-.26z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // Gallery filter
+  const chips = document.querySelectorAll('.filter-chip');
+  const figures = document.querySelectorAll('#galleryGrid figure');
+  chips.forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      chips.forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      const f = chip.dataset.filter;
+      figures.forEach(fig=>{
+        fig.style.display = (f==='all' || fig.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  figures.forEach(fig=>{
+    fig.addEventListener('click', ()=>{
+      const img = fig.querySelector('img');
+      lightboxImg.src = img.src.replace('w=700','w=1400').replace('w=900','w=1600');
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Mobile burger -> simple scroll to booking as fallback
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+</script>
+
+</body>
+</html>
