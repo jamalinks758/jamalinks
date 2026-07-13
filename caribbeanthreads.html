@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaribbeanThreads — Modern Caribbean Fashion</title>
+<meta name="description" content="Wear the spirit of the Caribbean. Modern resort wear, linen essentials and island-inspired fashion. Reserve on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://example.com/caribbeanthreads">
+<meta property="og:title" content="CaribbeanThreads — Wear the Spirit of the Caribbean">
+<meta property="og:description" content="Modern Caribbean fashion inspired by island culture, sunshine and effortless confidence.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --sand:#F8F4ED;
+    --sand-alt:#F0E9DC;
+    --navy:#0D355D;
+    --coral:#F76C5E;
+    --palm:#4F7D53;
+    --gold:#C89A3D;
+    --ink:#2E2E2E;
+    --ink-soft:#736C60;
+    --line:rgba(46,46,46,0.1);
+    --shadow:0 24px 60px -30px rgba(13,53,93,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.15;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1260px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{position:relative;}
+  ::selection{background:var(--coral);color:#fff;}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+
+  .demo-notice{background:var(--navy);color:var(--sand);text-align:center;font-size:12px;letter-spacing:.02em;padding:11px 20px;line-height:1.6;}
+  .demo-notice b{color:var(--gold);}
+
+  header{position:sticky;top:0;z-index:250;background:rgba(248,244,237,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:background .3s ease, box-shadow .3s ease;}
+  header.solid{background:rgba(248,244,237,0.98);box-shadow:0 4px 20px -10px rgba(13,53,93,.12);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1260px;margin:0 auto;gap:18px;}
+  .logo{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--navy);letter-spacing:.01em;white-space:nowrap;}
+  .logo em{font-style:italic;color:var(--coral);}
+  .nav-links{display:flex;gap:20px;font-size:13px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--coral);transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-icons{display:flex;align-items:center;gap:16px;}
+  .nav-cta{background:var(--navy);color:#fff;padding:11px 20px;border-radius:30px;font-size:12.5px;font-weight:700;white-space:nowrap;transition:background .2s ease, transform .2s ease;}
+  .nav-cta:hover{background:#0A2A4A;transform:translateY(-1px);}
+  .burger{display:none;font-size:22px;color:var(--navy);}
+  @media(max-width:1040px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* HERO */
+  .hero{min-height:94vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1683488780099-6db934e087ab?auto=format&fit=crop&w=1800&q=70') center 30%/cover;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,53,93,.5) 0%,rgba(13,53,93,.25) 50%,rgba(13,53,93,.85) 100%);}
+  .hero-content{position:relative;z-index:2;max-width:640px;padding:110px 0 40px;}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:22px;font-weight:700;}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);}
+  .hero h1{font-size:clamp(36px,5.6vw,62px);color:#fff;margin-bottom:18px;}
+  .hero p.lede{font-size:16.5px;color:rgba(255,255,255,.85);max-width:480px;margin-bottom:32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{background:var(--coral);color:#fff;padding:15px 28px;border-radius:2px;font-weight:700;font-size:13.5px;letter-spacing:.02em;display:inline-flex;align-items:center;gap:9px;transition:transform .25s ease, background .2s ease;}
+  .btn-primary:hover{transform:translateY(-2px);background:#E45B4E;}
+  .btn-outline{border:1px solid rgba(255,255,255,.45);color:#fff;padding:15px 26px;border-radius:2px;font-weight:600;font-size:13.5px;transition:border-color .25s ease, background .25s ease;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .scroll-ind{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;}
+  .scroll-ind .dot-wrap{width:20px;height:34px;border:1.5px solid rgba(255,255,255,.5);border-radius:20px;display:flex;justify-content:center;padding-top:6px;}
+  .scroll-ind .dot{width:3px;height:7px;background:var(--gold);border-radius:3px;animation:scrolldown 2s ease infinite;}
+  @keyframes scrolldown{0%{transform:translateY(0);opacity:1;}70%{transform:translateY(9px);opacity:0;}100%{opacity:0;}}
+
+  /* FEATURE STRIP */
+  .strip{background:var(--navy);padding:26px 0;}
+  .strip-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;}
+  .strip-item{display:flex;align-items:center;gap:10px;color:#fff;font-size:12.5px;font-weight:600;}
+  .strip-item .ic{color:var(--gold);}
+
+  .sec-head{max-width:620px;margin:0 auto 48px;text-align:center;}
+  .sec-head .eyebrow{color:var(--coral);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--coral);}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);}
+  .sec-head p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;}
+  .sec-head.left{text-align:left;margin:0 0 40px;}
+  .sec-head.left .eyebrow{justify-content:flex-start;}
+
+  /* PRODUCT CARDS */
+  .products-sec{padding:100px 0;}
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:900px){.prod-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.prod-grid{grid-template-columns:1fr;}}
+  .prod-card{background:#fff;border-radius:8px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;}
+  .prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .prod-img{height:280px;position:relative;overflow:hidden;}
+  .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .prod-card:hover .prod-img img{transform:scale(1.08);}
+  .prod-badge{position:absolute;top:12px;left:12px;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:20px;}
+  .prod-badge.new{background:var(--palm);color:#fff;}
+  .prod-badge.best{background:var(--gold);color:#fff;}
+  .prod-heart{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;transition:transform .2s ease;}
+  .prod-heart:hover{transform:scale(1.1);}
+  .prod-heart.active svg{fill:var(--coral);stroke:var(--coral);}
+  .prod-body{padding:18px 18px 20px;}
+  .prod-body h3{font-size:17px;margin-bottom:4px;}
+  .prod-fabric{font-size:11.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .prod-swatches{display:flex;gap:6px;margin-bottom:10px;}
+  .swatch{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);border:1px solid var(--line);cursor:pointer;}
+  .prod-sizes{display:flex;gap:6px;margin-bottom:12px;}
+  .prod-sizes span{font-size:11px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:3px 7px;color:var(--ink-soft);}
+  .prod-foot{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .prod-price{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--navy);}
+  .prod-stock{font-size:11px;font-weight:700;color:var(--palm);}
+  .prod-stock.low{color:var(--coral);}
+  .prod-actions{display:flex;gap:8px;}
+  .prod-qv{flex:1;border:1px solid var(--navy);color:var(--navy);padding:10px;border-radius:4px;font-size:11.5px;font-weight:700;text-align:center;transition:background .2s ease, color .2s ease;}
+  .prod-qv:hover{background:var(--navy);color:#fff;}
+  .prod-reserve{flex:1;background:var(--coral);color:#fff;padding:10px;border-radius:4px;font-size:11.5px;font-weight:700;text-align:center;transition:background .2s ease;}
+  .prod-reserve:hover{background:#E45B4E;}
+
+  /* COLLECTIONS */
+  .collections-sec{padding:100px 0;background:var(--sand-alt);}
+  .coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.coll-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.coll-grid{grid-template-columns:1fr;}}
+  .coll-card{position:relative;height:260px;border-radius:8px;overflow:hidden;cursor:pointer;}
+  .coll-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .coll-card:hover img{transform:scale(1.08);}
+  .coll-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,53,93,.75),transparent 55%);display:flex;align-items:flex-end;padding:22px;}
+  .coll-overlay h3{color:#fff;font-size:20px;}
+
+  /* LOOKBOOK */
+  .lookbook-sec{padding:100px 0;}
+  .look-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:220px;gap:14px;}
+  @media(max-width:960px){.look-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}}
+  .look-item{position:relative;border-radius:6px;overflow:hidden;cursor:pointer;}
+  .look-item.tall{grid-row:span 2;}
+  .look-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .look-item:hover img{transform:scale(1.08);}
+  .look-cap{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(0deg,rgba(13,53,93,.8),transparent);color:#fff;font-size:13px;font-weight:700;}
+
+  /* COMPLETE THE LOOK */
+  .ctl-sec{padding:100px 0;background:var(--navy);color:#fff;}
+  .ctl-sec .sec-head .eyebrow{color:var(--gold);}
+  .ctl-sec .sec-head .eyebrow::before{background:var(--gold);}
+  .ctl-sec .sec-head h2{color:#fff;}
+  .ctl-sec .sec-head p{color:rgba(255,255,255,.7);}
+  .ctl-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;}
+  @media(max-width:900px){.ctl-grid{grid-template-columns:1fr;}}
+  .ctl-cat{margin-bottom:26px;}
+  .ctl-cat h5{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:12px;font-weight:700;}
+  .ctl-opts{display:flex;gap:10px;flex-wrap:wrap;}
+  .ctl-opt{border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:10px 16px;font-size:13px;font-weight:600;color:#fff;transition:all .2s ease;}
+  .ctl-opt:hover{border-color:var(--gold);}
+  .ctl-opt.selected{border-color:var(--gold);background:rgba(200,154,61,.18);}
+  .ctl-summary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:26px;align-self:start;}
+  .ctl-summary h4{color:#fff;font-size:18px;margin-bottom:16px;}
+  .ctl-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.15);font-size:13px;color:rgba(255,255,255,.8);}
+  .ctl-total{display:flex;justify-content:space-between;padding-top:14px;margin-top:6px;font-size:17px;font-weight:700;color:#fff;}
+  .ctl-total span:last-child{color:var(--gold);}
+
+  /* STYLE FINDER */
+  .finder-sec{padding:100px 0;}
+  .finder-box{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:44px;box-shadow:var(--shadow);}
+  @media(max-width:640px){.finder-box{padding:28px;}}
+  .finder-progress{display:flex;gap:6px;margin-bottom:30px;}
+  .finder-progress span{height:3px;flex:1;background:var(--line);border-radius:3px;position:relative;overflow:hidden;}
+  .finder-progress span.done::after, .finder-progress span.active::after{content:"";position:absolute;inset:0;background:var(--coral);}
+  .finder-step{display:none;}
+  .finder-step.active{display:block;animation:fadeUp .5s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .finder-step h3{font-size:22px;margin-bottom:22px;}
+  .finder-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:480px){.finder-options{grid-template-columns:1fr;}}
+  .finder-opt{border:1px solid var(--line);border-radius:8px;padding:15px 18px;font-size:14px;font-weight:600;text-align:left;transition:all .2s ease;}
+  .finder-opt:hover{border-color:var(--coral);background:rgba(247,108,94,.05);}
+  .finder-opt.selected{border-color:var(--coral);background:rgba(247,108,94,.1);}
+  .finder-back{margin-top:20px;font-size:13px;color:var(--ink-soft);}
+  .finder-back:hover{color:var(--navy);}
+  .finder-result{display:none;text-align:center;}
+  .finder-result.active{display:block;animation:fadeUp .6s ease;}
+  .finder-result .result-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:10px;font-weight:700;}
+  .finder-result h3{font-size:26px;margin-bottom:14px;}
+  .result-items{list-style:none;text-align:left;max-width:340px;margin:0 auto 18px;}
+  .result-items li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px;}
+  .result-total{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:22px;}
+  .finder-restart{display:block;margin:16px auto 0;font-size:13px;color:var(--ink-soft);}
+
+  /* SIZE GUIDE */
+  .size-sec{padding:100px 0;background:var(--sand-alt);}
+  .size-box{max-width:800px;margin:0 auto 40px;background:#fff;border-radius:10px;padding:34px;box-shadow:var(--shadow);}
+  .size-inputs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+  @media(max-width:640px){.size-inputs{grid-template-columns:1fr 1fr;}}
+  .size-field label{display:block;font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+  .size-field input, .size-field select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .size-result{background:var(--sand-alt);border-radius:8px;padding:20px;text-align:center;}
+  .size-result .rec-size{font-family:'Fraunces',serif;font-size:32px;color:var(--coral);font-weight:600;}
+  .size-chart{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);}
+  .size-chart th{background:var(--navy);color:#fff;padding:12px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .size-chart td{padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px;text-align:center;}
+
+  /* FABRICS */
+  .fabric-sec{padding:100px 0;}
+  .fabric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:860px){.fabric-grid{grid-template-columns:repeat(2,1fr);}}
+  .fabric-card{text-align:center;padding:26px 16px;border-radius:8px;border:1px solid var(--line);}
+  .fabric-icon{color:var(--palm);margin-bottom:12px;}
+  .fabric-card h4{font-size:14.5px;margin-bottom:6px;}
+  .fabric-card p{font-size:12px;color:var(--ink-soft);}
+
+  /* REVIEWS */
+  .testi-sec{padding:100px 0;background:var(--sand-alt);}
+  .testi-carousel{max-width:680px;margin:0 auto;text-align:center;min-height:200px;}
+  .testi-slide{display:none;animation:fadeUp .5s ease;}
+  .testi-slide.active{display:block;}
+  .stars{color:var(--gold);font-size:16px;letter-spacing:3px;margin-bottom:18px;}
+  .testi-slide p.quote{font-family:'Fraunces',serif;font-size:22px;font-style:italic;color:var(--navy);margin-bottom:16px;font-weight:500;}
+  .testi-who{font-size:13px;color:var(--ink-soft);font-weight:600;}
+  .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:26px;}
+  .testi-dots button{width:8px;height:8px;border-radius:50%;background:var(--line);transition:all .3s ease;}
+  .testi-dots button.active{background:var(--coral);width:22px;border-radius:6px;}
+
+  /* PACKING ASSISTANT */
+  .pack-sec{padding:100px 0;background:var(--navy);color:#fff;}
+  .pack-sec .sec-head .eyebrow{color:var(--gold);}
+  .pack-sec .sec-head .eyebrow::before{background:var(--gold);}
+  .pack-sec .sec-head h2{color:#fff;}
+  .pack-sec .sec-head p{color:rgba(255,255,255,.7);}
+  .pack-box{max-width:760px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:36px;}
+  @media(max-width:640px){.pack-box{padding:24px;}}
+  .pack-inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media(max-width:560px){.pack-inputs{grid-template-columns:1fr;}}
+  .pack-field label{display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+  .pack-field select{width:100%;padding:11px 12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .pack-field select option{color:#000;}
+  .pack-activities{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+  .pack-chip{border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:9px 16px;font-size:12.5px;font-weight:600;transition:all .2s ease;color:#fff;}
+  .pack-chip.selected{border-color:var(--gold);background:rgba(200,154,61,.18);}
+  .pack-checklist{background:rgba(255,255,255,.05);border-radius:8px;padding:20px 22px;margin-bottom:18px;}
+  .pack-checklist ul{list-style:none;columns:2;}
+  @media(max-width:560px){.pack-checklist ul{columns:1;}}
+  .pack-checklist li{font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;}
+  .pack-checklist li::before{content:"☐ ";color:var(--gold);}
+  .pack-total{display:flex;justify-content:space-between;font-size:18px;font-weight:700;color:#fff;margin-bottom:20px;}
+  .pack-total span:last-child{color:var(--gold);}
+
+  /* STYLE JOURNAL */
+  .journal-sec{padding:100px 0;}
+  .journal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  @media(max-width:960px){.journal-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.journal-grid{grid-template-columns:1fr;}}
+  .journal-card{border-radius:8px;overflow:hidden;background:#fff;transition:transform .25s ease, box-shadow .25s ease;}
+  .journal-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .journal-img{height:140px;background-size:cover;background-position:center;}
+  .journal-body{padding:16px;}
+  .journal-body h5{font-size:13.5px;line-height:1.4;}
+
+  /* INSTAGRAM MASONRY */
+  .insta-sec{padding:100px 0;background:var(--sand-alt);}
+  .insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+  @media(max-width:860px){.insta-grid{grid-template-columns:repeat(3,1fr);}}
+  .insta-item{position:relative;aspect-ratio:1;overflow:hidden;border-radius:4px;cursor:pointer;}
+  .insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .insta-item:hover img{transform:scale(1.1);}
+  .insta-overlay{position:absolute;inset:0;background:rgba(13,53,93,.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s ease;}
+  .insta-item:hover .insta-overlay{opacity:1;}
+
+  /* FAQ */
+  .faq-sec{padding:100px 0;}
+  .faq-list{max-width:720px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;padding:19px 4px;display:flex;justify-content:space-between;align-items:center;font-size:14.5px;font-weight:700;color:var(--navy);}
+  .faq-q .plus{font-size:19px;color:var(--coral);transition:transform .3s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{padding:0 4px 19px;font-size:13px;color:var(--ink-soft);}
+
+  /* NEWSLETTER */
+  .news-sec{padding:90px 0;background:var(--coral);text-align:center;color:#fff;}
+  .news-sec h2{color:#fff;font-size:clamp(28px,4vw,40px);margin-bottom:20px;}
+  .news-form{display:flex;max-width:420px;margin:0 auto;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .news-form input{flex:1;min-width:220px;padding:14px 18px;border-radius:30px;border:none;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .news-form button{background:var(--navy);color:#fff;padding:14px 26px;border-radius:30px;font-weight:700;font-size:13.5px;transition:transform .2s ease;}
+  .news-form button:hover{transform:translateY(-2px);}
+  .news-note{font-size:12px;color:rgba(255,255,255,.75);margin-top:14px;}
+
+  /* CONTACT */
+  .contact-sec{padding:100px 0;background:var(--sand-alt);}
+  .contact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:900px;margin:0 auto;}
+  @media(max-width:760px){.contact-grid{grid-template-columns:repeat(2,1fr);}}
+  .contact-card{background:#fff;border-radius:8px;padding:24px 18px;text-align:center;border:1px solid var(--line);}
+  .contact-card .ic{color:var(--coral);margin-bottom:10px;}
+  .contact-card h5{font-size:13px;margin-bottom:4px;}
+  .contact-card span{font-size:11.5px;color:var(--ink-soft);}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.65);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Fraunces',serif;font-size:20px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .foot-col a{display:block;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:10px;margin-top:8px;}
+  .foot-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--gold);border-bottom:1px solid rgba(200,154,61,.4);}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+  .back-top{position:fixed;bottom:24px;left:24px;background:#fff;color:var(--navy);width:46px;height:46px;border-radius:50%;display:none;align-items:center;justify-content:center;z-index:280;box-shadow:var(--shadow);border:1px solid var(--line);}
+  .back-top.show{display:flex;}
+
+  .lightbox{position:fixed;inset:0;background:rgba(13,53,93,.94);z-index:400;display:none;align-items:center;justify-content:center;padding:40px;}
+  .lightbox.open{display:flex;}
+  .lightbox-content{background:#fff;border-radius:10px;max-width:480px;width:100%;overflow:hidden;}
+  .lightbox-content img{width:100%;height:340px;object-fit:cover;}
+  .lightbox-body{padding:24px;}
+  .lightbox-close{position:absolute;top:26px;right:32px;color:#fff;font-size:28px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.3);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-notice">
+  <b>Demo Website</b> — Created by Jamal Samuel to showcase how a modern, conversion-focused website can elevate a Caribbean fashion brand. Branding, products, and content are for demonstration purposes only and would be customized for each client.
+</div>
+
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">Caribbean<em>Threads</em></a>
+    <div class="nav-links">
+      <a href="#new-arrivals">New Arrivals</a>
+      <a href="#collections">Collections</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#size-guide">Size Guide</a>
+      <a href="#style-finder">Style Finder</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20CaribbeanThreads%2C%20I'd%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Castries · Saint Lucia</div>
+      <h1>Wear the spirit of the Caribbean.</h1>
+      <p class="lede">Modern Caribbean fashion inspired by island culture, sunshine and effortless confidence.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#new-arrivals">Shop New Arrivals</a>
+        <a class="btn-outline" href="#lookbook">Browse Lookbook</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind"><span>Scroll</span><div class="dot-wrap"><div class="dot"></div></div></div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-row">
+      <div class="strip-item"><span class="ic">🌴</span> Designed in the Caribbean</div>
+      <div class="strip-item"><span class="ic">🌍</span> Worldwide Shipping</div>
+      <div class="strip-item"><span class="ic">🧵</span> Premium Fabrics</div>
+      <div class="strip-item"><span class="ic">📲</span> Easy WhatsApp Ordering</div>
+    </div>
+  </div>
+</div>
+
+<section class="products-sec" id="new-arrivals">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">New Arrivals</div><h2>Fresh off the rack this season.</h2></div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<section class="collections-sec" id="collections">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Collections</div><h2>Shop by category.</h2></div>
+    <div class="coll-grid">
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1668451128584-13953c3b5caf?auto=format&fit=crop&w=600&q=75" alt="Women's collection"><div class="coll-overlay"><h3>Women's Collection</h3></div></div>
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1662864947687-b908bdd57a46?auto=format&fit=crop&w=600&q=75" alt="Men's collection"><div class="coll-overlay"><h3>Men's Collection</h3></div></div>
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1600180225585-b78e6961c585?auto=format&fit=crop&w=600&q=75" alt="Resort wear collection"><div class="coll-overlay"><h3>Resort Wear</h3></div></div>
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1699061930674-1be64fe86fc3?auto=format&fit=crop&w=600&q=75" alt="Beach essentials collection"><div class="coll-overlay"><h3>Beach Essentials</h3></div></div>
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1558036416-10bf6435b817?auto=format&fit=crop&w=600&q=75" alt="Accessories collection"><div class="coll-overlay"><h3>Accessories</h3></div></div>
+      <div class="coll-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1683488780100-d8ddfb0d10b8?auto=format&fit=crop&w=600&q=75" alt="Limited collection"><div class="coll-overlay"><h3>Limited Collection</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="lookbook-sec" id="lookbook">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Featured Lookbook</div><h2>Five moods, one island.</h2></div>
+    <div class="look-grid">
+      <div class="look-item tall reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1683488780099-6db934e087ab?auto=format&fit=crop&w=600&q=75" alt="Island Escape look"><div class="look-cap">Island Escape</div></div>
+      <div class="look-item reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1600180225585-b78e6961c585?auto=format&fit=crop&w=600&q=75" alt="Sunday Brunch look"><div class="look-cap">Sunday Brunch</div></div>
+      <div class="look-item reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1700159017572-de76bb0c5719?auto=format&fit=crop&w=600&q=75" alt="Golden Hour look"><div class="look-cap">Golden Hour</div></div>
+      <div class="look-item tall reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1683488780112-f47a64de5d15?auto=format&fit=crop&w=600&q=75" alt="Vacation Ready look"><div class="look-cap">Vacation Ready</div></div>
+      <div class="look-item reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1622090567079-343116452be0?auto=format&fit=crop&w=600&q=75" alt="Island Nights look"><div class="look-cap">Island Nights</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ctl-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Complete the Look</div><h2>Mix, match, and reserve the whole outfit.</h2></div>
+    <div class="ctl-grid">
+      <div>
+        <div class="ctl-cat reveal">
+          <h5>Top</h5>
+          <div class="ctl-opts" data-group="top">
+            <button class="ctl-opt" data-name="Island Linen Shirt" data-price="65">Island Linen Shirt — $65</button>
+            <button class="ctl-opt" data-name="Palm Print Blouse" data-price="58">Palm Print Blouse — $58</button>
+            <button class="ctl-opt" data-name="Coral Wrap Top" data-price="52">Coral Wrap Top — $52</button>
+          </div>
+        </div>
+        <div class="ctl-cat reveal">
+          <h5>Bottom</h5>
+          <div class="ctl-opts" data-group="bottom">
+            <button class="ctl-opt" data-name="Wide Linen Trousers" data-price="72">Wide Linen Trousers — $72</button>
+            <button class="ctl-opt" data-name="Sand Shorts" data-price="45">Sand Shorts — $45</button>
+            <button class="ctl-opt" data-name="Flowy Midi Skirt" data-price="60">Flowy Midi Skirt — $60</button>
+          </div>
+        </div>
+        <div class="ctl-cat reveal">
+          <h5>Hat</h5>
+          <div class="ctl-opts" data-group="hat">
+            <button class="ctl-opt" data-name="Woven Straw Hat" data-price="28">Woven Straw Hat — $28</button>
+            <button class="ctl-opt" data-name="Canvas Bucket Hat" data-price="24">Canvas Bucket Hat — $24</button>
+          </div>
+        </div>
+        <div class="ctl-cat reveal">
+          <h5>Sandals</h5>
+          <div class="ctl-opts" data-group="sandals">
+            <button class="ctl-opt" data-name="Leather Slide Sandals" data-price="48">Leather Slide Sandals — $48</button>
+            <button class="ctl-opt" data-name="Woven Espadrilles" data-price="42">Woven Espadrilles — $42</button>
+          </div>
+        </div>
+        <div class="ctl-cat reveal">
+          <h5>Accessories</h5>
+          <div class="ctl-opts" data-group="accessories">
+            <button class="ctl-opt" data-name="Shell Necklace" data-price="22">Shell Necklace — $22</button>
+            <button class="ctl-opt" data-name="Woven Tote Bag" data-price="38">Woven Tote Bag — $38</button>
+          </div>
+        </div>
+      </div>
+      <div class="ctl-summary reveal">
+        <h4>Your Outfit</h4>
+        <div id="ctlRows">
+          <div class="ctl-row"><span>Top</span><span>—</span></div>
+          <div class="ctl-row"><span>Bottom</span><span>—</span></div>
+          <div class="ctl-row"><span>Hat</span><span>—</span></div>
+          <div class="ctl-row"><span>Sandals</span><span>—</span></div>
+          <div class="ctl-row"><span>Accessories</span><span>—</span></div>
+        </div>
+        <div class="ctl-total"><span>Total</span><span id="ctlTotal">$0</span></div>
+        <a class="btn-primary" style="width:100%;justify-content:center;" id="ctlWaBtn" href="https://wa.me/17587235872" target="_blank" rel="noopener">Reserve Entire Outfit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="finder-sec" id="style-finder">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Caribbean Style Finder</div><h2>Not sure what to wear? Answer four questions.</h2></div>
+    <div class="finder-box">
+      <div class="finder-progress" id="finderProgress">
+        <span class="active" data-step="1"></span><span data-step="2"></span><span data-step="3"></span><span data-step="4"></span>
+      </div>
+
+      <div class="finder-step active" data-step="1">
+        <h3>Where are you going?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="occasion" data-v="beach">Beach</button>
+          <button class="finder-opt" data-q="occasion" data-v="cruise">Cruise</button>
+          <button class="finder-opt" data-q="occasion" data-v="dinner">Dinner</button>
+          <button class="finder-opt" data-q="occasion" data-v="wedding">Wedding</button>
+          <button class="finder-opt" data-q="occasion" data-v="everyday">Everyday</button>
+        </div>
+      </div>
+      <div class="finder-step" data-step="2">
+        <h3>What's your preferred style?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="style" data-v="relaxed">Relaxed</button>
+          <button class="finder-opt" data-q="style" data-v="elegant">Elegant</button>
+          <button class="finder-opt" data-q="style" data-v="bold">Bold</button>
+          <button class="finder-opt" data-q="style" data-v="minimal">Minimal</button>
+        </div>
+        <div class="finder-back" data-back="1">← Back</div>
+      </div>
+      <div class="finder-step" data-step="3">
+        <h3>Preferred fit?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="fit" data-v="slim">Slim</button>
+          <button class="finder-opt" data-q="fit" data-v="relaxedfit">Relaxed</button>
+          <button class="finder-opt" data-q="fit" data-v="oversized">Oversized</button>
+        </div>
+        <div class="finder-back" data-back="2">← Back</div>
+      </div>
+      <div class="finder-step" data-step="4">
+        <h3>What's your budget?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" data-q="budget" data-v="under100">Under $100</button>
+          <button class="finder-opt" data-q="budget" data-v="100to200">$100 – $200</button>
+          <button class="finder-opt" data-q="budget" data-v="200plus">$200+</button>
+        </div>
+        <div class="finder-back" data-back="3">← Back</div>
+      </div>
+
+      <div class="finder-result" id="finderResult">
+        <div class="result-eyebrow">Your Recommended Look</div>
+        <h3 id="resultName">—</h3>
+        <ul class="result-items" id="resultItems"></ul>
+        <div class="result-total" id="resultTotal">—</div>
+        <a class="btn-primary" id="resultWaBtn" href="#" target="_blank" rel="noopener">Reserve This Look</a>
+        <button class="finder-restart" id="finderRestart">↺ Start over</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="size-sec" id="size-guide">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Interactive Size Guide</div><h2>Find your size in seconds.</h2></div>
+    <div class="size-box reveal">
+      <div class="size-inputs">
+        <div class="size-field"><label>Height (cm)</label><input type="number" id="szHeight" placeholder="170" min="130" max="220"></div>
+        <div class="size-field"><label>Weight (kg)</label><input type="number" id="szWeight" placeholder="65" min="35" max="180"></div>
+        <div class="size-field"><label>Fit Preference</label><select id="szFit"><option value="fitted">Fitted</option><option value="regular" selected>Regular</option><option value="loose">Loose</option></select></div>
+        <div class="size-field"><label>Body Type</label><select id="szBody"><option value="slim">Slim</option><option value="athletic">Athletic</option><option value="curvy">Curvy</option><option value="plus">Plus</option></select></div>
+      </div>
+      <div class="size-result">
+        <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-bottom:6px;">Recommended Size</div>
+        <div class="rec-size" id="szResult">M</div>
+      </div>
+    </div>
+    <table class="size-chart">
+      <thead><tr><th>Size</th><th>Bust/Chest (in)</th><th>Waist (in)</th><th>Hip (in)</th><th>Height Range</th></tr></thead>
+      <tbody>
+        <tr><td>S</td><td>32–34</td><td>25–27</td><td>35–37</td><td>5'2" – 5'6"</td></tr>
+        <tr><td>M</td><td>35–37</td><td>28–30</td><td>38–40</td><td>5'4" – 5'8"</td></tr>
+        <tr><td>L</td><td>38–40</td><td>31–33</td><td>41–43</td><td>5'6" – 5'10"</td></tr>
+        <tr><td>XL</td><td>41–44</td><td>34–37</td><td>44–47</td><td>5'7" – 6'0"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="fabric-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Why Our Fabrics</div><h2>Built for the climate you're actually in.</h2></div>
+    <div class="fabric-grid">
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16a6 6 0 0 1 7 0M2 8.82a16 16 0 0 1 20 0" stroke-linecap="round"/></svg></div><h4>Breathable</h4><p>Open-weave construction that moves air, not traps it.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3v7a2 2 0 0 0 2 2v9M6 3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2M18 3v18"/></svg></div><h4>Premium Cotton</h4><p>Long-staple cotton for softness that holds up to washing.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16M8 16l4-6 3 4 4-7"/></svg></div><h4>Linen Blend</h4><p>Natural texture and drape that softens with every wear.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div><h4>Quick Dry</h4><p>Built for humidity — off the line and ready in no time.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></div><h4>UV Protection</h4><p>Woven-in coverage for full days out under the sun.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/></svg></div><h4>Wrinkle Resistant</h4><p>Packs into a suitcase, comes out looking like it didn't.</p></div>
+      <div class="fabric-card reveal"><div class="fabric-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/></svg></div><h4>Soft Touch</h4><p>Pre-washed finish so it feels broken-in from day one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Customer Reviews</div><h2>Worn from Castries to London.</h2></div>
+    <div class="testi-carousel">
+      <div class="testi-slide active"><div class="stars">★★★★★</div><p class="quote">"The linen shirt survived a week of humidity and still looked pressed. Ordering on WhatsApp was so much easier than a checkout form."</p><div class="testi-who">Marisol B. — Saint Lucia</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Used the Style Finder for a wedding on the island and it nailed the outfit. Got compliments all night."</p><div class="testi-who">Andre F. — Barbados</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Ordered from Toronto not knowing sizing would work out, but the size guide was scarily accurate."</p><div class="testi-who">Priya S. — Toronto</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Fabric quality is genuinely a step above what I expected for the price. Wrinkle-resistant claim actually held up."</p><div class="testi-who">James O. — London</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Packing assistant saved me from overpacking for a 5-day trip. Everything on the list got worn."</p><div class="testi-who">Devon R. — New York</div></div>
+    </div>
+    <div class="testi-dots"><button class="active" data-i="0"></button><button data-i="1"></button><button data-i="2"></button><button data-i="3"></button><button data-i="4"></button></div>
+  </div>
+</section>
+
+<section class="pack-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Vacation Packing Assistant</div><h2>Tell us your trip, we'll build the list.</h2></div>
+    <div class="pack-box">
+      <div class="pack-inputs">
+        <div class="pack-field"><label>Destination</label><select id="pkDest"><option>Beach Resort</option><option>City Break</option><option>Cruise</option><option>Mountain Retreat</option></select></div>
+        <div class="pack-field"><label>Length of Stay</label><select id="pkLength"><option value="3">Weekend (3 days)</option><option value="7" selected>1 Week</option><option value="14">2 Weeks</option></select></div>
+      </div>
+      <div class="pack-field" style="margin-bottom:12px;"><label>Activities</label></div>
+      <div class="pack-activities" id="pkActivities">
+        <button class="pack-chip selected" data-act="beach">Beach Days</button>
+        <button class="pack-chip" data-act="dinner">Fine Dining</button>
+        <button class="pack-chip" data-act="hiking">Hiking</button>
+        <button class="pack-chip" data-act="nightlife">Nightlife</button>
+        <button class="pack-chip" data-act="watersports">Watersports</button>
+      </div>
+      <div class="pack-checklist" id="pkChecklist"></div>
+      <div class="pack-total"><span>Estimated Total</span><span id="pkTotal">$0</span></div>
+      <a class="btn-primary" style="width:100%;justify-content:center;" id="pkWaBtn" href="https://wa.me/17587235872" target="_blank" rel="noopener">Reserve Entire Packing List</a>
+    </div>
+  </div>
+</section>
+
+<section class="journal-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Style Journal</div><h2>Notes on dressing for the island.</h2></div>
+    <div class="journal-grid">
+      <div class="journal-card reveal"><div class="journal-img" style="background-image:url('https://images.unsplash.com/photo-1622090567079-343116452be0?auto=format&fit=crop&w=400&q=70')"></div><div class="journal-body"><h5>What to Wear in the Caribbean</h5></div></div>
+      <div class="journal-card reveal"><div class="journal-img" style="background-image:url('https://images.unsplash.com/photo-1600180225585-b78e6961c585?auto=format&fit=crop&w=400&q=70')"></div><div class="journal-body"><h5>How to Style Linen</h5></div></div>
+      <div class="journal-card reveal"><div class="journal-img" style="background-image:url('https://images.unsplash.com/photo-1699061930674-1be64fe86fc3?auto=format&fit=crop&w=400&q=70')"></div><div class="journal-body"><h5>Vacation Fashion Essentials</h5></div></div>
+      <div class="journal-card reveal"><div class="journal-img" style="background-image:url('https://images.unsplash.com/photo-1662864947687-b908bdd57a46?auto=format&fit=crop&w=400&q=70')"></div><div class="journal-body"><h5>Resort Wear Guide</h5></div></div>
+      <div class="journal-card reveal"><div class="journal-img" style="background-image:url('https://images.unsplash.com/photo-1558036416-10bf6435b817?auto=format&fit=crop&w=400&q=70')"></div><div class="journal-body"><h5>Beach to Dinner Looks</h5></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="insta-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">@caribbeanthreads</div><h2>Tagged by our community.</h2></div>
+    <div class="insta-grid" id="instaGrid">
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1683488780099-6db934e087ab?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1668451128584-13953c3b5caf?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1662864947687-b908bdd57a46?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1589676562553-1fb5f8c3937e?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1700159017572-de76bb0c5719?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+      <div class="insta-item"><img loading="lazy" src="https://images.unsplash.com/photo-1683488780112-f47a64de5d15?auto=format&fit=crop&w=300&q=70" alt="Instagram post"><div class="insta-overlay">♡</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Before you ask.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Do you ship internationally?<span class="plus">+</span></button><div class="faq-a"><p>Yes, worldwide shipping is available. Rates and timelines vary by destination — ask when you order.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What's your return policy?<span class="plus">+</span></button><div class="faq-a"><p>Unworn items with tags can be exchanged within 14 days of delivery.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">How do I know my size?<span class="plus">+</span></button><div class="faq-a"><p>Use the Interactive Size Guide above, or send us your measurements on WhatsApp.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What payment methods do you accept?<span class="plus">+</span></button><div class="faq-a"><p>Bank transfer, cash on local pickup, and card payment links for international orders.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Do you offer international orders reliably?<span class="plus">+</span></button><div class="faq-a"><p>Yes, we regularly ship to the UK, US, and Canada — customs and duties are the buyer's responsibility.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">How should I care for linen pieces?<span class="plus">+</span></button><div class="faq-a"><p>Cold wash, line dry when possible. A cool iron on the reverse side keeps the texture intact.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="news-sec">
+  <div class="wrap">
+    <h2>Stay ahead of every collection.</h2>
+    <form class="news-form" id="newsForm">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="news-note" id="newsNote">New drops, restocks, and island-only offers — no spam.</div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Contact</div><h2>Find us, message us, follow us.</h2></div>
+    <div class="contact-grid">
+      <div class="contact-card reveal"><div class="ic">📱</div><h5>WhatsApp</h5><span>+1 758 723 5872</span></div>
+      <div class="contact-card reveal"><div class="ic">📷</div><h5>Instagram</h5><span>@caribbeanthreads</span></div>
+      <div class="contact-card reveal"><div class="ic">👍</div><h5>Facebook</h5><span>/caribbeanthreads</span></div>
+      <div class="contact-card reveal"><div class="ic">✉️</div><h5>Email</h5><span>hello@caribbeanthreads.demo</span></div>
+      <div class="contact-card reveal"><div class="ic">📍</div><h5>Location</h5><span>Castries, Saint Lucia</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">Caribbean<em style="color:var(--coral);font-style:italic;">Threads</em></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Modern Caribbean fashion, ordered entirely over WhatsApp.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Shop</h5>
+        <a href="#new-arrivals">New Arrivals</a>
+        <a href="#collections">Collections</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#size-guide">Size Guide</a>
+      </div>
+      <div class="foot-col">
+        <h5>Policies</h5>
+        <a href="#faq">Shipping &amp; Returns</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp</a>
+        <a>Castries, Saint Lucia</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        Demo Website — created by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b> to showcase how a modern, conversion-focused website can elevate a Caribbean fashion brand. Branding, products, and content are for demonstration purposes only. <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 CaribbeanThreads (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20CaribbeanThreads%2C%20I'd%20like%20to%20place%20an%20order." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-body">
+      <h3 id="lightboxTitle" style="font-size:20px;margin-bottom:6px;">—</h3>
+      <p id="lightboxDesc" style="font-size:13px;color:var(--ink-soft);margin-bottom:16px;">—</p>
+      <a class="btn-primary" id="lightboxWaBtn" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Reserve on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  const header = document.getElementById('siteHeader');
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', ()=>{
+    header.classList.toggle('solid', window.scrollY > 40);
+    backTop.classList.toggle('show', window.scrollY > 900);
+  });
+  backTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* ---------- Product data + render ---------- */
+  const PRODUCTS = [
+    {name:'Island Linen Shirt', fabric:'100% Linen', img:'https://images.unsplash.com/photo-1600180225585-b78e6961c585?auto=format&fit=crop&w=600&q=75', badge:'new', colors:['#0D355D','#F76C5E','#F8F4ED'], sizes:['S','M','L','XL'], price:65, stock:'In Stock'},
+    {name:'Palm Print Wrap Dress', fabric:'Cotton Voile', img:'https://images.unsplash.com/photo-1668451128584-13953c3b5caf?auto=format&fit=crop&w=600&q=75', badge:'best', colors:['#4F7D53','#C89A3D'], sizes:['S','M','L'], price:89, stock:'Only 4 left'},
+    {name:'Coral Resort Shorts', fabric:'Linen Blend', img:'https://images.unsplash.com/photo-1699061930674-1be64fe86fc3?auto=format&fit=crop&w=600&q=75', badge:'new', colors:['#F76C5E','#0D355D'], sizes:['S','M','L','XL'], price:48, stock:'In Stock'},
+    {name:'Golden Hour Sundress', fabric:'Cotton Gauze', img:'https://images.unsplash.com/photo-1622090567079-343116452be0?auto=format&fit=crop&w=600&q=75', badge:'best', colors:['#C89A3D','#F8F4ED'], sizes:['S','M','L'], price:78, stock:'In Stock'},
+    {name:"Men's Palm Shirt", fabric:'Rayon Blend', img:'https://images.unsplash.com/photo-1662864947687-b908bdd57a46?auto=format&fit=crop&w=600&q=75', badge:'new', colors:['#0D355D','#4F7D53'], sizes:['M','L','XL'], price:58, stock:'Only 2 left'},
+    {name:'Woven Beach Tote', fabric:'Natural Straw', img:'https://images.unsplash.com/photo-1558036416-10bf6435b817?auto=format&fit=crop&w=600&q=75', badge:'best', colors:['#C89A3D'], sizes:['One Size'], price:38, stock:'In Stock'}
+  ];
+
+  const prodGrid = document.getElementById('prodGrid');
+  prodGrid.innerHTML = PRODUCTS.map((p,i)=>{
+    const msg = encodeURIComponent(`Hello CaribbeanThreads!\n\nI'm interested in:\n${p.name}\n\nPrice:\n$${p.price} USD\n\nCould you help me place my order?`);
+    const swatches = p.colors.map(c=>`<span class="swatch" style="background:${c}"></span>`).join('');
+    const sizes = p.sizes.map(s=>`<span>${s}</span>`).join('');
+    return `<div class="prod-card reveal">
+      <div class="prod-img">
+        <span class="prod-badge ${p.badge}">${p.badge==='new'?'New':'Best Seller'}</span>
+        <button class="prod-heart" data-idx="${i}" aria-label="Favorite"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D355D" stroke-width="1.6"><path d="M12 21c-4-4-7-7.5-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 3.5-3 7-7 11z"/></svg></button>
+        <img loading="lazy" src="${p.img}" alt="${p.name}">
+      </div>
+      <div class="prod-body">
+        <h3>${p.name}</h3>
+        <div class="prod-fabric">${p.fabric}</div>
+        <div class="prod-swatches">${swatches}</div>
+        <div class="prod-sizes">${sizes}</div>
+        <div class="prod-foot">
+          <div class="prod-price">$${p.price}</div>
+          <div class="prod-stock ${p.stock.startsWith('Only')?'low':''}">${p.stock}</div>
+        </div>
+        <div class="prod-actions">
+          <button class="prod-qv" data-idx="${i}">Quick View</button>
+          <a class="prod-reserve" href="https://wa.me/17587235872?text=${msg}" target="_blank" rel="noopener">Reserve</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  revealEls.forEach(el=>io.observe(el)); // re-observe newly injected (no-op for pre-existing, safe)
+  document.querySelectorAll('#prodGrid .reveal').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.prod-heart').forEach(btn=>{
+    btn.addEventListener('click', ()=> btn.classList.toggle('active'));
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  document.querySelectorAll('.prod-qv').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const p = PRODUCTS[parseInt(btn.dataset.idx,10)];
+      document.getElementById('lightboxImg').src = p.img.replace('w=600','w=1000');
+      document.getElementById('lightboxTitle').textContent = p.name;
+      document.getElementById('lightboxDesc').textContent = `${p.fabric} · Sizes ${p.sizes.join(', ')} · $${p.price} USD · ${p.stock}`;
+      const msg = encodeURIComponent(`Hello CaribbeanThreads!\n\nI'm interested in:\n${p.name}\n\nPrice:\n$${p.price} USD\n\nCould you help me place my order?`);
+      document.getElementById('lightboxWaBtn').href = 'https://wa.me/17587235872?text=' + msg;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+  /* ---------- Complete the Look ---------- */
+  const ctlSelections = {};
+  document.querySelectorAll('.ctl-opts').forEach(group=>{
+    const key = group.dataset.group;
+    group.querySelectorAll('.ctl-opt').forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        group.querySelectorAll('.ctl-opt').forEach(o=>o.classList.remove('selected'));
+        opt.classList.add('selected');
+        ctlSelections[key] = {name:opt.dataset.name, price:parseFloat(opt.dataset.price)};
+        renderCtl();
+      });
+    });
+  });
+  function renderCtl(){
+    const rows = document.querySelectorAll('#ctlRows .ctl-row');
+    const keys = ['top','bottom','hat','sandals','accessories'];
+    let total = 0;
+    keys.forEach((k,i)=>{
+      const sel = ctlSelections[k];
+      rows[i].querySelector('span:last-child').textContent = sel ? `${sel.name} — $${sel.price}` : '—';
+      if(sel) total += sel.price;
+    });
+    document.getElementById('ctlTotal').textContent = '$' + total;
+    const items = keys.filter(k=>ctlSelections[k]).map(k=>ctlSelections[k].name).join(', ');
+    const msg = encodeURIComponent(`Hello CaribbeanThreads!\n\nI'd like to reserve this outfit:\n${items || '(building outfit)'}\n\nTotal:\n$${total} USD\n\nCould you help me place my order?`);
+    document.getElementById('ctlWaBtn').href = 'https://wa.me/17587235872?text=' + msg;
+  }
+
+  /* ---------- Style Finder ---------- */
+  const finderAnswers = {};
+  const finderSteps = document.querySelectorAll('.finder-step');
+  const finderProgress = document.querySelectorAll('#finderProgress span');
+  const finderResultBox = document.getElementById('finderResult');
+  let finderCurrent = 1;
+  function finderGoTo(n){
+    finderSteps.forEach(s=> s.classList.toggle('active', parseInt(s.dataset.step,10)===n));
+    finderProgress.forEach(p=>{
+      const step = parseInt(p.dataset.step,10);
+      p.classList.toggle('done', step < n);
+      p.classList.toggle('active', step === n);
+    });
+    finderCurrent = n;
+    finderResultBox.classList.remove('active');
+  }
+  document.querySelectorAll('.finder-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      finderAnswers[btn.dataset.q] = btn.dataset.v;
+      btn.closest('.finder-options').querySelectorAll('.finder-opt').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(()=>{
+        if(finderCurrent < 4){ finderGoTo(finderCurrent+1); } else { showFinderResult(); }
+      }, 200);
+    });
+  });
+  document.querySelectorAll('.finder-back').forEach(b=> b.addEventListener('click', ()=> finderGoTo(parseInt(b.dataset.back,10))));
+  document.getElementById('finderRestart').addEventListener('click', ()=>{
+    Object.keys(finderAnswers).forEach(k=>delete finderAnswers[k]);
+    document.querySelectorAll('.finder-opt.selected').forEach(b=>b.classList.remove('selected'));
+    finderGoTo(1);
+  });
+
+  function showFinderResult(){
+    const { occasion, style } = finderAnswers;
+    let look = { name:'Golden Hour Ready', items:[['Palm Print Wrap Dress',89],['Woven Straw Hat',28],['Leather Slide Sandals',48]] };
+    if(occasion === 'beach') look = { name:'Beach Day Essentials', items:[['Coral Resort Shorts',48],['Island Linen Shirt',65],['Woven Beach Tote',38]] };
+    else if(occasion === 'cruise') look = { name:'Cruise Ready', items:[['Golden Hour Sundress',78],['Woven Straw Hat',28],['Shell Necklace',22]] };
+    else if(occasion === 'dinner') look = { name:'Beach to Dinner', items:[['Palm Print Wrap Dress',89],['Leather Slide Sandals',48],['Shell Necklace',22]] };
+    else if(occasion === 'wedding') look = { name:'Island Wedding Guest', items:[['Golden Hour Sundress',78],["Men's Palm Shirt",58],['Leather Slide Sandals',48]] };
+    else if(occasion === 'everyday') look = { name:'Everyday Island Ease', items:[['Island Linen Shirt',65],['Coral Resort Shorts',48]] };
+    if(style === 'bold') look.items.push(['Shell Necklace',22]);
+
+    document.getElementById('resultName').textContent = look.name;
+    const total = look.items.reduce((s,it)=>s+it[1],0);
+    document.getElementById('resultItems').innerHTML = look.items.map(it=>`<li><span>${it[0]}</span><span>$${it[1]}</span></li>`).join('');
+    document.getElementById('resultTotal').textContent = 'Estimated Total: $' + total;
+    const msg = encodeURIComponent(`Hello CaribbeanThreads!\n\nThe Style Finder recommended this look:\n${look.name}\n${look.items.map(it=>'- '+it[0]).join('\n')}\n\nTotal:\n$${total} USD\n\nCould you help me place my order?`);
+    document.getElementById('resultWaBtn').href = 'https://wa.me/17587235872?text=' + msg;
+    finderSteps.forEach(s=>s.classList.remove('active'));
+    finderResultBox.classList.add('active');
+  }
+
+  /* ---------- Size Guide ---------- */
+  function calcSize(){
+    const h = parseFloat(document.getElementById('szHeight').value) || 168;
+    const w = parseFloat(document.getElementById('szWeight').value) || 65;
+    const fit = document.getElementById('szFit').value;
+    let base = 'M';
+    if(w < 52) base = 'S';
+    else if(w < 68) base = 'M';
+    else if(w < 85) base = 'L';
+    else base = 'XL';
+    const order = ['S','M','L','XL'];
+    let idx = order.indexOf(base);
+    if(fit === 'loose') idx = Math.min(idx+1, order.length-1);
+    if(fit === 'fitted') idx = Math.max(idx-1, 0);
+    document.getElementById('szResult').textContent = order[idx];
+  }
+  ['szHeight','szWeight','szFit','szBody'].forEach(id=> document.getElementById(id).addEventListener('input', calcSize));
+  calcSize();
+
+  /* ---------- Testimonial carousel ---------- */
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('.testi-dots button');
+  let ti = 0;
+  function showSlide(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active'); dots[i].classList.add('active'); ti = i;
+  }
+  dots.forEach(d=>d.addEventListener('click', ()=>showSlide(parseInt(d.dataset.i,10))));
+  setInterval(()=> showSlide((ti+1)%slides.length), 6000);
+
+  /* ---------- Packing Assistant ---------- */
+  const PACK_BASE = [['Linen Shirts (x2)',130],['Resort Shorts',48],['Sundress',78],['Sandals',48]];
+  const PACK_BY_ACT = {
+    beach: [['Swimwear',35],['Beach Tote',38]],
+    dinner: [['Wrap Dress',89],['Dress Shoes',52]],
+    hiking: [['Closed Shoes',60],['Lightweight Layers',45]],
+    nightlife: [['Statement Top',52],['Accessories Set',30]],
+    watersports: [['Quick-Dry Set',55],['Water Shoes',40]]
+  };
+  let selectedActs = new Set(['beach']);
+  document.querySelectorAll('.pack-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const act = chip.dataset.act;
+      if(selectedActs.has(act)){ selectedActs.delete(act); chip.classList.remove('selected'); }
+      else { selectedActs.add(act); chip.classList.add('selected'); }
+      renderPacking();
+    });
+  });
+  document.getElementById('pkLength').addEventListener('change', renderPacking);
+  document.getElementById('pkDest').addEventListener('change', renderPacking);
+
+  function renderPacking(){
+    const length = parseInt(document.getElementById('pkLength').value,10);
+    let items = [...PACK_BASE];
+    selectedActs.forEach(act=>{ if(PACK_BY_ACT[act]) items = items.concat(PACK_BY_ACT[act]); });
+    if(length >= 14){ items.push(['Extra Linen Set',65]); }
+    const total = items.reduce((s,it)=>s+it[1],0);
+    document.getElementById('pkChecklist').innerHTML = '<ul>' + items.map(it=>`<li>${it[0]} — $${it[1]}</li>`).join('') + '</ul>';
+    document.getElementById('pkTotal').textContent = '$' + total;
+    const dest = document.getElementById('pkDest').value;
+    const msg = encodeURIComponent(`Hello CaribbeanThreads!\n\nI'd like to reserve this packing list for a ${length}-day ${dest} trip:\n${items.map(it=>'- '+it[0]).join('\n')}\n\nEstimated Total:\n$${total} USD\n\nCould you help me place my order?`);
+    document.getElementById('pkWaBtn').href = 'https://wa.me/17587235872?text=' + msg;
+  }
+  renderPacking();
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* Newsletter (demo, no backend) */
+  document.getElementById('newsForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    document.getElementById('newsNote').textContent = "You're on the list! (Demo form — no email sent.)";
+    e.target.reset();
+  });
+
+  /* Instagram grid click -> lightbox-style simple open */
+  document.querySelectorAll('.insta-item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      const img = item.querySelector('img');
+      document.getElementById('lightboxImg').src = img.src.replace('w=300','w=900');
+      document.getElementById('lightboxTitle').textContent = 'From our community';
+      document.getElementById('lightboxDesc').textContent = 'Tag @caribbeanthreads to be featured here.';
+      document.getElementById('lightboxWaBtn').href = 'https://wa.me/17587235872?text=' + encodeURIComponent('Hi CaribbeanThreads, I saw your Instagram gallery and wanted to ask about a piece.');
+      lightbox.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
