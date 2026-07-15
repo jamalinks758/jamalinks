@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CargoLink Shipping — Ship to the Caribbean with Confidence</title>
+<meta name="description" content="Reliable barrel shipping, package delivery, commercial freight and customs support from Miami, New York, Toronto and London to the Caribbean. Book via WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://example.com/cargolink-shipping">
+<meta property="og:title" content="CargoLink Shipping — Ship to the Caribbean with Confidence">
+<meta property="og:description" content="Dependable barrel shipping, package delivery, commercial freight and customs support to 10 Caribbean destinations.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CargoLink Shipping",
+  "description": "Caribbean diaspora shipping company offering barrel shipping, package delivery, ocean and air freight, and customs assistance.",
+  "areaServed": ["Saint Lucia","Barbados","Dominica","Grenada","St. Vincent","Jamaica","Guyana","Trinidad","Antigua","Dominican Republic"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0A2540;
+    --navy-deep:#061929;
+    --blue:#0EA5C4;
+    --gold:#F5A623;
+    --white:#FFFFFF;
+    --gray:#F5F7FA;
+    --gray-alt:#EAEFF3;
+    --ink:#12202C;
+    --ink-soft:#5A6C7A;
+    --line:rgba(18,32,44,0.1);
+    --success:#2A9D5C;
+    --warn:#E0A030;
+    --danger:#D9534F;
+    --shadow:0 24px 60px -28px rgba(10,37,64,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;font-weight:700;line-height:1.18;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{position:relative;}
+  ::selection{background:var(--gold);color:#fff;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  .demo-banner{background:var(--navy-deep);color:var(--gray);text-align:center;font-size:12.5px;letter-spacing:.03em;padding:9px 16px;position:relative;z-index:300;}
+  .demo-banner a{color:var(--gold);border-bottom:1px solid rgba(245,166,35,.5);}
+
+  header{position:sticky;top:0;z-index:250;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1280px;margin:0 auto;gap:16px;}
+  .logo{font-family:'Sora',sans-serif;font-size:19px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:18px;font-size:12.5px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);border-radius:2px;transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--gold);color:var(--navy-deep);padding:11px 20px;border-radius:30px;font-size:12.5px;font-weight:800;white-space:nowrap;box-shadow:0 10px 22px -10px rgba(245,166,35,.6);transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .burger{display:none;font-size:20px;color:var(--navy);}
+  @media(max-width:1080px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* HERO */
+  .hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1741792191212-60d22002bd1b?auto=format&fit=crop&w=1800&q=70') center/cover;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,25,41,.6) 0%,rgba(10,37,64,.55) 45%,rgba(6,25,41,.92) 100%);}
+  .hero-content{position:relative;z-index:2;max-width:660px;padding:110px 0 50px;}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:22px;font-weight:700;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--gold);border-radius:2px;}
+  .hero h1{font-size:clamp(34px,5.2vw,56px);color:#fff;margin-bottom:20px;}
+  .hero p.lede{font-size:16.5px;color:rgba(255,255,255,.85);max-width:520px;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .btn-primary{background:var(--gold);color:var(--navy-deep);padding:15px 28px;border-radius:8px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:9px;box-shadow:0 18px 36px -14px rgba(245,166,35,.6);transition:transform .2s ease;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{border:1px solid rgba(255,255,255,.45);color:#fff;padding:15px 26px;border-radius:8px;font-weight:700;font-size:14px;transition:border-color .25s ease, background .25s ease;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .hero-trust{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.85);font-weight:600;}
+  .hero-trust span{display:flex;align-items:center;gap:6px;}
+
+  /* STATS */
+  .stats-band{background:var(--navy);padding:44px 0;}
+  .stats-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;text-align:center;}
+  .stat{flex:1;min-width:140px;}
+  .stat b{display:block;font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:var(--gold);}
+  .stat span{font-size:11.5px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.04em;font-weight:600;}
+
+  .sec-head{max-width:640px;margin:0 auto 46px;text-align:center;}
+  .sec-head .eyebrow{color:var(--blue);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--blue);}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);}
+  .sec-head p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;}
+
+  /* ESTIMATOR */
+  .est-sec{padding:100px 0;background:var(--gray);}
+  .est-box{max-width:920px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:36px;}
+  @media(max-width:640px){.est-box{padding:24px;}}
+  .est-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+  @media(max-width:760px){.est-inputs{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.est-inputs{grid-template-columns:1fr;}}
+  .est-field label{display:block;font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+  .est-field select, .est-field input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .est-result{background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:#fff;border-radius:12px;padding:26px 28px;margin-top:22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center;}
+  @media(max-width:640px){.est-result{grid-template-columns:1fr;text-align:center;}}
+  .est-result-item span{display:block;font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+  .est-result-item b{font-family:'Sora',sans-serif;font-size:22px;color:var(--gold);}
+  .est-wa-row{margin-top:20px;text-align:center;}
+
+  /* DESTINATION MAP */
+  .map-sec{padding:100px 0;}
+  .dest-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:900px;margin:0 auto 30px;}
+  @media(max-width:860px){.dest-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:560px){.dest-grid{grid-template-columns:repeat(2,1fr);}}
+  .dest-chip{background:var(--gray);border:1px solid var(--line);border-radius:10px;padding:14px 10px;text-align:center;font-size:12.5px;font-weight:700;color:var(--navy);transition:all .2s ease;}
+  .dest-chip.active,.dest-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .dest-panel{max-width:800px;margin:0 auto;background:var(--gray);border-radius:14px;padding:30px;box-shadow:var(--shadow);}
+  .dest-panel h3{font-size:22px;margin-bottom:16px;}
+  .dest-meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:560px){.dest-meta-grid{grid-template-columns:1fr;}}
+  .dest-meta-item{background:#fff;border-radius:8px;padding:16px 18px;}
+  .dest-meta-item span{display:block;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px;font-weight:700;}
+  .dest-meta-item b{font-size:14.5px;color:var(--navy);}
+
+  /* SERVICES */
+  .services-sec{padding:100px 0;background:var(--gray);}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:960px){.svc-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+  .svc-card{background:#fff;border-radius:10px;padding:24px 20px;transition:transform .25s ease, box-shadow .25s ease;}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .svc-ic{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;margin-bottom:14px;}
+  .svc-card h3{font-size:15.5px;margin-bottom:6px;}
+  .svc-card p{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+  .svc-benefit{font-size:11px;color:var(--success);font-weight:700;margin-bottom:10px;}
+  .svc-cta{font-size:12px;font-weight:700;color:var(--navy);}
+
+  /* SIZE GUIDE */
+  .size-sec{padding:100px 0;}
+  .size-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  @media(max-width:900px){.size-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:560px){.size-grid{grid-template-columns:1fr 1fr;}}
+  .size-card{cursor:pointer;text-align:center;}
+  .size-illustration{width:80px;height:100px;margin:0 auto 10px;border-radius:10px 10px 6px 6px;position:relative;transition:transform .25s ease;}
+  .size-card:hover .size-illustration{transform:translateY(-4px);}
+  .size-illustration::before{content:"";position:absolute;top:-8px;left:6px;right:6px;height:12px;border-radius:6px 6px 0 0;background:inherit;filter:brightness(.85);}
+  .barrel1 .size-illustration{background:linear-gradient(180deg,var(--blue),#0B7A93);}
+  .barrel2 .size-illustration{background:linear-gradient(180deg,var(--navy),var(--navy-deep));}
+  .barrel3 .size-illustration{background:linear-gradient(180deg,var(--gold),#C77E0F);}
+  .box1 .size-illustration{background:linear-gradient(180deg,#8A6D4E,#6B5136);border-radius:6px;}
+  .box1 .size-illustration::before{border-radius:0;}
+  .box2 .size-illustration{background:linear-gradient(180deg,#A9825C,#8A6D4E);border-radius:6px;}
+  .box2 .size-illustration::before{border-radius:0;}
+  .size-card h5{font-size:13px;}
+  .size-detail{max-width:760px;margin:36px auto 0;background:var(--gray);border-radius:14px;padding:30px;display:none;}
+  .size-detail.show{display:block;animation:fadeUp .4s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .size-detail h4{font-size:20px;margin-bottom:16px;}
+  .size-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+  @media(max-width:640px){.size-detail-grid{grid-template-columns:1fr 1fr;}}
+  .size-detail-item{background:#fff;border-radius:8px;padding:14px 16px;}
+  .size-detail-item span{display:block;font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;font-weight:700;margin-bottom:5px;}
+  .size-detail-item b{font-size:13.5px;color:var(--navy);}
+  .size-detail p.tip{font-size:13px;color:var(--ink-soft);}
+
+  /* PROCESS TIMELINE */
+  .process-sec{padding:100px 0;background:var(--navy);color:#fff;}
+  .process-sec .sec-head .eyebrow{color:var(--gold);}
+  .process-sec .sec-head .eyebrow::before{background:var(--gold);}
+  .process-sec .sec-head h2{color:#fff;}
+  .process-sec .sec-head p{color:rgba(255,255,255,.65);}
+  .process-row{display:flex;justify-content:space-between;gap:12px;position:relative;flex-wrap:wrap;}
+  .process-row::before{content:"";position:absolute;top:24px;left:0;right:0;height:2px;background:rgba(255,255,255,.15);}
+  @media(max-width:900px){.process-row::before{display:none;}}
+  .process-item{text-align:center;flex:1;min-width:100px;position:relative;z-index:1;}
+  .process-num{width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;margin:0 auto 12px;}
+  .process-item h5{font-size:12.5px;}
+
+  /* DEPARTURE SCHEDULE */
+  .schedule-sec{padding:100px 0;}
+  .schedule-list{max-width:900px;margin:0 auto;}
+  .schedule-row{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:14px;align-items:center;padding:18px 20px;border:1px solid var(--line);border-radius:10px;margin-bottom:12px;transition:box-shadow .2s ease;}
+  .schedule-row:hover{box-shadow:var(--shadow);}
+  @media(max-width:860px){.schedule-row{grid-template-columns:1fr 1fr;}}
+  .schedule-route{font-weight:700;font-size:14px;color:var(--navy);}
+  .schedule-route i{color:var(--blue);}
+  .schedule-item span{display:block;font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;font-weight:700;}
+  .schedule-item b{font-size:13px;}
+  .status-badge{font-size:10.5px;font-weight:800;padding:5px 11px;border-radius:20px;display:inline-block;}
+  .status-badge.open{background:rgba(42,157,92,.15);color:var(--success);}
+  .status-badge.closing{background:rgba(224,160,48,.18);color:#8a6200;}
+  .status-badge.full{background:rgba(217,83,79,.15);color:var(--danger);}
+  .capacity-bar{width:100%;height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:4px;}
+  .capacity-fill{height:100%;background:var(--blue);border-radius:4px;}
+
+  /* CAN I SHIP IT */
+  .ship-search-sec{padding:100px 0;background:var(--gray);}
+  .ship-search-box{max-width:640px;margin:0 auto 30px;position:relative;}
+  .ship-search-box input{width:100%;padding:16px 20px 16px 48px;border-radius:30px;border:1px solid var(--line);font-family:'Inter',sans-serif;font-size:14.5px;box-shadow:var(--shadow);}
+  .ship-search-box .search-ic{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--ink-soft);}
+  .ship-results{max-width:640px;margin:0 auto;}
+  .ship-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-bottom:10px;}
+  .ship-item-name{font-size:13.5px;font-weight:700;}
+  .ship-item-note{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+  .ship-badge{font-size:10.5px;font-weight:800;padding:5px 11px;border-radius:20px;white-space:nowrap;margin-left:12px;}
+  .ship-badge.accepted{background:rgba(42,157,92,.15);color:var(--success);}
+  .ship-badge.restricted{background:rgba(217,83,79,.15);color:var(--danger);}
+  .ship-badge.docs{background:rgba(224,160,48,.18);color:#8a6200;}
+  .ship-badge.special{background:rgba(14,165,196,.15);color:var(--blue);}
+  .ship-disclaimer{max-width:640px;margin:20px auto 0;font-size:11.5px;color:var(--ink-soft);text-align:center;}
+
+  /* PACKAGING RESOURCE CENTER */
+  .pack-sec{padding:100px 0;}
+  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:860px){.pack-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.pack-grid{grid-template-columns:1fr;}}
+  .pack-card{background:var(--gray);border-radius:10px;padding:24px 20px;}
+  .pack-card .pack-ic{font-size:22px;margin-bottom:10px;}
+  .pack-card h5{font-size:14.5px;margin-bottom:8px;}
+  .pack-card p{font-size:12px;color:var(--ink-soft);}
+
+  /* TESTIMONIALS */
+  .testi-sec{padding:100px 0;background:var(--gray);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.testi-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{background:#fff;border-radius:10px;padding:24px;border:1px solid var(--line);}
+  .stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px;}
+  .testi-card p.quote{font-size:13.5px;color:var(--ink);margin-bottom:16px;font-style:italic;}
+  .testi-who{font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:12px;}
+  .testi-who b{color:var(--navy);display:block;}
+
+  /* FAQ */
+  .faq-sec{padding:100px 0;}
+  .faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;max-width:1000px;margin:0 auto;}
+  @media(max-width:800px){.faq-cols{grid-template-columns:1fr;}}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;padding:16px 4px;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;color:var(--navy);}
+  .faq-q .plus{font-size:18px;color:var(--gold);transition:transform .3s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:220px;}
+  .faq-a p{padding:0 4px 16px;font-size:12.5px;color:var(--ink-soft);}
+
+  /* FINAL CTA */
+  .final-cta{padding:100px 0;text-align:center;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy-deep));}
+  .final-cta h2{color:#fff;font-size:clamp(30px,4.4vw,48px);margin-bottom:16px;}
+  .final-cta p{color:rgba(255,255,255,.8);max-width:460px;margin:0 auto 30px;font-size:15.5px;}
+  .final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.65);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Sora',sans-serif;font-size:19px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .foot-col a{display:block;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:10px;margin-top:8px;}
+  .foot-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--gold);border-bottom:1px solid rgba(245,166,35,.4);}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean diaspora shipping companies. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">Cargo<span>Link</span></a>
+    <div class="nav-links">
+      <a href="#estimator">Cost Estimator</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#services">Services</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#can-i-ship">Can I Ship It?</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%20Shipping%2C%20I'd%20like%20to%20book%20a%20shipment." target="_blank" rel="noopener">Book via WhatsApp</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Miami · New York · Toronto · London</div>
+      <h1>Ship to the Caribbean with confidence.</h1>
+      <p class="lede">CargoLink Shipping provides dependable barrel shipping, package delivery, commercial freight, and customs support from major overseas locations to Caribbean destinations.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20CargoLink%20Shipping%2C%20I'd%20like%20to%20book%20a%20shipment." target="_blank" rel="noopener">📲 Book via WhatsApp</a>
+        <a class="btn-outline" href="#estimator">View Shipping Rates</a>
+      </div>
+      <div class="hero-trust">
+        <span>✔ Reliable Ocean Freight</span>
+        <span>✔ Air Cargo</span>
+        <span>✔ Barrel Shipping</span>
+        <span>✔ Commercial Freight</span>
+        <span>✔ Customs Assistance</span>
+        <span>✔ Door-to-Port Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat reveal"><b class="counter" data-target="15" data-suffix="+">0</b><span>Years of Experience</span></div>
+      <div class="stat reveal"><b class="counter" data-target="25000" data-suffix="+">0</b><span>Shipments Delivered</span></div>
+      <div class="stat reveal"><b class="counter" data-target="18">0</b><span>Caribbean Destinations Reached</span></div>
+      <div class="stat reveal"><b class="counter" data-target="98" data-suffix="%">0</b><span>Customer Satisfaction</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="est-sec" id="estimator">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">⭐ Signature Feature</div><h2>Interactive Shipping Cost Estimator</h2><p>Select your details for an instant estimate — no account, no waiting.</p></div>
+    <div class="est-box reveal">
+      <div class="est-inputs">
+        <div class="est-field"><label>Origin</label>
+          <select id="estOrigin"><option>Miami, FL</option><option>New York, NY</option><option>Toronto, ON</option><option>London, UK</option></select>
+        </div>
+        <div class="est-field"><label>Destination</label>
+          <select id="estDestination">
+            <option value="saintlucia">Saint Lucia</option><option value="barbados">Barbados</option><option value="dominica">Dominica</option>
+            <option value="grenada">Grenada</option><option value="stvincent">St. Vincent</option><option value="jamaica">Jamaica</option>
+            <option value="guyana">Guyana</option><option value="trinidad">Trinidad</option><option value="antigua">Antigua</option>
+            <option value="dr">Dominican Republic</option>
+          </select>
+        </div>
+        <div class="est-field"><label>Shipment Type</label>
+          <select id="estType"><option value="barrel">Barrel</option><option value="package">Box / Package</option><option value="commercial">Commercial Cargo</option></select>
+        </div>
+      </div>
+      <div class="est-inputs" id="estInputsRow2">
+        <div class="est-field" id="barrelSizeField"><label>Barrel Size</label>
+          <select id="estBarrelSize"><option value="55">55-Gallon</option><option value="45">45-Gallon</option><option value="30">30-Gallon</option></select>
+        </div>
+        <div class="est-field" id="weightField" style="display:none;"><label>Weight (lbs)</label>
+          <input type="number" id="estWeight" placeholder="e.g. 40" min="1">
+        </div>
+        <div class="est-field"><label>Freight Method</label>
+          <select id="estFreight"><option value="ocean">Ocean Freight</option><option value="air">Air Cargo</option></select>
+        </div>
+      </div>
+      <div class="est-result">
+        <div class="est-result-item"><span>Estimated Cost</span><b id="estCost">—</b></div>
+        <div class="est-result-item"><span>Estimated Transit Time</span><b id="estTransit">—</b></div>
+        <div class="est-result-item"><span>Suggested Method</span><b id="estSuggested">—</b></div>
+      </div>
+      <div class="est-wa-row">
+        <a class="btn-primary" id="estWaBtn" href="https://wa.me/17587235872" target="_blank" rel="noopener">Continue on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-sec" id="destinations">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Destination Coverage</div><h2>Ten Caribbean destinations, one shipping partner.</h2><p>Tap a destination for frequency, transit time and what people commonly ship there.</p></div>
+    <div class="dest-grid" id="destGrid"></div>
+    <div class="dest-panel reveal" id="destPanel"></div>
+  </div>
+</section>
+
+<section class="services-sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Shipping Services</div><h2>Whatever you're sending, however you're sending it.</h2></div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-ic">🛢️</div><h3>Barrel Shipping</h3><p>Our most popular service for family shipments.</p><div class="svc-benefit">Best value per volume</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Barrel%20Shipping." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">📦</div><h3>Package Shipping</h3><p>Boxes and parcels, weighed and priced per pound.</p><div class="svc-benefit">Fast turnaround</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Package%20Shipping." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🚢</div><h3>Ocean Freight</h3><p>The economical standard for barrels and bulk goods.</p><div class="svc-benefit">Lowest cost per lb</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Ocean%20Freight." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">✈️</div><h3>Air Freight</h3><p>When it needs to get there in days, not weeks.</p><div class="svc-benefit">2-4 day transit</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Air%20Freight." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🏭</div><h3>Commercial Cargo</h3><p>Container and pallet shipping for businesses.</p><div class="svc-benefit">Volume discounts</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Commercial%20Cargo." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🛍️</div><h3>Business Imports</h3><p>Sourcing and consolidating goods for resale.</p><div class="svc-benefit">Consolidated shipping</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Business%20Imports." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">📋</div><h3>Customs Assistance</h3><p>Documentation and duty guidance, handled for you.</p><div class="svc-benefit">Fewer delays</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Customs%20Assistance." target="_blank" rel="noopener">Learn more →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🚚</div><h3>Door-to-Port Delivery</h3><p>We collect from your door, you receive at the port.</p><div class="svc-benefit">No warehouse drop-off needed</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20CargoLink%2C%20I'd%20like%20to%20know%20more%20about%20Door-to-Port%20Delivery." target="_blank" rel="noopener">Learn more →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="size-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Barrel &amp; Box Size Guide</div><h2>Not sure what size you need?</h2><p>Tap any size for dimensions, capacity and what typically fits inside.</p></div>
+    <div class="size-grid">
+      <div class="size-card barrel1 reveal" data-size="barrel55"><div class="size-illustration"></div><h5>55-Gallon Barrel</h5></div>
+      <div class="size-card barrel2 reveal" data-size="barrel45"><div class="size-illustration"></div><h5>45-Gallon Barrel</h5></div>
+      <div class="size-card barrel3 reveal" data-size="barrel30"><div class="size-illustration"></div><h5>30-Gallon Barrel</h5></div>
+      <div class="size-card box1 reveal" data-size="boxlarge"><div class="size-illustration"></div><h5>Large Box</h5></div>
+      <div class="size-card box2 reveal" data-size="boxmedium"><div class="size-illustration"></div><h5>Medium Box</h5></div>
+    </div>
+    <div class="size-detail" id="sizeDetail"></div>
+  </div>
+</section>
+
+<section class="process-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">How Shipping Works</div><h2>Eight steps, start to delivery.</h2></div>
+    <div class="process-row">
+      <div class="process-item reveal"><div class="process-num">1</div><h5>Book Shipment</h5></div>
+      <div class="process-item reveal"><div class="process-num">2</div><h5>Prepare Items</h5></div>
+      <div class="process-item reveal"><div class="process-num">3</div><h5>Warehouse Drop-off</h5></div>
+      <div class="process-item reveal"><div class="process-num">4</div><h5>Inspection</h5></div>
+      <div class="process-item reveal"><div class="process-num">5</div><h5>Container Loading</h5></div>
+      <div class="process-item reveal"><div class="process-num">6</div><h5>Ocean/Air Transport</h5></div>
+      <div class="process-item reveal"><div class="process-num">7</div><h5>Customs Clearance</h5></div>
+      <div class="process-item reveal"><div class="process-num">8</div><h5>Collection/Delivery</h5></div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule-sec" id="schedule">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Live Departure Schedule</div><h2>Upcoming departures this month.</h2></div>
+    <div class="schedule-list" id="scheduleList"></div>
+  </div>
+</section>
+
+<section class="ship-search-sec" id="can-i-ship">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Can I Ship It?</div><h2>Search any item to check its status.</h2></div>
+    <div class="ship-search-box reveal">
+      <span class="search-ic">🔍</span>
+      <input type="text" id="shipSearchInput" placeholder="Try: television, laptop, firearms, food...">
+    </div>
+    <div class="ship-results" id="shipResults"></div>
+    <p class="ship-disclaimer">Regulations vary by destination. Final approval depends on customs authorities and CargoLink policy — always confirm restricted or high-value items with us directly before shipping.</p>
+  </div>
+</section>
+
+<section class="pack-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Packaging Resource Center</div><h2>Pack it right the first time.</h2></div>
+    <div class="pack-grid">
+      <div class="pack-card reveal"><div class="pack-ic">🛢️</div><h5>How to Pack a Barrel</h5><p>Heaviest items at the bottom, soft goods on top, fill gaps to prevent shifting during transit.</p></div>
+      <div class="pack-card reveal"><div class="pack-ic">🎁</div><h5>Protecting Fragile Items</h5><p>Wrap individually, cushion on all sides, and mark the barrel or box clearly as fragile.</p></div>
+      <div class="pack-card reveal"><div class="pack-ic">🏷️</div><h5>Labeling Shipments</h5><p>Full recipient name, phone number and destination address, visible on two sides.</p></div>
+      <div class="pack-card reveal"><div class="pack-ic">⚖️</div><h5>Weight Distribution</h5><p>Even weight prevents damage and keeps handling fees predictable — no single side overloaded.</p></div>
+      <div class="pack-card reveal"><div class="pack-ic">📋</div><h5>Recommended Materials</h5><p>Bubble wrap, packing paper, and sturdy tape — avoid loose newspaper for anything fragile.</p></div>
+      <div class="pack-card reveal"><div class="pack-ic">🛃</div><h5>Reducing Customs Delays</h5><p>List contents accurately and keep receipts for higher-value electronics or appliances.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Customer Reviews</div><h2>What people say after their barrel arrives.</h2></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"CargoLink made sending barrels to Saint Lucia incredibly easy. Everything arrived on schedule, and their communication was excellent."</p><div class="testi-who"><b>Marisol B.</b>Miami → Saint Lucia · Barrel Shipping</div></div>
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"Sent a laptop and some electronics air freight for my mother's birthday. Landed in Trinidad in three days, exactly as quoted."</p><div class="testi-who"><b>Andre F.</b>New York → Trinidad · Air Cargo</div></div>
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"We ship building supplies to Guyana quarterly for a family project. Commercial rates have been consistent and fair every time."</p><div class="testi-who"><b>Odalys R.</b>Miami → Guyana · Commercial Cargo</div></div>
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"The WhatsApp booking made this so much less stressful than the shipping company I used before. No phone tag, ever."</p><div class="testi-who"><b>Devon P.</b>Toronto → Barbados · Barrel Shipping</div></div>
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"Customs paperwork was handled entirely on their end. I just had to sign when the package arrived in Kingston."</p><div class="testi-who"><b>Keisha F.</b>Miami → Jamaica · Package Shipping</div></div>
+      <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="quote">"Used the online estimator before booking and the quote matched exactly what I paid. No surprises at drop-off."</p><div class="testi-who"><b>Nadia S.</b>London → Grenada · Ocean Freight</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Twenty questions we get asked most.</h2></div>
+    <div class="faq-cols">
+      <div>
+        <div class="faq-item reveal"><button class="faq-q">How long does ocean freight take?<span class="plus">+</span></button><div class="faq-a"><p>Typically 5–14 days depending on destination — check the Destination Coverage section above for specifics.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can I track my shipment?<span class="plus">+</span></button><div class="faq-a"><p>Yes, we send status updates via WhatsApp at each major stage: drop-off, loading, departure, and arrival.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you offer pickup service?<span class="plus">+</span></button><div class="faq-a"><p>Yes, door-to-port pickup is available in most service areas for an additional fee.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Who handles customs clearance?<span class="plus">+</span></button><div class="faq-a"><p>We prepare and submit the required documentation on your behalf — you're notified if anything additional is needed.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What items are restricted?<span class="plus">+</span></button><div class="faq-a"><p>Check our "Can I Ship It?" tool above for common items, or ask us directly about anything uncertain.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What payment methods do you accept?<span class="plus">+</span></button><div class="faq-a"><p>Cash, bank transfer, and card payment links for both origin and destination-side payments.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you handle commercial cargo?<span class="plus">+</span></button><div class="faq-a"><p>Yes, container and pallet shipping is available with volume-based pricing — contact us for a custom quote.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Is there a barrel size limit?<span class="plus">+</span></button><div class="faq-a"><p>55-gallon is our largest standard size. Larger commercial drums are handled under commercial cargo rates.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can I ship directly to someone's home?<span class="plus">+</span></button><div class="faq-a"><p>We offer port pickup at every destination, with home delivery available in select areas for an added fee.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Is my shipment insured?<span class="plus">+</span></button><div class="faq-a"><p>Basic coverage is included; additional insurance is available for high-value items — ask when booking.</p></div></div>
+      </div>
+      <div>
+        <div class="faq-item reveal"><button class="faq-q">What documentation do I need?<span class="plus">+</span></button><div class="faq-a"><p>A valid ID and an itemized contents list. Higher-value electronics may need a purchase receipt.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you ship from London?<span class="plus">+</span></button><div class="faq-a"><p>Yes, London is one of our four origin points alongside Miami, New York, and Toronto.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How far in advance should I book?<span class="plus">+</span></button><div class="faq-a"><p>At least a week before your preferred departure — check Live Departure Schedule for current booking status.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What happens if my container is full?<span class="plus">+</span></button><div class="faq-a"><p>You're automatically offered the next available departure at no extra cost to rebook.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can I ship food items?<span class="plus">+</span></button><div class="faq-a"><p>Non-perishable, sealed food items are generally accepted — check "Can I Ship It?" for specifics.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you offer discounts for repeat customers?<span class="plus">+</span></button><div class="faq-a"><p>Yes, frequent shippers are eligible for loyalty pricing — ask us about your shipping history.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What if my item is damaged in transit?<span class="plus">+</span></button><div class="faq-a"><p>Report it within 48 hours of delivery with photos — insured items are processed for claim review.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can I combine multiple barrels in one booking?<span class="plus">+</span></button><div class="faq-a"><p>Yes, multi-barrel bookings are common and often qualify for a small volume discount.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you provide packing materials?<span class="plus">+</span></button><div class="faq-a"><p>Barrels, tape and basic packing materials are available for purchase at our warehouse locations.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How do I get an exact quote?<span class="plus">+</span></button><div class="faq-a"><p>Use the Shipping Cost Estimator above for an instant estimate, or message us directly for a precise quote.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Ready to ship with confidence?</h2>
+    <p>Reliable service, transparent pricing, and a team that actually replies. Let's get your shipment moving.</p>
+    <div class="final-ctas">
+      <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20CargoLink%20Shipping%2C%20I'd%20like%20to%20book%20a%20shipment." target="_blank" rel="noopener">📲 Book via WhatsApp</a>
+      <a class="btn-outline" href="https://wa.me/17587235872?text=Hi%20CargoLink%20Shipping%2C%20I'd%20like%20to%20request%20a%20quote." target="_blank" rel="noopener">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">Cargo<span style="color:var(--gold);">Link</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Reliable Caribbean shipping from Miami, New York, Toronto and London. Booked entirely over WhatsApp.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <a href="#estimator">Cost Estimator</a>
+        <a href="#services">Services</a>
+        <a href="#schedule">Schedule</a>
+      </div>
+      <div class="foot-col">
+        <h5>Coverage Areas</h5>
+        <a href="#destinations">Saint Lucia · Barbados</a>
+        <a href="#destinations">Jamaica · Trinidad</a>
+        <a href="#destinations">+ 6 more destinations</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">WhatsApp</a>
+        <a>hello@cargolinkshipping.demo</a>
+        <a>Mon – Sat: 8am – 6pm</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This website is a demonstration built by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b> to show what's possible for Caribbean diaspora shipping companies. No real business named "CargoLink Shipping" is affiliated with this page. All rates, schedules and figures are illustrative sample data for demo purposes. <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 CargoLink Shipping (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20CargoLink%20Shipping%2C%20I'd%20like%20to%20book%20a%20shipment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+
+<script>
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* Counters */
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.target,10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.max(1, Math.round(target/60));
+        const tick = ()=>{
+          cur += step;
+          if(cur >= target){ el.textContent = target.toLocaleString() + suffix; return; }
+          el.textContent = cur.toLocaleString() + suffix;
+          requestAnimationFrame(tick);
+        };
+        tick();
+        counterIO.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c=>counterIO.observe(c));
+
+  /* ---------- Destination data ---------- */
+  const DESTINATIONS = {
+    saintlucia:{name:'Saint Lucia', freq:'Weekly departures', transit:'10–12 days (Ocean) · 3 days (Air)', services:'Barrel, Package, Ocean, Air, Customs', items:'Barrels, appliances, non-perishable food', baseRate:185, transitDaysOcean:11, transitDaysAir:3},
+    barbados:{name:'Barbados', freq:'Bi-weekly departures', transit:'12–14 days (Ocean) · 4 days (Air)', services:'Barrel, Package, Air', items:'Barrels, electronics, clothing', baseRate:195, transitDaysOcean:13, transitDaysAir:4},
+    dominica:{name:'Dominica', freq:'Weekly departures', transit:'12–14 days (Ocean)', services:'Barrel, Package', items:'Barrels, clothing, household goods', baseRate:190, transitDaysOcean:13, transitDaysAir:4},
+    grenada:{name:'Grenada', freq:'Bi-weekly departures', transit:'14 days (Ocean)', services:'Barrel, Commercial', items:'Barrels, building materials', baseRate:200, transitDaysOcean:14, transitDaysAir:4},
+    stvincent:{name:'St. Vincent', freq:'Weekly departures', transit:'12–13 days (Ocean)', services:'Barrel, Package', items:'Barrels, food items, clothing', baseRate:190, transitDaysOcean:12, transitDaysAir:4},
+    jamaica:{name:'Jamaica', freq:'Weekly departures (multiple origins)', transit:'7–10 days (Ocean) · 2–3 days (Air)', services:'Barrel, Package, Air, Commercial', items:'Barrels, electronics, vehicle parts', baseRate:165, transitDaysOcean:8, transitDaysAir:2},
+    guyana:{name:'Guyana', freq:'Bi-weekly departures', transit:'10–12 days (Ocean)', services:'Barrel, Commercial', items:'Barrels, building supplies', baseRate:210, transitDaysOcean:11, transitDaysAir:4},
+    trinidad:{name:'Trinidad', freq:'Weekly departures', transit:'8–10 days (Ocean) · 2–3 days (Air)', services:'Barrel, Package, Air, Commercial', items:'Barrels, vehicle parts, electronics', baseRate:175, transitDaysOcean:9, transitDaysAir:3},
+    antigua:{name:'Antigua', freq:'Bi-weekly departures', transit:'12–14 days (Ocean)', services:'Barrel, Package', items:'Barrels, appliances', baseRate:195, transitDaysOcean:13, transitDaysAir:4},
+    dr:{name:'Dominican Republic', freq:'Weekly departures', transit:'5–7 days (Ocean)', services:'Barrel, Package, Commercial', items:'Barrels, clothing, electronics', baseRate:150, transitDaysOcean:6, transitDaysAir:2}
+  };
+
+  const destGrid = document.getElementById('destGrid');
+  const destPanel = document.getElementById('destPanel');
+  Object.entries(DESTINATIONS).forEach(([key,d])=>{
+    const chip = document.createElement('button');
+    chip.className = 'dest-chip';
+    chip.textContent = d.name;
+    chip.dataset.key = key;
+    chip.addEventListener('click', ()=> showDestination(key));
+    destGrid.appendChild(chip);
+  });
+  function showDestination(key){
+    document.querySelectorAll('.dest-chip').forEach(c=>c.classList.toggle('active', c.dataset.key===key));
+    const d = DESTINATIONS[key];
+    destPanel.innerHTML = `
+      <h3>${d.name}</h3>
+      <div class="dest-meta-grid">
+        <div class="dest-meta-item"><span>Shipping Frequency</span><b>${d.freq}</b></div>
+        <div class="dest-meta-item"><span>Typical Transit Time</span><b>${d.transit}</b></div>
+        <div class="dest-meta-item"><span>Available Services</span><b>${d.services}</b></div>
+        <div class="dest-meta-item"><span>Commonly Shipped Items</span><b>${d.items}</b></div>
+      </div>`;
+  }
+  showDestination('saintlucia');
+
+  /* ---------- Shipping Cost Estimator ---------- */
+  const estType = document.getElementById('estType');
+  const barrelSizeField = document.getElementById('barrelSizeField');
+  const weightField = document.getElementById('weightField');
+  function toggleEstFields(){
+    const t = estType.value;
+    barrelSizeField.style.display = t==='barrel' ? '' : 'none';
+    weightField.style.display = t==='package' ? '' : 'none';
+  }
+  estType.addEventListener('change', ()=>{ toggleEstFields(); runEstimate(); });
+  toggleEstFields();
+
+  const BARREL_MULT = { '55':1.0, '45':0.85, '30':0.65 };
+
+  function runEstimate(){
+    const originEl = document.getElementById('estOrigin');
+    const origin = originEl.value;
+    const destKey = document.getElementById('estDestination').value;
+    const type = estType.value;
+    const freight = document.getElementById('estFreight').value;
+    const d = DESTINATIONS[destKey];
+
+    let cost = 0;
+    let transitDays = freight==='air' ? d.transitDaysAir : d.transitDaysOcean;
+
+    if(type === 'barrel'){
+      const size = document.getElementById('estBarrelSize').value;
+      cost = d.baseRate * BARREL_MULT[size];
+      if(freight === 'air') cost *= 1.6;
+    } else if(type === 'package'){
+      const weight = parseFloat(document.getElementById('estWeight').value) || 20;
+      const rate = freight==='air' ? 6.5 : 3.2;
+      cost = Math.max(45, weight * rate);
+    } else {
+      document.getElementById('estCost').textContent = 'Contact for custom quote';
+      document.getElementById('estTransit').textContent = d.transit;
+      document.getElementById('estSuggested').textContent = 'Commercial Cargo';
+      updateEstWaBtn(origin, d.name, type, freight, 'Custom quote needed', d.transit);
+      return;
+    }
+
+    // origin surcharge (London slightly higher, Toronto slightly higher)
+    if(origin.includes('Toronto')) cost *= 1.08;
+    if(origin.includes('London')) cost *= 1.2;
+
+    cost = Math.round(cost);
+    const suggested = freight === 'air' ? 'Air Cargo (faster)' : 'Ocean Freight (best value)';
+
+    document.getElementById('estCost').textContent = '$' + cost.toLocaleString() + ' USD';
+    document.getElementById('estTransit').textContent = `${transitDays} days (${freight==='air'?'Air':'Ocean'})`;
+    document.getElementById('estSuggested').textContent = suggested;
+
+    updateEstWaBtn(origin, d.name, type, freight, '$'+cost.toLocaleString()+' USD', `${transitDays} days`);
+  }
+
+  function updateEstWaBtn(origin, destName, type, freight, cost, transit){
+    const typeLabel = type==='barrel' ? 'Barrel' : type==='package' ? 'Box/Package' : 'Commercial Cargo';
+    const msg = `Hi CargoLink Shipping, I'd like a shipping quote:\n\nOrigin: ${origin}\nDestination: ${destName}\nShipment Type: ${typeLabel}\nFreight Method: ${freight === 'air' ? 'Air Cargo' : 'Ocean Freight'}\nEstimated Cost: ${cost}\nEstimated Transit: ${transit}\n\nCould you confirm booking details?`;
+    document.getElementById('estWaBtn').href = 'https://wa.me/17587235872?text=' + encodeURIComponent(msg);
+  }
+
+  ['estOrigin','estDestination','estBarrelSize','estWeight','estFreight'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', runEstimate);
+    document.getElementById(id).addEventListener('change', runEstimate);
+  });
+  runEstimate();
+
+  /* ---------- Barrel & Box Size Guide ---------- */
+  const SIZE_DATA = {
+    barrel55:{name:'55-Gallon Barrel', dims:'23" diameter × 34.5" height', capacity:'~208 liters / 55 US gallons', weight:'Up to 250 lbs packed', price:'From $185 USD (Ocean, Saint Lucia)', tip:'The standard "family barrel" — fits clothing, non-perishable food, small appliances and household goods layered with heaviest items at the bottom.'},
+    barrel45:{name:'45-Gallon Barrel', dims:'21" diameter × 33" height', capacity:'~170 liters / 45 US gallons', weight:'Up to 210 lbs packed', price:'From $157 USD (Ocean, Saint Lucia)', tip:'A step down from the full 55-gallon — ideal when you don\'t quite have enough to fill the largest size.'},
+    barrel30:{name:'30-Gallon Barrel', dims:'18" diameter × 29" height', capacity:'~113 liters / 30 US gallons', weight:'Up to 150 lbs packed', price:'From $120 USD (Ocean, Saint Lucia)', tip:'Best for smaller, more frequent shipments or when space at pickup is limited.'},
+    boxlarge:{name:'Large Box', dims:'24" × 18" × 18"', capacity:'~7.5 cubic feet', weight:'Up to 60 lbs recommended', price:'From $3.20/lb (Ocean) · $6.50/lb (Air)', tip:'Good for bulkier single items like small appliances, or a mix of clothing and household goods.'},
+    boxmedium:{name:'Medium Box', dims:'18" × 14" × 14"', capacity:'~2 cubic feet', weight:'Up to 35 lbs recommended', price:'From $3.20/lb (Ocean) · $6.50/lb (Air)', tip:'Ideal for electronics, shoes, or a smaller, more targeted shipment.'}
+  };
+  document.querySelectorAll('.size-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      const key = card.dataset.size;
+      const d = SIZE_DATA[key];
+      const detail = document.getElementById('sizeDetail');
+      detail.innerHTML = `
+        <h4>${d.name}</h4>
+        <div class="size-detail-grid">
+          <div class="size-detail-item"><span>Dimensions</span><b>${d.dims}</b></div>
+          <div class="size-detail-item"><span>Capacity</span><b>${d.capacity}</b></div>
+          <div class="size-detail-item"><span>Recommended Weight</span><b>${d.weight}</b></div>
+          <div class="size-detail-item"><span>Typical Price</span><b>${d.price}</b></div>
+        </div>
+        <p class="tip">💡 ${d.tip}</p>`;
+      detail.classList.add('show');
+      detail.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  });
+
+  /* ---------- Live Departure Schedule ---------- */
+  const SCHEDULE = [
+    {route:'Miami → Saint Lucia', status:'open', depart:'Jul 22, 2026', arrive:'Aug 2, 2026', capacity:72},
+    {route:'Miami → Jamaica', status:'open', depart:'Jul 19, 2026', arrive:'Jul 27, 2026', capacity:45},
+    {route:'Toronto → Barbados', status:'closing', depart:'Jul 25, 2026', arrive:'Aug 8, 2026', capacity:90},
+    {route:'New York → Trinidad', status:'open', depart:'Jul 21, 2026', arrive:'Jul 30, 2026', capacity:60},
+    {route:'London → Grenada', status:'closing', depart:'Jul 18, 2026', arrive:'Aug 1, 2026', capacity:95},
+    {route:'Miami → Dominican Republic', status:'open', depart:'Jul 24, 2026', arrive:'Jul 30, 2026', capacity:55}
+  ];
+  const scheduleList = document.getElementById('scheduleList');
+  scheduleList.innerHTML = SCHEDULE.map(s=>{
+    const statusLabel = s.status==='open' ? 'Booking Open' : s.status==='closing' ? 'Closing Soon' : 'Full';
+    const statusClass = s.status==='open' ? 'open' : s.status==='closing' ? 'closing' : 'full';
+    return `<div class="schedule-row">
+      <div class="schedule-route"><i>🚢</i> ${s.route}</div>
+      <div class="schedule-item"><span>Departs</span><b>${s.depart}</b></div>
+      <div class="schedule-item"><span>Est. Arrival</span><b>${s.arrive}</b></div>
+      <div class="schedule-item"><span>Container</span><b>${s.capacity}% full</b><div class="capacity-bar"><div class="capacity-fill" style="width:${s.capacity}%;background:${s.capacity>85?'var(--danger)':s.capacity>65?'var(--warn)':'var(--blue)'}"></div></div></div>
+      <div class="schedule-item"><span class="status-badge ${statusClass}">${statusLabel}</span></div>
+    </div>`;
+  }).join('');
+
+  /* ---------- Can I Ship It? Smart Search ---------- */
+  const SHIP_ITEMS = [
+    {name:'Television', status:'special', note:'Generally accepted — original box or custom crate strongly recommended.'},
+    {name:'Microwave', status:'accepted', note:'Generally accepted, no special handling required.'},
+    {name:'Clothing', status:'accepted', note:'Generally accepted, no restrictions.'},
+    {name:'Laptop', status:'special', note:'Generally accepted — insure and pack in a padded case.'},
+    {name:'Bicycle', status:'special', note:'Accepted with partial disassembly recommended for barrel shipping.'},
+    {name:'Furniture', status:'accepted', note:'Generally accepted — size may require commercial cargo rates.'},
+    {name:'Rice Cooker', status:'accepted', note:'Generally accepted, no restrictions.'},
+    {name:'School Supplies', status:'accepted', note:'Generally accepted, popular back-to-school item.'},
+    {name:'Firearms', status:'restricted', note:'Not accepted under any circumstances — strictly prohibited.'},
+    {name:'Ammunition', status:'restricted', note:'Not accepted under any circumstances — strictly prohibited.'},
+    {name:'Car Parts', status:'docs', note:'Requires an itemized parts list and may need import documentation.'},
+    {name:'Canned Food', status:'accepted', note:'Generally accepted if sealed and unexpired.'},
+    {name:'Perishable Food', status:'restricted', note:'Not accepted — no refrigeration available in transit.'},
+    {name:'Generator', status:'special', note:'Accepted only with fuel fully drained before shipping.'},
+    {name:'Mattress', status:'accepted', note:'Generally accepted, ships via commercial cargo due to size.'},
+    {name:'Power Tools', status:'special', note:'Accepted — remove batteries and pack separately if lithium-based.'},
+    {name:'Alcohol', status:'docs', note:'Requires documentation and duty payment at destination.'},
+    {name:'Jewelry', status:'restricted', note:'Not recommended — high-value items are not covered by standard insurance.'},
+    {name:'Building Materials', status:'accepted', note:'Generally accepted, typically shipped under commercial cargo rates.'},
+    {name:'Aerosol Cans', status:'restricted', note:'Not accepted — classified as hazardous for ocean and air transport.'},
+    {name:'Medication', status:'docs', note:'Requires a prescription or doctor\'s note for quantities beyond personal use.'},
+    {name:'Cash', status:'restricted', note:'Not accepted — CargoLink does not ship currency of any kind.'}
+  ];
+  const shipInput = document.getElementById('shipSearchInput');
+  const shipResults = document.getElementById('shipResults');
+  const STATUS_LABELS = { accepted:'Generally Accepted', restricted:'Restricted', docs:'Requires Documentation', special:'Special Handling' };
+  function renderShipResults(query){
+    const q = query.trim().toLowerCase();
+    const items = q ? SHIP_ITEMS.filter(i=>i.name.toLowerCase().includes(q)) : SHIP_ITEMS.slice(0,6);
+    if(items.length === 0){
+      shipResults.innerHTML = `<div class="ship-item"><div><div class="ship-item-name">No matches found</div><div class="ship-item-note">Message us on WhatsApp to check this item directly.</div></div></div>`;
+      return;
+    }
+    shipResults.innerHTML = items.map(i=>`
+      <div class="ship-item">
+        <div><div class="ship-item-name">${i.name}</div><div class="ship-item-note">${i.note}</div></div>
+        <span class="ship-badge ${i.status}">${STATUS_LABELS[i.status]}</span>
+      </div>`).join('');
+  }
+  shipInput.addEventListener('input', ()=> renderShipResults(shipInput.value));
+  renderShipResults('');
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      item.classList.toggle('open', !wasOpen);
+    });
+  });
+</script>
+
+</body>
+</html>
