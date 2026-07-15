@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Island Cleaning Co. — Residential &amp; Commercial Cleaning, Saint Lucia</title>
+<meta name="description" content="Professional residential and commercial cleaning across Saint Lucia. Insured, background-checked, eco-friendly. Book on WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://example.com/island-cleaning-co">
+<meta property="og:title" content="Island Cleaning Co. — Professional Residential & Commercial Cleaning">
+<meta property="og:description" content="Insured professionals, eco-friendly products, flexible scheduling. Book on WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Island Cleaning Co.",
+  "description": "Residential and commercial cleaning company serving Saint Lucia.",
+  "priceRange": "EC$100-EC$500"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ocean:#0B4F6C;
+    --ocean-deep:#073A50;
+    --teal:#14B8A6;
+    --white:#FFFFFF;
+    --gray:#F4F7F9;
+    --gray-alt:#EAF1F3;
+    --green:#3FA34D;
+    --ink:#182B36;
+    --ink-soft:#5C7280;
+    --line:rgba(24,43,54,0.1);
+    --shadow:0 24px 60px -28px rgba(11,79,108,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.18;color:var(--ocean-deep);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:1260px;margin:0 auto;padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+  section{position:relative;}
+  ::selection{background:var(--teal);color:#fff;}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+
+  .demo-banner{background:var(--ocean-deep);color:var(--gray);text-align:center;font-size:12.5px;letter-spacing:.03em;padding:9px 16px;position:relative;z-index:300;}
+  .demo-banner a{color:var(--teal);border-bottom:1px solid rgba(20,184,166,.5);}
+
+  header{position:sticky;top:0;z-index:250;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1260px;margin:0 auto;gap:18px;}
+  .logo{font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--ocean-deep);display:flex;align-items:center;gap:9px;white-space:nowrap;}
+  .logo span{color:var(--teal);}
+  .nav-links{display:flex;gap:20px;font-size:13px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--teal);border-radius:2px;transition:width .3s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--teal);color:#fff;padding:11px 22px;border-radius:30px;font-size:12.5px;font-weight:700;white-space:nowrap;box-shadow:0 10px 22px -10px rgba(20,184,166,.5);transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .burger{display:none;font-size:20px;color:var(--ocean-deep);}
+  @media(max-width:1020px){.nav-links{display:none;}.burger{display:block;}}
+
+  /* HERO */
+  .hero{min-height:96vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;background:linear-gradient(160deg,var(--ocean-deep) 0%,var(--ocean) 55%,#127A96 100%);}
+  .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.14);animation:floatUp 12s linear infinite;}
+  @keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.7;}90%{opacity:.4;}100%{transform:translateY(-100vh) translateX(20px);opacity:0;}}
+  @media(prefers-reduced-motion:reduce){.bubble{animation:none;display:none;}}
+  .sparkle{position:absolute;color:var(--teal);opacity:.7;animation:shimmer 3s ease-in-out infinite;}
+  @keyframes shimmer{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.9;transform:scale(1.3);}}
+  .hero-content{position:relative;z-index:2;max-width:660px;padding:110px 0 60px;}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:22px;font-weight:700;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--teal);border-radius:2px;}
+  .hero h1{font-size:clamp(34px,5.2vw,54px);color:#fff;margin-bottom:20px;}
+  .hero p.lede{font-size:16.5px;color:rgba(255,255,255,.85);max-width:500px;margin-bottom:26px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px;}
+  .btn-primary{background:var(--teal);color:#fff;padding:15px 28px;border-radius:30px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:9px;box-shadow:0 18px 36px -14px rgba(20,184,166,.6);transition:transform .2s ease, box-shadow .2s ease;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{border:1px solid rgba(255,255,255,.45);color:#fff;padding:15px 26px;border-radius:30px;font-weight:700;font-size:14px;transition:border-color .25s ease, background .25s ease;}
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+  .hero-badges{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.85);font-weight:600;}
+  .hero-badges span{display:flex;align-items:center;gap:7px;}
+
+  .sec-head{max-width:620px;margin:0 auto 46px;text-align:center;}
+  .sec-head .eyebrow{color:var(--ocean);justify-content:center;}
+  .sec-head .eyebrow::before{background:var(--ocean);}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);}
+  .sec-head p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;}
+
+  /* STATS */
+  .stats-band{background:var(--gray);padding:50px 0;}
+  .stats-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;text-align:center;}
+  .stat{flex:1;min-width:130px;}
+  .stat b{display:block;font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:var(--ocean);}
+  .stat span{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;font-weight:600;}
+
+  /* WHY CHOOSE */
+  .why-sec{padding:100px 0;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{background:var(--gray);border-radius:12px;padding:28px 22px;transition:transform .25s ease, box-shadow .25s ease;}
+  .why-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);background:#fff;}
+  .why-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--ocean));display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:14px;}
+  .why-card h4{font-size:16px;margin-bottom:6px;}
+  .why-card p{font-size:12.5px;color:var(--ink-soft);}
+
+  /* SERVICES */
+  .services-sec{padding:100px 0;background:var(--gray);}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:960px){.svc-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+  .svc-card{background:#fff;border-radius:10px;padding:24px 20px;transition:transform .25s ease, box-shadow .25s ease;}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .svc-ic{font-size:26px;margin-bottom:12px;}
+  .svc-card h3{font-size:15.5px;margin-bottom:6px;}
+  .svc-card p.desc{font-size:12px;color:var(--ink-soft);margin-bottom:8px;}
+  .svc-ideal{font-size:11px;color:var(--teal);font-weight:700;margin-bottom:12px;}
+  .svc-cta{font-size:12px;font-weight:700;color:var(--ocean);}
+
+  /* PACKAGES */
+  .pkg-sec{padding:100px 0;}
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.pkg-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;}}
+  .pkg-card{border:1px solid var(--line);border-radius:14px;padding:30px 26px;position:relative;transition:transform .25s ease, box-shadow .25s ease;}
+  .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .pkg-card.popular{border-color:var(--teal);background:linear-gradient(180deg,#fff,var(--gray));}
+  .pkg-tag{position:absolute;top:-13px;left:26px;background:var(--teal);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:20px;}
+  .pkg-card h4{font-size:20px;margin-bottom:4px;}
+  .pkg-sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px;}
+  .pkg-list{list-style:none;font-size:13.5px;margin-bottom:20px;}
+  .pkg-list li{padding:6px 0;padding-left:22px;position:relative;color:var(--ink-soft);}
+  .pkg-list li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700;}
+  .pkg-list li.no::before{content:"—";color:#ccc;}
+  .pkg-price{font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;color:var(--ocean);margin-bottom:16px;}
+  .pkg-price span{font-size:12px;font-weight:400;color:var(--ink-soft);}
+  .pkg-cta{display:block;text-align:center;background:var(--ocean);color:#fff;padding:12px;border-radius:8px;font-size:13px;font-weight:700;transition:background .2s ease;}
+  .pkg-card.popular .pkg-cta{background:var(--teal);}
+  .pkg-cta:hover{opacity:.9;}
+
+  /* PACKAGE BUILDER */
+  .builder-sec{padding:100px 0;background:var(--ocean-deep);color:#fff;}
+  .builder-sec .sec-head .eyebrow{color:var(--teal);}
+  .builder-sec .sec-head .eyebrow::before{background:var(--teal);}
+  .builder-sec .sec-head h2{color:#fff;}
+  .builder-sec .sec-head p{color:rgba(255,255,255,.7);}
+  .builder-box{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:36px;}
+  @media(max-width:900px){.builder-box{grid-template-columns:1fr;}}
+  .builder-field{margin-bottom:20px;}
+  .builder-field label{display:block;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+  .builder-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:520px){.builder-row{grid-template-columns:1fr;}}
+  .builder-field select{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .builder-field select option{color:#000;}
+  .extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media(max-width:480px){.extras-grid{grid-template-columns:1fr;}}
+  .extra-chip{border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:10px 14px;font-size:12.5px;font-weight:600;text-align:left;transition:all .2s ease;color:#fff;display:flex;justify-content:space-between;}
+  .extra-chip:hover{border-color:var(--teal);}
+  .extra-chip.selected{border-color:var(--teal);background:rgba(20,184,166,.15);}
+  .extra-chip .exp{color:rgba(255,255,255,.5);font-weight:400;}
+  .summary-panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:26px;align-self:start;}
+  .summary-panel h4{color:#fff;font-size:18px;margin-bottom:16px;}
+  .summary-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.15);font-size:13px;color:rgba(255,255,255,.8);}
+  .summary-row b{color:#fff;}
+  .summary-included{font-size:12.5px;color:rgba(255,255,255,.7);margin:14px 0;line-height:1.8;}
+  .summary-tip{font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:16px;font-style:italic;}
+  .summary-total{display:flex;justify-content:space-between;font-size:19px;font-weight:800;color:#fff;padding-top:12px;margin-bottom:18px;}
+  .summary-total span:last-child{color:var(--teal);}
+
+  /* BEFORE/AFTER GALLERY */
+  .ba-sec{padding:100px 0;}
+  .ba-filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;}
+  .ba-chip{padding:9px 18px;border-radius:30px;border:1px solid var(--line);background:#fff;font-size:12.5px;font-weight:700;transition:all .2s ease;}
+  .ba-chip.active,.ba-chip:hover{background:var(--ocean);color:#fff;border-color:var(--ocean);}
+  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.ba-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.ba-grid{grid-template-columns:1fr;}}
+  .ba-card{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px -20px rgba(11,79,108,.3);}
+  .ba-slider{position:relative;height:200px;overflow:hidden;cursor:ew-resize;user-select:none;}
+  .ba-after{position:absolute;inset:0;background-size:cover;background-position:center;}
+  .ba-before{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.62) saturate(.5) contrast(.9);clip-path:inset(0 50% 0 0);}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 0 2px rgba(0,0,0,.15);transform:translateX(-50%);}
+  .ba-handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ocean);font-weight:700;box-shadow:var(--shadow);}
+  .ba-label{position:absolute;top:10px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:20px;color:#fff;background:rgba(0,0,0,.5);z-index:2;}
+  .ba-label.before-lbl{left:10px;}
+  .ba-label.after-lbl{right:10px;}
+  .ba-body{padding:16px 18px;background:#fff;}
+  .ba-body h5{font-size:14.5px;}
+
+  /* PROCESS TIMELINE */
+  .process-sec{padding:100px 0;background:var(--gray);}
+  .process-row{display:flex;justify-content:space-between;gap:14px;position:relative;flex-wrap:wrap;}
+  .process-row::before{content:"";position:absolute;top:26px;left:0;right:0;height:2px;background:var(--line);z-index:0;}
+  @media(max-width:860px){.process-row::before{display:none;}}
+  .process-item{text-align:center;flex:1;min-width:120px;position:relative;z-index:1;}
+  .process-num{width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid var(--teal);color:var(--ocean);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;margin:0 auto 12px;}
+  .process-item h5{font-size:13px;margin-bottom:3px;}
+  .process-item p{font-size:11px;color:var(--ink-soft);}
+
+  /* COVERAGE MAP */
+  .coverage-sec{padding:100px 0;}
+  .map-wrap{max-width:760px;margin:0 auto;position:relative;background:linear-gradient(160deg,#BEE9E8,#8FD3D9);border-radius:16px;padding:6%;box-shadow:var(--shadow);}
+  .map-svg{width:100%;height:auto;display:block;}
+  .map-pin{position:absolute;transform:translate(-50%,-100%);cursor:pointer;}
+  .map-pin .pin-dot{width:32px;height:32px;border-radius:50% 50% 50% 0;background:var(--ocean);transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px -4px rgba(11,79,108,.5);border:2px solid #fff;transition:transform .2s ease;}
+  .map-pin:hover .pin-dot{transform:rotate(-45deg) scale(1.12);}
+  .map-pin .pin-label{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:700;color:var(--ocean-deep);white-space:nowrap;}
+  .map-tooltip{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) scale(.9);background:#fff;border-radius:8px;padding:12px 16px;width:170px;box-shadow:0 14px 30px -10px rgba(11,79,108,.4);opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;z-index:10;}
+  .map-pin.open .map-tooltip{opacity:1;transform:translateX(-50%) scale(1);pointer-events:auto;}
+  .map-tooltip h5{font-size:13px;color:var(--ocean-deep);margin-bottom:4px;}
+  .map-tooltip p{font-size:11.5px;color:var(--ink-soft);}
+
+  /* WHAT'S INCLUDED */
+  .included-sec{padding:100px 0;background:var(--gray);}
+  .room-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  @media(max-width:900px){.room-grid{grid-template-columns:repeat(2,1fr);}}
+  .room-card{background:#fff;border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:0 8px 20px -16px rgba(11,79,108,.25);}
+  .room-head{padding:18px;display:flex;justify-content:space-between;align-items:center;}
+  .room-head h5{font-size:14px;}
+  .room-head .plus{font-size:18px;color:var(--teal);transition:transform .3s ease;}
+  .room-card.open .room-head .plus{transform:rotate(45deg);}
+  .room-checklist{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .room-card.open .room-checklist{max-height:260px;}
+  .room-checklist ul{list-style:none;padding:0 18px 18px;}
+  .room-checklist li{font-size:12px;color:var(--ink-soft);padding:4px 0;padding-left:18px;position:relative;}
+  .room-checklist li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700;}
+
+  /* COMMERCIAL */
+  .commercial-sec{padding:100px 0;}
+  .commercial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:760px){.commercial-grid{grid-template-columns:1fr 1fr;}}
+  .commercial-item{background:var(--gray);border-radius:8px;padding:16px 14px;text-align:center;font-size:13px;font-weight:700;color:var(--ocean-deep);}
+
+  /* ECO PROMISE */
+  .eco-sec{padding:100px 0;background:linear-gradient(135deg,var(--green),#2F7D3A);color:#fff;text-align:center;}
+  .eco-sec h2{color:#fff;font-size:clamp(28px,4vw,40px);margin-bottom:34px;}
+  .eco-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:900px;margin:0 auto;}
+  @media(max-width:760px){.eco-grid{grid-template-columns:1fr 1fr;}}
+  .eco-item{background:rgba(255,255,255,.12);border-radius:10px;padding:20px 14px;}
+  .eco-item .ic{font-size:24px;margin-bottom:8px;}
+  .eco-item span{font-size:12.5px;font-weight:700;}
+
+  /* TESTIMONIALS */
+  .testi-sec{padding:100px 0;}
+  .testi-carousel{max-width:680px;margin:0 auto;text-align:center;min-height:200px;}
+  .testi-slide{display:none;animation:fadeUp .5s ease;}
+  .testi-slide.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .stars{color:var(--teal);font-size:16px;letter-spacing:3px;margin-bottom:18px;}
+  .testi-slide p.quote{font-size:18.5px;color:var(--ocean-deep);margin-bottom:16px;font-style:italic;font-weight:500;}
+  .testi-who{font-size:13px;color:var(--ink-soft);font-weight:700;}
+  .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:26px;}
+  .testi-dots button{width:8px;height:8px;border-radius:50%;background:var(--line);transition:all .3s ease;}
+  .testi-dots button.active{background:var(--teal);width:22px;border-radius:6px;}
+
+  /* FAQ */
+  .faq-sec{padding:100px 0;background:var(--gray);}
+  .faq-list{max-width:740px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;padding:19px 4px;display:flex;justify-content:space-between;align-items:center;font-size:14.5px;font-weight:700;color:var(--ocean-deep);}
+  .faq-q .plus{font-size:19px;color:var(--teal);transition:transform .3s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{padding:0 4px 19px;font-size:13px;color:var(--ink-soft);}
+
+  /* FINAL CTA */
+  .final-cta{padding:100px 0;text-align:center;color:#fff;background:linear-gradient(135deg,var(--ocean),var(--ocean-deep));}
+  .final-cta h2{color:#fff;font-size:clamp(30px,4.4vw,48px);margin-bottom:16px;}
+  .final-cta p{color:rgba(255,255,255,.8);max-width:440px;margin:0 auto 30px;font-size:15.5px;}
+  .final-meta{color:rgba(255,255,255,.7);font-size:13px;margin-top:22px;}
+
+  /* FOOTER */
+  footer{background:var(--ocean-deep);color:rgba(255,255,255,.65);padding:56px 0 26px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-logo{font-family:'Outfit',sans-serif;font-size:19px;color:#fff;margin-bottom:10px;}
+  .foot-col h5{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+  .foot-col a{display:block;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.6);}
+  .foot-col a:hover{color:#fff;}
+  .foot-social{display:flex;gap:10px;margin-top:8px;}
+  .foot-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12px;}
+  .foot-demo-note{max-width:660px;font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+  .foot-demo-note a{color:var(--teal);border-bottom:1px solid rgba(20,184,166,.4);}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:280;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <b>DEMO SITE</b> — built by Jamal Samuel (AkraLink) to show what's possible for Caribbean cleaning companies. Not a real business. &nbsp;<a href="https://wa.me/17587235872" target="_blank" rel="noopener">Want one like this? Chat on WhatsApp →</a>
+</div>
+
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">Island <span>Cleaning Co.</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#builder">Package Builder</a>
+      <a href="#gallery">Before/After</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20a%20cleaning." target="_blank" rel="noopener">Book on WhatsApp</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="bubble" style="width:30px;height:30px;left:10%;animation-delay:0s;"></div>
+  <div class="bubble" style="width:18px;height:18px;left:22%;animation-delay:2s;"></div>
+  <div class="bubble" style="width:24px;height:24px;left:75%;animation-delay:4s;"></div>
+  <div class="bubble" style="width:14px;height:14px;left:85%;animation-delay:1s;"></div>
+  <div class="bubble" style="width:22px;height:22px;left:60%;animation-delay:6s;"></div>
+  <div class="sparkle" style="top:18%;right:14%;font-size:22px;">✦</div>
+  <div class="sparkle" style="top:60%;right:26%;font-size:16px;animation-delay:1.2s;">✦</div>
+  <div class="sparkle" style="top:32%;right:8%;font-size:14px;animation-delay:2.4s;">✦</div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">Serving All of Saint Lucia</div>
+      <h1>Professional residential &amp; commercial cleaning across Saint Lucia.</h1>
+      <p class="lede">Insured professionals, eco-friendly products, and flexible scheduling that fits your week — not the other way around.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20a%20cleaning." target="_blank" rel="noopener">📲 Book on WhatsApp</a>
+        <a class="btn-outline" href="#packages">View Cleaning Packages</a>
+      </div>
+      <div class="hero-badges">
+        <span>✔ Fully Insured</span>
+        <span>✔ Eco-Friendly Products</span>
+        <span>✔ Background Checked Team</span>
+        <span>✔ Satisfaction Guaranteed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat reveal"><b class="counter" data-target="2400" data-suffix="+">0</b><span>Homes Cleaned</span></div>
+      <div class="stat reveal"><b class="counter" data-target="180" data-suffix="+">0</b><span>Businesses Served</span></div>
+      <div class="stat reveal"><b class="counter" data-target="68" data-suffix="%">0</b><span>Repeat Customers</span></div>
+      <div class="stat reveal"><b class="counter" data-target="7">0</b><span>Years Experience</span></div>
+      <div class="stat reveal"><b>4.9<span style="font-size:18px;">★</span></b><span>Average Rating</span></div>
+      <div class="stat reveal"><b class="counter" data-target="20" data-suffix="min">0</b><span>Avg Response Time</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="why-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Why Choose Us</div><h2>Six reasons Saint Lucia trusts us with their keys.</h2></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">👥</div><h4>Reliable Professionals</h4><p>Background-checked staff who show up when they say they will.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🌿</div><h4>Eco-Friendly Cleaning</h4><p>Safe products that work without leaving harsh residue behind.</p></div>
+      <div class="why-card reveal"><div class="why-icon">📅</div><h4>Flexible Scheduling</h4><p>One-time, weekly or monthly — booked entirely around your calendar.</p></div>
+      <div class="why-card reveal"><div class="why-icon">💵</div><h4>Transparent Pricing</h4><p>You see the estimate before we ever pick up a mop.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🏡</div><h4>Trusted by Families</h4><p>The same team, welcomed back into homes visit after visit.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🏢</div><h4>Commercial Specialists</h4><p>Offices, restaurants and retail spaces cleaned on your schedule, not disrupting business hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services-sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Services</div><h2>Whatever the space, we've got a plan for it.</h2></div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-ic">🏠</div><h3>Residential Cleaning</h3><p class="desc">Routine home cleaning, weekly to monthly.</p><div class="svc-ideal">Ideal for: Busy households</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Residential%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🏢</div><h3>Commercial Cleaning</h3><p class="desc">Offices and retail spaces, after-hours or scheduled.</p><div class="svc-ideal">Ideal for: Businesses</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Commercial%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">✨</div><h3>Deep Cleaning</h3><p class="desc">Top-to-bottom detail clean, every corner covered.</p><div class="svc-ideal">Ideal for: First-time or seasonal</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Deep%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">📦</div><h3>Move-In Cleaning</h3><p class="desc">Fresh-start clean before your furniture arrives.</p><div class="svc-ideal">Ideal for: New tenants/owners</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Move-In%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🧳</div><h3>Move-Out Cleaning</h3><p class="desc">Deposit-ready clean for landlords and outgoing tenants.</p><div class="svc-ideal">Ideal for: Tenants, landlords</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Move-Out%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">💼</div><h3>Office Cleaning</h3><p class="desc">Desks, floors and common areas, scheduled around work hours.</p><div class="svc-ideal">Ideal for: Small-to-mid offices</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Office%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🏝️</div><h3>Vacation Rental Turnovers</h3><p class="desc">Guest-ready turnaround between check-out and check-in.</p><div class="svc-ideal">Ideal for: Airbnb hosts</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Vacation%20Rental%20Turnovers." target="_blank" rel="noopener">Get a quote →</a></div>
+      <div class="svc-card reveal"><div class="svc-ic">🏗️</div><h3>Post-Construction Cleaning</h3><p class="desc">Dust, debris and residue cleared after renovation work.</p><div class="svc-ideal">Ideal for: Contractors, homeowners</div><a class="svc-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20a%20quote%20for%20Post-Construction%20Cleaning." target="_blank" rel="noopener">Get a quote →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="pkg-sec" id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Premium Packages</div><h2>Three tiers, one clean outcome.</h2></div>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <h4>Essential Clean</h4>
+        <div class="pkg-sub">Routine maintenance</div>
+        <ul class="pkg-list">
+          <li>Dusting &amp; surface wipe-down</li>
+          <li>Vacuum &amp; mop all floors</li>
+          <li>Kitchen &amp; bathroom sanitizing</li>
+          <li class="no">Inside appliances</li>
+          <li class="no">Window cleaning</li>
+        </ul>
+        <div class="pkg-price">EC$150<span>/visit</span></div>
+        <a class="pkg-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20the%20Essential%20Clean." target="_blank" rel="noopener">Book This Package</a>
+      </div>
+      <div class="pkg-card popular reveal">
+        <span class="pkg-tag">Most Popular</span>
+        <h4>Premium Shine</h4>
+        <div class="pkg-sub">Everything Essential, plus detail work</div>
+        <ul class="pkg-list">
+          <li>Everything in Essential Clean</li>
+          <li>Inside oven &amp; fridge exterior</li>
+          <li>Baseboards &amp; door frames</li>
+          <li>Interior window cleaning</li>
+          <li class="no">Carpet &amp; upholstery</li>
+        </ul>
+        <div class="pkg-price">EC$260<span>/visit</span></div>
+        <a class="pkg-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20Premium%20Shine." target="_blank" rel="noopener">Book This Package</a>
+      </div>
+      <div class="pkg-card reveal">
+        <h4>Island Deep Refresh</h4>
+        <div class="pkg-sub">Top-tier deep clean</div>
+        <ul class="pkg-list">
+          <li>Everything in Premium Shine</li>
+          <li>Inside cabinets &amp; drawers</li>
+          <li>Carpet &amp; upholstery cleaning</li>
+          <li>Full window cleaning, in &amp; out</li>
+          <li>Balcony &amp; exterior touch-up</li>
+        </ul>
+        <div class="pkg-price">EC$420<span>/visit</span></div>
+        <a class="pkg-cta" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20the%20Island%20Deep%20Refresh." target="_blank" rel="noopener">Book This Package</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="builder-sec" id="builder">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">⭐ Signature Feature</div><h2>Smart Cleaning Package Builder</h2><p>Build your exact cleaning package live — see duration, team size and price update as you go.</p></div>
+    <div class="builder-box reveal">
+      <div>
+        <div class="builder-row">
+          <div class="builder-field">
+            <label>Property Type</label>
+            <select id="bProperty"><option>Apartment</option><option>House</option><option>Office</option><option>Airbnb</option><option>Retail Store</option></select>
+          </div>
+          <div class="builder-field">
+            <label>Cleaning Type</label>
+            <select id="bType"><option value="standard">Standard</option><option value="deep">Deep</option><option value="movein">Move-In</option><option value="moveout">Move-Out</option><option value="office">Office</option></select>
+          </div>
+        </div>
+        <div class="builder-row">
+          <div class="builder-field">
+            <label>Bedrooms</label>
+            <select id="bBedrooms"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select>
+          </div>
+          <div class="builder-field">
+            <label>Bathrooms</label>
+            <select id="bBathrooms"><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4+</option></select>
+          </div>
+        </div>
+        <div class="builder-field">
+          <label>Frequency</label>
+          <select id="bFrequency"><option value="onetime">One-Time</option><option value="weekly">Weekly (save 15%)</option><option value="biweekly">Bi-Weekly (save 10%)</option><option value="monthly">Monthly (save 5%)</option></select>
+        </div>
+        <div class="builder-field">
+          <label>Optional Extras</label>
+          <div class="extras-grid" id="extrasGrid">
+            <button class="extra-chip" data-name="Inside Oven" data-price="35">Inside Oven <span class="exp">+$35</span></button>
+            <button class="extra-chip" data-name="Inside Refrigerator" data-price="30">Inside Refrigerator <span class="exp">+$30</span></button>
+            <button class="extra-chip" data-name="Windows" data-price="40">Windows <span class="exp">+$40</span></button>
+            <button class="extra-chip" data-name="Laundry" data-price="25">Laundry <span class="exp">+$25</span></button>
+            <button class="extra-chip" data-name="Balcony" data-price="20">Balcony <span class="exp">+$20</span></button>
+            <button class="extra-chip" data-name="Interior Cabinets" data-price="30">Interior Cabinets <span class="exp">+$30</span></button>
+            <button class="extra-chip" data-name="Carpet Cleaning" data-price="50">Carpet Cleaning <span class="exp">+$50</span></button>
+            <button class="extra-chip" data-name="Sofa Cleaning" data-price="45">Sofa Cleaning <span class="exp">+$45</span></button>
+            <button class="extra-chip" data-name="Pressure Washing" data-price="60">Pressure Washing <span class="exp">+$60</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="summary-panel">
+        <h4>Your Package</h4>
+        <div class="summary-row"><span>Estimated Package</span><b id="sumPackage">Standard Clean</b></div>
+        <div class="summary-row"><span>Estimated Duration</span><b id="sumDuration">—</b></div>
+        <div class="summary-row"><span>Team Size</span><b id="sumTeam">—</b></div>
+        <div class="summary-included" id="sumIncluded">—</div>
+        <div class="summary-tip" id="sumTip">—</div>
+        <div class="summary-total"><span>Estimated Price</span><span id="sumTotal">EC$0</span></div>
+        <a class="btn-primary" style="width:100%;justify-content:center;" id="builderWaBtn" href="https://wa.me/17587235872" target="_blank" rel="noopener">Book This Package on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba-sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Before &amp; After</div><h2>Drag the slider to see the difference.</h2></div>
+    <div class="ba-grid" id="baGrid">
+      <div class="ba-card reveal">
+        <div class="ba-slider" data-img="https://images.unsplash.com/photo-1610276173132-c47d148ab626?auto=format&fit=crop&w=700&q=75">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1610276173132-c47d148ab626?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1610276173132-c47d148ab626?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Kitchen</h5></div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-slider" data-img="https://images.unsplash.com/photo-1638799869566-b17fa794c4de?auto=format&fit=crop&w=700&q=75">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1638799869566-b17fa794c4de?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1638799869566-b17fa794c4de?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Bathroom</h5></div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-slider" data-img="https://images.unsplash.com/photo-1505843694770-3461f546bd8f?auto=format&fit=crop&w=700&q=75">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1505843694770-3461f546bd8f?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1505843694770-3461f546bd8f?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Living Room</h5></div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-slider" data-img="https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=700&q=75">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=700&q=75')"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Office</h5></div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-slider" style="background:linear-gradient(135deg,#B8C4C9,#8FA0A8);">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background:linear-gradient(135deg,#E8F4F5,#C9E4E6);"></div>
+          <div class="ba-before" style="background:linear-gradient(135deg,#8A8A85,#5C5C58);"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Pressure Washing</h5></div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-slider">
+          <div class="ba-label before-lbl">Before</div>
+          <div class="ba-label after-lbl">After</div>
+          <div class="ba-after" style="background:linear-gradient(135deg,#E4F6FA,#B9E4EE);"></div>
+          <div class="ba-before" style="background:linear-gradient(135deg,#8A8580,#5A5652);"></div>
+          <div class="ba-handle"></div>
+        </div>
+        <div class="ba-body"><h5>Windows</h5></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--ink-soft);margin-top:26px;">Demo gallery — simulated before/after using filtered imagery. Real client photos would replace these on launch.</p>
+  </div>
+</section>
+
+<section class="process-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Our Process</div><h2>Six steps to a spotless space.</h2></div>
+    <div class="process-row">
+      <div class="process-item reveal"><div class="process-num">1</div><h5>Request Quote</h5></div>
+      <div class="process-item reveal"><div class="process-num">2</div><h5>Choose Package</h5></div>
+      <div class="process-item reveal"><div class="process-num">3</div><h5>Schedule Visit</h5></div>
+      <div class="process-item reveal"><div class="process-num">4</div><h5>Professional Cleaning</h5></div>
+      <div class="process-item reveal"><div class="process-num">5</div><h5>Quality Inspection</h5></div>
+      <div class="process-item reveal"><div class="process-num">6</div><h5>Enjoy Your Space</h5></div>
+    </div>
+  </div>
+</section>
+
+<section class="coverage-sec" id="coverage">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Coverage Area</div><h2>We come to you, island-wide.</h2><p>Tap a region to see estimated response time.</p></div>
+    <div class="map-wrap reveal">
+      <svg class="map-svg" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+        <path d="M200 20 C260 40 300 90 290 160 C320 200 310 260 280 300 C300 340 270 400 220 420 C180 440 130 430 100 390 C60 380 40 330 60 280 C40 240 50 180 90 150 C80 100 130 40 200 20Z" fill="#3FA79B" opacity="0.85"/>
+        <path d="M200 20 C260 40 300 90 290 160 C320 200 310 260 280 300 C300 340 270 400 220 420 C180 440 130 430 100 390 C60 380 40 330 60 280 C40 240 50 180 90 150 C80 100 130 40 200 20Z" fill="none" stroke="#0B4F6C" stroke-width="3" opacity="0.4"/>
+      </svg>
+      <div class="map-pin" style="top:12%;left:44%;" data-tip="castries"><div class="pin-dot"></div><div class="pin-label">Castries</div><div class="map-tooltip"><h5>Castries</h5><p>Response time: same-day available</p></div></div>
+      <div class="map-pin" style="top:6%;left:58%;" data-tip="grosislet"><div class="pin-dot"></div><div class="pin-label">Gros Islet</div><div class="map-tooltip"><h5>Gros Islet</h5><p>Response time: same-day available</p></div></div>
+      <div class="map-pin" style="top:2%;left:70%;" data-tip="rodneybay"><div class="pin-dot"></div><div class="pin-label">Rodney Bay</div><div class="map-tooltip"><h5>Rodney Bay</h5><p>Response time: same-day available</p></div></div>
+      <div class="map-pin" style="top:44%;left:22%;" data-tip="soufriere"><div class="pin-dot"></div><div class="pin-label">Soufrière</div><div class="map-tooltip"><h5>Soufrière</h5><p>Response time: next-day</p></div></div>
+      <div class="map-pin" style="top:88%;left:38%;" data-tip="vieuxfort"><div class="pin-dot"></div><div class="pin-label">Vieux Fort</div><div class="map-tooltip"><h5>Vieux Fort</h5><p>Response time: next-day</p></div></div>
+      <div class="map-pin" style="top:42%;left:76%;" data-tip="dennery"><div class="pin-dot"></div><div class="pin-label">Dennery</div><div class="map-tooltip"><h5>Dennery</h5><p>Response time: next-day</p></div></div>
+      <div class="map-pin" style="top:62%;left:70%;" data-tip="micoud"><div class="pin-dot"></div><div class="pin-label">Micoud</div><div class="map-tooltip"><h5>Micoud</h5><p>Response time: next-day</p></div></div>
+      <div class="map-pin" style="top:30%;left:16%;" data-tip="marigot"><div class="pin-dot"></div><div class="pin-label">Marigot</div><div class="map-tooltip"><h5>Marigot Bay</h5><p>Response time: same-day available</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="included-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">What's Included</div><h2>Tap a room to see exactly what gets cleaned.</h2></div>
+    <div class="room-grid">
+      <div class="room-card reveal" data-room="kitchen">
+        <div class="room-head"><h5>Kitchen</h5><span class="plus">+</span></div>
+        <div class="room-checklist"><ul>
+          <li>Counters &amp; backsplash wiped</li>
+          <li>Sink scrubbed &amp; polished</li>
+          <li>Stovetop degreased</li>
+          <li>Exterior appliances wiped</li>
+          <li>Floors swept &amp; mopped</li>
+        </ul></div>
+      </div>
+      <div class="room-card reveal" data-room="bathroom">
+        <div class="room-head"><h5>Bathroom</h5><span class="plus">+</span></div>
+        <div class="room-checklist"><ul>
+          <li>Toilet, tub &amp; shower scrubbed</li>
+          <li>Sink &amp; counter sanitized</li>
+          <li>Mirrors polished</li>
+          <li>Grout spot-treated</li>
+          <li>Floors mopped</li>
+        </ul></div>
+      </div>
+      <div class="room-card reveal" data-room="bedroom">
+        <div class="room-head"><h5>Bedroom</h5><span class="plus">+</span></div>
+        <div class="room-checklist"><ul>
+          <li>Dusting all surfaces</li>
+          <li>Bed made / linens straightened</li>
+          <li>Floors vacuumed or mopped</li>
+          <li>Mirrors &amp; glass wiped</li>
+          <li>Trash emptied</li>
+        </ul></div>
+      </div>
+      <div class="room-card reveal" data-room="living">
+        <div class="room-head"><h5>Living Room</h5><span class="plus">+</span></div>
+        <div class="room-checklist"><ul>
+          <li>Dusting furniture &amp; shelves</li>
+          <li>Upholstery surface clean</li>
+          <li>Floors vacuumed or mopped</li>
+          <li>Windowsills wiped</li>
+          <li>Cushions straightened</li>
+        </ul></div>
+      </div>
+      <div class="room-card reveal" data-room="office">
+        <div class="room-head"><h5>Office</h5><span class="plus">+</span></div>
+        <div class="room-checklist"><ul>
+          <li>Desks &amp; surfaces wiped</li>
+          <li>Trash &amp; recycling emptied</li>
+          <li>Floors vacuumed or mopped</li>
+          <li>Common areas sanitized</li>
+          <li>Glass doors &amp; partitions cleaned</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="commercial-sec">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Commercial Cleaning</div><h2>Serving businesses across the island.</h2></div>
+    <div class="commercial-grid">
+      <div class="commercial-item reveal">Restaurants</div>
+      <div class="commercial-item reveal">Hotels</div>
+      <div class="commercial-item reveal">Medical Offices</div>
+      <div class="commercial-item reveal">Schools</div>
+      <div class="commercial-item reveal">Retail Stores</div>
+      <div class="commercial-item reveal">Offices</div>
+      <div class="commercial-item reveal">Vacation Rentals</div>
+      <div class="commercial-item reveal">Churches</div>
+      <div class="commercial-item reveal">Property Managers</div>
+    </div>
+  </div>
+</section>
+
+<section class="eco-sec">
+  <div class="wrap">
+    <h2>Our Eco-Friendly Promise</h2>
+    <div class="eco-grid">
+      <div class="eco-item"><div class="ic">🧴</div><span>Safe Products</span></div>
+      <div class="eco-item"><div class="ic">🐾</div><span>Pet Friendly</span></div>
+      <div class="eco-item"><div class="ic">🧒</div><span>Child Safe</span></div>
+      <div class="eco-item"><div class="ic">🌍</div><span>Low Environmental Impact</span></div>
+      <div class="eco-item"><div class="ic">🛠️</div><span>Professional Equipment</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Customer Reviews</div><h2>What clients say after we leave.</h2></div>
+    <div class="testi-carousel">
+      <div class="testi-slide active"><div class="stars">★★★★★</div><p class="quote">"Used the Package Builder to figure out exactly what I needed before messaging — made the whole booking painless."</p><div class="testi-who">Marisol B. — Bi-Weekly Residential</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Turned our Airbnb around in under two hours between guests. Same team every time, which matters more than I expected."</p><div class="testi-who">Andre F. — Vacation Rental Turnover</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Move-out clean got our full deposit back. Landlord actually commented on how thorough it was."</p><div class="testi-who">Odalys R. — Move-Out Cleaning</div></div>
+      <div class="testi-slide"><div class="stars">★★★★★</div><p class="quote">"Office gets cleaned after hours without us ever having to think about it. Exactly what we needed."</p><div class="testi-who">Devon P. — Commercial Office</div></div>
+    </div>
+    <div class="testi-dots"><button class="active" data-i="0"></button><button data-i="1"></button><button data-i="2"></button><button data-i="3"></button></div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Before you book, a few answers.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Do I need to be home during the cleaning?<span class="plus">+</span></button><div class="faq-a"><p>No, many clients provide access instructions and aren't present. Whatever you're comfortable with works.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Do you bring your own supplies?<span class="plus">+</span></button><div class="faq-a"><p>Yes, our team brings all eco-friendly products and equipment — nothing needed from you.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Can I schedule recurring cleaning?<span class="plus">+</span></button><div class="faq-a"><p>Yes, weekly, bi-weekly and monthly plans are available with built-in discounts.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">What payment methods do you accept?<span class="plus">+</span></button><div class="faq-a"><p>Cash, bank transfer, and card payment links for recurring clients.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Are you insured?<span class="plus">+</span></button><div class="faq-a"><p>Yes, fully insured and every team member is background checked before joining.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">How do I prepare for the visit?<span class="plus">+</span></button><div class="faq-a"><p>Just clear valuables and clutter from surfaces — our team handles the rest.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="wrap">
+    <h2>A cleaner home starts with one message.</h2>
+    <p>No forms, no hold music. Message us and we'll build your package together.</p>
+    <a class="btn-primary" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20a%20cleaning." target="_blank" rel="noopener">📲 Book on WhatsApp</a>
+    <div class="final-meta">+1 (758) 723-5872 · hello@islandcleaningco.demo · Mon – Sat: 7am – 6pm</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px;">
+        <div class="foot-logo">Island <span style="color:var(--teal);">Cleaning Co.</span></div>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;">Professional residential and commercial cleaning across Saint Lucia.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3V4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#builder">Package Builder</a>
+      </div>
+      <div class="foot-col">
+        <h5>Coverage Areas</h5>
+        <a href="#coverage">Castries · Gros Islet</a>
+        <a href="#coverage">Rodney Bay · Soufrière</a>
+        <a href="#coverage">Vieux Fort · Dennery</a>
+      </div>
+      <div class="foot-col">
+        <h5>Info</h5>
+        <a href="#faq">FAQ</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-demo-note">
+        This website is a demonstration built by <b style="color:rgba(255,255,255,.7)">Jamal Samuel</b> under <b style="color:rgba(255,255,255,.7)">AkraLink</b> to show what's possible for Caribbean cleaning companies. No real business named "Island Cleaning Co." is affiliated with this page. <a href="https://wa.me/17587235872" target="_blank" rel="noopener">Message on WhatsApp</a>.
+      </div>
+      <div>© 2026 Island Cleaning Co. (Demo) — Built by AkraLink</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20Island%20Cleaning%20Co.%2C%20I'd%20like%20to%20book%20a%20cleaning." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.5c-4.9 0-8.87 3.98-8.87 8.87 0 1.56.41 3.08 1.19 4.42L3.5 21l4.32-1.13a8.86 8.86 0 0 0 4.24 1.08h.01c4.9 0 8.87-3.98 8.87-8.87a8.83 8.83 0 0 0-2.34-6.04zm-5.56 13.6h-.01a7.36 7.36 0 0 1-3.75-1.03l-.27-.16-2.79.73.75-2.72-.18-.28a7.37 7.37 0 0 1-1.13-3.94c0-4.08 3.32-7.4 7.4-7.4a7.35 7.35 0 0 1 5.23 2.17 7.35 7.35 0 0 1 2.16 5.23c0 4.08-3.32 7.4-7.41 7.4z"/></svg>
+</a>
+
+<script>
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  document.querySelector('.burger').addEventListener('click', ()=>{
+    document.querySelector('.nav-cta').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* Counters */
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.target,10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.max(1, Math.round(target/60));
+        const tick = ()=>{
+          cur += step;
+          if(cur >= target){ el.textContent = target.toLocaleString() + suffix; return; }
+          el.textContent = cur.toLocaleString() + suffix;
+          requestAnimationFrame(tick);
+        };
+        tick();
+        counterIO.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(c=>counterIO.observe(c));
+
+  /* ---------- Smart Cleaning Package Builder ---------- */
+  const selectedExtras = new Set();
+  document.querySelectorAll('.extra-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const name = chip.dataset.name;
+      if(selectedExtras.has(name)){ selectedExtras.delete(name); chip.classList.remove('selected'); }
+      else { selectedExtras.add(name); chip.classList.add('selected'); }
+      updateBuilder();
+    });
+  });
+
+  const EXTRA_PRICES = {
+    'Inside Oven':35,'Inside Refrigerator':30,'Windows':40,'Laundry':25,'Balcony':20,
+    'Interior Cabinets':30,'Carpet Cleaning':50,'Sofa Cleaning':45,'Pressure Washing':60
+  };
+  const TYPE_BASE = { standard:150, deep:280, movein:320, moveout:320, office:200 };
+  const TYPE_HOURS = { standard:1.5, deep:3, movein:3.5, moveout:3.5, office:2 };
+  const TYPE_NAME = { standard:'Standard Clean', deep:'Deep Clean', movein:'Move-In Clean', moveout:'Move-Out Clean', office:'Office Clean' };
+  const TYPE_TIP = {
+    standard:'Clear surfaces of clutter before we arrive for the most efficient visit.',
+    deep:'Point out any problem areas — grout, buildup, neglected corners — during booking.',
+    movein:'Best done before furniture arrives for full access to every surface.',
+    moveout:'Schedule after your belongings are out for a full deposit-ready clean.',
+    office:'Let us know if there are sensitive documents or equipment to avoid.'
+  };
+  const FREQ_DISCOUNT = { onetime:0, weekly:0.15, biweekly:0.10, monthly:0.05 };
+  const FREQ_LABEL = { onetime:'One-Time', weekly:'Weekly', biweekly:'Bi-Weekly', monthly:'Monthly' };
+
+  function updateBuilder(){
+    const property = document.getElementById('bProperty').value;
+    const type = document.getElementById('bType').value;
+    const bedrooms = parseInt(document.getElementById('bBedrooms').value,10);
+    const bathrooms = parseInt(document.getElementById('bBathrooms').value,10);
+    const freq = document.getElementById('bFrequency').value;
+
+    let base = TYPE_BASE[type];
+    base += Math.max(0, bedrooms-1) * 40;
+    base += Math.max(0, bathrooms-1) * 25;
+
+    let extrasTotal = 0;
+    selectedExtras.forEach(name=> extrasTotal += EXTRA_PRICES[name]);
+
+    let subtotal = base + extrasTotal;
+    const discount = FREQ_DISCOUNT[freq];
+    const total = Math.round(subtotal * (1 - discount));
+
+    let hours = TYPE_HOURS[type] + Math.max(0,bedrooms-1)*0.4 + Math.max(0,bathrooms-1)*0.3 + selectedExtras.size*0.25;
+    hours = Math.round(hours*2)/2;
+
+    let team = 1;
+    if(bedrooms >= 5 || hours > 5) team = 3;
+    else if(bedrooms >= 3 || hours > 3) team = 2;
+
+    document.getElementById('sumPackage').textContent = `${TYPE_NAME[type]} — ${property}`;
+    document.getElementById('sumDuration').textContent = `~${hours} hrs`;
+    document.getElementById('sumTeam').textContent = `${team} cleaner${team>1?'s':''}`;
+    const includedList = ['Standard surfaces, floors & sanitizing', ...selectedExtras].join(', ');
+    document.getElementById('sumIncluded').textContent = 'Included: ' + includedList;
+    document.getElementById('sumTip').textContent = '💡 ' + TYPE_TIP[type];
+    document.getElementById('sumTotal').textContent = 'EC$' + total.toLocaleString();
+
+    const extrasMsg = selectedExtras.size ? `\nExtras: ${[...selectedExtras].join(', ')}` : '';
+    const msg = `Hi Island Cleaning Co., I'd like to book this package:\n\nProperty: ${property}\nCleaning Type: ${TYPE_NAME[type]}\nBedrooms: ${bedrooms}\nBathrooms: ${bathrooms}\nFrequency: ${FREQ_LABEL[freq]}${extrasMsg}\n\nEstimated Total: EC$${total.toLocaleString()}\n\nCould you confirm availability?`;
+    document.getElementById('builderWaBtn').href = 'https://wa.me/17587235872?text=' + encodeURIComponent(msg);
+  }
+  ['bProperty','bType','bBedrooms','bBathrooms','bFrequency'].forEach(id=>{
+    document.getElementById(id).addEventListener('change', updateBuilder);
+  });
+  updateBuilder();
+
+  /* ---------- Before/After sliders ---------- */
+  document.querySelectorAll('.ba-slider').forEach(slider=>{
+    const before = slider.querySelector('.ba-before');
+    const handle = slider.querySelector('.ba-handle');
+    let dragging = false;
+
+    function setPosition(clientX){
+      const rect = slider.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      before.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+
+    slider.addEventListener('mousedown', (e)=>{ dragging = true; setPosition(e.clientX); });
+    window.addEventListener('mousemove', (e)=>{ if(dragging) setPosition(e.clientX); });
+    window.addEventListener('mouseup', ()=> dragging = false);
+
+    slider.addEventListener('touchstart', (e)=>{ dragging = true; setPosition(e.touches[0].clientX); }, {passive:true});
+    slider.addEventListener('touchmove', (e)=>{ if(dragging) setPosition(e.touches[0].clientX); }, {passive:true});
+    slider.addEventListener('touchend', ()=> dragging = false);
+  });
+
+  /* ---------- Coverage map pins ---------- */
+  document.querySelectorAll('.map-pin').forEach(pin=>{
+    pin.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const wasOpen = pin.classList.contains('open');
+      document.querySelectorAll('.map-pin.open').forEach(p=>p.classList.remove('open'));
+      if(!wasOpen) pin.classList.add('open');
+    });
+  });
+  document.addEventListener('click', ()=> document.querySelectorAll('.map-pin.open').forEach(p=>p.classList.remove('open')));
+
+  /* ---------- Room checklists ---------- */
+  document.querySelectorAll('.room-card').forEach(card=>{
+    card.querySelector('.room-head').addEventListener('click', ()=>{
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.room-card.open').forEach(c=>c.classList.remove('open'));
+      if(!wasOpen) card.classList.add('open');
+    });
+  });
+
+  /* Testimonial carousel */
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('.testi-dots button');
+  let ti = 0;
+  function showSlide(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active'); dots[i].classList.add('active'); ti = i;
+  }
+  dots.forEach(d=>d.addEventListener('click', ()=>showSlide(parseInt(d.dataset.i,10))));
+  setInterval(()=> showSlide((ti+1)%slides.length), 6000);
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
