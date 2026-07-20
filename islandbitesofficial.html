@@ -83,10 +83,69 @@ nav {
   color: var(--white);
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+  transition: opacity 0.2s, color 0.2s;
+  position: relative;
+}
+
+.nav-link:hover { opacity: 1; color: var(--gold-light); }
+
 .nav-right {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.nav-toggle {
+  display: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-mobile-menu {
+  position: fixed;
+  top: 66px; left: 0; right: 0;
+  z-index: 499;
+  background: rgba(15,12,9,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 8px 28px 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.nav-mobile-menu.open { max-height: 300px; }
+
+.nav-mobile-menu .nav-link {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  opacity: 1;
+}
+
+@media (max-width: 780px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
 }
 
 .nav-order-btn {
@@ -129,22 +188,38 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 0 80px;
+  padding: 110px 0 80px;
   position: relative;
   overflow: hidden;
+}
+
+section, .final-cta, .cinematic-section {
+  scroll-margin-top: 90px;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(1.1);
+  z-index: 0;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(ellipse at 60% 30%, rgba(232,67,10,0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 70%, rgba(245,166,35,0.2) 0%, transparent 50%),
-    linear-gradient(180deg, #0f0c09 0%, #1a0e05 50%, #0f0c09 100%);
+    radial-gradient(ellipse at 60% 30%, rgba(232,67,10,0.38) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(245,166,35,0.22) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(15,12,9,0.55) 0%, rgba(26,14,5,0.78) 50%, rgba(15,12,9,0.97) 100%);
 }
 
 .hero-glow {
   position: absolute;
+  z-index: 1;
   width: 700px; height: 700px;
   background: radial-gradient(circle, rgba(232,67,10,0.2), transparent 70%);
   top: -200px; right: -150px;
@@ -308,7 +383,7 @@ nav {
 
 @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-6px)} }
 
-.scroll-arrow { font-size: 1.2rem; color: var(--fire); }
+.scroll-arrow { color: var(--fire); }
 
 /* ── TICKER ── */
 .ticker {
@@ -676,7 +751,7 @@ nav {
   text-align: center;
 }
 
-.cart-empty-icon { font-size: 3rem; opacity: 0.4; }
+.cart-empty-icon { color: var(--muted); opacity: 0.4; display: flex; justify-content: center; }
 .cart-empty-text { color: var(--muted); font-size: 0.9rem; }
 .cart-empty-sub { color: var(--muted); font-size: 0.75rem; opacity: 0.7; }
 
@@ -865,6 +940,58 @@ nav {
   margin-top: 20px;
 }
 
+/* ── CINEMATIC SECTION ── */
+.cinematic-section {
+  position: relative;
+  margin: 0 0 80px;
+  height: 60vh;
+  min-height: 420px;
+  max-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cinematic-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+
+.cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,12,9,0.35) 0%, rgba(15,12,9,0.55) 55%, rgba(15,12,9,0.92) 100%);
+}
+
+.cinematic-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.cinematic-content h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  letter-spacing: 2px;
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.cinematic-content p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
 /* ── FINAL CTA ── */
 .final-cta {
   margin: 0 28px 80px;
@@ -887,8 +1014,8 @@ nav {
 }
 
 .final-cta-emoji {
-  font-size: 3rem;
-  display: block;
+  display: flex;
+  justify-content: center;
   margin-bottom: 16px;
   animation: waveFood 2s ease-in-out infinite;
 }
@@ -963,6 +1090,9 @@ footer a { color: var(--fire-light); text-decoration: none; }
   transition: opacity 0.3s, transform 0.3s;
   pointer-events: none;
   max-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
 
@@ -1061,19 +1191,38 @@ footer a { color: var(--fire-light); text-decoration: none; }
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand">
-    <div class="nav-logo-mark">🍽️</div>
+  <a href="#home" class="nav-brand">
+    <div class="nav-logo-mark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+    </div>
     <span class="nav-name">Island Bites</span>
   </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#menu" class="nav-link">Menu</a>
+    <a href="#why" class="nav-link">Why Us</a>
+    <a href="#cta" class="nav-link">Order</a>
+  </div>
   <div class="nav-right">
     <button class="nav-order-btn" onclick="openCart()">
-      🧾 My Order &nbsp;<span class="cart-badge" id="cartBadge">0</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      &nbsp;My Order &nbsp;<span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="nav-toggle" onclick="toggleMobileNav()" id="navToggleBtn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="navToggleIcon"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
     </button>
   </div>
 </nav>
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="#home" class="nav-link" onclick="closeMobileNav()">Home</a>
+  <a href="#menu" class="nav-link" onclick="closeMobileNav()">Menu</a>
+  <a href="#why" class="nav-link" onclick="closeMobileNav()">Why Us</a>
+  <a href="#cta" class="nav-link" onclick="closeMobileNav()">Order</a>
+</div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
+  <img class="hero-bg-img" id="heroBgImg" src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Island%20Bites/Island%20Bites/hero-background.webp" alt="" onerror="this.style.display='none'">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
@@ -1084,7 +1233,10 @@ footer a { color: var(--fire-light); text-decoration: none; }
     <h1>Real <span class="accent">Food.</span><br/><span class="gold">Island</span> Soul.</h1>
     <p class="hero-sub">Dishes made with love, ingredients from the land. Pick what you want, set your quantities, and we'll have it ready for you — fast.</p>
     <div class="hero-cta-row">
-      <a href="#menu" class="btn-fire">🔥 See the Menu</a>
+      <a href="#menu" class="btn-fire">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+        See the Menu
+      </a>
       <button class="btn-ghost" onclick="openCart()">View My Order →</button>
     </div>
   </div>
@@ -1099,7 +1251,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
     </div>
   </div>
   <div class="hero-scroll-hint">
-    <div class="scroll-arrow">↓</div>
+    <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     Scroll to order
   </div>
 </section>
@@ -1128,38 +1280,55 @@ footer a { color: var(--fire-light); text-decoration: none; }
 </section>
 
 <!-- EXPERIENCE SECTION -->
-<section class="exp-section">
+<section class="exp-section" id="why">
   <div class="section-eyebrow reveal">Why Island Bites</div>
   <div class="section-title reveal" style="margin-bottom:32px;">THE ISLAND<br/>DIFFERENCE</div>
   <div class="exp-grid">
     <div class="exp-card tall reveal">
       <div>
-        <span class="exp-icon">🌿</span>
+        <span class="exp-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 11 13 11 11"/></svg></span>
         <div class="exp-title">FRESH. EVERY. TIME.</div>
         <div class="exp-desc">We don't reheat, we don't cut corners. Every plate is made when you order it — with ingredients sourced as locally as possible. You taste the difference.</div>
       </div>
       <div class="exp-number">01</div>
     </div>
     <div class="exp-card reveal">
-      <span class="exp-icon">⚡</span>
+      <span class="exp-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
       <div class="exp-title">FAST PREP</div>
       <div class="exp-desc">We respect your time. Most orders are ready within 15 minutes of confirmation.</div>
     </div>
     <div class="exp-card reveal">
-      <span class="exp-icon">💬</span>
+      <span class="exp-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
       <div class="exp-title">ONE TAP TO ORDER</div>
       <div class="exp-desc">No apps, no accounts, no hassle. Build your order here, send it to WhatsApp in one tap.</div>
     </div>
   </div>
 </section>
 
+<!-- FULL-WIDTH CINEMATIC SECTION -->
+<section class="cinematic-section reveal">
+  <img class="cinematic-img" src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Island%20Bites/Island%20Bites/full-width-cinematic-image-food.webp" alt="Island Bites signature dishes">
+  <div class="cinematic-overlay"></div>
+  <div class="cinematic-content">
+    <h2>Your Next Favourite<br/>Meal Is Waiting</h2>
+    <p>Fresh ingredients. Island flavour.<br/>Ready when you are.</p>
+    <button class="btn-fire" style="font-size:1rem;padding:16px 36px;border-radius:8px;" onclick="openCart()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+      Order on WhatsApp
+    </button>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
-<div class="final-cta reveal">
-  <span class="final-cta-emoji">🍽️</span>
+<div class="final-cta reveal" id="cta">
+  <span class="final-cta-emoji">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+  </span>
   <h2>HUNGRY YET?</h2>
   <p>Your order is one tap away. Build your plate and send it straight to us.</p>
   <button class="btn-fire" style="font-size:1rem;padding:16px 40px;border-radius:8px;" onclick="openCart()">
-    🧾 View My Order & Checkout
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    View My Order & Checkout
   </button>
 </div>
 
@@ -1170,7 +1339,9 @@ footer a { color: var(--fire-light); text-decoration: none; }
 </footer>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872" class="float-wa" target="_blank">💬</a>
+<a href="https://wa.me/17587235872" class="float-wa" target="_blank" aria-label="Order on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
 
 <!-- CART OVERLAY -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
@@ -1182,7 +1353,9 @@ footer a { color: var(--fire-light); text-decoration: none; }
       <h2>YOUR ORDER</h2>
       <div class="cart-head-sub">Review & send to WhatsApp</div>
     </div>
-    <button class="close-btn" onclick="closeCart()">✕</button>
+    <button class="close-btn" onclick="closeCart()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
   </div>
   <div class="cart-body" id="cartBody"></div>
   <div class="cart-summary">
@@ -1192,15 +1365,19 @@ footer a { color: var(--fire-light); text-decoration: none; }
       <div class="delivery-toggle-label">How would you like it?</div>
       <div class="delivery-toggle">
         <button class="delivery-opt pickup-active active" id="optPickup" onclick="setDelivery('pickup')">
-          🏃 Pickup &nbsp;<span style="font-size:0.7rem;opacity:0.8;">Free</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          &nbsp;Pickup &nbsp;<span style="font-size:0.7rem;opacity:0.8;">Free</span>
         </button>
         <button class="delivery-opt" id="optDelivery" onclick="setDelivery('delivery')">
-          🛵 Delivery &nbsp;<span style="font-size:0.7rem;opacity:0.8;">+$15.00</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="14" height="12"/><polygon points="15 8 19 8 22 11 22 15 15 15 15 8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          &nbsp;Delivery &nbsp;<span style="font-size:0.7rem;opacity:0.8;">+$15.00</span>
         </button>
       </div>
     </div>
     <div id="deliveryFeeRow" style="display:none;" class="delivery-fee-row">
-      <span class="label">🛵 Delivery Fee</span>
+      <span class="label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect x="1" y="3" width="14" height="12"/><polygon points="15 8 19 8 22 11 22 15 15 15 15 8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        Delivery Fee</span>
       <span class="value">+$15.00</span>
     </div>
     <div class="summary-total">
@@ -1211,7 +1388,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
       Send Order on WhatsApp
     </button>
-    <p class="checkout-note">Choose Pickup or Delivery above, then send your order 🌴</p>
+    <p class="checkout-note">Choose Pickup or Delivery above, then send your order</p>
   </div>
 </div>
 
@@ -1222,6 +1399,17 @@ footer a { color: var(--fire-light); text-decoration: none; }
 const PHONE = '17587235872';
 const SITE_URL = 'https://jamalinks758.github.io/jamalinks/islandbitesofficial.html';
 const DELIVERY_FEE = 15;
+
+const ICONS = {
+  all: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+  mains: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a8 8 0 008-8H4a8 8 0 008 8Z"/><path d="M5 13V7a7 7 0 0114 0v6"/><path d="M8 4V2M12 4V2M16 4V2"/></svg>',
+  burgers: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16a1 1 0 001-1 5 5 0 00-9-3 5 5 0 00-9 3 1 1 0 001 1Z"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M4 16h16a1 1 0 011 1 3 3 0 01-3 3H6a3 3 0 01-3-3 1 1 0 011-1Z"/></svg>',
+  seafood: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.5 2.54 7.5 6-1 3.47-3.94 6-7.5 6-3.56 0-7.56-2.53-8.5-6Z"/><path d="M2.5 9.5S4 11 4 12s-1.5 2.5-1.5 2.5"/><circle cx="17" cy="10.5" r="0.8" fill="currentColor" stroke="none"/></svg>',
+  sides: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 12a2 2 0 01-2 1.8H8.5a2 2 0 01-2-1.8L5 8Z"/><path d="M9 8V5a3 3 0 016 0v3"/></svg>',
+  drinks: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3h6l-1 3H10.5"/><path d="M6 6h12l-1.5 14a2 2 0 01-2 1.8H9.5a2 2 0 01-2-1.8L6 6Z"/><line x1="6" y1="10" x2="18" y2="10"/></svg>',
+  check: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  utensils: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>'
+};
 
 const menu = [
   {
@@ -1270,7 +1458,7 @@ const menu = [
     name: 'Spicy Jerk Burger',
     desc: 'Jerk-marinated chicken fillet with pepper jack cheese and mango slaw. Heat lovers only.',
     includes: ['Seasoned Fries', 'Mango Slaw', 'Scotch Bonnet Mayo'],
-    price: 26, badge: '🌶 Hot', badgeClass: '', color: '#e8430a'
+    price: 26, badge: 'Hot', badgeClass: '', color: '#e8430a'
   },
   {
     id: 7, cat: 'Seafood', emoji: '🦐',
@@ -1305,7 +1493,7 @@ let deliveryMethod = 'pickup'; // 'pickup' or 'delivery'
 
 // ── TICKER
 function buildTicker() {
-  const items = ['🍗 Fried Chicken', '🐟 Fresh Fish', '🍔 Burgers', '🦐 Garlic Shrimp', '🌿 Local Favourites', '⚡ Ready Fast', '🌴 Island Flavour', '💬 WhatsApp Orders'];
+  const items = ['Fried Chicken', 'Fresh Fish', 'Burgers', 'Garlic Shrimp', 'Local Favourites', 'Ready Fast', 'Island Flavour', 'WhatsApp Orders'];
   const doubled = [...items, ...items];
   document.getElementById('ticker').innerHTML = doubled.map(t =>
     `<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`
@@ -1314,9 +1502,10 @@ function buildTicker() {
 
 // ── CATEGORIES
 function buildCats() {
+  const iconFor = c => c === 'All' ? ICONS.all : c === 'Mains' ? ICONS.mains : c === 'Burgers' ? ICONS.burgers : c === 'Seafood' ? ICONS.seafood : c === 'Sides' ? ICONS.sides : ICONS.drinks;
   document.getElementById('catPills').innerHTML = cats.map(c => `
     <button class="cat-pill ${c === activecat ? 'active' : ''}" onclick="filterCat('${c}')">
-      ${c === 'All' ? '🍽️' : c === 'Mains' ? '🍛' : c === 'Burgers' ? '🍔' : c === 'Seafood' ? '🦐' : c === 'Sides' ? '🍟' : '🥤'} ${c}
+      ${iconFor(c)} ${c}
     </button>
   `).join('');
 }
@@ -1373,7 +1562,7 @@ function addItem(id) {
   renderGrid();
   renderCart();
   updateBadge();
-  showToast(`${item.emoji} ${item.name} added!`);
+  showToast(`${item.name} added!`);
   popBadge();
 }
 
@@ -1431,7 +1620,7 @@ function renderCart() {
   if (items.length === 0) {
     document.getElementById('cartBody').innerHTML = `
       <div class="cart-empty-state">
-        <div class="cart-empty-icon">🍽️</div>
+        <div class="cart-empty-icon">${ICONS.utensils}</div>
         <div class="cart-empty-text">Nothing here yet</div>
         <div class="cart-empty-sub">Add dishes from the menu below</div>
       </div>`;
@@ -1455,7 +1644,7 @@ function renderCart() {
   // Summary rows
   document.getElementById('summaryRows').innerHTML = items.map(i =>
     `<div class="summary-row">
-      <span class="label">${i.item.emoji} ${i.item.name} × ${i.qty}</span>
+      <span class="label">${i.item.name} × ${i.qty}</span>
       <span class="value">$${(i.item.price * i.qty).toFixed(2)}</span>
     </div>`
   ).join('');
@@ -1491,6 +1680,14 @@ function openCart() {
   document.body.style.overflow = 'hidden';
 }
 
+function toggleMobileNav() {
+  document.getElementById('navMobileMenu').classList.toggle('open');
+}
+
+function closeMobileNav() {
+  document.getElementById('navMobileMenu').classList.remove('open');
+}
+
 function closeCart() {
   document.getElementById('cartOverlay').classList.remove('open');
   document.getElementById('cartDrawer').classList.remove('open');
@@ -1499,7 +1696,7 @@ function closeCart() {
 
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
+  t.innerHTML = `${ICONS.check} ${msg}`;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2200);
 }
