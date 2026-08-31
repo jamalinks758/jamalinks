@@ -72,7 +72,7 @@
     "https://www.instagram.com/jamalinksonline",
     "https://www.facebook.com/share/14XtA8G2rYe/"
   ],
-  "priceRange": "$99–$1,200+",
+  "priceRange": "$299–$1,200+",
   "areaServed": [
     {"@type": "Country", "name": "Saint Lucia"},
     {"@type": "Country", "name": "Barbados"},
@@ -82,94 +82,6 @@
     {"@type": "Country", "name": "United States"},
     {"@type": "Country", "name": "Canada"},
     {"@type": "Country", "name": "United Kingdom"}
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "JamaLinks Web Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Google Business Profile Setup & Optimisation",
-          "description": "Complete Google Business Profile setup, category selection, photo uploads, business description, hours, and local SEO optimisation so your business appears on Google Maps and in local search results."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "WhatsApp Conversion System",
-          "description": "Mobile-first ordering page with WhatsApp deep-link integration. Customers tap once and arrive in your WhatsApp ready to order. Live in 2–3 business days."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Caribbean Business Website",
-          "description": "Custom-built, mobile-first websites for Caribbean and diaspora food, hospitality, and retail businesses. Includes SEO, WhatsApp ordering, and Google Business Profile setup."
-        }
-      }
-    ]
-  }
-}
-</script>
-
-<!-- FAQPage Schema — feeds Google AI Overviews and featured snippets -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a Google Business Profile and why does my Caribbean business need one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A Google Business Profile (GBP) is a free listing that makes your business appear on Google Maps and in local search results. Without one, customers searching for your type of business in your area will find your competitors instead of you. JamaLinks sets up and optimises your GBP as part of every Starter plan and above."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to build a website with JamaLinks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most JamaLinks builds are live within 2–3 business days of the setup fee being received. This includes the full website, WhatsApp ordering integration, and Google Business Profile setup."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does JamaLinks work for businesses outside Saint Lucia?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. JamaLinks serves businesses in Saint Lucia, Barbados, Trinidad and Tobago, Jamaica, Guyana, the United States, Canada, the United Kingdom, and beyond. We work with Caribbean businesses locally and in the diaspora."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is included in the Google Business Profile setup?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "JamaLinks handles full GBP setup including business verification guidance, category selection, business description with local keywords, photo upload structure, service listings, business hours, website link, and WhatsApp number integration. This directly helps your business appear in Google Maps results when local customers search for what you offer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does a JamaLinks website cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "JamaLinks pricing starts at $99 setup plus $50 per month for the Starter plan. The Professional plan is $199 setup plus $99 per month. Business is $299 setup plus $139 per month. Premium is $499 setup plus $179 per month. All plans include Google Business Profile setup. Prices are in USD."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can diaspora customers order from my Caribbean business through my JamaLinks website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. JamaLinks builds systems specifically designed for diaspora ordering. Customers in the US, UK, and Canada can browse your full menu, view prices, and place orders directly to your WhatsApp from anywhere in the world. PayPal payment integration is available on Professional plans and above."
-      }
-    }
   ]
 }
 </script>
@@ -660,111 +572,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .ppb-notes i { color: var(--blue-mid); font-size: .85rem; }
 [data-theme="dark"] .ppb-notes i { color: var(--gold); }
 
-/* ══════════════════════════════════════════════════════
-   LOCAL SEO / GBP SECTION
-   ══════════════════════════════════════════════════════ */
-.gbp-section-wrap {
-  background: var(--bg-alt);
-  border-radius: 1.5rem;
-  border: 1px solid var(--border);
-  padding: 2.5rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.gbp-section-wrap::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(to right, var(--gold, #C9A84C), var(--blue, #1E3A5F), transparent);
-}
-.gbp-mockup {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,.10);
-  max-width: 340px;
-  margin: 0 auto;
-}
-[data-theme="dark"] .gbp-mockup {
-  background: #1e2a3a;
-  border-color: rgba(255,255,255,.1);
-}
-.gbp-mockup-head {
-  display: flex; align-items: center; gap: .6rem;
-  margin-bottom: .75rem;
-}
-.gbp-g-logo {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: linear-gradient(135deg, #4285F4, #34A853, #FBBC04, #EA4335);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 900; font-size: .8rem; flex-shrink: 0;
-}
-.gbp-search-bar {
-  background: var(--bg, #f8f8f8); border: 1px solid #dadce0;
-  border-radius: 50px; padding: .35rem .85rem;
-  font-size: .72rem; color: var(--muted); flex: 1;
-  display: flex; align-items: center; gap: .4rem;
-}
-[data-theme="dark"] .gbp-search-bar { background: #0d1b2e; border-color: rgba(255,255,255,.15); }
-.gbp-result-card {
-  background: var(--bg, #f8f8f8);
-  border: 1.5px solid var(--gold, #C9A84C);
-  border-radius: .75rem; padding: 1rem;
-  position: relative;
-}
-[data-theme="dark"] .gbp-result-card { background: #0d1b2e; }
-.gbp-result-badge {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--gold, #C9A84C); color: #1a1a1a;
-  font-size: .6rem; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; padding: .18rem .7rem; border-radius: 20px;
-  white-space: nowrap;
-}
-.gbp-result-name { font-weight: 700; font-size: .82rem; color: var(--text); margin-bottom: .15rem; }
-.gbp-result-meta { font-size: .68rem; color: var(--muted); display: flex; align-items: center; gap: .3rem; margin-bottom: .5rem; }
-.gbp-result-stars { color: #f59e0b; font-size: .7rem; }
-.gbp-result-actions {
-  display: flex; gap: .4rem; flex-wrap: wrap;
-}
-.gbp-action-btn {
-  font-size: .65rem; font-weight: 600; padding: .28rem .7rem;
-  border-radius: 50px; border: 1px solid;
-  display: inline-flex; align-items: center; gap: .3rem;
-}
-.gbp-action-btn.wa  { background: rgba(37,211,102,.1); border-color: rgba(37,211,102,.3); color: #1a7a45; }
-.gbp-action-btn.web { background: rgba(26,110,181,.08); border-color: rgba(26,110,181,.2); color: var(--blue-mid, #2E5FA3); }
-.gbp-action-btn.dir { background: rgba(201,168,76,.1); border-color: rgba(201,168,76,.3); color: var(--gold, #C9A84C); }
-[data-theme="dark"] .gbp-action-btn.wa  { color: #4be38a; }
-[data-theme="dark"] .gbp-action-btn.web { color: var(--gold); border-color: rgba(201,168,76,.3); background: rgba(201,168,76,.07); }
-
-.gbp-checklist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .65rem; }
-.gbp-checklist li {
-  display: flex; align-items: flex-start; gap: .75rem;
-  font-size: .875rem; line-height: 1.5; color: var(--text);
-}
-.gbp-check-icon {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold, #C9A84C), var(--blue, #1E3A5F));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: .65rem; flex-shrink: 0; margin-top: .15rem;
-}
-.gbp-addon-box {
-  background: var(--bg);
-  border: 1.5px dashed var(--gold, #C9A84C);
-  border-radius: 1rem;
-  padding: 1.5rem 1.75rem;
-  display: flex; align-items: flex-start; gap: 1rem;
-  margin-top: 2rem;
-}
-@media (max-width: 576px) { .gbp-addon-box { flex-direction: column; gap: .75rem; } }
-.gbp-addon-icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; }
-.gbp-addon-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem; font-weight: 900;
-  color: var(--blue, #1E3A5F); line-height: 1;
-}
-[data-theme="dark"] .gbp-addon-price { color: var(--gold); }
-
 /* ── mt-6 helper ─────────────────────────────────── */
 .mt-6 { margin-top: 3.5rem; }
 .footer-legal-row { margin-top: .4rem; font-size: .72rem; }
@@ -845,7 +652,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <li class="nav-item" role="listitem"><a class="nav-link" href="#why">The Problem</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#solution">How It Works</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#features">What You Get</a></li>
-        <li class="nav-item" role="listitem"><a class="nav-link" href="#local-seo">Google Visibility</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#demos">Examples</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="demos.html">All Demos</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="profiles.html">Profiles</a></li>
@@ -879,9 +685,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div class="col-lg-6">
         <div class="hero-badge reveal mt-5"><i class="bi bi-stars" aria-hidden="true"></i> Caribbean &amp; Diaspora Specialists</div>
         <h1 class="hero-title reveal d1">Stop Answering DMs All Day.<br><span class="accent">Let Customers Order Instantly.</span></h1>
-        <p class="hero-sub reveal d2" style="font-weight:600;font-size:1.05rem;opacity:.85;">Customer Conversion Systems for Food, Hospitality &amp; Retail Locally, &amp; in the Caribbean &amp; Diaspora.</p>
-        <p class="hero-sub reveal d2">JamaLinks builds mobile-first ordering pages for Caribbean and Diaspora businesses. Customers see your menu, prices, photos, and details then tap once to order on WhatsApp. <em>(Options beyond WhatsApp available to suit your specific needs)</em></p>
-        
+        <p class="hero-sub reveal d2" style="font-weight:600;font-size:1.05rem;opacity:.85;">Customer Conversion Systems for Caribbean Food, Hospitality &amp; Retail Locally &amp; in the Diaspora.</p>
+        <p class="hero-sub reveal d2">JamaLinks builds mobile-first ordering pages for Caribbean and diaspora businesses. Customers see your menu, prices, photos, and details then tap once to order on WhatsApp.</p>
         <div class="d-flex flex-wrap gap-3 reveal d3">
           <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" onclick="trackWhatsAppClick(event)" class="btn-wa" aria-label="Get your free consultation — chat with us on WhatsApp">
             <i class="bi bi-whatsapp" aria-hidden="true"></i> Get Free Consultation
@@ -891,7 +696,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </a>
         </div>
         <p class="hero-sub reveal d2 mt-4" style="font-size:.85rem;opacity:.75;">
-          No app needed &nbsp;·&nbsp; Works with Instagram, Facebook &amp; WhatsApp &nbsp;·&nbsp; Ready in 2–3 days &nbsp;·&nbsp; From $50/month
+          No app needed &nbsp;·&nbsp; Works with Instagram, Facebook &amp; WhatsApp &nbsp;·&nbsp; Ready in 2–3 days &nbsp;·&nbsp; Serving businesses in the Caribbean and Diaspora
         </p>
       </div>
 
@@ -915,7 +720,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
             </div>
           </div>
           <div class="stat-pill stat-pill-1"><span class="num">2–3</span>days to launch</div>
-          <div class="stat-pill stat-pill-2"><span class="num">Caribbean</span> &amp; Diaspora</div>
+          <div class="stat-pill stat-pill-2"><span class="num">Caribbean and Diaspora </span> Countries Served</div>
         </div>
       </div>
 
@@ -927,7 +732,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 <div class="countries-bar" role="complementary" aria-label="Countries where jamaLinks serves clients">
   <div class="container">
     <div class="countries-inner">
-      <span class="countries-label">Available In</span>
+      <span class="countries-label">We Serve</span>
       <span class="country-pill">🇱🇨 Saint Lucia</span>
       <span class="country-pill">🇧🇧 Barbados</span>
       <span class="country-pill">🇹🇹 Trinidad &amp; Tobago</span>
@@ -1153,7 +958,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="feat-icon" aria-hidden="true"><i class="bi bi-rocket-takeoff"></i></div>
             <div>
               <span class="feat-label">Live in 2–3 Business Days</span>
-              <p>We move fast because every day without a proper page is a day of lost sales. Most builds are live within 72 hours of your first payment, ready for customers to find you.</p>
+              <p>We move fast because every day without a proper page is a day of lost sales. Most builds are live and converting within 72 hours of your first payment.</p>
             </div>
           </div>
         </div>
@@ -1162,8 +967,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <div class="feat-item">
             <div class="feat-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></div>
             <div>
-              <span class="feat-label">Google Business Profile Setup &amp; Optimisation</span>
-              <p>Your website alone does not put you on Google Maps. A verified Google Business Profile does. We set it up, select the right categories, write your business description with local keywords, structure your services, and link it to your website and WhatsApp. This is what gets you into the Local Pack — the three businesses that appear at the top when someone searches "food near me" or "salon in Castries." Without it, that spot goes to your competitor.</p>
+              <span class="feat-label">Google Business Profile Setup</span>
+              <p>We set up and optimize your Google Business Profile so your business appears on Google Maps. This helps local customers AND diaspora clients find you when they search.</p>
             </div>
           </div>
         </div>
@@ -1193,116 +998,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 </section>
 
-<!-- ══ LOCAL SEO & GOOGLE BUSINESS PROFILE ══════════════ -->
-<section class="bg-alt" id="local-seo" aria-label="Google Business Profile and local SEO — how JamaLinks gets you found on Google Maps">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Get Found First</span>
-      <h2 class="display-5 mt-2 mb-3">Show Up on Google Maps.<br><span class="accent">Before Your Competitor Does.</span></h2>
-      <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:560px">A website tells customers who you are. A Google Business Profile tells Google where you are so it can send local customers to your door. Most Caribbean businesses have neither. JamaLinks gives you both.</p>
-    </div>
-
-    <div class="gbp-section-wrap reveal">
-      <div class="row g-5 align-items-center">
-
-        <!-- Left: GBP mockup -->
-        <div class="col-lg-5 text-center">
-          <p style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">What Customers See on Google</p>
-          <div class="gbp-mockup" aria-label="Google search result mockup showing a business in the Local Pack">
-            <!-- Search bar -->
-            <div class="gbp-mockup-head">
-              <div class="gbp-g-logo" aria-hidden="true">G</div>
-              <div class="gbp-search-bar" aria-hidden="true">
-                <i class="bi bi-search" style="font-size:.7rem;"></i>
-                <span>food delivery near me</span>
-              </div>
-            </div>
-            <!-- Local Pack label -->
-            <p style="font-size:.62rem;color:var(--muted);margin-bottom:.5rem;font-weight:600;letter-spacing:.05em;">LOCAL RESULTS · GOOGLE MAPS</p>
-            <!-- Result card -->
-            <div class="gbp-result-card" role="img" aria-label="Example Google Business Profile result showing your business">
-              <div class="gbp-result-badge">Your Business Here</div>
-              <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem;margin-top:.5rem;">
-                <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,var(--gold,#C9A84C),var(--blue,#1E3A5F));flex-shrink:0;" aria-hidden="true"></div>
-                <div>
-                  <div class="gbp-result-name">Your Business Name</div>
-                  <div class="gbp-result-meta"><i class="bi bi-geo-alt-fill" style="color:#EA4335;" aria-hidden="true"></i> 0.3 km · Open now</div>
-                </div>
-              </div>
-              <div class="gbp-result-stars" role="img" aria-label="5 star rating">
-                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
-                <span style="font-size:.65rem;color:var(--muted);margin-left:.25rem;">(12 reviews)</span>
-              </div>
-              <div class="gbp-result-actions mt-2">
-                <span class="gbp-action-btn wa"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</span>
-                <span class="gbp-action-btn web"><i class="bi bi-globe" aria-hidden="true"></i> Website</span>
-                <span class="gbp-action-btn dir"><i class="bi bi-signpost" aria-hidden="true"></i> Directions</span>
-              </div>
-            </div>
-            <p style="font-size:.62rem;color:var(--muted);margin-top:.75rem;text-align:center;">Without a GBP, your business is invisible here</p>
-          </div>
-        </div>
-
-        <!-- Right: what JamaLinks sets up -->
-        <div class="col-lg-7">
-          <h3 class="h4 mb-1">What JamaLinks Sets Up for You</h3>
-          <p class="text-m mb-4" style="font-size:.9rem;opacity:.75;">Every plan includes a complete Google Business Profile setup — not just creation. Setup without optimisation is a waste. We do both.</p>
-          <ul class="gbp-checklist" aria-label="What JamaLinks includes in Google Business Profile setup">
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Business category selection</strong> — The single most important GBP field. Wrong category = wrong customers. We select the primary and secondary categories that match exactly what you do.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Local keyword business description</strong> — Written to contain the words your customers actually search. Not generic, not copied from your Instagram bio. Search-optimised from the start.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Services listed correctly</strong> — Google reads your listed services to decide when to show your business. We list every relevant service with descriptions so nothing is missed.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>WhatsApp number &amp; website linked</strong> — Customers can tap to WhatsApp you directly from your Google listing. We connect both so every traffic source points back to your ordering system.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Business hours set correctly</strong> — Including special holiday hours. Google penalises listings with outdated hours because it reflects badly on searchers. We get it right at launch.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Verification guidance</strong> — We walk you through the verification step so your profile is confirmed and active. Unverified GBPs rank lower and can be removed by Google.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Review request strategy</strong> — We show you exactly how to ask existing customers for Google reviews, because reviews are the second most important local ranking signal after the GBP itself.</div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Add-on box for existing clients -->
-      <div class="gbp-addon-box" role="complementary" aria-label="Already have a website? GBP setup available as a standalone add-on">
-        <div class="gbp-addon-icon" aria-hidden="true"><i class="bi bi-plus-circle-dotted"></i></div>
-        <div>
-          <p style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;">Add-On Service</p>
-          <h4 class="h5 mb-1">Already Have a Website? Add GBP Setup Separately.</h4>
-          <p style="font-size:.875rem;color:var(--muted);margin-bottom:1rem;">If you already have a web presence and just need your Google Business Profile set up and optimised correctly, we offer this as a standalone service. One-time setup, done right.</p>
-          <div class="d-flex align-items-baseline gap-2 mb-3">
-            <div class="gbp-addon-price">$75</div>
-            <span style="font-size:.8rem;color:var(--muted);">one-time · USD</span>
-          </div>
-          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20standalone%20Google%20Business%20Profile%20setup%20service" onclick="trackWhatsAppClick(event)" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Ask about standalone Google Business Profile setup on WhatsApp">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i> Ask About This Add-On
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ══ PORTFOLIO / DEMOS ════════════════════════════════ -->
 <section class="bg-alt" id="demos" aria-label="Portfolio — sample conversion systems we have built">
   <div class="container">
@@ -1315,11 +1010,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
       </p>
       <div class="demo-disclaimer" aria-label="Portfolio note">
         <i class="bi bi-info-circle" aria-hidden="true"></i>
-        These are sample systems built to show what's possible for your type of business. Client references available on request.
-      </div>
-      <div class="demo-disclaimer mt-2" aria-label="Social proof note" style="background:rgba(37,211,102,.07);border-color:rgba(37,211,102,.2);color:var(--text);">
-        <i class="bi bi-chat-quote-fill" style="color:#25D366;" aria-hidden="true"></i>
-        Already a client? <a href="https://wa.me/17587235872?text=I'd%20like%20to%20share%20my%20experience%20with%20jamaLinks" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;">Share your experience</a> — we'd love to feature it here.
+        These are sample systems built to demonstrate our capabilities. Demo builds shown below. Real client examples and references available during consultation..
       </div>
     </div>
 
@@ -1328,13 +1019,13 @@ html, body { overflow-x: hidden; max-width: 100%; }
   <div class="col-sm-6 col-lg-3 reveal d1">
     <article class="demo-card">
       <div class="demo-picture">
-        <img src="sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery — sample conversion system preview" loading="lazy" width="400" height="225">
+        <img src="sweet-layers/sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery — sample conversion system preview" loading="lazy" width="400" height="225">
       </div>
       <div class="demo-body">
         <span class="demo-tag">Bakery</span>
         <h3 class="h5">Sweet Layers Bakery</h3>
         <p>Custom cake shop with full flavour menu, pricing tiers, and WhatsApp order builder.</p>
-        <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Sweet Layers Bakery sample system">
+        <a href="sweet-layers/sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Sweet Layers Bakery sample system">
           <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
         </a>
       </div>
@@ -1399,7 +1090,42 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </p>
 </div>
 
-
+<!-- ── Profiles Teaser Band ────────────────────────── -->
+<div class="text-center mt-5 reveal d2">
+  <div style="
+    background: linear-gradient(135deg, var(--bg-alt) 0%, var(--blue-pale, #EEF4FF) 100%);
+    border: 1.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- subtle gold top accent line -->
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold,#C9A84C),var(--blue,#1E3A5F),transparent);border-radius:1.25rem 1.25rem 0 0;"></div>
+    <span class="demo-new-badge mb-3 d-inline-flex" aria-label="New service vertical">New Vertical</span>
+    <h3 style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;margin-bottom:.75rem;color:var(--text);">
+      Athlete &amp; Personal Brand Profiles
+    </h3>
+    <p class="text-m" style="font-size:.88rem;max-width:480px;margin:0 auto 1.5rem;opacity:.8;">
+      A product line of digital brand platforms for athletes, coaches, artists, and personal brands. Built to attract sponsors, scouts, and media opportunities.
+    </p>
+    <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" aria-hidden="true" style="font-size:.75rem;opacity:.6;">
+      <span><i class="bi bi-trophy me-1"></i>Athletes</span>
+      <span>·</span>
+      <span><i class="bi bi-person-check me-1"></i>Coaches</span>
+      <span>·</span>
+      <span><i class="bi bi-mic me-1"></i>Artists</span>
+      <span>·</span>
+      <span><i class="bi bi-briefcase me-1"></i>Personal Brands</span>
+    </div>
+    <a href="profiles.html" class="btn-blue" style="font-size:.9rem;padding:.75rem 2rem;" aria-label="Explore athlete and personal brand profile systems">
+      <i class="bi bi-person-badge-fill me-2" aria-hidden="true"></i> Explore Profile Systems
+      <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
 
    <!-- Row 2
 <div class="row g-4 mb-4">
@@ -1655,37 +1381,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 </section>-->
 
-<!-- ══ PROFILES TEASER ═══════════════════════════════ -->
-<section aria-label="Athlete and personal brand profiles vertical">
-  <div class="container">
-    <div class="text-center reveal">
-      <div style="background:linear-gradient(135deg,var(--bg-alt) 0%,var(--blue-pale,#EEF4FF) 100%);border:1.5px solid var(--border);border-radius:1.25rem;padding:2.5rem 2rem;max-width:680px;margin:0 auto;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold,#C9A84C),var(--blue,#1E3A5F),transparent);border-radius:1.25rem 1.25rem 0 0;"></div>
-        <span class="demo-new-badge mb-3 d-inline-flex" aria-label="New service vertical">New Vertical</span>
-        <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;margin-bottom:.75rem;color:var(--text);">
-          Athlete &amp; Personal Brand Profiles
-        </h2>
-        <p class="text-m" style="font-size:.88rem;max-width:480px;margin:0 auto 1.5rem;opacity:.8;">
-          Digital brand platforms for athletes, coaches, artists, and personal brands — built to attract sponsors, scouts, and media attention.
-        </p>
-        <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" aria-hidden="true" style="font-size:.75rem;opacity:.6;">
-          <span><i class="bi bi-trophy me-1"></i>Athletes</span>
-          <span>·</span>
-          <span><i class="bi bi-person-check me-1"></i>Coaches</span>
-          <span>·</span>
-          <span><i class="bi bi-mic me-1"></i>Artists</span>
-          <span>·</span>
-          <span><i class="bi bi-briefcase me-1"></i>Personal Brands</span>
-        </div>
-        <a href="profiles.html" class="btn-blue" style="font-size:.9rem;padding:.75rem 2rem;" aria-label="Explore athlete and personal brand profile systems">
-          <i class="bi bi-person-badge-fill me-2" aria-hidden="true"></i> Explore Profile Systems
-          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ LEAD CAPTURE — SEE A DEMO ══════════════════════ -->
 <section class="bg-alt" id="see-demo" aria-label="Request a personalised demo for your industry">
   <div class="container">
@@ -1751,17 +1446,17 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div class="roi-divider" aria-hidden="true"></div>
       <div class="roi-item">
         <strong>1 client</strong>
-        Can cover your setup fee
+        Often covers your setup fee
       </div>
       <div class="roi-divider" aria-hidden="true"></div>
       <div class="roi-item">
-        <strong>From $50</strong>
-        Per month to stay live
+        <strong>30 days</strong>
+        Results guarantee on every build
       </div>
       <div class="roi-divider" aria-hidden="true"></div>
       <div class="roi-item">
-        <strong>Caribbean &amp; Diaspora</strong>
-        Built for your market
+        <strong>Serving Businesses in the Caribbean and Diaspora</strong>
+        Consistent pricing worldwide
       </div>
     </div>
 
@@ -1809,18 +1504,15 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup</div>
     <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Business hours &amp; contact info</div>
     <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Fast, secure hosting included</div>
-    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup &amp; optimisation (Maps visibility)</div>
+    <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup</div>
     <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 3 months basic analytics report</div>
     <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 1 round of revisions</div>
   </div>
   <div class="tier-footer">
     <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Starter%20package" onclick="trackWhatsAppClick(event)" class="btn-wa w-100 justify-content-center" aria-label="Get started with the Starter package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started</a>
     <div class="payment-plan-pill" aria-label="Flexible month-to-month — no long-term lock-in">
-      <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> Month-to-month after 3 months. You stay because it works.
+      <i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> No long-term lock-in. You stay because it works
     </div>
-    <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:.6rem;">
-      Want a one-time build with no retainer? <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20one-time%20website%20build" onclick="trackWhatsAppClick(event)" style="color:var(--blue-mid);font-weight:600;">Ask us about our one-time option →</a>
-    </p>
   </div>
 </div>
 
@@ -1836,11 +1528,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
               </div>
               <div class="tier-monthly-row">
                 <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $99/mo</span>
-                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+                <span class="tier-monthly-note">6-month minimum</span>
               </div>
               <div class="tier-total-row">
                 <i class="bi bi-calculator" aria-hidden="true"></i>
-                3-month total: <strong>$496</strong>
+                6-month total: <strong>$793</strong>
               </div>
             </div>
             <div class="tier-label mt-2">The most complete starting point</div>
@@ -1854,8 +1546,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> PayPal payment button</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> See what visitors click and where orders come from</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup, category &amp; service optimisation</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> On-page SEO + review request strategy included</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> On-page SEO optimisation</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly content updates included</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 2 rounds of revisions</div>
           </div>
@@ -1878,11 +1570,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
               </div>
               <div class="tier-monthly-row">
                 <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $139/mo</span>
-                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+                <span class="tier-monthly-note">6-month minimum</span>
               </div>
               <div class="tier-total-row">
                 <i class="bi bi-calculator" aria-hidden="true"></i>
-                3-month total: <strong>$716</strong>
+                6-month total: <strong>$1,133</strong>
               </div>
             </div>
             <div class="tier-label mt-2">Full marketing and ordering funnel</div>
@@ -1897,7 +1589,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media links integration</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp multi-product order builder</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GA4 conversion event tracking</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Search Console + GBP analytics linked</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly analytics report (plain language)</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 3 rounds of revisions</div>
           </div>
@@ -1920,11 +1611,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
               </div>
               <div class="tier-monthly-row">
                 <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $179/mo</span>
-                <span class="tier-monthly-note">3-month minimum, then month-to-month</span>
+                <span class="tier-monthly-note">6-month minimum</span>
               </div>
               <div class="tier-total-row">
                 <i class="bi bi-calculator" aria-hidden="true"></i>
-                3-month total: <strong>$1,036</strong>
+                6-month total: <strong>$1,573</strong>
               </div>
             </div>
             <div class="tier-label mt-2">Serious revenue asset with full tracking</div>
@@ -1992,7 +1683,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
     <!-- Pricing Disclaimer -->
     <div class="text-center mt-2 reveal">
-      <small class="text-m" style="opacity:.65;">All prices in USD. All plans require a 3-month minimum commitment, then continue month-to-month — cancel anytime with 30 days' notice. This gives your system enough time to build traction and generate real results. Domain registration (~$15/yr) billed separately if applicable. 50% of setup fee required to begin work.</small>
+      <small class="text-m" style="opacity:.65;">All prices in USD. Starter requires a 3-month minimum commitment. Professional, Business, and Premium require a 6-month minimum monthly commitment. This ensures your system has enough time to build traction and generate results. Domain registration (~$15/yr) billed separately if applicable. 50% of setup fee required to begin work.</small>
     </div>
 
     <!-- Why 6 Months explanation -->
@@ -2000,18 +1691,18 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div class="ppb-inner">
         <div class="ppb-icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></div>
         <div>
-          <h3 class="h5">Why a 3-Month Minimum?</h3>
-          <p>Your conversion system needs a little runway to work. Search engines take 60–90 days to index new pages. Customers need to find the link and build ordering habits. The 3-month minimum just gives your system the time it needs to prove itself — after that, it's fully month-to-month.</p>
+          <h3 class="h5">Why a 6-Month Minimum?</h3>
+          <p>Your conversion system doesn't just go live, it needs time to build traction. Search engines take 60–90 days to index new pages. Customers take time to find the link and build ordering habits. The businesses that see the strongest results are the ones we stay with through those first six months by adjusting, improving, and optimising based on real data.</p>
           <ol class="ppb-steps" aria-label="How the partnership works">
             <li class="ppb-step"><span class="ppb-num" aria-hidden="true">1</span><span><strong>Setup fee paid</strong> — Build begins, system live in 2–3 days</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>Month 1</strong> — Launch, share your link, first inquiries start coming in</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>Months 2–3</strong> — Google indexes the page, traffic builds, order flow refined</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Month 3+</strong> — Continue month-to-month, or cancel with 30 days' notice</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>Months 1–3</strong> — Months 1–3: Launch, monitor traffic, refine order flow.</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>Months 4–6</strong> — Optimise based on real traffic data. Conversion improves.</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Month 6+</strong> — Continue as a monthly partner, or own your system outright.</span></li>
           </ol>
           <div class="ppb-notes" aria-label="Partnership plan notes">
-            <span><i class="bi bi-info-circle" aria-hidden="true"></i> After 3 months, all plans continue month-to-month — cancel anytime with 30 days' notice</span>
-            <span><i class="bi bi-info-circle" aria-hidden="true"></i> First month is free and bundled with Professional, Business, and Premium builds</span>
-            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Starter tier is month-to-month from day one — no minimum beyond 3 months</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> After 6 months, continue month-to-month or cancel with 30 days' notice</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> First month of partnership is free and is bundled with Professional, Business, and Premium builds</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Starter tier is month-to-month. Cancel anytime with 30 days' notice</span>
           </div>
           <a href="https://wa.me/17587235872?text=I%20have%20a%20question%20about%20the%20monthly%20partnership%20model" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-inline-flex align-items-center gap-2" aria-label="Ask a question about the monthly partnership model on WhatsApp">
             <i class="bi bi-whatsapp" aria-hidden="true"></i> Questions? Ask Us on WhatsApp
@@ -2165,9 +1856,9 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
     <!-- Monthly Partnership Plans header -->
     <div class="text-center mt-6 mb-4 reveal">
-      <span class="section-label">What Your Monthly Fee Covers</span>
-      <h3 class="mt-2 mb-2">This Is What Keeps Your System Working Every Month</h3>
-      <p class="text-m mx-auto" style="max-width:560px">The monthly fee is <strong>already included</strong> in whichever tier you pick — it's not added on top. Here's exactly what you get each month depending on your plan.</p>
+      <span class="section-label">Monthly Partnership Plans</span>
+      <h3 class="mt-2 mb-2">Included With Every Professional Build &amp; Above</h3>
+      <p class="text-m mx-auto" style="max-width:560px">Your conversion system is a living business tool, not a one-time project. These are the monthly partnership tiers included in your monthly fee, not an additional charge. This is where businesses see the most consistent, compounding return.</p>
     </div>
 
     <div class="row g-4 justify-content-center">
@@ -2224,7 +1915,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     </div>
 
     <div class="text-center mt-4 reveal">
-      <small class="text-m" style="opacity:.65;">Monthly partnership fees are included in your chosen tier and are not added on top. All prices in USD. No lock-in beyond the initial 3 months. Cancel anytime after with 30 days' notice.</small>
+      <small class="text-m" style="opacity:.65;">Monthly partnership fees are included in your chosen tier and are not added on top. All prices in USD. No lock-in beyond the initial 6 months. Cancel anytime after with 30 days' notice.</small>
     </div>
 
     <div class="text-center mt-4 reveal d2">
@@ -2233,28 +1924,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
       </a>
     </div>
 
-  </div>
-</section>
-
-<!-- ══ SOCIAL PROOF PLACEHOLDER ════════════════════════ -->
-<section style="padding:3rem 0 0;" aria-label="Client testimonials" class="mb-5">
-  <div class="container">
-    <div class="text-center reveal mb-4">
-      <span class="section-label">What Clients Say</span>
-      <h2 class="mt-2 mb-3">Real Businesses, Real Results</h2>
-    </div>
-    <!-- TESTIMONIAL PLACEHOLDER: Replace this block with a real WhatsApp screenshot or written quote from a client -->
-    <div class="row g-4 justify-content-center reveal d2">
-      <div class="col-md-8">
-        <div style="background:var(--bg-alt);border:1.5px dashed var(--border);border-radius:1rem;padding:2rem;text-align:center;color:var(--muted);font-size:.88rem;">
-          <i class="bi bi-chat-quote-fill" style="font-size:1.5rem;margin-bottom:.75rem;display:block;opacity:.4;"></i>
-          <p style="margin-bottom:.75rem;font-style:italic;opacity:.7;">Be one of the first to give us a client testimonial to feature here.</p>
-          <a href="https://wa.me/17587235872?text=I'd%20like%20to%20share%20my%20experience%20with%20JamaLinks" onclick="trackWhatsAppClick(event)" class="btn-blue" style="font-size:.82rem;padding:.5rem 1.25rem;">
-            <i class="bi bi-whatsapp me-2"></i> Are you a client? Share your experience
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2267,7 +1936,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div class="divider"></div>
       <p class="text-m mx-auto mb-2" style="max-width:460px">Built specifically for Caribbean and diaspora food, hospitality, and retail businesses wherever in the world you're operating from.</p>
       <p class="text-m mx-auto mb-2" style="max-width:460px">We build your conversion system, connect it to your WhatsApp, and have you live in 2–3 days. You focus on your business. We handle the rest.</p>
-      <p class="text-m mx-auto mb-5" style="max-width:460px;font-weight:600;color:var(--text);">Each client gets proper attention. Message us today and we’ll confirm if we can launch your system this week.</p>
+      <p class="text-m mx-auto mb-5" style="max-width:460px;font-weight:600;color:var(--text);">Each client gets proper attention. Message us today and we’ll confirm if we can launch your system this week.<!--Spots fill quickly especially at month's end.--></p>
       <a href="https://wa.me/17587235872?text=I%20would%20like%20a%20conversion%20system%20for%20my%20business" onclick="trackWhatsAppClick(event)" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem" aria-label="Message us now on WhatsApp to get your conversion system started">
         <i class="bi bi-whatsapp" aria-hidden="true"></i> Message Now on WhatsApp
       </a>
@@ -2306,7 +1975,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <a href="#solution"    class="footer-lnk">How It Works</a>
           <a href="#difference"  class="footer-lnk">Why jamaLinks</a>
           <a href="#features"    class="footer-lnk">What You Get</a>
-          <a href="#local-seo"   class="footer-lnk">Google Visibility</a>
           <a href="#demos"       class="footer-lnk">Examples</a>
           <a href="#pricing"     class="footer-lnk">Pricing</a>
           <a href="legal.html"   class="footer-lnk">Privacy &amp; Terms</a>
